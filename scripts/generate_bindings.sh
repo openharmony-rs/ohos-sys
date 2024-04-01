@@ -29,37 +29,44 @@ then
     exit 1
 fi
 
-BASE_BINDGEN_ARGS=(--no-layout-tests --formatter=prettyplease --blocklist-file='/usr/include/.*' )
+BASE_BINDGEN_ARGS=(--no-layout-tests --formatter=prettyplease --blocklist-file='/usr/include/.*')
+BASE_BINDGEN_ARGS+=(--blocklist-file='.*stdint\.h' --blocklist-file='.*stddef\.h')
+BASE_BINDGEN_ARGS+=(--blocklist-file='.*stdarg\.h' --blocklist-file='.*stdbool\.h')
 BASE_BINDGEN_ARGS+=(--use-core --raw-line="#![allow(non_upper_case_globals)]")
 BASE_BINDGEN_ARGS+=(--raw-line="#![allow(non_camel_case_types)]" --raw-line="#![allow(non_snake_case)]")
+CLANG_ARGS=("--sysroot=${OHOS_SYSROOT_DIR}")
 
-#
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --bitfield-enum 'OH_NativeBuffer_Usage' \
-    --default-enum-style=moduleconsts \
-    --output "${ROOT_DIR}/src/native_buffer.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/native_buffer/native_buffer.h"
+# TODO: How to detect / deal with target specific bindings
+CLANG_ARGS+=("-I${OHOS_SYSROOT_DIR}/usr/include/aarch64-linux-ohos/")
+
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
-    --blocklist-file '.*/stdarg\.h' \
-    --blocklist-file '.*/stdbool\.h' \
     --output "${ROOT_DIR}/src/hilog.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h"
+    "${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h" \
+    -- "${CLANG_ARGS[@]}"
+
+bindgen "${BASE_BINDGEN_ARGS[@]}" \
+    --default-enum-style=newtype \
+    --output "${ROOT_DIR}/src/ace/xcomponent/native_interface_xcomponent.rs" \
+    "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h" \
+    -- "${CLANG_ARGS[@]}"
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
     --blocklist-file '.*/stdarg\.h' \
+    --blocklist-file '.*stddef\.h' \
     --blocklist-file '.*/stdbool\.h' \
-    --output "${ROOT_DIR}/src/ace/xcomponent/native_interface_xcomponent.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h"
-
+    --output "${ROOT_DIR}/src/napi.rs" \
+    "${OHOS_SYSROOT_DIR}/usr/include/napi/native_api.h" \
+    -- "${CLANG_ARGS[@]}"
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --bitfield-enum 'OH_NativeBuffer_Usage' \
     --default-enum-style=moduleconsts \
     --no-derive-copy \
     --output "${ROOT_DIR}/src/native_window.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/native_window/external_window.h"
+    "${OHOS_SYSROOT_DIR}/usr/include/native_window/external_window.h" \
+    -- "${CLANG_ARGS[@]}"
 
 # cargo fmt
