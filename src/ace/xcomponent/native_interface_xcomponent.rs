@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
+#[link(name = "ace_ndk.z")]
+extern "C" {}
 pub const OH_NATIVE_XCOMPONENT_OBJ: &[u8; 26] = b"__NATIVE_XCOMPONENT_OBJ__\0";
 impl OH_NativeXComponent_KeyCode {
     pub const KEY_UNKNOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(-1);

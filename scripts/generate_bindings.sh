@@ -43,11 +43,19 @@ CLANG_ARGS+=("-I${OHOS_SYSROOT_DIR}/usr/include/aarch64-linux-ohos/")
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
     --output "${ROOT_DIR}/src/hilog.rs" \
+    --raw-line='' \
+    --raw-line='#[link(name="hilog_ndk.z")]' \
+    --raw-line='extern "C" {}' \
+    --raw-line='' \
     "${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h" \
     -- "${CLANG_ARGS[@]}"
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
+    --raw-line='' \
+    --raw-line='#[link(name="ace_ndk.z")]' \
+    --raw-line='extern "C" {}' \
+    --raw-line='' \
     --output "${ROOT_DIR}/src/ace/xcomponent/native_interface_xcomponent.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h" \
     -- "${CLANG_ARGS[@]}"
@@ -57,6 +65,10 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --blocklist-file '.*/stdarg\.h' \
     --blocklist-file '.*stddef\.h' \
     --blocklist-file '.*/stdbool\.h' \
+    --raw-line='' \
+    --raw-line='#[link(name="ace_napi.z")]' \
+    --raw-line='extern "C" {}' \
+    --raw-line='' \
     --output "${ROOT_DIR}/src/napi.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/napi/native_api.h" \
     -- "${CLANG_ARGS[@]}"

@@ -4,6 +4,9 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
+#[link(name = "hilog_ndk.z")]
+extern "C" {}
+
 pub const LOG_DOMAIN: u32 = 0;
 impl LogType {
     /// Third-party application logs

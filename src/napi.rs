@@ -4,6 +4,9 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
+#[link(name = "ace_napi.z")]
+extern "C" {}
+
 pub const NAPI_VERSION: u32 = 8;
 pub const NAPI_VERSION_EXPERIMENTAL: u32 = 2147483647;
 pub const __BYTE_ORDER: u32 = 1234;
