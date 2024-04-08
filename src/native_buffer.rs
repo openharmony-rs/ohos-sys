@@ -4,6 +4,9 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
+#[link(name = "native_buffer")]
+extern "C" {}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeBuffer {

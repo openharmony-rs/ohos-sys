@@ -75,6 +75,10 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --bitfield-enum 'OH_NativeBuffer_Usage' \
+    --raw-line='' \
+    --raw-line='#[link(name="native_buffer")]' \
+    --raw-line='extern "C" {}' \
+    --raw-line='' \
     --default-enum-style=moduleconsts \
     --no-derive-copy \
     --output "${ROOT_DIR}/src/native_window.rs" \
