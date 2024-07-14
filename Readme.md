@@ -5,7 +5,7 @@ This crate is under active development, and not officially affiliated with OpenH
 
 ## Development
 
-The current bindings are generated with `bindgen` using `scripts/generate_bindins.sh` with version
+The current bindings are generated with `bindgen` using `scripts/generate_bindings.sh` with version
 `4.0.10.13` of the OpenHarmony SDK.
 
 ## License

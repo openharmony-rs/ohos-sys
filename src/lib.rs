@@ -13,6 +13,10 @@
     cfg_attr(doc, doc = ::document_features::document_features!())
 )]
 
+#[cfg(feature = "drawing")]
+#[cfg_attr(docsrs, doc(cfg(feature = "drawing")))]
+pub mod drawing;
+
 #[cfg(feature = "hilog")]
 #[cfg_attr(docsrs, doc(cfg(feature = "hilog")))]
 pub mod hilog;
