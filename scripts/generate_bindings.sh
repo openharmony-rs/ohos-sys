@@ -114,4 +114,24 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
 
+# Some drawing headers are not valid C, so we need to use libclang in c++ mode.
+# Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
+bindgen "${BASE_BINDGEN_ARGS[@]}" \
+    --default-enum-style=newtype \
+    --blocklist-file '.*cstddef.*' \
+    --blocklist-file '.*pthread.*' \
+    --blocklist-item '_LIBCPP_.*' \
+    --blocklist-item '__cpp_.*' \
+    --blocklist-item '^std.*' \
+    --raw-line='' \
+    --raw-line='#[link(name="native_drawing")]' \
+    --raw-line='extern "C" {}' \
+    --output "${ROOT_DIR}/src/drawing.rs" \
+    "${ROOT_DIR}/wrappers/drawing_wrapper.h" \
+    -- "${BASE_CLANG_ARGS[@]}" \
+    -x c++ \
+    -include stdbool.h \
+    -include stddef.h \
+    -include stdint.h
+
 cargo fmt
