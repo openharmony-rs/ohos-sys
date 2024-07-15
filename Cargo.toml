@@ -23,6 +23,16 @@ native_buffer = []
 native_window = []
 ## Enables bindings to `native_xcomponent`
 xcomponent = []
+
+#! ### OpenHarmony API level
+#! This crate by default exposes bindings for API-level 10.
+#! Optionally enable one of the `api-*` features to get access to bindings for newer
+#! OpenHarmony versions.
+
+## Enables bindings for OpenHarmony API-level 11
+api-11 = []
+## Enables bindings for OpenHarmony API-level 12
+api-12 = ["api-11"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 
