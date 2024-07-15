@@ -91,9 +91,22 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --raw-line='' \
     --default-enum-style=moduleconsts \
     --no-derive-copy \
+    --output "${ROOT_DIR}/src/native_buffer.rs" \
+    "${OHOS_SYSROOT_DIR}/usr/include/native_buffer/native_buffer.h" \
+    -- \
+    "${BASE_CLANG_ARGS[@]}"
+
+bindgen "${BASE_BINDGEN_ARGS[@]}" \
+    --raw-line='' \
+    --raw-line='#[link(name="ace_ndk.z")]' \
+    --raw-line='#[link(name="native_window")]' \
+    --raw-line='extern "C" {}' \
+    --raw-line='' \
+    --default-enum-style=moduleconsts \
+    --no-derive-copy \
     --output "${ROOT_DIR}/src/native_window.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/native_window/external_window.h" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
 
-# cargo fmt
+cargo fmt
