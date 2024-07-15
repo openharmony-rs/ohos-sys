@@ -101,9 +101,16 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     -x c++ \
     "${BASE_CLANG_ARGS[@]}"
 
+# NativeWindowOperation has wrong documentation for one of the parameters in API 10.
+block_native_window_operation=""
+if [[ ${OHOS_API_VERSION} -eq 10 ]]; then
+    block_native_window_operation='--blocklist-item=^NativeWindowOperation$'
+fi
+
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=moduleconsts \
     --no-derive-copy \
+    ${block_native_window_operation} \
     --output "${ROOT_DIR}/src/native_window/native_window_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/native_window/external_window.h" \
     -- \
@@ -129,6 +136,7 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
     --blocklist-file '.*cstddef.*' \
     --blocklist-file '.*pthread.*' \
+    --blocklist-item '^OH_NativeBuffer$' \
     --blocklist-item '_LIBCPP_.*' \
     --blocklist-item '__cpp_.*' \
     --blocklist-item '^std.*' \
