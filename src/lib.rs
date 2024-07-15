@@ -7,13 +7,11 @@
 //!
 //! Note: There are currently still quite a few missing bindings, which will slowly be added.
 //!
-//! ## Features:
-//!
-//! - **hilog**: Raw bindings to hilog
-//! - **napi**: Raw bindings to napi
-//! - **native_buffer**: Raw bindings to `native_buffer`.
-//! - **native_window**: Raw bindings to `native_window`.
-//! - **xcomponent**: Raw bindings to `native_xcomponent`.
+//! ## Feature flags
+#![cfg_attr(
+    feature = "document-features",
+    cfg_attr(doc, doc = ::document_features::document_features!())
+)]
 
 #[cfg(feature = "hilog")]
 #[cfg_attr(docsrs, doc(cfg(feature = "hilog")))]
