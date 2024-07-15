@@ -4,31 +4,20 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-#[link(name="native_buffer")]
-extern "C" {}
-
-
 #[repr(C)]
-#[derive(Debug)]
 pub struct OH_NativeBuffer {
     _unused: [u8; 0],
 }
 impl OH_NativeBuffer_Usage {
-    pub const NATIVEBUFFER_USAGE_CPU_READ: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(
-        1,
-    );
+    pub const NATIVEBUFFER_USAGE_CPU_READ: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(1);
 }
 impl OH_NativeBuffer_Usage {
     /// < CPU read buffer */
-    pub const NATIVEBUFFER_USAGE_CPU_WRITE: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(
-        2,
-    );
+    pub const NATIVEBUFFER_USAGE_CPU_WRITE: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(2);
 }
 impl OH_NativeBuffer_Usage {
     /// < CPU write memory */
-    pub const NATIVEBUFFER_USAGE_MEM_DMA: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(
-        8,
-    );
+    pub const NATIVEBUFFER_USAGE_MEM_DMA: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(8);
 }
 impl ::core::ops::BitOr<OH_NativeBuffer_Usage> for OH_NativeBuffer_Usage {
     type Output = Self;
@@ -59,17 +48,17 @@ impl ::core::ops::BitAndAssign for OH_NativeBuffer_Usage {
 #[repr(transparent)]
 /** @brief Indicates the usage of a native buffer.
 
- @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- @since 10
- @version 1.0*/
-#[derive(Debug, Clone, Hash, PartialEq, Eq)]
+@syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+@since 10
+@version 1.0*/
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeBuffer_Usage(pub ::core::ffi::c_uint);
 pub mod OH_NativeBuffer_Format {
     /** @brief Indicates the format of a native buffer.
 
- @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- @since 10
- @version 1.0*/
+    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+    @since 10
+    @version 1.0*/
     pub type Type = ::core::ffi::c_uint;
     pub const NATIVEBUFFER_PIXEL_FMT_RGB_565: Type = 3;
     /// < RGB565 format */
@@ -110,13 +99,13 @@ pub mod OH_NativeBuffer_Format {
     pub const NATIVEBUFFER_PIXEL_FMT_BUTT: Type = 2147483647;
 }
 /** @brief <b>OH_NativeBuffer</b> config. \n
- Used to allocating new <b>OH_NativeBuffer</b> andquery parameters if existing ones.
+Used to allocating new <b>OH_NativeBuffer</b> andquery parameters if existing ones.
 
- @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- @since 9
- @version 1.0*/
+@syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+@since 9
+@version 1.0*/
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 pub struct OH_NativeBuffer_Config {
     ///< Width in pixels
     pub width: i32,
@@ -131,48 +120,46 @@ pub struct OH_NativeBuffer_Config {
 }
 extern "C" {
     /** @brief Alloc a <b>OH_NativeBuffer</b> that matches the passed BufferRequestConfig. \n
- A new <b>OH_NativeBuffer</b> instance is created each time this function is called.
+    A new <b>OH_NativeBuffer</b> instance is created each time this function is called.
 
- @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- @param config Indicates the pointer to a <b>BufferRequestConfig</b> instance.
- @return Returns the pointer to the <b>OH_NativeBuffer</b> instance created if the operation is successful, \n
- returns <b>NULL</b> otherwise.
- @since 9
- @version 1.0*/
-    pub fn OH_NativeBuffer_Alloc(
-        config: *const OH_NativeBuffer_Config,
-    ) -> *mut OH_NativeBuffer;
+    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+    @param config Indicates the pointer to a <b>BufferRequestConfig</b> instance.
+    @return Returns the pointer to the <b>OH_NativeBuffer</b> instance created if the operation is successful, \n
+    returns <b>NULL</b> otherwise.
+    @since 9
+    @version 1.0*/
+    pub fn OH_NativeBuffer_Alloc(config: *const OH_NativeBuffer_Config) -> *mut OH_NativeBuffer;
 }
 extern "C" {
     /** @brief Adds the reference count of a OH_NativeBuffer.
 
- @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
- @return Returns an error code, 0 is success, otherwise, failed.
- @since 9
- @version 1.0*/
+    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+    @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    @return Returns an error code, 0 is success, otherwise, failed.
+    @since 9
+    @version 1.0*/
     pub fn OH_NativeBuffer_Reference(buffer: *mut OH_NativeBuffer) -> i32;
 }
 extern "C" {
     /** @brief Decreases the reference count of a OH_NativeBuffer and, when the reference count reaches 0, \n
- destroys this OH_NativeBuffer.
+    destroys this OH_NativeBuffer.
 
- @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
- @return Returns an error code, 0 is success, otherwise, failed.
- @since 9
- @version 1.0*/
+    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+    @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    @return Returns an error code, 0 is success, otherwise, failed.
+    @since 9
+    @version 1.0*/
     pub fn OH_NativeBuffer_Unreference(buffer: *mut OH_NativeBuffer) -> i32;
 }
 extern "C" {
     /** @brief Return a config of the OH_NativeBuffer in the passed OHNativeBufferConfig struct.
 
- @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
- @param config Indicates the pointer to the <b>NativeBufferConfig</b> of the buffer.
- @return <b>void</b>
- @since 9
- @version 1.0*/
+    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+    @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    @param config Indicates the pointer to the <b>NativeBufferConfig</b> of the buffer.
+    @return <b>void</b>
+    @since 9
+    @version 1.0*/
     pub fn OH_NativeBuffer_GetConfig(
         buffer: *mut OH_NativeBuffer,
         config: *mut OH_NativeBuffer_Config,
@@ -181,12 +168,12 @@ extern "C" {
 extern "C" {
     /** @brief Provide direct cpu access to the OH_NativeBuffer in the process's address space.
 
- @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
- @param virAddr Indicates the address of the <b>OH_NativeBuffer</b> in virtual memory.
- @return Returns an error code, 0 is success, otherwise, failed.
- @since 9
- @version 1.0*/
+    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+    @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    @param virAddr Indicates the address of the <b>OH_NativeBuffer</b> in virtual memory.
+    @return Returns an error code, 0 is success, otherwise, failed.
+    @since 9
+    @version 1.0*/
     pub fn OH_NativeBuffer_Map(
         buffer: *mut OH_NativeBuffer,
         virAddr: *mut *mut ::core::ffi::c_void,
@@ -195,20 +182,20 @@ extern "C" {
 extern "C" {
     /** @brief Remove direct cpu access ability of the OH_NativeBuffer in the process's address space.
 
- @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
- @return Returns an error code, 0 is success, otherwise, failed.
- @since 9
- @version 1.0*/
+    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+    @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    @return Returns an error code, 0 is success, otherwise, failed.
+    @since 9
+    @version 1.0*/
     pub fn OH_NativeBuffer_Unmap(buffer: *mut OH_NativeBuffer) -> i32;
 }
 extern "C" {
     /** @brief Get the systen wide unique sequence number of the OH_NativeBuffer.
 
- @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
- @return Returns the sequence number, which is unique for each OH_NativeBuffer.
- @since 9
- @version 1.0*/
+    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+    @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    @return Returns the sequence number, which is unique for each OH_NativeBuffer.
+    @since 9
+    @version 1.0*/
     pub fn OH_NativeBuffer_GetSeqNum(buffer: *mut OH_NativeBuffer) -> u32;
 }

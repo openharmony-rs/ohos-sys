@@ -61,16 +61,29 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
+    --no-copy="^OH_NativeXComponent$" \
+    --no-copy="^OH_NativeXComponent_KeyEvent$" \
+    --no-debug="^OH_NativeXComponent$" \
+    --no-debug="^OH_NativeXComponent_KeyEvent$" \
     --output "${ROOT_DIR}/src/xcomponent/xcomponent_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
+
+NAPI_NOCOPY_STRUCTS=(napi_env__ napi_value__ napi_ref__ napi_handle_scope__ napi_escapable_handle_scope__ )
+NAPI_NOCOPY_STRUCTS+=(napi_callback_info__ napi_deferred__ napi_callback_scope__ napi_async_context__ napi_async_work__)
+NAPI_NOCOPY_STRUCTS+=(napi_threadsafe_function__ napi_async_cleanup_hook_handle__ uv_loop_s napi_module)
+NAPI_NOCOPY_ARGS=()
+for val in "${NAPI_NOCOPY_STRUCTS[@]}"; do
+    NAPI_NOCOPY_ARGS+=("--no-copy=^${val}\$" "--no-debug=^${val}\$")
+done
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
     --blocklist-file '.*/stdarg\.h' \
     --blocklist-file '.*stddef\.h' \
     --blocklist-file '.*/stdbool\.h' \
+    "${NAPI_NOCOPY_ARGS[@]}" \
     --output "${ROOT_DIR}/src/napi/napi_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/napi/native_api.h" \
     -- \
@@ -80,7 +93,8 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --bitfield-enum 'OH_NativeBuffer_Usage' \
     --blocklist-item '_LIBCPP_.*' \
     --default-enum-style=moduleconsts \
-    --no-derive-copy \
+    --no-copy '^OH_NativeBuffer$'  \
+    --no-debug '^OH_NativeBuffer$'  \
     --output "${ROOT_DIR}/src/native_buffer/native_buffer_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/native_buffer/native_buffer.h" \
     -- \
@@ -95,6 +109,15 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
 
+
+DRAWING_NOCOPY_STRUCTS=(OH_Drawing_Canvas OH_Drawing_Pen OH_Drawing_Brush OH_Drawing_Path OH_Drawing_Bitmap)
+DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_FontCollection OH_Drawing_Typography OH_Drawing_TextStyle OH_Drawing_TypographyStyle)
+DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_TypographyCreate)
+DRAWING_NOCOPY_ARGS=()
+for val in "${DRAWING_NOCOPY_STRUCTS[@]}"; do
+    DRAWING_NOCOPY_ARGS+=("--no-copy=^${val}\$" "--no-debug=^${val}\$")
+done
+
 # Some drawing headers are not valid C, so we need to use libclang in c++ mode.
 # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
@@ -104,6 +127,7 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --blocklist-item '_LIBCPP_.*' \
     --blocklist-item '__cpp_.*' \
     --blocklist-item '^std.*' \
+    "${DRAWING_NOCOPY_ARGS[@]}" \
     --output "${ROOT_DIR}/src/drawing/drawing_api${OHOS_API_VERSION}.rs" \
     "${ROOT_DIR}/wrappers/drawing_wrapper.h" \
     -- "${BASE_CLANG_ARGS[@]}" \
