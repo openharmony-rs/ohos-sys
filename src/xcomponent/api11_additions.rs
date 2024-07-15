@@ -22,11 +22,11 @@ pub struct OH_NativeXComponent_ExpectedRateRange {
 extern "C" {
     /** @brief Set the Expected FrameRateRange.
 
-       @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
-       @param callback Indicates the pointer to a expected rate range.
-       @return Returns the status code of the execution.
-       @since 11
-       @version 1.0*/
+    @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    @param callback Indicates the pointer to a expected rate range.
+    @return Returns the status code of the execution.
+    @since 11
+    @version 1.0*/
     pub fn OH_NativeXComponent_SetExpectedFrameRateRange(
         component: *mut OH_NativeXComponent,
         range: *mut OH_NativeXComponent_ExpectedRateRange,
@@ -35,11 +35,11 @@ extern "C" {
 extern "C" {
     /** @brief Registers a callback for this <b>OH_NativeXComponent</b> instance.
 
-       @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
-       @param callback Indicates the pointer to a onFrame callback.
-       @return Returns the status code of the execution.
-       @since 11
-       @version 1.0*/
+    @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    @param callback Indicates the pointer to a onFrame callback.
+    @return Returns the status code of the execution.
+    @since 11
+    @version 1.0*/
     pub fn OH_NativeXComponent_RegisterOnFrameCallback(
         component: *mut OH_NativeXComponent,
         callback: ::core::option::Option<
@@ -54,10 +54,10 @@ extern "C" {
 extern "C" {
     /** @brief UnRegister a callback for this <b>OH_NativeXComponent</b> instance.
 
-       @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
-       @return Returns the status code of the execution.
-       @since 11
-       @version 1.0*/
+    @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    @return Returns the status code of the execution.
+    @since 11
+    @version 1.0*/
     pub fn OH_NativeXComponent_UnregisterOnFrameCallback(
         component: *mut OH_NativeXComponent,
     ) -> i32;
