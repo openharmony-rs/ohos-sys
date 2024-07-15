@@ -1,3 +1,20 @@
+//! Ohos-sys
+//!
+//! This crate provides Raw FFI bindings to the native API of OpenHarmonyOS (`target_env = "ohos"`).
+//! Each module corresponds to one OpenHarmony API feature, and is gated behind a cargo feature.
+//! If you are an application developer, you probably do not want to use this crate directly,
+//! and instead want to use a higher-level API built on top of this crate.
+//!
+//! Note: There are currently still quite a few missing bindings, which will slowly be added.
+//!
+//! ## Features:
+//!
+//! - **hilog**: Raw bindings to hilog
+//! - **napi**: Raw bindings to napi
+//! - **native_buffer**: Raw bindings to `native_buffer`.
+//! - **native_window**: Raw bindings to `native_window`.
+//! - **xcomponent**: Raw bindings to `native_xcomponent`.
+
 #[cfg(feature = "hilog")]
 #[cfg_attr(docsrs, doc(cfg(feature = "hilog")))]
 pub mod hilog;
