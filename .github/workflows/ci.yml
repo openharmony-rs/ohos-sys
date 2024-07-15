@@ -33,8 +33,7 @@ jobs:
   api_feature_levels:
     strategy:
       matrix:
-        # Add API level 12, once APIs have been added.
-        api_level: ["api-10", "api-11"]
+        api_level: ["api-10", "api-11", "api-12"]
     name: Build with API feature levels
     runs-on: ubuntu-latest
     steps:

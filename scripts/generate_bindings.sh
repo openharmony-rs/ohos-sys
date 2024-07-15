@@ -125,6 +125,14 @@ DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_Point OH_Drawing_Rect OH_Drawing_RoundRect O
 DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_MaskFilter OH_Drawing_ColorFilter OH_Drawing_Font OH_Drawing_Typeface)
 DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_TextBlob OH_Drawing_TextBlobBuilder OH_Drawing_TextBox OH_Drawing_PositionAndAffinity)
 DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_Range OH_Drawing_Matrix OH_Drawing_RunBuffer)
+# API-12
+DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_Region OH_Drawing_PixelMap OH_Drawing_ColorSpace OH_Drawing_Point2D OH_Drawing_Point3D)
+DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_PathEffect OH_Drawing_ShadowLayer OH_Drawing_MemoryStream OH_Drawing_Image )
+DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_ImageFilter OH_Drawing_SamplingOptions OH_Drawing_GpuContext OH_Drawing_Surface)
+DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_FontMgr OH_Drawing_FontStyleSet OH_Drawing_BitmapFormat OH_Drawing_FontParser)
+DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_TextShadow)
+# Maybe: OH_Drawing_StrutStyle
+
 DRAWING_NOCOPY_ARGS=()
 for val in "${DRAWING_NOCOPY_STRUCTS[@]}"; do
     DRAWING_NOCOPY_ARGS+=("--no-copy=^${val}\$" "--no-debug=^${val}\$")
