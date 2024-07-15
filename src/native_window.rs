@@ -4,7 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-#[link(name = "native_buffer")]
+#[link(name = "ace_ndk.z")]
+#[link(name = "native_window")]
 extern "C" {}
 
 #[repr(C)]

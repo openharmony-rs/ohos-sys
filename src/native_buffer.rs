@@ -8,7 +8,7 @@
 extern "C" {}
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct OH_NativeBuffer {
     _unused: [u8; 0],
 }
@@ -55,7 +55,7 @@ impl ::core::ops::BitAndAssign for OH_NativeBuffer_Usage {
 @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
 @since 10
 @version 1.0*/
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeBuffer_Usage(pub ::core::ffi::c_uint);
 pub mod OH_NativeBuffer_Format {
     /** @brief Indicates the format of a native buffer.
@@ -109,7 +109,7 @@ Used to allocating new <b>OH_NativeBuffer</b> andquery parameters if existing on
 @since 9
 @version 1.0*/
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
 pub struct OH_NativeBuffer_Config {
     ///< Width in pixels
     pub width: i32,
