@@ -23,6 +23,14 @@ native_buffer = []
 native_window = []
 ## Enables bindings to `native_xcomponent`
 xcomponent = []
+## Enables all components listed above. Orthogonal to `api-XX` features.
+all-components = [
+    "drawing",
+    "hilog",
+    "napi",
+    "native_buffer",
+    "native_window",
+    "xcomponent"]
 
 #! ### OpenHarmony API level
 #! This crate by default exposes bindings for API-level 10.
