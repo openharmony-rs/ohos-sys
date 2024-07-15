@@ -9,11 +9,6 @@ extern "C" {}
 
 pub const NAPI_VERSION: u32 = 8;
 pub const NAPI_VERSION_EXPERIMENTAL: u32 = 2147483647;
-pub const __BYTE_ORDER: u32 = 1234;
-pub const __LONG_MAX: u64 = 9223372036854775807;
-pub const __LITTLE_ENDIAN: u32 = 1234;
-pub const __BIG_ENDIAN: u32 = 4321;
-pub const __USE_TIME_BITS64: u32 = 1;
 pub const NAPI_AUTO_LENGTH: i32 = -1;
 pub const NAPI_MODULE_VERSION: u32 = 1;
 impl napi_qos_t {
@@ -31,16 +26,6 @@ impl napi_qos_t {
 #[repr(transparent)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct napi_qos_t(pub ::core::ffi::c_uint);
-#[repr(C)]
-#[repr(align(16))]
-#[derive(Debug, Copy, Clone)]
-pub struct max_align_t {
-    pub __clang_max_align_nonce1: ::core::ffi::c_longlong,
-    pub __bindgen_padding_0: u64,
-    pub __clang_max_align_nonce2: u128,
-}
-pub type intmax_t = ::core::ffi::c_long;
-pub type uintmax_t = ::core::ffi::c_ulong;
 pub type char16_t = u16;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -100,14 +85,10 @@ impl napi_property_attributes {
     pub const napi_static: napi_property_attributes = napi_property_attributes(1024);
 }
 impl napi_property_attributes {
-    pub const napi_default_method: napi_property_attributes = napi_property_attributes(
-        5,
-    );
+    pub const napi_default_method: napi_property_attributes = napi_property_attributes(5);
 }
 impl napi_property_attributes {
-    pub const napi_default_jsproperty: napi_property_attributes = napi_property_attributes(
-        7,
-    );
+    pub const napi_default_jsproperty: napi_property_attributes = napi_property_attributes(7);
 }
 #[repr(transparent)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -281,9 +262,7 @@ pub struct napi_extended_error_info {
     pub error_code: napi_status,
 }
 impl napi_key_collection_mode {
-    pub const napi_key_include_prototypes: napi_key_collection_mode = napi_key_collection_mode(
-        0,
-    );
+    pub const napi_key_include_prototypes: napi_key_collection_mode = napi_key_collection_mode(0);
 }
 impl napi_key_collection_mode {
     pub const napi_key_own_only: napi_key_collection_mode = napi_key_collection_mode(1);
@@ -343,11 +322,7 @@ extern "C" {
     pub fn napi_get_global(env: napi_env, result: *mut napi_value) -> napi_status;
 }
 extern "C" {
-    pub fn napi_get_boolean(
-        env: napi_env,
-        value: bool,
-        result: *mut napi_value,
-    ) -> napi_status;
+    pub fn napi_get_boolean(env: napi_env, value: bool, result: *mut napi_value) -> napi_status;
 }
 extern "C" {
     pub fn napi_create_object(env: napi_env, result: *mut napi_value) -> napi_status;
@@ -363,32 +338,16 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_create_double(
-        env: napi_env,
-        value: f64,
-        result: *mut napi_value,
-    ) -> napi_status;
+    pub fn napi_create_double(env: napi_env, value: f64, result: *mut napi_value) -> napi_status;
 }
 extern "C" {
-    pub fn napi_create_int32(
-        env: napi_env,
-        value: i32,
-        result: *mut napi_value,
-    ) -> napi_status;
+    pub fn napi_create_int32(env: napi_env, value: i32, result: *mut napi_value) -> napi_status;
 }
 extern "C" {
-    pub fn napi_create_uint32(
-        env: napi_env,
-        value: u32,
-        result: *mut napi_value,
-    ) -> napi_status;
+    pub fn napi_create_uint32(env: napi_env, value: u32, result: *mut napi_value) -> napi_status;
 }
 extern "C" {
-    pub fn napi_create_int64(
-        env: napi_env,
-        value: i64,
-        result: *mut napi_value,
-    ) -> napi_status;
+    pub fn napi_create_int64(env: napi_env, value: i64, result: *mut napi_value) -> napi_status;
 }
 extern "C" {
     pub fn napi_create_string_latin1(
@@ -463,39 +422,21 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_get_value_double(
-        env: napi_env,
-        value: napi_value,
-        result: *mut f64,
-    ) -> napi_status;
+    pub fn napi_get_value_double(env: napi_env, value: napi_value, result: *mut f64)
+        -> napi_status;
 }
 extern "C" {
-    pub fn napi_get_value_int32(
-        env: napi_env,
-        value: napi_value,
-        result: *mut i32,
-    ) -> napi_status;
+    pub fn napi_get_value_int32(env: napi_env, value: napi_value, result: *mut i32) -> napi_status;
 }
 extern "C" {
-    pub fn napi_get_value_uint32(
-        env: napi_env,
-        value: napi_value,
-        result: *mut u32,
-    ) -> napi_status;
+    pub fn napi_get_value_uint32(env: napi_env, value: napi_value, result: *mut u32)
+        -> napi_status;
 }
 extern "C" {
-    pub fn napi_get_value_int64(
-        env: napi_env,
-        value: napi_value,
-        result: *mut i64,
-    ) -> napi_status;
+    pub fn napi_get_value_int64(env: napi_env, value: napi_value, result: *mut i64) -> napi_status;
 }
 extern "C" {
-    pub fn napi_get_value_bool(
-        env: napi_env,
-        value: napi_value,
-        result: *mut bool,
-    ) -> napi_status;
+    pub fn napi_get_value_bool(env: napi_env, value: napi_value, result: *mut bool) -> napi_status;
 }
 extern "C" {
     pub fn napi_get_value_string_latin1(
@@ -671,18 +612,11 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_is_array(
-        env: napi_env,
-        value: napi_value,
-        result: *mut bool,
-    ) -> napi_status;
+    pub fn napi_is_array(env: napi_env, value: napi_value, result: *mut bool) -> napi_status;
 }
 extern "C" {
-    pub fn napi_get_array_length(
-        env: napi_env,
-        value: napi_value,
-        result: *mut u32,
-    ) -> napi_status;
+    pub fn napi_get_array_length(env: napi_env, value: napi_value, result: *mut u32)
+        -> napi_status;
 }
 extern "C" {
     pub fn napi_strict_equals(
@@ -800,18 +734,10 @@ extern "C" {
     pub fn napi_delete_reference(env: napi_env, ref_: napi_ref) -> napi_status;
 }
 extern "C" {
-    pub fn napi_reference_ref(
-        env: napi_env,
-        ref_: napi_ref,
-        result: *mut u32,
-    ) -> napi_status;
+    pub fn napi_reference_ref(env: napi_env, ref_: napi_ref, result: *mut u32) -> napi_status;
 }
 extern "C" {
-    pub fn napi_reference_unref(
-        env: napi_env,
-        ref_: napi_ref,
-        result: *mut u32,
-    ) -> napi_status;
+    pub fn napi_reference_unref(env: napi_env, ref_: napi_ref, result: *mut u32) -> napi_status;
 }
 extern "C" {
     pub fn napi_get_reference_value(
@@ -821,16 +747,10 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_open_handle_scope(
-        env: napi_env,
-        result: *mut napi_handle_scope,
-    ) -> napi_status;
+    pub fn napi_open_handle_scope(env: napi_env, result: *mut napi_handle_scope) -> napi_status;
 }
 extern "C" {
-    pub fn napi_close_handle_scope(
-        env: napi_env,
-        scope: napi_handle_scope,
-    ) -> napi_status;
+    pub fn napi_close_handle_scope(env: napi_env, scope: napi_handle_scope) -> napi_status;
 }
 extern "C" {
     pub fn napi_open_escapable_handle_scope(
@@ -877,27 +797,17 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_is_error(
-        env: napi_env,
-        value: napi_value,
-        result: *mut bool,
-    ) -> napi_status;
+    pub fn napi_is_error(env: napi_env, value: napi_value, result: *mut bool) -> napi_status;
 }
 extern "C" {
     pub fn napi_is_exception_pending(env: napi_env, result: *mut bool) -> napi_status;
 }
 extern "C" {
-    pub fn napi_get_and_clear_last_exception(
-        env: napi_env,
-        result: *mut napi_value,
-    ) -> napi_status;
+    pub fn napi_get_and_clear_last_exception(env: napi_env, result: *mut napi_value)
+        -> napi_status;
 }
 extern "C" {
-    pub fn napi_is_arraybuffer(
-        env: napi_env,
-        value: napi_value,
-        result: *mut bool,
-    ) -> napi_status;
+    pub fn napi_is_arraybuffer(env: napi_env, value: napi_value, result: *mut bool) -> napi_status;
 }
 extern "C" {
     pub fn napi_create_arraybuffer(
@@ -926,11 +836,7 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_is_typedarray(
-        env: napi_env,
-        value: napi_value,
-        result: *mut bool,
-    ) -> napi_status;
+    pub fn napi_is_typedarray(env: napi_env, value: napi_value, result: *mut bool) -> napi_status;
 }
 extern "C" {
     pub fn napi_create_typedarray(
@@ -963,11 +869,7 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_is_dataview(
-        env: napi_env,
-        value: napi_value,
-        result: *mut bool,
-    ) -> napi_status;
+    pub fn napi_is_dataview(env: napi_env, value: napi_value, result: *mut bool) -> napi_status;
 }
 extern "C" {
     pub fn napi_get_dataview_info(
@@ -1004,11 +906,7 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_is_promise(
-        env: napi_env,
-        value: napi_value,
-        is_promise: *mut bool,
-    ) -> napi_status;
+    pub fn napi_is_promise(env: napi_env, value: napi_value, is_promise: *mut bool) -> napi_status;
 }
 extern "C" {
     pub fn napi_run_script(
@@ -1025,25 +923,13 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_create_date(
-        env: napi_env,
-        time: f64,
-        result: *mut napi_value,
-    ) -> napi_status;
+    pub fn napi_create_date(env: napi_env, time: f64, result: *mut napi_value) -> napi_status;
 }
 extern "C" {
-    pub fn napi_is_date(
-        env: napi_env,
-        value: napi_value,
-        is_date: *mut bool,
-    ) -> napi_status;
+    pub fn napi_is_date(env: napi_env, value: napi_value, is_date: *mut bool) -> napi_status;
 }
 extern "C" {
-    pub fn napi_get_date_value(
-        env: napi_env,
-        value: napi_value,
-        result: *mut f64,
-    ) -> napi_status;
+    pub fn napi_get_date_value(env: napi_env, value: napi_value, result: *mut f64) -> napi_status;
 }
 extern "C" {
     pub fn napi_add_finalizer(
@@ -1128,10 +1014,7 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_detach_arraybuffer(
-        env: napi_env,
-        arraybuffer: napi_value,
-    ) -> napi_status;
+    pub fn napi_detach_arraybuffer(env: napi_env, arraybuffer: napi_value) -> napi_status;
 }
 extern "C" {
     pub fn napi_is_detached_arraybuffer(
@@ -1186,40 +1069,31 @@ pub struct napi_threadsafe_function__ {
 }
 pub type napi_threadsafe_function = *mut napi_threadsafe_function__;
 impl napi_threadsafe_function_release_mode {
-    pub const napi_tsfn_release: napi_threadsafe_function_release_mode = napi_threadsafe_function_release_mode(
-        0,
-    );
+    pub const napi_tsfn_release: napi_threadsafe_function_release_mode =
+        napi_threadsafe_function_release_mode(0);
 }
 impl napi_threadsafe_function_release_mode {
-    pub const napi_tsfn_abort: napi_threadsafe_function_release_mode = napi_threadsafe_function_release_mode(
-        1,
-    );
+    pub const napi_tsfn_abort: napi_threadsafe_function_release_mode =
+        napi_threadsafe_function_release_mode(1);
 }
 #[repr(transparent)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct napi_threadsafe_function_release_mode(pub ::core::ffi::c_uint);
 impl napi_threadsafe_function_call_mode {
-    pub const napi_tsfn_nonblocking: napi_threadsafe_function_call_mode = napi_threadsafe_function_call_mode(
-        0,
-    );
+    pub const napi_tsfn_nonblocking: napi_threadsafe_function_call_mode =
+        napi_threadsafe_function_call_mode(0);
 }
 impl napi_threadsafe_function_call_mode {
-    pub const napi_tsfn_blocking: napi_threadsafe_function_call_mode = napi_threadsafe_function_call_mode(
-        1,
-    );
+    pub const napi_tsfn_blocking: napi_threadsafe_function_call_mode =
+        napi_threadsafe_function_call_mode(1);
 }
 #[repr(transparent)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct napi_threadsafe_function_call_mode(pub ::core::ffi::c_uint);
-pub type napi_async_execute_callback = ::core::option::Option<
-    unsafe extern "C" fn(env: napi_env, data: *mut ::core::ffi::c_void),
->;
+pub type napi_async_execute_callback =
+    ::core::option::Option<unsafe extern "C" fn(env: napi_env, data: *mut ::core::ffi::c_void)>;
 pub type napi_async_complete_callback = ::core::option::Option<
-    unsafe extern "C" fn(
-        env: napi_env,
-        status: napi_status,
-        data: *mut ::core::ffi::c_void,
-    ),
+    unsafe extern "C" fn(env: napi_env, status: napi_status, data: *mut ::core::ffi::c_void),
 >;
 pub type napi_threadsafe_function_call_js = ::core::option::Option<
     unsafe extern "C" fn(
@@ -1244,19 +1118,15 @@ pub struct napi_async_cleanup_hook_handle__ {
 }
 pub type napi_async_cleanup_hook_handle = *mut napi_async_cleanup_hook_handle__;
 pub type napi_async_cleanup_hook = ::core::option::Option<
-    unsafe extern "C" fn(
-        handle: napi_async_cleanup_hook_handle,
-        data: *mut ::core::ffi::c_void,
-    ),
+    unsafe extern "C" fn(handle: napi_async_cleanup_hook_handle, data: *mut ::core::ffi::c_void),
 >;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct uv_loop_s {
     _unused: [u8; 0],
 }
-pub type napi_addon_register_func = ::core::option::Option<
-    unsafe extern "C" fn(env: napi_env, exports: napi_value) -> napi_value,
->;
+pub type napi_addon_register_func =
+    ::core::option::Option<unsafe extern "C" fn(env: napi_env, exports: napi_value) -> napi_value>;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct napi_module {
@@ -1288,10 +1158,7 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_async_destroy(
-        env: napi_env,
-        async_context: napi_async_context,
-    ) -> napi_status;
+    pub fn napi_async_destroy(env: napi_env, async_context: napi_async_context) -> napi_status;
 }
 extern "C" {
     pub fn napi_make_callback(
@@ -1332,11 +1199,7 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_is_buffer(
-        env: napi_env,
-        value: napi_value,
-        result: *mut bool,
-    ) -> napi_status;
+    pub fn napi_is_buffer(env: napi_env, value: napi_value, result: *mut bool) -> napi_status;
 }
 extern "C" {
     pub fn napi_get_buffer_info(
@@ -1373,10 +1236,7 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_get_uv_event_loop(
-        env: napi_env,
-        loop_: *mut *mut uv_loop_s,
-    ) -> napi_status;
+    pub fn napi_get_uv_event_loop(env: napi_env, loop_: *mut *mut uv_loop_s) -> napi_status;
 }
 extern "C" {
     pub fn napi_fatal_exception(env: napi_env, err: napi_value) -> napi_status;
@@ -1404,10 +1264,7 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_close_callback_scope(
-        env: napi_env,
-        scope: napi_callback_scope,
-    ) -> napi_status;
+    pub fn napi_close_callback_scope(env: napi_env, scope: napi_callback_scope) -> napi_status;
 }
 extern "C" {
     pub fn napi_create_threadsafe_function(
@@ -1438,9 +1295,7 @@ extern "C" {
     ) -> napi_status;
 }
 extern "C" {
-    pub fn napi_acquire_threadsafe_function(
-        func: napi_threadsafe_function,
-    ) -> napi_status;
+    pub fn napi_acquire_threadsafe_function(func: napi_threadsafe_function) -> napi_status;
 }
 extern "C" {
     pub fn napi_release_threadsafe_function(
@@ -1491,12 +1346,5 @@ extern "C" {
         env: napi_env,
         work: napi_async_work,
         qos: napi_qos_t,
-    ) -> napi_status;
-}
-extern "C" {
-    pub fn napi_load_module(
-        env: napi_env,
-        path: *const ::core::ffi::c_char,
-        result: *mut napi_value,
     ) -> napi_status;
 }
