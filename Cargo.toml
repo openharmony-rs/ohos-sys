@@ -8,10 +8,21 @@ license = "Apache-2.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+document-features = { version = "0.2", optional = true }
 
 [features]
+## Enables bindings to `hilog`
 hilog = []
+## Enables bindings to `napi`
 napi = []
+## Enables bindings to `native_buffer`
 native_buffer = []
+## Enables bindings to `native_window`
 native_window = []
+## Enables bindings to `native_xcomponent`
 xcomponent = []
+## Document available features when building the documentation
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
