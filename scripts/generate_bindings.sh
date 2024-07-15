@@ -64,7 +64,7 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --raw-line='#[link(name="ace_ndk.z")]' \
     --raw-line='extern "C" {}' \
     --raw-line='' \
-    --output "${ROOT_DIR}/src/ace/xcomponent/native_interface_xcomponent.rs" \
+    --output "${ROOT_DIR}/src/xcomponent.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
