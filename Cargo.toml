@@ -11,6 +11,7 @@ keywords = ["OpenHarmony", "HarmonyOS", "ffi"]
 document-features = { version = "0.2", optional = true }
 
 [features]
+default = ["api-10"]
 ## Enables bindings to `native_drawing`
 drawing = []
 ## Enables bindings to `hilog`
@@ -37,8 +38,11 @@ all-components = [
 #! Optionally enable one of the `api-*` features to get access to bindings for newer
 #! OpenHarmony versions.
 
+## Enables bindings for OpenHarmony API-level 10. Enabled by default.
+## Note: this crate is empty if this feature is not selected.
+api-10 = []
 ## Enables bindings for OpenHarmony API-level 11
-api-11 = []
+api-11 = ["api-10"]
 ## Enables bindings for OpenHarmony API-level 12
 api-12 = ["api-11"]
 ## Document available features when building the documentation
