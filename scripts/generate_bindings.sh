@@ -13,6 +13,7 @@ fi
 if [[ -z "${OHOS_NDK_HOME}" ]]
 then
     echo "OHOS_NDK_HOME was not set. Please set it to the base directory of the OHOS NDK"
+    echo "Note: the NDK directory is the 'native' directory in the SDK"
     exit 1
 fi
 
@@ -22,10 +23,10 @@ then
     exit 1
 fi
 
-OHOS_SYSROOT_DIR="${OHOS_NDK_HOME}/native/sysroot"
+OHOS_SYSROOT_DIR="${OHOS_NDK_HOME}/sysroot"
 if [[ ! -d "${OHOS_SYSROOT_DIR}" ]]
 then
-    echo "OpenHarmony sysroot not found under \${OHOS_NDK_HOME}/native/sysroot (${OHOS_NDK_HOME}/native/sysroot)"
+    echo "OpenHarmony sysroot not found under \${OHOS_NDK_HOME}/sysroot (${OHOS_NDK_HOME}/sysroot)"
     exit 1
 fi
 
