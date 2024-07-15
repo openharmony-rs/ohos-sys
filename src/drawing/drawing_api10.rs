@@ -5,27 +5,22 @@
 #![allow(non_snake_case)]
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_Canvas {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_Pen {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_Brush {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_Path {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_Bitmap {
     _unused: [u8; 0],
 }
@@ -161,27 +156,22 @@ extern "C" {
     pub fn OH_Drawing_ColorSetArgb(alpha: u32, red: u32, green: u32, blue: u32) -> u32;
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_FontCollection {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_Typography {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_TextStyle {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_TypographyStyle {
     _unused: [u8; 0],
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_TypographyCreate {
     _unused: [u8; 0],
 }
