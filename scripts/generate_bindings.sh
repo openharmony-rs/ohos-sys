@@ -33,6 +33,9 @@ fi
 export LIBCLANG_PATH=${OHOS_NDK_HOME}/llvm/lib
 export CLANG_PATH=${OHOS_NDK_HOME}/llvm/bin/clang
 
+OHOS_API_VERSION=$(jq '.apiVersion' -j < "${OHOS_NDK_HOME}/oh-uni-package.json")
+echo "Generating bindings for API version ${OHOS_API_VERSION}"
+
 BASE_BINDGEN_ARGS=(--no-layout-tests --formatter=prettyplease)
 BASE_BINDGEN_ARGS+=(--blocklist-file='.*stdint\.h' --blocklist-file='.*stddef\.h')
 BASE_BINDGEN_ARGS+=(--blocklist-file='.*stdarg\.h' --blocklist-file='.*stdbool\.h')
@@ -45,6 +48,8 @@ BASE_BINDGEN_ARGS+=(--raw-line="#![allow(non_camel_case_types)]" --raw-line="#![
 # TODO: How to detect / deal with target specific bindings
 BASE_CLANG_ARGS=("--sysroot=${OHOS_SYSROOT_DIR}")
 BASE_CLANG_ARGS+=(--target=aarch64-linux-ohos)
+# So our wrapper headers can detect the API version (and conditionally include more header files)
+BASE_CLANG_ARGS+=("-DOHOS_SYS_API_LEVEL=${OHOS_API_VERSION}")
 
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
