@@ -54,22 +54,14 @@ BASE_CLANG_ARGS+=("-DOHOS_SYS_API_LEVEL=${OHOS_API_VERSION}")
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
-    --output "${ROOT_DIR}/src/hilog.rs" \
-    --raw-line='' \
-    --raw-line='#[link(name="hilog_ndk.z")]' \
-    --raw-line='extern "C" {}' \
-    --raw-line='' \
+    --output "${ROOT_DIR}/src/hilog/hilog_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
-    --raw-line='' \
-    --raw-line='#[link(name="ace_ndk.z")]' \
-    --raw-line='extern "C" {}' \
-    --raw-line='' \
-    --output "${ROOT_DIR}/src/xcomponent.rs" \
+    --output "${ROOT_DIR}/src/xcomponent/xcomponent_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
@@ -79,37 +71,26 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --blocklist-file '.*/stdarg\.h' \
     --blocklist-file '.*stddef\.h' \
     --blocklist-file '.*/stdbool\.h' \
-    --raw-line='' \
-    --raw-line='#[link(name="ace_napi.z")]' \
-    --raw-line='extern "C" {}' \
-    --raw-line='' \
-    --output "${ROOT_DIR}/src/napi.rs" \
+    --output "${ROOT_DIR}/src/napi/napi_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/napi/native_api.h" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --bitfield-enum 'OH_NativeBuffer_Usage' \
-    --raw-line='' \
-    --raw-line='#[link(name="native_buffer")]' \
-    --raw-line='extern "C" {}' \
-    --raw-line='' \
+    --blocklist-item '_LIBCPP_.*' \
     --default-enum-style=moduleconsts \
     --no-derive-copy \
-    --output "${ROOT_DIR}/src/native_buffer.rs" \
+    --output "${ROOT_DIR}/src/native_buffer/native_buffer_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/native_buffer/native_buffer.h" \
     -- \
+    -x c++ \
     "${BASE_CLANG_ARGS[@]}"
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --raw-line='' \
-    --raw-line='#[link(name="ace_ndk.z")]' \
-    --raw-line='#[link(name="native_window")]' \
-    --raw-line='extern "C" {}' \
-    --raw-line='' \
     --default-enum-style=moduleconsts \
     --no-derive-copy \
-    --output "${ROOT_DIR}/src/native_window.rs" \
+    --output "${ROOT_DIR}/src/native_window/native_window_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/native_window/external_window.h" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
@@ -123,10 +104,7 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --blocklist-item '_LIBCPP_.*' \
     --blocklist-item '__cpp_.*' \
     --blocklist-item '^std.*' \
-    --raw-line='' \
-    --raw-line='#[link(name="native_drawing")]' \
-    --raw-line='extern "C" {}' \
-    --output "${ROOT_DIR}/src/drawing.rs" \
+    --output "${ROOT_DIR}/src/drawing/drawing_api${OHOS_API_VERSION}.rs" \
     "${ROOT_DIR}/wrappers/drawing_wrapper.h" \
     -- "${BASE_CLANG_ARGS[@]}" \
     -x c++ \
