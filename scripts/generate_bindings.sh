@@ -138,24 +138,43 @@ for val in "${DRAWING_NOCOPY_STRUCTS[@]}"; do
     DRAWING_NOCOPY_ARGS+=("--no-copy=^${val}\$" "--no-debug=^${val}\$")
 done
 
-# Some drawing headers are not valid C, so we need to use libclang in c++ mode.
-# Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --default-enum-style=newtype \
-    --blocklist-file '.*cstddef.*' \
-    --blocklist-file '.*pthread.*' \
-    --blocklist-item '^OH_NativeBuffer$' \
-    --blocklist-item '_LIBCPP_.*' \
-    --blocklist-item '__cpp_.*' \
-    --blocklist-item '^std.*' \
-    "${DRAWING_NOCOPY_ARGS[@]}" \
-    --output "${ROOT_DIR}/src/drawing/drawing_api${OHOS_API_VERSION}.rs" \
-    "${ROOT_DIR}/wrappers/drawing_wrapper.h" \
-    -- "${BASE_CLANG_ARGS[@]}" \
-    -x c++ \
-    -include stdbool.h \
-    -include stddef.h \
-    -include stdint.h
+DRAWING_API10_HEADERS=(drawing_bitmap.h  drawing_brush.h  drawing_canvas.h  drawing_color.h  drawing_font_collection.h)
+DRAWING_API10_HEADERS+=(drawing_path.h  drawing_pen.h  drawing_text_declaration.h  drawing_text_typography.h  drawing_types.h)
+DRAWING_font_collection_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;")
+DRAWING_text_typography_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;" )
+
+for drawing_header in "${DRAWING_API10_HEADERS[@]}"; do
+    rust_name=${drawing_header#"drawing_"}
+    rust_name=${rust_name%".h"}
+    if [ ! -d "${ROOT_DIR}/src/drawing/${rust_name}" ]; then
+        mkdir "${ROOT_DIR}/src/drawing/${rust_name}"
+    fi
+    rs_includes=()
+    if [[ "${rust_name}" != "types" ]]; then
+        rs_includes+=("--raw-line=use crate::drawing::types::*;")
+    fi
+    additional_args_var_name="DRAWING_${rust_name}_ADDITIONAL_ARGS"
+    if [[ ! -z "${!additional_args_var_name+x}" ]]; then
+        echo "Have additional args!"
+        rs_includes+=( "${!additional_args_var_name}" )
+    fi
+
+    # Some drawing headers are not valid C, so we need to use libclang in c++ mode.
+    # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
+    bindgen "${BASE_BINDGEN_ARGS[@]}" \
+        --default-enum-style=newtype \
+        --allowlist-file ".*/drawing_${rust_name}\.h" \
+        --no-recursive-allowlist \
+        "${rs_includes[@]}" \
+        "${DRAWING_NOCOPY_ARGS[@]}" \
+        --output "${ROOT_DIR}/src/drawing/${rust_name}/${rust_name}_api${OHOS_API_VERSION}.rs" \
+        "${OHOS_SYSROOT_DIR}/usr/include/native_drawing/${drawing_header}" \
+        -- "${BASE_CLANG_ARGS[@]}" \
+        -x c++ \
+        -include stdbool.h \
+        -include stddef.h \
+        -include stdint.h
+done
 
 cargo fmt
 fd -e rs . 'src/' --exec rustfmt
