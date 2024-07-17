@@ -158,3 +158,4 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     -include stdint.h
 
 cargo fmt
+fd -e rs . 'src/' --exec rustfmt
