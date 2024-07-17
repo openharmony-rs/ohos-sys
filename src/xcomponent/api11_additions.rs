@@ -31,8 +31,7 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         range: *mut OH_NativeXComponent_ExpectedRateRange,
     ) -> i32;
-}
-extern "C" {
+
     /** @brief Registers a callback for this <b>OH_NativeXComponent</b> instance.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -50,8 +49,7 @@ extern "C" {
             ),
         >,
     ) -> i32;
-}
-extern "C" {
+
     /** @brief UnRegister a callback for this <b>OH_NativeXComponent</b> instance.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
