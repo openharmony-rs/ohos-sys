@@ -6,7 +6,7 @@ description = "Bindings to the native API of OpenHarmony OS"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
 keywords = ["OpenHarmony", "HarmonyOS", "ffi"]
-exclude = ["src/*/*_api11.rs"]
+exclude = ["src/**/*_api11.rs", "src/**/*_api12.rs"]
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
