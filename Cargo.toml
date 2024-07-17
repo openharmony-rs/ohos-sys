@@ -44,7 +44,8 @@ all-components = [
 api-10 = []
 ## Enables bindings for OpenHarmony API-level 11
 api-11 = ["api-10"]
-## Enables bindings for OpenHarmony API-level 12
+## **EXPERIMENTAL**: Enables bindings for OpenHarmony API-level 12 (beta-1).
+## Will stabilize once the final version has been released.
 api-12 = ["api-11"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
