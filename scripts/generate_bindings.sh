@@ -138,11 +138,11 @@ for val in "${DRAWING_NOCOPY_STRUCTS[@]}"; do
     DRAWING_NOCOPY_ARGS+=("--no-copy=^${val}\$" "--no-debug=^${val}\$")
 done
 
-DRAWING_font_collection_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;")
-DRAWING_text_typography_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;" )
-DRAWING_register_font_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;" )
-DRAWING_image_filter_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::shader_effect::*;")
-DRAWING_font_mgr_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_typography::*;" )
+DRAWING_font_collection_ADDITIONAL_ARGS=("--raw-line=use crate::text_declaration::*;")
+DRAWING_text_typography_ADDITIONAL_ARGS=("--raw-line=use crate::text_declaration::*;" )
+DRAWING_register_font_ADDITIONAL_ARGS=("--raw-line=use crate::text_declaration::*;" )
+DRAWING_image_filter_ADDITIONAL_ARGS=("--raw-line=use crate::shader_effect::*;")
+DRAWING_font_mgr_ADDITIONAL_ARGS=("--raw-line=use crate::text_typography::*;" )
 
 for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; do
     drawing_header=$(basename "${abs_drawing_header}")
@@ -154,7 +154,7 @@ for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; d
     fi
     rs_includes=()
     if [[ "${rust_name}" != "types" ]]; then
-        rs_includes+=("--raw-line=use crate::drawing::types::*;")
+        rs_includes+=("--raw-line=use crate::types::*;")
     fi
     additional_args_var_name="DRAWING_${rust_name}_ADDITIONAL_ARGS"
     if [[ ! -z "${!additional_args_var_name+x}" ]]; then
@@ -170,7 +170,7 @@ for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; d
         --no-recursive-allowlist \
         "${rs_includes[@]}" \
         "${DRAWING_NOCOPY_ARGS[@]}" \
-        --output "${ROOT_DIR}/src/drawing/${rust_name}/${rust_name}_api${OHOS_API_VERSION}.rs" \
+        --output "${ROOT_DIR}/components/drawing/src/${rust_name}/${rust_name}_api${OHOS_API_VERSION}.rs" \
         "${OHOS_SYSROOT_DIR}/usr/include/native_drawing/${drawing_header}" \
         -- "${BASE_CLANG_ARGS[@]}" \
         -x c++ \

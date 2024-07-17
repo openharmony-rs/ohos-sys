@@ -1,42 +1,18 @@
 [package]
-name = "ohos-sys"
-version = "0.2.0-beta4"
+name = "ohos-drawing-sys"
+version = "0.1.0"
 edition = "2021"
-description = "Bindings to the native API of OpenHarmony OS"
+description = "Bindings to the `native_drawing` API of OpenHarmony OS"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
-keywords = ["OpenHarmony", "HarmonyOS", "ffi"]
+keywords = ["OpenHarmony", "HarmonyOS", "ffi", "drawing"]
 exclude = ["src/**/*_api11.rs", "src/**/*_api12.rs"]
-
-[workspace]
-members = ["components/drawing"]
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
-ohos-drawing-sys = { path = "components/drawing", version = "0.1"}
 
 [features]
 default = ["api-10"]
-## Enables bindings to `native_drawing`. Re-exports `ohos-drawing-sys`.
-drawing = []
-## Enables bindings to `hilog`
-hilog = []
-## Enables bindings to `napi`
-napi = []
-## Enables bindings to `native_buffer`
-native_buffer = []
-## Enables bindings to `native_window`
-native_window = []
-## Enables bindings to `native_xcomponent`
-xcomponent = []
-## Enables all components listed above. Orthogonal to `api-XX` features.
-all-components = [
-    "drawing",
-    "hilog",
-    "napi",
-    "native_buffer",
-    "native_window",
-    "xcomponent"]
 
 #! ### OpenHarmony API level
 #! This crate by default exposes bindings for API-level 10.
