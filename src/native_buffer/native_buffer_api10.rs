@@ -129,8 +129,6 @@ extern "C" {
     @since 9
     @version 1.0*/
     pub fn OH_NativeBuffer_Alloc(config: *const OH_NativeBuffer_Config) -> *mut OH_NativeBuffer;
-}
-extern "C" {
     /** @brief Adds the reference count of a OH_NativeBuffer.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -139,8 +137,6 @@ extern "C" {
     @since 9
     @version 1.0*/
     pub fn OH_NativeBuffer_Reference(buffer: *mut OH_NativeBuffer) -> i32;
-}
-extern "C" {
     /** @brief Decreases the reference count of a OH_NativeBuffer and, when the reference count reaches 0, \n
     destroys this OH_NativeBuffer.
 
@@ -150,8 +146,6 @@ extern "C" {
     @since 9
     @version 1.0*/
     pub fn OH_NativeBuffer_Unreference(buffer: *mut OH_NativeBuffer) -> i32;
-}
-extern "C" {
     /** @brief Return a config of the OH_NativeBuffer in the passed OHNativeBufferConfig struct.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -164,8 +158,6 @@ extern "C" {
         buffer: *mut OH_NativeBuffer,
         config: *mut OH_NativeBuffer_Config,
     );
-}
-extern "C" {
     /** @brief Provide direct cpu access to the OH_NativeBuffer in the process's address space.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -178,8 +170,6 @@ extern "C" {
         buffer: *mut OH_NativeBuffer,
         virAddr: *mut *mut ::core::ffi::c_void,
     ) -> i32;
-}
-extern "C" {
     /** @brief Remove direct cpu access ability of the OH_NativeBuffer in the process's address space.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -188,8 +178,6 @@ extern "C" {
     @since 9
     @version 1.0*/
     pub fn OH_NativeBuffer_Unmap(buffer: *mut OH_NativeBuffer) -> i32;
-}
-extern "C" {
     /** @brief Get the systen wide unique sequence number of the OH_NativeBuffer.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer

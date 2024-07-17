@@ -246,8 +246,6 @@ extern "C" {
     pub fn OH_NativeWindow_CreateNativeWindow(
         pSurface: *mut ::core::ffi::c_void,
     ) -> *mut OHNativeWindow;
-}
-extern "C" {
     /** @brief Decreases the reference count of a <b>OHNativeWindow</b> instance by 1, and when the reference count reaches 0, destroys the instance.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -255,8 +253,6 @@ extern "C" {
     @since 8
     @version 1.0*/
     pub fn OH_NativeWindow_DestroyNativeWindow(window: *mut OHNativeWindow);
-}
-extern "C" {
     /** @brief Creates a <b>OHNativeWindowBuffer</b> instance. A new <b>OHNativeWindowBuffer</b> instance is created each time this function is called.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -267,8 +263,6 @@ extern "C" {
     pub fn OH_NativeWindow_CreateNativeWindowBufferFromSurfaceBuffer(
         pSurfaceBuffer: *mut ::core::ffi::c_void,
     ) -> *mut OHNativeWindowBuffer;
-}
-extern "C" {
     /** @brief Creates a <b>OHNativeWindowBuffer</b> instance.
     A new <b>OHNativeWindowBuffer</b> instance is created each time this function is called.
 
@@ -280,8 +274,6 @@ extern "C" {
     pub fn OH_NativeWindow_CreateNativeWindowBufferFromNativeBuffer(
         nativeBuffer: *mut OH_NativeBuffer,
     ) -> *mut OHNativeWindowBuffer;
-}
-extern "C" {
     /** @brief Decreases the reference count of a <b>OHNativeWindowBuffer</b> instance by 1 and, when the reference count reaches 0, destroys the instance.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -289,8 +281,6 @@ extern "C" {
     @since 8
     @version 1.0*/
     pub fn OH_NativeWindow_DestroyNativeWindowBuffer(buffer: *mut OHNativeWindowBuffer);
-}
-extern "C" {
     /** @brief Requests a <b>OHNativeWindowBuffer</b> through a <b>OHNativeWindow</b> instance for content production.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -305,8 +295,6 @@ extern "C" {
         buffer: *mut *mut OHNativeWindowBuffer,
         fenceFd: *mut ::core::ffi::c_int,
     ) -> i32;
-}
-extern "C" {
     /** @brief Flushes the <b>OHNativeWindowBuffer</b> filled with the content to the buffer queue through a <b>OHNativeWindow</b> instance for content consumption.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -323,8 +311,6 @@ extern "C" {
         fenceFd: ::core::ffi::c_int,
         region: Region,
     ) -> i32;
-}
-extern "C" {
     /** @brief Get the last flushed <b>OHNativeWindowBuffer</b> from a <b>OHNativeWindow</b> instance.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -341,8 +327,6 @@ extern "C" {
         fenceFd: *mut ::core::ffi::c_int,
         matrix: *mut f32,
     ) -> i32;
-}
-extern "C" {
     /** @brief Returns the <b>OHNativeWindowBuffer</b> to the buffer queue through a <b>OHNativeWindow</b> instance, without filling in any content. The <b>OHNativeWindowBuffer</b> can be used for another request.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -355,8 +339,6 @@ extern "C" {
         window: *mut OHNativeWindow,
         buffer: *mut OHNativeWindowBuffer,
     ) -> i32;
-}
-extern "C" {
     /** @brief Sets or obtains the attributes of a native window, including the width, height, and content format.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -371,8 +353,6 @@ extern "C" {
         code: ::core::ffi::c_int,
         ...
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the pointer to a <b>BufferHandle</b> of a <b>OHNativeWindowBuffer</b> instance.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -383,8 +363,6 @@ extern "C" {
     pub fn OH_NativeWindow_GetBufferHandleFromNative(
         buffer: *mut OHNativeWindowBuffer,
     ) -> *mut BufferHandle;
-}
-extern "C" {
     /** @brief Adds the reference count of a native object.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -393,8 +371,6 @@ extern "C" {
     @since 8
     @version 1.0*/
     pub fn OH_NativeWindow_NativeObjectReference(obj: *mut ::core::ffi::c_void) -> i32;
-}
-extern "C" {
     /** @brief Decreases the reference count of a native object and, when the reference count reaches 0, destroys this object.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -403,8 +379,6 @@ extern "C" {
     @since 8
     @version 1.0*/
     pub fn OH_NativeWindow_NativeObjectUnreference(obj: *mut ::core::ffi::c_void) -> i32;
-}
-extern "C" {
     /** @brief Obtains the magic ID of a native object.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -413,8 +387,6 @@ extern "C" {
     @since 8
     @version 1.0*/
     pub fn OH_NativeWindow_GetNativeObjectMagic(obj: *mut ::core::ffi::c_void) -> i32;
-}
-extern "C" {
     /** @brief Sets scalingMode of a native window.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -430,8 +402,6 @@ extern "C" {
         sequence: u32,
         scalingMode: OHScalingMode::Type,
     ) -> i32;
-}
-extern "C" {
     /** @brief Sets metaData of a native window.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -449,8 +419,6 @@ extern "C" {
         size: i32,
         metaData: *const OHHDRMetaData,
     ) -> i32;
-}
-extern "C" {
     /** @brief Sets metaDataSet of a native window.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
@@ -470,8 +438,6 @@ extern "C" {
         size: i32,
         metaData: *const u8,
     ) -> i32;
-}
-extern "C" {
     /** @brief Sets tunnel handle of a native window.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeWindow

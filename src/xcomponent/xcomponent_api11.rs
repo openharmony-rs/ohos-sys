@@ -1450,8 +1450,6 @@ extern "C" {
         id: *mut ::core::ffi::c_char,
         size: *mut u64,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the size of the surface held by the ArkUI XComponent.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1467,8 +1465,6 @@ extern "C" {
         width: *mut u64,
         height: *mut u64,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the offset of the surface held by the ArkUI XComponent.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1484,8 +1480,6 @@ extern "C" {
         x: *mut f64,
         y: *mut f64,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the touch event dispatched by the ArkUI XComponent.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1499,8 +1493,6 @@ extern "C" {
         window: *const ::core::ffi::c_void,
         touchEvent: *mut OH_NativeXComponent_TouchEvent,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the touch pointer tool type by the ArkUI XComponent.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1514,8 +1506,6 @@ extern "C" {
         pointIndex: u32,
         toolType: *mut OH_NativeXComponent_TouchPointToolType,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the touch pointer tiltX by the ArkUI XComponent.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1529,8 +1519,6 @@ extern "C" {
         pointIndex: u32,
         tiltX: *mut f32,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the touch pointer tiltX by the ArkUI XComponent.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1544,8 +1532,6 @@ extern "C" {
         pointIndex: u32,
         tiltY: *mut f32,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the touch event dispatched by the ArkUI XComponent.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1560,8 +1546,6 @@ extern "C" {
         size: *mut i32,
         historicalPoints: *mut *mut OH_NativeXComponent_HistoricalPoint,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the mouse event dispatched by the ArkUI XComponent.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1575,8 +1559,6 @@ extern "C" {
         window: *const ::core::ffi::c_void,
         mouseEvent: *mut OH_NativeXComponent_MouseEvent,
     ) -> i32;
-}
-extern "C" {
     /** @brief Registers a callback for this <b>OH_NativeXComponent</b> instance.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1588,8 +1570,6 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         callback: *mut OH_NativeXComponent_Callback,
     ) -> i32;
-}
-extern "C" {
     /** @brief Registers a callback for this <b>OH_NativeXComponent</b> instance.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1601,8 +1581,6 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         callback: *mut OH_NativeXComponent_MouseEvent_Callback,
     ) -> i32;
-}
-extern "C" {
     /** @brief Registers a callback for this <b>OH_NativeXComponent</b> instance.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1619,8 +1597,6 @@ extern "C" {
             ),
         >,
     ) -> i32;
-}
-extern "C" {
     /** @brief Registers a callback for this <b>OH_NativeXComponent</b> instance.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1637,8 +1613,6 @@ extern "C" {
             ),
         >,
     ) -> i32;
-}
-extern "C" {
     /** @brief Registers a callback for this <b>OH_NativeXComponent</b> instance.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1655,8 +1629,6 @@ extern "C" {
             ),
         >,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the key event dispatched by the ArkUI XComponent.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1668,8 +1640,6 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         keyEvent: *mut *mut OH_NativeXComponent_KeyEvent,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the action of the key event.
 
     @param keyEvent Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
@@ -1681,8 +1651,6 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         action: *mut OH_NativeXComponent_KeyAction,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the keyCode of the key event.
 
     @param keyEvent Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
@@ -1694,8 +1662,6 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         code: *mut OH_NativeXComponent_KeyCode,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the sourceType of the key event.
 
     @param keyEvent Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
@@ -1707,8 +1673,6 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         sourceType: *mut OH_NativeXComponent_EventSourceType,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the deviceId of the key event.
 
     @param keyEvent Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
@@ -1720,8 +1684,6 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         deviceId: *mut i64,
     ) -> i32;
-}
-extern "C" {
     /** @brief Obtains the timestamp of the key event.
 
     @param keyEvent Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
@@ -1733,8 +1695,6 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         timestamp: *mut i64,
     ) -> i32;
-}
-extern "C" {
     /** @brief Set the Expected FrameRateRange.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1746,8 +1706,6 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         range: *mut OH_NativeXComponent_ExpectedRateRange,
     ) -> i32;
-}
-extern "C" {
     /** @brief Registers a callback for this <b>OH_NativeXComponent</b> instance.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
@@ -1765,8 +1723,6 @@ extern "C" {
             ),
         >,
     ) -> i32;
-}
-extern "C" {
     /** @brief UnRegister a callback for this <b>OH_NativeXComponent</b> instance.
 
     @param component Indicates the pointer to this <b>OH_NativeXComponent</b> instance.

@@ -81,8 +81,6 @@ extern "C" {
         fmt: *const ::core::ffi::c_char,
         ...
     ) -> ::core::ffi::c_int;
-}
-extern "C" {
     /** @brief Checks whether logs of the specified service domain, log tag, and log level can be output.
 
     @param domain Indicates the service domain of logs.

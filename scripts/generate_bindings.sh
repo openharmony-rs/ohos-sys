@@ -36,7 +36,7 @@ export CLANG_PATH=${OHOS_NDK_HOME}/llvm/bin/clang
 OHOS_API_VERSION=$(jq '.apiVersion' -j < "${OHOS_NDK_HOME}/oh-uni-package.json")
 echo "Generating bindings for API version ${OHOS_API_VERSION}"
 
-BASE_BINDGEN_ARGS=(--no-layout-tests --formatter=prettyplease)
+BASE_BINDGEN_ARGS=(--no-layout-tests --formatter=prettyplease --merge-extern-blocks)
 BASE_BINDGEN_ARGS+=(--blocklist-file='.*stdint\.h' --blocklist-file='.*stddef\.h')
 BASE_BINDGEN_ARGS+=(--blocklist-file='.*stdarg\.h' --blocklist-file='.*stdbool\.h')
 BASE_BINDGEN_ARGS+=(--blocklist-file='.*/std[a-z]{3,4}\.h' --blocklist-file='.*/__std[a-z_]+\.h')

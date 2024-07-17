@@ -25,16 +25,14 @@ extern "C" {
         path: *const ::core::ffi::c_char,
         result: *mut napi_value,
     ) -> napi_status;
-}
-extern "C" {
+
     pub fn napi_create_object_with_properties(
         env: napi_env,
         result: *mut napi_value,
         property_count: usize,
         properties: *const napi_property_descriptor,
     ) -> napi_status;
-}
-extern "C" {
+
     pub fn napi_create_object_with_named_properties(
         env: napi_env,
         result: *mut napi_value,
@@ -42,8 +40,7 @@ extern "C" {
         keys: *mut *const ::core::ffi::c_char,
         values: *const napi_value,
     ) -> napi_status;
-}
-extern "C" {
+
     pub fn napi_coerce_to_native_binding_object(
         env: napi_env,
         js_object: napi_value,
