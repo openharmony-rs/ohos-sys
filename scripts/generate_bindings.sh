@@ -35,6 +35,7 @@ export CLANG_PATH=${OHOS_NDK_HOME}/llvm/bin/clang
 
 OHOS_API_VERSION=$(jq '.apiVersion' -j < "${OHOS_NDK_HOME}/oh-uni-package.json")
 echo "Generating bindings for API version ${OHOS_API_VERSION}"
+PREVIOUS_API_VERSION=$((OHOS_API_VERSION - 1))
 
 BASE_BINDGEN_ARGS=(--no-layout-tests --formatter=prettyplease --merge-extern-blocks)
 BASE_BINDGEN_ARGS+=(--blocklist-file='.*stdint\.h' --blocklist-file='.*stddef\.h')
@@ -149,8 +150,9 @@ for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; d
     echo "Generating bindings for ${drawing_header}"
     rust_name=${drawing_header#"drawing_"}
     rust_name=${rust_name%".h"}
-    if [ ! -d "${ROOT_DIR}/src/drawing/${rust_name}" ]; then
-        mkdir "${ROOT_DIR}/src/drawing/${rust_name}"
+    output_dir="${ROOT_DIR}/components/drawing/src/${rust_name}"
+    if [ ! -d "${output_dir}" ]; then
+        mkdir "${output_dir}"
     fi
     rs_includes=()
     if [[ "${rust_name}" != "types" ]]; then
@@ -161,6 +163,16 @@ for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; d
         echo "Have additional args!"
         rs_includes+=( "${!additional_args_var_name}" )
     fi
+    # We want to commit all generated files to version control, so we can easily see if something changed,
+    # when updating bindgen or the SDK patch release.
+    # However, we any split changes into incremental modules, and don't use any of the newer versions of the API
+    # besides the first one. If a binding was not introduced in the current api version, then we add a nopublish
+    # suffix, so we can exclude the file from cargo publish and save some download bandwidth.
+    no_publish_suffix=""
+    if [[ -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}.rs"
+          || -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}_nopublish.rs" ]]; then
+      no_publish_suffix="_nopublish"
+    fi
 
     # Some drawing headers are not valid C, so we need to use libclang in c++ mode.
     # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
@@ -170,7 +182,7 @@ for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; d
         --no-recursive-allowlist \
         "${rs_includes[@]}" \
         "${DRAWING_NOCOPY_ARGS[@]}" \
-        --output "${ROOT_DIR}/components/drawing/src/${rust_name}/${rust_name}_api${OHOS_API_VERSION}.rs" \
+        --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
         "${OHOS_SYSROOT_DIR}/usr/include/native_drawing/${drawing_header}" \
         -- "${BASE_CLANG_ARGS[@]}" \
         -x c++ \
@@ -181,3 +193,4 @@ done
 
 cargo fmt
 fd -e rs . 'src/' --exec rustfmt
+fd -e rs . 'components' --exec rustfmt
