@@ -141,6 +141,8 @@ done
 DRAWING_font_collection_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;")
 DRAWING_text_typography_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;" )
 DRAWING_register_font_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;" )
+DRAWING_image_filter_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::shader_effect::*;")
+DRAWING_font_mgr_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_typography::*;" )
 
 for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; do
     drawing_header=$(basename "${abs_drawing_header}")
