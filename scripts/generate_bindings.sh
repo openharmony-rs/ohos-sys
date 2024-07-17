@@ -138,12 +138,13 @@ for val in "${DRAWING_NOCOPY_STRUCTS[@]}"; do
     DRAWING_NOCOPY_ARGS+=("--no-copy=^${val}\$" "--no-debug=^${val}\$")
 done
 
-DRAWING_API10_HEADERS=(drawing_bitmap.h  drawing_brush.h  drawing_canvas.h  drawing_color.h  drawing_font_collection.h)
-DRAWING_API10_HEADERS+=(drawing_path.h  drawing_pen.h  drawing_text_declaration.h  drawing_text_typography.h  drawing_types.h)
 DRAWING_font_collection_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;")
 DRAWING_text_typography_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;" )
+DRAWING_register_font_ADDITIONAL_ARGS=("--raw-line=use crate::drawing::text_declaration::*;" )
 
-for drawing_header in "${DRAWING_API10_HEADERS[@]}"; do
+for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; do
+    drawing_header=$(basename "${abs_drawing_header}")
+    echo "Generating bindings for ${drawing_header}"
     rust_name=${drawing_header#"drawing_"}
     rust_name=${rust_name%".h"}
     if [ ! -d "${ROOT_DIR}/src/drawing/${rust_name}" ]; then
