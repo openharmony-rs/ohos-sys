@@ -12,6 +12,7 @@
     feature = "document-features",
     cfg_attr(doc, doc = ::document_features::document_features!())
 )]
+#[cfg_attr(docsrs, feature(doc_cfg))]
 
 #[cfg(feature = "drawing")]
 #[cfg_attr(docsrs, doc(cfg(feature = "drawing")))]
