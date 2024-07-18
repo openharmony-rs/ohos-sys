@@ -1,3 +1,21 @@
+//! FFI Bindings for `native_drawing` on OpenHarmony
+//!
+//! The native drawing module provides APIs for drawing 2D graphics and text.
+//! The graphics and text drawn by using the APIs cannot be directly displayed on the screen.
+//! To display the drawn graphics and text, you'll need the capabilities provided by the <XComponent> and native window module.
+//!
+//! Please consult the official documentation for more details: [English docs], [Chinese docs]
+//!
+//! [English docs]: https://docs.openharmony.cn/pages/v5.0/en/application-dev/graphics/drawing-guidelines.md
+//! [Chinese docs]: https://docs.openharmony.cn/pages/v5.0/zh-cn/application-dev/graphics/drawing-guidelines.md
+//!
+//! ## Feature flags
+#![cfg_attr(
+    feature = "document-features",
+    cfg_attr(doc, doc = ::document_features::document_features!())
+)]
+#![cfg_attr(docsrs, feature(doc_cfg))]
+
 #[link(name = "native_drawing")]
 extern "C" {}
 
