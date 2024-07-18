@@ -53,3 +53,14 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build --features ${{ matrix.api_level }} --features ${{ matrix.component }}
         name: Build minimal features
+
+  rustdoc:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@nightly
+      - name: Build docs
+        run: cargo doc --all-features --workspace --no-deps
+        env:
+          RUSTDOCFLAGS: "--cfg=docsrs"
