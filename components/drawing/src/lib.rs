@@ -31,51 +31,75 @@ pub mod text_typography;
 pub mod types;
 
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod color_filter;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod filter;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod font;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod mask_filter;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod matrix;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod point;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod rect;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod register_font;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod round_rect;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod shader_effect;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod text_blob;
 #[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod typeface;
 
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod color_space;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod error_code;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod font_mgr;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod gpu_context;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod image;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod image_filter;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod memory_stream;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod path_effect;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod pixel_map;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod sampling_options;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod shadow_layer;
 #[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod surface;
