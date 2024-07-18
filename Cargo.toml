@@ -43,8 +43,7 @@ all-components = [
 #! Optionally enable one of the `api-*` features to get access to bindings for newer
 #! OpenHarmony versions.
 
-## Enables bindings for OpenHarmony API-level 10. Enabled by default.
-## Note: this crate is empty if this feature is not selected.
+## No effect. API-10 bindings can't be deselected. The feature exists for internal purposes.
 api-10 = []
 ## Enables bindings for OpenHarmony API-level 11
 api-11 = ["api-10"]
