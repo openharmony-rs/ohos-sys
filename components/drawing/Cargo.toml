@@ -1,6 +1,6 @@
 [package]
 name = "ohos-drawing-sys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Bindings to the `native_drawing` API of OpenHarmony OS"
 license = "Apache-2.0"
