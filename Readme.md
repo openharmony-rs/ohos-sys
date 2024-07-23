@@ -1,6 +1,6 @@
 # ohos-sys
 
-FFI-bindings for the native API of OpenHarmony OS. See the [documentation] for a list of supported components.
+FFI-bindings for the native API of [OpenHarmony OS]. See the [documentation] for a list of supported components.
 This crate is under active development, and not officially affiliated with OpenHarmony OS.
 
 ## Development
@@ -30,4 +30,5 @@ Please also check the following:
 
 This crate is licensed under the Apache-2.0 license, matching the OpenHarmony OS SDK.
 
+[OpenHarmony OS]: https://docs.openharmony.cn/pages/v5.0/en/OpenHarmony-Overview.md
 [documentation]: https://docs.rs/ohos-sys/latest/ohos_sys/
