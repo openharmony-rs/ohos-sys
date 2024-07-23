@@ -1,24 +1,25 @@
 [package]
 name = "ohos-sys"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "Bindings to the native API of OpenHarmony OS"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
 keywords = ["OpenHarmony", "HarmonyOS", "ffi"]
 exclude = ["src/**/*_api11.rs", "src/**/*_api12.rs"]
+readme = "Readme.md"
 
 [workspace]
 members = ["components/drawing"]
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
-ohos-drawing-sys = { path = "components/drawing", version = "0.1"}
+ohos-drawing-sys = { path = "components/drawing", version = "0.1", optional = true}
 
 [features]
 default = ["api-10"]
 ## Enables bindings to `native_drawing`. Re-exports `ohos-drawing-sys`.
-drawing = []
+drawing = ["dep:ohos-drawing-sys"]
 ## Enables bindings to `hilog`
 hilog = []
 ## Enables bindings to `napi`

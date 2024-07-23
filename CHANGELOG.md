@@ -1,4 +1,11 @@
-# v0.2.0 (unreleased)
+# v0.2.1
+
+## Fixed
+
+- `ohos-drawing-sys` is now an optional dependency. Usage was already guarded behind the `drawing`
+  feature.
+
+# v0.2.0 (2024-07-18)
 
 ## Breaking
 
@@ -7,7 +14,7 @@
 
 ## Added
 
-- Added `native_drawing` API bindings
+- Added `native_drawing` API bindings (Also available separately as `ohos-drawing-sys` )
 - Added bindings for API level 11 behind a feature flag
 
 ## Fixed
