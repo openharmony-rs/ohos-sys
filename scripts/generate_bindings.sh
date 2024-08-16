@@ -6,7 +6,13 @@ ROOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"/.. &> /dev/null && pwd )
 
 if ! command -v bindgen
 then
-    echo "Error: bindgen not found"
+    echo "Error: bindgen not found. Please install it."
+    exit 1
+fi
+
+if ! command -v jq
+then
+    echo "Error: jq not found. Please install it."
     exit 1
 fi
 
