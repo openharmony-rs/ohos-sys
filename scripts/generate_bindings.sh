@@ -123,6 +123,16 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
 
+bindgen "${BASE_BINDGEN_ARGS[@]}" \
+    --default-enum-style=newtype \
+    --no-derive-copy \
+    --no-derive-debug \
+    --allowlist-file ".*/native_vsync\.h" \
+    --output "${ROOT_DIR}/src/vsync/vsync_api${OHOS_API_VERSION}.rs" \
+    "${OHOS_SYSROOT_DIR}/usr/include/native_vsync/native_vsync.h" \
+    -- \
+    "${BASE_CLANG_ARGS[@]}"
+
 # API-10
 DRAWING_NOCOPY_STRUCTS=(OH_Drawing_Canvas OH_Drawing_Pen OH_Drawing_Brush OH_Drawing_Path OH_Drawing_Bitmap)
 DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_FontCollection OH_Drawing_Typography OH_Drawing_TextStyle OH_Drawing_TypographyStyle)

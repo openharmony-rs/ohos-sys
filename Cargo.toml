@@ -28,6 +28,8 @@ napi = []
 native_buffer = []
 ## Enables bindings to `native_window`
 native_window = []
+## Enables bindings to `native_vsync`
+vsync = []
 ## Enables bindings to `native_xcomponent`
 xcomponent = []
 ## Enables all components listed above. Orthogonal to `api-XX` features.
@@ -37,7 +39,8 @@ all-components = [
     "napi",
     "native_buffer",
     "native_window",
-    "xcomponent"]
+    "xcomponent",
+    "vsync"]
 
 #! ### OpenHarmony API level
 #! This crate by default exposes bindings for API-level 10.
