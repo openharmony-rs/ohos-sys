@@ -1,3 +1,9 @@
+# v0.2.2 (2024-08-18)
+
+## Added
+
+- Added bindings for `native_vsync` (behind the `vsync` feature flag)
+
 # v0.2.1
 
 ## Fixed
