@@ -25,8 +25,8 @@ Please also check the following:
 - Be sure to guard the new component behind a cargo feature and document the feature in Cargo.toml.
 - If you did not generate the bindings with API-level 10, specify which API-level you generated the bindings with
   and guard the generated module behind the corresponding api-level feature flag.
-- Installing `bindgen`: We use a version of bindgen that has not been released yet to crates.io.
-  You can install the latest version by running `cargo install --git https://github.com/rust-lang/rust-bindgen.git bindgen-cli --branch main --features prettyplease`
+- Installing `bindgen`: We require at least bindgen 0.70.0, with the `prettyplease` feature enabled. 
+  You can install it by running `cargo install bindgen-cli --features prettyplease`
 
 ## License
 
