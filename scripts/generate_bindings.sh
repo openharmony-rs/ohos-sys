@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-set -eux
+set -eu
+
+if  [ "${BASH_VERSINFO:-0}" -le 4 ]; then
+    echo "Your installed version of bash is too old."
+    echo "If you are using a mac, please install bash from homebrew."
+    exit 1
+fi
 
 ROOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"/.. &> /dev/null && pwd )
 
@@ -58,6 +64,7 @@ BASE_CLANG_ARGS+=(--target=aarch64-linux-ohos)
 # So our wrapper headers can detect the API version (and conditionally include more header files)
 BASE_CLANG_ARGS+=("-DOHOS_SYS_API_LEVEL=${OHOS_API_VERSION}")
 
+set -x
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
@@ -68,6 +75,7 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
+    --allowlist-file ".*/xcomponent/native_.*xcomponent.*\.h" \
     --no-copy="^OH_NativeXComponent$" \
     --no-copy="^OH_NativeXComponent_KeyEvent$" \
     --no-debug="^OH_NativeXComponent$" \
@@ -75,6 +83,7 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --output "${ROOT_DIR}/src/xcomponent/xcomponent_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h" \
     -- \
+     -x c++ \
     "${BASE_CLANG_ARGS[@]}"
 
 NAPI_NOCOPY_STRUCTS=(napi_env__ napi_value__ napi_ref__ napi_handle_scope__ napi_escapable_handle_scope__ )
