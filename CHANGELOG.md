@@ -1,3 +1,9 @@
+# v0.3.0 (unreleased)
+
+## Breaking
+
+- Change enum types in `native_buffer` and `native_window` to newtype pattern.
+
 # v0.2.2 (2024-08-18)
 
 ## Added

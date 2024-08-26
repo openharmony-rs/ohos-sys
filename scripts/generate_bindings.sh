@@ -108,7 +108,7 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --bitfield-enum 'OH_NativeBuffer_Usage' \
     --blocklist-item '_LIBCPP_.*' \
-    --default-enum-style=moduleconsts \
+    --default-enum-style=newtype \
     --no-copy '^OH_NativeBuffer$'  \
     --no-debug '^OH_NativeBuffer$'  \
     --output "${ROOT_DIR}/src/native_buffer/native_buffer_api${OHOS_API_VERSION}.rs" \
@@ -124,7 +124,7 @@ if [[ ${OHOS_API_VERSION} -eq 10 ]]; then
 fi
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --default-enum-style=moduleconsts \
+    --default-enum-style=newtype \
     --no-derive-copy \
     ${block_native_window_operation} \
     --output "${ROOT_DIR}/src/native_window/native_window_api${OHOS_API_VERSION}.rs" \

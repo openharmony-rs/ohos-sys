@@ -53,51 +53,90 @@ impl ::core::ops::BitAndAssign for OH_NativeBuffer_Usage {
 @version 1.0*/
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeBuffer_Usage(pub ::core::ffi::c_uint);
-pub mod OH_NativeBuffer_Format {
-    /** @brief Indicates the format of a native buffer.
-
-    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
-    @since 10
-    @version 1.0*/
-    pub type Type = ::core::ffi::c_uint;
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_565: Type = 3;
-    /// < RGB565 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5658: Type = 4;
-    /// < RGBA5658 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_4444: Type = 5;
-    /// < RGBX4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_4444: Type = 6;
-    /// < RGBA4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_444: Type = 7;
-    /// < RGB444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_5551: Type = 8;
-    /// < RGBX5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5551: Type = 9;
-    /// < RGBA5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_555: Type = 10;
-    /// < RGB555 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_8888: Type = 11;
-    /// < RGBX8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_8888: Type = 12;
-    /// < RGBA8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_888: Type = 13;
-    /// < RGB888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGR_565: Type = 14;
-    /// < BGR565 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_4444: Type = 15;
-    /// < BGRX4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_4444: Type = 16;
-    /// < BGRA4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_5551: Type = 17;
-    /// < BGRX5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_5551: Type = 18;
-    /// < BGRA5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_8888: Type = 19;
-    /// < BGRX8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_8888: Type = 20;
-    /// < BGRA8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BUTT: Type = 2147483647;
+impl OH_NativeBuffer_Format {
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_565: OH_NativeBuffer_Format = OH_NativeBuffer_Format(3);
 }
+impl OH_NativeBuffer_Format {
+    /// < RGB565 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5658: OH_NativeBuffer_Format = OH_NativeBuffer_Format(4);
+}
+impl OH_NativeBuffer_Format {
+    /// < RGBA5658 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(5);
+}
+impl OH_NativeBuffer_Format {
+    /// < RGBX4444 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(6);
+}
+impl OH_NativeBuffer_Format {
+    /// < RGBA4444 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(7);
+}
+impl OH_NativeBuffer_Format {
+    /// < RGB444 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(8);
+}
+impl OH_NativeBuffer_Format {
+    /// < RGBX5551 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(9);
+}
+impl OH_NativeBuffer_Format {
+    /// < RGBA5551 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_555: OH_NativeBuffer_Format = OH_NativeBuffer_Format(10);
+}
+impl OH_NativeBuffer_Format {
+    /// < RGB555 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(11);
+}
+impl OH_NativeBuffer_Format {
+    /// < RGBX8888 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(12);
+}
+impl OH_NativeBuffer_Format {
+    /// < RGBA8888 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(13);
+}
+impl OH_NativeBuffer_Format {
+    /// < RGB888 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_BGR_565: OH_NativeBuffer_Format = OH_NativeBuffer_Format(14);
+}
+impl OH_NativeBuffer_Format {
+    /// < BGR565 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(15);
+}
+impl OH_NativeBuffer_Format {
+    /// < BGRX4444 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(16);
+}
+impl OH_NativeBuffer_Format {
+    /// < BGRA4444 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(17);
+}
+impl OH_NativeBuffer_Format {
+    /// < BGRX5551 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(18);
+}
+impl OH_NativeBuffer_Format {
+    /// < BGRA5551 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(19);
+}
+impl OH_NativeBuffer_Format {
+    /// < BGRX8888 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(20);
+}
+impl OH_NativeBuffer_Format {
+    /// < BGRA8888 format */
+    pub const NATIVEBUFFER_PIXEL_FMT_BUTT: OH_NativeBuffer_Format =
+        OH_NativeBuffer_Format(2147483647);
+}
+#[repr(transparent)]
+/** @brief Indicates the format of a native buffer.
+
+@syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+@since 10
+@version 1.0*/
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_NativeBuffer_Format(pub ::core::ffi::c_uint);
 /** @brief <b>OH_NativeBuffer</b> config. \n
 Used to allocating new <b>OH_NativeBuffer</b> andquery parameters if existing ones.
 

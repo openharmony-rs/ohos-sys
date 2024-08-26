@@ -101,50 +101,86 @@ pub struct Region_Rect {
     pub w: u32,
     pub h: u32,
 }
-pub mod OHScalingMode {
-    /** @brief Indicates Scaling Mode.
-    @since 9
-    @deprecated(since = "10")*/
-    pub type Type = ::core::ffi::c_uint;
+impl OHScalingMode {
     /** the window content is not updated until a buffer of
     the window size is received*/
-    pub const OH_SCALING_MODE_FREEZE: Type = 0;
+    pub const OH_SCALING_MODE_FREEZE: OHScalingMode = OHScalingMode(0);
+}
+impl OHScalingMode {
     /// the buffer is scaled in two dimensions to match the window size
-    pub const OH_SCALING_MODE_SCALE_TO_WINDOW: Type = 1;
+    pub const OH_SCALING_MODE_SCALE_TO_WINDOW: OHScalingMode = OHScalingMode(1);
+}
+impl OHScalingMode {
     /** the buffer is uniformly scaled so that the smaller size of
     the buffer matches the window size*/
-    pub const OH_SCALING_MODE_SCALE_CROP: Type = 2;
+    pub const OH_SCALING_MODE_SCALE_CROP: OHScalingMode = OHScalingMode(2);
+}
+impl OHScalingMode {
     /** the window is clipped to the size of the buffer's clipping rectangle
     pixels outside the clipping rectangle are considered fully transparent.*/
-    pub const OH_SCALING_MODE_NO_SCALE_CROP: Type = 3;
+    pub const OH_SCALING_MODE_NO_SCALE_CROP: OHScalingMode = OHScalingMode(3);
 }
-pub mod OHHDRMetadataKey {
-    /** @brief Enumerates the HDR metadata keys.
-    @since 9
-    @deprecated(since = "10")*/
-    pub type Type = ::core::ffi::c_uint;
-    pub const OH_METAKEY_RED_PRIMARY_X: Type = 0;
-    pub const OH_METAKEY_RED_PRIMARY_Y: Type = 1;
-    pub const OH_METAKEY_GREEN_PRIMARY_X: Type = 2;
-    pub const OH_METAKEY_GREEN_PRIMARY_Y: Type = 3;
-    pub const OH_METAKEY_BLUE_PRIMARY_X: Type = 4;
-    pub const OH_METAKEY_BLUE_PRIMARY_Y: Type = 5;
-    pub const OH_METAKEY_WHITE_PRIMARY_X: Type = 6;
-    pub const OH_METAKEY_WHITE_PRIMARY_Y: Type = 7;
-    pub const OH_METAKEY_MAX_LUMINANCE: Type = 8;
-    pub const OH_METAKEY_MIN_LUMINANCE: Type = 9;
-    pub const OH_METAKEY_MAX_CONTENT_LIGHT_LEVEL: Type = 10;
-    pub const OH_METAKEY_MAX_FRAME_AVERAGE_LIGHT_LEVEL: Type = 11;
-    pub const OH_METAKEY_HDR10_PLUS: Type = 12;
-    pub const OH_METAKEY_HDR_VIVID: Type = 13;
+#[repr(transparent)]
+/** @brief Indicates Scaling Mode.
+@since 9
+@deprecated(since = "10")*/
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
+pub struct OHScalingMode(pub ::core::ffi::c_uint);
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_RED_PRIMARY_X: OHHDRMetadataKey = OHHDRMetadataKey(0);
 }
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_RED_PRIMARY_Y: OHHDRMetadataKey = OHHDRMetadataKey(1);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_GREEN_PRIMARY_X: OHHDRMetadataKey = OHHDRMetadataKey(2);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_GREEN_PRIMARY_Y: OHHDRMetadataKey = OHHDRMetadataKey(3);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_BLUE_PRIMARY_X: OHHDRMetadataKey = OHHDRMetadataKey(4);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_BLUE_PRIMARY_Y: OHHDRMetadataKey = OHHDRMetadataKey(5);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_WHITE_PRIMARY_X: OHHDRMetadataKey = OHHDRMetadataKey(6);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_WHITE_PRIMARY_Y: OHHDRMetadataKey = OHHDRMetadataKey(7);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_MAX_LUMINANCE: OHHDRMetadataKey = OHHDRMetadataKey(8);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_MIN_LUMINANCE: OHHDRMetadataKey = OHHDRMetadataKey(9);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_MAX_CONTENT_LIGHT_LEVEL: OHHDRMetadataKey = OHHDRMetadataKey(10);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_MAX_FRAME_AVERAGE_LIGHT_LEVEL: OHHDRMetadataKey = OHHDRMetadataKey(11);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_HDR10_PLUS: OHHDRMetadataKey = OHHDRMetadataKey(12);
+}
+impl OHHDRMetadataKey {
+    pub const OH_METAKEY_HDR_VIVID: OHHDRMetadataKey = OHHDRMetadataKey(13);
+}
+#[repr(transparent)]
+/** @brief Enumerates the HDR metadata keys.
+@since 9
+@deprecated(since = "10")*/
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
+pub struct OHHDRMetadataKey(pub ::core::ffi::c_uint);
 /** @brief Defines the HDR metadata.
 @since 9
 @deprecated(since = "10")*/
 #[repr(C)]
 #[derive(Debug)]
 pub struct OHHDRMetaData {
-    pub key: OHHDRMetadataKey::Type,
+    pub key: OHHDRMetadataKey,
     pub value: f32,
 }
 /** @brief Defines the ExtData Handle
@@ -295,7 +331,7 @@ extern "C" {
     pub fn OH_NativeWindow_NativeWindowSetScalingMode(
         window: *mut OHNativeWindow,
         sequence: u32,
-        scalingMode: OHScalingMode::Type,
+        scalingMode: OHScalingMode,
     ) -> i32;
     /** @brief Sets metaData of a native window.
 
@@ -329,7 +365,7 @@ extern "C" {
     pub fn OH_NativeWindow_NativeWindowSetMetaDataSet(
         window: *mut OHNativeWindow,
         sequence: u32,
-        key: OHHDRMetadataKey::Type,
+        key: OHHDRMetadataKey,
         size: i32,
         metaData: *const u8,
     ) -> i32;
