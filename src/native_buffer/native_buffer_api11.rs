@@ -53,123 +53,249 @@ impl ::core::ops::BitAndAssign for OH_NativeBuffer_Usage {
 @version 1.0*/
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeBuffer_Usage(pub ::core::ffi::c_uint);
-pub mod OH_NativeBuffer_Format {
-    /** @brief Indicates the format of a native buffer.
-
-    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
-    @since 10
-    @version 1.0*/
-    pub type Type = ::core::ffi::c_uint;
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_565: Type = 3;
+impl OH_NativeBuffer_Format {
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_565: OH_NativeBuffer_Format = OH_NativeBuffer_Format(3);
+}
+impl OH_NativeBuffer_Format {
     /// < RGB565 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5658: Type = 4;
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5658: OH_NativeBuffer_Format = OH_NativeBuffer_Format(4);
+}
+impl OH_NativeBuffer_Format {
     /// < RGBA5658 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_4444: Type = 5;
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(5);
+}
+impl OH_NativeBuffer_Format {
     /// < RGBX4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_4444: Type = 6;
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(6);
+}
+impl OH_NativeBuffer_Format {
     /// < RGBA4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_444: Type = 7;
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(7);
+}
+impl OH_NativeBuffer_Format {
     /// < RGB444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_5551: Type = 8;
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(8);
+}
+impl OH_NativeBuffer_Format {
     /// < RGBX5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5551: Type = 9;
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(9);
+}
+impl OH_NativeBuffer_Format {
     /// < RGBA5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_555: Type = 10;
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_555: OH_NativeBuffer_Format = OH_NativeBuffer_Format(10);
+}
+impl OH_NativeBuffer_Format {
     /// < RGB555 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_8888: Type = 11;
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(11);
+}
+impl OH_NativeBuffer_Format {
     /// < RGBX8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_8888: Type = 12;
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(12);
+}
+impl OH_NativeBuffer_Format {
     /// < RGBA8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_888: Type = 13;
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(13);
+}
+impl OH_NativeBuffer_Format {
     /// < RGB888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGR_565: Type = 14;
+    pub const NATIVEBUFFER_PIXEL_FMT_BGR_565: OH_NativeBuffer_Format = OH_NativeBuffer_Format(14);
+}
+impl OH_NativeBuffer_Format {
     /// < BGR565 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_4444: Type = 15;
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(15);
+}
+impl OH_NativeBuffer_Format {
     /// < BGRX4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_4444: Type = 16;
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(16);
+}
+impl OH_NativeBuffer_Format {
     /// < BGRA4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_5551: Type = 17;
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(17);
+}
+impl OH_NativeBuffer_Format {
     /// < BGRX5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_5551: Type = 18;
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(18);
+}
+impl OH_NativeBuffer_Format {
     /// < BGRA5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_8888: Type = 19;
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(19);
+}
+impl OH_NativeBuffer_Format {
     /// < BGRX8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_8888: Type = 20;
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(20);
+}
+impl OH_NativeBuffer_Format {
     /// < BGRA8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BUTT: Type = 2147483647;
+    pub const NATIVEBUFFER_PIXEL_FMT_BUTT: OH_NativeBuffer_Format =
+        OH_NativeBuffer_Format(2147483647);
 }
-pub mod OH_NativeBuffer_ColorSpace {
-    /** @brief Indicates the color space of a native buffer.
+#[repr(transparent)]
+/** @brief Indicates the format of a native buffer.
 
-    @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
-    @since 11
-    @version 1.0*/
-    pub type Type = ::core::ffi::c_uint;
+@syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+@since 10
+@version 1.0*/
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_NativeBuffer_Format(pub ::core::ffi::c_uint);
+impl OH_NativeBuffer_ColorSpace {
     /// None color space
-    pub const OH_COLORSPACE_NONE: Type = 0;
-    /// COLORPRIMARIES_BT601_P | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_P << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_BT601_EBU_FULL: Type = 1;
-    /// COLORPRIMARIES_BT601_N | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_N << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_BT601_SMPTE_C_FULL: Type = 2;
-    /// COLORPRIMARIES_BT709 | (TRANSFUNC_BT709 << 8) | (MATRIX_BT709 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_BT709_FULL: Type = 3;
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_HLG << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_BT2020_HLG_FULL: Type = 4;
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_PQ << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_BT2020_PQ_FULL: Type = 5;
-    /// COLORPRIMARIES_BT601_P | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_P << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_BT601_EBU_LIMIT: Type = 6;
-    /// COLORPRIMARIES_BT601_N | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_N << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_BT601_SMPTE_C_LIMIT: Type = 7;
-    /// COLORPRIMARIES_BT709 | (TRANSFUNC_BT709 << 8) | (MATRIX_BT709 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_BT709_LIMIT: Type = 8;
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_HLG << 8) | (MATRIX_BT2020 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_BT2020_HLG_LIMIT: Type = 9;
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_PQ << 8) | (MATRIX_BT2020 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_BT2020_PQ_LIMIT: Type = 10;
-    /// COLORPRIMARIES_SRGB | (TRANSFUNC_SRGB << 8) | (MATRIX_BT601_N << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_SRGB_FULL: Type = 11;
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_SRGB << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_P3_FULL: Type = 12;
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_HLG << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_P3_HLG_FULL: Type = 13;
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_PQ << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_P3_PQ_FULL: Type = 14;
-    /// COLORPRIMARIES_ADOBERGB | (TRANSFUNC_ADOBERGB << 8) | (MATRIX_ADOBERGB << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_ADOBERGB_FULL: Type = 15;
-    /// COLORPRIMARIES_SRGB | (TRANSFUNC_SRGB << 8) | (MATRIX_BT601_N << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_SRGB_LIMIT: Type = 16;
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_SRGB << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_P3_LIMIT: Type = 17;
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_HLG << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_P3_HLG_LIMIT: Type = 18;
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_PQ << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_P3_PQ_LIMIT: Type = 19;
-    /// COLORPRIMARIES_ADOBERGB | (TRANSFUNC_ADOBERGB << 8) | (MATRIX_ADOBERGB << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_ADOBERGB_LIMIT: Type = 20;
-    /// COLORPRIMARIES_SRGB | (TRANSFUNC_LINEAR << 8)
-    pub const OH_COLORSPACE_LINEAR_SRGB: Type = 21;
-    /// equal to OH_COLORSPACE_LINEAR_SRGB
-    pub const OH_COLORSPACE_LINEAR_BT709: Type = 22;
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_LINEAR << 8)
-    pub const OH_COLORSPACE_LINEAR_P3: Type = 23;
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_LINEAR << 8)
-    pub const OH_COLORSPACE_LINEAR_BT2020: Type = 24;
-    /// equal to OH_COLORSPACE_SRGB_FULL
-    pub const OH_COLORSPACE_DISPLAY_SRGB: Type = 25;
-    /// equal to OH_COLORSPACE_P3_FULL
-    pub const OH_COLORSPACE_DISPLAY_P3_SRGB: Type = 26;
-    /// equal to OH_COLORSPACE_P3_HLG_FULL
-    pub const OH_COLORSPACE_DISPLAY_P3_HLG: Type = 27;
-    /// equal to OH_COLORSPACE_P3_PQ_FULL
-    pub const OH_COLORSPACE_DISPLAY_P3_PQ: Type = 28;
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_SRGB << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_DISPLAY_BT2020_SRGB: Type = 29;
-    /// equal to OH_COLORSPACE_BT2020_HLG_FULL
-    pub const OH_COLORSPACE_DISPLAY_BT2020_HLG: Type = 30;
-    /// equal to OH_COLORSPACE_BT2020_PQ_FULL
-    pub const OH_COLORSPACE_DISPLAY_BT2020_PQ: Type = 31;
+    pub const OH_COLORSPACE_NONE: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(0);
 }
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT601_P | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_P << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_BT601_EBU_FULL: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(1);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT601_N | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_N << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_BT601_SMPTE_C_FULL: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(2);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT709 | (TRANSFUNC_BT709 << 8) | (MATRIX_BT709 << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_BT709_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(3);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_HLG << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_BT2020_HLG_FULL: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(4);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_PQ << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_BT2020_PQ_FULL: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(5);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT601_P | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_P << 16) | (RANGE_LIMITED << 21)
+    pub const OH_COLORSPACE_BT601_EBU_LIMIT: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(6);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT601_N | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_N << 16) | (RANGE_LIMITED << 21)
+    pub const OH_COLORSPACE_BT601_SMPTE_C_LIMIT: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(7);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT709 | (TRANSFUNC_BT709 << 8) | (MATRIX_BT709 << 16) | (RANGE_LIMITED << 21)
+    pub const OH_COLORSPACE_BT709_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(8);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_HLG << 8) | (MATRIX_BT2020 << 16) | (RANGE_LIMITED << 21)
+    pub const OH_COLORSPACE_BT2020_HLG_LIMIT: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(9);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_PQ << 8) | (MATRIX_BT2020 << 16) | (RANGE_LIMITED << 21)
+    pub const OH_COLORSPACE_BT2020_PQ_LIMIT: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(10);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_SRGB | (TRANSFUNC_SRGB << 8) | (MATRIX_BT601_N << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_SRGB_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(11);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_SRGB << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_P3_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(12);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_HLG << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_P3_HLG_FULL: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(13);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_PQ << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_P3_PQ_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(14);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_ADOBERGB | (TRANSFUNC_ADOBERGB << 8) | (MATRIX_ADOBERGB << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_ADOBERGB_FULL: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(15);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_SRGB | (TRANSFUNC_SRGB << 8) | (MATRIX_BT601_N << 16) | (RANGE_LIMITED << 21)
+    pub const OH_COLORSPACE_SRGB_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(16);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_SRGB << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
+    pub const OH_COLORSPACE_P3_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(17);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_HLG << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
+    pub const OH_COLORSPACE_P3_HLG_LIMIT: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(18);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_PQ << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
+    pub const OH_COLORSPACE_P3_PQ_LIMIT: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(19);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_ADOBERGB | (TRANSFUNC_ADOBERGB << 8) | (MATRIX_ADOBERGB << 16) | (RANGE_LIMITED << 21)
+    pub const OH_COLORSPACE_ADOBERGB_LIMIT: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(20);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_SRGB | (TRANSFUNC_LINEAR << 8)
+    pub const OH_COLORSPACE_LINEAR_SRGB: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(21);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// equal to OH_COLORSPACE_LINEAR_SRGB
+    pub const OH_COLORSPACE_LINEAR_BT709: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(22);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_LINEAR << 8)
+    pub const OH_COLORSPACE_LINEAR_P3: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(23);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_LINEAR << 8)
+    pub const OH_COLORSPACE_LINEAR_BT2020: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(24);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// equal to OH_COLORSPACE_SRGB_FULL
+    pub const OH_COLORSPACE_DISPLAY_SRGB: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(25);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// equal to OH_COLORSPACE_P3_FULL
+    pub const OH_COLORSPACE_DISPLAY_P3_SRGB: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(26);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// equal to OH_COLORSPACE_P3_HLG_FULL
+    pub const OH_COLORSPACE_DISPLAY_P3_HLG: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(27);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// equal to OH_COLORSPACE_P3_PQ_FULL
+    pub const OH_COLORSPACE_DISPLAY_P3_PQ: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(28);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_SRGB << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
+    pub const OH_COLORSPACE_DISPLAY_BT2020_SRGB: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(29);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// equal to OH_COLORSPACE_BT2020_HLG_FULL
+    pub const OH_COLORSPACE_DISPLAY_BT2020_HLG: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(30);
+}
+impl OH_NativeBuffer_ColorSpace {
+    /// equal to OH_COLORSPACE_BT2020_PQ_FULL
+    pub const OH_COLORSPACE_DISPLAY_BT2020_PQ: OH_NativeBuffer_ColorSpace =
+        OH_NativeBuffer_ColorSpace(31);
+}
+#[repr(transparent)]
+/** @brief Indicates the color space of a native buffer.
+
+@syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+@since 11
+@version 1.0*/
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_NativeBuffer_ColorSpace(pub ::core::ffi::c_uint);
 /** @brief <b>OH_NativeBuffer</b> config. \n
 Used to allocating new <b>OH_NativeBuffer</b> andquery parameters if existing ones.
 
@@ -268,6 +394,6 @@ extern "C" {
     @version 1.0*/
     pub fn OH_NativeBuffer_SetColorSpace(
         buffer: *mut OH_NativeBuffer,
-        colorSpace: OH_NativeBuffer_ColorSpace::Type,
+        colorSpace: OH_NativeBuffer_ColorSpace,
     ) -> i32;
 }
