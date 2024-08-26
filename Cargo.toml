@@ -26,6 +26,8 @@ hilog = []
 napi = []
 ## Enables bindings to `native_buffer`
 native_buffer = ['native_window']
+## Enables bindings to `native_image`
+native_image = ['native_window']
 ## Enables bindings to `native_window`
 native_window = ['native_buffer']
 ## Enables bindings to `native_vsync`

@@ -119,6 +119,19 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     -x c++ \
     "${BASE_CLANG_ARGS[@]}"
 
+bindgen "${BASE_BINDGEN_ARGS[@]}" \
+    --raw-line="use crate::native_window::OHNativeWindow;" \
+    --allowlist-file ".*/native_image/.*\.h" \
+    --blocklist-item '^(OH)?NativeWindow?$' \
+    --default-enum-style=newtype \
+    --no-copy '^OH_NativeImage$'  \
+    --no-copy 'OH_OnFrameAvailableListener' \
+    --no-debug '^OH_NativeImage$'  \
+    --output "${ROOT_DIR}/src/native_image/native_image_api${OHOS_API_VERSION}.rs" \
+    "${OHOS_SYSROOT_DIR}/usr/include/native_image/native_image.h" \
+    -- \
+    "${BASE_CLANG_ARGS[@]}"
+
 # NativeWindowOperation has wrong documentation for one of the parameters in API 10.
 block_native_window_operation=""
 if [[ ${OHOS_API_VERSION} -eq 10 ]]; then
