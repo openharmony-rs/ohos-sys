@@ -31,6 +31,10 @@ pub mod napi;
 #[cfg_attr(docsrs, doc(cfg(feature = "native_buffer")))]
 pub mod native_buffer;
 
+#[cfg(feature = "native_image")]
+#[cfg_attr(docsrs, doc(cfg(feature = "native_image")))]
+pub mod native_image;
+
 #[cfg(feature = "native_window")]
 #[cfg_attr(docsrs, doc(cfg(feature = "native_window")))]
 pub mod native_window;
