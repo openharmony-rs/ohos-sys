@@ -106,10 +106,12 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     "${BASE_CLANG_ARGS[@]}"
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
+    --allowlist-file ".*/native_buffer/.*\.h" \
     --bitfield-enum 'OH_NativeBuffer_Usage' \
-    --blocklist-item '_LIBCPP_.*' \
+    --blocklist-item '^(OH)?NativeWindow(Buffer)?$' \
     --default-enum-style=newtype \
     --no-copy '^OH_NativeBuffer$'  \
+    --no-copy '^OHIPCParcel$' \
     --no-debug '^OH_NativeBuffer$'  \
     --output "${ROOT_DIR}/src/native_buffer/native_buffer_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/native_buffer/native_buffer.h" \
