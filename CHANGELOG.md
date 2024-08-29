@@ -1,8 +1,15 @@
-# v0.3.0 (unreleased)
+# v0.3.0 (2024-08-29)
 
 ## Breaking
 
 - Change enum types in `native_buffer` and `native_window` to newtype pattern.
+
+## Added
+
+- deviceinfo bindings 
+- native_buffer API-12 bindings
+- native_image bindings
+- syscap bindings
 
 # v0.2.2 (2024-08-18)
 
