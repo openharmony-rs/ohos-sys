@@ -14,6 +14,12 @@
 )]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+#[cfg(feature = "deviceinfo")]
+#[cfg_attr(docsrs, doc(cfg(feature = "deviceinfo")))]
+pub mod deviceinfo {
+    pub use ohos_deviceinfo_sys::*;
+}
+
 #[cfg(feature = "drawing")]
 #[cfg_attr(docsrs, doc(cfg(feature = "drawing")))]
 pub mod drawing {
