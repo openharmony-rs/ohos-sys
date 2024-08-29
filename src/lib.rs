@@ -39,6 +39,9 @@ pub mod native_image;
 #[cfg_attr(docsrs, doc(cfg(feature = "native_window")))]
 pub mod native_window;
 
+// It's just one function, so we don't feature guard this.
+pub mod syscap;
+
 #[cfg(feature = "vsync")]
 #[cfg_attr(docsrs, doc(cfg(feature = "vsync")))]
 pub mod vsync;
