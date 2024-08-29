@@ -1,0 +1,34 @@
+[package]
+name = "ohos-deviceinfo-sys"
+version = "0.1.0"
+edition = "2021"
+description = "Bindings to OpenHarmony OS APIs providing information about the device"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "ffi", "device"]
+exclude = ["src/api11.rs", "src/api12.rs"]
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+
+[features]
+default = ["api-10"]
+
+#! ### OpenHarmony API level
+#! This crate by default exposes bindings for API-level 10.
+#! Optionally enable one of the `api-*` features to get access to bindings for newer
+#! OpenHarmony versions.
+
+## No effect. API-10 bindings can't be deselected. The feature exists for internal purposes.
+api-10 = []
+## Enables API-11. No changes or additions compared to API-10
+api-11 = []
+## Enables API-12. No changes or additions compared to API-11
+api-12 = []
+## Document available features when building the documentation
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true

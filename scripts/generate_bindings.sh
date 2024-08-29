@@ -68,6 +68,13 @@ set -x
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
+    --output "${ROOT_DIR}/components/deviceinfo/src/deviceinfo_api${OHOS_API_VERSION}.rs" \
+    "${OHOS_SYSROOT_DIR}/usr/include/deviceinfo.h" \
+    -- \
+    "${BASE_CLANG_ARGS[@]}"
+
+bindgen "${BASE_BINDGEN_ARGS[@]}" \
+    --default-enum-style=newtype \
     --output "${ROOT_DIR}/src/hilog/hilog_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h" \
     -- \

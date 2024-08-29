@@ -16,9 +16,12 @@ members = ["components/*"]
 [dependencies]
 document-features = { version = "0.2", optional = true }
 ohos-drawing-sys = { path = "components/drawing", version = "0.1", optional = true}
+ohos-deviceinfo-sys = { version = "0.1", optional = true, path = "components/deviceinfo"}
 
 [features]
 default = ["api-10"]
+## Enables bindings to `deviceinfo.h`. Re-exports `ohos-deviceinfo-sys`
+deviceinfo = ["dep:ohos-deviceinfo-sys"]
 ## Enables bindings to `native_drawing`. Re-exports `ohos-drawing-sys`.
 drawing = ["dep:ohos-drawing-sys"]
 ## Enables bindings to `hilog`
@@ -37,6 +40,7 @@ vsync = []
 xcomponent = []
 ## Enables all components listed above. Orthogonal to `api-XX` features.
 all-components = [
+    "deviceinfo",
     "drawing",
     "hilog",
     "napi",
@@ -54,10 +58,16 @@ all-components = [
 ## No effect. API-10 bindings can't be deselected. The feature exists for internal purposes.
 api-10 = []
 ## Enables bindings for OpenHarmony API-level 11
-api-11 = ["api-10", "ohos-drawing-sys?/api-11"]
+api-11 = ["api-10",
+    "ohos-deviceinfo-sys?/api-11",
+    "ohos-drawing-sys?/api-11"
+    ]
 ## **EXPERIMENTAL**: Enables bindings for OpenHarmony API-level 12 (beta-1).
 ## Will stabilize once the final version has been released.
-api-12 = ["api-11", "ohos-drawing-sys?/api-12"]
+api-12 = ["api-11",
+    "ohos-deviceinfo-sys?/api-12",
+    "ohos-drawing-sys?/api-12"
+    ]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 
