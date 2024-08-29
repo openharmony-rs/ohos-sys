@@ -18,6 +18,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b4ce301924b7887e9d637144fdade93f9dfff9b60981d4ac161db09720d39aa5"
 
 [[package]]
+name = "ohos-deviceinfo-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-drawing-sys"
 version = "0.1.1"
 dependencies = [
@@ -29,5 +36,6 @@ name = "ohos-sys"
 version = "0.3.0"
 dependencies = [
  "document-features",
+ "ohos-deviceinfo-sys",
  "ohos-drawing-sys",
 ]
