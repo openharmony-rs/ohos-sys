@@ -41,6 +41,7 @@ all-components = [
     "hilog",
     "napi",
     "native_buffer",
+    "native_image",
     "native_window",
     "xcomponent",
     "vsync"]
