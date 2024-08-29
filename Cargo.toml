@@ -8,9 +8,10 @@ repository = "https://github.com/openharmony-rs/ohos-sys"
 keywords = ["OpenHarmony", "HarmonyOS", "ffi"]
 exclude = ["src/**/*_api11.rs", "src/**/*_api12.rs"]
 readme = "Readme.md"
+resolver = "2"
 
 [workspace]
-members = ["components/drawing"]
+members = ["components/*"]
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
@@ -52,10 +53,10 @@ all-components = [
 ## No effect. API-10 bindings can't be deselected. The feature exists for internal purposes.
 api-10 = []
 ## Enables bindings for OpenHarmony API-level 11
-api-11 = ["api-10"]
+api-11 = ["api-10", "ohos-drawing-sys?/api-11"]
 ## **EXPERIMENTAL**: Enables bindings for OpenHarmony API-level 12 (beta-1).
 ## Will stabilize once the final version has been released.
-api-12 = ["api-11"]
+api-12 = ["api-11", "ohos-drawing-sys?/api-12"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 
