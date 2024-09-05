@@ -1,6 +1,6 @@
 [package]
 name = "hitrace-sys"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 keywords = ["OpenHarmony", "HarmonyOS", "hitrace", "tracing"]
 license = "Apache-2.0"
@@ -8,3 +8,18 @@ description = "Bindings to the HiTrace tracing system of OpenHarmony"
 repository = "https://github.com/openharmony-rs/ohos-sys"
 readme = "README.md"
 include = ["/src"]
+exclude = ["src/hitrace_api11.rs", "src/hitrace_api12.rs"]
+
+[features]
+default = ["api-10"]
+#! ### OpenHarmony API level
+#! This crate by default exposes bindings for API-level 10.
+#! Optionally enable one of the `api-*` features to get access to bindings for newer
+#! OpenHarmony versions.
+
+## No effect. API-10 bindings can't be deselected. The feature exists for internal purposes.
+api-10 = []
+## Enables bindings for OpenHarmony API-level 11 (No additions)
+api-11 = ["api-10"]
+## Enables bindings for OpenHarmony API-level 12
+api-12 = ["api-11"]
