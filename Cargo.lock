@@ -37,9 +37,10 @@ dependencies = [
 
 [[package]]
 name = "ohos-sys"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "document-features",
+ "hitrace-sys",
  "ohos-deviceinfo-sys",
  "ohos-drawing-sys",
 ]

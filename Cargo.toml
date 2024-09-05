@@ -1,6 +1,6 @@
 [package]
 name = "ohos-sys"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2021"
 description = "Bindings to the native API of OpenHarmony OS"
 license = "Apache-2.0"
@@ -17,6 +17,7 @@ members = ["components/*"]
 document-features = { version = "0.2", optional = true }
 ohos-drawing-sys = { path = "components/drawing", version = "0.1", optional = true}
 ohos-deviceinfo-sys = { version = "0.1", optional = true, path = "components/deviceinfo"}
+hitrace-sys = { version = "0.1.2", optional = true, path = "components/hitrace"}
 
 [features]
 default = ["api-10"]
@@ -26,6 +27,8 @@ deviceinfo = ["dep:ohos-deviceinfo-sys"]
 drawing = ["dep:ohos-drawing-sys"]
 ## Enables bindings to `hilog`
 hilog = []
+## Enables bindings to `hitrace`
+hitrace = ["dep:hitrace-sys"]
 ## Enables bindings to `napi`
 napi = []
 ## Enables bindings to `native_buffer`
@@ -60,14 +63,16 @@ api-10 = []
 ## Enables bindings for OpenHarmony API-level 11
 api-11 = ["api-10",
     "ohos-deviceinfo-sys?/api-11",
-    "ohos-drawing-sys?/api-11"
+    "ohos-drawing-sys?/api-11",
+    "hitrace-sys?/api-11"
     ]
 ## **EXPERIMENTAL**: Enables bindings for OpenHarmony API-level 12 (beta-1).
 ## Will stabilize once the final version has been released.
 api-12 = ["api-11",
     "ohos-deviceinfo-sys?/api-12",
-    "ohos-drawing-sys?/api-12"
-    ]
+    "ohos-drawing-sys?/api-12",
+    "hitrace-sys?/api-12"
+]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 

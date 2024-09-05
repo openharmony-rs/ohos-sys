@@ -6,6 +6,7 @@
 //!
 //! [`HiTrace`]: https://gitee.com/openharmony/hiviewdfx_hitrace
 //! [Hitrace NDK guidelines]: https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/dfx/hitracemeter-guidelines-ndk.md
+#![cfg_attr(docsrs, feature(doc_cfg))]
 
 #[link(name = "hitrace_ndk.z")]
 extern "C" {}

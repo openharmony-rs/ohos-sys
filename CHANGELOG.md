@@ -1,3 +1,9 @@
+# v0.3.1 (2024-09-05)
+
+## Add
+
+- Re-export hitrace-sys binding (behind hitrace feature)
+
 # v0.3.0 (2024-08-29)
 
 ## Breaking
