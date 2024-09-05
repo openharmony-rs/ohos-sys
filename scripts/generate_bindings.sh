@@ -89,8 +89,13 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --output "${ROOT_DIR}/components/hitrace/src/hitrace_api${OHOS_API_VERSION}.rs" \
+    --default-enum-style=newtype \
+    --bitfield-enum "^HiTrace_Flag$" \
     --allowlist-file="${OHOS_SYSROOT_DIR}/usr/include/hitrace/trace.h" \
-    "${OHOS_SYSROOT_DIR}/usr/include/hitrace/trace.h"
+    "${OHOS_SYSROOT_DIR}/usr/include/hitrace/trace.h" \
+    -- \
+    -include "stdbool.h" \
+    "${BASE_CLANG_ARGS[@]}"
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
@@ -102,7 +107,7 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --output "${ROOT_DIR}/src/xcomponent/xcomponent_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h" \
     -- \
-     -x c++ \
+    -x c++ \
     "${BASE_CLANG_ARGS[@]}"
 
 NAPI_NOCOPY_STRUCTS=(napi_env__ napi_value__ napi_ref__ napi_handle_scope__ napi_escapable_handle_scope__ )

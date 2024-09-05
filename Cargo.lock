@@ -12,6 +12,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "hitrace-sys"
+version = "0.1.2"
+
+[[package]]
 name = "litrs"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
