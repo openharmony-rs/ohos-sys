@@ -18,8 +18,6 @@ extern "C" {
     @syscap SystemCapability.HiviewDFX.HiTrace
     @since 10*/
     pub fn OH_HiTrace_StartTrace(name: *const ::core::ffi::c_char);
-}
-extern "C" {
     /** @brief Marks the end of a synchronous trace task.
 
     This API must be used with <b>OH_HiTrace_StartTrace</b> in pairs. During trace data parsing, the system matches
@@ -28,8 +26,6 @@ extern "C" {
     @syscap SystemCapability.HiviewDFX.HiTrace
     @since 10*/
     pub fn OH_HiTrace_FinishTrace();
-}
-extern "C" {
     /** @brief Marks the start of an asynchronous trace task.
 
     This API is called to implement performance trace in asynchronous manner. The start and end of an asynchronous
@@ -49,8 +45,6 @@ extern "C" {
     @syscap SystemCapability.HiviewDFX.HiTrace
     @since 10*/
     pub fn OH_HiTrace_StartAsyncTrace(name: *const ::core::ffi::c_char, taskId: i32);
-}
-extern "C" {
     /** @brief Marks the end of an asynchronous trace task.
 
     This API is called in the callback function after an asynchronous trace is complete.
@@ -65,8 +59,6 @@ extern "C" {
     @syscap SystemCapability.HiviewDFX.HiTrace
     @since 10*/
     pub fn OH_HiTrace_FinishAsyncTrace(name: *const ::core::ffi::c_char, taskId: i32);
-}
-extern "C" {
     /** @brief Traces the value change of an integer variable based on its name.
 
     This API can be executed for multiple times to trace the value change of a given integer variable at different
