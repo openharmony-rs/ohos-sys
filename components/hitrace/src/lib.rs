@@ -6,5 +6,9 @@
 //!
 //! [`HiTrace`]: https://gitee.com/openharmony/hiviewdfx_hitrace
 //! [Hitrace NDK guidelines]: https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/dfx/hitracemeter-guidelines-ndk.md
+
+#[link(name = "hitrace_ndk.z")]
+extern "C" {}
+
 mod hitrace_api10;
 pub use hitrace_api10::*;
