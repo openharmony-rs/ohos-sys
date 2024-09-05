@@ -29,6 +29,12 @@ pub mod drawing {
 #[cfg_attr(docsrs, doc(cfg(feature = "hilog")))]
 pub mod hilog;
 
+#[cfg(feature = "hitrace")]
+#[cfg_attr(docsrs, doc(cfg(feature = "hitrace")))]
+pub mod hitrace {
+    pub use hitrace_sys::*;
+}
+
 #[cfg(feature = "napi")]
 #[cfg_attr(docsrs, doc(cfg(feature = "napi")))]
 pub mod napi;
