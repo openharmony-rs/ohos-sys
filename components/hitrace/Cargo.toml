@@ -1,0 +1,10 @@
+[package]
+name = "hitrace-sys"
+version = "0.1.1"
+edition = "2021"
+keywords = ["OpenHarmony", "HarmonyOS", "hitrace", "tracing"]
+license = "Apache-2.0"
+description = "Bindings to the HiTrace tracing system of OpenHarmony"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+readme = "README.md"
+include = ["/src"]
