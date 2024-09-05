@@ -90,10 +90,6 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --output "${ROOT_DIR}/components/hitrace/src/hitrace_api${OHOS_API_VERSION}.rs" \
     --allowlist-file="${OHOS_SYSROOT_DIR}/usr/include/hitrace/trace.h" \
-    --raw-line='' \
-    --raw-line='#[link(name="hitrace_ndk.z")]' \
-    --raw-line='extern "C" {}' \
-    --raw-line='' \
     "${OHOS_SYSROOT_DIR}/usr/include/hitrace/trace.h"
 
 bindgen "${BASE_BINDGEN_ARGS[@]}" \

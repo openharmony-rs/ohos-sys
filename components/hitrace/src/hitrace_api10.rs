@@ -4,9 +4,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-#[link(name = "hitrace_ndk.z")]
-extern "C" {}
-
 extern "C" {
     /** @brief Marks the start of a synchronous trace task.
 
