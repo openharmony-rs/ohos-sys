@@ -225,6 +225,8 @@ for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; d
     additional_args_var_name="DRAWING_${rust_name}_ADDITIONAL_ARGS"
     if [[ ! -z "${!additional_args_var_name+x}" ]]; then
         echo "Have additional args!"
+        # Add [@] to the name, so that the indirect expansion via `${!name}` expands everything.
+        additional_args_var_name="${additional_args_var_name}[@]"
         rs_includes+=( "${!additional_args_var_name}" )
     fi
     # We want to commit all generated files to version control, so we can easily see if something changed,
@@ -247,13 +249,73 @@ for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; d
         "${rs_includes[@]}" \
         "${DRAWING_NOCOPY_ARGS[@]}" \
         --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
-        "${OHOS_SYSROOT_DIR}/usr/include/native_drawing/${drawing_header}" \
+        "${abs_drawing_header}" \
         -- "${BASE_CLANG_ARGS[@]}" \
         -x c++ \
         -include stdbool.h \
         -include stddef.h \
         -include stdint.h
 done
+
+IME_text_editor_proxy_ADDITIONAL_ARGS=("--raw-line=use crate::private_command::InputMethod_PrivateCommand;")
+IME_text_editor_proxy_ADDITIONAL_ARGS+=("--raw-line=use crate::text_config::InputMethod_TextConfig;")
+IME_text_config_ADDITIONAL_ARGS=("--raw-line=use crate::text_avoid_info::InputMethod_TextAvoidInfo;")
+IME_text_config_ADDITIONAL_ARGS+=("--raw-line=use crate::cursor_info::InputMethod_CursorInfo;")
+IME_inputmethod_proxy_ADDITIONAL_ARGS=("--raw-line=use crate::private_command::InputMethod_PrivateCommand;")
+IME_inputmethod_proxy_ADDITIONAL_ARGS+=("--raw-line=use crate::cursor_info::InputMethod_CursorInfo;")
+IME_controller_ADDITIONAL_ARGS=("--raw-line=use crate::inputmethod_proxy::InputMethod_InputMethodProxy;")
+IME_controller_ADDITIONAL_ARGS+=("--raw-line=use crate::text_editor_proxy::InputMethod_TextEditorProxy;")
+IME_controller_ADDITIONAL_ARGS+=("--raw-line=use crate::attach_options::InputMethod_AttachOptions;")
+
+if (( OHOS_API_VERSION >= 12)); then
+    for abs_ime_header in "${OHOS_SYSROOT_DIR}/usr/include/inputmethod"/* ; do
+        ime_header=$(basename "${abs_ime_header}")
+        echo "Generating bindings for ${ime_header}"
+        rust_name=${ime_header#"inputmethod_"}
+        rust_name=${rust_name%"_capi.h"}
+        output_dir="${ROOT_DIR}/components/inputmethod/src/${rust_name}"
+        if [ ! -d "${output_dir}" ]; then
+            mkdir "${output_dir}"
+        fi
+        rs_includes=()
+        if [[ "${rust_name}" != "types" ]]; then
+            rs_includes+=("--raw-line=use crate::types::*;")
+        fi
+        additional_args_var_name="IME_${rust_name}_ADDITIONAL_ARGS"
+        if [[ ! -z "${!additional_args_var_name+x}" ]]; then
+            echo "Have additional args!"
+            additional_args_var_name="${additional_args_var_name}[@]"
+            rs_includes+=( "${!additional_args_var_name}" )
+        fi
+        # We want to commit all generated files to version control, so we can easily see if something changed,
+        # when updating bindgen or the SDK patch release.
+        # However, we any split changes into incremental modules, and don't use any of the newer versions of the API
+        # besides the first one. If a binding was not introduced in the current api version, then we add a nopublish
+        # suffix, so we can exclude the file from cargo publish and save some download bandwidth.
+        no_publish_suffix=""
+        if [[ -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}.rs"
+              || -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}_nopublish.rs" ]]; then
+          no_publish_suffix="_nopublish"
+        fi
+
+        # Some drawing headers are not valid C, so we need to use libclang in c++ mode.
+        # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
+        bindgen "${BASE_BINDGEN_ARGS[@]}" \
+            --default-enum-style=newtype \
+            --allowlist-file ".*/${ime_header}$" \
+            --no-recursive-allowlist \
+            "${rs_includes[@]}" \
+            --no-derive-copy \
+            --no-derive-debug \
+            --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
+            "${abs_ime_header}" \
+            -- "${BASE_CLANG_ARGS[@]}" \
+            -x c++ \
+            #-include stdbool.h \
+            #-include stddef.h \
+            #-include stdint.h
+    done
+fi
 
 cargo fmt
 fd -e rs . 'src/' --exec rustfmt

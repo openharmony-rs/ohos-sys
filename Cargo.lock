@@ -36,6 +36,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-ime-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-sys"
 version = "0.3.1"
 dependencies = [
@@ -43,4 +50,5 @@ dependencies = [
  "hitrace-sys",
  "ohos-deviceinfo-sys",
  "ohos-drawing-sys",
+ "ohos-ime-sys",
 ]
