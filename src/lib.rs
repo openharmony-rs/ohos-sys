@@ -27,7 +27,7 @@ pub mod drawing {
 }
 #[cfg(feature = "hilog")]
 #[cfg_attr(docsrs, doc(cfg(feature = "hilog")))]
-pub mod hilog;
+pub use hilog_sys as hilog;
 
 #[cfg(feature = "hitrace")]
 #[cfg_attr(docsrs, doc(cfg(feature = "hitrace")))]

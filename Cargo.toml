@@ -19,6 +19,7 @@ ohos-drawing-sys = { path = "components/drawing", version = "0.1", optional = tr
 ohos-deviceinfo-sys = { version = "0.1", optional = true, path = "components/deviceinfo"}
 hitrace-sys = { version = "0.1.2", optional = true, path = "components/hitrace"}
 ohos-ime-sys = { version = "0.1", optional = true, path = "components/inputmethod"}
+hilog-sys = { version = "0.1.2", optional = true, path = "components/hilog"}
 
 [features]
 default = ["api-10"]
@@ -27,7 +28,7 @@ deviceinfo = ["dep:ohos-deviceinfo-sys"]
 ## Enables bindings to `native_drawing`. Re-exports `ohos-drawing-sys`.
 drawing = ["dep:ohos-drawing-sys"]
 ## Enables bindings to `hilog`
-hilog = []
+hilog = ["dep:hilog-sys"]
 ## Enables bindings to `hitrace`
 hitrace = ["dep:hitrace-sys"]
 ## Enables bindings to `inputmethod` from the IME-Kit. Empty if API-level < 12.
@@ -69,13 +70,15 @@ api-10 = []
 api-11 = ["api-10",
     "ohos-deviceinfo-sys?/api-11",
     "ohos-drawing-sys?/api-11",
-    "hitrace-sys?/api-11"
+    "hilog-sys?/api-11",
+    "hitrace-sys?/api-11",
     ]
 ## **EXPERIMENTAL**: Enables bindings for OpenHarmony API-level 12 (beta-1).
 ## Will stabilize once the final version has been released.
 api-12 = ["api-11",
     "ohos-deviceinfo-sys?/api-12",
     "ohos-drawing-sys?/api-12",
+    "hilog-sys?/api-12",
     "hitrace-sys?/api-12",
     "ohos-ime-sys?/api-12"
 ]
