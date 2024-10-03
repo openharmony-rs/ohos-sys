@@ -83,6 +83,8 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
 bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --default-enum-style=newtype \
     --output "${ROOT_DIR}/src/hilog/hilog_api${OHOS_API_VERSION}.rs" \
+    --allowlist-file="${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h" \
+    --blocklist-var "LOG_DOMAIN" \
     "${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
