@@ -1,0 +1,14 @@
+[package]
+name = "hilog-sys"
+version = "0.1.1"
+edition = "2021"
+keywords = ["OpenHarmony", "HarmonyOS", "hilog", "log"]
+description = "Rust bindings to the HiLog logging system of OpenHarmony"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+license = "Apache-2.0"
+
+[dependencies]
+log = { version = "0.4", optional = true}
+
+[features]
+log = ["dep:log"]
