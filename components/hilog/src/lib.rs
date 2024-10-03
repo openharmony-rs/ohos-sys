@@ -3,6 +3,7 @@
 //! Rust bindings for the `HiLog` logging framework of OpenHarmony.
 //! This crate should only be used on OpenHarmony (`target_env = "ohos"`).
 //! More information on hilog in native applications is available in the [hilog native guidelines].
+//! You can use the [hdc] tools [hilog command-line interface] to query the saved logs.
 //!
 //! ## Safety
 //!
@@ -15,12 +16,33 @@
 //! * `log`: When the log feature is enabled, a `From<log::Level>` implementation is added
 //!          to easily convert from `log`s log level to HiLogs log level.
 //!
-//! [hilog native guidelines]: https://gitee.com/openharmony/docs/blob/master/en/application-dev/dfx/hilog-guidelines.md
+//! [hilog native guidelines]: https://docs.openharmony.cn/pages/v5.0/en/application-dev/dfx/hilog-guidelines-ndk.md
+//! [hilog cli tool]: https://docs.openharmony.cn/pages/v5.0/en/application-dev/dfx/hilog.md
+//! [hdc]: https://docs.openharmony.cn/pages/v5.0/en/application-dev/dfx/hdc.md
+//!
+//! ## Feature flags
+#![cfg_attr(
+    feature = "document-features",
+    cfg_attr(doc, doc = ::document_features::document_features!())
+)]
+#![cfg_attr(docsrs, feature(doc_cfg))]
+
+#[link(name = "hilog_ndk.z")]
+extern "C" {}
 
 #[allow(non_snake_case)]
-mod ffi;
+mod hilog_api10;
 
-pub use ffi::*;
+pub use hilog_api10::*;
+
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+mod api11_additions;
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+pub use api11_additions::*;
+
+// Note: No additions in api-12
 
 #[cfg(feature = "log")]
 impl From<log::Level> for LogLevel {
