@@ -66,4 +66,12 @@ dependencies = [
  "ohos-deviceinfo-sys",
  "ohos-drawing-sys",
  "ohos-ime-sys",
+ "xcomponent-sys",
+]
+
+[[package]]
+name = "xcomponent-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
 ]
