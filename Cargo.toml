@@ -20,6 +20,7 @@ ohos-deviceinfo-sys = { version = "0.1", optional = true, path = "components/dev
 hitrace-sys = { version = "0.1.2", optional = true, path = "components/hitrace"}
 ohos-ime-sys = { version = "0.1", optional = true, path = "components/inputmethod"}
 hilog-sys = { version = "0.1.2", optional = true, path = "components/hilog"}
+xcomponent-sys = {version = "0.1.0", optional = true, path = "components/xcomponent"}
 
 [features]
 default = ["api-10"]
@@ -44,7 +45,7 @@ native_window = ['native_buffer']
 ## Enables bindings to `native_vsync`
 vsync = []
 ## Enables bindings to `native_xcomponent`
-xcomponent = []
+xcomponent = ["dep:xcomponent-sys"]
 ## Enables all components listed above. Orthogonal to `api-XX` features.
 all-components = [
     "deviceinfo",
@@ -72,6 +73,7 @@ api-11 = ["api-10",
     "ohos-drawing-sys?/api-11",
     "hilog-sys?/api-11",
     "hitrace-sys?/api-11",
+    "xcomponent-sys?/api-11",
     ]
 ## **EXPERIMENTAL**: Enables bindings for OpenHarmony API-level 12 (beta-1).
 ## Will stabilize once the final version has been released.
@@ -80,7 +82,8 @@ api-12 = ["api-11",
     "ohos-drawing-sys?/api-12",
     "hilog-sys?/api-12",
     "hitrace-sys?/api-12",
-    "ohos-ime-sys?/api-12"
+    "ohos-ime-sys?/api-12",
+    "xcomponent-sys?/api-12",
 ]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]

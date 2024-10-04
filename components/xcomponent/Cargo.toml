@@ -1,0 +1,27 @@
+[package]
+name = "xcomponent-sys"
+version = "0.1.0"
+edition = "2021"
+description = "Raw Bindings to the `xcomponent` API of OpenHarmony"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "ffi", "XComponent", "UI"]
+exclude = ["src/xcomponent_api11.rs"]
+readme = "README.md"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+
+[features]
+default = []
+
+api-10 = []
+api-11 = ["api-10"]
+api-12 = ["api-11"]
+## Document available features when building the documentation
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true

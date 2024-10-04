@@ -60,4 +60,4 @@ pub mod vsync;
 
 #[cfg(feature = "xcomponent")]
 #[cfg_attr(docsrs, doc(cfg(feature = "xcomponent")))]
-pub mod xcomponent;
+pub use xcomponent_sys as xcomponent;
