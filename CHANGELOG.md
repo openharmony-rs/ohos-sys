@@ -1,3 +1,10 @@
+# v0.4.0 (2024-10-29)
+
+## Change
+
+- Unify re-export of components
+- Bump ime-sys, xcomponent-sys and drawing-sys
+
 # v0.3.1 (2024-09-05)
 
 ## Add

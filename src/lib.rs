@@ -16,24 +16,19 @@
 
 #[cfg(feature = "deviceinfo")]
 #[cfg_attr(docsrs, doc(cfg(feature = "deviceinfo")))]
-pub mod deviceinfo {
-    pub use ohos_deviceinfo_sys::*;
-}
+pub use ohos_deviceinfo_sys as deviceinfo;
 
 #[cfg(feature = "drawing")]
 #[cfg_attr(docsrs, doc(cfg(feature = "drawing")))]
-pub mod drawing {
-    pub use ohos_drawing_sys::*;
-}
+pub use ohos_drawing_sys as drawing;
+
 #[cfg(feature = "hilog")]
 #[cfg_attr(docsrs, doc(cfg(feature = "hilog")))]
 pub use hilog_sys as hilog;
 
 #[cfg(feature = "hitrace")]
 #[cfg_attr(docsrs, doc(cfg(feature = "hitrace")))]
-pub mod hitrace {
-    pub use hitrace_sys::*;
-}
+pub use hitrace_sys as hitrace;
 
 #[cfg(feature = "napi")]
 #[cfg_attr(docsrs, doc(cfg(feature = "napi")))]
