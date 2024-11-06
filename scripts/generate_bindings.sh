@@ -106,7 +106,7 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --no-copy="^OH_NativeXComponent_KeyEvent$" \
     --no-debug="^OH_NativeXComponent$" \
     --no-debug="^OH_NativeXComponent_KeyEvent$" \
-    --output "${ROOT_DIR}/src/xcomponent/xcomponent_api${OHOS_API_VERSION}.rs" \
+    --output "${ROOT_DIR}/components/xcomponent/src/xcomponent_api${OHOS_API_VERSION}.rs" \
     "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h" \
     -- \
     -x c++ \
