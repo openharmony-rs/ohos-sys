@@ -1,6 +1,6 @@
 [package]
 name = "ohos-sys"
-version = "0.4.0"
+version = "0.4.1"
 edition = "2021"
 description = "Bindings to the native API of OpenHarmony OS"
 license = "Apache-2.0"
@@ -23,6 +23,7 @@ hitrace-sys = { version = "0.1.2", optional = true, path = "components/hitrace"}
 ohos-ime-sys = { version = "0.1.1", optional = true, path = "components/inputmethod"}
 hilog-sys = { version = "0.1.2", optional = true, path = "components/hilog"}
 xcomponent-sys = {version = "0.1.1", optional = true, path = "components/xcomponent"}
+ohos-image-kit-sys = {version = "0.1.0", optional = true, path = "components/multimedia/image_framework"}
 
 [features]
 default = ["api-10"]
@@ -36,6 +37,8 @@ hilog = ["dep:hilog-sys"]
 hitrace = ["dep:hitrace-sys"]
 ## Enables bindings to `inputmethod` from the IME-Kit. Empty if API-level < 12.
 inputmethod = ["dep:ohos-ime-sys"]
+## Bindings to the [Image Kit](https://docs.openharmony.cn/pages/v5.0/en/application-dev/media/image/image-overview.md)
+image-kit = ["dep:ohos-image-kit-sys"]
 ## Enables bindings to `napi`
 napi = []
 ## Enables bindings to `native_buffer`
@@ -55,6 +58,11 @@ all-components = [
     "hilog",
     "hitrace",
     "inputmethod",
+    "image-kit",
+    "image-kit-image-packer",
+    "image-kit-image-receiver",
+    "image-kit-image-source",
+    "image-kit-pixelmap",
     "napi",
     "native_buffer",
     "native_image",
@@ -85,8 +93,21 @@ api-12 = ["api-11",
     "hilog-sys?/api-12",
     "hitrace-sys?/api-12",
     "ohos-ime-sys?/api-12",
+    "ohos-image-kit-sys?/api-12",
     "xcomponent-sys?/api-12",
 ]
+
+#! ### Features of dependencies
+#!
+#! Re-exports features of individual component crates of `ohos-sys`.
+#! In general, it is recommended to depend on the individual component crates
+
+image-kit-image-packer = ["ohos-image-kit-sys/image-packer"]
+image-kit-image-receiver = ["ohos-image-kit-sys/image-receiver"]
+image-kit-image-source = ["ohos-image-kit-sys/image-source"]
+image-kit-pixelmap = ["ohos-image-kit-sys/pixelmap"]
+
+#! ### Internal features
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 
