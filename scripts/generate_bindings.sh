@@ -149,6 +149,7 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     --raw-line="use crate::native_window::OHNativeWindow;" \
     --allowlist-file ".*/native_image/.*\.h" \
     --blocklist-item '^(OH)?NativeWindow?$' \
+    --blocklist-item '^(OH)?NativeWindowBuffer' \
     --default-enum-style=newtype \
     --no-copy '^OH_NativeImage$'  \
     --no-copy 'OH_OnFrameAvailableListener' \
