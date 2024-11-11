@@ -75,4 +75,20 @@ extern "C" {
     @since 11
     @version 1.0*/
     pub fn OH_Drawing_RoundRectDestroy(arg1: *mut OH_Drawing_RoundRect);
+    /** @brief Translates round rect by (dx, dy).
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param roundRect Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    @param dx Indicates the offsets added to rect left and rect right.
+    @param dy Indicates the offsets added to rect top and rect bottom.
+    @return Returns the error code.
+            Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+            Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if roundRect is nullptr.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_RoundRectOffset(
+        roundRect: *mut OH_Drawing_RoundRect,
+        dx: f32,
+        dy: f32,
+    ) -> OH_Drawing_ErrorCode;
 }

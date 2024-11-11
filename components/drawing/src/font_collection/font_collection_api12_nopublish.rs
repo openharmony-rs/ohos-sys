@@ -43,4 +43,11 @@ extern "C" {
     @since 12
     @version 1.0*/
     pub fn OH_Drawing_CreateSharedFontCollection() -> *mut OH_Drawing_FontCollection;
+    /** @brief Clear font caches.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param OH_Drawing_FontCollection Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_ClearFontCaches(arg1: *mut OH_Drawing_FontCollection);
 }

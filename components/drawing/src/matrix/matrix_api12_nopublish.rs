@@ -308,6 +308,20 @@ extern "C" {
         a: *const OH_Drawing_Matrix,
         b: *const OH_Drawing_Matrix,
     );
+    /** @brief Gets nine matrix values contained by matrix into array.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param matrix Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    @param value Storages for nine matrix values.
+    @return Returns the error code.
+            Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+            Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if matrix or value is nullptr.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_MatrixGetAll(
+        matrix: *mut OH_Drawing_Matrix,
+        value: *mut f32,
+    ) -> OH_Drawing_ErrorCode;
     /** @brief Get one matrix value. Index is between the range of 0-8.
     @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
     @param OH_Drawing_Matrix Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.

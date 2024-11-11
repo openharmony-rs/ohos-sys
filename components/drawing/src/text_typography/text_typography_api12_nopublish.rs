@@ -1012,6 +1012,23 @@ extern "C" {
         arg3: f64,
         arg4: f64,
     );
+    /** @brief Paints path text on the canvas.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param OH_Drawing_Typography Indicates the pointer to an <b>OH_Drawing_Typography</b> object.
+    @param OH_Drawing_Canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    @param OH_Drawing_Path Indicates path information.
+    @param double Indicates the distance along the path to add to the text's starting position.
+    @param double Indicates the distance above(-) or below(+) the path to position the text.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_TypographyPaintOnPath(
+        arg1: *mut OH_Drawing_Typography,
+        arg2: *mut OH_Drawing_Canvas,
+        arg3: *mut OH_Drawing_Path,
+        arg4: f64,
+        arg5: f64,
+    );
     /** @brief Gets the max width.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -1961,6 +1978,19 @@ extern "C" {
         arg1: *mut OH_Drawing_TextStyle,
         tag: *const ::core::ffi::c_char,
         value: ::core::ffi::c_int,
+    );
+    /** @brief Add font variation.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param OH_Drawing_TextStyle Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    @param char* Indicates the pointer to font variation axis.
+    @param float Indicates the font variation value to set.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_TextStyleAddFontVariation(
+        arg1: *mut OH_Drawing_TextStyle,
+        arg2: *const ::core::ffi::c_char,
+        arg3: f32,
     );
     /** @brief Get all font features.
 

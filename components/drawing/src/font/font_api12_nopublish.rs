@@ -225,6 +225,46 @@ extern "C" {
         count: ::core::ffi::c_int,
         widths: *mut f32,
     );
+    /** @brief Measures the width of a single character.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param font Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    @param str Indicates the single character encoded in UTF-8.
+    @param textWidth Indicates the width of the single character.
+    @return Returns the error code.
+            Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+            Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if any of font, str
+                    and textWidth is nullptr or strlen(str) is 0.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_FontMeasureSingleCharacter(
+        font: *const OH_Drawing_Font,
+        str_: *const ::core::ffi::c_char,
+        textWidth: *mut f32,
+    ) -> OH_Drawing_ErrorCode;
+    /** @brief Measures the width of text.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param font Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    @param text Indicates the character storage encoded with text encoding.
+    @param byteLength Indicates the text length in bytes.
+    @param encoding Indicates the text encoding.
+    @param bounds Gets the bounding box relative to (0, 0) if not nullptr.
+    @param textWidth Indicates the width of text.
+    @return Returns the error code.
+            Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+            Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if any of font, text
+                    and textWidth is nullptr or byteLength is 0.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_FontMeasureText(
+        font: *const OH_Drawing_Font,
+        text: *const ::core::ffi::c_void,
+        byteLength: usize,
+        encoding: OH_Drawing_TextEncoding,
+        bounds: *mut OH_Drawing_Rect,
+        textWidth: *mut f32,
+    ) -> OH_Drawing_ErrorCode;
     /** @brief Enables or disables linearly scalable font for an <b>OH_Drawing_Font</b> object.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
