@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Deprecated script. Use the generator written in Rust instead.
+
 
 set -eu
 
@@ -22,30 +24,30 @@ then
     exit 1
 fi
 
-if [[ -z "${OHOS_NDK_HOME}" ]]
+if [[ -z "${OHOS_SDK_NATIVE}" ]]
 then
-    echo "OHOS_NDK_HOME was not set. Please set it to the base directory of the OHOS NDK"
+    echo "OHOS_SDK_NATIVE was not set. Please set it to the base directory of the OHOS NDK"
     echo "Note: the NDK directory is the 'native' directory in the SDK"
     exit 1
 fi
 
-if [[ ! -d "${OHOS_NDK_HOME}" ]]
+if [[ ! -d "${OHOS_SDK_NATIVE}" ]]
 then
-    echo "OHOS_NDK_HOME was set to '${OHOS_NDK_HOME}', which is not a valid directory"
+    echo "OHOS_SDK_NATIVE was set to '${OHOS_SDK_NATIVE}', which is not a valid directory"
     exit 1
 fi
 
-OHOS_SYSROOT_DIR="${OHOS_NDK_HOME}/sysroot"
+OHOS_SYSROOT_DIR="${OHOS_SDK_NATIVE}/sysroot"
 if [[ ! -d "${OHOS_SYSROOT_DIR}" ]]
 then
-    echo "OpenHarmony sysroot not found under \${OHOS_NDK_HOME}/sysroot (${OHOS_NDK_HOME}/sysroot)"
+    echo "OpenHarmony sysroot not found under \${OHOS_SDK_NATIVE}/sysroot (${OHOS_SDK_NATIVE}/sysroot)"
     exit 1
 fi
 
-export LIBCLANG_PATH=${OHOS_NDK_HOME}/llvm/lib
-export CLANG_PATH=${OHOS_NDK_HOME}/llvm/bin/clang
+export LIBCLANG_PATH=${OHOS_SDK_NATIVE}/llvm/lib
+export CLANG_PATH=${OHOS_SDK_NATIVE}/llvm/bin/clang
 
-OHOS_API_VERSION=$(jq '.apiVersion' -j < "${OHOS_NDK_HOME}/oh-uni-package.json")
+OHOS_API_VERSION=$(jq '.apiVersion' -j < "${OHOS_SDK_NATIVE}/oh-uni-package.json")
 echo "Generating bindings for API version ${OHOS_API_VERSION}"
 PREVIOUS_API_VERSION=$((OHOS_API_VERSION - 1))
 
@@ -61,56 +63,56 @@ BASE_BINDGEN_ARGS+=(--raw-line="#![allow(non_camel_case_types)]" --raw-line="#![
 # TODO: How to detect / deal with target specific bindings
 BASE_CLANG_ARGS=("--sysroot=${OHOS_SYSROOT_DIR}")
 BASE_CLANG_ARGS+=(--target=aarch64-linux-ohos)
-# So our wrapper headers can detect the API version (and conditionally include more header files)
-BASE_CLANG_ARGS+=("-DOHOS_SYS_API_LEVEL=${OHOS_API_VERSION}")
 
 set -x
 
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --default-enum-style=newtype \
-    --output "${ROOT_DIR}/components/deviceinfo/src/deviceinfo_api${OHOS_API_VERSION}.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/deviceinfo.h" \
-    -- \
-    "${BASE_CLANG_ARGS[@]}"
+(cd "${ROOT_DIR}/scripts/generator" && cargo run)
 
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --default-enum-style=newtype \
-    --output "${ROOT_DIR}/src/syscap/syscap_api${OHOS_API_VERSION}.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/syscap_ndk.h" \
-    -- \
-    "${BASE_CLANG_ARGS[@]}"
+#bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#    --default-enum-style=newtype \
+#    --output "${ROOT_DIR}/components/deviceinfo/src/deviceinfo_api${OHOS_API_VERSION}.rs" \
+#    "${OHOS_SYSROOT_DIR}/usr/include/deviceinfo.h" \
+#    -- \
+#    "${BASE_CLANG_ARGS[@]}"
+#
+#bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#    --default-enum-style=newtype \
+#    --output "${ROOT_DIR}/src/syscap/syscap_api${OHOS_API_VERSION}.rs" \
+#    "${OHOS_SYSROOT_DIR}/usr/include/syscap_ndk.h" \
+#    -- \
+#    "${BASE_CLANG_ARGS[@]}"
 
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --default-enum-style=newtype \
-    --output "${ROOT_DIR}/components/hilog/src/hilog_api${OHOS_API_VERSION}.rs" \
-    --allowlist-file="${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h" \
-    --blocklist-var "LOG_DOMAIN" \
-    "${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h" \
-    -- \
-    "${BASE_CLANG_ARGS[@]}"
+#bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#    --default-enum-style=newtype \
+#    --output "${ROOT_DIR}/components/hilog/src/hilog_api${OHOS_API_VERSION}.rs" \
+#    --allowlist-file="${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h" \
+#    --blocklist-var "LOG_DOMAIN" \
+#    "${OHOS_SYSROOT_DIR}/usr/include/hilog/log.h" \
+#    -- \
+#    "${BASE_CLANG_ARGS[@]}"
 
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --output "${ROOT_DIR}/components/hitrace/src/hitrace_api${OHOS_API_VERSION}.rs" \
-    --default-enum-style=newtype \
-    --bitfield-enum "^HiTrace_Flag$" \
-    --allowlist-file="${OHOS_SYSROOT_DIR}/usr/include/hitrace/trace.h" \
-    "${OHOS_SYSROOT_DIR}/usr/include/hitrace/trace.h" \
-    -- \
-    -include "stdbool.h" \
-    "${BASE_CLANG_ARGS[@]}"
+#bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#    --output "${ROOT_DIR}/components/hitrace/src/hitrace_api${OHOS_API_VERSION}.rs" \
+#    --default-enum-style=newtype \
+#    --bitfield-enum "^HiTrace_Flag$" \
+#    --allowlist-file="${OHOS_SYSROOT_DIR}/usr/include/hitrace/trace.h" \
+#    "${OHOS_SYSROOT_DIR}/usr/include/hitrace/trace.h" \
+#    -- \
+#    -include "stdbool.h" \
+#    "${BASE_CLANG_ARGS[@]}"
 
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --default-enum-style=newtype \
-    --allowlist-file ".*/xcomponent/native_.*xcomponent.*\.h" \
-    --no-copy="^OH_NativeXComponent$" \
-    --no-copy="^OH_NativeXComponent_KeyEvent$" \
-    --no-debug="^OH_NativeXComponent$" \
-    --no-debug="^OH_NativeXComponent_KeyEvent$" \
-    --output "${ROOT_DIR}/components/xcomponent/src/xcomponent_api${OHOS_API_VERSION}.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h" \
-    -- \
-    -x c++ \
-    "${BASE_CLANG_ARGS[@]}"
+#bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#    --default-enum-style=newtype \
+#    --allowlist-file ".*/xcomponent/native_.*xcomponent.*\.h" \
+#    --no-copy="^OH_NativeXComponent$" \
+#    --no-copy="^OH_NativeXComponent_KeyEvent$" \
+#    --no-debug="^OH_NativeXComponent$" \
+#    --no-debug="^OH_NativeXComponent_KeyEvent$" \
+#    --output "${ROOT_DIR}/components/xcomponent/src/xcomponent_api${OHOS_API_VERSION}.rs" \
+#    "${OHOS_SYSROOT_DIR}/usr/include/ace/xcomponent/native_interface_xcomponent.h" \
+#    -- \
+#    -x c++ \
+#    "${BASE_CLANG_ARGS[@]}"
 
 NAPI_NOCOPY_STRUCTS=(napi_env__ napi_value__ napi_ref__ napi_handle_scope__ napi_escapable_handle_scope__ )
 NAPI_NOCOPY_STRUCTS+=(napi_callback_info__ napi_deferred__ napi_callback_scope__ napi_async_context__ napi_async_work__)
@@ -131,250 +133,250 @@ bindgen "${BASE_BINDGEN_ARGS[@]}" \
     -- \
     "${BASE_CLANG_ARGS[@]}"
 
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --allowlist-file ".*/native_buffer/.*\.h" \
-    --bitfield-enum 'OH_NativeBuffer_Usage' \
-    --blocklist-item '^(OH)?NativeWindow(Buffer)?$' \
-    --default-enum-style=newtype \
-    --no-copy '^OH_NativeBuffer$'  \
-    --no-copy '^OHIPCParcel$' \
-    --no-debug '^OH_NativeBuffer$'  \
-    --output "${ROOT_DIR}/src/native_buffer/native_buffer_api${OHOS_API_VERSION}.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/native_buffer/native_buffer.h" \
-    -- \
-    -x c++ \
-    "${BASE_CLANG_ARGS[@]}"
-
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --raw-line="use crate::native_window::OHNativeWindow;" \
-    --allowlist-file ".*/native_image/.*\.h" \
-    --blocklist-item '^(OH)?NativeWindow?$' \
-    --blocklist-item '^(OH)?NativeWindowBuffer' \
-    --default-enum-style=newtype \
-    --no-copy '^OH_NativeImage$'  \
-    --no-copy 'OH_OnFrameAvailableListener' \
-    --no-debug '^OH_NativeImage$'  \
-    --output "${ROOT_DIR}/src/native_image/native_image_api${OHOS_API_VERSION}.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/native_image/native_image.h" \
-    -- \
-    "${BASE_CLANG_ARGS[@]}"
+#bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#    --allowlist-file ".*/native_buffer/.*\.h" \
+#    --bitfield-enum 'OH_NativeBuffer_Usage' \
+#    --blocklist-item '^(OH)?NativeWindow(Buffer)?$' \
+#    --default-enum-style=newtype \
+#    --no-copy '^OH_NativeBuffer$'  \
+#    --no-copy '^OHIPCParcel$' \
+#    --no-debug '^OH_NativeBuffer$'  \
+#    --output "${ROOT_DIR}/src/native_buffer/native_buffer_api${OHOS_API_VERSION}.rs" \
+#    "${OHOS_SYSROOT_DIR}/usr/include/native_buffer/native_buffer.h" \
+#    -- \
+#    -x c++ \
+#    "${BASE_CLANG_ARGS[@]}"
+#
+#bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#    --raw-line="use crate::native_window::OHNativeWindow;" \
+#    --allowlist-file ".*/native_image/.*\.h" \
+#    --blocklist-item '^(OH)?NativeWindow?$' \
+#    --blocklist-item '^(OH)?NativeWindowBuffer' \
+#    --default-enum-style=newtype \
+#    --no-copy '^OH_NativeImage$'  \
+#    --no-copy 'OH_OnFrameAvailableListener' \
+#    --no-debug '^OH_NativeImage$'  \
+#    --output "${ROOT_DIR}/src/native_image/native_image_api${OHOS_API_VERSION}.rs" \
+#    "${OHOS_SYSROOT_DIR}/usr/include/native_image/native_image.h" \
+#    -- \
+#    "${BASE_CLANG_ARGS[@]}"
 
 # NativeWindowOperation has wrong documentation for one of the parameters in API 10.
-block_native_window_operation=""
-if [[ ${OHOS_API_VERSION} -eq 10 ]]; then
-    block_native_window_operation='--blocklist-item=^NativeWindowOperation$'
-fi
+#block_native_window_operation=""
+#if [[ ${OHOS_API_VERSION} -eq 10 ]]; then
+#    block_native_window_operation='--blocklist-item=^NativeWindowOperation$'
+#fi
 
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --default-enum-style=newtype \
-    --no-derive-copy \
-    ${block_native_window_operation} \
-    --output "${ROOT_DIR}/src/native_window/native_window_api${OHOS_API_VERSION}.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/native_window/external_window.h" \
-    -- \
-    "${BASE_CLANG_ARGS[@]}"
+#bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#    --default-enum-style=newtype \
+#    --no-derive-copy \
+#    ${block_native_window_operation} \
+#    --output "${ROOT_DIR}/src/native_window/native_window_api${OHOS_API_VERSION}.rs" \
+#    "${OHOS_SYSROOT_DIR}/usr/include/native_window/external_window.h" \
+#    -- \
+#    "${BASE_CLANG_ARGS[@]}"
 
-bindgen "${BASE_BINDGEN_ARGS[@]}" \
-    --default-enum-style=newtype \
-    --no-derive-copy \
-    --no-derive-debug \
-    --allowlist-file ".*/native_vsync\.h" \
-    --output "${ROOT_DIR}/src/vsync/vsync_api${OHOS_API_VERSION}.rs" \
-    "${OHOS_SYSROOT_DIR}/usr/include/native_vsync/native_vsync.h" \
-    -- \
-    "${BASE_CLANG_ARGS[@]}"
+#bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#    --default-enum-style=newtype \
+#    --no-derive-copy \
+#    --no-derive-debug \
+#    --allowlist-file ".*/native_vsync\.h" \
+#    --output "${ROOT_DIR}/src/vsync/vsync_api${OHOS_API_VERSION}.rs" \
+#    "${OHOS_SYSROOT_DIR}/usr/include/native_vsync/native_vsync.h" \
+#    -- \
+#    "${BASE_CLANG_ARGS[@]}"
 
-# API-10
-DRAWING_NOCOPY_STRUCTS=(OH_Drawing_Canvas OH_Drawing_Pen OH_Drawing_Brush OH_Drawing_Path OH_Drawing_Bitmap)
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_FontCollection OH_Drawing_Typography OH_Drawing_TextStyle OH_Drawing_TypographyStyle)
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_TypographyCreate)
-# API-11
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_Point OH_Drawing_Rect OH_Drawing_RoundRect OH_Drawing_ShaderEffect OH_Drawing_Filter)
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_MaskFilter OH_Drawing_ColorFilter OH_Drawing_Font OH_Drawing_Typeface)
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_TextBlob OH_Drawing_TextBlobBuilder OH_Drawing_TextBox OH_Drawing_PositionAndAffinity)
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_Range OH_Drawing_Matrix OH_Drawing_RunBuffer)
-# API-12
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_Region OH_Drawing_PixelMap OH_Drawing_ColorSpace OH_Drawing_Point2D OH_Drawing_Point3D)
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_PathEffect OH_Drawing_ShadowLayer OH_Drawing_MemoryStream OH_Drawing_Image )
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_ImageFilter OH_Drawing_SamplingOptions OH_Drawing_GpuContext OH_Drawing_Surface)
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_FontMgr OH_Drawing_FontStyleSet OH_Drawing_BitmapFormat OH_Drawing_FontParser)
-DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_TextShadow)
-# Maybe: OH_Drawing_StrutStyle
+## API-10
+#DRAWING_NOCOPY_STRUCTS=(OH_Drawing_Canvas OH_Drawing_Pen OH_Drawing_Brush OH_Drawing_Path OH_Drawing_Bitmap)
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_FontCollection OH_Drawing_Typography OH_Drawing_TextStyle OH_Drawing_TypographyStyle)
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_TypographyCreate)
+## API-11
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_Point OH_Drawing_Rect OH_Drawing_RoundRect OH_Drawing_ShaderEffect OH_Drawing_Filter)
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_MaskFilter OH_Drawing_ColorFilter OH_Drawing_Font OH_Drawing_Typeface)
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_TextBlob OH_Drawing_TextBlobBuilder OH_Drawing_TextBox OH_Drawing_PositionAndAffinity)
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_Range OH_Drawing_Matrix OH_Drawing_RunBuffer)
+## API-12
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_Region OH_Drawing_PixelMap OH_Drawing_ColorSpace OH_Drawing_Point2D OH_Drawing_Point3D)
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_PathEffect OH_Drawing_ShadowLayer OH_Drawing_MemoryStream OH_Drawing_Image )
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_ImageFilter OH_Drawing_SamplingOptions OH_Drawing_GpuContext OH_Drawing_Surface)
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_FontMgr OH_Drawing_FontStyleSet OH_Drawing_BitmapFormat OH_Drawing_FontParser)
+#DRAWING_NOCOPY_STRUCTS+=(OH_Drawing_TextShadow)
+## Maybe: OH_Drawing_StrutStyle
+#
+#DRAWING_NOCOPY_ARGS=()
+#for val in "${DRAWING_NOCOPY_STRUCTS[@]}"; do
+#    DRAWING_NOCOPY_ARGS+=("--no-copy=^${val}\$" "--no-debug=^${val}\$")
+#done
+#
+#DRAWING_font_collection_ADDITIONAL_ARGS=("--raw-line=use crate::text_declaration::*;")
+#DRAWING_text_typography_ADDITIONAL_ARGS=("--raw-line=use crate::text_declaration::*;" )
+#DRAWING_register_font_ADDITIONAL_ARGS=("--raw-line=use crate::text_declaration::*;" )
+#DRAWING_image_filter_ADDITIONAL_ARGS=("--raw-line=use crate::shader_effect::*;")
+#DRAWING_font_mgr_ADDITIONAL_ARGS=("--raw-line=use crate::text_typography::*;" )
+#
+#for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; do
+#    drawing_header=$(basename "${abs_drawing_header}")
+#    echo "Generating bindings for ${drawing_header}"
+#    rust_name=${drawing_header#"drawing_"}
+#    rust_name=${rust_name%".h"}
+#    output_dir="${ROOT_DIR}/components/drawing/src/${rust_name}"
+#    if [ ! -d "${output_dir}" ]; then
+#        mkdir "${output_dir}"
+#    fi
+#    rs_includes=()
+#    if [[ "${rust_name}" != "types" ]]; then
+#        rs_includes+=("--raw-line=use crate::types::*;")
+#    fi
+#    additional_args_var_name="DRAWING_${rust_name}_ADDITIONAL_ARGS"
+#    if [[ ! -z "${!additional_args_var_name+x}" ]]; then
+#        echo "Have additional args!"
+#        # Add [@] to the name, so that the indirect expansion via `${!name}` expands everything.
+#        additional_args_var_name="${additional_args_var_name}[@]"
+#        rs_includes+=( "${!additional_args_var_name}" )
+#    fi
+#    # We want to commit all generated files to version control, so we can easily see if something changed,
+#    # when updating bindgen or the SDK patch release.
+#    # However, we any split changes into incremental modules, and don't use any of the newer versions of the API
+#    # besides the first one. If a binding was not introduced in the current api version, then we add a nopublish
+#    # suffix, so we can exclude the file from cargo publish and save some download bandwidth.
+#    no_publish_suffix=""
+#    if [[ -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}.rs"
+#          || -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}_nopublish.rs" ]]; then
+#      no_publish_suffix="_nopublish"
+#    fi
+#
+#    # Some drawing headers are not valid C, so we need to use libclang in c++ mode.
+#    # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
+#    bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#        --default-enum-style=newtype \
+#        --allowlist-file ".*/drawing_${rust_name}\.h" \
+#        --no-recursive-allowlist \
+#        "${rs_includes[@]}" \
+#        "${DRAWING_NOCOPY_ARGS[@]}" \
+#        --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
+#        "${abs_drawing_header}" \
+#        -- "${BASE_CLANG_ARGS[@]}" \
+#        -x c++ \
+#        -include stdbool.h \
+#        -include stddef.h \
+#        -include stdint.h
+#done
 
-DRAWING_NOCOPY_ARGS=()
-for val in "${DRAWING_NOCOPY_STRUCTS[@]}"; do
-    DRAWING_NOCOPY_ARGS+=("--no-copy=^${val}\$" "--no-debug=^${val}\$")
-done
+#IME_text_editor_proxy_ADDITIONAL_ARGS=("--raw-line=use crate::private_command::InputMethod_PrivateCommand;")
+#IME_text_editor_proxy_ADDITIONAL_ARGS+=("--raw-line=use crate::text_config::InputMethod_TextConfig;")
+#IME_text_config_ADDITIONAL_ARGS=("--raw-line=use crate::text_avoid_info::InputMethod_TextAvoidInfo;")
+#IME_text_config_ADDITIONAL_ARGS+=("--raw-line=use crate::cursor_info::InputMethod_CursorInfo;")
+#IME_inputmethod_proxy_ADDITIONAL_ARGS=("--raw-line=use crate::private_command::InputMethod_PrivateCommand;")
+#IME_inputmethod_proxy_ADDITIONAL_ARGS+=("--raw-line=use crate::cursor_info::InputMethod_CursorInfo;")
+#IME_controller_ADDITIONAL_ARGS=("--raw-line=use crate::inputmethod_proxy::InputMethod_InputMethodProxy;")
+#IME_controller_ADDITIONAL_ARGS+=("--raw-line=use crate::text_editor_proxy::InputMethod_TextEditorProxy;")
+#IME_controller_ADDITIONAL_ARGS+=("--raw-line=use crate::attach_options::InputMethod_AttachOptions;")
+#
+#if (( OHOS_API_VERSION >= 12)); then
+#    for abs_ime_header in "${OHOS_SYSROOT_DIR}/usr/include/inputmethod"/* ; do
+#        ime_header=$(basename "${abs_ime_header}")
+#        echo "Generating bindings for ${ime_header}"
+#        rust_name=${ime_header#"inputmethod_"}
+#        rust_name=${rust_name%"_capi.h"}
+#        output_dir="${ROOT_DIR}/components/inputmethod/src/${rust_name}"
+#        if [ ! -d "${output_dir}" ]; then
+#            mkdir "${output_dir}"
+#        fi
+#        rs_includes=()
+#        if [[ "${rust_name}" != "types" ]]; then
+#            rs_includes+=("--raw-line=use crate::types::*;")
+#        fi
+#        additional_args_var_name="IME_${rust_name}_ADDITIONAL_ARGS"
+#        if [[ ! -z "${!additional_args_var_name+x}" ]]; then
+#            echo "Have additional args!"
+#            additional_args_var_name="${additional_args_var_name}[@]"
+#            rs_includes+=( "${!additional_args_var_name}" )
+#        fi
+#        # We want to commit all generated files to version control, so we can easily see if something changed,
+#        # when updating bindgen or the SDK patch release.
+#        # However, we any split changes into incremental modules, and don't use any of the newer versions of the API
+#        # besides the first one. If a binding was not introduced in the current api version, then we add a nopublish
+#        # suffix, so we can exclude the file from cargo publish and save some download bandwidth.
+#        no_publish_suffix=""
+#        if [[ -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}.rs"
+#              || -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}_nopublish.rs" ]]; then
+#          no_publish_suffix="_nopublish"
+#        fi
+#
+#        # Some drawing headers are not valid C, so we need to use libclang in c++ mode.
+#        # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
+#        bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#            --default-enum-style=newtype \
+#            --allowlist-file ".*/${ime_header}$" \
+#            --no-recursive-allowlist \
+#            "${rs_includes[@]}" \
+#            --no-derive-copy \
+#            --no-derive-debug \
+#            --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
+#            "${abs_ime_header}" \
+#            -- "${BASE_CLANG_ARGS[@]}" \
+#            -x c++
+#    done
+#fi
 
-DRAWING_font_collection_ADDITIONAL_ARGS=("--raw-line=use crate::text_declaration::*;")
-DRAWING_text_typography_ADDITIONAL_ARGS=("--raw-line=use crate::text_declaration::*;" )
-DRAWING_register_font_ADDITIONAL_ARGS=("--raw-line=use crate::text_declaration::*;" )
-DRAWING_image_filter_ADDITIONAL_ARGS=("--raw-line=use crate::shader_effect::*;")
-DRAWING_font_mgr_ADDITIONAL_ARGS=("--raw-line=use crate::text_typography::*;" )
-
-for abs_drawing_header in "${OHOS_SYSROOT_DIR}/usr/include/native_drawing"/* ; do
-    drawing_header=$(basename "${abs_drawing_header}")
-    echo "Generating bindings for ${drawing_header}"
-    rust_name=${drawing_header#"drawing_"}
-    rust_name=${rust_name%".h"}
-    output_dir="${ROOT_DIR}/components/drawing/src/${rust_name}"
-    if [ ! -d "${output_dir}" ]; then
-        mkdir "${output_dir}"
-    fi
-    rs_includes=()
-    if [[ "${rust_name}" != "types" ]]; then
-        rs_includes+=("--raw-line=use crate::types::*;")
-    fi
-    additional_args_var_name="DRAWING_${rust_name}_ADDITIONAL_ARGS"
-    if [[ ! -z "${!additional_args_var_name+x}" ]]; then
-        echo "Have additional args!"
-        # Add [@] to the name, so that the indirect expansion via `${!name}` expands everything.
-        additional_args_var_name="${additional_args_var_name}[@]"
-        rs_includes+=( "${!additional_args_var_name}" )
-    fi
-    # We want to commit all generated files to version control, so we can easily see if something changed,
-    # when updating bindgen or the SDK patch release.
-    # However, we any split changes into incremental modules, and don't use any of the newer versions of the API
-    # besides the first one. If a binding was not introduced in the current api version, then we add a nopublish
-    # suffix, so we can exclude the file from cargo publish and save some download bandwidth.
-    no_publish_suffix=""
-    if [[ -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}.rs"
-          || -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}_nopublish.rs" ]]; then
-      no_publish_suffix="_nopublish"
-    fi
-
-    # Some drawing headers are not valid C, so we need to use libclang in c++ mode.
-    # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
-    bindgen "${BASE_BINDGEN_ARGS[@]}" \
-        --default-enum-style=newtype \
-        --allowlist-file ".*/drawing_${rust_name}\.h" \
-        --no-recursive-allowlist \
-        "${rs_includes[@]}" \
-        "${DRAWING_NOCOPY_ARGS[@]}" \
-        --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
-        "${abs_drawing_header}" \
-        -- "${BASE_CLANG_ARGS[@]}" \
-        -x c++ \
-        -include stdbool.h \
-        -include stddef.h \
-        -include stdint.h
-done
-
-IME_text_editor_proxy_ADDITIONAL_ARGS=("--raw-line=use crate::private_command::InputMethod_PrivateCommand;")
-IME_text_editor_proxy_ADDITIONAL_ARGS+=("--raw-line=use crate::text_config::InputMethod_TextConfig;")
-IME_text_config_ADDITIONAL_ARGS=("--raw-line=use crate::text_avoid_info::InputMethod_TextAvoidInfo;")
-IME_text_config_ADDITIONAL_ARGS+=("--raw-line=use crate::cursor_info::InputMethod_CursorInfo;")
-IME_inputmethod_proxy_ADDITIONAL_ARGS=("--raw-line=use crate::private_command::InputMethod_PrivateCommand;")
-IME_inputmethod_proxy_ADDITIONAL_ARGS+=("--raw-line=use crate::cursor_info::InputMethod_CursorInfo;")
-IME_controller_ADDITIONAL_ARGS=("--raw-line=use crate::inputmethod_proxy::InputMethod_InputMethodProxy;")
-IME_controller_ADDITIONAL_ARGS+=("--raw-line=use crate::text_editor_proxy::InputMethod_TextEditorProxy;")
-IME_controller_ADDITIONAL_ARGS+=("--raw-line=use crate::attach_options::InputMethod_AttachOptions;")
-
-if (( OHOS_API_VERSION >= 12)); then
-    for abs_ime_header in "${OHOS_SYSROOT_DIR}/usr/include/inputmethod"/* ; do
-        ime_header=$(basename "${abs_ime_header}")
-        echo "Generating bindings for ${ime_header}"
-        rust_name=${ime_header#"inputmethod_"}
-        rust_name=${rust_name%"_capi.h"}
-        output_dir="${ROOT_DIR}/components/inputmethod/src/${rust_name}"
-        if [ ! -d "${output_dir}" ]; then
-            mkdir "${output_dir}"
-        fi
-        rs_includes=()
-        if [[ "${rust_name}" != "types" ]]; then
-            rs_includes+=("--raw-line=use crate::types::*;")
-        fi
-        additional_args_var_name="IME_${rust_name}_ADDITIONAL_ARGS"
-        if [[ ! -z "${!additional_args_var_name+x}" ]]; then
-            echo "Have additional args!"
-            additional_args_var_name="${additional_args_var_name}[@]"
-            rs_includes+=( "${!additional_args_var_name}" )
-        fi
-        # We want to commit all generated files to version control, so we can easily see if something changed,
-        # when updating bindgen or the SDK patch release.
-        # However, we any split changes into incremental modules, and don't use any of the newer versions of the API
-        # besides the first one. If a binding was not introduced in the current api version, then we add a nopublish
-        # suffix, so we can exclude the file from cargo publish and save some download bandwidth.
-        no_publish_suffix=""
-        if [[ -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}.rs"
-              || -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}_nopublish.rs" ]]; then
-          no_publish_suffix="_nopublish"
-        fi
-
-        # Some drawing headers are not valid C, so we need to use libclang in c++ mode.
-        # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
-        bindgen "${BASE_BINDGEN_ARGS[@]}" \
-            --default-enum-style=newtype \
-            --allowlist-file ".*/${ime_header}$" \
-            --no-recursive-allowlist \
-            "${rs_includes[@]}" \
-            --no-derive-copy \
-            --no-derive-debug \
-            --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
-            "${abs_ime_header}" \
-            -- "${BASE_CLANG_ARGS[@]}" \
-            -x c++
-    done
-fi
-
-# Todo: Add the necessary imports / relations and remove this restriction again.
-IMG_pixelmap_ADDITIONAL_ARGS=('--blocklist-function=^OH_PixelmapNative_ConvertPixelmapNative(To|From)Napi')
-IMG_image_source_ADDITIONAL_ARGS=('--blocklist-function=^OH_ImageSourceNative_CreateFromRawFile')
-# Todo: these bindings are hand-picked and feature guarded right now - autogenerate...
-IMG_image_source_ADDITIONAL_ARGS+=('--blocklist-function=^OH_ImageSourceNative_CreatePixelmap(List)?')
-IMG_image_receiver_ADDITIONAL_ARGS=('--raw-line=use crate::native_image::image::OH_ImageNative;')
-IMG_image_packer_ADDITIONAL_ARGS=('--blocklist-function=^OH_ImagePackerNative_PackTo(Data|File)FromImageSource')
-IMG_image_packer_ADDITIONAL_ARGS+=('--blocklist-function=^OH_ImagePackerNative_PackTo(Data|File)FromPixelmap')
-IMG_image_ADDITIONAL_ARGS+=('--blocklist-function=^OH_ImageNative_GetByteBuffer')
-
-
-if (( OHOS_API_VERSION >= 12)); then
-    for abs_img_header in "${OHOS_SYSROOT_DIR}/usr/include/multimedia/image_framework/image"/* ; do
-        img_header=$(basename "${abs_img_header}")
-        echo "Generating bindings for ${img_header}"
-        rust_name=${img_header}
-        rust_name=${rust_name%".h"}
-        rust_name=${rust_name%"_native"}
-        output_dir="${ROOT_DIR}/components/multimedia/image_framework/src/native_image/${rust_name}"
-        if [ ! -d "${output_dir}" ]; then
-            mkdir "${output_dir}"
-        fi
-        rs_includes=()
-        if [[ "${rust_name}" != "image_common" ]]; then
-            rs_includes+=("--raw-line=use crate::native_image::common::*;")
-        fi
-        additional_args_var_name="IMG_${rust_name}_ADDITIONAL_ARGS"
-        if [[ ! -z "${!additional_args_var_name+x}" ]]; then
-            echo "Have additional args!"
-            additional_args_var_name="${additional_args_var_name}[@]"
-            rs_includes+=( "${!additional_args_var_name}" )
-        fi
-        # We want to commit all generated files to version control, so we can easily see if something changed,
-        # when updating bindgen or the SDK patch release.
-        # However, we any split changes into incremental modules, and don't use any of the newer versions of the API
-        # besides the first one. If a binding was not introduced in the current api version, then we add a nopublish
-        # suffix, so we can exclude the file from cargo publish and save some download bandwidth.
-        no_publish_suffix=""
-        if [[ -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}.rs"
-              || -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}_nopublish.rs" ]]; then
-          no_publish_suffix="_nopublish"
-        fi
-
-        # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
-        bindgen "${BASE_BINDGEN_ARGS[@]}" \
-            --default-enum-style=newtype \
-            --allowlist-file ".*/${img_header}$" \
-            --no-recursive-allowlist \
-            "${rs_includes[@]}" \
-            --no-derive-copy \
-            --no-derive-debug \
-            --no-prepend-enum-name \
-            --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
-            "${abs_img_header}" \
-            -- "${BASE_CLANG_ARGS[@]}" \
-            -x c++
-    done
-fi
+## Todo: Add the necessary imports / relations and remove this restriction again.
+#IMG_pixelmap_ADDITIONAL_ARGS=('--blocklist-function=^OH_PixelmapNative_ConvertPixelmapNative(To|From)Napi')
+#IMG_image_source_ADDITIONAL_ARGS=('--blocklist-function=^OH_ImageSourceNative_CreateFromRawFile')
+## Todo: these bindings are hand-picked and feature guarded right now - autogenerate...
+#IMG_image_source_ADDITIONAL_ARGS+=('--blocklist-function=^OH_ImageSourceNative_CreatePixelmap(List)?')
+#IMG_image_receiver_ADDITIONAL_ARGS=('--raw-line=use crate::native_image::image::OH_ImageNative;')
+#IMG_image_packer_ADDITIONAL_ARGS=('--blocklist-function=^OH_ImagePackerNative_PackTo(Data|File)FromImageSource')
+#IMG_image_packer_ADDITIONAL_ARGS+=('--blocklist-function=^OH_ImagePackerNative_PackTo(Data|File)FromPixelmap')
+#IMG_image_ADDITIONAL_ARGS+=('--blocklist-function=^OH_ImageNative_GetByteBuffer')
+#
+#
+#if (( OHOS_API_VERSION >= 12)); then
+#    for abs_img_header in "${OHOS_SYSROOT_DIR}/usr/include/multimedia/image_framework/image"/* ; do
+#        img_header=$(basename "${abs_img_header}")
+#        echo "Generating bindings for ${img_header}"
+#        rust_name=${img_header}
+#        rust_name=${rust_name%".h"}
+#        rust_name=${rust_name%"_native"}
+#        output_dir="${ROOT_DIR}/components/multimedia/image_framework/src/native_image/${rust_name}"
+#        if [ ! -d "${output_dir}" ]; then
+#            mkdir "${output_dir}"
+#        fi
+#        rs_includes=()
+#        if [[ "${rust_name}" != "image_common" ]]; then
+#            rs_includes+=("--raw-line=use crate::native_image::common::*;")
+#        fi
+#        additional_args_var_name="IMG_${rust_name}_ADDITIONAL_ARGS"
+#        if [[ ! -z "${!additional_args_var_name+x}" ]]; then
+#            echo "Have additional args!"
+#            additional_args_var_name="${additional_args_var_name}[@]"
+#            rs_includes+=( "${!additional_args_var_name}" )
+#        fi
+#        # We want to commit all generated files to version control, so we can easily see if something changed,
+#        # when updating bindgen or the SDK patch release.
+#        # However, we any split changes into incremental modules, and don't use any of the newer versions of the API
+#        # besides the first one. If a binding was not introduced in the current api version, then we add a nopublish
+#        # suffix, so we can exclude the file from cargo publish and save some download bandwidth.
+#        no_publish_suffix=""
+#        if [[ -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}.rs"
+#              || -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}_nopublish.rs" ]]; then
+#          no_publish_suffix="_nopublish"
+#        fi
+#
+#        # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
+#        bindgen "${BASE_BINDGEN_ARGS[@]}" \
+#            --default-enum-style=newtype \
+#            --allowlist-file ".*/${img_header}$" \
+#            --no-recursive-allowlist \
+#            "${rs_includes[@]}" \
+#            --no-derive-copy \
+#            --no-derive-debug \
+#            --no-prepend-enum-name \
+#            --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
+#            "${abs_img_header}" \
+#            -- "${BASE_CLANG_ARGS[@]}" \
+#            -x c++
+#    done
+#fi
 
 cargo fmt
 fd -e rs . 'src/' --exec rustfmt

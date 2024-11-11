@@ -1,0 +1,12 @@
+[package]
+name = "generator"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Internal tool to generate the ohos-sys bindings"
+
+[dependencies]
+bindgen = {  version = "=0.70.1", features = ["prettyplease"] }
+anyhow = "1.0.93"
+# Keep this feature in sync with the clang version of the SDK.
+clang-sys = { version = "1.8.1", features = ["clang_15_0"] }
