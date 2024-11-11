@@ -9,6 +9,7 @@ keywords = ["OpenHarmony", "HarmonyOS", "ffi"]
 exclude = ["src/**/*_api11.rs", "src/**/*_api12.rs"]
 readme = "Readme.md"
 resolver = "2"
+rust-version = "1.78.0"
 
 [workspace]
 members = ["components/*"]
