@@ -3,11 +3,12 @@
 #![allow(non_snake_case)]
 
 use crate::canvas::OH_Drawing_CanvasClipOp;
+use crate::error_code::OH_Drawing_ErrorCode;
 use crate::types::{
-    OH_Drawing_Bitmap, OH_Drawing_BlendMode, OH_Drawing_Brush, OH_Drawing_Canvas, OH_Drawing_Image,
-    OH_Drawing_Image_Info, OH_Drawing_Matrix, OH_Drawing_Path, OH_Drawing_PixelMap,
-    OH_Drawing_Point2D, OH_Drawing_Point3D, OH_Drawing_Rect, OH_Drawing_Region,
-    OH_Drawing_RoundRect, OH_Drawing_SamplingOptions,
+    OH_Drawing_Bitmap, OH_Drawing_BlendMode, OH_Drawing_Brush, OH_Drawing_Canvas, OH_Drawing_Font,
+    OH_Drawing_Image, OH_Drawing_Image_Info, OH_Drawing_Matrix, OH_Drawing_Path,
+    OH_Drawing_PixelMap, OH_Drawing_Point2D, OH_Drawing_Point3D, OH_Drawing_Rect,
+    OH_Drawing_Region, OH_Drawing_RoundRect, OH_Drawing_SamplingOptions,
 };
 
 impl OH_Drawing_SrcRectConstraint {
@@ -147,6 +148,20 @@ extern "C" {
         arg1: *mut OH_Drawing_Canvas,
         arg2: *const OH_Drawing_Region,
     );
+    /** @brief Draws a point.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    @param point Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    @return Returns the error code.
+            Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+            Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or point is nullptr.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_CanvasDrawPoint(
+        canvas: *mut OH_Drawing_Canvas,
+        point: *const OH_Drawing_Point2D,
+    ) -> OH_Drawing_ErrorCode;
     /** @brief Draws point array as separate point, line segment or open polygon according to given point mode.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -179,6 +194,22 @@ extern "C" {
         dst: *const OH_Drawing_Rect,
         arg3: *const OH_Drawing_SamplingOptions,
     );
+    /** @brief Fills the entire canvas with the specified color and blend mode.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    @param color Indicates the color, which is a 32-bit variable.
+    @param blendMode Indicates the blend mode.
+    @return Returns the error code.
+            Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+            Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas is nullptr.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_CanvasDrawColor(
+        canvas: *mut OH_Drawing_Canvas,
+        color: u32,
+        blendMode: OH_Drawing_BlendMode,
+    ) -> OH_Drawing_ErrorCode;
     /** @brief Clip a round rect.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -194,6 +225,43 @@ extern "C" {
         clipOp: OH_Drawing_CanvasClipOp,
         doAntiAlias: bool,
     );
+    /** @brief Draws a single character.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param OH_Drawing_Canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    @param str Indicates the single character encoded in UTF-8.
+    @param OH_Drawing_Font Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    @param x Indicates the horizontal offset applied to the single character.
+    @param y Indicates the vertical offset applied to the single character.
+    @return Returns the error code.
+            Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+            Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if any of canvas, str
+                    and font is nullptr or strlen(str) is 0.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_CanvasDrawSingleCharacter(
+        canvas: *mut OH_Drawing_Canvas,
+        str_: *const ::core::ffi::c_char,
+        font: *const OH_Drawing_Font,
+        x: f32,
+        y: f32,
+    ) -> OH_Drawing_ErrorCode;
+    /** @brief Clips a region.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    @param region Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    @param clipOp To apply to clip.
+    @return Returns the error code.
+            Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+            Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or region is nullptr.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_CanvasClipRegion(
+        canvas: *mut OH_Drawing_Canvas,
+        region: *const OH_Drawing_Region,
+        clipOp: OH_Drawing_CanvasClipOp,
+    ) -> OH_Drawing_ErrorCode;
     /** @brief Skew by sx on the x-axis and sy on the y-axis.
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -386,4 +454,32 @@ extern "C" {
         srcX: i32,
         srcY: i32,
     ) -> bool;
+    /** @brief Checks whether the drawable area is empty.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    @param isClipEmpty Indicates if drawable area is empty.
+    @return Returns the error code.
+            Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+            Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or isClipEmpty is nullptr.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_CanvasIsClipEmpty(
+        canvas: *mut OH_Drawing_Canvas,
+        isClipEmpty: *mut bool,
+    ) -> OH_Drawing_ErrorCode;
+    /** @brief Gets image info of canvas.
+
+    @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
+    @param canvas Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    @param imageInfo Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    @return Returns the error code.
+            Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
+            Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if canvas or imageInfo is nullptr.
+    @since 12
+    @version 1.0*/
+    pub fn OH_Drawing_CanvasGetImageInfo(
+        canvas: *mut OH_Drawing_Canvas,
+        imageInfo: *mut OH_Drawing_Image_Info,
+    ) -> OH_Drawing_ErrorCode;
 }

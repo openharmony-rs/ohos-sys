@@ -518,14 +518,14 @@ extern "C" {
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
     @param path Indicates the pointer to an <b>OH_Drawing_Path</b> object.
-    @param srcPath Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    @param other Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     @param op Indicates the operation to apply to combine.
     @return Returns <b>true</b> if constructed path is not empty; returns <b>false</b> otherwise.
     @since 12
     @version 1.0*/
     pub fn OH_Drawing_PathOp(
         path: *mut OH_Drawing_Path,
-        srcPath: *const OH_Drawing_Path,
+        other: *const OH_Drawing_Path,
         op: OH_Drawing_PathOpMode,
     ) -> bool;
     /** @brief Computes the corresponding matrix at the specified distance.

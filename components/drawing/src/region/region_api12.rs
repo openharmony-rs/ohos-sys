@@ -59,14 +59,14 @@ extern "C" {
 
     @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
     @param region Indicates the pointer to an <b>OH_Drawing_Region</b> object.
-    @param dst Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    @param other Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     @param op Indicates the operation to apply to combine.
     @return Returns <b>true</b> if constructed Region is not empty; returns <b>false</b> otherwise.
     @since 12
     @version 1.0*/
     pub fn OH_Drawing_RegionOp(
         region: *mut OH_Drawing_Region,
-        dst: *const OH_Drawing_Region,
+        other: *const OH_Drawing_Region,
         op: OH_Drawing_RegionOpMode,
     ) -> bool;
     /** @brief Sets the region to the specified rect.
