@@ -313,10 +313,66 @@ if (( OHOS_API_VERSION >= 12)); then
             --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
             "${abs_ime_header}" \
             -- "${BASE_CLANG_ARGS[@]}" \
-            -x c++ \
-            #-include stdbool.h \
-            #-include stddef.h \
-            #-include stdint.h
+            -x c++
+    done
+fi
+
+# Todo: Add the necessary imports / relations and remove this restriction again.
+IMG_pixelmap_ADDITIONAL_ARGS=('--blocklist-function=^OH_PixelmapNative_ConvertPixelmapNative(To|From)Napi')
+IMG_image_source_ADDITIONAL_ARGS=('--blocklist-function=^OH_ImageSourceNative_CreateFromRawFile')
+# Todo: these bindings are hand-picked and feature guarded right now - autogenerate...
+IMG_image_source_ADDITIONAL_ARGS+=('--blocklist-function=^OH_ImageSourceNative_CreatePixelmap(List)?')
+IMG_image_receiver_ADDITIONAL_ARGS=('--raw-line=use crate::native_image::image::OH_ImageNative;')
+IMG_image_packer_ADDITIONAL_ARGS=('--blocklist-function=^OH_ImagePackerNative_PackTo(Data|File)FromImageSource')
+IMG_image_packer_ADDITIONAL_ARGS+=('--blocklist-function=^OH_ImagePackerNative_PackTo(Data|File)FromPixelmap')
+IMG_image_ADDITIONAL_ARGS+=('--blocklist-function=^OH_ImageNative_GetByteBuffer')
+
+
+if (( OHOS_API_VERSION >= 12)); then
+    for abs_img_header in "${OHOS_SYSROOT_DIR}/usr/include/multimedia/image_framework/image"/* ; do
+        img_header=$(basename "${abs_img_header}")
+        echo "Generating bindings for ${img_header}"
+        rust_name=${img_header}
+        rust_name=${rust_name%".h"}
+        rust_name=${rust_name%"_native"}
+        output_dir="${ROOT_DIR}/components/multimedia/image_framework/src/native_image/${rust_name}"
+        if [ ! -d "${output_dir}" ]; then
+            mkdir "${output_dir}"
+        fi
+        rs_includes=()
+        if [[ "${rust_name}" != "image_common" ]]; then
+            rs_includes+=("--raw-line=use crate::native_image::common::*;")
+        fi
+        additional_args_var_name="IMG_${rust_name}_ADDITIONAL_ARGS"
+        if [[ ! -z "${!additional_args_var_name+x}" ]]; then
+            echo "Have additional args!"
+            additional_args_var_name="${additional_args_var_name}[@]"
+            rs_includes+=( "${!additional_args_var_name}" )
+        fi
+        # We want to commit all generated files to version control, so we can easily see if something changed,
+        # when updating bindgen or the SDK patch release.
+        # However, we any split changes into incremental modules, and don't use any of the newer versions of the API
+        # besides the first one. If a binding was not introduced in the current api version, then we add a nopublish
+        # suffix, so we can exclude the file from cargo publish and save some download bandwidth.
+        no_publish_suffix=""
+        if [[ -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}.rs"
+              || -f "${output_dir}/${rust_name}_api${PREVIOUS_API_VERSION}_nopublish.rs" ]]; then
+          no_publish_suffix="_nopublish"
+        fi
+
+        # Note: block-listing `^std_.*` doesn't seem to work, perhaps the underscore replaces some other character.
+        bindgen "${BASE_BINDGEN_ARGS[@]}" \
+            --default-enum-style=newtype \
+            --allowlist-file ".*/${img_header}$" \
+            --no-recursive-allowlist \
+            "${rs_includes[@]}" \
+            --no-derive-copy \
+            --no-derive-debug \
+            --no-prepend-enum-name \
+            --output "${output_dir}/${rust_name}_api${OHOS_API_VERSION}${no_publish_suffix}.rs" \
+            "${abs_img_header}" \
+            -- "${BASE_CLANG_ARGS[@]}" \
+            -x c++
     done
 fi
 

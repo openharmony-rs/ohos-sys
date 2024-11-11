@@ -1,0 +1,46 @@
+[package]
+name = "ohos-image-kit-sys"
+version = "0.1.0"
+edition = "2021"
+description = "Bindings to the multimedia Image Kit API of OpenHarmony"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "multimedia", "image"]
+exclude = ["src/**/*_nopublish.rs"]
+readme = "README.md"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+
+[features]
+default = []
+
+#! ### OpenHarmony API level
+#! The `inputmethod` API was added in API-level 12.
+#! Defaults to no bindings at all, to maintain feature composability in `ohos-sys`.
+#! Optionally enable one of the `api-*` features to get access to bindings for newer
+#! OpenHarmony versions.
+
+## Enables bindings for OpenHarmony API-level 12.
+api-12 = []
+
+#! ### Image Kit Modules
+#!
+#! The Image kit is divided into different shared libraries.
+#! We provide features, so that you can select which components you want to use.
+
+## Image Encoding
+image-packer = []
+## Obtain image data from the native layer
+image-receiver = []
+## Image decoding
+image-source = []
+## Pixel Map
+pixelmap = []
+## Document available features when building the documentation
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true

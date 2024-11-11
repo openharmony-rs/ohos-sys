@@ -12,7 +12,8 @@ resolver = "2"
 rust-version = "1.78.0"
 
 [workspace]
-members = ["components/*"]
+members = ["components/*", "components/multimedia/image_framework"]
+exclude = ["components/multimedia"]
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
