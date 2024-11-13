@@ -25,6 +25,15 @@ fn parse_api_version(sdk_native_dir: &Path) -> anyhow::Result<u32> {
     Ok(api_version)
 }
 
+#[derive(Debug)]
+struct DoxygenCommentCb;
+
+impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
+    fn process_comment(&self, comment: &str) -> Option<String> {
+        Some(doxygen_rs::transform(comment))
+    }
+}
+
 fn base_bindgen_builder(sysroot_dir: &Path) -> anyhow::Result<bindgen::Builder> {
     let builder = bindgen::builder()
         .use_core()
@@ -44,6 +53,7 @@ fn base_bindgen_builder(sysroot_dir: &Path) -> anyhow::Result<bindgen::Builder> 
         .raw_line("#![allow(non_upper_case_globals)]")
         .raw_line("#![allow(non_camel_case_types)]")
         .raw_line("#![allow(non_snake_case)]")
+        .parse_callbacks(Box::new(DoxygenCommentCb))
         .clang_arg(format!("--sysroot={}",
                            sysroot_dir.to_str().context("The OpenHarmony SDK directory must be encodable as utf-8")?)
         )
