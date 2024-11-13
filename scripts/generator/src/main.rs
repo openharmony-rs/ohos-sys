@@ -1,7 +1,10 @@
 use std::fs;
+use std::num::ParseIntError;
 use anyhow::{anyhow, bail, Context};
-use bindgen::{EnumVariation, Formatter};
+use bindgen::{CodeGenAttributes, EnumVariation, Formatter};
 use std::path::{Path, PathBuf};
+use std::str::FromStr;
+use thiserror::Error;
 
 /// Parse the api version
 ///
@@ -25,13 +28,126 @@ fn parse_api_version(sdk_native_dir: &Path) -> anyhow::Result<u32> {
     Ok(api_version)
 }
 
+#[derive(Copy, Clone, PartialEq, Ord, PartialOrd, Eq)]
+enum OpenHarmonyApiLevel {
+    Eight = 8,
+    Nine = 9,
+    Ten = 10,
+    Eleven = 11,
+    Twelve = 12,
+    Thirteen = 13,
+    Fourteen = 14,
+}
+
+#[derive(Error, Debug)]
+enum ApiLevelParseError {
+    #[error("Could not parse API level from interger: {0:?}")]
+    ParseIntError(#[from] ParseIntError),
+    #[error("Unknown API level {0}! Perhaps we need an update")]
+    UnknownApiVersion(u32),
+}
+
+impl TryFrom<&str> for OpenHarmonyApiLevel {
+    type Error = ApiLevelParseError;
+
+    fn try_from(api_level: &str) -> Result<Self, ApiLevelParseError> {
+        let num: u32 = api_level.parse()?;
+        let level = match num {
+            8 => OpenHarmonyApiLevel::Eight,
+            9 => OpenHarmonyApiLevel::Nine,
+            10 => OpenHarmonyApiLevel::Ten,
+            11 => OpenHarmonyApiLevel::Eleven,
+            12 => OpenHarmonyApiLevel::Twelve,
+            13 => OpenHarmonyApiLevel::Thirteen,
+            14 => OpenHarmonyApiLevel::Fourteen,
+            other => { return Err(ApiLevelParseError::UnknownApiVersion(other)); }
+        };
+        Ok(level)
+    }
+}
+
+#[derive(Error, Debug)]
+enum ParseDeprecatedError {
+    #[error("Could not parse API level: {0:?}")]
+    ApiLevelParseError(#[from] ApiLevelParseError),
+    #[error("Failed to find @deprecated in line: {0}")]
+    InvalidLine(String),
+}
+
+#[derive(Debug)]
+struct DoxygenCommentCb;
+
+fn parse_deprecated_since(line: &str) -> Result<Option<OpenHarmonyApiLevel>, ParseDeprecatedError> {
+    if line.trim() == "@deprecated" {
+        return Ok(None);
+    }
+    let (_, rhs) = line.split_once("@deprecated").ok_or_else(|| ParseDeprecatedError::InvalidLine(line.to_string()))?;
+    // Variant 1: `@deprecated(since = "XX")`
+    // Note: Regex parsing might be more readable, but we want to avoid pulling in more dependencies.
+    if let Some(api_level_str) = rhs.split_once("(since = \"")
+        .or_else(|| rhs.split_once("(since=\""))
+        .map(|(_, rhs)| { rhs.split_once("\"").expect("String end delimiter not found").0 }) {
+        return Ok(Some(OpenHarmonyApiLevel::try_from(api_level_str)?));
+    }
+
+    if let Some((_, api_level_str)) = rhs.split_once("since ") {
+        Ok(Some(OpenHarmonyApiLevel::try_from(api_level_str.trim())?))
+    } else {
+        Err(ParseDeprecatedError::InvalidLine(line.to_string()))
+    }
+}
+
+impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
+    fn parse_comments_for_attributes(&self, comment: &str) -> Vec<CodeGenAttributes> {
+        let mut attributes: Vec<CodeGenAttributes> = vec![];
+        let api_version = comment.lines()
+            .find_map(|line| line.split_once("@since"))
+            .map(|(_, since)| {
+                let api_level_str = since
+                    .trim();
+                let api_level: Result<OpenHarmonyApiLevel, _> =
+                    api_level_str.try_into()
+                    .inspect_err(|err| eprintln!("Failed to parse OH API version: {:?}", err));
+                api_level.expect("Failed to parse OH API version")
+            }
+            );
+        if let Some(api_version) = api_version {
+            let cfg = format!("feature = \"api-{}\"", api_version as u32);
+            // Our Minimum api-level is 10, so we don't feature guard things <= API level 10.
+            if api_version > OpenHarmonyApiLevel::Ten {
+                attributes.push(CodeGenAttributes::Cfg(cfg));
+                attributes.push(CodeGenAttributes::CfgAttr(format!("docsrs, doc(cfg(feature = \"api-{}\"))", api_version as u32)));
+            }
+        }
+
+        if let Some(deprecated_line) = comment.lines().find(|line| line.contains("@deprecated")) {
+            let deprecated_since = parse_deprecated_since(deprecated_line).expect("Parse failed");
+            let deprecated_opt =  deprecated_since.map(|since | {
+                    format!("since = \"{}\"", since as u32)
+            });
+            // if let Some(since ) = deprecated_since {
+            //     if since <= OpenHarmonyApiLevel::Ten {
+            //         // We can't tell bindgen to not generate something directly, but we can add a
+            //         // a `cfg` which will never be enabled.
+            //         // Todo: This should be revisited once we support checking type, e.g. for
+            //         // enum variants, we should not cfg them out.
+            //         attributes.push(CodeGenAttributes::Cfg("ohos_sys_deprecated_removed".to_string()));
+            //     }
+            // }
+            attributes.push(CodeGenAttributes::Deprecated(deprecated_opt));
+        }
+
+        attributes
+    }
+}
+
 fn base_bindgen_builder(sysroot_dir: &Path) -> anyhow::Result<bindgen::Builder> {
     let builder = bindgen::builder()
         .use_core()
         .layout_tests(false)
         .formatter(Formatter::Prettyplease)
         .merge_extern_blocks(true)
-        .rust_target(bindgen::RustTarget::Stable_1_77)
+        .rust_target(bindgen::RustTarget::from_str("1.78").expect("invalid rust target"))
         .blocklist_file(r".*stdint\.h")
         .blocklist_file(r".*stddef\.h")
         .blocklist_file(r".*stdarg\.h")
@@ -44,6 +160,7 @@ fn base_bindgen_builder(sysroot_dir: &Path) -> anyhow::Result<bindgen::Builder> 
         .raw_line("#![allow(non_upper_case_globals)]")
         .raw_line("#![allow(non_camel_case_types)]")
         .raw_line("#![allow(non_snake_case)]")
+        .parse_callbacks(Box::new(DoxygenCommentCb))
         .clang_arg(format!("--sysroot={}",
                            sysroot_dir.to_str().context("The OpenHarmony SDK directory must be encodable as utf-8")?)
         )
@@ -121,6 +238,7 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                         is_global: false,
                     })
                     .bitfield_enum("^HiTrace_Flag$")
+                    .rustified_non_exhaustive_enum("HiTrace_Tracepoint_Type")
                     .blocklist_var("LOG_DOMAIN")
                     .clang_arg("-include")
                     .clang_arg("stdbool.h")
@@ -136,11 +254,45 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                         is_global: false,
                     })
                     .allowlist_file(r".*/xcomponent/native_.*xcomponent.*\.h")
+                    .allowlist_recursively(false)
                     .no_copy("^OH_NativeXComponent$")
                     .no_copy("^OH_NativeXComponent_KeyEvent$")
                     .no_debug("^OH_NativeXComponent$")
                     .no_debug("^OH_NativeXComponent_KeyEvent$")
-                    .blocklist_item("^ArkUI_")
+                    .blocklist_item("ArkUI_.*")
+                    // FIXME: this doesn't work - needs to be fixed in bindgen (anonymous enum variant)
+                    .blocklist_item("OH_NATIVEXCOMPONENT_RESULT.*")
+                    // Note: this needs to be updated semi-regularly ....
+                    .blocklist_type("_bindgen_ty_11")
+                    .blocklist_function("OH_NativeXComponent_.*NativeRootNode")
+                    .blocklist_function("OH_NativeXComponent_RegisterUIInputEventCallback")
+                    .blocklist_function("OH_NativeXComponent_RegisterOnTouchInterceptCallback")
+                    .blocklist_function("OH_NativeXComponent_GetNativeXComponent")
+                    .clang_args(&["-x", "c++"])
+            }),
+        },
+        BindingConf {
+            include_filename: "ace/xcomponent/native_interface_xcomponent.h".to_string(),
+            output_prefix: "components/xcomponent/src/xcomponent_result".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .raw_line("#![allow(unused)]")
+                    .allowlist_var("OH_NATIVEXCOMPONENT_RESULT_.*")
+                    .clang_args(&["-x", "c++"])
+            }),
+        },
+        BindingConf {
+            include_filename: "ace/xcomponent/native_interface_xcomponent.h".to_string(),
+            output_prefix: "components/xcomponent/src/xcomponent_arkui".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .raw_line("use super::xcomponent_ffi::*;")
+                    .raw_line("use arkui_sys::native_type::ArkUI_NodeHandle;")
+                    .raw_line("use arkui_sys::ui_input_event::{ArkUI_UIInputEvent, ArkUI_UIInputEvent_Type, HitTestMode};")
+                    .allowlist_function("OH_NativeXComponent_.*NativeRootNode")
+                    .allowlist_function("OH_NativeXComponent_RegisterUIInputEventCallback")
+                    .allowlist_function("OH_NativeXComponent_RegisterOnTouchInterceptCallback")
+                    .blocklist_type(".*")
                     .clang_args(&["-x", "c++"])
             }),
         },
@@ -156,9 +308,25 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .allowlist_file(r".*/native_buffer/.*\.h")
                     .bitfield_enum("OH_NativeBuffer_Usage")
                     .blocklist_item("^(OH)?NativeWindow(Buffer)?")
+                    .blocklist_function("OH_NativeBuffer_.*NativeWindow.*")
                     .no_copy("^OH_NativeBuffer$")
                     .no_copy("^OHIPCParcel$")
                     .no_debug("^OH_NativeBuffer$")
+            }),
+        },
+        BindingConf {
+            include_filename: "native_buffer/native_buffer.h".to_string(),
+            output_prefix: "src/native_buffer/native_buffer_window".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                    })
+                    .raw_line("use super::native_buffer_ffi::*;")
+                    .raw_line("use crate::native_window::OHNativeWindowBuffer;")
+                    .blocklist_type(".*")
+                    .allowlist_function("OH_NativeBuffer_.*NativeWindow.*")
             }),
         },
         BindingConf {
@@ -170,12 +338,29 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                         is_bitfield: false,
                         is_global: false,
                     })
-                    .raw_line("use crate::native_window::OHNativeWindow;")
                     .allowlist_file(r".*/native_image/.*\.h")
                     .blocklist_item("^(OH)?NativeWindow(Buffer)?")
+                    // Blocklist everything with native window, so we can feature guard it.
+                    .blocklist_function("OH_NativeImage_.*NativeWindow.*")
                     .no_copy("^OH_NativeImage$")
                     .no_copy("^OH_OnFrameAvailableListener")
                     .no_debug("^OH_NativeImage$")
+            }),
+        },
+        BindingConf {
+            include_filename: "native_image/native_image.h".to_string(),
+            output_prefix: "src/native_image/native_image_window".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                    })
+                    .raw_line("use super::native_image_ffi::*;")
+                    .raw_line("use crate::native_window::OHNativeWindow;")
+                    .raw_line("use crate::native_window::OHNativeWindowBuffer;")
+                    .allowlist_recursively(false)
+                    .allowlist_function(".*NativeWindow.*")
             }),
         },
         BindingConf {
@@ -187,7 +372,7 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                         is_bitfield: false,
                         is_global: false,
                     })
-                    // todo: if API == 10, --blocklist-item=^NativeWindowOperation$
+                    .constified_enum_module("^NativeWindowOperation$")
                     .derive_copy(false)
             }),
         },
@@ -207,6 +392,25 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                 } else {
                     builder
                 }
+            }),
+        },
+        BindingConf {
+            include_filename: "arkui/ui_input_event.h".to_string(),
+            output_prefix: "components/arkui/src/ui_input_event/ui_input_event_anon_enums".to_string(),
+            set_builder_opts: Box::new(move |builder| {
+               builder
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                    })
+                   .allowlist_var("UI_TOUCH_EVENT_ACTION_.*")
+                    .allowlist_var("UI_INPUT_EVENT_TOOL_TYPE_.*")
+                   .allowlist_var("UI_INPUT_EVENT_SOURCE_TYPE_.*")
+                    .allowlist_var("UI_MOUSE_EVENT_ACTION_.*")
+                   .allowlist_var("UI_MOUSE_EVENT_BUTTON_*")
+                   .allowlist_recursively(true)
+                   .clang_args(["-include", "stdbool.h"])
+
             }),
         },
     ]
@@ -404,7 +608,16 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
              set_builder_opts: Box::new(
                  |file_stem, header_path, builder| {
                      let builder = if file_stem != "types" {
-                         builder.raw_line("use crate::types::*;")
+                         let builder = builder.raw_line("use crate::types::*;");
+                         if file_stem != "error_code" {
+                             builder
+                                 .raw_line("")
+                                 .raw_line("#[allow(unused_imports)]")
+                                 .raw_line("#[cfg(feature = \"api-12\")]")
+                                 .raw_line("use crate::error_code::OH_Drawing_ErrorCode;")
+                         } else {
+                             builder
+                         }
                      } else {
                          builder
                      };
@@ -456,23 +669,7 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                      } else {
                          builder
                      };
-                     let builder = match file_stem {
-                         "drawable_descriptor" => {
-                             builder.blocklist_item("^OH_PixelmapNative$")
-                         },
-                         "native_type" => {
-                             builder //.raw_line("use crate::drawable_descriptor::ArkUI_DrawableDescriptor;")
-                              .blocklist_function("^OH_ArkUI_ImageAnimatorFrameInfo_CreateFromDrawableDescriptor$")
-
-                         },
-                         "native_gesture" => {
-                             builder
-                                 .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
-                                 .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
-                         }
-                         _ => builder,
-                     };
-                     builder
+                     let builder = builder
                          .allowlist_file(format!("{}", header_path.to_str().unwrap()))
                          .allowlist_recursively(false)
                          .default_enum_style(EnumVariation::NewType {
@@ -482,7 +679,35 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                          .derive_copy(false)
                          .derive_debug(false)
                          .prepend_enum_name(false)
-                         .clang_args(&["-x", "c++"])
+                         .clang_args(&["-x", "c++"]);
+                     match file_stem {
+                         "drawable_descriptor" => {
+                             builder.blocklist_item("^OH_PixelmapNative$")
+                         },
+                         "native_type" => {
+                             builder //.raw_line("use crate::drawable_descriptor::ArkUI_DrawableDescriptor;")
+                              .blocklist_function("^OH_ArkUI_ImageAnimatorFrameInfo_CreateFromDrawableDescriptor$")
+                             // We want copy for the union type `ArkUI_NumberValue`
+                             .derive_copy(true)
+                                 .no_copy("ArkUI_ContextCallback")
+                                 .no_copy("ARKUI_TextPickerRangeContent")
+                                 .no_copy("ARKUI_TextPickerCascadeRangeContent")
+                                 .no_copy("ArkUI_ColorStop")
+
+                         },
+                         "native_gesture" => {
+                             builder
+                                 .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
+                                 .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
+                         },
+                         "ui_input_event" => {
+                             builder
+                                 .blocklist_var("^UI_TOUCH_EVENT_ACTION_*")
+                                 .bitfield_enum("ArkUI_ModifierKeyName")
+
+                         },
+                         _ => builder,
+                     }
                  }
              ),
          },
@@ -507,13 +732,12 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
         let header_filename_str = header_filename.to_str().context("Unicode")?;
         let builder = base_builder
             .clone()
-            .header(header_filename_str)
-            .allowlist_file(header_filename_str);
+            .header(header_filename_str);
         let builder = (binding.set_builder_opts)(builder);
         let bindings = builder.generate().context("Bindgen failed")?;
 
         bindings
-            .write_to_file(root_dir.join(format!("{}_api{api_version}.rs", binding.output_prefix)))
+            .write_to_file(root_dir.join(format!("{}_ffi.rs", binding.output_prefix)))
             .context("Failed to write bindings to file")?;
     }
 
@@ -550,22 +774,8 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
                 fs::create_dir_all(&base_path).context("Failed to create target directory for bindings")?;
             }
 
-            // We want to commit all generated files to version control, so we can easily see if something changed,
-            // when updating bindgen or the SDK patch release.
-            // However, we any split changes into incremental modules, and don't use any of the newer versions of the API
-            // besides the first one. If a binding was not introduced in the current api version, then we add a nopublish
-            // suffix, so we can exclude the file from cargo publish and save some download bandwidth.
-            let previous_version_stem = format!("{file_stem}_api{}", api_version - 1);
-            let no_publish_suffix = if
-                        base_path.join(format!("{previous_version_stem}.rs")).is_file()
-                    ||  base_path.join(format!("{previous_version_stem}_nopublish.rs")).is_file() {
-                println!("Found older API file for {}", base_path.display());
-                "_nopublish"
-            } else {
-                ""
-            };
             bindings
-                .write_to_file(base_path.join(format!("{file_stem}_api{api_version}{no_publish_suffix}.rs")))
+                .write_to_file(base_path.join(format!("{file_stem}_ffi.rs")))
                 .context("Failed to write bindings to file")?;
         }
     }

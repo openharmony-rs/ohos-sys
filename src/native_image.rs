@@ -17,20 +17,12 @@
 #[link(name = "native_image")]
 extern "C" {}
 
-mod native_image_api10;
-pub use native_image_api10::*;
+mod native_image_ffi;
+pub use native_image_ffi::*;
 
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-mod api11_additions;
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-pub use api11_additions::*;
-
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-mod api12_additions;
-
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub use api12_additions::*;
+#[cfg(feature = "native_window")]
+#[cfg_attr(docsrs, doc(cfg(feature = "native_window")))]
+mod native_image_window_ffi;
+#[cfg(feature = "native_window")]
+#[cfg_attr(docsrs, doc(cfg(feature = "native_window")))]
+pub use native_image_window_ffi::*;

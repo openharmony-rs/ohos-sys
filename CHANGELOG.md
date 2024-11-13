@@ -1,3 +1,9 @@
+# v0.5.0
+
+## Breaking
+
+- Remove `Debug` from opaque structs
+
 # v0.4.0 (2024-10-29)
 
 ## Change

@@ -28,15 +28,34 @@
 #[link(name = "ace_ndk.z")]
 extern "C" {}
 
-mod xcomponent_api10;
-pub use xcomponent_api10::*;
+mod xcomponent_ffi;
+pub use xcomponent_ffi::*;
 
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-mod api11_additions;
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-pub use api11_additions::*;
+#[cfg(feature = "arkui")]
+mod xcomponent_arkui_ffi;
+#[cfg(feature = "arkui")]
+pub use xcomponent_arkui_ffi::*;
+
+mod xcomponent_result_ffi;
+
+/// Enumerates the API access states.
+///
+/// Available since API 8.
+#[repr(transparent)]
+pub struct XcomponentResult(pub std::ffi::c_int);
+
+impl XcomponentResult {
+    pub const SUCCESS: Self = Self(0);
+    pub const FAILED: Self = Self(-1);
+    pub const BAD_PARAMETER: Self = Self(-2);
+}
+
+// assert that our handwritten binding matches the size of the generated binding.
+// needs to be updated when regenerating the bindings, since the bindgen type name
+// may change.
+#[allow(dead_code)]
+const ASSERT_SIZE_OK: () =
+    assert!(size_of::<XcomponentResult>() == size_of::<xcomponent_result_ffi::_bindgen_ty_11>());
 
 #[cfg(feature = "keyboard-types")]
 #[cfg_attr(docsrs, doc(cfg(feature = "keyboard-types")))]

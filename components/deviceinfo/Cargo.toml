@@ -1,12 +1,11 @@
 [package]
 name = "ohos-deviceinfo-sys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Bindings to OpenHarmony OS APIs providing information about the device"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
 keywords = ["OpenHarmony", "HarmonyOS", "ffi", "device"]
-exclude = ["src/api11.rs", "src/api12.rs"]
 
 [dependencies]
 document-features = { version = "0.2", optional = true }

@@ -1,12 +1,11 @@
 [package]
 name = "hilog-sys"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 keywords = ["OpenHarmony", "HarmonyOS", "hilog", "log"]
 description = "Rust bindings to the HiLog logging system of OpenHarmony"
 repository = "https://github.com/openharmony-rs/ohos-sys"
 license = "Apache-2.0"
-exclude = ["src/hilog_api11.rs", "src/hilog_api12.rs"]
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
