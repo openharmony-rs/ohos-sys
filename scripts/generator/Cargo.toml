@@ -6,10 +6,13 @@ publish = false
 description = "Internal tool to generate the ohos-sys bindings"
 
 [dependencies]
-bindgen = {  version = "=0.70.1", features = ["prettyplease"] }
+# We currently use a fork of bindgen with some features that haven't been upstreamed yet.
+bindgen = { features = ["prettyplease"], git = "https://github.com/openharmony-rs/rust-bindgen.git", branch = "jschwender/doc_cfg" }
 anyhow = "1.0.93"
 # Keep this feature in sync with the clang version of the SDK.
 clang-sys = { version = "1.8.1", features = ["clang_15_0"] }
+doxygen-rs = "0.4"
+thiserror = "2.0.9"
 
 [profile.dev.package."*"]
 opt-level = 2

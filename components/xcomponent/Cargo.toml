@@ -12,13 +12,16 @@ readme = "README.md"
 [dependencies]
 document-features = { version = "0.2", optional = true }
 keyboard-types = {version = "0.7.0", optional = true}
+arkui-sys = { version = "0.1.0", optional = true}
 
 [features]
 default = []
 
 api-10 = []
 api-11 = ["api-10"]
-api-12 = ["api-11"]
+api-12 = ["api-11", "arkui-sys?/api-12"]
+## Enables XComponent APIs that depend on ArkUI.
+arkui = ["dep:arkui-sys"]
 ## Provides optional conversion from the OH keyboard enum to the keyboard-types enum.
 keyboard-types = ["dep:keyboard-types"]
 ## Document available features when building the documentation

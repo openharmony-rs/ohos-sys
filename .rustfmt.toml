@@ -1,0 +1,3 @@
+# unstable_features = true
+# normalize_comments = true
+# normalize_doc_attributes = true

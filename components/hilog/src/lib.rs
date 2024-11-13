@@ -31,18 +31,9 @@
 extern "C" {}
 
 #[allow(non_snake_case)]
-mod hilog_api10;
+mod hilog_ffi;
 
-pub use hilog_api10::*;
-
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-mod api11_additions;
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-pub use api11_additions::*;
-
-// Note: No additions in api-12
+pub use hilog_ffi::*;
 
 #[cfg(feature = "log")]
 impl From<log::Level> for LogLevel {
