@@ -140,6 +140,7 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .no_copy("^OH_NativeXComponent_KeyEvent$")
                     .no_debug("^OH_NativeXComponent$")
                     .no_debug("^OH_NativeXComponent_KeyEvent$")
+                    .blocklist_item("^ArkUI_")
                     .clang_args(&["-x", "c++"])
             }),
         },
@@ -440,6 +441,48 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                          .clang_args(&["-x", "c++"]);
 
                      apply_drawing_nocopy(builder)
+                 }
+             ),
+         },
+         DirBindingsConf {
+             directory: "arkui".to_string(),
+             output_dir: "components/arkui/src".to_string(),
+             min_api_version: 12,
+             rename_output_file: None,
+             set_builder_opts: Box::new(
+                 |file_stem, header_path, builder| {
+                     let builder = if file_stem != "native_type" {
+                         builder.raw_line("use crate::native_type::*;")
+                     } else {
+                         builder
+                     };
+                     let builder = match file_stem {
+                         "drawable_descriptor" => {
+                             builder.blocklist_item("^OH_PixelmapNative$")
+                         },
+                         "native_type" => {
+                             builder //.raw_line("use crate::drawable_descriptor::ArkUI_DrawableDescriptor;")
+                              .blocklist_function("^OH_ArkUI_ImageAnimatorFrameInfo_CreateFromDrawableDescriptor$")
+
+                         },
+                         "native_gesture" => {
+                             builder
+                                 .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
+                                 .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
+                         }
+                         _ => builder,
+                     };
+                     builder
+                         .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                         .allowlist_recursively(false)
+                         .default_enum_style(EnumVariation::NewType {
+                             is_bitfield: false,
+                             is_global: false,
+                         })
+                         .derive_copy(false)
+                         .derive_debug(false)
+                         .prepend_enum_name(false)
+                         .clang_args(&["-x", "c++"])
                  }
              ),
          },
