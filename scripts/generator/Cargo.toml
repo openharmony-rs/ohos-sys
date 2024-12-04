@@ -10,3 +10,6 @@ bindgen = {  version = "=0.70.1", features = ["prettyplease"] }
 anyhow = "1.0.93"
 # Keep this feature in sync with the clang version of the SDK.
 clang-sys = { version = "1.8.1", features = ["clang_15_0"] }
+
+[profile.dev.package."*"]
+opt-level = 2
