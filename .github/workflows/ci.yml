@@ -54,6 +54,14 @@ jobs:
       - run: cargo build --features ${{ matrix.api_level }} --features ${{ matrix.component }}
         name: Build minimal features
 
+  semver_checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Check semver
+        uses: obi1kenobi/cargo-semver-checks-action@v2
+
   rustdoc:
     name: Build Documentation
     runs-on: ubuntu-latest
