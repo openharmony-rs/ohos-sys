@@ -45,7 +45,7 @@ jobs:
     strategy:
       matrix:
         api_level: ["api-10"]
-        component: ["drawing", "hilog", "napi", "native_buffer", "native_window", "xcomponent"]
+        component: ["drawing", "hilog", "napi", "hitrace", "native_buffer", "native_image", "native_window", "xcomponent", "vsync"]
     name: Build with minimal features
     runs-on: ubuntu-latest
     steps:
