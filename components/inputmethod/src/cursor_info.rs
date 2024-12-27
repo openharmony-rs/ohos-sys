@@ -1,2 +1,2 @@
-mod cursor_info_api12;
-pub use cursor_info_api12::*;
+mod cursor_info_ffi;
+pub use cursor_info_ffi::*;

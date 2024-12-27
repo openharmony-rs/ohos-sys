@@ -1,6 +1,6 @@
-mod types_api12;
+mod types_ffi;
 
-pub use types_api12::*;
+pub use types_ffi::*;
 
 impl InputMethod_ErrorCode {
     pub fn is_ok(&self) -> bool {

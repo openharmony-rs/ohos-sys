@@ -1,12 +1,11 @@
 [package]
 name = "ohos-ime-sys"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Bindings to the `inputmethod` API of OpenHarmony"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
 keywords = ["OpenHarmony", "HarmonyOS", "ffi", "ime", "inputmethod"]
-exclude = ["src/**/*_nopublish.rs"]
 readme = "README.md"
 
 [dependencies]
@@ -21,8 +20,7 @@ default = []
 #! Optionally enable one of the `api-*` features to get access to bindings for newer
 #! OpenHarmony versions.
 
-## **EXPERIMENTAL**: Enables bindings for OpenHarmony API-level 12 (beta-1).
-## Will stabilize once the final version has been released.
+## Enables bindings for OpenHarmony API-level 12.
 api-12 = []
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
