@@ -1,2 +1,2 @@
-mod shadow_layer_api12;
-pub use shadow_layer_api12::*;
+mod shadow_layer_ffi;
+pub use shadow_layer_ffi::*;

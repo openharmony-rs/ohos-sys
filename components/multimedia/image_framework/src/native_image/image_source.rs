@@ -5,8 +5,8 @@
 #[link(name = "image_source")]
 extern "C" {}
 
-mod image_source_api12;
-pub use image_source_api12::*;
+mod image_source_ffi;
+pub use image_source_ffi::*;
 
 #[cfg(feature = "pixelmap")]
 #[cfg_attr(docsrs, doc(cfg(feature = "pixelmap")))]
@@ -20,6 +20,8 @@ extern "C" {
     @param resPixMap Indicates a void pointer to the <b>Pixelmap</b> object obtained at the C++ native layer.
     @return Returns {@link Image_ErrorCode}
     @since 12*/
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageSourceNative_CreatePixelmap(
         source: *mut OH_ImageSourceNative,
         options: *mut OH_DecodingOptions,
@@ -37,6 +39,8 @@ extern "C" {
     @param size Indicates a size of resVecPixMap. User can get size from {@link OH_ImageSourceNative_GetFrameCount}.
     @return Returns {@link Image_ErrorCode}
     @since 12*/
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageSourceNative_CreatePixelmapList(
         source: *mut OH_ImageSourceNative,
         options: *mut OH_DecodingOptions,

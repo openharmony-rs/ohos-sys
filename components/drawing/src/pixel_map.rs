@@ -1,2 +1,2 @@
-mod pixel_map_api12;
-pub use pixel_map_api12::*;
+mod pixel_map_ffi;
+pub use pixel_map_ffi::*;

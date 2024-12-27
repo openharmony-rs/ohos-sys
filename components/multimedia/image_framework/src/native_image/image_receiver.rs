@@ -5,5 +5,5 @@
 #[link(name = "image_receiver")]
 extern "C" {}
 
-mod image_receiver_api12;
-pub use image_receiver_api12::*;
+mod image_receiver_ffi;
+pub use image_receiver_ffi::*;

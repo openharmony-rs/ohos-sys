@@ -5,8 +5,8 @@
 #[link(name = "image_packer")]
 extern "C" {}
 
-mod image_packer_api12;
-pub use image_packer_api12::*;
+mod image_packer_ffi;
+pub use image_packer_ffi::*;
 
 #[cfg(feature = "image-source")]
 #[cfg_attr(docsrs, doc(cfg(feature = "image-source")))]
@@ -20,6 +20,8 @@ extern "C" {
     @param size A pointer to the size of the output data buffer.
     @return Returns {@link Image_ErrorCode}
     @since 12*/
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImagePackerNative_PackToDataFromImageSource(
         imagePacker: *mut OH_ImagePackerNative,
         options: *mut OH_PackingOptions,
@@ -36,6 +38,8 @@ extern "C" {
     @param fd Indicates a writable file descriptor.
     @return Returns {@link Image_ErrorCode}
     @since 12*/
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImagePackerNative_PackToFileFromImageSource(
         imagePacker: *mut OH_ImagePackerNative,
         options: *mut OH_PackingOptions,
@@ -57,6 +61,8 @@ extern "C" {
     @param size A pointer to the size of the output data buffer.
     @return Returns {@link Image_ErrorCode}
     @since 12*/
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImagePackerNative_PackToDataFromPixelmap(
         imagePacker: *mut OH_ImagePackerNative,
         options: *mut OH_PackingOptions,
@@ -72,6 +78,8 @@ extern "C" {
     @param fd Indicates a writable file descriptor.
     @return Returns {@link Image_ErrorCode}
     @since 12*/
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImagePackerNative_PackToFileFromPixelmap(
         imagePacker: *mut OH_ImagePackerNative,
         options: *mut OH_PackingOptions,

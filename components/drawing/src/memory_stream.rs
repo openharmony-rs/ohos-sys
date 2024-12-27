@@ -1,2 +1,2 @@
-mod memory_stream_api12;
-pub use memory_stream_api12::*;
+mod memory_stream_ffi;
+pub use memory_stream_ffi::*;

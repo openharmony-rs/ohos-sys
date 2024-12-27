@@ -1,2 +1,2 @@
-mod image_api12;
-pub use image_api12::*;
+mod image_ffi;
+pub use image_ffi::*;

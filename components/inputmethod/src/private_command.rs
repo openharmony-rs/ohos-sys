@@ -1,2 +1,2 @@
-mod private_command_api12;
-pub use private_command_api12::*;
+mod private_command_ffi;
+pub use private_command_ffi::*;

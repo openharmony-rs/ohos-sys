@@ -5,8 +5,8 @@
 #[link(name = "ohimage")]
 extern "C" {}
 
-mod image_api12;
-pub use image_api12::*;
+mod image_ffi;
+pub use image_ffi::*;
 
 #[cfg(feature = "pixelmap")]
 #[cfg_attr(docsrs, doc(cfg(feature = "pixelmap")))]
@@ -20,6 +20,8 @@ extern "C" {
     @return Returns {@link Image_ErrorCode} IMAGE_SUCCESS - if the operation is successful.
     returns {@link Image_ErrorCode} IMAGE_BAD_PARAMETER - if bad parameter.
     @since 12*/
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageNative_GetByteBuffer(
         image: *mut OH_ImageNative,
         componentType: u32,

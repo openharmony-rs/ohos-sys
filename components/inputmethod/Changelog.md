@@ -1,3 +1,7 @@
+# v0.1.2
+
+- Internal changes: Regenerate bindings with new generator
+
 # v0.1.1
 
 ### Add

@@ -1,12 +1,11 @@
 [package]
 name = "ohos-drawing-sys"
-version = "0.1.2"
+version = "0.2.0"
 edition = "2021"
 description = "Bindings to the `native_drawing` API of OpenHarmony OS"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
 keywords = ["OpenHarmony", "HarmonyOS", "ffi", "drawing"]
-exclude = ["src/**/*_nopublish.rs"]
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
