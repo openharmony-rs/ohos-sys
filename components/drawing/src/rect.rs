@@ -1,9 +1,2 @@
-mod rect_api11;
-pub use rect_api11::*;
-
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-mod api12_additions;
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub use api12_additions::*;
+mod rect_ffi;
+pub use rect_ffi::*;
