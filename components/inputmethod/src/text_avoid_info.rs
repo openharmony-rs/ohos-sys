@@ -1,2 +1,2 @@
-mod text_avoid_info_api12;
-pub use text_avoid_info_api12::*;
+mod text_avoid_info_ffi;
+pub use text_avoid_info_ffi::*;

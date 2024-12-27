@@ -1,2 +1,2 @@
-mod text_editor_proxy_api12;
-pub use text_editor_proxy_api12::*;
+mod text_editor_proxy_ffi;
+pub use text_editor_proxy_ffi::*;

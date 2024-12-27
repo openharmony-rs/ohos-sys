@@ -1,2 +1,2 @@
-mod text_config_api12;
-pub use text_config_api12::*;
+mod text_config_ffi;
+pub use text_config_ffi::*;
