@@ -5,5 +5,5 @@
 #[link(name = "pixelmap")]
 extern "C" {}
 
-mod pixelmap_api12;
-pub use pixelmap_api12::*;
+mod pixelmap_ffi;
+pub use pixelmap_ffi::*;
