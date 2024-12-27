@@ -1,2 +1,2 @@
-mod sampling_options_api12;
-pub use sampling_options_api12::*;
+mod sampling_options_ffi;
+pub use sampling_options_ffi::*;
