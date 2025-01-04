@@ -371,6 +371,7 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     })
                     .raw_line("use super::native_image_ffi::*;")
                     .raw_line("use crate::native_window::OHNativeWindow;")
+                    .raw_line("#[cfg(feature = \"api-12\")]")
                     .raw_line("use crate::native_window::OHNativeWindowBuffer;")
                     .allowlist_recursively(false)
                     .allowlist_function(".*NativeWindow.*")
@@ -642,6 +643,7 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                          "text_typography" => {
                              builder
                                  .raw_line("use crate::text_declaration::*;")
+                                 .raw_line("#[cfg(feature = \"api-12\")]")
                                  .raw_line("use crate::font::OH_Drawing_Font_Metrics;")
                                  // FIXME: This needs to be guarded behind API-level-12 (fixed in SDK-13)
                                  // We blocklist for now and remove when updating to SDK-13

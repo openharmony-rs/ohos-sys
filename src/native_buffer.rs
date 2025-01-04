@@ -17,9 +17,9 @@ extern "C" {}
 mod native_buffer_ffi;
 pub use native_buffer_ffi::*;
 
-#[cfg(feature = "native_window")]
-#[cfg_attr(docsrs, doc(cfg(feature = "native_window")))]
+#[cfg(all(feature = "native_window", feature = "api-12"))]
+#[cfg_attr(docsrs, doc(cfg(all(feature = "native_window", feature = "api-12"))))]
 mod native_buffer_window_ffi;
-#[cfg(feature = "native_window")]
-#[cfg_attr(docsrs, doc(cfg(feature = "native_window")))]
+#[cfg(all(feature = "native_window", feature = "api-12"))]
+#[cfg_attr(docsrs, doc(cfg(all(feature = "native_window", feature = "api-12"))))]
 pub use native_buffer_window_ffi::*;

@@ -8,6 +8,7 @@ use crate::types::*;
 #[allow(unused_imports)]
 #[cfg(feature = "api-12")]
 use crate::error_code::OH_Drawing_ErrorCode;
+#[cfg(feature = "api-12")]
 use crate::font::OH_Drawing_Font_Metrics;
 use crate::text_declaration::*;
 
