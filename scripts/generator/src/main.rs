@@ -101,7 +101,8 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
     fn parse_comments_for_attributes(&self, comment: &str) -> Vec<CodeGenAttributes> {
         let mut attributes: Vec<CodeGenAttributes> = vec![];
         let api_version = comment.lines()
-            .find_map(|line| line.split_once("@since"))
+            // TODO: Investigate why some comments appear to have already been processed!
+            .find_map(|line| line.split_once("@since").or_else(|| line.split_once("Available since API-level: ")))
             .map(|(_, since)| {
                 let api_level_str = since
                     .trim();
@@ -138,6 +139,18 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
         }
 
         attributes
+    }
+
+    fn process_comment(&self, comment: &str) -> Option<String> {
+        if comment.starts_with(" < ") {
+            // The leading space breaks the ///< detection of clang-sys.
+            eprintln!("Warn: Invalid doxygen comment. Should apply to item on left, but malformed: `{comment}`");
+            return None;
+        }
+        // Replace manual linebreaks in doxygen with double linebreaks for markdown.
+        let comment = comment.replace("\\n", "\n");
+        Some(doxygen_rs::transform(&comment))
+        // None
     }
 }
 
