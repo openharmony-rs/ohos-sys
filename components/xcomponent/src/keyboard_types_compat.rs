@@ -108,7 +108,7 @@ impl From<OH_NativeXComponent_KeyCode> for Code {
             OH_KeyCode::KEY_NUMPAD_LEFT_PAREN => Code::NumpadParenLeft,
             OH_KeyCode::KEY_NUMPAD_RIGHT_PAREN => Code::NumpadParenRight,
             OH_KeyCode::KEY_NUMPAD_MULTIPLY => Code::NumpadMultiply,
-            //OH_KeyCode::KEY_NUMPAD_PLUSMINUS => Code::Numpad
+            // OH_KeyCode::KEY_NUMPAD_PLUSMINUS => Code::Numpad
             OH_KeyCode::KEY_NUMPAD_SUBTRACT => Code::NumpadSubtract,
 
             OH_KeyCode::KEY_ESCAPE => Code::Escape,

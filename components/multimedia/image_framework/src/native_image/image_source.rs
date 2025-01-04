@@ -11,15 +11,15 @@ pub use image_source_ffi::*;
 #[cfg(feature = "pixelmap")]
 #[cfg_attr(docsrs, doc(cfg(feature = "pixelmap")))]
 extern "C" {
-    /** @brief Decodes an void pointer
-    based on the specified {@link OH_DecodingOptions} struct.
-
-    @param source Indicates a void pointer(from ImageSource pointer convert).
-    @param  options Indicates a pointer to the options for decoding the image source.
-    For details, see {@link OH_DecodingOptions}.
-    @param resPixMap Indicates a void pointer to the <b>Pixelmap</b> object obtained at the C++ native layer.
-    @return Returns {@link Image_ErrorCode}
-    @since 12*/
+    /// @brief Decodes an void pointer
+    /// based on the specified {@link OH_DecodingOptions} struct.
+    ///
+    /// @param source Indicates a void pointer(from ImageSource pointer convert).
+    /// @param  options Indicates a pointer to the options for decoding the image source.
+    /// For details, see {@link OH_DecodingOptions}.
+    /// @param resPixMap Indicates a void pointer to the <b>Pixelmap</b> object obtained at the C++ native layer.
+    /// @return Returns {@link Image_ErrorCode}
+    /// @since 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageSourceNative_CreatePixelmap(
@@ -27,18 +27,18 @@ extern "C" {
         options: *mut OH_DecodingOptions,
         pixelmap: *mut *mut crate::native_image::pixelmap::OH_PixelmapNative,
     ) -> crate::native_image::common::Image_ErrorCode;
-    /** @brief Decodes an void pointer
-    the <b>Pixelmap</b> objects at the C++ native layer
-    based on the specified {@link OH_DecodingOptions} struct.
-
-    @param source Indicates a void pointer(from ImageSource pointer convert).
-    @param  options Indicates a pointer to the options for decoding the image source.
-    For details, see {@link OH_DecodingOptions}.
-    @param resVecPixMap Indicates a pointer array to the <b>Pixelmap</b> objects obtained at the C++ native layer.
-    It cannot be a null pointer.
-    @param size Indicates a size of resVecPixMap. User can get size from {@link OH_ImageSourceNative_GetFrameCount}.
-    @return Returns {@link Image_ErrorCode}
-    @since 12*/
+    /// @brief Decodes an void pointer
+    /// the <b>Pixelmap</b> objects at the C++ native layer
+    /// based on the specified {@link OH_DecodingOptions} struct.
+    ///
+    /// @param source Indicates a void pointer(from ImageSource pointer convert).
+    /// @param  options Indicates a pointer to the options for decoding the image source.
+    /// For details, see {@link OH_DecodingOptions}.
+    /// @param resVecPixMap Indicates a pointer array to the <b>Pixelmap</b> objects obtained at the C++ native layer.
+    /// It cannot be a null pointer.
+    /// @param size Indicates a size of resVecPixMap. User can get size from {@link OH_ImageSourceNative_GetFrameCount}.
+    /// @return Returns {@link Image_ErrorCode}
+    /// @since 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageSourceNative_CreatePixelmapList(

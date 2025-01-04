@@ -12,7 +12,6 @@
 //  * Register the lifecycle and event callbacks of the <XComponent>.
 //  * Initialize the environment, obtain the current state, and respond to various events via these callbacks.
 //  * Use the native window and EGL APIs to develop custom drawing content, and apply for and submit buffers to the graphics queue.
-//!
 //! Source:
 //!
 //! [English Documentation](https://docs.openharmony.cn/pages/v5.0/en/application-dev/ui/napi-xcomponent-guidelines.md)
