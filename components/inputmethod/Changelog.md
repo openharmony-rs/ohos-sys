@@ -1,4 +1,4 @@
-# v0.1.2
+# v0.1.2 (2025-01-04)
 
 - Internal changes: Regenerate bindings with new generator
 

@@ -1,8 +1,13 @@
-# v0.5.0
+# v0.5.0 (2025-01-04)
 
 ## Breaking
 
 - Remove `Debug` from opaque structs
+
+## Features
+
+- Internal changes to the bindings, to more easily allow feature guarding based on the API level.
+- Improved the documentation, by converting doxygen comments to markdown.
 
 # v0.4.0 (2024-10-29)
 
