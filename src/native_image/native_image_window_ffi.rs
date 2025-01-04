@@ -5,6 +5,7 @@
 #![allow(non_snake_case)]
 use super::native_image_ffi::*;
 use crate::native_window::OHNativeWindow;
+#[cfg(feature = "api-12")]
 use crate::native_window::OHNativeWindowBuffer;
 
 extern "C" {
