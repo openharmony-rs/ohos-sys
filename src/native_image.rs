@@ -10,7 +10,6 @@
 //! Use the native window APIs to fill in and flush the buffer, and then use the native image APIs to update the buffer content to an OpenGL ES texture.
 //!
 //! Source: [Official Native Image documentation](https://docs.openharmony.cn/pages/v5.0/en/application-dev/graphics/native-image-guidelines.md)
-//!
 
 #[link(name = "EGL")]
 #[link(name = "GLESv3")]

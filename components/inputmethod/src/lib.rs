@@ -14,7 +14,6 @@
 #![cfg(feature = "api-12")]
 #![cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 
-
 #[link(name = "ohinputmethod")]
 extern "C" {}
 
