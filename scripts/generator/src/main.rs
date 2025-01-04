@@ -719,8 +719,12 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                          },
                          "ui_input_event" => {
                              builder
-                                 .blocklist_var("^UI_TOUCH_EVENT_ACTION_*")
                                  .bitfield_enum("ArkUI_ModifierKeyName")
+                                 .blocklist_item("UI_TOUCH_EVENT_ACTION_.*")
+                                 .blocklist_item("UI_INPUT_EVENT_TOOL_TYPE_.*")
+                                 .blocklist_item("UI_INPUT_EVENT_SOURCE_TYPE_.*")
+                                 .blocklist_item("UI_MOUSE_EVENT_ACTION_.*")
+                                 .blocklist_item("UI_MOUSE_EVENT_BUTTON_.*")
 
                          },
                          _ => builder,
