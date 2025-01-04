@@ -11,7 +11,7 @@ bindgen = { features = ["prettyplease"], git = "https://github.com/openharmony-r
 anyhow = "1.0.93"
 # Keep this feature in sync with the clang version of the SDK.
 clang-sys = { version = "1.8.1", features = ["clang_15_0"] }
-doxygen-rs = "0.4"
+doxygen-rs = { version = "0.5", git = "https://github.com/openharmony-rs/doxygen-rs.git", branch = "jschwe/ohos-sys-support" }
 thiserror = "2.0.9"
 
 [profile.dev.package."*"]

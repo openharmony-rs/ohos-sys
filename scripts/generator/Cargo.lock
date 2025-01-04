@@ -20,7 +20,7 @@ checksum = "4c95c10ba0b00a02636238b814946408b1322d5ac4760326e6fb8ec956d85775"
 [[package]]
 name = "bindgen"
 version = "0.71.1"
-source = "git+https://github.com/openharmony-rs/rust-bindgen.git?branch=jschwender%2Fdoc_cfg#4ebdbe9728ec5e039c92997a7a598c30f0d370be"
+source = "git+https://github.com/openharmony-rs/rust-bindgen.git?branch=jschwender%2Fdoc_cfg#7b047ebf2434e2c5e2f3f02bc9a444c6bb1709df"
 dependencies = [
  "bitflags",
  "cexpr",
@@ -70,9 +70,8 @@ dependencies = [
 
 [[package]]
 name = "doxygen-rs"
-version = "0.4.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "415b6ec780d34dcf624666747194393603d0373b7141eef01d12ee58881507d9"
+version = "0.5.0"
+source = "git+https://github.com/openharmony-rs/doxygen-rs.git?branch=jschwe%2Fohos-sys-support#bc58e8c50190c331836978088d054cd0b4aee4eb"
 dependencies = [
  "phf",
 ]
