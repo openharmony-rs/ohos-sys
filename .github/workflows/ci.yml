@@ -44,15 +44,18 @@ jobs:
   api_minimal_featueres:
     strategy:
       matrix:
-        api_level: ["api-10"]
         component: ["drawing", "hilog", "napi", "hitrace", "native_buffer", "native_image", "native_window", "xcomponent", "vsync"]
     name: Build with minimal features
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - run: cargo build --features ${{ matrix.api_level }} --features ${{ matrix.component }}
-        name: Build minimal features
+      - name: Build minimal features API-10
+        run: cargo build --features api-10 --features ${{ matrix.component }}
+      - name: Build minimal features API-11
+        run: cargo build --features api-11 --features ${{ matrix.component }}
+      - name: Build minimal features API-12
+        run: cargo build --features api-12 --features ${{ matrix.component }}
 
   semver_checks:
     runs-on: ubuntu-latest
