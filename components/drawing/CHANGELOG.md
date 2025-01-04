@@ -1,4 +1,4 @@
-## v0.2.0 (2024-12-27)
+## v0.2.0 (2025-01-04)
 
 - Internal changes to binding generation
 - Some types no longer derive Debug, Copy and Clone.
