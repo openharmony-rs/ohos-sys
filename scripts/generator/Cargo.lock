@@ -71,7 +71,7 @@ dependencies = [
 [[package]]
 name = "doxygen-rs"
 version = "0.5.0"
-source = "git+https://github.com/openharmony-rs/doxygen-rs.git?branch=jschwe%2Fohos-sys-support#bc58e8c50190c331836978088d054cd0b4aee4eb"
+source = "git+https://github.com/openharmony-rs/doxygen-rs.git?branch=jschwe%2Fohos-sys-support#412dcc189f11427a6a1ff4de4c295e522771d0c2"
 dependencies = [
  "phf",
 ]
