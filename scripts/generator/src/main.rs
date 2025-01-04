@@ -273,10 +273,8 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .no_debug("^OH_NativeXComponent$")
                     .no_debug("^OH_NativeXComponent_KeyEvent$")
                     .blocklist_item("ArkUI_.*")
-                    // FIXME: this doesn't work - needs to be fixed in bindgen (anonymous enum variant)
+                    // Requires a patch to bindgen
                     .blocklist_item("OH_NATIVEXCOMPONENT_RESULT.*")
-                    // Note: this needs to be updated semi-regularly ....
-                    .blocklist_type("_bindgen_ty_11")
                     .blocklist_function("OH_NativeXComponent_.*NativeRootNode")
                     .blocklist_function("OH_NativeXComponent_RegisterUIInputEventCallback")
                     .blocklist_function("OH_NativeXComponent_RegisterOnTouchInterceptCallback")
