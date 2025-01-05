@@ -393,37 +393,6 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
             }),
         },
         BindingConf {
-            include_filename: "arkui/drag_and_drop.h".to_string(),
-            output_prefix: "components/arkui/src/drag_and_drop/drag_and_drop_pixelmap".to_string(),
-            set_builder_opts: Box::new(|builder| {
-                builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                    })
-                    .allowlist_function("OH_ArkUI_DragAction_SetPixelMaps")
-                    .allowlist_function("OH_ArkUI_SetNodeDragPreview")
-                    .allowlist_recursively(false)
-                    .raw_line("pub use super::ArkUI_DragAction;")
-                    .raw_line("pub use crate::native_type::ArkUI_NodeHandle;")
-                    .raw_line("pub use ohos_drawing_sys::pixel_map::OH_PixelmapNative;")
-                   // .clang_args(["-include", "stdbool.h"])
-
-            }),
-        },
-        BindingConf {
-            include_filename: "arkui/drawable_descriptor.h".to_string(),
-            output_prefix: "components/arkui/src/drawable_descriptor/pixelmap".to_string(),
-            set_builder_opts: Box::new(|builder| {
-                builder
-                    .allowlist_function(".*PixelMap.*")
-                    .allowlist_recursively(false)
-                    .allowlist_type("OH_PixelmapNativeHandle")
-                    .raw_line("pub use ohos_drawing_sys::pixel_map::OH_PixelmapNative;")
-                    .raw_line("pub use super::ArkUI_DrawableDescriptor;")
-            }),
-        },
-        BindingConf {
             include_filename: "arkui/styled_string.h".to_string(),
             output_prefix: "components/arkui/src/styled_string/drawing".to_string(),
             set_builder_opts: Box::new(|builder| {
@@ -723,15 +692,13 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                                  .blocklist_function("OH_ArkUI_DragEvent_SetData")
                                  .blocklist_function("OH_ArkUI_DragEvent_GetUdmfData")
                                  .blocklist_function("OH_ArkUI_DragAction_SetData")
-                                 // Pixelmap - generated seperately
-                                 .blocklist_function("OH_ArkUI_DragAction_SetPixelMaps")
-                                 .blocklist_function("OH_ArkUI_SetNodeDragPreview")
+                                 // Pixelmap is from image-kit
+                                 .raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
+
                          }
                          "drawable_descriptor" => {
                              builder
-                                 .blocklist_type("OH_PixelmapNative")
-                                 .blocklist_type("OH_PixelmapNativeHandle")
-                                 .blocklist_function(".*PixelMap.*")
+                                 .raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
 
                          },
                          "native_type" => {

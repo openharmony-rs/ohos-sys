@@ -12,6 +12,7 @@ readme = "README.md"
 [dependencies]
 document-features = { version = "0.2", optional = true }
 ohos-drawing-sys = { version = "0.2", optional = true, path = "../drawing" }
+ohos-sys-opaque-types = { workspace = true }
 
 [features]
 default = []
