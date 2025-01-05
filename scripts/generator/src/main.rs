@@ -244,6 +244,22 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
             }),
         },
         BindingConf {
+            include_filename: "napi/native_api.h".to_string(),
+            output_prefix: "src/napi/napi".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                    })
+                    .prepend_enum_name(false)
+                    .no_copy("napi_property_descriptor")
+                    .no_copy("napi_extended_error_info")
+                    .no_copy("napi_node_version")
+                    .no_copy("napi_module")
+            }),
+        },
+        BindingConf {
             include_filename: "hitrace/trace.h".to_string(),
             output_prefix: "components/hitrace/src/hitrace".to_string(),
             set_builder_opts: Box::new(|builder| {

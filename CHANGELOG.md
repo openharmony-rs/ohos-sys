@@ -1,3 +1,9 @@
+# unreleased
+
+## Breaking 
+
+- napi: `napi_property_descriptor`, `napi_node_version`, `napi_extended_error_info` no longer derive Copy/Clone.
+
 # v0.5.0 (2025-01-04)
 
 ## Breaking
