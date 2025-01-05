@@ -2,5 +2,9 @@
 name = "ohos-sys-opaque-types"
 version = "0.1.0"
 edition = "2021"
+keywords = ["OpenHarmony", "HarmonyOS"]
+description = "Internal helper cratefor opaque type bindings that are used in multiple ohos-sys crates"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+license = "Apache-2.0"
 
 [dependencies]
