@@ -18,10 +18,3 @@ extern "C" {}
 
 mod native_image_ffi;
 pub use native_image_ffi::*;
-
-#[cfg(feature = "native_window")]
-#[cfg_attr(docsrs, doc(cfg(feature = "native_window")))]
-mod native_image_window_ffi;
-#[cfg(feature = "native_window")]
-#[cfg_attr(docsrs, doc(cfg(feature = "native_window")))]
-pub use native_image_window_ffi::*;

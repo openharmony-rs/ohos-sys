@@ -3,6 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+use ohos_sys_opaque_types::{OHNativeWindow, OHNativeWindowBuffer, OH_NativeBuffer};
 
 #[repr(C)]
 #[derive(Default)]
@@ -444,35 +445,9 @@ impl OH_NativeBuffer_MetadataKey {
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeBuffer_MetadataKey(pub ::core::ffi::c_uint);
 #[repr(C)]
-pub struct OH_NativeBuffer {
-    _unused: [u8; 0],
-}
-#[repr(C)]
 pub struct OHIPCParcel {
     _unused: [u8; 0],
 }
-/// native window.
-///
-/// Available since API-level: 8
-#[repr(C)]
-pub struct NativeWindow {
-    _unused: [u8; 0],
-}
-/// native window buffer.
-///
-/// Available since API-level: 8
-#[repr(C)]
-pub struct NativeWindowBuffer {
-    _unused: [u8; 0],
-}
-/// define the new type name OHNativeWindow for struct NativeWindow.
-///
-/// Available since API-level: 8
-pub type OHNativeWindow = NativeWindow;
-/// define the new type name OHNativeWindowBuffer for struct NativeWindowBuffer.
-///
-/// Available since API-level: 8
-pub type OHNativeWindowBuffer = NativeWindowBuffer;
 /// indicates a dirty region where content is updated.
 ///
 /// Available since API-level: 8

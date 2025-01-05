@@ -3,6 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+use ohos_sys_opaque_types::{OHNativeWindowBuffer, OH_NativeBuffer};
 
 impl OH_NativeBuffer_ColorSpace {
     pub const OH_COLORSPACE_NONE: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(0);
@@ -178,10 +179,6 @@ impl OH_NativeBuffer_MetadataKey {
 #[repr(transparent)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeBuffer_MetadataKey(pub ::core::ffi::c_uint);
-#[repr(C)]
-pub struct OH_NativeBuffer {
-    _unused: [u8; 0],
-}
 impl OH_NativeBuffer_Usage {
     pub const NATIVEBUFFER_USAGE_CPU_READ: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(1);
 }
@@ -933,6 +930,29 @@ extern "C" {
         buffer: *mut OH_NativeBuffer,
         virAddr: *mut *mut ::core::ffi::c_void,
         outPlanes: *mut OH_NativeBuffer_Planes,
+    ) -> i32;
+    /// Converts an <b>OHNativeWindowBuffer</b> instance to an <b>OH_NativeBuffer</b>.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
+    /// # Arguments
+    ///
+    /// `nativeWindowBuffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
+    ///
+    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> pointer.
+    ///
+    /// # Returns
+    ///
+    /// Returns an error code, 0 is sucess, otherwise, failed.
+    ///
+    /// Available since API-level: 12
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_NativeBuffer_FromNativeWindowBuffer(
+        nativeWindowBuffer: *mut OHNativeWindowBuffer,
+        buffer: *mut *mut OH_NativeBuffer,
     ) -> i32;
     /// Set the color space of the OH_NativeBuffer.
     ///

@@ -4,27 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_image::common::*;
+use ohos_sys_opaque_types::{OH_NativeBuffer, OH_PixelmapNative};
 
-/// Define a Pixelmap struct type, used for pixelmap pointer controls.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct OH_PixelmapNative {
-    _unused: [u8; 0],
-}
-/// Define a native buffer type, used for retrieving a native buffer.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct OH_NativeBuffer {
-    _unused: [u8; 0],
-}
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl PIXELMAP_ALPHA_TYPE {

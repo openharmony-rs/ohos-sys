@@ -1,3 +1,5 @@
+mod opaque_types;
+
 use std::fs;
 use std::num::ParseIntError;
 use anyhow::{anyhow, bail, Context};
@@ -319,25 +321,7 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .allowlist_file(r".*/native_buffer/.*\.h")
                     .bitfield_enum("OH_NativeBuffer_Usage")
                     .blocklist_item("^(OH)?NativeWindow(Buffer)?")
-                    .blocklist_function("OH_NativeBuffer_.*NativeWindow.*")
-                    .no_copy("^OH_NativeBuffer$")
-                    .no_copy("^OHIPCParcel$")
-                    .no_debug("^OH_NativeBuffer$")
-            }),
-        },
-        BindingConf {
-            include_filename: "native_buffer/native_buffer.h".to_string(),
-            output_prefix: "src/native_buffer/native_buffer_window".to_string(),
-            set_builder_opts: Box::new(|builder| {
-                builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                    })
-                    .raw_line("use super::native_buffer_ffi::*;")
-                    .raw_line("use crate::native_window::OHNativeWindowBuffer;")
-                    .blocklist_type(".*")
-                    .allowlist_function("OH_NativeBuffer_.*NativeWindow.*")
+                    .raw_line("use ohos_sys_opaque_types::{OH_NativeBuffer, OHNativeWindowBuffer};")
             }),
         },
         BindingConf {
@@ -351,28 +335,10 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     })
                     .allowlist_file(r".*/native_image/.*\.h")
                     .blocklist_item("^(OH)?NativeWindow(Buffer)?")
-                    // Blocklist everything with native window, so we can feature guard it.
-                    .blocklist_function("OH_NativeImage_.*NativeWindow.*")
-                    .no_copy("^OH_NativeImage$")
-                    .no_copy("^OH_OnFrameAvailableListener")
-                    .no_debug("^OH_NativeImage$")
-            }),
-        },
-        BindingConf {
-            include_filename: "native_image/native_image.h".to_string(),
-            output_prefix: "src/native_image/native_image_window".to_string(),
-            set_builder_opts: Box::new(|builder| {
-                builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                    })
-                    .raw_line("use super::native_image_ffi::*;")
-                    .raw_line("use crate::native_window::OHNativeWindow;")
+                    .raw_line("use ohos_sys_opaque_types::OHNativeWindow;")
                     .raw_line("#[cfg(feature = \"api-12\")]")
-                    .raw_line("use crate::native_window::OHNativeWindowBuffer;")
-                    .allowlist_recursively(false)
-                    .allowlist_function(".*NativeWindow.*")
+                    .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
+                    .no_copy("^OH_OnFrameAvailableListener")
             }),
         },
         BindingConf {
@@ -385,6 +351,7 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                         is_global: false,
                     })
                     .constified_enum_module("^NativeWindowOperation$")
+                    .raw_line("use ohos_sys_opaque_types::{OH_NativeBuffer, OHNativeWindow, OHNativeWindowBuffer};")
                     .derive_copy(false)
             }),
         },
@@ -567,6 +534,8 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                     "pixelmap" => {
                         // FIXME: Add necessary feature guards for `napi` and remove the blocklist
                         builder.blocklist_function("^OH_PixelmapNative_ConvertPixelmapNative(To|From)Napi")
+                            .raw_line("use ohos_sys_opaque_types::{OH_NativeBuffer, OH_PixelmapNative};")
+
                     },
                     "image_source" => {
                         builder
@@ -704,6 +673,9 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                          },
                          "font_mgr" => {
                              builder.raw_line("use crate::text_typography::*;")
+                         },
+                         "pixel_map" => {
+                            builder.raw_line("use ohos_sys_opaque_types::{OH_PixelmapNative, NativePixelMap_};")
                          }
                          _ => builder,
                      };
@@ -803,6 +775,25 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
     ]
 }
 
+/// Generate bindings for the helper crate with the opaque type definitions.
+fn generate_opaque_types_bindings(root_dir: &Path, builder: bindgen::Builder, sysroot_include_dir: &Path) -> anyhow::Result<()> {
+    let mut builder = builder.header(root_dir.join("components/opaque-types/wrapper.h").to_str().unwrap())
+        .ignore_functions()
+        .ignore_methods()
+        .derive_debug(false)
+        .derive_copy(false)
+        .generate_comments(true)
+        .clang_args(&["-x", "c++"]);
+    for ty_name in opaque_types::OPAQUE_TYPES {
+        builder = builder.allowlist_type(ty_name)
+    }
+    let binding = builder.generate().context("Bindgen failed")?;
+    binding
+        .write_to_file(root_dir.join("components/opaque-types/src/opaque_types.rs"))
+        .context("Failed to write bindings to file")?;
+    Ok(())
+}
+
 fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<()> {
     let base_builder = base_bindgen_builder(&sdk_native_dir.join("sysroot"))?;
     let sysroot_include_dir = sdk_native_dir.join("sysroot/usr/include");
@@ -814,6 +805,13 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
         .ok_or(anyhow!("Could not determine root directory"))?
         .canonicalize()
         .context("Could not canonicalize root directory")?;
+
+    generate_opaque_types_bindings(&root_dir, base_builder.clone(), &sysroot_include_dir)?;
+
+    let mut base_builder = base_builder;
+    for ty_name in opaque_types::OPAQUE_TYPES {
+        base_builder = base_builder.blocklist_type(ty_name)
+    }
 
     for binding in get_bindings_config(api_version) {
         println!("Generating binding: {}", binding.include_filename);
