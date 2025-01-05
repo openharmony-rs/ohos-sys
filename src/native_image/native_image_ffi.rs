@@ -3,6 +3,9 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+use ohos_sys_opaque_types::OHNativeWindow;
+#[cfg(feature = "api-12")]
+use ohos_sys_opaque_types::OHNativeWindowBuffer;
 
 #[repr(C)]
 pub struct OH_NativeImage {
@@ -63,6 +66,22 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_NativeImage_Create(textureId: u32, textureTarget: u32) -> *mut OH_NativeImage;
+    /// Acquire the OHNativeWindow for the OH_NativeImage.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// # Returns
+    ///
+    /// Returns the pointer to the OHNativeWindow if the operation is successful, returns <b>NULL</b> otherwise.
+    ///
+    /// Available since API-level: 9
+    ///
+    /// Version: 1.0
+    pub fn OH_NativeImage_AcquireNativeWindow(image: *mut OH_NativeImage) -> *mut OHNativeWindow;
     /// Attach the OH_NativeImage to Opengl ES context, and the Opengl ES texture is bound to the
     ///
     /// GL_TEXTURE_EXTERNAL_OES, which will update by the OH_NativeImage.
@@ -252,6 +271,82 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_NativeImage_GetTransformMatrixV2(image: *mut OH_NativeImage, matrix: *mut f32)
         -> i32;
+    /// Acquire an <b>OHNativeWindowBuffer</b> through an <b>OH_NativeImage</b> instance for content consumer.
+    ///
+    /// This method can not be used at the same time with <b>OH_NativeImage_UpdateSurfaceImage</b>.
+    ///
+    /// This method will create an <b>OHNativeWindowBuffer</b>.
+    ///
+    /// When using <b>OHNativeWindowBuffer</b>, need to increase its reference count
+    /// by <b>OH_NativeWindow_NativeObjectReference</b>.
+    ///
+    /// When the <b>OHNativeWindowBuffer</b> is used up, its reference count needs to be decremented
+    /// by <b>OH_NativeWindow_NativeObjectUnreference</b>.
+    ///
+    /// This interface needs to be used in conjunction with <b>OH_NativeImage_ReleaseNativeWindowBuffer<otherwise memory leaks will occur.
+    ///
+    /// When the fenceFd is used up, you need to close it.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// `nativeWindowBuffer` - Indicates the pointer to an <b>OHNativeWindowBuffer</b> point.
+    ///
+    /// `fenceFd` - Indicates the pointer to a file descriptor handle.
+    ///
+    /// # Returns
+    ///
+    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image, nativeWindowBuffer, fenceFd is NULL.
+    /// [`NATIVE_ERROR_NO_BUFFER`] 40601000 - No buffer for consume.
+    ///
+    /// Available since API-level: 12
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_NativeImage_AcquireNativeWindowBuffer(
+        image: *mut OH_NativeImage,
+        nativeWindowBuffer: *mut *mut OHNativeWindowBuffer,
+        fenceFd: *mut ::core::ffi::c_int,
+    ) -> i32;
+    /// Release the <b>OHNativeWindowBuffer</b> to the buffer queue through an
+    /// <b>OH_NativeImage</b> instance for reuse.
+    ///
+    /// The fenceFd will be close by system.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// `nativeWindowBuffer` - Indicates the pointer to an <b>OHNativeWindowBuffer</b> instance.
+    ///
+    /// `fenceFd` - Indicates a file descriptor handle, which is used for timing synchronization.
+    ///
+    /// # Returns
+    ///
+    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image, nativeWindowBuffer is NULL.
+    /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - nativeWindowBuffer state invalid.
+    /// [`NATIVE_ERROR_BUFFER_NOT_IN_CACHE`] 41210000 - nativeWindowBuffer not in cache.
+    ///
+    /// Available since API-level: 12
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_NativeImage_ReleaseNativeWindowBuffer(
+        image: *mut OH_NativeImage,
+        nativeWindowBuffer: *mut OHNativeWindowBuffer,
+        fenceFd: ::core::ffi::c_int,
+    ) -> i32;
     /// Create a <b>OH_NativeImage</b> as a consumerSurface.
     ///
     /// This method can not be used at the same time with <b>OH_NativeImage_UpdateSurfaceImage</b>.

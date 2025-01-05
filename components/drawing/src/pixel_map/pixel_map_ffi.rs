@@ -8,29 +8,8 @@ use crate::types::*;
 #[allow(unused_imports)]
 #[cfg(feature = "api-12")]
 use crate::error_code::OH_Drawing_ErrorCode;
+use ohos_sys_opaque_types::{NativePixelMap_, OH_PixelmapNative};
 
-/// Introduces the native pixel map information defined by image framework.
-///
-/// Available since API-level: 12
-///
-/// Version: 1.0
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct NativePixelMap_ {
-    _unused: [u8; 0],
-}
-/// Introduces the native pixel map information defined by image framework.
-///
-/// Available since API-level: 12
-///
-/// Version: 1.0
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct OH_PixelmapNative {
-    _unused: [u8; 0],
-}
 extern "C" {
     /// Gets an <b>OH_Drawing_PixelMap</b> object.
     ///

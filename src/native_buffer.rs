@@ -17,9 +17,4 @@ extern "C" {}
 mod native_buffer_ffi;
 pub use native_buffer_ffi::*;
 
-#[cfg(all(feature = "native_window", feature = "api-12"))]
-#[cfg_attr(docsrs, doc(cfg(all(feature = "native_window", feature = "api-12"))))]
-mod native_buffer_window_ffi;
-#[cfg(all(feature = "native_window", feature = "api-12"))]
-#[cfg_attr(docsrs, doc(cfg(all(feature = "native_window", feature = "api-12"))))]
-pub use native_buffer_window_ffi::*;
+pub use ohos_sys_opaque_types::OH_NativeBuffer;

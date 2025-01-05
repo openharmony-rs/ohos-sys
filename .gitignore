@@ -2,3 +2,4 @@
 .idea/
 .vscode/
 /scripts/generator/target
+.envrc

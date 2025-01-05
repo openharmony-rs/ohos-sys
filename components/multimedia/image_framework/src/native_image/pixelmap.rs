@@ -7,3 +7,5 @@ extern "C" {}
 
 mod pixelmap_ffi;
 pub use pixelmap_ffi::*;
+
+pub use ohos_sys_opaque_types::OH_PixelmapNative;
