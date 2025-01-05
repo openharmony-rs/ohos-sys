@@ -4,9 +4,11 @@ version = 3
 
 [[package]]
 name = "arkui-sys"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "document-features",
+ "ohos-drawing-sys",
+ "ohos-sys-opaque-types",
 ]
 
 [[package]]
@@ -74,6 +76,7 @@ name = "ohos-drawing-sys"
 version = "0.2.0"
 dependencies = [
  "document-features",
+ "ohos-sys-opaque-types",
 ]
 
 [[package]]
@@ -81,6 +84,7 @@ name = "ohos-image-kit-sys"
 version = "0.1.1"
 dependencies = [
  "document-features",
+ "ohos-sys-opaque-types",
 ]
 
 [[package]]
@@ -94,6 +98,7 @@ dependencies = [
 name = "ohos-sys"
 version = "0.5.0"
 dependencies = [
+ "arkui-sys",
  "document-features",
  "hilog-sys",
  "hitrace-sys",
@@ -101,8 +106,13 @@ dependencies = [
  "ohos-drawing-sys",
  "ohos-image-kit-sys",
  "ohos-ime-sys",
+ "ohos-sys-opaque-types",
  "xcomponent-sys",
 ]
+
+[[package]]
+name = "ohos-sys-opaque-types"
+version = "0.1.0"
 
 [[package]]
 name = "proc-macro2"
