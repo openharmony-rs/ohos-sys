@@ -4,6 +4,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_image::common::*;
+use ohos_sys_opaque_types::OH_PixelmapNative;
 
 /// Defines an image source object for the image interface.
 ///
@@ -468,6 +469,59 @@ extern "C" {
         data: *mut u8,
         dataSize: usize,
         res: *mut *mut OH_ImageSourceNative,
+    ) -> Image_ErrorCode;
+    /// Decodes an void pointer
+    /// based on the specified [`OH_DecodingOptions`] struct.
+    ///
+    /// # Arguments
+    ///
+    /// `source` - Indicates a void pointer(from ImageSource pointer convert).
+    ///
+    /// `options` - Indicates a pointer to the options for decoding the image source.
+    /// For details, see [`OH_DecodingOptions`].
+    ///
+    /// `resPixMap` - Indicates a void pointer to the <b>Pixelmap</b> object obtained at the C++ native layer.
+    ///
+    /// # Returns
+    ///
+    /// Returns [`Image_ErrorCode`]
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ImageSourceNative_CreatePixelmap(
+        source: *mut OH_ImageSourceNative,
+        options: *mut OH_DecodingOptions,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> Image_ErrorCode;
+    /// Decodes an void pointer
+    /// the <b>Pixelmap</b> objects at the C++ native layer
+    /// based on the specified [`OH_DecodingOptions`] struct.
+    ///
+    /// # Arguments
+    ///
+    /// `source` - Indicates a void pointer(from ImageSource pointer convert).
+    ///
+    /// `options` - Indicates a pointer to the options for decoding the image source.
+    /// For details, see [`OH_DecodingOptions`].
+    ///
+    /// `resVecPixMap` - Indicates a pointer array to the <b>Pixelmap</b> objects obtained at the C++ native layer.
+    /// It cannot be a null pointer.
+    ///
+    /// `size` - Indicates a size of resVecPixMap. User can get size from [`OH_ImageSourceNative_GetFrameCount`].
+    ///
+    /// # Returns
+    ///
+    /// Returns [`Image_ErrorCode`]
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ImageSourceNative_CreatePixelmapList(
+        source: *mut OH_ImageSourceNative,
+        options: *mut OH_DecodingOptions,
+        resVecPixMap: *mut *mut OH_PixelmapNative,
+        size: usize,
     ) -> Image_ErrorCode;
     /// Obtains the delay time list from some <b>ImageSource</b> objects (such as GIF image sources).
     ///

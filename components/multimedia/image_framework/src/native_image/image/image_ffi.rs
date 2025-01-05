@@ -4,6 +4,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_image::common::*;
+use ohos_sys_opaque_types::OH_NativeBuffer;
 
 /// Defines an <b>OH_ImageNative</b> object.
 ///
@@ -59,6 +60,29 @@ extern "C" {
         image: *mut OH_ImageNative,
         types: *mut *mut u32,
         typeSize: *mut usize,
+    ) -> Image_ErrorCode;
+    /// Get byte buffer from an [`OH_ImageNative`] object by the component type.
+    ///
+    /// # Arguments
+    ///
+    /// `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    ///
+    /// `componentType` - Indicates the type of component.
+    ///
+    /// `nativeBuffer` - Indicates the pointer to the component buffer obtained.
+    ///
+    /// # Returns
+    ///
+    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ImageNative_GetByteBuffer(
+        image: *mut OH_ImageNative,
+        componentType: u32,
+        nativeBuffer: *mut *mut OH_NativeBuffer,
     ) -> Image_ErrorCode;
     /// Get size of buffer from an [`OH_ImageNative`] object by the component type.
     ///
