@@ -456,6 +456,22 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .raw_line("pub use super::ArkUI_DrawableDescriptor;")
             }),
         },
+        BindingConf {
+            include_filename: "arkui/styled_string.h".to_string(),
+            output_prefix: "components/arkui/src/styled_string/drawing".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .allowlist_function("OH_ArkUI_StyledString_Create")
+                    .allowlist_function("OH_ArkUI_StyledString_PushTextStyle")
+                    .allowlist_function("OH_ArkUI_StyledString_CreateTypography")
+                    .allowlist_function("OH_ArkUI_StyledString_AddPlaceholder")
+                    .clang_args(["-x", "c++"])
+                    .allowlist_recursively(false)
+                    .raw_line("pub use super::ArkUI_StyledString;")
+                    .raw_line("pub use ohos_drawing_sys::text_typography::OH_Drawing_PlaceholderSpan;")
+                    .raw_line("pub use ohos_drawing_sys::text_declaration::{OH_Drawing_FontCollection, OH_Drawing_TextStyle, OH_Drawing_Typography, OH_Drawing_TypographyStyle};")
+            }),
+        },
     ]
 }
 
@@ -762,6 +778,13 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                                  .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
                                  .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
                          },
+                         "styled_string" => {
+                             builder
+                                 .blocklist_function("OH_ArkUI_StyledString_Create")
+                                 .blocklist_function("OH_ArkUI_StyledString_PushTextStyle")
+                                 .blocklist_function("OH_ArkUI_StyledString_CreateTypography")
+                                 .blocklist_function("OH_ArkUI_StyledString_AddPlaceholder")
+                         }
                          "ui_input_event" => {
                              builder
                                  .bitfield_enum("ArkUI_ModifierKeyName")

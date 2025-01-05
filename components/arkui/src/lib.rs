@@ -43,4 +43,8 @@ pub mod native_type;
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+pub mod styled_string;
+
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod ui_input_event;
