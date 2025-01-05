@@ -11,6 +11,7 @@ readme = "README.md"
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
+ohos-drawing-sys = { version = "0.2", optional = true, path = "../drawing" }
 
 [features]
 default = []
@@ -22,7 +23,9 @@ default = []
 #! OpenHarmony versions.
 
 ## Enables bindings for OpenHarmony API-level 12.
-api-12 = []
+api-12 = ["ohos-drawing-sys?/api-12"]
+## Enables bindings for Functions that interact with the `drawing` module
+drawing = ["dep:ohos-drawing-sys"]
 
 
 ## Document available features when building the documentation
