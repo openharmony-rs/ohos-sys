@@ -425,6 +425,25 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
 
             }),
         },
+        BindingConf {
+            include_filename: "arkui/drag_and_drop.h".to_string(),
+            output_prefix: "components/arkui/src/drag_and_drop/drag_and_drop_pixelmap".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                    })
+                    .allowlist_function("OH_ArkUI_DragAction_SetPixelMaps")
+                    .allowlist_function("OH_ArkUI_SetNodeDragPreview")
+                    .allowlist_recursively(false)
+                    .raw_line("pub use super::ArkUI_DragAction;")
+                    .raw_line("pub use crate::native_type::ArkUI_NodeHandle;")
+                    .raw_line("pub use ohos_drawing_sys::pixel_map::OH_PixelmapNative;")
+                   // .clang_args(["-include", "stdbool.h"])
+
+            }),
+        },
     ]
 }
 
@@ -698,6 +717,16 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                          .prepend_enum_name(false)
                          .clang_args(&["-x", "c++"]);
                      match file_stem {
+                         "drag_and_drop" => {
+                             builder
+                                 // Todo: Requires bindings to `database/udmf`
+                                 .blocklist_function("OH_ArkUI_DragEvent_SetData")
+                                 .blocklist_function("OH_ArkUI_DragEvent_GetUdmfData")
+                                 .blocklist_function("OH_ArkUI_DragAction_SetData")
+                                 // Pixelmap - generated seperately
+                                 .blocklist_function("OH_ArkUI_DragAction_SetPixelMaps")
+                                 .blocklist_function("OH_ArkUI_SetNodeDragPreview")
+                         }
                          "drawable_descriptor" => {
                              builder.blocklist_item("^OH_PixelmapNative$")
                          },
