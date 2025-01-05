@@ -14,6 +14,10 @@
 )]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+#[cfg(feature = "arkui")]
+#[cfg_attr(docsrs, doc(cfg(feature = "arkui")))]
+pub use arkui_sys as arkui;
+
 #[cfg(feature = "deviceinfo")]
 #[cfg_attr(docsrs, doc(cfg(feature = "deviceinfo")))]
 pub use ohos_deviceinfo_sys as deviceinfo;
