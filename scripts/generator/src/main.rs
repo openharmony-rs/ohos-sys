@@ -444,6 +444,18 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
 
             }),
         },
+        BindingConf {
+            include_filename: "arkui/drawable_descriptor.h".to_string(),
+            output_prefix: "components/arkui/src/drawable_descriptor/pixelmap".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .allowlist_function(".*PixelMap.*")
+                    .allowlist_recursively(false)
+                    .allowlist_type("OH_PixelmapNativeHandle")
+                    .raw_line("pub use ohos_drawing_sys::pixel_map::OH_PixelmapNative;")
+                    .raw_line("pub use super::ArkUI_DrawableDescriptor;")
+            }),
+        },
     ]
 }
 
@@ -728,17 +740,21 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                                  .blocklist_function("OH_ArkUI_SetNodeDragPreview")
                          }
                          "drawable_descriptor" => {
-                             builder.blocklist_item("^OH_PixelmapNative$")
+                             builder
+                                 .blocklist_type("OH_PixelmapNative")
+                                 .blocklist_type("OH_PixelmapNativeHandle")
+                                 .blocklist_function(".*PixelMap.*")
+
                          },
                          "native_type" => {
-                             builder //.raw_line("use crate::drawable_descriptor::ArkUI_DrawableDescriptor;")
-                              .blocklist_function("^OH_ArkUI_ImageAnimatorFrameInfo_CreateFromDrawableDescriptor$")
-                             // We want copy for the union type `ArkUI_NumberValue`
-                             .derive_copy(true)
-                                 .no_copy("ArkUI_ContextCallback")
-                                 .no_copy("ARKUI_TextPickerRangeContent")
-                                 .no_copy("ARKUI_TextPickerCascadeRangeContent")
-                                 .no_copy("ArkUI_ColorStop")
+                             builder
+                                .raw_line("use crate::drawable_descriptor::ArkUI_DrawableDescriptor;")
+                                // We want copy for the union type `ArkUI_NumberValue`
+                                .derive_copy(true)
+                                .no_copy("ArkUI_ContextCallback")
+                                .no_copy("ARKUI_TextPickerRangeContent")
+                                .no_copy("ARKUI_TextPickerCascadeRangeContent")
+                                .no_copy("ArkUI_ColorStop")
 
                          },
                          "native_gesture" => {

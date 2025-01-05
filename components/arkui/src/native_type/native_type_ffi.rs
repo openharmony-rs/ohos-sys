@@ -3,6 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+use crate::drawable_descriptor::ArkUI_DrawableDescriptor;
 
 /// Defines the ArkUI native component object.
 ///
@@ -6487,6 +6488,24 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_ImageAnimatorFrameInfo_CreateFromString(
         src: *mut ::core::ffi::c_char,
+    ) -> *mut ArkUI_ImageAnimatorFrameInfo;
+    /// Create a image frame from the drawable descriptor.
+    ///
+    /// # Arguments
+    ///
+    /// `drawable` - Indicates the pointer to the drawable descriptor.
+    ///
+    /// # Returns
+    ///
+    /// Returns the pointer to the image frame object.
+    /// If a null pointer is returned, the object fails to be created. The possible cause is that
+    /// the drawable parameter is abnormal, for example, the pointer is null.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ArkUI_ImageAnimatorFrameInfo_CreateFromDrawableDescriptor(
+        drawable: *mut ArkUI_DrawableDescriptor,
     ) -> *mut ArkUI_ImageAnimatorFrameInfo;
     /// Destroy the pointer to the image frame.
     ///
