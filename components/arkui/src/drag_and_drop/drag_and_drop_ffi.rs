@@ -4,6 +4,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_type::*;
+pub use ohos_sys_opaque_types::OH_PixelmapNative;
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -691,6 +692,27 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_SetNodeDraggable(node: ArkUI_NodeHandle, enabled: bool) -> i32;
+    /// Sets a custom drag preview for the specified component.
+    ///
+    /// # Arguments
+    ///
+    /// `node` - Indicates the pointer to a component node.
+    ///
+    /// `preview` - Indicates the custom drag preview, which is a pixel map.
+    ///
+    /// # Returns
+    ///
+    /// Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ArkUI_SetNodeDragPreview(
+        node: ArkUI_NodeHandle,
+        preview: *mut OH_PixelmapNative,
+    ) -> i32;
     /// Creates an <b>ArkUI_DragPreviewOption</b> object.
     ///
     ///
@@ -924,6 +946,30 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragAction_SetPointerId(dragAction: *mut ArkUI_DragAction, pointer: i32)
         -> i32;
+    /// Sets the drag previews for a drag action.
+    ///
+    /// # Arguments
+    ///
+    /// `dragAction` - Indicates the pointer to the target drag action object.
+    ///
+    /// `pixelmapArray` - Indicates the array of the drag previews to set, which must be pixel maps.
+    ///
+    /// `size` - Indicates the size of the drag preview array.
+    ///
+    /// # Returns
+    ///
+    /// Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ArkUI_DragAction_SetPixelMaps(
+        dragAction: *mut ArkUI_DragAction,
+        pixelmapArray: *mut *mut OH_PixelmapNative,
+        size: i32,
+    ) -> i32;
     /// Sets the touch point relative to the upper left corner of the first drag preview (pixel map).
     ///
     /// # Arguments
