@@ -4,6 +4,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_image::common::*;
+use ohos_sys_opaque_types::OH_PixelmapNative;
 
 /// Define a ImagePacker struct type, used for ImagePacker pointer controls.
 ///
@@ -245,6 +246,59 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImagePackerNative_Create(
         imagePacker: *mut *mut OH_ImagePackerNative,
+    ) -> Image_ErrorCode;
+    /// Encoding a <b>Pixelmap</b> into the data with required format.
+    ///
+    /// # Arguments
+    ///
+    /// `imagePacker` - The imagePacker to use for packing.
+    ///
+    /// `options` - Indicates the encoding [`OH_PackingOptions`].
+    ///
+    /// `pixelmap` - The pixelmap to be packed.
+    ///
+    /// `outData` - The output data buffer to store the packed image.
+    ///
+    /// `size` - A pointer to the size of the output data buffer.
+    ///
+    /// # Returns
+    ///
+    /// Returns [`Image_ErrorCode`]
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ImagePackerNative_PackToDataFromPixelmap(
+        imagePacker: *mut OH_ImagePackerNative,
+        options: *mut OH_PackingOptions,
+        pixelmap: *mut OH_PixelmapNative,
+        outData: *mut u8,
+        size: *mut usize,
+    ) -> Image_ErrorCode;
+    /// Encoding a <b>Pixelmap</b> into the a file with fd with required format
+    ///
+    /// # Arguments
+    ///
+    /// `imagePacker` - The image packer to use for packing.
+    ///
+    /// `options` - Indicates the encoding [`OH_PackingOptions`].
+    ///
+    /// `pixelmap` - The pixelmap to be packed.
+    ///
+    /// `fd` - Indicates a writable file descriptor.
+    ///
+    /// # Returns
+    ///
+    /// Returns [`Image_ErrorCode`]
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ImagePackerNative_PackToFileFromPixelmap(
+        imagePacker: *mut OH_ImagePackerNative,
+        options: *mut OH_PackingOptions,
+        pixelmap: *mut OH_PixelmapNative,
+        fd: i32,
     ) -> Image_ErrorCode;
     /// Releases an imagePacker object.
     ///

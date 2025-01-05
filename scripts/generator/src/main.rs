@@ -510,8 +510,7 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                         builder
                             // FIXME: Add necessary feature guards for `rawfile` and remove the blocklist
                             .blocklist_function("^OH_ImageSourceNative_CreateFromRawFile")
-                            // Todo: This function is hand-picked
-                            .blocklist_function("^OH_ImageSourceNative_CreatePixelmap(List)?")
+                            .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
                     }
                     // Todo: these bindings are hand-picked and feature guarded right now - autogenerate...
                     "image_receiver" => {
@@ -520,10 +519,12 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                     "image_packer" => {
                         builder
                             .blocklist_function("^OH_ImagePackerNative_PackTo(Data|File)FromImageSource")
-                            .blocklist_function("^OH_ImagePackerNative_PackTo(Data|File)FromPixelmap")
+                            .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
                     }
                     "image" => {
-                        builder.blocklist_function("^OH_ImageNative_GetByteBuffer")
+                        builder
+                            .raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")
+
                     }
                     _ => builder,
                 };
