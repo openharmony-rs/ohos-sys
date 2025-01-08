@@ -75,3 +75,23 @@ jobs:
         run: cargo doc --all-features --workspace --no-deps
         env:
           RUSTDOCFLAGS: "--cfg=docsrs"
+
+  build-result:
+    name: Result
+    runs-on: ubuntu-latest
+    if: always()
+    # needs all build to detect cancellation
+    needs:
+      - code_quality
+      - build-toolchains
+      - api_feature_levels
+      - api_minimal_featueres
+      - semver_checks
+      - rustdoc
+    steps:
+      - name: Success
+        if: ${{ !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') }}
+        run: exit 0
+      - name: Failure
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1
