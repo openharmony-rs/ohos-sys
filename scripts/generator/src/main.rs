@@ -373,20 +373,13 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
         },
         BindingConf {
             include_filename: "native_vsync/native_vsync.h".to_string(),
-            output_prefix: "src/vsync/vsync".to_string(),
+            output_prefix: "components/vsync/src/vsync".to_string(),
             set_builder_opts: Box::new(move |builder| {
-                let builder = builder
+                builder
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
                     })
-                    .derive_copy(false)
-                    .derive_debug(false);
-                if api_version == 10 {
-                    builder.blocklist_item("^NativeWindowOperation$")
-                } else {
-                    builder
-                }
             }),
         },
         BindingConf {
