@@ -107,12 +107,20 @@ dependencies = [
  "ohos-image-kit-sys",
  "ohos-ime-sys",
  "ohos-sys-opaque-types",
+ "ohos-vsync-sys",
  "xcomponent-sys",
 ]
 
 [[package]]
 name = "ohos-sys-opaque-types"
 version = "0.1.0"
+
+[[package]]
+name = "ohos-vsync-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
 
 [[package]]
 name = "proc-macro2"

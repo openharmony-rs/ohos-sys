@@ -55,7 +55,7 @@ pub mod syscap;
 
 #[cfg(feature = "vsync")]
 #[cfg_attr(docsrs, doc(cfg(feature = "vsync")))]
-pub mod vsync;
+pub use ohos_vsync_sys as vsync;
 
 #[cfg(feature = "xcomponent")]
 #[cfg_attr(docsrs, doc(cfg(feature = "xcomponent")))]
