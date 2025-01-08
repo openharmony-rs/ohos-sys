@@ -26,3 +26,7 @@ pub struct OH_PixelmapNative {
 pub struct NativePixelMap_ {
     _unused: [u8; 0],
 }
+#[repr(C)]
+pub struct ArkUI_AccessibilityProvider {
+    _unused: [u8; 0],
+}

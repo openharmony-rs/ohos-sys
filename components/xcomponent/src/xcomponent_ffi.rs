@@ -3,6 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-13")]
+use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;
 
 pub const OH_NATIVE_XCOMPONENT_OBJ: &[u8; 26] = b"__NATIVE_XCOMPONENT_OBJ__\0";
 impl OH_NativeXComponent_KeyCode {
@@ -2174,5 +2176,26 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         pointId: i32,
         sourceType: *mut OH_NativeXComponent_EventSourceType,
+    ) -> i32;
+    /// Obtains the pointer to the <b> ArkUI_AccessibilityProvider</b>
+    /// instance of this <b>OH_NativeXComponent</b> instance.
+    ///
+    /// # Arguments
+    ///
+    /// `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    ///
+    /// `handle` - Indicates the pointer to the <b>ArkUI_AccessibilityProvider</b> instance.
+    ///
+    /// # Returns
+    ///
+    /// Returns [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_NativeXComponent_GetNativeAccessibilityProvider(
+        component: *mut OH_NativeXComponent,
+        handle: *mut *mut ArkUI_AccessibilityProvider,
     ) -> i32;
 }
