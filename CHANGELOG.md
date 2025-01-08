@@ -1,8 +1,12 @@
-# unreleased
+# v0.6.0
 
 ## Breaking 
 
 - napi: `napi_property_descriptor`, `napi_node_version`, `napi_extended_error_info` no longer derive Copy/Clone.
+
+## Changed
+
+- Made vsync bindings also available as dedicated ohos-vsync-sys crate. No user facing changes.
 
 # v0.5.0 (2025-01-04)
 
