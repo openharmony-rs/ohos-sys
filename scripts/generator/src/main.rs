@@ -297,6 +297,8 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .blocklist_function("OH_NativeXComponent_RegisterUIInputEventCallback")
                     .blocklist_function("OH_NativeXComponent_RegisterOnTouchInterceptCallback")
                     .blocklist_function("OH_NativeXComponent_GetNativeXComponent")
+                    .raw_line("#[cfg(feature = \"api-13\")]")
+                    .raw_line("use ohos_sys_opaque_types::{ArkUI_AccessibilityProvider};")
                     .clang_args(&["-x", "c++"])
             }),
         },
@@ -773,6 +775,9 @@ fn generate_opaque_types_bindings(root_dir: &Path, builder: bindgen::Builder, sy
 
 fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<()> {
     let base_builder = base_bindgen_builder(&sdk_native_dir.join("sysroot"))?;
+    let base_builder = base_builder
+        .clang_arg("-D")
+        .clang_arg(format!("BINDGEN_OHOS_API_LEVEL={api_version}"));
     let sysroot_include_dir = sdk_native_dir.join("sysroot/usr/include");
     let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
 
