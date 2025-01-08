@@ -30,6 +30,17 @@ impl OH_Drawing_ErrorCode {
     pub const OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE: OH_Drawing_ErrorCode =
         OH_Drawing_ErrorCode(26200001);
 }
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl OH_Drawing_ErrorCode {
+    /// mem allocate failed.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub const OH_DRAWING_ERROR_ALLOCATION_FAILED: OH_Drawing_ErrorCode =
+        OH_Drawing_ErrorCode(26200002);
+}
 #[repr(transparent)]
 /// Enumerates error codes of drawing.
 ///

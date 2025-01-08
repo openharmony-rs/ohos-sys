@@ -25,7 +25,7 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_TypefaceCreateDefault() -> *mut OH_Drawing_Typeface;
-    /// Creates a <b>OH_Drawing_Typeface</b> object by file.
+    /// Creates an <b>OH_Drawing_Typeface</b> object by file.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -48,7 +48,64 @@ extern "C" {
         path: *const ::core::ffi::c_char,
         index: ::core::ffi::c_int,
     ) -> *mut OH_Drawing_Typeface;
-    /// Creates a <b>OH_Drawing_Typeface</b> object by given a stream. If the stream is not a valid
+    /// Creates an <b>OH_Drawing_Typeface</b> object with the specified font arguments from a file.
+    /// If the <b>OH_Drawing_Typeface</b> object does not support the variations described in fontArguments,
+    /// this function creates an <b>OH_Drawing_Typeface</b> object without font arguments.
+    /// In this case, this function provides the same capability as [`OH_Drawing_TypefaceCreateFromFile`].
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// `path` - Indicates the file path.
+    ///
+    /// `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    ///
+    /// # Returns
+    ///
+    /// Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
+    /// If nullptr is returned, the creation fails.
+    /// The possible cause of the failure is that the available memory is empty,
+    /// or either path or fontArguments is nullptr, or the path is invalid.
+    ///
+    /// Available since API-level: 13
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Drawing_TypefaceCreateFromFileWithArguments(
+        path: *const ::core::ffi::c_char,
+        fontArguments: *const OH_Drawing_FontArguments,
+    ) -> *mut OH_Drawing_Typeface;
+    /// Creates an <b>OH_Drawing_Typeface</b> object with the specified font arguments from
+    /// an existing <b>OH_Drawing_Typeface</b> object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// `current` - Indicates the existing <b>OH_Drawing_Typeface</b> object.
+    ///
+    /// `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    ///
+    /// # Returns
+    ///
+    /// Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
+    /// If nullptr is returned, the creation fails.
+    /// The possible cause of the failure is that the available memory is empty,
+    /// or either current or fontArguments is nullptr,
+    /// or current does not support the variations described in fontArguments.
+    ///
+    /// Available since API-level: 13
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Drawing_TypefaceCreateFromCurrent(
+        current: *const OH_Drawing_Typeface,
+        fontArguments: *const OH_Drawing_FontArguments,
+    ) -> *mut OH_Drawing_Typeface;
+    /// Creates an <b>OH_Drawing_Typeface</b> object by given a stream. If the stream is not a valid
     /// font file, returns nullptr. Ownership of the stream is transferred, so the caller must not reference
     /// it or free it again.
     ///
@@ -87,4 +144,72 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_TypefaceDestroy(arg1: *mut OH_Drawing_Typeface);
+    /// Creates an <b>OH_Drawing_FontArguments</b> object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    ///
+    /// # Returns
+    ///
+    /// Returns the pointer to the <b>OH_Drawing_FontArguments</b> object created.
+    /// If nullptr is returned, the creation fails.
+    /// The possible cause of the failure is that the available memory is empty.
+    ///
+    /// Available since API-level: 13
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Drawing_FontArgumentsCreate() -> *mut OH_Drawing_FontArguments;
+    /// Adds a font variation axis for an <b>OH_Drawing_FontArguments</b> object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    ///
+    /// `axis` - Indicates the axis tag, which must contain four ASCII characters.
+    ///
+    /// `value` - Indicates the value of the axis field.
+    ///
+    /// # Returns
+    ///
+    /// Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if either fontArguments or axis is nullptr,
+    /// or the length of axis is not 4.
+    ///
+    /// Available since API-level: 13
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Drawing_FontArgumentsAddVariation(
+        fontArguments: *mut OH_Drawing_FontArguments,
+        axis: *const ::core::ffi::c_char,
+        value: f32,
+    ) -> OH_Drawing_ErrorCode;
+    /// Destroys an <b>OH_Drawing_FontArguments</b> object and reclaims the memory occupied by the object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    ///
+    /// # Returns
+    ///
+    /// Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if fontArguments is nullptr.
+    ///
+    /// Available since API-level: 13
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Drawing_FontArgumentsDestroy(
+        fontArguments: *mut OH_Drawing_FontArguments,
+    ) -> OH_Drawing_ErrorCode;
 }
