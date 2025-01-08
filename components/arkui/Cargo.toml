@@ -1,6 +1,6 @@
 [package]
 name = "arkui-sys"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 description = "Bindings to the native ArkUI API of OpenHarmony"
 license = "Apache-2.0"
@@ -25,6 +25,8 @@ default = []
 
 ## Enables bindings for OpenHarmony API-level 12.
 api-12 = ["ohos-drawing-sys?/api-12"]
+## Enables bindings for OpenHarmony API-level 13.
+api-13 = []
 ## Enables bindings for Functions that interact with the `drawing` module
 drawing = ["dep:ohos-drawing-sys"]
 

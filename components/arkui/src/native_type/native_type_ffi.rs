@@ -1401,7 +1401,7 @@ impl ArkUI_ScrollNestedMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_ScrollNestedMode {
     /// The component scrolls first, and when it hits the boundary, the parent component scrolls.
-    ////** When the parent component hits the boundary, its edge effect is displayed. If no edge
+    /// When the parent component hits the boundary, its edge effect is displayed. If no edge
     /// effect is specified for the parent component, the edge effect of the child component is displayed instead.
     pub const ARKUI_SCROLL_NESTED_MODE_SELF_FIRST: ArkUI_ScrollNestedMode =
         ArkUI_ScrollNestedMode(1);
@@ -2901,7 +2901,7 @@ impl ArkUI_BlendApplyType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_BlendApplyType {
     /// The content of the component and its child components are drawn on the offscreen canvas, and then blended with
-    ////* the existing content on the canvas.
+    /// the existing content on the canvas.
     pub const BLEND_APPLY_TYPE_OFFSCREEN: ArkUI_BlendApplyType = ArkUI_BlendApplyType(1);
 }
 #[repr(transparent)]
@@ -3792,50 +3792,6 @@ impl ArkUI_AccessibilityCheckedState {
 pub struct ArkUI_AccessibilityCheckedState(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityActionType {
-    /// click action.
-    pub const ARKUI_ACCESSIBILITY_ACTION_CLICK: ArkUI_AccessibilityActionType =
-        ArkUI_AccessibilityActionType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityActionType {
-    /// long click action.
-    pub const ARKUI_ACCESSIBILITY_ACTION_LONG_CLICK: ArkUI_AccessibilityActionType =
-        ArkUI_AccessibilityActionType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityActionType {
-    /// cut action.
-    pub const ARKUI_ACCESSIBILITY_ACTION_CUT: ArkUI_AccessibilityActionType =
-        ArkUI_AccessibilityActionType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityActionType {
-    /// copy action.
-    pub const ARKUI_ACCESSIBILITY_ACTION_COPY: ArkUI_AccessibilityActionType =
-        ArkUI_AccessibilityActionType(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityActionType {
-    /// paste action.
-    pub const ARKUI_ACCESSIBILITY_ACTION_PASTE: ArkUI_AccessibilityActionType =
-        ArkUI_AccessibilityActionType(16);
-}
-#[repr(transparent)]
-/// Define accessible action types.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Copy, Clone, Hash, PartialEq, Eq)]
-pub struct ArkUI_AccessibilityActionType(pub ::core::ffi::c_uint);
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_AnimationDirection {
     /// The animation plays in forward loop mode.
     pub const ARKUI_ANIMATION_DIRECTION_NORMAL: ArkUI_AnimationDirection =
@@ -3932,6 +3888,50 @@ impl ArkUI_ScrollSource {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_ScrollSource(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_AccessibilityActionType {
+    /// click action.
+    pub const ARKUI_ACCESSIBILITY_ACTION_CLICK: ArkUI_AccessibilityActionType =
+        ArkUI_AccessibilityActionType(1);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_AccessibilityActionType {
+    /// long click action.
+    pub const ARKUI_ACCESSIBILITY_ACTION_LONG_CLICK: ArkUI_AccessibilityActionType =
+        ArkUI_AccessibilityActionType(2);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_AccessibilityActionType {
+    /// cut action.
+    pub const ARKUI_ACCESSIBILITY_ACTION_CUT: ArkUI_AccessibilityActionType =
+        ArkUI_AccessibilityActionType(4);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_AccessibilityActionType {
+    /// copy action.
+    pub const ARKUI_ACCESSIBILITY_ACTION_COPY: ArkUI_AccessibilityActionType =
+        ArkUI_AccessibilityActionType(8);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_AccessibilityActionType {
+    /// paste action.
+    pub const ARKUI_ACCESSIBILITY_ACTION_PASTE: ArkUI_AccessibilityActionType =
+        ArkUI_AccessibilityActionType(16);
+}
+#[repr(transparent)]
+/// Define accessible action types.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+#[derive(Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_AccessibilityActionType(pub ::core::ffi::c_uint);
 /// Defines the translation options for component transition.
 ///
 ///
@@ -6705,7 +6705,7 @@ extern "C" {
     ///
     /// `state` - accessibility state object.
     ///
-    /// `isDisabled` - accessibility state disabled， Value 1 indicates disabled and 0 indicates enbled.
+    /// `isDisabled` - accessibility state disabled, Value 1 indicates disabled and 0 indicates enbled.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6722,7 +6722,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// accessibility state disabled， Value 1 indicates disabled and 0 indicates enbled. The default value is 0.
+    /// accessibility state disabled, Value 1 indicates disabled and 0 indicates enbled. The default value is 0.
     /// If the function parameter is abnormal, return the default value.
     ///
     /// Available since API-level: 12
@@ -6735,7 +6735,7 @@ extern "C" {
     ///
     /// `state` - accessibility state object.
     ///
-    /// `isSelected` - accessibility state selected， Value 1 indicates selected， and 0 indicates not selected.
+    /// `isSelected` - accessibility state selected, Value 1 indicates selected, and 0 indicates not selected.
     /// The default value is 0.
     ///
     /// Available since API-level: 12
@@ -6753,7 +6753,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// accessibility state selected， Value 1 indicates selected， and 0 indicates not selected.
+    /// accessibility state selected, Value 1 indicates selected, and 0 indicates not selected.
     /// The default value is 0.
     /// If the function parameter is abnormal, return the default value.
     ///
@@ -6767,7 +6767,7 @@ extern "C" {
     ///
     /// `state` - accessibility state object.
     ///
-    /// `checkedState` - checked state，and uses the [`ArkUI_AccessibilityCheckedState`] enumeration value,
+    /// `checkedState` - checked state, and uses the [`ArkUI_AccessibilityCheckedState`] enumeration value,
     /// The default value is ARKUI_ACCESSIBILITY_UNCHECKED.
     ///
     /// Available since API-level: 12
@@ -6785,7 +6785,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// checked state，and uses the [`ArkUI_AccessibilityCheckedState`] enumeration value,
+    /// checked state, and uses the [`ArkUI_AccessibilityCheckedState`] enumeration value,
     /// The default value is ARKUI_ACCESSIBILITY_UNCHECKED.
     /// If the function parameter is abnormal, return the default value.
     ///
@@ -6822,7 +6822,7 @@ extern "C" {
     ///
     /// `value` - accessibility value object.
     ///
-    /// `min` - minimum value based on range components, The default value is -1。
+    /// `min` - minimum value based on range components, The default value is -1.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6836,7 +6836,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// minimum value based on range components, The default value is -1。
+    /// minimum value based on range components, The default value is -1.
     /// If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 12
@@ -6849,7 +6849,7 @@ extern "C" {
     ///
     /// `value` - accessibility value object.
     ///
-    /// `max` - maximum value based on range components, The default value is -1。
+    /// `max` - maximum value based on range components, The default value is -1.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6863,7 +6863,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// maximum value based on range components, The default value is -1。
+    /// maximum value based on range components, The default value is -1.
     /// If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 12
@@ -6876,7 +6876,7 @@ extern "C" {
     ///
     /// `value` - accessibility value object.
     ///
-    /// `current` - value based on range components, The default value is -1。
+    /// `current` - value based on range components, The default value is -1.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6893,7 +6893,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// current value based on range components, The default value is -1。
+    /// current value based on range components, The default value is -1.
     /// If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 12
@@ -6906,7 +6906,7 @@ extern "C" {
     ///
     /// `value` - accessibility value object.
     ///
-    /// `text` - The textual description information of the component, which defaults to an empty string。
+    /// `text` - The textual description information of the component, which defaults to an empty string.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6915,7 +6915,7 @@ extern "C" {
         value: *mut ArkUI_AccessibilityValue,
         text: *const ::core::ffi::c_char,
     );
-    /// Get accessibility text value。
+    /// Get accessibility text value.
     ///
     /// # Arguments
     ///
