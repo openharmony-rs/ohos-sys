@@ -58,7 +58,7 @@ extern "C" {
     ///
     /// `callback` - Indicates the OH_NativeVSync_FrameCallback which will be called when next vsync coming.
     ///
-    /// `data` - Indicates data whick will be used in callback.
+    /// `data` - Indicates data which will be used in callback.
     ///
     /// # Returns
     ///
@@ -85,7 +85,7 @@ extern "C" {
     ///
     /// `callback` - Indicates the OH_NativeVSync_FrameCallback which will be called when next vsync coming.
     ///
-    /// `data` - Indicates data whick will be used in callback.
+    /// `data` - Indicates data which will be used in callback.
     ///
     /// # Returns
     ///
