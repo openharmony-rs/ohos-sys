@@ -1,3 +1,8 @@
+## v0.2.1 (2025-01-08)
+
+- Update bindings for API-13
+
+
 ## v0.2.0 (2025-01-04)
 
 - Internal changes to binding generation

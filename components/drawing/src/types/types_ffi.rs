@@ -121,6 +121,10 @@ pub struct OH_Drawing_MemoryStream {
     _unused: [u8; 0],
 }
 #[repr(C)]
+pub struct OH_Drawing_FontArguments {
+    _unused: [u8; 0],
+}
+#[repr(C)]
 pub struct OH_Drawing_Typeface {
     _unused: [u8; 0],
 }
@@ -494,5 +498,13 @@ pub struct OH_Drawing_FontMgr {
 }
 #[repr(C)]
 pub struct OH_Drawing_FontStyleSet {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_Drawing_RecordCmdUtils {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_Drawing_RecordCmd {
     _unused: [u8; 0],
 }

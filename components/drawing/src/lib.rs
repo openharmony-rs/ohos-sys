@@ -106,3 +106,7 @@ pub mod shadow_layer;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod surface;
+
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+pub mod record_cmd;

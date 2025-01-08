@@ -1282,4 +1282,29 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         imageInfo: *mut OH_Drawing_Image_Info,
     ) -> OH_Drawing_ErrorCode;
+    /// Replay drawing command.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// `recordCmd` - Indicates the pointer to an <b>OH_Drawing_RecordCmd</b> object.
+    ///
+    /// # Returns
+    ///
+    /// Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas or recordCmd is nullptr.
+    ///
+    /// Available since API-level: 13
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Drawing_CanvasDrawRecordCmd(
+        canvas: *mut OH_Drawing_Canvas,
+        recordCmd: *mut OH_Drawing_RecordCmd,
+    ) -> OH_Drawing_ErrorCode;
 }

@@ -1515,6 +1515,27 @@ extern "C" {
     ///
     /// Version: 1.1
     pub fn OH_Drawing_TypographyGetLongestLine(arg1: *mut OH_Drawing_Typography) -> f64;
+    /// Obtains the width of the longest line with indent. You are advised to
+    /// round up the return value in actual use. When the text content is empty, the
+    /// minimum float value, that is, 0.0, is returned.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// `OH_Drawing_Typography` - Pointer to an <b>OH_Drawing_Typography</b> object, which is obtained by
+    /// [`OH_Drawing_CreateTypography`].
+    ///
+    /// # Returns
+    ///
+    /// Returns the width of the longest line with indent.
+    ///
+    /// Available since API-level: 13
+    ///
+    /// Version: 1.1
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Drawing_TypographyGetLongestLineWithIndent(arg1: *mut OH_Drawing_Typography) -> f64;
     /// Gets the min intrinsic width.
     ///
     ///
