@@ -258,6 +258,7 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .no_copy("napi_extended_error_info")
                     .no_copy("napi_node_version")
                     .no_copy("napi_module")
+                    .raw_line("pub use ohos_sys_opaque_types::{napi_env, napi_value};")
             }),
         },
         BindingConf {
