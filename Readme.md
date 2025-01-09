@@ -9,60 +9,60 @@ Here is an overview of the available C header directories in the OpenHarmony sys
 this crate already provides bindings. The API-level column denotes up to which api level the bindings have
 already been generated.
 
-| API name                   | status  | API-level | 
-|----------------------------|---------|-----------|
-| AbilityKit                 |         |           |
-| BasicServicesKit           |         |           |
-| ConnectivityKit            |         |           |
-| CryptoArchitectureKit      |         |           |
-| IPCKit                     |         |           |
-| LocationKit                |         |           |
-| NotificationKit            |         |           |
-| accesstoken                |         |           |
-| ace/xcomponent             | ✅       | 13        |
-| ark_runtime                |         |           |
-| arkui                      | partial | 13        |
-| asset                      |         |           |
-| bundle                     |         |           |
-| database                   |         |           |
-| ddk                        |         |           |
-| ffrt                       |         |           |
-| filemanagement             |         |           |
-| hiappevent                 |         |           |
-| hicollie                   |         |           |
-| hid                        |         |           |
-| hidebug                    |         |           |
-| hilog                      | ✅       | 13        |
-| hitrace                    | ✅       | 13        |
-| huks                       |         |           |
-| info                       |         |           |
-| inputmethod                | ✅       | 13        |
-| mindspore                  |         |           |
-| multimedia                 |         |           |
-| multimodalinput            |         |           |
-| napi                       | ✅       | 13        |
-| native_buffer              | ✅       | 13        |
-| native_color_space_manager |         |           |
-| native_display_soloist     |         |           |
-| native_drawing             | ✅       | 13        |
-| native_effect              |         |           |
-| native_image               | ✅       | 13        |
-| native_vsync               | ✅       | 13        |
-| native_window              | ✅       | 13        |
-| network                    |         |           |
-| neural_network_runtime     |         |           |
-| ohaudio                    |         |           |
-| ohcamera                   |         |           |
-| purgeable_memory           |         |           |
-| qos                        |         |           |
-| rawfile                    |         |           |
-| resourcemanager            |         |           |
-| sensors                    |         |           |
-| telephony                  |         |           |
-| transient_task             |         |           |
-| usb                        |         |           |
-| web                        |         |           |
-| window_manager             |         |           |
+| API name                   | status | API-level | 
+|----------------------------|--------|-----------|
+| AbilityKit                 |        |           |
+| BasicServicesKit           |        |           |
+| ConnectivityKit            |        |           |
+| CryptoArchitectureKit      |        |           |
+| IPCKit                     |        |           |
+| LocationKit                |        |           |
+| NotificationKit            |        |           |
+| accesstoken                |        |           |
+| ace/xcomponent             | ✅      | 13        |
+| ark_runtime                |        |           |
+| arkui                      | ✅      | 13        |
+| asset                      |        |           |
+| bundle                     |        |           |
+| database                   |        |           |
+| ddk                        |        |           |
+| ffrt                       |        |           |
+| filemanagement             |        |           |
+| hiappevent                 |        |           |
+| hicollie                   |        |           |
+| hid                        |        |           |
+| hidebug                    |        |           |
+| hilog                      | ✅      | 13        |
+| hitrace                    | ✅      | 13        |
+| huks                       |        |           |
+| info                       |        |           |
+| inputmethod                | ✅      | 13        |
+| mindspore                  |        |           |
+| multimedia                 |        |           |
+| multimodalinput            |        |           |
+| napi                       | ✅      | 13        |
+| native_buffer              | ✅      | 13        |
+| native_color_space_manager |        |           |
+| native_display_soloist     |        |           |
+| native_drawing             | ✅      | 13        |
+| native_effect              |        |           |
+| native_image               | ✅      | 13        |
+| native_vsync               | ✅      | 13        |
+| native_window              | ✅      | 13        |
+| network                    |        |           |
+| neural_network_runtime     |        |           |
+| ohaudio                    |        |           |
+| ohcamera                   |        |           |
+| purgeable_memory           |        |           |
+| qos                        |        |           |
+| rawfile                    |        |           |
+| resourcemanager            |        |           |
+| sensors                    |        |           |
+| telephony                  |        |           |
+| transient_task             |        |           |
+| usb                        |        |           |
+| web                        |        |           |
+| window_manager             |        |           |
 
 ## Development
 

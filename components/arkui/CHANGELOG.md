@@ -2,7 +2,7 @@
 
 ### Add
 
-- Add native dialog, native interface and native node bindings.
+- Add remaining bindings: native dialog, native interface, native node and native interface accessibility bindings.
 
 ## 0.2.2 (2025-01-08)
 

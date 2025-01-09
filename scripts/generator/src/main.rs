@@ -725,6 +725,15 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                                  .raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
 
                          },
+                         "native_gesture" => {
+                             builder
+                                 .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
+                                 .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
+                         },
+                         "native_interface_accessibility" => {
+                           builder
+                               .raw_line("use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;")
+                         },
                          "native_node" => {
                              builder
                                  .blocklist_var("MAX_NODE_SCOPE_NUM")
@@ -747,11 +756,6 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                                 .no_copy("ARKUI_TextPickerCascadeRangeContent")
                                 .no_copy("ArkUI_ColorStop")
 
-                         },
-                         "native_gesture" => {
-                             builder
-                                 .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
-                                 .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
                          },
                          "styled_string" => {
                              builder
