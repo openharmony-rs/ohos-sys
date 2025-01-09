@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_image::common::*;
+#[cfg(feature = "api-13")]
+use crate::native_image::picture::OH_PictureNative;
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
 /// Define a ImagePacker struct type, used for ImagePacker pointer controls.
@@ -275,6 +277,38 @@ extern "C" {
         outData: *mut u8,
         size: *mut usize,
     ) -> Image_ErrorCode;
+    /// Encoding a <b>Picture</b> into the data with required format.
+    ///
+    /// # Arguments
+    ///
+    /// `imagePacker` - The imagePacker to use for packing.
+    ///
+    /// `options` - Indicates the encoding [`OH_PackingOptions`].
+    ///
+    /// `picture` - The picture to be packed.
+    ///
+    /// `outData` - The output data buffer to store the packed image.
+    ///
+    /// `size` - A pointer to the size of the output data buffer.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] imagePacker is nullptr, or picture is nullptr, or outData is nullptr,
+    /// or size is invalid.
+    /// [`IMAGE_ENCODE_FAILED`] encode failed.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_ImagePackerNative_PackToDataFromPicture(
+        imagePacker: *mut OH_ImagePackerNative,
+        options: *mut OH_PackingOptions,
+        picture: *mut OH_PictureNative,
+        outData: *mut u8,
+        size: *mut usize,
+    ) -> Image_ErrorCode;
     /// Encoding a <b>Pixelmap</b> into the a file with fd with required format
     ///
     /// # Arguments
@@ -298,6 +332,34 @@ extern "C" {
         imagePacker: *mut OH_ImagePackerNative,
         options: *mut OH_PackingOptions,
         pixelmap: *mut OH_PixelmapNative,
+        fd: i32,
+    ) -> Image_ErrorCode;
+    /// Encoding a <b>Picture</b> into the a file with fd with required format.
+    ///
+    /// # Arguments
+    ///
+    /// `imagePacker` - The imagePacker to use for packing.
+    ///
+    /// `options` - Indicates the encoding [`OH_PackingOptions`].
+    ///
+    /// `picture` - The picture to be packed.
+    ///
+    /// `fd` - Indicates a writable file descriptor.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] imagePacker is nullptr, or picture is nullptr, or fd is invalid.
+    /// [`IMAGE_ENCODE_FAILED`] encode failed.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_ImagePackerNative_PackToFileFromPicture(
+        imagePacker: *mut OH_ImagePackerNative,
+        options: *mut OH_PackingOptions,
+        picture: *mut OH_PictureNative,
         fd: i32,
     ) -> Image_ErrorCode;
     /// Releases an imagePacker object.

@@ -47,6 +47,16 @@ pub struct Image_String {
     /// data lenth for string type
     pub size: usize,
 }
+/// Define a PictureMetadata struct type, used for picture metadata.
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+#[repr(C)]
+pub struct OH_PictureMetadata {
+    _unused: [u8; 0],
+}
 /// Defines the image encode format.
 ///
 ///
@@ -123,6 +133,16 @@ impl Image_ErrorCode {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Image_ErrorCode {
+    /// unsupported memory format
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub const IMAGE_UNSUPPORTED_MEMORY_FORMAT: Image_ErrorCode = Image_ErrorCode(7600205);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl Image_ErrorCode {
     /// failed to allocate memory
     pub const IMAGE_ALLOC_FAILED: Image_ErrorCode = Image_ErrorCode(7600301);
 }
@@ -165,6 +185,25 @@ impl Image_ErrorCode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Clone, Hash, PartialEq, Eq)]
 pub struct Image_ErrorCode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+impl Image_MetadataType {
+    pub const EXIF_METADATA: Image_MetadataType = Image_MetadataType(1);
+}
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+impl Image_MetadataType {
+    pub const FRAGMENT_METADATA: Image_MetadataType = Image_MetadataType(2);
+}
+#[repr(transparent)]
+/// Define the metadata type.
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+#[derive(Clone, Hash, PartialEq, Eq)]
+pub struct Image_MetadataType(pub ::core::ffi::c_uint);
 /// Defines the bmp mime type.
 ///
 ///
@@ -1365,3 +1404,153 @@ pub const OHOS_IMAGE_PROPERTY_WIND_SNAPSHOT_MODE: &::core::ffi::CStr = c"HwMnote
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const OHOS_IMAGE_PROPERTY_GIF_LOOP_COUNT: &::core::ffi::CStr = c"GIFLoopCount";
+/// X in original
+/// It is used in [`OH_ImageSource_GetImageProperty`].
+/// The top left corner of the fragment image is at the X-coordinate of the original image
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+pub const OHOS_IMAGE_PROPERTY_X_IN_ORIGINAL: &::core::ffi::CStr = c"XInOriginal";
+/// Y in original
+/// It is used in [`OH_ImageSource_GetImageProperty`].
+/// The top left corner of the fragment image is at the Y-coordinate of the original image
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+pub const OHOS_IMAGE_PROPERTY_Y_IN_ORIGINAL: &::core::ffi::CStr = c"YInOriginal";
+/// Fragment map width
+/// It is used in [`OH_ImageSource_GetImageProperty`].
+/// The width of the fragment image
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+pub const OHOS_IMAGE_PROPERTY_FRAGMENT_WIDTH: &::core::ffi::CStr = c"FragmentImageWidth";
+/// Fragment map height
+/// It is used in [`OH_ImageSource_GetImageProperty`].
+/// The height of the fragment image
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+pub const OHOS_IMAGE_PROPERTY_FRAGMENT_HEIGHT: &::core::ffi::CStr = c"FragmentImageHeight";
+extern "C" {
+    /// Creates a <b>PictureMetadata</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// `metadataType` - The type of metadata.
+    ///
+    /// `metadata` - The PictureMetadata pointer will be operated.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] metadata is nullptr.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PictureMetadata_Create(
+        metadataType: Image_MetadataType,
+        metadata: *mut *mut OH_PictureMetadata,
+    ) -> Image_ErrorCode;
+    /// Obtains the property of picture metadata.
+    ///
+    /// # Arguments
+    ///
+    /// `metadata` - The PictureMetadata pointer will be operated.
+    ///
+    /// `key` - The property's key.
+    ///
+    /// `value` - The property's value.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] metadata is nullptr, or key is nullptr, or value is nullptr.
+    /// [`IMAGE_UNSUPPORTED_METADATA`] unsupported metadata type, or the metadata type does not match the
+    /// auxiliary picture type.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PictureMetadata_GetProperty(
+        metadata: *mut OH_PictureMetadata,
+        key: *mut Image_String,
+        value: *mut Image_String,
+    ) -> Image_ErrorCode;
+    /// Set picture metadata property.
+    ///
+    /// # Arguments
+    ///
+    /// `metadata` - The PictureMetadata pointer will be operated.
+    ///
+    /// `key` - The property's key.
+    ///
+    /// `value` - The property's value.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] metadata is nullptr, or key is nullptr, or value is nullptr.
+    /// [`IMAGE_UNSUPPORTED_METADATA`] unsupported metadata type, or the metadata type does not match the
+    /// auxiliary picture type.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PictureMetadata_SetProperty(
+        metadata: *mut OH_PictureMetadata,
+        key: *mut Image_String,
+        value: *mut Image_String,
+    ) -> Image_ErrorCode;
+    /// Releases this PictureMetadata object.
+    ///
+    /// # Arguments
+    ///
+    /// `metadata` - The PictureMetadata pointer will be operated.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] metadata is nullptr.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PictureMetadata_Release(metadata: *mut OH_PictureMetadata) -> Image_ErrorCode;
+    /// Obtains a clone of metadata.
+    ///
+    /// # Arguments
+    ///
+    /// `oldMetadata` - The PictureMetadata pointer will be operated.
+    ///
+    /// `newMetadata` - The PictureMetadata pointer will be cloned.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] metadata is nullptr.
+    /// [`IMAGE_ALLOC_FAILED`] memory alloc failed.
+    /// [`IMAGE_COPY_FAILED`] memory copy failed.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PictureMetadata_Clone(
+        oldMetadata: *mut OH_PictureMetadata,
+        newMetadata: *mut *mut OH_PictureMetadata,
+    ) -> Image_ErrorCode;
+}

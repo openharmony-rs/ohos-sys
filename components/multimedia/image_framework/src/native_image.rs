@@ -7,4 +7,7 @@ pub mod image;
 pub mod image_packer;
 pub mod image_receiver;
 pub mod image_source;
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+pub mod picture;
 pub mod pixelmap;
