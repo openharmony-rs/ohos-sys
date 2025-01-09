@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_image::common::*;
+#[cfg(feature = "api-13")]
+use crate::native_image::picture::{Image_AuxiliaryPictureType, OH_PictureNative};
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
 /// Defines an image source object for the image interface.
@@ -25,6 +27,17 @@ pub struct OH_ImageSourceNative {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_ImageSource_Info {
+    _unused: [u8; 0],
+}
+/// Defines decoding options for picture
+/// [`OH_DecodingOptionsForPicture_Create`].
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+#[repr(C)]
+pub struct OH_DecodingOptionsForPicture {
     _unused: [u8; 0],
 }
 #[cfg(feature = "api-12")]
@@ -523,6 +536,33 @@ extern "C" {
         resVecPixMap: *mut *mut OH_PixelmapNative,
         size: usize,
     ) -> Image_ErrorCode;
+    /// Create Picture pointer from ImageSource
+    /// based on the specified [`OH_DecodingOptionsForPicture`] struct.
+    ///
+    /// # Arguments
+    ///
+    /// `source` - Indicates a void pointer(from ImageSource pointer convert).
+    ///
+    /// `options` - Indicates a pointer to the options for decoding the image source.
+    /// For details, see [`OH_DecodingOptionsForPicture`].
+    ///
+    /// `picture` - Indicates a void pointer to the <b>Picture</b> object obtained at the C++ native layer.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] source is nullptr, or picture is nullptr.
+    /// [`IMAGE_DECODE_FAILED`] decode failed.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_ImageSourceNative_CreatePicture(
+        source: *mut OH_ImageSourceNative,
+        options: *mut OH_DecodingOptionsForPicture,
+        picture: *mut *mut OH_PictureNative,
+    ) -> Image_ErrorCode;
     /// Obtains the delay time list from some <b>ImageSource</b> objects (such as GIF image sources).
     ///
     /// # Arguments
@@ -647,4 +687,90 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageSourceNative_Release(source: *mut OH_ImageSourceNative) -> Image_ErrorCode;
+    /// Create a pointer for OH_DecodingOptionsForPicture struct.
+    ///
+    /// # Arguments
+    ///
+    /// `options` - The OH_DecodingOptionsForPicture pointer will be operated.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_DecodingOptionsForPicture_Create(
+        options: *mut *mut OH_DecodingOptionsForPicture,
+    ) -> Image_ErrorCode;
+    /// Obtains the desired auxiliary pictures of decoding options.
+    ///
+    /// # Arguments
+    ///
+    /// `options` - The OH_DecodingOptionsForPicture pointer will be operated.
+    ///
+    /// `desiredAuxiliaryPictures` - The desired auxiliary pictures in DecodingOptionsForPicture.
+    ///
+    /// `length` - The length of desired auxiliary pictures.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, desiredAuxiliaryPictures is nullptr,
+    /// or length is invalid.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_DecodingOptionsForPicture_GetDesiredAuxiliaryPictures(
+        options: *mut OH_DecodingOptionsForPicture,
+        desiredAuxiliaryPictures: *mut *mut Image_AuxiliaryPictureType,
+        length: *mut usize,
+    ) -> Image_ErrorCode;
+    /// Set decoding options desired auxiliary pictures.
+    ///
+    /// # Arguments
+    ///
+    /// `options` - The OH_DecodingOptionsForPicture pointer will be operated.
+    ///
+    /// `desiredAuxiliaryPictures` - The desired auxiliary pictures will be set.
+    ///
+    /// `length` - The length of desired auxiliary pictures.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, desiredAuxiliaryPictures is nullptr,
+    /// or length is invalid.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_DecodingOptionsForPicture_SetDesiredAuxiliaryPictures(
+        options: *mut OH_DecodingOptionsForPicture,
+        desiredAuxiliaryPictures: *mut Image_AuxiliaryPictureType,
+        length: usize,
+    ) -> Image_ErrorCode;
+    /// Releases an <b>DecodingOptionsForPicture</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// `options` - Indicates a DecodingOptionsForPicture pointer.
+    ///
+    /// # Returns
+    ///
+    /// Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_DecodingOptionsForPicture_Release(
+        options: *mut OH_DecodingOptionsForPicture,
+    ) -> Image_ErrorCode;
 }

@@ -299,7 +299,7 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .blocklist_function("OH_NativeXComponent_RegisterOnTouchInterceptCallback")
                     .blocklist_function("OH_NativeXComponent_GetNativeXComponent")
                     .raw_line("#[cfg(feature = \"api-13\")]")
-                    .raw_line("use ohos_sys_opaque_types::{ArkUI_AccessibilityProvider};")
+                    .raw_line("use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;")
                     .clang_args(&["-x", "c++"])
             }),
         },
@@ -515,14 +515,21 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                     "pixelmap" => {
                         // FIXME: Add necessary feature guards for `napi` and remove the blocklist
                         builder.blocklist_function("^OH_PixelmapNative_ConvertPixelmapNative(To|From)Napi")
-                            .raw_line("use ohos_sys_opaque_types::{OH_NativeBuffer, OH_PixelmapNative};")
+                            .raw_line("use ohos_sys_opaque_types::{OH_NativeBuffer, OH_PixelmapNative, OH_NativeColorSpaceManager};")
 
                     },
+                    "picture" => {
+                        builder
+                            .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                            .raw_line("use crate::native_image::pixelmap::PIXEL_FORMAT;")
+                    }
                     "image_source" => {
                         builder
                             // FIXME: Add necessary feature guards for `rawfile` and remove the blocklist
                             .blocklist_function("^OH_ImageSourceNative_CreateFromRawFile")
                             .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                            .raw_line("#[cfg(feature = \"api-13\")]")
+                            .raw_line("use crate::native_image::picture::{OH_PictureNative, Image_AuxiliaryPictureType};")
                     }
                     // Todo: these bindings are hand-picked and feature guarded right now - autogenerate...
                     "image_receiver" => {
@@ -532,6 +539,8 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                         builder
                             .blocklist_function("^OH_ImagePackerNative_PackTo(Data|File)FromImageSource")
                             .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                            .raw_line("#[cfg(feature = \"api-13\")]")
+                            .raw_line("use crate::native_image::picture::OH_PictureNative;")
                     }
                     "image" => {
                         builder

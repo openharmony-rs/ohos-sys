@@ -23,6 +23,10 @@ pub struct OH_PixelmapNative {
     _unused: [u8; 0],
 }
 #[repr(C)]
+pub struct OH_NativeColorSpaceManager {
+    _unused: [u8; 0],
+}
+#[repr(C)]
 pub struct NativePixelMap_ {
     _unused: [u8; 0],
 }

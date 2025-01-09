@@ -4,7 +4,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_image::common::*;
-use ohos_sys_opaque_types::{OH_NativeBuffer, OH_PixelmapNative};
+use ohos_sys_opaque_types::{OH_NativeBuffer, OH_NativeColorSpaceManager, OH_PixelmapNative};
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -763,6 +763,33 @@ extern "C" {
         source: *mut u8,
         bufferSize: usize,
     ) -> Image_ErrorCode;
+    /// Get argb pixel buffer from pixelmap.
+    ///
+    /// # Arguments
+    ///
+    /// `pixelmap` - The Pixelmap pointer to be operated.
+    ///
+    /// `destination` - Buffer to which the image pixel map data will be written.
+    ///
+    /// `bufferSize` - Buffer size to which the image pixel map data will be written.
+    ///
+    /// # Returns
+    ///
+    /// Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, destination and bufferSize are incorrect.
+    /// [`IMAGE_UNSUPPORTED_CONVERSION`] If format does not support conversion to argb or conversion failed.
+    /// [`IMAGE_ALLOC_FAILED`] If device has no memory.
+    /// [`IMAGE_COPY_FAILED`] If memory copy failed.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PixelmapNative_GetArgbPixels(
+        pixelmap: *mut OH_PixelmapNative,
+        destination: *mut u8,
+        bufferSize: *mut usize,
+    ) -> Image_ErrorCode;
     /// Convert [`OH_PixelmapNative`] to standard dynamic range.
     ///
     /// # Arguments
@@ -1076,5 +1103,72 @@ extern "C" {
     pub fn OH_PixelmapNative_GetNativeBuffer(
         pixelmap: *mut OH_PixelmapNative,
         nativeBuffer: *mut *mut OH_NativeBuffer,
+    ) -> Image_ErrorCode;
+    /// Set pixelmap memory name.
+    ///
+    /// # Arguments
+    ///
+    /// `pixelmap` - The Pixelmap pointer to be operated.
+    ///
+    /// `name` - The pointer of name that needs to be set.
+    ///
+    /// `size` - The size of name size that needs to be set.
+    ///
+    /// # Returns
+    ///
+    /// Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, name and size are incorrect.
+    /// [`IMAGE_UNSUPPORTED_MEMORY_FORMAT`] If memory format is unsupported.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PixelmapNative_SetMemoryName(
+        pixelmap: *mut OH_PixelmapNative,
+        name: *mut ::core::ffi::c_char,
+        size: *mut usize,
+    ) -> Image_ErrorCode;
+    /// Get the native colorspace from the PixelMap.
+    ///
+    /// # Arguments
+    ///
+    /// `pixelmap` - The native pixelmap to get the native colorspace from.
+    ///
+    /// `colorSpaceNative` - The native colorspace to retrieve.
+    ///
+    /// # Returns
+    ///
+    /// Function result code:
+    /// [`IMAGE_SUCCESS`] If the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] The param of pixelmap or colorSpaceNative is nullptr or invalid.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PixelmapNative_GetColorSpaceNative(
+        pixelmap: *mut OH_PixelmapNative,
+        colorSpaceNative: *mut *mut OH_NativeColorSpaceManager,
+    ) -> Image_ErrorCode;
+    /// Set the native colorspace for the PixelMap.
+    ///
+    /// # Arguments
+    ///
+    /// `pixelmap` - The native pixelmap to set the native colorspace for.
+    ///
+    /// `colorSpaceNative` - The native colorspace to set.
+    ///
+    /// # Returns
+    ///
+    /// Function result code:
+    /// [`IMAGE_SUCCESS`] If the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] The param of pixelmap or colorSpaceNative is nullptr or invalid.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PixelmapNative_SetColorSpaceNative(
+        pixelmap: *mut OH_PixelmapNative,
+        colorSpaceNative: *mut OH_NativeColorSpaceManager,
     ) -> Image_ErrorCode;
 }
