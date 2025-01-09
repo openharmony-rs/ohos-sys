@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "arkui-sys"
-version = "0.2.2"
+version = "0.2.3"
 dependencies = [
  "document-features",
  "ohos-drawing-sys",
