@@ -3,6 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+pub use ohos_sys_opaque_types::{napi_env, napi_value};
 
 pub const NAPI_VERSION: u32 = 8;
 pub const NAPI_VERSION_EXPERIMENTAL: u32 = 2147483647;
@@ -81,16 +82,6 @@ impl napi_task_priority {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct napi_task_priority(pub ::core::ffi::c_uint);
 pub type char16_t = u16;
-#[repr(C)]
-pub struct napi_env__ {
-    _unused: [u8; 0],
-}
-pub type napi_env = *mut napi_env__;
-#[repr(C)]
-pub struct napi_value__ {
-    _unused: [u8; 0],
-}
-pub type napi_value = *mut napi_value__;
 #[repr(C)]
 pub struct napi_ref__ {
     _unused: [u8; 0],
@@ -298,7 +289,6 @@ pub type napi_finalize = ::core::option::Option<
     ),
 >;
 #[repr(C)]
-#[derive(Debug)]
 pub struct napi_property_descriptor {
     pub utf8name: *const ::core::ffi::c_char,
     pub name: napi_value,

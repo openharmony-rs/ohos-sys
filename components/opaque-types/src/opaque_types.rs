@@ -5,6 +5,16 @@
 #![allow(non_snake_case)]
 
 #[repr(C)]
+pub struct napi_env__ {
+    _unused: [u8; 0],
+}
+pub type napi_env = *mut napi_env__;
+#[repr(C)]
+pub struct napi_value__ {
+    _unused: [u8; 0],
+}
+pub type napi_value = *mut napi_value__;
+#[repr(C)]
 pub struct OH_NativeBuffer {
     _unused: [u8; 0],
 }
