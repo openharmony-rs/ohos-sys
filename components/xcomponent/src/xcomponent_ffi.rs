@@ -6,7 +6,7 @@
 #[cfg(feature = "api-13")]
 use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;
 
-pub const OH_NATIVE_XCOMPONENT_OBJ: &[u8; 26] = b"__NATIVE_XCOMPONENT_OBJ__\0";
+pub const OH_NATIVE_XCOMPONENT_OBJ: &::core::ffi::CStr = c"__NATIVE_XCOMPONENT_OBJ__";
 impl OH_NativeXComponent_KeyCode {
     pub const KEY_UNKNOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(-1);
 }

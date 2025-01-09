@@ -163,6 +163,7 @@ fn base_bindgen_builder(sysroot_dir: &Path) -> anyhow::Result<bindgen::Builder> 
         .formatter(Formatter::Prettyplease)
         .merge_extern_blocks(true)
         .rust_target(bindgen::RustTarget::from_str("1.78").expect("invalid rust target"))
+        .generate_cstr(true)
         .blocklist_file(r".*stdint\.h")
         .blocklist_file(r".*stddef\.h")
         .blocklist_file(r".*stdarg\.h")
