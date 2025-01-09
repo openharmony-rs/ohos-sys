@@ -731,6 +731,12 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                                  .blocklist_var("MAX_COMPONENT_EVENT_ARG_NUM")
                                  .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
                          },
+                         "native_node_napi" => {
+                             builder
+                                 .raw_line("use ohos_sys_opaque_types::{napi_env, napi_value};")
+                                 .raw_line("use crate::drawable_descriptor::ArkUI_DrawableDescriptor;")
+
+                         },
                          "native_type" => {
                              builder
                                 .raw_line("use crate::drawable_descriptor::ArkUI_DrawableDescriptor;")
