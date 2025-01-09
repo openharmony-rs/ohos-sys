@@ -48,6 +48,10 @@ pub mod native_interface;
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+pub mod native_node;
+
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod native_type;
 
 #[cfg(feature = "api-12")]

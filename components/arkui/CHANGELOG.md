@@ -2,8 +2,7 @@
 
 ### Add
 
-- native_dialog
-- native_interface
+- Add native dialog, native interface and native node bindings.
 
 ## 0.2.2 (2025-01-08)
 
