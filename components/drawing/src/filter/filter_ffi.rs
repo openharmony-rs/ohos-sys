@@ -17,7 +17,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Filter</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Filter</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -31,9 +31,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
-    /// `OH_Drawing_ImageFilter` - Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
+    /// * `OH_Drawing_ImageFilter` - Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -50,9 +50,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
-    /// `OH_Drawing_MaskFilter` - Indicates the pointer to an <b>OH_Drawing_MaskFilter</b> object.
+    /// * `OH_Drawing_MaskFilter` - Indicates the pointer to an <b>OH_Drawing_MaskFilter</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -69,9 +69,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
-    /// `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -88,9 +88,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
-    /// `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -107,7 +107,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
     /// Available since API-level: 11
     ///

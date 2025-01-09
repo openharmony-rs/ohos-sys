@@ -17,11 +17,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `NativePixelMap_` - Indicates a pointer to an native pixelmap supported by image framework.
+    /// * `NativePixelMap_` - Indicates a pointer to an native pixelmap supported by image framework.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_PixelMap</b> object.
+    /// * Returns the pointer to the <b>OH_Drawing_PixelMap</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -37,11 +37,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_PixelmapNative` - Indicates a pointer to the <b>OH_PixelmapNative</b> object supported by image framework.
+    /// * `OH_PixelmapNative` - Indicates a pointer to the <b>OH_PixelmapNative</b> object supported by image framework.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_PixelMap</b> object.
+    /// * Returns the pointer to the <b>OH_Drawing_PixelMap</b> object.
     /// If nullptr is returned, the get operation fails.
     /// The possible cause of the failure is that a nullptr is passed.
     ///
@@ -60,7 +60,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_PixelMap` - Indicates a pointer to the <b>OH_Drawing_PixelMap</b>.
+    /// * `OH_Drawing_PixelMap` - Indicates a pointer to the <b>OH_Drawing_PixelMap</b>.
     ///
     /// Available since API-level: 12
     ///

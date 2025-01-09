@@ -43,15 +43,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `type` - Indicates the type of the native API set provided by ArkUI, for example, <b>ARKUI_NATIVE_NODE</b>
+    /// * `type` - Indicates the type of the native API set provided by ArkUI, for example, <b>ARKUI_NATIVE_NODE</b>
     /// and <b>ARKUI_NATIVE_GESTURE</b>.
     ///
-    /// `sturctName` - Indicates the name of a native struct defined in the corresponding header file, for example,
+    /// * `sturctName` - Indicates the name of a native struct defined in the corresponding header file, for example,
     /// <b>ArkUI_NativeNodeAPI_1</b> in <arkui/native_node.h>.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the abstract native API, which can be used after being converted into a specific type.
+    /// * Returns the pointer to the abstract native API, which can be used after being converted into a specific type.
     /// ```cpp
     /// #include<arkui/native_interface.h>
     /// #include<arkui/native_node.h>

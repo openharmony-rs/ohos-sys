@@ -17,17 +17,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `sigmaX` - Indicates the Gaussian sigma value for blurring along the x axis.
+    /// * `sigmaX` - Indicates the Gaussian sigma value for blurring along the x axis.
     ///
-    /// `sigmaY` - Indicates the Gaussian sigma value for blurring along the y axis.
+    /// * `sigmaY` - Indicates the Gaussian sigma value for blurring along the y axis.
     ///
-    /// `OH_Drawing_TileMode` - Indicates the tile mode applied at edges.
+    /// * `OH_Drawing_TileMode` - Indicates the tile mode applied at edges.
     ///
-    /// `OH_Drawing_ImageFilter` - Indicates the input filter that is blurred, uses source bitmap if this is null.
+    /// * `OH_Drawing_ImageFilter` - Indicates the input filter that is blurred, uses source bitmap if this is null.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
     /// If nullptr is returned, the creation fails.
     /// The possible cause of the failure is that the available memory is empty.
     ///
@@ -48,13 +48,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_ColorFilter` - Indicates the color filter that transforms the input image.
+    /// * `OH_Drawing_ColorFilter` - Indicates the color filter that transforms the input image.
     ///
-    /// `OH_Drawing_ImageFilter` - Indicates the input filter, or uses the source bitmap if this is null.
+    /// * `OH_Drawing_ImageFilter` - Indicates the input filter, or uses the source bitmap if this is null.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
     /// If nullptr is returned, the creation fails.
     /// The possible cause of the failure is that the available memory is empty or
     /// a nullptr <b>OH_Drawing_ColorFilter</b> is passed.
@@ -74,7 +74,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_ImageFilter` - Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
+    /// * `OH_Drawing_ImageFilter` - Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
     ///
     /// Available since API-level: 12
     ///

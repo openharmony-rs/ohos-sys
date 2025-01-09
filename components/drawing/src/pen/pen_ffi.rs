@@ -64,7 +64,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Pen</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Pen</b> object created.
     ///
     /// Available since API-level: 8
     ///
@@ -76,11 +76,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Pen</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Pen</b> object created.
     /// If nullptr is returned, the creation fails.
     /// The possible cause of the failure is that the available memory is empty or a nullptr is passed.
     ///
@@ -96,7 +96,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -109,11 +109,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if anti-aliasing is enabled; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if anti-aliasing is enabled; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 8
     ///
@@ -126,9 +126,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `bool` - Specifies whether to enable anti-aliasing. The value <b>true</b> means
+    /// * `bool` - Specifies whether to enable anti-aliasing. The value <b>true</b> means
     /// to enable anti-aliasing, and <b>false</b> means the opposite.
     ///
     /// Available since API-level: 8
@@ -141,11 +141,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
-    /// Returns a 32-bit (ARGB) variable that describes the color.
+    /// * Returns a 32-bit (ARGB) variable that describes the color.
     ///
     /// Available since API-level: 8
     ///
@@ -157,9 +157,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `color` - Indicates the color to set, which is a 32-bit (ARGB) variable.
+    /// * `color` - Indicates the color to set, which is a 32-bit (ARGB) variable.
     ///
     /// Available since API-level: 8
     ///
@@ -171,11 +171,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
-    /// Returns a 8-bit variable that describes the alpha.
+    /// * Returns a 8-bit variable that describes the alpha.
     ///
     /// Available since API-level: 11
     ///
@@ -189,9 +189,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `alpha` - Indicates the alpha to set, which is a 8-bit variable.
+    /// * `alpha` - Indicates the alpha to set, which is a 8-bit variable.
     ///
     /// Available since API-level: 11
     ///
@@ -205,11 +205,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the thickness.
+    /// * Returns the thickness.
     ///
     /// Available since API-level: 8
     ///
@@ -221,9 +221,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `width` - Indicates the thickness to set, which is a variable.
+    /// * `width` - Indicates the thickness to set, which is a variable.
     ///
     /// Available since API-level: 8
     ///
@@ -238,11 +238,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the miter limit.
+    /// * Returns the miter limit.
     ///
     /// Available since API-level: 8
     ///
@@ -257,9 +257,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `miter` - Indicates a variable that describes the miter limit.
+    /// * `miter` - Indicates a variable that describes the miter limit.
     ///
     /// Available since API-level: 8
     ///
@@ -271,11 +271,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the line cap style.
+    /// * Returns the line cap style.
     ///
     /// Available since API-level: 8
     ///
@@ -287,9 +287,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `OH_Drawing_PenLineCapStyle` - Indicates a variable that describes the line cap style.
+    /// * `OH_Drawing_PenLineCapStyle` - Indicates a variable that describes the line cap style.
     ///
     /// Available since API-level: 8
     ///
@@ -301,11 +301,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the line join style.
+    /// * Returns the line join style.
     ///
     /// Available since API-level: 8
     ///
@@ -317,9 +317,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `OH_Drawing_PenLineJoinStyle` - Indicates a variable that describes the line join style.
+    /// * `OH_Drawing_PenLineJoinStyle` - Indicates a variable that describes the line join style.
     ///
     /// Available since API-level: 8
     ///
@@ -331,9 +331,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `OH_Drawing_ShaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
+    /// * `OH_Drawing_ShaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -350,9 +350,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `OH_Drawing_ShadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
+    /// * `OH_Drawing_ShadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -369,9 +369,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `OH_Drawing_PathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
+    /// * `OH_Drawing_PathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -385,9 +385,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -401,9 +401,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -417,9 +417,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `OH_Drawing_BlendMode` - Indicates the blend mode.
+    /// * `OH_Drawing_BlendMode` - Indicates the blend mode.
     ///
     /// Available since API-level: 12
     ///
@@ -433,21 +433,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// `src` - Indicates the Path read to create a filled version.
+    /// * `src` - Indicates the Path read to create a filled version.
     ///
-    /// `dst` - Indicates the resulting Path.
+    /// * `dst` - Indicates the resulting Path.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object that limits the PathEffect area if
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object that limits the PathEffect area if
     /// Pen has PathEffect.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object that tranfomation applied to
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object that tranfomation applied to
     /// PathEffect if Pen has PathEffect.
     ///
     /// # Returns
     ///
-    /// Returns true if get successes; false if get fails.
+    /// * Returns true if get successes; false if get fails.
     ///
     /// Available since API-level: 12
     ///
@@ -467,7 +467,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// Available since API-level: 12
     ///

@@ -80,11 +80,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The OH_ImageSource_Info pointer will be operated.
+    /// * `info` - The OH_ImageSource_Info pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -94,13 +94,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The OH_ImageSource_Info pointer will be operated.
+    /// * `info` - The OH_ImageSource_Info pointer will be operated.
     ///
-    /// `width` - the number of image width.
+    /// * `width` - the number of image width.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -113,13 +113,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The OH_ImageSource_Info pointer will be operated.
+    /// * `info` - The OH_ImageSource_Info pointer will be operated.
     ///
-    /// `height` - the number of image height.
+    /// * `height` - the number of image height.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -132,13 +132,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The OH_ImageSource_Info pointer will be operated. Pointer connot be null.
+    /// * `info` - The OH_ImageSource_Info pointer will be operated. Pointer connot be null.
     ///
-    /// `isHdr` - Whether the image has a high dynamic range.
+    /// * `isHdr` - Whether the image has a high dynamic range.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
     ///
     /// Available since API-level: 12
@@ -152,11 +152,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The OH_ImageSource_Info pointer will be operated.
+    /// * `info` - The OH_ImageSource_Info pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -166,11 +166,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -180,13 +180,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
-    /// `pixelFormat` - the number of image pixelFormat.
+    /// * `pixelFormat` - the number of image pixelFormat.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -199,13 +199,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
-    /// `pixelFormat` - the number of image pixelFormat.
+    /// * `pixelFormat` - the number of image pixelFormat.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -218,13 +218,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
-    /// `index` - the number of image index.
+    /// * `index` - the number of image index.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -237,13 +237,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
-    /// `index` - the number of image index.
+    /// * `index` - the number of image index.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -256,13 +256,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
-    /// `rotate` - the number of image rotate.
+    /// * `rotate` - the number of image rotate.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -275,13 +275,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
-    /// `rotate` - the number of image rotate.
+    /// * `rotate` - the number of image rotate.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -294,13 +294,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
-    /// `desiredSize` - the number of image desiredSize.
+    /// * `desiredSize` - the number of image desiredSize.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -313,13 +313,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
-    /// `desiredSize` - the number of image desiredSize.
+    /// * `desiredSize` - the number of image desiredSize.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -332,13 +332,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
-    /// `desiredRegion` - the number of image desiredRegion.
+    /// * `desiredRegion` - the number of image desiredRegion.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -351,13 +351,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
-    /// `desiredRegion` - the number of image desiredRegion.
+    /// * `desiredRegion` - the number of image desiredRegion.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -370,13 +370,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated. Pointer connot be null.
+    /// * `options` - The OH_DecodingOptions pointer will be operated. Pointer connot be null.
     ///
-    /// `desiredDynamicRange` - the number of desired dynamic range [`IMAGE_DYNAMIC_RANGE`]. Pointer connot be null.
+    /// * `desiredDynamicRange` - the number of desired dynamic range [`IMAGE_DYNAMIC_RANGE`]. Pointer connot be null.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
     ///
     /// Available since API-level: 12
@@ -390,13 +390,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated. Pointer connot be null.
+    /// * `options` - The OH_DecodingOptions pointer will be operated. Pointer connot be null.
     ///
-    /// `desiredDynamicRange` - the number of desired dynamic range [`IMAGE_DYNAMIC_RANGE`].
+    /// * `desiredDynamicRange` - the number of desired dynamic range [`IMAGE_DYNAMIC_RANGE`].
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
     ///
     /// Available since API-level: 12
@@ -410,11 +410,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptions pointer will be operated.
+    /// * `options` - The OH_DecodingOptions pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -424,15 +424,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `uri` - Indicates a pointer to the image source URI. Only a file URI or Base64 URI is accepted.
+    /// * `uri` - Indicates a pointer to the image source URI. Only a file URI or Base64 URI is accepted.
     ///
-    /// `uriSize` - Indicates the length of the image source URI.
+    /// * `uriSize` - Indicates the length of the image source URI.
     ///
-    /// `res` - Indicates a pointer to the <b>ImageSource</b> object created at the C++ native layer.
+    /// * `res` - Indicates a pointer to the <b>ImageSource</b> object created at the C++ native layer.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -446,13 +446,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `fd` - Indicates the image source file descriptor.
+    /// * `fd` - Indicates the image source file descriptor.
     ///
-    /// `res` - Indicates a void pointer to the <b>ImageSource</b> object created at the C++ native layer.
+    /// * `res` - Indicates a void pointer to the <b>ImageSource</b> object created at the C++ native layer.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -465,15 +465,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `data` - Indicates a pointer to the image source data. Only a formatted packet data or Base64 data is accepted.
+    /// * `data` - Indicates a pointer to the image source data. Only a formatted packet data or Base64 data is accepted.
     ///
-    /// `dataSize` - Indicates the size of the image source data.
+    /// * `dataSize` - Indicates the size of the image source data.
     ///
-    /// `res` - Indicates a void pointer to the <b>ImageSource</b> object created at the C++ native layer.
+    /// * `res` - Indicates a void pointer to the <b>ImageSource</b> object created at the C++ native layer.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -488,16 +488,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `source` - Indicates a void pointer(from ImageSource pointer convert).
+    /// * `source` - Indicates a void pointer(from ImageSource pointer convert).
     ///
-    /// `options` - Indicates a pointer to the options for decoding the image source.
+    /// * `options` - Indicates a pointer to the options for decoding the image source.
     /// For details, see [`OH_DecodingOptions`].
     ///
-    /// `resPixMap` - Indicates a void pointer to the <b>Pixelmap</b> object obtained at the C++ native layer.
+    /// * `resPixMap` - Indicates a void pointer to the <b>Pixelmap</b> object obtained at the C++ native layer.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -513,19 +513,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `source` - Indicates a void pointer(from ImageSource pointer convert).
+    /// * `source` - Indicates a void pointer(from ImageSource pointer convert).
     ///
-    /// `options` - Indicates a pointer to the options for decoding the image source.
+    /// * `options` - Indicates a pointer to the options for decoding the image source.
     /// For details, see [`OH_DecodingOptions`].
     ///
-    /// `resVecPixMap` - Indicates a pointer array to the <b>Pixelmap</b> objects obtained at the C++ native layer.
+    /// * `resVecPixMap` - Indicates a pointer array to the <b>Pixelmap</b> objects obtained at the C++ native layer.
     /// It cannot be a null pointer.
     ///
-    /// `size` - Indicates a size of resVecPixMap. User can get size from [`OH_ImageSourceNative_GetFrameCount`].
+    /// * `size` - Indicates a size of resVecPixMap. User can get size from [`OH_ImageSourceNative_GetFrameCount`].
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -541,16 +541,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `source` - Indicates a void pointer(from ImageSource pointer convert).
+    /// * `source` - Indicates a void pointer(from ImageSource pointer convert).
     ///
-    /// `options` - Indicates a pointer to the options for decoding the image source.
+    /// * `options` - Indicates a pointer to the options for decoding the image source.
     /// For details, see [`OH_DecodingOptionsForPicture`].
     ///
-    /// `picture` - Indicates a void pointer to the <b>Picture</b> object obtained at the C++ native layer.
+    /// * `picture` - Indicates a void pointer to the <b>Picture</b> object obtained at the C++ native layer.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] source is nullptr, or picture is nullptr.
     /// [`IMAGE_DECODE_FAILED`] decode failed.
@@ -567,15 +567,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `source` - Indicates a void pointer(from ImageSource pointer convert).
+    /// * `source` - Indicates a void pointer(from ImageSource pointer convert).
     ///
-    /// `delayTimeList` - Indicates a pointer to the delay time list obtained. It cannot be a null pointer.
+    /// * `delayTimeList` - Indicates a pointer to the delay time list obtained. It cannot be a null pointer.
     ///
-    /// `size` - Indicates a size of delayTimeList. User can get size from [`OH_ImageSourceNative_GetFrameCount`].
+    /// * `size` - Indicates a size of delayTimeList. User can get size from [`OH_ImageSourceNative_GetFrameCount`].
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -589,16 +589,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `source` - Indicates a void pointer(from ImageSource pointer convert).
+    /// * `source` - Indicates a void pointer(from ImageSource pointer convert).
     ///
-    /// `index` - Indicates the index of the frame.
+    /// * `index` - Indicates the index of the frame.
     ///
-    /// `info` - Indicates a pointer to the image source information obtained.
+    /// * `info` - Indicates a pointer to the image source information obtained.
     /// For details, see [`OH_ImageSource_Info`].
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -612,17 +612,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `source` - Indicates a void pointer(from ImageSource pointer convert).
+    /// * `source` - Indicates a void pointer(from ImageSource pointer convert).
     ///
-    /// `key` - Indicates a pointer to the property. For details, see [`Image_String`]., key is an exif constant.
+    /// * `key` - Indicates a pointer to the property. For details, see [`Image_String`]., key is an exif constant.
     /// Release after use ImageSource, see [`OH_ImageSourceNative_Release`].
     ///
-    /// `value` - Indicates a pointer to the value obtained.The user can pass in a null pointer and zero size,
+    /// * `value` - Indicates a pointer to the value obtained.The user can pass in a null pointer and zero size,
     /// we will allocate memory, but user must free memory after use.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -635,16 +635,16 @@ extern "C" {
     /// Modifies the value of an image property of an <b>ImageSource</b> object.
     /// # Arguments
     ///
-    /// `source` - Indicates a void pointer(from ImageSource pointer convert).
+    /// * `source` - Indicates a void pointer(from ImageSource pointer convert).
     ///
-    /// `key` - Indicates a pointer to the property. For details, see [`Image_String`]., key is an exif constant.
+    /// * `key` - Indicates a pointer to the property. For details, see [`Image_String`]., key is an exif constant.
     /// Release after use ImageSource, see [`OH_ImageSourceNative_Release`].
     ///
-    /// `value` - Indicates a pointer to the new value of the property.
+    /// * `value` - Indicates a pointer to the new value of the property.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -658,13 +658,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `source` - Indicates a pointer to the [`OH_ImageSource`] object at the C++ native layer.
+    /// * `source` - Indicates a pointer to the [`OH_ImageSource`] object at the C++ native layer.
     ///
-    /// `res` - Indicates a pointer to the number of frames obtained.
+    /// * `res` - Indicates a pointer to the number of frames obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -677,11 +677,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `source` - Indicates a ImageSource pointer.
+    /// * `source` - Indicates a ImageSource pointer.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -691,11 +691,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptionsForPicture pointer will be operated.
+    /// * `options` - The OH_DecodingOptionsForPicture pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
     ///
@@ -709,15 +709,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptionsForPicture pointer will be operated.
+    /// * `options` - The OH_DecodingOptionsForPicture pointer will be operated.
     ///
-    /// `desiredAuxiliaryPictures` - The desired auxiliary pictures in DecodingOptionsForPicture.
+    /// * `desiredAuxiliaryPictures` - The desired auxiliary pictures in DecodingOptionsForPicture.
     ///
-    /// `length` - The length of desired auxiliary pictures.
+    /// * `length` - The length of desired auxiliary pictures.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] options is nullptr, desiredAuxiliaryPictures is nullptr,
     /// or length is invalid.
@@ -734,15 +734,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_DecodingOptionsForPicture pointer will be operated.
+    /// * `options` - The OH_DecodingOptionsForPicture pointer will be operated.
     ///
-    /// `desiredAuxiliaryPictures` - The desired auxiliary pictures will be set.
+    /// * `desiredAuxiliaryPictures` - The desired auxiliary pictures will be set.
     ///
-    /// `length` - The length of desired auxiliary pictures.
+    /// * `length` - The length of desired auxiliary pictures.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] options is nullptr, desiredAuxiliaryPictures is nullptr,
     /// or length is invalid.
@@ -759,11 +759,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - Indicates a DecodingOptionsForPicture pointer.
+    /// * `options` - Indicates a DecodingOptionsForPicture pointer.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
     ///

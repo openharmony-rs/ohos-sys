@@ -30,7 +30,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Bitmap</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Bitmap</b> object created.
     ///
     /// Available since API-level: 8
     ///
@@ -42,7 +42,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -55,15 +55,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Image_Info` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `OH_Drawing_Image_Info` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
     ///
-    /// `pixels` - the pointer to memory address or pixel storage.
+    /// * `pixels` - the pointer to memory address or pixel storage.
     ///
-    /// `rowBytes` - size of pixel row or larger.
+    /// * `rowBytes` - size of pixel row or larger.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Bitmap</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Bitmap</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -82,13 +82,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
-    /// `width` - Indicates the width of the bitmap to be initialized.
+    /// * `width` - Indicates the width of the bitmap to be initialized.
     ///
-    /// `height` - Indicates the height of the bitmap to be initialized.
+    /// * `height` - Indicates the height of the bitmap to be initialized.
     ///
-    /// `OH_Drawing_BitmapFormat` - Indicates the pixel format of the bitmap to be initialized,
+    /// * `OH_Drawing_BitmapFormat` - Indicates the pixel format of the bitmap to be initialized,
     /// including the pixel color type and alpha type.
     ///
     /// Available since API-level: 8
@@ -106,11 +106,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the width.
+    /// * Returns the width.
     ///
     /// Available since API-level: 8
     ///
@@ -122,11 +122,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the height.
+    /// * Returns the height.
     ///
     /// Available since API-level: 8
     ///
@@ -138,11 +138,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the bitmap color format.
+    /// * Returns the bitmap color format.
     ///
     /// Available since API-level: 12
     ///
@@ -156,11 +156,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the bitmap alpha format.
+    /// * Returns the bitmap alpha format.
     ///
     /// Available since API-level: 12
     ///
@@ -174,11 +174,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pixel address.
+    /// * Returns the pixel address.
     ///
     /// Available since API-level: 8
     ///
@@ -190,9 +190,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
-    /// `OH_Drawing_Image_Info` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `OH_Drawing_Image_Info` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -210,21 +210,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
-    /// `dstInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `dstInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
     ///
-    /// `dstPixels` - Destination pixel storage.
+    /// * `dstPixels` - Destination pixel storage.
     ///
-    /// `dstRowBytes` - Destination row length.
+    /// * `dstRowBytes` - Destination row length.
     ///
-    /// `srcX` - Column index whose absolute value is less than width.
+    /// * `srcX` - Column index whose absolute value is less than width.
     ///
-    /// `srcY` - Row index whose absolute value is less than height.
+    /// * `srcY` - Row index whose absolute value is less than height.
     ///
     /// # Returns
     ///
-    /// Returns true if pixels are copied to dstPixels.
+    /// * Returns true if pixels are copied to dstPixels.
     ///
     /// Available since API-level: 12
     ///

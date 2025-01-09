@@ -17,7 +17,7 @@ pub struct OH_NativeImage {
 /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
 /// # Arguments
 ///
-/// `context` - User defined context, returned to the user in the callback function
+/// * `context` - User defined context, returned to the user in the callback function
 ///
 /// Available since API-level: 11
 ///
@@ -56,13 +56,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `textureId` - Indicates the id of the Opengl ES texture which the native image attached to.
+    /// * `textureId` - Indicates the id of the Opengl ES texture which the native image attached to.
     ///
-    /// `textureTarget` - Indicates the Opengl ES target.
+    /// * `textureTarget` - Indicates the Opengl ES target.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_NativeImage</b> instance created if the operation is successful,
+    /// * Returns the pointer to the <b>OH_NativeImage</b> instance created if the operation is successful,
     ///
     /// returns <b>NULL</b> otherwise.
     ///
@@ -79,11 +79,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the OHNativeWindow if the operation is successful, returns <b>NULL</b> otherwise.
+    /// * Returns the pointer to the OHNativeWindow if the operation is successful, returns <b>NULL</b> otherwise.
     ///
     /// Available since API-level: 9
     ///
@@ -100,13 +100,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
-    /// `textureId` - Indicates the id of the Opengl ES texture which the native image attached to.
+    /// * `textureId` - Indicates the id of the Opengl ES texture which the native image attached to.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -121,11 +121,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -144,11 +144,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -163,11 +163,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the timestamp associated to the texture image.
+    /// * Returns the timestamp associated to the texture image.
     ///
     /// Available since API-level: 9
     ///
@@ -181,19 +181,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
-    /// `matrix` - Indicates the retrieved 4*4 transform matrix .
+    /// * `matrix` - Indicates the retrieved 4*4 transform matrix .
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     ///
-    /// Deprecated** since 12
+    /// **Deprecated** since 12
     /// OH_NativeImage_GetTransformMatrixV2
     pub fn OH_NativeImage_GetTransformMatrix(image: *mut OH_NativeImage, matrix: *mut f32) -> i32;
     /// Return the native image's surface id.
@@ -205,13 +205,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
-    /// `surfaceId` - Indicates the surface id.
+    /// * `surfaceId` - Indicates the surface id.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 11
     ///
@@ -230,13 +230,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
-    /// `listener` - Indicates the callback function.
+    /// * `listener` - Indicates the callback function.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 11
     ///
@@ -256,11 +256,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 11
     ///
@@ -278,7 +278,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> pointer.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> pointer.
     ///
     /// Available since API-level: 9
     ///
@@ -295,13 +295,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
-    /// `matrix` - Indicates the retrieved 4*4 transform matrix .
+    /// * `matrix` - Indicates the retrieved 4*4 transform matrix .
     ///
     /// # Returns
     ///
-    /// 0 - Success.
+    /// * 0 - Success.
     /// 40001000 - image is NULL.
     ///
     /// Available since API-level: 12
@@ -334,15 +334,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
-    /// `nativeWindowBuffer` - Indicates the pointer to an <b>OHNativeWindowBuffer</b> point.
+    /// * `nativeWindowBuffer` - Indicates the pointer to an <b>OHNativeWindowBuffer</b> point.
     ///
-    /// `fenceFd` - Indicates the pointer to a file descriptor handle.
+    /// * `fenceFd` - Indicates the pointer to a file descriptor handle.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image, nativeWindowBuffer, fenceFd is NULL.
     /// [`NATIVE_ERROR_NO_BUFFER`] 40601000 - No buffer for consume.
     ///
@@ -368,15 +368,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
-    /// `nativeWindowBuffer` - Indicates the pointer to an <b>OHNativeWindowBuffer</b> instance.
+    /// * `nativeWindowBuffer` - Indicates the pointer to an <b>OHNativeWindowBuffer</b> instance.
     ///
-    /// `fenceFd` - Indicates a file descriptor handle, which is used for timing synchronization.
+    /// * `fenceFd` - Indicates a file descriptor handle, which is used for timing synchronization.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image, nativeWindowBuffer is NULL.
     /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - nativeWindowBuffer state invalid.
     /// [`NATIVE_ERROR_BUFFER_NOT_IN_CACHE`] 41210000 - nativeWindowBuffer not in cache.
@@ -405,7 +405,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_NativeImage</b> instance created if the operation is successful,
+    /// * Returns the pointer to the <b>OH_NativeImage</b> instance created if the operation is successful,
     ///
     /// returns <b>NULL</b> otherwise.
     ///
@@ -424,13 +424,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
-    /// `usage` - Indicates the usage of the <b>OH_NativeImage</b>.Refer to the enum <b>OH_NativeBuffer_Usage</b>.
+    /// * `usage` - Indicates the usage of the <b>OH_NativeImage</b>.Refer to the enum <b>OH_NativeBuffer_Usage</b>.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
     ///
     /// Available since API-level: 13
@@ -448,15 +448,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
     ///
-    /// `width` - Indicates the width of the <b>OH_NativeImage</b>, and it should be greater than 0.
+    /// * `width` - Indicates the width of the <b>OH_NativeImage</b>, and it should be greater than 0.
     ///
-    /// `height` - Indicates the height of the <b>OH_NativeImage</b>, and it should be greater than 0.
+    /// * `height` - Indicates the height of the <b>OH_NativeImage</b>, and it should be greater than 0.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL or width, height less than or equal to 0.
     ///
     /// Available since API-level: 13

@@ -16,15 +16,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `intervals` - Indicates a array which contain an even number of entries.
+    /// * `intervals` - Indicates a array which contain an even number of entries.
     ///
-    /// `count` - Indicates the number of elements of the intervals array.
+    /// * `count` - Indicates the number of elements of the intervals array.
     ///
-    /// `phase` - Indicates the offset into intervals array.
+    /// * `phase` - Indicates the offset into intervals array.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -42,7 +42,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_PathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
+    /// * `OH_Drawing_PathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
     ///
     /// Available since API-level: 12
     ///

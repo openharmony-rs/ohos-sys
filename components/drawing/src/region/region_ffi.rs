@@ -65,7 +65,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Region</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Region</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -79,15 +79,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
-    /// `int32_t` - x-coordinate.
+    /// * `int32_t` - x-coordinate.
     ///
-    /// `int32_t` - y-coordinate.
+    /// * `int32_t` - y-coordinate.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if (x, y) is inside region; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if (x, y) is inside region; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -101,15 +101,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
-    /// `other` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
-    /// `op` - Indicates the operation to apply to combine.
+    /// * `op` - Indicates the operation to apply to combine.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if constructed Region is not empty; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if constructed Region is not empty; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -127,13 +127,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `OH_Drawing_Region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
-    /// Return true if constructed Region is not empty.
+    /// * Return true if constructed Region is not empty.
     ///
     /// Available since API-level: 12
     ///
@@ -150,15 +150,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `clip` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `clip` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if constructed Region is not empty; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if constructed Region is not empty; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -176,7 +176,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `OH_Drawing_Region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
     /// Available since API-level: 12
     ///

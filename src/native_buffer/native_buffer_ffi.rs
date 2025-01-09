@@ -793,11 +793,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `config` - Indicates the pointer to a <b>BufferRequestConfig</b> instance.
+    /// * `config` - Indicates the pointer to a <b>BufferRequestConfig</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_NativeBuffer</b> instance created if the operation is successful,
+    /// * Returns the pointer to the <b>OH_NativeBuffer</b> instance created if the operation is successful,
     ///
     /// returns <b>NULL</b> otherwise.
     ///
@@ -816,11 +816,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -836,11 +836,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -855,13 +855,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
-    /// `config` - Indicates the pointer to the <b>NativeBufferConfig</b> of the buffer.
+    /// * `config` - Indicates the pointer to the <b>NativeBufferConfig</b> of the buffer.
     ///
     /// # Returns
     ///
-    /// <b>void</b>
+    /// * <b>void</b>
     ///
     /// Available since API-level: 9
     ///
@@ -879,13 +879,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
-    /// `virAddr` - Indicates the address of the <b>OH_NativeBuffer</b> in virtual memory.
+    /// * `virAddr` - Indicates the address of the <b>OH_NativeBuffer</b> in virtual memory.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -903,11 +903,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -922,11 +922,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the sequence number, which is unique for each OH_NativeBuffer.
+    /// * Returns the sequence number, which is unique for each OH_NativeBuffer.
     ///
     /// Available since API-level: 9
     ///
@@ -941,15 +941,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
-    /// `virAddr` - Indicates the address of the <b>OH_NativeBuffer</b> in virtual memory.
+    /// * `virAddr` - Indicates the address of the <b>OH_NativeBuffer</b> in virtual memory.
     ///
-    /// `outPlanes` - Indicates all image planes that contain the pixel data.
+    /// * `outPlanes` - Indicates all image planes that contain the pixel data.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is sucess, otherwise, failed.
+    /// * Returns an error code, 0 is sucess, otherwise, failed.
     ///
     /// Available since API-level: 12
     ///
@@ -970,13 +970,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `nativeWindowBuffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
+    /// * `nativeWindowBuffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> pointer.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> pointer.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is sucess, otherwise, failed.
+    /// * Returns an error code, 0 is sucess, otherwise, failed.
     ///
     /// Available since API-level: 12
     ///
@@ -996,13 +996,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
-    /// `colorSpace` - Indicates the color space of native buffer, see <b>OH_NativeBuffer_ColorSpace</b>.
+    /// * `colorSpace` - Indicates the color space of native buffer, see <b>OH_NativeBuffer_ColorSpace</b>.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 11
     ///
@@ -1022,13 +1022,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
-    /// `colorSpace` - Indicates the color space of native buffer, see <b>OH_NativeBuffer_ColorSpace</b>.
+    /// * `colorSpace` - Indicates the color space of native buffer, see <b>OH_NativeBuffer_ColorSpace</b>.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer is NULL.
     /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect colorSpace state.
     ///
@@ -1050,17 +1050,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
-    /// `metadataKey` - Indicates the metadata type of native buffer, see <b>OH_NativeBuffer_MetadataKey</b>.
+    /// * `metadataKey` - Indicates the metadata type of native buffer, see <b>OH_NativeBuffer_MetadataKey</b>.
     ///
-    /// `size` - Indicates the size of a uint8_t vector.
+    /// * `size` - Indicates the size of a uint8_t vector.
     ///
-    /// `metadata` - Indicates the pointer to a uint8_t vector.
+    /// * `metadata` - Indicates the pointer to a uint8_t vector.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer or metadata is NULL.
     /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect metadata state.
     /// [`NATIVE_ERROR_UNSUPPORTED`] 50102000 - Unsupported metadata key.
@@ -1085,17 +1085,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
     ///
-    /// `metadataKey` - Indicates the metadata type of native buffer, see <b>OH_NativeBuffer_MetadataKey</b>.
+    /// * `metadataKey` - Indicates the metadata type of native buffer, see <b>OH_NativeBuffer_MetadataKey</b>.
     ///
-    /// `size` - Indicates the size of a uint8_t vector.
+    /// * `size` - Indicates the size of a uint8_t vector.
     ///
-    /// `metadata` - Indicates the pointer to a uint8_t vector.
+    /// * `metadata` - Indicates the pointer to a uint8_t vector.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer, metadata, or size is NULL.
     /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect metadata state.
     /// [`NATIVE_ERROR_UNSUPPORTED`] 50102000 - Unsupported metadata key.

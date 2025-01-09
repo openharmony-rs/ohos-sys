@@ -22,11 +22,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelMap` - Indicates the pointer to a Pixelmap
+    /// * `pixelMap` - Indicates the pointer to a Pixelmap
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the drawableDescriptor.
+    /// * Returns the pointer to the drawableDescriptor.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -38,13 +38,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `array` - Indicates the pointer to a Pixelmap array.
+    /// * `array` - Indicates the pointer to a Pixelmap array.
     ///
-    /// `size` - Indicates the size of the Pixelmap array.
+    /// * `size` - Indicates the size of the Pixelmap array.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the drawableDescriptor.
+    /// * Returns the pointer to the drawableDescriptor.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -57,7 +57,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -67,11 +67,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the PixelMap.
+    /// * Returns the pointer to the PixelMap.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -83,11 +83,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the PixelMap array.
+    /// * Returns the pointer to the PixelMap array.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -99,11 +99,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
     ///
     /// # Returns
     ///
-    /// Returns the size of the Pixelmap array.
+    /// * Returns the size of the Pixelmap array.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -115,9 +115,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
     ///
-    /// `duration` - Indicates the total playback duration. The unit is millisecond.
+    /// * `duration` - Indicates the total playback duration. The unit is millisecond.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -130,11 +130,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
     ///
     /// # Returns
     ///
-    /// Return the total playback duration. The unit is millisecond.
+    /// * Return the total playback duration. The unit is millisecond.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -146,9 +146,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
     ///
-    /// `iterations` - Indicates the number of playback times.
+    /// * `iterations` - Indicates the number of playback times.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -161,11 +161,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
     ///
     /// # Returns
     ///
-    /// Returns the number of playback times.
+    /// * Returns the number of playback times.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

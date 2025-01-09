@@ -17,7 +17,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_RecordCmdUtils</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_RecordCmdUtils</b> object created.
     ///
     /// Available since API-level: 13
     ///
@@ -31,11 +31,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `recordCmdUtils` - Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
+    /// * `recordCmdUtils` - Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if recordCmdUtils is nullptr.
     ///
@@ -53,17 +53,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `recordCmdUtils` - Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
+    /// * `recordCmdUtils` - Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
     ///
-    /// `width` - Width of canvas object.
+    /// * `width` - Width of canvas object.
     ///
-    /// `height` - Height of canvas object.
+    /// * `height` - Height of canvas object.
     ///
-    /// `canvas` - Indicates a secondary pointer to an <b>OH_Drawing_Canvas</b>object.
+    /// * `canvas` - Indicates a secondary pointer to an <b>OH_Drawing_Canvas</b>object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if recordCmdUtils or canvas is nullptr,
     /// width less than or equal to 0 or height less than or equal to 0.
@@ -86,13 +86,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `recordCmdUtils` - Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
+    /// * `recordCmdUtils` - Indicates the pointer to an <b>OH_Drawing_RecordCmdUtils</b> object.
     ///
-    /// `recordCmd` - Indicates a secondary pointer to an <b>OH_Drawing_RecordCmd</b> object.
+    /// * `recordCmd` - Indicates a secondary pointer to an <b>OH_Drawing_RecordCmd</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if recordCmdUtils or recordCmd is nullptr.
     /// Returns [`OH_DRAWING_ERROR_ALLOCATION_FAILED`] if no memory.
@@ -112,11 +112,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `recordCmd` - Indicates the pointer to an <b>OH_Drawing_RecordCmd</b> object.
+    /// * `recordCmd` - Indicates the pointer to an <b>OH_Drawing_RecordCmd</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if recordCmd is nullptr.
     ///

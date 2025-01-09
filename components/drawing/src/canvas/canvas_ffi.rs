@@ -161,7 +161,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Canvas</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Canvas</b> object created.
     ///
     /// Available since API-level: 8
     ///
@@ -173,7 +173,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -186,9 +186,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -200,9 +200,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -215,7 +215,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -227,9 +227,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -245,7 +245,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -257,7 +257,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -270,11 +270,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -292,7 +292,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -304,11 +304,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// # Returns
     ///
-    /// Returns a 32-bit variable that describes the number of canvas status.
+    /// * Returns a 32-bit variable that describes the number of canvas status.
     ///
     /// Available since API-level: 11
     ///
@@ -322,9 +322,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `saveCount` - Indicates the specific number of canvas status.
+    /// * `saveCount` - Indicates the specific number of canvas status.
     ///
     /// Available since API-level: 11
     ///
@@ -338,15 +338,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `x1` - Indicates the x coordinate of the start point of the line segment.
+    /// * `x1` - Indicates the x coordinate of the start point of the line segment.
     ///
-    /// `y1` - Indicates the y coordinate of the start point of the line segment.
+    /// * `y1` - Indicates the y coordinate of the start point of the line segment.
     ///
-    /// `x2` - Indicates the x coordinate of the end point of the line segment.
+    /// * `x2` - Indicates the x coordinate of the end point of the line segment.
     ///
-    /// `y2` - Indicates the y coordinate of the end point of the line segment.
+    /// * `y2` - Indicates the y coordinate of the end point of the line segment.
     ///
     /// Available since API-level: 8
     ///
@@ -364,9 +364,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -378,15 +378,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_PixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    /// * `OH_Drawing_PixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
     ///
-    /// `src` - the area of source pixelmap.
+    /// * `src` - the area of source pixelmap.
     ///
-    /// `dst` - the area of destination canvas.
+    /// * `dst` - the area of destination canvas.
     ///
-    /// `OH_Drawing_SamplingOptions` - the sampling mode.
+    /// * `OH_Drawing_SamplingOptions` - the sampling mode.
     ///
     /// Available since API-level: 12
     ///
@@ -406,9 +406,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -425,9 +425,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `OH_Drawing_Region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -444,13 +444,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas or point is nullptr.
     ///
@@ -469,13 +469,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `mode` - Draw points enum.
+    /// * `mode` - Draw points enum.
     ///
-    /// `count` - The point count.
+    /// * `count` - The point count.
     ///
-    /// `OH_Drawing_Point2D` - Point struct array.
+    /// * `OH_Drawing_Point2D` - Point struct array.
     ///
     /// Available since API-level: 12
     ///
@@ -494,13 +494,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
-    /// `left` - Indicates the left position of the <b>OH_Drawing_Bitmap</b>.
+    /// * `left` - Indicates the left position of the <b>OH_Drawing_Bitmap</b>.
     ///
-    /// `top` - Indicates the top position of the <b>OH_Drawing_Bitmap</b>.
+    /// * `top` - Indicates the top position of the <b>OH_Drawing_Bitmap</b>.
     ///
     /// Available since API-level: 11
     ///
@@ -519,15 +519,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
-    /// `src` - the area of source bitmap, can be nullptr.
+    /// * `src` - the area of source bitmap, can be nullptr.
     ///
-    /// `dst` - the area of destination canvas.
+    /// * `dst` - the area of destination canvas.
     ///
-    /// `OH_Drawing_SamplingOptions` - the sampling mode.
+    /// * `OH_Drawing_SamplingOptions` - the sampling mode.
     ///
     /// Available since API-level: 12
     ///
@@ -547,9 +547,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -563,11 +563,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `OH_Drawing_Point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
     ///
-    /// `radius` - Indicates the radius of the circle.
+    /// * `radius` - Indicates the radius of the circle.
     ///
     /// Available since API-level: 11
     ///
@@ -585,15 +585,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `color` - Indicates the color, which is a 32-bit variable.
+    /// * `color` - Indicates the color, which is a 32-bit variable.
     ///
-    /// `blendMode` - Indicates the blend mode.
+    /// * `blendMode` - Indicates the blend mode.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas is nullptr.
     ///
@@ -613,9 +613,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -629,13 +629,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `startAngle` - Indicates the startAngle of the arc.
+    /// * `startAngle` - Indicates the startAngle of the arc.
     ///
-    /// `sweepAngle` - Indicates the sweepAngle of the arc.
+    /// * `sweepAngle` - Indicates the sweepAngle of the arc.
     ///
     /// Available since API-level: 11
     ///
@@ -654,9 +654,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -673,19 +673,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `str` - Indicates the single character encoded in UTF-8.
+    /// * `str` - Indicates the single character encoded in UTF-8.
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `x` - Indicates the horizontal offset applied to the single character.
+    /// * `x` - Indicates the horizontal offset applied to the single character.
     ///
-    /// `y` - Indicates the vertical offset applied to the single character.
+    /// * `y` - Indicates the vertical offset applied to the single character.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of canvas, str
     /// and font is nullptr or strlen(str) is 0.
@@ -708,13 +708,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
     ///
-    /// `x` - Indicates the horizontal offset applied to blob.
+    /// * `x` - Indicates the horizontal offset applied to blob.
     ///
-    /// `y` - Indicates the vertical offset applied to blob.
+    /// * `y` - Indicates the vertical offset applied to blob.
     ///
     /// Available since API-level: 11
     ///
@@ -733,13 +733,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `clipOp` - Indicates the operation to apply to clip.
+    /// * `clipOp` - Indicates the operation to apply to clip.
     ///
-    /// `doAntiAlias` - Indicates whether clip operation requires anti-aliased.
+    /// * `doAntiAlias` - Indicates whether clip operation requires anti-aliased.
     ///
     /// Available since API-level: 11
     ///
@@ -758,13 +758,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
-    /// `clipOp` - Indicates the operation to apply to clip.
+    /// * `clipOp` - Indicates the operation to apply to clip.
     ///
-    /// `doAntiAlias` - Indicates whether clip operation requires anti-aliased.
+    /// * `doAntiAlias` - Indicates whether clip operation requires anti-aliased.
     ///
     /// Available since API-level: 12
     ///
@@ -783,13 +783,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `clipOp` - Indicates the operation to apply to clip.
+    /// * `clipOp` - Indicates the operation to apply to clip.
     ///
-    /// `doAntiAlias` - Indicates whether clip operation requires anti-aliased.
+    /// * `doAntiAlias` - Indicates whether clip operation requires anti-aliased.
     ///
     /// Available since API-level: 11
     ///
@@ -808,15 +808,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
-    /// `clipOp` - To apply to clip.
+    /// * `clipOp` - To apply to clip.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas or region is nullptr.
     ///
@@ -836,13 +836,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `degrees` - Indicates the amount to rotate, in degrees.
+    /// * `degrees` - Indicates the amount to rotate, in degrees.
     ///
-    /// `px` - Indicates the x-axis value of the point to rotate about.
+    /// * `px` - Indicates the x-axis value of the point to rotate about.
     ///
-    /// `py` - Indicates the y-axis value of the point to rotate about.
+    /// * `py` - Indicates the y-axis value of the point to rotate about.
     ///
     /// Available since API-level: 11
     ///
@@ -856,11 +856,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `dx` - Indicates the distance to translate on x-axis.
+    /// * `dx` - Indicates the distance to translate on x-axis.
     ///
-    /// `dy` - Indicates the distance to translate on y-axis.
+    /// * `dy` - Indicates the distance to translate on y-axis.
     ///
     /// Available since API-level: 11
     ///
@@ -874,11 +874,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `sx` - Indicates the amount to scale on x-axis.
+    /// * `sx` - Indicates the amount to scale on x-axis.
     ///
-    /// `sy` - Indicates the amount to scale on y-axis.
+    /// * `sy` - Indicates the amount to scale on y-axis.
     ///
     /// Available since API-level: 11
     ///
@@ -892,11 +892,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `sx` - Indicates the amount to skew on x-axis.
+    /// * `sx` - Indicates the amount to skew on x-axis.
     ///
-    /// `sy` - Indicates the amount to skew on y-axis.
+    /// * `sy` - Indicates the amount to skew on y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -910,9 +910,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `color` - Indicates the color, which is a 32-bit (ARGB) variable.
+    /// * `color` - Indicates the color, which is a 32-bit (ARGB) variable.
     ///
     /// Available since API-level: 8
     ///
@@ -924,7 +924,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -938,7 +938,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -952,9 +952,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -971,9 +971,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -990,9 +990,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
     /// represents the matrix which is passed.
     ///
     /// Available since API-level: 12
@@ -1010,22 +1010,22 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object, use to generate shadows.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object, use to generate shadows.
     ///
-    /// `planeParams` - Represents the value of the function which returns Z offset of the occluder from the
+    /// * `planeParams` - Represents the value of the function which returns Z offset of the occluder from the
     /// canvas based on x and y.
     ///
-    /// `devLightPos` - Represents the position of the light relative to the canvas.
+    /// * `devLightPos` - Represents the position of the light relative to the canvas.
     ///
-    /// `lightRadius` - The radius of the circular light.
+    /// * `lightRadius` - The radius of the circular light.
     ///
-    /// `ambientColor` - Ambient shadow's color.
+    /// * `ambientColor` - Ambient shadow's color.
     ///
-    /// `spotColor` - Spot shadow's color.
+    /// * `spotColor` - Spot shadow's color.
     ///
-    /// `flag` - Indicates the flag to control opaque occluder, shadow, and light position.
+    /// * `flag` - Indicates the flag to control opaque occluder, shadow, and light position.
     ///
     /// Available since API-level: 12
     ///
@@ -1048,9 +1048,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -1064,7 +1064,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -1079,17 +1079,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
-    /// `src` - The area of source image.
+    /// * `src` - The area of source image.
     ///
-    /// `dst` - The area of destination canvas.
+    /// * `dst` - The area of destination canvas.
     ///
-    /// `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
     ///
-    /// `OH_Drawing_SrcRectConstraint` - Constraint type.
+    /// * `OH_Drawing_SrcRectConstraint` - Constraint type.
     ///
     /// Available since API-level: 12
     ///
@@ -1111,13 +1111,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -1136,21 +1136,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `vertexMmode` - Draw a set of vertices.
+    /// * `vertexMmode` - Draw a set of vertices.
     ///
-    /// `vertexCount` - Vertex count.
+    /// * `vertexCount` - Vertex count.
     ///
-    /// `positions` - Positions data pointer.
+    /// * `positions` - Positions data pointer.
     ///
-    /// `texs` - Texture coordinate data pointer.
+    /// * `texs` - Texture coordinate data pointer.
     ///
-    /// `colors` - Color data pointer.
+    /// * `colors` - Color data pointer.
     ///
-    /// `indexCount` - Index count.
+    /// * `indexCount` - Index count.
     ///
-    /// `indices` - Index data pointer.
+    /// * `indices` - Index data pointer.
     ///
     /// Available since API-level: 12
     ///
@@ -1174,21 +1174,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Image_Info` - width, height, colorType, and alphaType of dstPixels.
+    /// * `OH_Drawing_Image_Info` - width, height, colorType, and alphaType of dstPixels.
     ///
-    /// `dstPixels` - destination pixel storage.
+    /// * `dstPixels` - destination pixel storage.
     ///
-    /// `dstRowBytes` - size of one row of pixels.
+    /// * `dstRowBytes` - size of one row of pixels.
     ///
-    /// `srcX` - offset into canvas writable pixels on x-axis.
+    /// * `srcX` - offset into canvas writable pixels on x-axis.
     ///
-    /// `srcY` - offset into canvas writable pixels on y-axis.
+    /// * `srcY` - offset into canvas writable pixels on y-axis.
     ///
     /// # Returns
     ///
-    /// true if pixels are copied to dstPixels.
+    /// * true if pixels are copied to dstPixels.
     ///
     /// Available since API-level: 12
     ///
@@ -1209,17 +1209,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
-    /// `srcX` - offset into canvas writable pixels on x-axis.
+    /// * `srcX` - offset into canvas writable pixels on x-axis.
     ///
-    /// `srcY` - offset into canvas writable pixels on y-axis.
+    /// * `srcY` - offset into canvas writable pixels on y-axis.
     ///
     /// # Returns
     ///
-    /// true if pixels are copied to dstBitmap.
+    /// * true if pixels are copied to dstBitmap.
     ///
     /// Available since API-level: 12
     ///
@@ -1238,13 +1238,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `isClipEmpty` - Indicates if drawable area is empty.
+    /// * `isClipEmpty` - Indicates if drawable area is empty.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas or isClipEmpty is nullptr.
     ///
@@ -1263,13 +1263,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `imageInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `imageInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas or imageInfo is nullptr.
     ///
@@ -1288,13 +1288,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// `recordCmd` - Indicates the pointer to an <b>OH_Drawing_RecordCmd</b> object.
+    /// * `recordCmd` - Indicates the pointer to an <b>OH_Drawing_RecordCmd</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas or recordCmd is nullptr.
     ///

@@ -18,7 +18,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_FontMgr</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_FontMgr</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -32,7 +32,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -46,11 +46,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the count of font families.
+    /// * Returns the count of font families.
     ///
     /// Available since API-level: 12
     ///
@@ -64,13 +64,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
-    /// `index` - Indicates the index to get the font family name.
+    /// * `index` - Indicates the index to get the font family name.
     ///
     /// # Returns
     ///
-    /// Returns the font family name corresponding to the index value.
+    /// * Returns the font family name corresponding to the index value.
     ///
     /// Available since API-level: 12
     ///
@@ -87,7 +87,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `familyName` - Indicates the font family name.
+    /// * `familyName` - Indicates the font family name.
     ///
     /// Available since API-level: 12
     ///
@@ -101,13 +101,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
-    /// `index` - Indicates the index used to get the font style set object from the font manager object.
+    /// * `index` - Indicates the index used to get the font style set object from the font manager object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_FontStyleSet</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_FontStyleSet</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -124,7 +124,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -138,13 +138,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
-    /// `familyName` - Indicates the family name of a font style set to be matched.
+    /// * `familyName` - Indicates the family name of a font style set to be matched.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_FontStyleSet</b> object matched.
+    /// * Returns the pointer to the <b>OH_Drawing_FontStyleSet</b> object matched.
     ///
     /// Available since API-level: 12
     ///
@@ -161,15 +161,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
-    /// `familyName` - Indicates the family name of a font style set to be matched.
+    /// * `familyName` - Indicates the family name of a font style set to be matched.
     ///
-    /// `OH_Drawing_FontStyleStruct` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
+    /// * `OH_Drawing_FontStyleStruct` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Typeface</b> object matched.
+    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object matched.
     ///
     /// Available since API-level: 12
     ///
@@ -187,21 +187,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
-    /// `familyName` - Indicates the family name of a font style set to be matched.
+    /// * `familyName` - Indicates the family name of a font style set to be matched.
     ///
-    /// `OH_Drawing_FontStyleStruct` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
+    /// * `OH_Drawing_FontStyleStruct` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
     ///
-    /// `bcp47` - Indicates an array of languages which indicate the language of character.
+    /// * `bcp47` - Indicates an array of languages which indicate the language of character.
     ///
-    /// `bcp47Count` - Indicates the array size of bcp47.
+    /// * `bcp47Count` - Indicates the array size of bcp47.
     ///
-    /// `character` - Indicates a UTF8 value to be matched.
+    /// * `character` - Indicates a UTF8 value to be matched.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Typeface</b> object matched.
+    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object matched.
     ///
     /// Available since API-level: 12
     ///
@@ -222,13 +222,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
     ///
-    /// `index` - Indicates the index of the typeface in this fontStyleSet.
+    /// * `index` - Indicates the index of the typeface in this fontStyleSet.
     ///
     /// # Returns
     ///
-    /// If successful, return a pointer to <b>OH_Drawing_Typeface</b> object; if failed, return nullptr.
+    /// * If successful, return a pointer to <b>OH_Drawing_Typeface</b> object; if failed, return nullptr.
     ///
     /// Available since API-level: 12
     ///
@@ -245,15 +245,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
     ///
-    /// `index` - Indicates the index of the typeface in this fontStyleSet.
+    /// * `index` - Indicates the index of the typeface in this fontStyleSet.
     ///
-    /// `styleName` - Indicates the style name returned.
+    /// * `styleName` - Indicates the style name returned.
     ///
     /// # Returns
     ///
-    /// Return the <b>OH_Drawing_FontStyleStruct<b> structure.
+    /// * Return the <b>OH_Drawing_FontStyleStruct<b> structure.
     ///
     /// Available since API-level: 12
     ///
@@ -271,7 +271,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `styleName` - Indicates the pointer to a string type.
+    /// * `styleName` - Indicates the pointer to a string type.
     ///
     /// Available since API-level: 12
     ///
@@ -285,13 +285,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
     ///
-    /// `fontStyleStruct` - Indicates the <b>OH_Drawing_FontStyleStruct</b> structure.
+    /// * `fontStyleStruct` - Indicates the <b>OH_Drawing_FontStyleStruct</b> structure.
     ///
     /// # Returns
     ///
-    /// A pointer to matched <b>OH_Drawing_Typeface</b>.
+    /// * A pointer to matched <b>OH_Drawing_Typeface</b>.
     ///
     /// Available since API-level: 12
     ///
@@ -308,11 +308,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
     ///
     /// # Returns
     ///
-    /// The count of typeface in this font style set.
+    /// * The count of typeface in this font style set.
     ///
     /// Available since API-level: 12
     ///

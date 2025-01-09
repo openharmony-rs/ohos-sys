@@ -14,13 +14,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `key` - The key of the private command.
+    /// * `key` - The key of the private command.
     ///
-    /// `keyLength` - The length of the key.
+    /// * `keyLength` - The length of the key.
     ///
     /// # Returns
     ///
-    /// If the creation succeeds, a pointer to the newly created [`InputMethod_PrivateCommand`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_PrivateCommand`]
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
@@ -34,7 +34,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be destroyed.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -44,15 +44,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
     ///
-    /// `key` - Represents key value.
+    /// * `key` - Represents key value.
     ///
-    /// `keyLength` - Represents key length.
+    /// * `keyLength` - Represents key length.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -69,13 +69,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
     ///
-    /// `value` - Represents bool data value.
+    /// * `value` - Represents bool data value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -91,13 +91,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
     ///
-    /// `value` - Represents integer data value.
+    /// * `value` - Represents integer data value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -113,15 +113,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
     ///
-    /// `value` - Represents string data value.
+    /// * `value` - Represents string data value.
     ///
-    /// `valueLength` - Represents the length of string data value.
+    /// * `valueLength` - Represents the length of string data value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -138,15 +138,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
     ///
-    /// `key` - Represents key value.
+    /// * `key` - Represents key value.
     ///
-    /// `keyLength` - Represents key length.
+    /// * `keyLength` - Represents key length.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -163,14 +163,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
     ///
-    /// `type` - Represents a pointer to a [`InputMethod_CommandValueType`] instance. Indicates the data type of the
+    /// * `type` - Represents a pointer to a [`InputMethod_CommandValueType`] instance. Indicates the data type of the
     /// value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -186,13 +186,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
     ///
-    /// `value` - Represents bool data value.
+    /// * `value` - Represents bool data value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// [`IME_ERR_QUERY_FAILED`] - query failed, no bool value in command.
@@ -209,13 +209,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
     ///
-    /// `value` - Represents integer data value.
+    /// * `value` - Represents integer data value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// [`IME_ERR_QUERY_FAILED`] - query failed, no integer value in command.
@@ -232,15 +232,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
     ///
-    /// `value` - Represents string data value.
+    /// * `value` - Represents string data value.
     ///
-    /// `valueLength` - Represents the length of string data value.
+    /// * `valueLength` - Represents the length of string data value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// [`IME_ERR_QUERY_FAILED`] - query failed, no string value in command.

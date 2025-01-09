@@ -51,15 +51,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `xRad` - Indicates the corner radii on x-axis.
+    /// * `xRad` - Indicates the corner radii on x-axis.
     ///
-    /// `yRad` - Indicates the corner radii on y-axis.
+    /// * `yRad` - Indicates the corner radii on y-axis.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_RoundRect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_RoundRect</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -77,11 +77,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `pos` - Indicates the corner radii position.
+    /// * `pos` - Indicates the corner radii position.
     ///
-    /// `OH_Drawing_Corner_Radii` - Indicates the corner radii on x-axis and y-axis.
+    /// * `OH_Drawing_Corner_Radii` - Indicates the corner radii on x-axis and y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -99,13 +99,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
-    /// `pos` - Indicates the corner radii position.
+    /// * `pos` - Indicates the corner radii position.
     ///
     /// # Returns
     ///
-    /// Returns the corner radii of <b>OH_Drawing_Corner_Radii</b> struct.
+    /// * Returns the corner radii of <b>OH_Drawing_Corner_Radii</b> struct.
     ///
     /// Available since API-level: 12
     ///
@@ -122,7 +122,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -136,15 +136,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
-    /// `dx` - Indicates the offsets added to rect left and rect right.
+    /// * `dx` - Indicates the offsets added to rect left and rect right.
     ///
-    /// `dy` - Indicates the offsets added to rect top and rect bottom.
+    /// * `dy` - Indicates the offsets added to rect top and rect bottom.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if roundRect is nullptr.
     ///

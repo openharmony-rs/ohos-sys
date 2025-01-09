@@ -51,15 +51,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `blurType` - Indicates the blur type.
+    /// * `blurType` - Indicates the blur type.
     ///
-    /// `sigma` - Indicates the standard deviation of the Gaussian blur to apply. Must be > 0.
+    /// * `sigma` - Indicates the standard deviation of the Gaussian blur to apply. Must be > 0.
     ///
-    /// `respectCTM` - Indicates the blur's sigma is modified by the CTM, default is true.
+    /// * `respectCTM` - Indicates the blur's sigma is modified by the CTM, default is true.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_MaskFilter</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_MaskFilter</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -77,7 +77,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_MaskFilter` - Indicates the pointer to an <b>OH_Drawing_MaskFilter</b> object.
+    /// * `OH_Drawing_MaskFilter` - Indicates the pointer to an <b>OH_Drawing_MaskFilter</b> object.
     ///
     /// Available since API-level: 11
     ///

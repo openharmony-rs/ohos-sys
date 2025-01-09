@@ -1130,16 +1130,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Current running virtual machine context.
+    /// * `env` - Current running virtual machine context.
     ///
-    /// `path` - Path name of the module to be loaded, like
-    /// `module_info` - Path names of bundle and module, like com.example.application/entry.
+    /// * `path` - Path name of the module to be loaded, like
+    /// * `module_info` - Path names of bundle and module, like com.example.application/entry.
     ///
-    /// `result` - Result of loading a module, which is an exported object of the module.
+    /// * `result` - Result of loading a module, which is an exported object of the module.
     ///
     /// # Returns
     ///
-    /// Returns the function execution status.
+    /// * Returns the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1167,21 +1167,21 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` (direction in) - Current running virtual machine context.
+    /// * `env` (direction in) - Current running virtual machine context.
     ///
-    /// `js_object` (direction in) - The JavaScript value to coerce.
+    /// * `js_object` (direction in) - The JavaScript value to coerce.
     ///
-    /// `detach_cb` (direction in) - Native callback that can be used to detach the js object and the native object.
+    /// * `detach_cb` (direction in) - Native callback that can be used to detach the js object and the native object.
     ///
-    /// `attach_cb` (direction in) - Native callback that can be used to bind the js object and the native object.
+    /// * `attach_cb` (direction in) - Native callback that can be used to bind the js object and the native object.
     ///
-    /// `native_object` (direction in) - User-provided native instance to pass to thr detach callback and attach callback.
+    /// * `native_object` (direction in) - User-provided native instance to pass to thr detach callback and attach callback.
     ///
-    /// `hint` (direction in) - Optional hint to pass to the detach callback and attach callback.
+    /// * `hint` (direction in) - Optional hint to pass to the detach callback and attach callback.
     ///
     /// # Returns
     ///
-    /// Return the function execution status.
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -1198,7 +1198,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Indicates the ark runtime environment.
+    /// * `env` - Indicates the ark runtime environment.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1208,7 +1208,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Indicates the ark runtime environment.
+    /// * `env` - Indicates the ark runtime environment.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1229,15 +1229,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - The environment that the API is invoked under.
+    /// * `env` - The environment that the API is invoked under.
     ///
-    /// `value` - The napi_value to be checked.
+    /// * `value` - The napi_value to be checked.
     ///
-    /// `result` - Boolean value that is set to true if napi_value is sendable, false otherwise.
+    /// * `result` - Boolean value that is set to true if napi_value is sendable, false otherwise.
     ///
     /// # Returns
     ///
-    /// Return the function execution status.
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1247,15 +1247,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - The environment that the API is invoked under.
+    /// * `env` - The environment that the API is invoked under.
     ///
-    /// `property_count` - The count of object properties.
+    /// * `property_count` - The count of object properties.
     ///
-    /// `properties` - Object properties.
+    /// * `properties` - Object properties.
     ///
     /// # Returns
     ///
-    /// Return the function execution status.
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1270,20 +1270,20 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - The environment that the API is invoked under.
+    /// * `env` - The environment that the API is invoked under.
     ///
-    /// `js_object` - The ArkTS object that will be the wrapper for the native object.
+    /// * `js_object` - The ArkTS object that will be the wrapper for the native object.
     ///
-    /// `native_object` - The native instance that will be wrapped in the ArkTS object.
+    /// * `native_object` - The native instance that will be wrapped in the ArkTS object.
     ///
-    /// `finalize_lib` - Optional native callback that can be used to free the native instance when the ArkTS object
+    /// * `finalize_lib` - Optional native callback that can be used to free the native instance when the ArkTS object
     /// has been garbage-collected.
     ///
-    /// `finalize_hint` - Optional contextual hint that is passed to the finalize callback.
+    /// * `finalize_hint` - Optional contextual hint that is passed to the finalize callback.
     ///
     /// # Returns
     ///
-    /// Return the function execution status.
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1299,22 +1299,22 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - The environment that the API is invoked under.
+    /// * `env` - The environment that the API is invoked under.
     ///
-    /// `js_object` - The ArkTS object that will be the wrapper for the native object.
+    /// * `js_object` - The ArkTS object that will be the wrapper for the native object.
     ///
-    /// `native_object` - The native instance that will be wrapped in the ArkTS object.
+    /// * `native_object` - The native instance that will be wrapped in the ArkTS object.
     ///
-    /// `finalize_lib` - Optional native callback that can be used to free the native instance when the ArkTS object
+    /// * `finalize_lib` - Optional native callback that can be used to free the native instance when the ArkTS object
     /// has been garbage-collected.
     ///
-    /// `finalize_hint` - Optional contextual hint that is passed to the finalize callback.
+    /// * `finalize_hint` - Optional contextual hint that is passed to the finalize callback.
     ///
-    /// `native_binding_size` - The size of native binding.
+    /// * `native_binding_size` - The size of native binding.
     ///
     /// # Returns
     ///
-    /// Return the function execution status.
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1331,15 +1331,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - The environment that the API is invoked under.
+    /// * `env` - The environment that the API is invoked under.
     ///
-    /// `js_object` - The object associated with the native instance.
+    /// * `js_object` - The object associated with the native instance.
     ///
-    /// `result` - Pointer to the wrapped native instance.
+    /// * `result` - Pointer to the wrapped native instance.
     ///
     /// # Returns
     ///
-    /// Return the function execution status.
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1353,15 +1353,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - The environment that the API is invoked under.
+    /// * `env` - The environment that the API is invoked under.
     ///
-    /// `js_object` - The object associated with the native instance.
+    /// * `js_object` - The object associated with the native instance.
     ///
-    /// `result` - Pointer to the wrapped native instance.
+    /// * `result` - Pointer to the wrapped native instance.
     ///
     /// # Returns
     ///
-    /// Return the function execution status.
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1397,13 +1397,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Current running virtual machine context.
+    /// * `env` - Current running virtual machine context.
     ///
-    /// `mode` - Indicates the running mode of the native event loop.
+    /// * `mode` - Indicates the running mode of the native event loop.
     ///
     /// # Returns
     ///
-    /// Return the function execution status.
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1415,11 +1415,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Current running virtual machine context.
+    /// * `env` - Current running virtual machine context.
     ///
     /// # Returns
     ///
-    /// Return the function execution status.
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1429,19 +1429,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Current running virtual machine context.
+    /// * `env` - Current running virtual machine context.
     ///
-    /// `object` - The JavaScript value to serialize.
+    /// * `object` - The JavaScript value to serialize.
     ///
-    /// `transfer_list` - List of data to transfer in transfer mode.
+    /// * `transfer_list` - List of data to transfer in transfer mode.
     ///
-    /// `clone_list` - List of Sendable data to transfer in clone mode.
+    /// * `clone_list` - List of Sendable data to transfer in clone mode.
     ///
-    /// `result` - Serialization result of the JS object.
+    /// * `result` - Serialization result of the JS object.
     ///
     /// # Returns
     ///
-    /// Returns the function execution status.
+    /// * Returns the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1457,15 +1457,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Current running virtual machine context.
+    /// * `env` - Current running virtual machine context.
     ///
-    /// `buffer` - Data to deserialize.
+    /// * `buffer` - Data to deserialize.
     ///
-    /// `object` - ArkTS object obtained by deserialization.
+    /// * `object` - ArkTS object obtained by deserialization.
     ///
     /// # Returns
     ///
-    /// Returns the function execution status.
+    /// * Returns the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1479,13 +1479,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Current running virtual machine context.
+    /// * `env` - Current running virtual machine context.
     ///
-    /// `buffer` - Data to delete.
+    /// * `buffer` - Data to delete.
     ///
     /// # Returns
     ///
-    /// Returns the function execution status.
+    /// * Returns the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1499,19 +1499,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `func` - Indicates the thread safe function.
+    /// * `func` - Indicates the thread safe function.
     ///
-    /// `data` - Indicates the data anticipated to be transferred to the ArkTS thread.
+    /// * `data` - Indicates the data anticipated to be transferred to the ArkTS thread.
     ///
-    /// `priority` - Indicates the priority of the task dispatched.
+    /// * `priority` - Indicates the priority of the task dispatched.
     ///
-    /// `isTail` - Indicates the way of the task dispatched into the native event queue. When "isTail" is true,
+    /// * `isTail` - Indicates the way of the task dispatched into the native event queue. When "isTail" is true,
     /// the task will be dispatched to the tail of the native event queue. Conversely, when "isTail" is false, the
     /// tasks will be dispatched to the head of the native event queue.
     ///
     /// # Returns
     ///
-    /// Return the function execution status.
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

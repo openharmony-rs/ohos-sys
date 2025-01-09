@@ -20,13 +20,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
     /// # Arguments
     ///
-    /// `name` - Indicates the vsync connection name.
+    /// * `name` - Indicates the vsync connection name.
     ///
-    /// `length` - Indicates the name's length.
+    /// * `length` - Indicates the name's length.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>NativeVsync</b> instance created.
+    /// * Returns the pointer to the <b>NativeVsync</b> instance created.
     ///
     /// Available since API-level: 9
     ///
@@ -41,7 +41,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>NativeVsync</b> instance.
+    /// * `window` - Indicates the pointer to a <b>NativeVsync</b> instance.
     ///
     /// Available since API-level: 9
     ///
@@ -54,15 +54,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
     /// # Arguments
     ///
-    /// `nativeVsync` - Indicates the pointer to a NativeVsync.
+    /// * `nativeVsync` - Indicates the pointer to a NativeVsync.
     ///
-    /// `callback` - Indicates the OH_NativeVSync_FrameCallback which will be called when next vsync coming.
+    /// * `callback` - Indicates the OH_NativeVSync_FrameCallback which will be called when next vsync coming.
     ///
-    /// `data` - Indicates data which will be used in callback.
+    /// * `data` - Indicates data which will be used in callback.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - the parameter nativeVsync is NULL or callback is NULL.
     /// [`NATIVE_ERROR_BINDER_ERROR`] 50401000 - ipc send failed.
     ///
@@ -81,15 +81,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
     /// # Arguments
     ///
-    /// `nativeVsync` - Indicates the pointer to a NativeVsync.
+    /// * `nativeVsync` - Indicates the pointer to a NativeVsync.
     ///
-    /// `callback` - Indicates the OH_NativeVSync_FrameCallback which will be called when next vsync coming.
+    /// * `callback` - Indicates the OH_NativeVSync_FrameCallback which will be called when next vsync coming.
     ///
-    /// `data` - Indicates data which will be used in callback.
+    /// * `data` - Indicates data which will be used in callback.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - the parameter nativeVsync is NULL or callback is NULL.
     /// [`NATIVE_ERROR_BINDER_ERROR`] 50401000 - ipc send failed.
     ///
@@ -109,13 +109,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
     /// # Arguments
     ///
-    /// `nativeVsync` - Indicates the pointer to a NativeVsync.
+    /// * `nativeVsync` - Indicates the pointer to a NativeVsync.
     ///
-    /// `period` - Indicates the vsync period.
+    /// * `period` - Indicates the vsync period.
     ///
     /// # Returns
     ///
-    /// Returns int32_t, return value == 0, success, otherwise, failed.
+    /// * Returns int32_t, return value == 0, success, otherwise, failed.
     ///
     /// Available since API-level: 10
     ///

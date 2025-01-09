@@ -688,17 +688,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `pSurface` - Indicates the pointer to a <b>ProduceSurface</b>. The type is a pointer to <b>sptr<OHOS::Surface></b>.
+    /// * `pSurface` - Indicates the pointer to a <b>ProduceSurface</b>. The type is a pointer to <b>sptr<OHOS::Surface></b>.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OHNativeWindow</b> instance created.
+    /// * Returns the pointer to the <b>OHNativeWindow</b> instance created.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     ///
-    /// Deprecated** since 12
+    /// **Deprecated** since 12
     pub fn OH_NativeWindow_CreateNativeWindow(
         pSurface: *mut ::core::ffi::c_void,
     ) -> *mut OHNativeWindow;
@@ -712,7 +712,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
     /// Available since API-level: 8
     ///
@@ -724,17 +724,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `pSurfaceBuffer` - Indicates the pointer to a produce buffer. The type is <b>sptr<OHOS::SurfaceBuffer></b>.
+    /// * `pSurfaceBuffer` - Indicates the pointer to a produce buffer. The type is <b>sptr<OHOS::SurfaceBuffer></b>.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OHNativeWindowBuffer</b> instance created.
+    /// * Returns the pointer to the <b>OHNativeWindowBuffer</b> instance created.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     ///
-    /// Deprecated** since 12
+    /// **Deprecated** since 12
     /// OH_NativeWindow_CreateNativeWindowBufferFromNativeBuffer
     pub fn OH_NativeWindow_CreateNativeWindowBufferFromSurfaceBuffer(
         pSurfaceBuffer: *mut ::core::ffi::c_void,
@@ -752,11 +752,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `nativeBuffer` - Indicates the pointer to a native buffer. The type is <b>OH_NativeBuffer*</b>.
+    /// * `nativeBuffer` - Indicates the pointer to a native buffer. The type is <b>OH_NativeBuffer*</b>.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OHNativeWindowBuffer</b> instance created.
+    /// * Returns the pointer to the <b>OHNativeWindowBuffer</b> instance created.
     ///
     /// Available since API-level: 11
     ///
@@ -776,7 +776,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
     ///
     /// Available since API-level: 8
     ///
@@ -798,15 +798,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `buffer` - Indicates the double pointer to a <b>OHNativeWindowBuffer</b> instance.
+    /// * `buffer` - Indicates the double pointer to a <b>OHNativeWindowBuffer</b> instance.
     ///
-    /// `fenceFd` - Indicates the pointer to a file descriptor handle.
+    /// * `fenceFd` - Indicates the pointer to a file descriptor handle.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 8
     ///
@@ -828,17 +828,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
     ///
-    /// `fenceFd` - Indicates a file descriptor handle, which is used for timing synchronization.
+    /// * `fenceFd` - Indicates a file descriptor handle, which is used for timing synchronization.
     ///
-    /// `region` - Indicates a dirty region where content is updated.
+    /// * `region` - Indicates a dirty region where content is updated.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 8
     ///
@@ -855,23 +855,23 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> pointer.
+    /// * `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> pointer.
     ///
-    /// `fenceFd` - Indicates the pointer to a file descriptor handle.
+    /// * `fenceFd` - Indicates the pointer to a file descriptor handle.
     ///
-    /// `matrix` - Indicates the retrieved 4*4 transform matrix.
+    /// * `matrix` - Indicates the retrieved 4*4 transform matrix.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     ///
-    /// Deprecated** since 12
+    /// **Deprecated** since 12
     /// OH_NativeWindow_GetLastFlushedBufferV2
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -891,13 +891,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 8
     ///
@@ -915,15 +915,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `code` - Indicates the operation code, pointer to <b>NativeWindowOperation</b>.
+    /// * `code` - Indicates the operation code, pointer to <b>NativeWindowOperation</b>.
     ///
-    /// `...` - variable parameter, must correspond to code one-to-one.
+    /// * `...` - variable parameter, must correspond to code one-to-one.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 8
     ///
@@ -942,11 +942,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>BufferHandle</b> instance obtained.
+    /// * Returns the pointer to the <b>BufferHandle</b> instance obtained.
     ///
     /// Available since API-level: 8
     ///
@@ -965,11 +965,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `obj` - Indicates the pointer to a <b>OHNativeWindow</b> or <b>OHNativeWindowBuffer</b> instance.
+    /// * `obj` - Indicates the pointer to a <b>OHNativeWindow</b> or <b>OHNativeWindowBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 8
     ///
@@ -985,11 +985,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `obj` - Indicates the pointer to a <b>OHNativeWindow</b> or <b>OHNativeWindowBuffer</b> instance.
+    /// * `obj` - Indicates the pointer to a <b>OHNativeWindow</b> or <b>OHNativeWindowBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 8
     ///
@@ -1004,11 +1004,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `obj` - Indicates the pointer to a <b>OHNativeWindow</b> or <b>OHNativeWindowBuffer</b> instance.
+    /// * `obj` - Indicates the pointer to a <b>OHNativeWindow</b> or <b>OHNativeWindowBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the magic ID, which is unique for each native object.
+    /// * Returns the magic ID, which is unique for each native object.
     ///
     /// Available since API-level: 8
     ///
@@ -1020,15 +1020,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `sequence` - Indicates the sequence to a produce buffer.
+    /// * `sequence` - Indicates the sequence to a produce buffer.
     ///
-    /// `scalingMode` - Indicates the enum value to <b>OHScalingMode</b>
+    /// * `scalingMode` - Indicates the enum value to <b>OHScalingMode</b>
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -1045,17 +1045,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `sequence` - Indicates the sequence to a produce buffer.
+    /// * `sequence` - Indicates the sequence to a produce buffer.
     ///
-    /// `size` - Indicates the size of a <b>OHHDRMetaData</b> vector.
+    /// * `size` - Indicates the size of a <b>OHHDRMetaData</b> vector.
     ///
-    /// `metaDate` - Indicates the pointer to a <b>OHHDRMetaData</b> vector.
+    /// * `metaDate` - Indicates the pointer to a <b>OHHDRMetaData</b> vector.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -1073,19 +1073,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `sequence` - Indicates the sequence to a produce buffer.
+    /// * `sequence` - Indicates the sequence to a produce buffer.
     ///
-    /// `key` - Indicates the enum value to <b>OHHDRMetadataKey</b>
+    /// * `key` - Indicates the enum value to <b>OHHDRMetadataKey</b>
     ///
-    /// `size` - Indicates the size of a uint8_t vector.
+    /// * `size` - Indicates the size of a uint8_t vector.
     ///
-    /// `metaDate` - Indicates the pointer to a uint8_t vector.
+    /// * `metaDate` - Indicates the pointer to a uint8_t vector.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -1104,13 +1104,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `handle` - Indicates the pointer to a <b>OHExtDataHandle</b>.
+    /// * `handle` - Indicates the pointer to a <b>OHExtDataHandle</b>.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 9
     ///
@@ -1131,13 +1131,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
     ///
-    /// `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 12
     ///
@@ -1157,13 +1157,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
     ///
-    /// `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
+    /// * `buffer` - Indicates the pointer to a <b>OHNativeWindowBuffer</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 12
     ///
@@ -1183,13 +1183,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
     ///
-    /// `surfaceId` - Indicates the pointer to a surfaceId.
+    /// * `surfaceId` - Indicates the pointer to a surfaceId.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is success, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 12
     ///
@@ -1213,13 +1213,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `surfaceId` - Indicates the surfaceId to a surface.
+    /// * `surfaceId` - Indicates the surfaceId to a surface.
     ///
-    /// `window` - indicates the pointer to an <b>OHNativeWindow</b> instance.
+    /// * `window` - indicates the pointer to an <b>OHNativeWindow</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is Success, otherwise, failed.
+    /// * Returns an error code, 0 is Success, otherwise, failed.
     ///
     /// Available since API-level: 12
     ///
@@ -1239,13 +1239,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - indicates the pointer to an <b>OHNativeWindow</b> instance.
+    /// * `window` - indicates the pointer to an <b>OHNativeWindow</b> instance.
     ///
-    /// `scalingMode` - Indicates the enum value to <b>OHScalingModeV2</b>
+    /// * `scalingMode` - Indicates the enum value to <b>OHScalingModeV2</b>
     ///
     /// # Returns
     ///
-    /// Returns an error code, 0 is Success, otherwise, failed.
+    /// * Returns an error code, 0 is Success, otherwise, failed.
     ///
     /// Available since API-level: 12
     ///
@@ -1265,7 +1265,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
     ///
     /// Available since API-level: 12
     ///
@@ -1282,13 +1282,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
     ///
-    /// `parcel` - Indicates the pointer to an <b>OHIPCParcel</b> instance.
+    /// * `parcel` - Indicates the pointer to an <b>OHIPCParcel</b> instance.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - parcel is NULL or window is NULL.
     ///
     /// Available since API-level: 12
@@ -1309,13 +1309,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `parcel` - Indicates the pointer to an <b>OHIPCParcel</b> instance.
+    /// * `parcel` - Indicates the pointer to an <b>OHIPCParcel</b> instance.
     ///
-    /// `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - parcel is NULL or parcel does not contain the window.
     ///
     /// Available since API-level: 12
@@ -1340,17 +1340,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to an <b>OHNativeWindow</b> instance.
     ///
-    /// `buffer` - Indicates the pointer to an <b>OHNativeWindowBuffer</b> pointer.
+    /// * `buffer` - Indicates the pointer to an <b>OHNativeWindowBuffer</b> pointer.
     ///
-    /// `fenceFd` - Indicates the pointer to a file descriptor handle.
+    /// * `fenceFd` - Indicates the pointer to a file descriptor handle.
     ///
-    /// `matrix` - Indicates the retrieved 4*4 transform matrix.
+    /// * `matrix` - Indicates the retrieved 4*4 transform matrix.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window is NULL or buffer is NULL or fenceFd is NULL.
     /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - buffer state is wrong.
     ///
@@ -1374,13 +1374,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `colorSpace` - Indicates the color space of native window, see <b>OH_NativeBuffer_ColorSpace</b>.
+    /// * `colorSpace` - Indicates the color space of native window, see <b>OH_NativeBuffer_ColorSpace</b>.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window is NULL.
     /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect colorSpace state.
     ///
@@ -1402,13 +1402,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `colorSpace` - Indicates the color space of native window, see <b>OH_NativeBuffer_ColorSpace</b>.
+    /// * `colorSpace` - Indicates the color space of native window, see <b>OH_NativeBuffer_ColorSpace</b>.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window is NULL.
     /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect colorSpace state.
     ///
@@ -1430,17 +1430,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `metadataKey` - Indicates the metadata type of native window, see <b>OH_NativeBuffer_MetadataKey</b>.
+    /// * `metadataKey` - Indicates the metadata type of native window, see <b>OH_NativeBuffer_MetadataKey</b>.
     ///
-    /// `size` - Indicates the size of a uint8_t vector.
+    /// * `size` - Indicates the size of a uint8_t vector.
     ///
-    /// `metadata` - Indicates the pointer to a uint8_t vector.
+    /// * `metadata` - Indicates the pointer to a uint8_t vector.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window or metadata is NULL.
     /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect metadata state.
     /// [`NATIVE_ERROR_UNSUPPORTED`] 50102000 - Unsupported metadata key.
@@ -1465,17 +1465,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
     ///
-    /// `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
     ///
-    /// `metadataKey` - Indicates the metadata type of native window, see <b>OH_NativeBuffer_MetadataKey</b>.
+    /// * `metadataKey` - Indicates the metadata type of native window, see <b>OH_NativeBuffer_MetadataKey</b>.
     ///
-    /// `size` - Indicates the size of a uint8_t vector.
+    /// * `size` - Indicates the size of a uint8_t vector.
     ///
-    /// `metadata` - Indicates the pointer to a uint8_t vector.
+    /// * `metadata` - Indicates the pointer to a uint8_t vector.
     ///
     /// # Returns
     ///
-    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
     /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window, metadata, or size is NULL.
     /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect metadata state.
     /// [`NATIVE_ERROR_UNSUPPORTED`] 50102000 - Unsupported metadata key.

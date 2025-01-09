@@ -52,11 +52,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `color` - Indicates the color used by the shader.
+    /// * `color` - Indicates the color used by the shader.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
     /// If nullptr is returned, the creation fails.
     /// The possible cause of the failure is that the available memory is empty.
     ///
@@ -72,21 +72,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `startPt` - Indicates the start point for the gradient.
+    /// * `startPt` - Indicates the start point for the gradient.
     ///
-    /// `endPt` - Indicates the end point for the gradient.
+    /// * `endPt` - Indicates the end point for the gradient.
     ///
-    /// `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Indicates the colors to be distributed between the two points.
     ///
-    /// `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
     ///
-    /// `size` - Indicates the number of colors and pos.
+    /// * `size` - Indicates the number of colors and pos.
     ///
-    /// `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -107,26 +107,26 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `startPt` - Indicates the start point for the gradient.
+    /// * `startPt` - Indicates the start point for the gradient.
     ///
-    /// `endPt` - Indicates the end point for the gradient.
+    /// * `endPt` - Indicates the end point for the gradient.
     ///
-    /// `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Indicates the colors to be distributed between the two points.
     ///
-    /// `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
     /// If pos is nullptr, the colors are evenly distributed between the start and end point.
     ///
-    /// `size` - Indicates the number of colors and pos(if pos is not nullptr).
+    /// * `size` - Indicates the number of colors and pos(if pos is not nullptr).
     ///
-    /// `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
     /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
     /// If matrix is nullptr, defaults to the identity matrix.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
     /// If nullptr is returned, the creation fails.
     /// The possible cause of the failure is any of startPt, endPt, colors and pos is nullptr.
     ///
@@ -150,21 +150,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `centerPt` - Indicates the center of the circle for the gradient.
+    /// * `centerPt` - Indicates the center of the circle for the gradient.
     ///
-    /// `radius` - Indicates the radius of the circle for this gradient.
+    /// * `radius` - Indicates the radius of the circle for this gradient.
     ///
-    /// `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Indicates the colors to be distributed between the two points.
     ///
-    /// `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
     ///
-    /// `size` - Indicates the number of colors and pos.
+    /// * `size` - Indicates the number of colors and pos.
     ///
-    /// `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -185,25 +185,25 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `centerPt` - Indicates the center of the circle for the gradient.
+    /// * `centerPt` - Indicates the center of the circle for the gradient.
     ///
-    /// `radius` - Indicates the radius of the circle for this gradient.
+    /// * `radius` - Indicates the radius of the circle for this gradient.
     ///
-    /// `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Indicates the colors to be distributed between the two points.
     ///
-    /// `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
     ///
-    /// `size` - Indicates the number of colors and pos.
+    /// * `size` - Indicates the number of colors and pos.
     ///
-    /// `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
     /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
     /// If matrix is nullptr, defaults to the identity matrix.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
     /// If nullptr is returned, the creation fails.
     /// The possible cause of the failure is any of centerPt, colors and pos is nullptr.
     ///
@@ -227,19 +227,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `centerPt` - Indicates the center of the circle for the gradient.
+    /// * `centerPt` - Indicates the center of the circle for the gradient.
     ///
-    /// `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Indicates the colors to be distributed between the two points.
     ///
-    /// `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
     ///
-    /// `size` - Indicates the number of colors and pos.
+    /// * `size` - Indicates the number of colors and pos.
     ///
-    /// `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -259,20 +259,20 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
-    /// `tileX` - Indicates the tileX.
+    /// * `tileX` - Indicates the tileX.
     ///
-    /// `tileY` - Indicates the tileY.
+    /// * `tileY` - Indicates the tileY.
     ///
-    /// `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     /// If matrix is nullptr, defaults to the identity matrix.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -292,29 +292,29 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `startPt` - Indicates the center of the start circle for the gradient.
+    /// * `startPt` - Indicates the center of the start circle for the gradient.
     ///
-    /// `startRadius` - Indicates the radius of the start circle for this gradient.
+    /// * `startRadius` - Indicates the radius of the start circle for this gradient.
     ///
-    /// `endPt` - Indicates the center of the start circle for the gradient.
+    /// * `endPt` - Indicates the center of the start circle for the gradient.
     ///
-    /// `endRadius` - Indicates the radius of the start circle for this gradient.
+    /// * `endRadius` - Indicates the radius of the start circle for this gradient.
     ///
-    /// `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Indicates the colors to be distributed between the two points.
     ///
-    /// `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
     ///
-    /// `size` - Indicates the number of colors and pos.
+    /// * `size` - Indicates the number of colors and pos.
     ///
-    /// `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
     /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
     /// If matrix is nullptr, defaults to the identity matrix.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
     /// If nullptr is returned, the creation fails.
     /// The possible cause of the failure is any of startPt, endPt, colors and pos is nullptr.
     ///
@@ -340,7 +340,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_ShaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
+    /// * `OH_Drawing_ShaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
     ///
     /// Available since API-level: 11
     ///

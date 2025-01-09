@@ -16,17 +16,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `blurRadius` - Indicates the blur radius of the shadow.
+    /// * `blurRadius` - Indicates the blur radius of the shadow.
     ///
-    /// `x` - Indicates the offset point on x-axis.
+    /// * `x` - Indicates the offset point on x-axis.
     ///
-    /// `y` - Indicates the offset point on y-axis.
+    /// * `y` - Indicates the offset point on y-axis.
     ///
-    /// `color` - Indicates the shadow color.
+    /// * `color` - Indicates the shadow color.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ShadowLayer</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ShadowLayer</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -45,7 +45,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_ShadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
+    /// * `OH_Drawing_ShadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
     ///
     /// Available since API-level: 12
     ///

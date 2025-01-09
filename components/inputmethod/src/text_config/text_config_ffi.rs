@@ -17,7 +17,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// If the creation succeeds, a pointer to the newly created [`InputMethod_TextConfig`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_TextConfig`]
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
@@ -28,7 +28,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be destroyed.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -38,13 +38,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
     ///
-    /// `inputType` - The text input type of text Editor, which is defined in [`InputMethod_TextInputType`].
+    /// * `inputType` - The text input type of text Editor, which is defined in [`InputMethod_TextInputType`].
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -60,13 +60,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
     ///
-    /// `enterKeyType` - The enter key type of text Editor, which is defined in [`InputMethod_EnterKeyType`].
+    /// * `enterKeyType` - The enter key type of text Editor, which is defined in [`InputMethod_EnterKeyType`].
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -82,13 +82,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
     ///
-    /// `supported` - Indicates whether the preview text is supported.
+    /// * `supported` - Indicates whether the preview text is supported.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -104,15 +104,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
     ///
-    /// `start` - The start position of selection.
+    /// * `start` - The start position of selection.
     ///
-    /// `end` - The end position of selection.
+    /// * `end` - The end position of selection.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -129,13 +129,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
     ///
-    /// `windowId` - The window ID of the application currently bound to the input method.
+    /// * `windowId` - The window ID of the application currently bound to the input method.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -151,14 +151,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
     ///
-    /// `inputType` - Represents a pointer to an [`InputMethod_TextInputType`] instance.
+    /// * `inputType` - Represents a pointer to an [`InputMethod_TextInputType`] instance.
     /// The text input type of text Editor
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -174,14 +174,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
     ///
-    /// `enterKeyType` - Represents a pointer to an [`InputMethod_EnterKeyType`] instance.
+    /// * `enterKeyType` - Represents a pointer to an [`InputMethod_EnterKeyType`] instance.
     /// Indicates the enter key type of text Editor
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -197,13 +197,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
     ///
-    /// `supported` - Indicates whether the preview text is supported.
+    /// * `supported` - Indicates whether the preview text is supported.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -219,13 +219,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
     ///
-    /// `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
+    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -241,13 +241,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Indicates the text configuration.
+    /// * `config` - Indicates the text configuration.
     ///
-    /// `avoidInfo` - Indicates the text avoid information.
+    /// * `avoidInfo` - Indicates the text avoid information.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -263,15 +263,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
     ///
-    /// `start` - Represents selection start position.
+    /// * `start` - Represents selection start position.
     ///
-    /// `end` - Represents selection end position.
+    /// * `end` - Represents selection end position.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -288,13 +288,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
     ///
-    /// `windowId` - The window ID of the application currently bound to the input method.
+    /// * `windowId` - The window ID of the application currently bound to the input method.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].

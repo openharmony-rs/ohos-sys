@@ -83,13 +83,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `mainPixelmap` - The pixel map of the main image.
+    /// * `mainPixelmap` - The pixel map of the main image.
     ///
-    /// `picture` - Picture pointer for created.
+    /// * `picture` - Picture pointer for created.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] mainPixelmap is nullptr, or picture is nullptr.
     ///
@@ -104,13 +104,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `picture` - The Picture pointer will be operated.
+    /// * `picture` - The Picture pointer will be operated.
     ///
-    /// `mainPixelmap` - Main pixel map pointer for obtained.
+    /// * `mainPixelmap` - Main pixel map pointer for obtained.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] picture is nullptr, or mainPixelmap is nullptr.
     ///
@@ -125,13 +125,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `picture` - The Picture pointer will be operated.
+    /// * `picture` - The Picture pointer will be operated.
     ///
-    /// `hdrPixelmap` - Hdr pixel map pointer for obtained.
+    /// * `hdrPixelmap` - Hdr pixel map pointer for obtained.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] picture is nullptr, or hdrPixelmap is nullptr.
     /// [`IMAGE_UNSUPPORTED_OPERATION`] Unsupported operation, e.g. the picture does not has a gainmap
@@ -147,13 +147,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `picture` - The Picture pointer will be operated.
+    /// * `picture` - The Picture pointer will be operated.
     ///
-    /// `gainmapPixelmap` - Gainmap pointer for obtained.
+    /// * `gainmapPixelmap` - Gainmap pointer for obtained.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] picture is nullptr, or gainmapPixelmap is nullptr.
     ///
@@ -168,15 +168,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `picture` - The Picture pointer will be operated.
+    /// * `picture` - The Picture pointer will be operated.
     ///
-    /// `type` - The type of auxiliary picture.
+    /// * `type` - The type of auxiliary picture.
     ///
-    /// `auxiliaryPicture` - AuxiliaryPicture object.
+    /// * `auxiliaryPicture` - AuxiliaryPicture object.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] picture is nullptr, or auxiliaryPicture is nullptr, or the type is invalid.
     ///
@@ -192,15 +192,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `picture` - The Picture pointer will be operated.
+    /// * `picture` - The Picture pointer will be operated.
     ///
-    /// `type` - The type of auxiliary picture.
+    /// * `type` - The type of auxiliary picture.
     ///
-    /// `auxiliaryPicture` - AuxiliaryPicture pointer for obtained.
+    /// * `auxiliaryPicture` - AuxiliaryPicture pointer for obtained.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] picture is nullptr, or auxiliaryPicture is nullptr, or the type is invalid.
     ///
@@ -216,15 +216,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `picture` - The Picture pointer will be operated.
+    /// * `picture` - The Picture pointer will be operated.
     ///
-    /// `metadataType` - The type of metadata.
+    /// * `metadataType` - The type of metadata.
     ///
-    /// `metadata` - The metadata of main picture.
+    /// * `metadata` - The metadata of main picture.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] picture is nullptr, or metadata is nullptr.
     /// [`IMAGE_UNSUPPORTED_METADATA`] unsupported metadata type.
@@ -241,15 +241,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `picture` - The Picture pointer will be operated.
+    /// * `picture` - The Picture pointer will be operated.
     ///
-    /// `metadataType` - The type of metadata.
+    /// * `metadataType` - The type of metadata.
     ///
-    /// `metadata` - The metadata will be set.
+    /// * `metadata` - The metadata will be set.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] picture is nullptr, or metadata is nullptr.
     /// [`IMAGE_UNSUPPORTED_METADATA`] unsupported metadata type.
@@ -266,11 +266,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `picture` - The Picture pointer will be operated.
+    /// * `picture` - The Picture pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] picture is nullptr.
     ///
@@ -282,19 +282,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `data` - The image data buffer.
+    /// * `data` - The image data buffer.
     ///
-    /// `dataLength` - The length of data.
+    /// * `dataLength` - The length of data.
     ///
-    /// `size` - The size of auxiliary picture.
+    /// * `size` - The size of auxiliary picture.
     ///
-    /// `type` - The type of auxiliary picture.
+    /// * `type` - The type of auxiliary picture.
     ///
-    /// `auxiliaryPicture` - AuxiliaryPicture pointer for created.
+    /// * `auxiliaryPicture` - AuxiliaryPicture pointer for created.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] data is nullptr, or dataLength is invalid, or size is nullptr, or the type
     /// is invalid, or auxiliaryPicture is nullptr.
@@ -313,15 +313,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
     ///
-    /// `source` - The pixels will be written.
+    /// * `source` - The pixels will be written.
     ///
-    /// `bufferSize` - The size of pixels.
+    /// * `bufferSize` - The size of pixels.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] auxiliaryPicture is nullptr, or source is nullptr, or the bufferSize is invalid.
     /// [`IMAGE_ALLOC_FAILED`] memory alloc failed.
@@ -339,15 +339,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
     ///
-    /// `destination` - The pixels will be read.
+    /// * `destination` - The pixels will be read.
     ///
-    /// `bufferSize` - The size of pixels for reading.
+    /// * `bufferSize` - The size of pixels for reading.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] auxiliaryPicture is nullptr, or destination is nullptr,
     /// or the bufferSize is invalid.
@@ -366,13 +366,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
     ///
-    /// `type` - The type of auxiliary picture.
+    /// * `type` - The type of auxiliary picture.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] auxiliaryPicture is nullptr, or type is nullptr.
     ///
@@ -387,13 +387,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
     ///
-    /// `info` - The info of auxiliary picture.
+    /// * `info` - The info of auxiliary picture.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] auxiliaryPicture is nullptr, or info is nullptr.
     ///
@@ -408,13 +408,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
     ///
-    /// `info` - The info will be set.
+    /// * `info` - The info will be set.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] auxiliaryPicture is nullptr, or info is nullptr.
     ///
@@ -429,15 +429,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
     ///
-    /// `metadataType` - The type of metadata.
+    /// * `metadataType` - The type of metadata.
     ///
-    /// `metadata` - The metadata of auxiliary picture.
+    /// * `metadata` - The metadata of auxiliary picture.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] auxiliaryPicture is nullptr, or metadata is nullptr.
     /// [`IMAGE_UNSUPPORTED_METADATA`] unsupported metadata type, or the metadata type does not match the
@@ -455,15 +455,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
     ///
-    /// `metadataType` - The type of metadata.
+    /// * `metadataType` - The type of metadata.
     ///
-    /// `metadata` - The metadata will be set.
+    /// * `metadata` - The metadata will be set.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] auxiliaryPicture is nullptr, or metadata is nullptr.
     /// [`IMAGE_UNSUPPORTED_METADATA`] unsupported metadata type, or the metadata type does not match the
@@ -481,11 +481,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `picture` - The Picture pointer will be operated.
+    /// * `picture` - The Picture pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] picture is nullptr.
     ///
@@ -499,11 +499,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] info is nullptr.
     ///
@@ -517,13 +517,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
     ///
-    /// `type` - The type of auxiliary picture info.
+    /// * `type` - The type of auxiliary picture info.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or type is nullptr.
     ///
@@ -538,13 +538,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
     ///
-    /// `type` - The type will be set.
+    /// * `type` - The type will be set.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or type is invalid.
     ///
@@ -559,13 +559,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
     ///
-    /// `size` - The size of auxiliary picture info.
+    /// * `size` - The size of auxiliary picture info.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or size is nullptr.
     ///
@@ -580,13 +580,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
     ///
-    /// `size` - The size will be set.
+    /// * `size` - The size will be set.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or size is nullptr.
     ///
@@ -601,13 +601,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
     ///
-    /// `rowStride` - The rowStride of auxiliary picture info.
+    /// * `rowStride` - The rowStride of auxiliary picture info.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or rowStride is nullptr.
     ///
@@ -622,13 +622,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
     ///
-    /// `rowStride` - The rowStride will be set.
+    /// * `rowStride` - The rowStride will be set.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or rowStride is nullptr.
     ///
@@ -643,13 +643,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
     ///
-    /// `pixelFormat` - The pixelFormat will be get.
+    /// * `pixelFormat` - The pixelFormat will be get.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or pixelFormat is nullptr.
     ///
@@ -664,13 +664,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
     ///
-    /// `pixelFormat` - The pixelFormat will be set.
+    /// * `pixelFormat` - The pixelFormat will be set.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] info is nullptr.
     ///
@@ -685,11 +685,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] info is nullptr.
     ///

@@ -30,11 +30,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_GpuContextOptions` - Indicates the GPU context options.
+    /// * `OH_Drawing_GpuContextOptions` - Indicates the GPU context options.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_GpuContext</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_GpuContext</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -50,7 +50,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_GpuContext` - Indicates the pointer to an <b>OH_Drawing_GpuContext</b> object.
+    /// * `OH_Drawing_GpuContext` - Indicates the pointer to an <b>OH_Drawing_GpuContext</b> object.
     ///
     /// Available since API-level: 12
     ///

@@ -194,11 +194,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `nodeEvent` - Indicates the pointer to an <b>ArkUI_NodeEvent</b> object.
+    /// * `nodeEvent` - Indicates the pointer to an <b>ArkUI_NodeEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * Returns the pointer to an <b>ArkUI_DragEvent</b> object.
     /// Returns <b>null</b> if the parameter passed in is invalid or is not a drag-related event.
     ///
     /// Available since API-level: 12
@@ -210,11 +210,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `nodeEvent` - Indicates the pointer to an <b>ArkUI_NodeEvent</b> object.
+    /// * `nodeEvent` - Indicates the pointer to an <b>ArkUI_NodeEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the interaction state prior to the drop and drop operation.
+    /// * Returns the interaction state prior to the drop and drop operation.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -227,14 +227,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
-    /// `disable` - Indicates whether to disable the default drop animation.
+    /// * `disable` - Indicates whether to disable the default drop animation.
     /// The value <b>true</b> means to disable the default drop animation, and <b>false</b> means the opposite.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -249,13 +249,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
-    /// `dropOperation` - Indicates the data processing mode.
+    /// * `dropOperation` - Indicates the data processing mode.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -270,13 +270,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
-    /// `result` - Indicates the drag result.
+    /// * `result` - Indicates the drag result.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -291,13 +291,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
-    /// `count` - Indicates the number of drag data types returned.
+    /// * `count` - Indicates the number of drag data types returned.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -310,18 +310,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
-    /// `eventTypeArray` - Indicates the list of the drag data types. You need to create a string array first.
+    /// * `eventTypeArray` - Indicates the list of the drag data types. You need to create a string array first.
     ///
-    /// `length` - Indicates the total length of the list array. It must be greater than or equal to the number obtained
+    /// * `length` - Indicates the total length of the list array. It must be greater than or equal to the number obtained
     /// by using [`OH_ArkUI_DragEvent_GetDataTypeCount`].
     ///
-    /// `maxStrLen` - Indicates the max string length of drag data types.
+    /// * `maxStrLen` - Indicates the max string length of drag data types.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] if the giving buffer is not enough for string copy.
@@ -339,13 +339,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
-    /// `result` - Indicates the drag result returned.
+    /// * `result` - Indicates the drag result returned.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -360,13 +360,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
-    /// `operation` - Indicates the drop operation which the data receiver set.
+    /// * `operation` - Indicates the drop operation which the data receiver set.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Possible causes: 1. The given parameters are null or the given event is not a valid DragEvent.
@@ -382,11 +382,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate of the touch point, in px.
+    /// * Returns the X coordinate of the touch point, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -397,11 +397,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate of the touch point, in px.
+    /// * Returns the Y coordinate of the touch point, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -412,11 +412,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the width of the drag preview, in px.
+    /// * Returns the width of the drag preview, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -427,11 +427,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the height of the drag preview, in px.
+    /// * Returns the height of the drag preview, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -442,11 +442,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate of the touch point relative to the window, in px.
+    /// * Returns the X coordinate of the touch point relative to the window, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -457,11 +457,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate of the touch point relative to the window, in px.
+    /// * Returns the Y coordinate of the touch point relative to the window, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -472,11 +472,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate of the touch point relative to the current display, in px.
+    /// * Returns the X coordinate of the touch point relative to the current display, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -487,11 +487,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate of the touch point relative to the current display, in px.
+    /// * Returns the Y coordinate of the touch point relative to the current display, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -502,11 +502,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the dragging velocity along the x-axis, in px.
+    /// * Returns the dragging velocity along the x-axis, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -517,11 +517,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the dragging velocity along the y-axis, in px.
+    /// * Returns the dragging velocity along the y-axis, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -532,11 +532,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the dragging velocity along the main axis, in px.
+    /// * Returns the dragging velocity along the main axis, in px.
     /// Returns the default value <b>0</b> if the input parameter is invalid.
     ///
     /// Available since API-level: 12
@@ -547,14 +547,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
-    /// `keys` - Indicates the returned combination of modifier keys that are currently pressed.
+    /// * `keys` - Indicates the returned combination of modifier keys that are currently pressed.
     /// The application can determine the pressed modifier keys through bitwise operations.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -575,13 +575,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the pointer to a component node.
+    /// * `node` - Indicates the pointer to a component node.
     ///
-    /// `enabled` - Indicates whether to enable strict reporting on drag events.
+    /// * `enabled` - Indicates whether to enable strict reporting on drag events.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -598,13 +598,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `uiContext` - Indicates the pointer to a UI instance.
+    /// * `uiContext` - Indicates the pointer to a UI instance.
     ///
-    /// `enabled` - Indicates whether to enable strict reporting on drag events.
+    /// * `enabled` - Indicates whether to enable strict reporting on drag events.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -620,15 +620,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the pointer to a component node.
+    /// * `node` - Indicates the pointer to a component node.
     ///
-    /// `typesArray` - Indicates the array of types of data that can be dropped.
+    /// * `typesArray` - Indicates the array of types of data that can be dropped.
     ///
-    /// `count` - Indicates length of an array.
+    /// * `count` - Indicates length of an array.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -645,11 +645,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the pointer to a component node.
+    /// * `node` - Indicates the pointer to a component node.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -662,11 +662,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the pointer to a component node.
+    /// * `node` - Indicates the pointer to a component node.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -678,13 +678,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the pointer to a component node.
+    /// * `node` - Indicates the pointer to a component node.
     ///
-    /// `bool` - Indicates whether the component is draggable.
+    /// * `bool` - Indicates whether the component is draggable.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -696,13 +696,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the pointer to a component node.
+    /// * `node` - Indicates the pointer to a component node.
     ///
-    /// `preview` - Indicates the custom drag preview, which is a pixel map.
+    /// * `preview` - Indicates the custom drag preview, which is a pixel map.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -718,7 +718,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the created <b>ArkUI_DragPreviewOption</b> object.
+    /// * Returns the created <b>ArkUI_DragPreviewOption</b> object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -728,7 +728,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -738,13 +738,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
     ///
-    /// `scaleMode` - Indicates the scale mode.
+    /// * `scaleMode` - Indicates the scale mode.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -760,13 +760,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
     ///
-    /// `enabled` - Indicates whether to enable the shadow effect.
+    /// * `enabled` - Indicates whether to enable the shadow effect.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -782,13 +782,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
     ///
-    /// `enabled` - Indicates whether to enable the rounded corner effect.
+    /// * `enabled` - Indicates whether to enable the rounded corner effect.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -804,13 +804,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
     ///
-    /// `enabled` - Indicates whether to enable badge.
+    /// * `enabled` - Indicates whether to enable badge.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -826,13 +826,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
     ///
-    /// `forcedNumber` - Indicates the count on the badge.
+    /// * `forcedNumber` - Indicates the count on the badge.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -847,13 +847,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
     ///
-    /// `enabled` - Indicates whether to enable the default animation on a click or touch.
+    /// * `enabled` - Indicates whether to enable the default animation on a click or touch.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -868,13 +868,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the pointer to a component node.
+    /// * `node` - Indicates the pointer to a component node.
     ///
-    /// `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -890,11 +890,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the pointer to a component node.
+    /// * `node` - Indicates the pointer to a component node.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created drag action object; returns null if the operation fails.
+    /// * Returns the pointer to the created drag action object; returns null if the operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -904,11 +904,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `uiContext` - Indicates the pointer to a UI instance.
+    /// * `uiContext` - Indicates the pointer to a UI instance.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created drag action object; returns null if the operation fails.
+    /// * Returns the pointer to the created drag action object; returns null if the operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -920,7 +920,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Indicates the pointer to the target drag action object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -931,13 +931,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Indicates the pointer to the target drag action object.
     ///
-    /// `pointer` - Indicates the pointer ID. The value ranges from 0 to 9.
+    /// * `pointer` - Indicates the pointer ID. The value ranges from 0 to 9.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -950,15 +950,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Indicates the pointer to the target drag action object.
     ///
-    /// `pixelmapArray` - Indicates the array of the drag previews to set, which must be pixel maps.
+    /// * `pixelmapArray` - Indicates the array of the drag previews to set, which must be pixel maps.
     ///
-    /// `size` - Indicates the size of the drag preview array.
+    /// * `size` - Indicates the size of the drag preview array.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -974,13 +974,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Indicates the pointer to the target drag action object.
     ///
-    /// `x` - Indicates the X coordinate of the touch point.
+    /// * `x` - Indicates the X coordinate of the touch point.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -992,13 +992,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Indicates the pointer to the target drag action object.
     ///
-    /// `y` - Indicates the Y coordinate of the touch point.
+    /// * `y` - Indicates the Y coordinate of the touch point.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1010,13 +1010,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Indicates the pointer to the target drag action object.
     ///
-    /// `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
+    /// * `option` - Indicates the pointer to an <b>ArkUI_DragPreviewOption</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1032,16 +1032,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Indicates the pointer to the target drag action object.
     ///
-    /// `userData` - Indicates the custom user data.
+    /// * `userData` - Indicates the custom user data.
     ///
-    /// `listener` - Indicates the listener to register. When the callback is invoked, the system returns a pointer to the drag status
+    /// * `listener` - Indicates the listener to register. When the callback is invoked, the system returns a pointer to the drag status
     /// object. The pointer is destroyed after the callback is complete and the application should not hold it anymore.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1062,7 +1062,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAction` - Indicates the pointer to the target drag action object.
+    /// * `dragAction` - Indicates the pointer to the target drag action object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1072,11 +1072,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAndDropInfo` - Indicates the drag and drop information returned by the drag status listener.
+    /// * `dragAndDropInfo` - Indicates the drag and drop information returned by the drag status listener.
     ///
     /// # Returns
     ///
-    /// Returns an <b>ArkUI_DragStatus</b> object; returns <b>ArkUI_DRAG_STATUS_UNKNOWN</b> if an error occurs.
+    /// * Returns an <b>ArkUI_DragStatus</b> object; returns <b>ArkUI_DRAG_STATUS_UNKNOWN</b> if an error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1090,11 +1090,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAndDropInfo` - Indicates the drag and drop information returned by the drag status listener.
+    /// * `dragAndDropInfo` - Indicates the drag and drop information returned by the drag status listener.
     ///
     /// # Returns
     ///
-    /// Returns an <b>ArkUI_DragEvent</b> object; returns null if an error occurs.
+    /// * Returns an <b>ArkUI_DragEvent</b> object; returns null if an error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1106,11 +1106,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `dragAction` - Indicates a drag action object.
+    /// * `dragAction` - Indicates a drag action object.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///

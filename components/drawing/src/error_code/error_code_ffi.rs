@@ -57,7 +57,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     ///
     /// Available since API-level: 12
     ///

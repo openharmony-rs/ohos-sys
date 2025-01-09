@@ -125,7 +125,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Font</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Font</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -139,9 +139,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `baselineSnap` - Indicates whether the font baselines and pixels alignment.
+    /// * `baselineSnap` - Indicates whether the font baselines and pixels alignment.
     ///
     /// Available since API-level: 12
     ///
@@ -155,11 +155,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the font baselines and pixels alignment; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the font baselines and pixels alignment; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -173,9 +173,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `isSubpixel` - Indicates whether the font uses sub-pixel rendering.
+    /// * `isSubpixel` - Indicates whether the font uses sub-pixel rendering.
     ///
     /// Available since API-level: 12
     ///
@@ -189,11 +189,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the font uses sub-pixel rendering; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the font uses sub-pixel rendering; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -207,9 +207,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `isForceAutoHinting` - Indicates whether the font outline is automatically adjusted.
+    /// * `isForceAutoHinting` - Indicates whether the font outline is automatically adjusted.
     ///
     /// Available since API-level: 12
     ///
@@ -223,11 +223,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the font outline is automatically adjusted; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the font outline is automatically adjusted; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -241,9 +241,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `OH_Drawing_Typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    /// * `OH_Drawing_Typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -257,11 +257,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// OH_Drawing_Typeface Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    /// * OH_Drawing_Typeface Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -275,9 +275,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `textSize` - Indicates the text size.
+    /// * `textSize` - Indicates the text size.
     ///
     /// Available since API-level: 11
     ///
@@ -291,11 +291,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the size of text.
+    /// * Returns the size of text.
     ///
     /// Available since API-level: 12
     ///
@@ -309,13 +309,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `text` - Indicates the character storage encoded with text encoding.
+    /// * `text` - Indicates the character storage encoded with text encoding.
     ///
-    /// `byteLength` - Indicates the text length in bytes.
+    /// * `byteLength` - Indicates the text length in bytes.
     ///
-    /// `encoding` - Indicates the text encoding.
+    /// * `encoding` - Indicates the text encoding.
     ///
     /// Available since API-level: 12
     ///
@@ -334,21 +334,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `text` - Indicates the character storage encoded with text encoding.
+    /// * `text` - Indicates the character storage encoded with text encoding.
     ///
-    /// `byteLength` - Indicates the text length in bytes.
+    /// * `byteLength` - Indicates the text length in bytes.
     ///
-    /// `encoding` - Indicates the text encoding.
+    /// * `encoding` - Indicates the text encoding.
     ///
-    /// `glyphs` - Indicates the storage for glyph indices.
+    /// * `glyphs` - Indicates the storage for glyph indices.
     ///
-    /// `maxGlyphCount` - Indicates the storage capacity.
+    /// * `maxGlyphCount` - Indicates the storage capacity.
     ///
     /// # Returns
     ///
-    /// Returns the number of glyph indices represented by text.
+    /// * Returns the number of glyph indices represented by text.
     ///
     /// Available since API-level: 12
     ///
@@ -369,13 +369,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `glyphs` - Indicates the array of glyph indices to be measured.
+    /// * `glyphs` - Indicates the array of glyph indices to be measured.
     ///
-    /// `count` - Indicates the number of glyphs.
+    /// * `count` - Indicates the number of glyphs.
     ///
-    /// `widths` - Indicates the text advances for each glyph returned to the caller.
+    /// * `widths` - Indicates the text advances for each glyph returned to the caller.
     ///
     /// Available since API-level: 12
     ///
@@ -394,15 +394,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `str` - Indicates the single character encoded in UTF-8.
+    /// * `str` - Indicates the single character encoded in UTF-8.
     ///
-    /// `textWidth` - Indicates the width of the single character.
+    /// * `textWidth` - Indicates the width of the single character.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of font, str
     /// and textWidth is nullptr or strlen(str) is 0.
@@ -423,21 +423,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `text` - Indicates the character storage encoded with text encoding.
+    /// * `text` - Indicates the character storage encoded with text encoding.
     ///
-    /// `byteLength` - Indicates the text length in bytes.
+    /// * `byteLength` - Indicates the text length in bytes.
     ///
-    /// `encoding` - Indicates the text encoding.
+    /// * `encoding` - Indicates the text encoding.
     ///
-    /// `bounds` - Gets the bounding box relative to (0, 0) if not nullptr.
+    /// * `bounds` - Gets the bounding box relative to (0, 0) if not nullptr.
     ///
-    /// `textWidth` - Indicates the width of text.
+    /// * `textWidth` - Indicates the width of text.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of font, text
     /// and textWidth is nullptr or byteLength is 0.
@@ -461,9 +461,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `isLinearText` - Indicates whether to enable linearly scalable font.
+    /// * `isLinearText` - Indicates whether to enable linearly scalable font.
     ///
     /// Available since API-level: 11
     ///
@@ -477,11 +477,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the font is linearly scalable; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the font is linearly scalable; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -495,9 +495,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `skewX` - Indicates the additional shear on x-axis relative to y-axis.
+    /// * `skewX` - Indicates the additional shear on x-axis relative to y-axis.
     ///
     /// Available since API-level: 11
     ///
@@ -511,11 +511,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns additional skew on x-axis relative to y-axis.
+    /// * Returns additional skew on x-axis relative to y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -529,9 +529,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `isFakeBoldText` - Indicates whether to enable to increase stroke width.
+    /// * `isFakeBoldText` - Indicates whether to enable to increase stroke width.
     ///
     /// Available since API-level: 11
     ///
@@ -545,11 +545,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> to increase the stroke width to approximate bold fonts; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> to increase the stroke width to approximate bold fonts; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -563,9 +563,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `scaleX` - Indicates the text horizontal scale.
+    /// * `scaleX` - Indicates the text horizontal scale.
     ///
     /// Available since API-level: 12
     ///
@@ -579,11 +579,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns text horizontal scale on x-axis.
+    /// * Returns text horizontal scale on x-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -597,9 +597,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `OH_Drawing_FontHinting` - Indicates the font hinting pattern.
+    /// * `OH_Drawing_FontHinting` - Indicates the font hinting pattern.
     ///
     /// Available since API-level: 12
     ///
@@ -613,11 +613,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the font hinting pattern.
+    /// * Returns the font hinting pattern.
     ///
     /// Available since API-level: 12
     ///
@@ -631,9 +631,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `isEmbeddedBitmaps` - Indicates whether to use bitmaps instead of outlines.
+    /// * `isEmbeddedBitmaps` - Indicates whether to use bitmaps instead of outlines.
     ///
     /// Available since API-level: 12
     ///
@@ -647,11 +647,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if using bitmaps instead of outlines; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if using bitmaps instead of outlines; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -665,9 +665,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `OH_Drawing_FontEdging` - Indicates the font edging effect.
+    /// * `OH_Drawing_FontEdging` - Indicates the font edging effect.
     ///
     /// Available since API-level: 12
     ///
@@ -681,11 +681,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the font edging effect.
+    /// * Returns the font edging effect.
     ///
     /// Available since API-level: 12
     ///
@@ -699,7 +699,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -713,13 +713,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `OH_Drawing_Font_Metrics` - Indicates the pointer to an <b>OH_Drawing_Font_Metrics</b> object.
+    /// * `OH_Drawing_Font_Metrics` - Indicates the pointer to an <b>OH_Drawing_Font_Metrics</b> object.
     ///
     /// # Returns
     ///
-    /// Returns a float variable that recommended spacing between lines.
+    /// * Returns a float variable that recommended spacing between lines.
     ///
     /// Available since API-level: 12
     ///

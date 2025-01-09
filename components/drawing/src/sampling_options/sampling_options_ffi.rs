@@ -68,13 +68,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FilterMode` - sampling filter mode.
+    /// * `OH_Drawing_FilterMode` - sampling filter mode.
     ///
-    /// `OH_Drawing_MipmapMode` - sampling mipmap mode..
+    /// * `OH_Drawing_MipmapMode` - sampling mipmap mode..
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_SamplingOptions</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_SamplingOptions</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -91,7 +91,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
     ///
     /// Available since API-level: 12
     ///

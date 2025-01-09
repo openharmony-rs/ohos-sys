@@ -17,7 +17,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -31,13 +31,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - file path.
+    /// * `path` - file path.
     ///
-    /// `index` - file index.
+    /// * `index` - file index.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -57,13 +57,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the file path.
+    /// * `path` - Indicates the file path.
     ///
-    /// `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    /// * `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
     /// If nullptr is returned, the creation fails.
     /// The possible cause of the failure is that the available memory is empty,
     /// or either path or fontArguments is nullptr, or the path is invalid.
@@ -84,13 +84,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `current` - Indicates the existing <b>OH_Drawing_Typeface</b> object.
+    /// * `current` - Indicates the existing <b>OH_Drawing_Typeface</b> object.
     ///
-    /// `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    /// * `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
     /// If nullptr is returned, the creation fails.
     /// The possible cause of the failure is that the available memory is empty,
     /// or either current or fontArguments is nullptr,
@@ -113,13 +113,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_MemoryStream` - Indicates the pointer to an <b>OH_Drawing_MemoryStream</b> object.
+    /// * `OH_Drawing_MemoryStream` - Indicates the pointer to an <b>OH_Drawing_MemoryStream</b> object.
     ///
-    /// `index` - memory stream index.
+    /// * `index` - memory stream index.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -136,7 +136,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    /// * `OH_Drawing_Typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -151,7 +151,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_FontArguments</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_FontArguments</b> object created.
     /// If nullptr is returned, the creation fails.
     /// The possible cause of the failure is that the available memory is empty.
     ///
@@ -167,15 +167,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    /// * `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
     ///
-    /// `axis` - Indicates the axis tag, which must contain four ASCII characters.
+    /// * `axis` - Indicates the axis tag, which must contain four ASCII characters.
     ///
-    /// `value` - Indicates the value of the axis field.
+    /// * `value` - Indicates the value of the axis field.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if either fontArguments or axis is nullptr,
     /// or the length of axis is not 4.
@@ -196,11 +196,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
+    /// * `fontArguments` - Indicates the pointer to an <b>OH_Drawing_FontArguments</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if fontArguments is nullptr.
     ///

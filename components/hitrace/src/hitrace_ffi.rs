@@ -76,7 +76,7 @@ where
     pub fn get(&self, bit_offset: usize, bit_width: u8) -> u64 {
         debug_assert!(bit_width <= 64);
         debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len(),);
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
         let mut val = 0;
         for i in 0..(bit_width as usize) {
             if self.get_bit(i + bit_offset) {
@@ -94,7 +94,7 @@ where
     pub unsafe fn raw_get(this: *const Self, bit_offset: usize, bit_width: u8) -> u64 {
         debug_assert!(bit_width <= 64);
         debug_assert!(bit_offset / 8 < core::mem::size_of::<Storage>());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>(),);
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>());
         let mut val = 0;
         for i in 0..(bit_width as usize) {
             if Self::raw_get_bit(this, i + bit_offset) {
@@ -112,7 +112,7 @@ where
     pub fn set(&mut self, bit_offset: usize, bit_width: u8, val: u64) {
         debug_assert!(bit_width <= 64);
         debug_assert!(bit_offset / 8 < self.storage.as_ref().len());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len(),);
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= self.storage.as_ref().len());
         for i in 0..(bit_width as usize) {
             let mask = 1 << i;
             let val_bit_is_set = val & mask == mask;
@@ -128,7 +128,7 @@ where
     pub unsafe fn raw_set(this: *mut Self, bit_offset: usize, bit_width: u8, val: u64) {
         debug_assert!(bit_width <= 64);
         debug_assert!(bit_offset / 8 < core::mem::size_of::<Storage>());
-        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>(),);
+        debug_assert!((bit_offset + (bit_width as usize)) / 8 <= core::mem::size_of::<Storage>());
         for i in 0..(bit_width as usize) {
             let mask = 1 << i;
             let val_bit_is_set = val & mask == mask;
@@ -762,13 +762,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `name` - Pointer to a process name.
+    /// * `name` - Pointer to a process name.
     ///
-    /// `flags` - Trace flag.
+    /// * `flags` - Trace flag.
     ///
     /// # Returns
     ///
-    /// Returns the created <b>HiTraceId</b> instance.
+    /// * Returns the created <b>HiTraceId</b> instance.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -798,7 +798,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the trace ID of the calling thread. If the calling thread does not have a trace ID,
+    /// * Returns the trace ID of the calling thread. If the calling thread does not have a trace ID,
     /// an invalid trace ID is returned.
     ///
     ///
@@ -815,7 +815,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - Trace ID to set.
+    /// * `id` - Trace ID to set.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -845,7 +845,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns a valid span ID. If span creation is not allowed, the ID of the calling thread is traced.
+    /// * Returns a valid span ID. If span creation is not allowed, the ID of the calling thread is traced.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -861,13 +861,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `mode` - Communication mode for the trace point.
+    /// * `mode` - Communication mode for the trace point.
     ///
-    /// `type` - Trace point type.
+    /// * `type` - Trace point type.
     ///
-    /// `id` - Trace ID.
+    /// * `id` - Trace ID.
     ///
-    /// `fmt` - Custom information to print.
+    /// * `fmt` - Custom information to print.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -887,7 +887,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - ID of the <b>HiTraceId</b> structure to be initialized.
+    /// * `id` - ID of the <b>HiTraceId</b> structure to be initialized.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -901,11 +901,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - ID of the <b>HiTraceId</b> structure to be created.
+    /// * `id` - ID of the <b>HiTraceId</b> structure to be created.
     ///
-    /// `pIdArray` - Byte array.
+    /// * `pIdArray` - Byte array.
     ///
-    /// `len` - Length of the byte array.
+    /// * `len` - Length of the byte array.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -920,11 +920,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance to check.
+    /// * `id` - <b>HiTraceId</b> instance to check.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the <b>HiTraceId</b> instance is valid; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the <b>HiTraceId</b> instance is valid; returns <b>false</b> otherwise.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -939,13 +939,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance to check.
+    /// * `id` - <b>HiTraceId</b> instance to check.
     ///
-    /// `flag` - Specified trace flag.
+    /// * `flag` - Specified trace flag.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the specified trace flag is enabled; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the specified trace flag is enabled; returns <b>false</b> otherwise.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -960,9 +960,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance for which you want to enable the specified trace flag.
+    /// * `id` - <b>HiTraceId</b> instance for which you want to enable the specified trace flag.
     ///
-    /// `flag` - Specified trace flag.
+    /// * `flag` - Specified trace flag.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -976,12 +976,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance.
+    /// * `id` - <b>HiTraceId</b> instance.
     ///
     ///
     /// # Returns
     ///
-    /// Returns the trace flag set in the specified <b>HiTraceId</b> instance.
+    /// * Returns the trace flag set in the specified <b>HiTraceId</b> instance.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -995,9 +995,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance.
+    /// * `id` - <b>HiTraceId</b> instance.
     ///
-    /// `flags` - Trace flag to set.
+    /// * `flags` - Trace flag to set.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -1011,12 +1011,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance for which you want to obtain the trace chain ID.
+    /// * `id` - <b>HiTraceId</b> instance for which you want to obtain the trace chain ID.
     ///
     ///
     /// # Returns
     ///
-    /// Returns the trace chain ID of the specified <b>HiTraceId</b> instance.
+    /// * Returns the trace chain ID of the specified <b>HiTraceId</b> instance.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -1030,9 +1030,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance.
+    /// * `id` - <b>HiTraceId</b> instance.
     ///
-    /// `chainId` - Trace chain ID to set.
+    /// * `chainId` - Trace chain ID to set.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -1046,12 +1046,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance for which you want to obtain the span ID.
+    /// * `id` - <b>HiTraceId</b> instance for which you want to obtain the span ID.
     ///
     ///
     /// # Returns
     ///
-    /// Returns the span ID in the specified <b>HiTraceId</b> instance.
+    /// * Returns the span ID in the specified <b>HiTraceId</b> instance.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -1065,9 +1065,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance for which you want to set the span ID.
+    /// * `id` - <b>HiTraceId</b> instance for which you want to set the span ID.
     ///
-    /// `spanId` - Span ID to set.
+    /// * `spanId` - Span ID to set.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -1081,12 +1081,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance for which you want to obtain the parent span ID.
+    /// * `id` - <b>HiTraceId</b> instance for which you want to obtain the parent span ID.
     ///
     ///
     /// # Returns
     ///
-    /// Returns the parent span ID in the specified <b>HiTraceId</b> instance.
+    /// * Returns the parent span ID in the specified <b>HiTraceId</b> instance.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -1100,9 +1100,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance for which you want to set the parent span ID.
+    /// * `id` - <b>HiTraceId</b> instance for which you want to set the parent span ID.
     ///
-    /// `parentSpanId` - Parent span ID to set.
+    /// * `parentSpanId` - Parent span ID to set.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -1116,16 +1116,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `id` - <b>HiTraceId</b> instance to be converted.
+    /// * `id` - <b>HiTraceId</b> instance to be converted.
     ///
-    /// `pIdArray` - Byte array.
+    /// * `pIdArray` - Byte array.
     ///
-    /// `len` - Length of the byte array.
+    /// * `len` - Length of the byte array.
     ///
     ///
     /// # Returns
     ///
-    /// Returns the length of the byte array after conversion.
+    /// * Returns the length of the byte array after conversion.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -1146,7 +1146,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `name` - Name of a trace task.
+    /// * `name` - Name of a trace task.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
@@ -1176,9 +1176,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `name` - Name of the asynchronous trace task.
+    /// * `name` - Name of the asynchronous trace task.
     ///
-    /// `taskId` - ID of the asynchronous trace task. The start and end of an asynchronous trace task do not occur in
+    /// * `taskId` - ID of the asynchronous trace task. The start and end of an asynchronous trace task do not occur in
     /// sequence. Therefore, the start and end of an asynchronous trace need to be matched based on the task name and the
     /// unique task ID together.
     ///
@@ -1195,9 +1195,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `name` - Name of the asynchronous trace task.
+    /// * `name` - Name of the asynchronous trace task.
     ///
-    /// `taskId` - ID of the asynchronous trace task. The start and end of an asynchronous trace task do not occur in
+    /// * `taskId` - ID of the asynchronous trace task. The start and end of an asynchronous trace task do not occur in
     /// sequence. Therefore, the start and end of an asynchronous trace need to be matched based on the task name and the
     /// unique task ID together.
     ///
@@ -1213,9 +1213,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `name` - Name of the integer variable. It does not need to be the same as the real variable name.
+    /// * `name` - Name of the integer variable. It does not need to be the same as the real variable name.
     ///
-    /// `count` - Integer value. Generally, an integer variable can be passed.
+    /// * `count` - Integer value. Generally, an integer variable can be passed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace

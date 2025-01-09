@@ -17,7 +17,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Image</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Image</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -31,7 +31,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -45,13 +45,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
-    /// `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
-    /// Returns true if successed.
+    /// * Returns true if successed.
     ///
     /// Available since API-level: 12
     ///
@@ -68,11 +68,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the width.
+    /// * Returns the width.
     ///
     /// Available since API-level: 12
     ///
@@ -86,11 +86,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the height.
+    /// * Returns the height.
     ///
     /// Available since API-level: 12
     ///
@@ -104,9 +104,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
-    /// `OH_Drawing_Image_Info` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `OH_Drawing_Image_Info` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
     ///
     /// Available since API-level: 12
     ///

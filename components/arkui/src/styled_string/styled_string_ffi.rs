@@ -14,7 +14,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - A pointer to the ArkUI_StyledString object.
+    /// * `handle` - A pointer to the ArkUI_StyledString object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -24,9 +24,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - A pointer to the ArkUI_StyledString object.
+    /// * `handle` - A pointer to the ArkUI_StyledString object.
     ///
-    /// `content` - A pointer to the text content.
+    /// * `content` - A pointer to the text content.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -39,7 +39,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - A pointer to the ArkUI_StyledString object.
+    /// * `handle` - A pointer to the ArkUI_StyledString object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

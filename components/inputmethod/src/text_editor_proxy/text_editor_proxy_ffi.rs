@@ -19,9 +19,9 @@ pub struct InputMethod_TextEditorProxy {
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance.
 ///
-/// `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance.
+/// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -40,12 +40,12 @@ pub type OH_TextEditorProxy_GetTextConfigFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`] instance which will be set
+/// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`] instance which will be set
 /// in.
 ///
-/// `text` - Represents a pointer to the text to be inserted.
+/// * `text` - Represents a pointer to the text to be inserted.
 ///
-/// `length` - Represents the length of the text to be inserted.
+/// * `length` - Represents the length of the text to be inserted.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -65,10 +65,10 @@ pub type OH_TextEditorProxy_InsertTextFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`] instance which will be set
+/// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`] instance which will be set
 /// in.
 ///
-/// `length` - Represents the length of the text to be deleted.
+/// * `length` - Represents the length of the text to be deleted.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -84,10 +84,10 @@ pub type OH_TextEditorProxy_DeleteForwardFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`] instance which will be set
+/// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`] instance which will be set
 /// in.
 ///
-/// `length` - Represents the length of the text to be deleted.
+/// * `length` - Represents the length of the text to be deleted.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -103,9 +103,9 @@ pub type OH_TextEditorProxy_DeleteBackwardFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// `keyboardStatus` - Keyboard status, which is defined in [`InputMethod_KeyboardStatus`].
+/// * `keyboardStatus` - Keyboard status, which is defined in [`InputMethod_KeyboardStatus`].
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -124,9 +124,9 @@ pub type OH_TextEditorProxy_SendKeyboardStatusFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// `enterKeyType` - Enter key type, which is defined in [`InputMethod_EnterKeyType`].
+/// * `enterKeyType` - Enter key type, which is defined in [`InputMethod_EnterKeyType`].
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -145,9 +145,9 @@ pub type OH_TextEditorProxy_SendEnterKeyFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// `direction` - Represents the direction of the cursor movement, which is defined in [`InputMethod_Direction`].
+/// * `direction` - Represents the direction of the cursor movement, which is defined in [`InputMethod_Direction`].
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -166,11 +166,11 @@ pub type OH_TextEditorProxy_MoveCursorFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// `start` - Represents the start position of the selection.
+/// * `start` - Represents the start position of the selection.
 ///
-/// `end` - Represents the end position of the selection.
+/// * `end` - Represents the end position of the selection.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -186,9 +186,9 @@ pub type OH_TextEditorProxy_HandleSetSelectionFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// `action` - Represents the extend action, which is defined in [`InputMethod_ExtendAction`].
+/// * `action` - Represents the extend action, which is defined in [`InputMethod_ExtendAction`].
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -207,13 +207,13 @@ pub type OH_TextEditorProxy_HandleExtendActionFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// `number` - Represents the number of characters to be get.
+/// * `number` - Represents the number of characters to be get.
 ///
-/// `text` - Represents the left text of cursor, you need to assing this parameter.
+/// * `text` - Represents the left text of cursor, you need to assing this parameter.
 ///
-/// `length` - Represents the length of the left text of cursor, you need to assing this parameter.
+/// * `length` - Represents the length of the left text of cursor, you need to assing this parameter.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -234,13 +234,13 @@ pub type OH_TextEditorProxy_GetLeftTextOfCursorFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// `number` - Represents the number of characters to be get.
+/// * `number` - Represents the number of characters to be get.
 ///
-/// `text` - Represents the right text of cursor, you need to assing this parameter.
+/// * `text` - Represents the right text of cursor, you need to assing this parameter.
 ///
-/// `length` - Represents the length of the right text of cursor.
+/// * `length` - Represents the length of the right text of cursor.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -261,11 +261,11 @@ pub type OH_TextEditorProxy_GetRightTextOfCursorFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
 /// # Returns
 ///
-/// Returns the index of text at cursor.
+/// * Returns the index of text at cursor.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -281,15 +281,15 @@ pub type OH_TextEditorProxy_GetTextIndexAtCursorFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// `privateCommand` - Private command from input method.
+/// * `privateCommand` - Private command from input method.
 ///
-/// `size` - Size of private command.
+/// * `size` - Size of private command.
 ///
 /// # Returns
 ///
-/// Returns the result of handling private command.
+/// * Returns the result of handling private command.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -309,19 +309,19 @@ pub type OH_TextEditorProxy_ReceivePrivateCommandFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// `text` - Represents text to be previewd.
+/// * `text` - Represents text to be previewd.
 ///
-/// `length` - Length of preview text.
+/// * `length` - Length of preview text.
 ///
-/// `start` - Start position of preview text.
+/// * `start` - Start position of preview text.
 ///
-/// `end` - End position of preview text.
+/// * `end` - End position of preview text.
 ///
 /// # Returns
 ///
-/// Returns the result of setting preview text.
+/// * Returns the result of setting preview text.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -343,7 +343,7 @@ pub type OH_TextEditorProxy_SetPreviewTextFunc = ::core::option::Option<
 ///
 /// # Arguments
 ///
-/// `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -356,7 +356,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// If the creation succeeds, a pointer to the newly created [`InputMethod_TextEditorProxy`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_TextEditorProxy`]
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
@@ -367,7 +367,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - The [`InputMethod_TextEditorProxy`] instance to be destroyed.
+    /// * `proxy` - The [`InputMethod_TextEditorProxy`] instance to be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -377,13 +377,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `getTextConfigFunc` - Represents function [`OH_TextEditorProxy_GetTextConfigFunc`] which will be set.
+    /// * `getTextConfigFunc` - Represents function [`OH_TextEditorProxy_GetTextConfigFunc`] which will be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -399,13 +399,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `insertTextFunc` - Represents function [`OH_TextEditorProxy_InsertTextFunc`] which will be set.
+    /// * `insertTextFunc` - Represents function [`OH_TextEditorProxy_InsertTextFunc`] which will be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -421,13 +421,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `deleteForwardFunc` - Represents function [`OH_TextEditorProxy_DeleteForwardFunc`] which will be set.
+    /// * `deleteForwardFunc` - Represents function [`OH_TextEditorProxy_DeleteForwardFunc`] which will be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -443,13 +443,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `deleteBackwardFunc` - Represents function [`OH_TextEditorProxy_DeleteBackwardFunc`] which will be set.
+    /// * `deleteBackwardFunc` - Represents function [`OH_TextEditorProxy_DeleteBackwardFunc`] which will be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -465,14 +465,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `sendKeyboardStatusFunc` - Represents function [`OH_TextEditorProxy_SendKeyboardStatusFunc`] which will be
+    /// * `sendKeyboardStatusFunc` - Represents function [`OH_TextEditorProxy_SendKeyboardStatusFunc`] which will be
     /// set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -488,13 +488,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `sendEnterKeyFunc` - Represents function [`OH_TextEditorProxy_SendEnterKeyFunc`] which will be set.
+    /// * `sendEnterKeyFunc` - Represents function [`OH_TextEditorProxy_SendEnterKeyFunc`] which will be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -510,13 +510,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `moveCursorFunc` - Represents function [`OH_TextEditorProxy_MoveCursorFunc`] which will be set.
+    /// * `moveCursorFunc` - Represents function [`OH_TextEditorProxy_MoveCursorFunc`] which will be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -532,14 +532,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `handleSetSelectionFunc` - Represents function [`OH_TextEditorProxy_HandleSetSelectionFunc`] which will be
+    /// * `handleSetSelectionFunc` - Represents function [`OH_TextEditorProxy_HandleSetSelectionFunc`] which will be
     /// set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -555,14 +555,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `handleExtendActionFunc` - Represents function [`OH_TextEditorProxy_HandleExtendActionFunc`] which will be
+    /// * `handleExtendActionFunc` - Represents function [`OH_TextEditorProxy_HandleExtendActionFunc`] which will be
     /// set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -578,14 +578,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `getLeftTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`] which will
+    /// * `getLeftTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`] which will
     /// be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -601,14 +601,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `getRightTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`] which
+    /// * `getRightTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`] which
     /// will be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -624,14 +624,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `getTextIndexAtCursorFunc` - Represents function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`] which
+    /// * `getTextIndexAtCursorFunc` - Represents function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`] which
     /// will be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -647,14 +647,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `receivePrivateCommandFunc` - Represents function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`] which
+    /// * `receivePrivateCommandFunc` - Represents function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`] which
     /// will be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -670,13 +670,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `setPreviewTextFunc` - Represents function [`OH_TextEditorProxy_SetPreviewTextFunc`] which will be set.
+    /// * `setPreviewTextFunc` - Represents function [`OH_TextEditorProxy_SetPreviewTextFunc`] which will be set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -692,14 +692,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
     ///
-    /// `finishTextPreviewFunc` - Represents function [`OH_TextEditorProxy_FinishTextPreviewFunc`] which will be
+    /// * `finishTextPreviewFunc` - Represents function [`OH_TextEditorProxy_FinishTextPreviewFunc`] which will be
     /// set.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -715,14 +715,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `getTextConfigFunc` - Represents function [`OH_TextEditorProxy_GetTextConfigFunc`] which will be get.
+    /// * `getTextConfigFunc` - Represents function [`OH_TextEditorProxy_GetTextConfigFunc`] which will be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -738,14 +738,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `insertTextFunc` - Represents function [`OH_TextEditorProxy_InsertTextFunc`] which will be get.
+    /// * `insertTextFunc` - Represents function [`OH_TextEditorProxy_InsertTextFunc`] which will be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -761,14 +761,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `deleteForwardFunc` - Represents function [`OH_TextEditorProxy_DeleteForwardFunc`] which will be get.
+    /// * `deleteForwardFunc` - Represents function [`OH_TextEditorProxy_DeleteForwardFunc`] which will be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -784,14 +784,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `deleteBackwardFunc` - Represents function [`OH_TextEditorProxy_DeleteBackwardFunc`] which will be get.
+    /// * `deleteBackwardFunc` - Represents function [`OH_TextEditorProxy_DeleteBackwardFunc`] which will be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -807,15 +807,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `sendKeyboardStatusFunc` - Represents function [`OH_TextEditorProxy_SendKeyboardStatusFunc`] which will be
+    /// * `sendKeyboardStatusFunc` - Represents function [`OH_TextEditorProxy_SendKeyboardStatusFunc`] which will be
     /// get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -831,14 +831,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `sendEnterKeyFunc` - Represents function [`OH_TextEditorProxy_SendEnterKeyFunc`] which will be get.
+    /// * `sendEnterKeyFunc` - Represents function [`OH_TextEditorProxy_SendEnterKeyFunc`] which will be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -854,14 +854,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `moveCursorFunc` - Represents function [`OH_TextEditorProxy_MoveCursorFunc`] which will be get.
+    /// * `moveCursorFunc` - Represents function [`OH_TextEditorProxy_MoveCursorFunc`] which will be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -877,15 +877,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `handleSetSelectionFunc` - Represents function [`OH_TextEditorProxy_HandleSetSelectionFunc`] which will be
+    /// * `handleSetSelectionFunc` - Represents function [`OH_TextEditorProxy_HandleSetSelectionFunc`] which will be
     /// get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -901,15 +901,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `handleExtendActionFunc` - Represents function [`OH_TextEditorProxy_HandleExtendActionFunc`] which will be
+    /// * `handleExtendActionFunc` - Represents function [`OH_TextEditorProxy_HandleExtendActionFunc`] which will be
     /// get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -925,15 +925,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `getLeftTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`] which will
+    /// * `getLeftTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`] which will
     /// be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -949,15 +949,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `getRightTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`] which
+    /// * `getRightTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`] which
     /// will be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -973,15 +973,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `getTextIndexAtCursorFunc` - Represents function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`] which
+    /// * `getTextIndexAtCursorFunc` - Represents function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`] which
     /// will be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -997,15 +997,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `receivePrivateCommandFunc` - Represents function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`] which
+    /// * `receivePrivateCommandFunc` - Represents function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`] which
     /// will be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -1021,14 +1021,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `setPreviewTextFunc` - Represents function [`OH_TextEditorProxy_SetPreviewTextFunc`] which will be get.
+    /// * `setPreviewTextFunc` - Represents function [`OH_TextEditorProxy_SetPreviewTextFunc`] which will be get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -1044,15 +1044,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
     /// from.
     ///
-    /// `finishTextPreviewFunc` - Represents function [`OH_TextEditorProxy_FinishTextPreviewFunc`] which will be
+    /// * `finishTextPreviewFunc` - Represents function [`OH_TextEditorProxy_FinishTextPreviewFunc`] which will be
     /// get.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].

@@ -1445,13 +1445,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `metadataType` - The type of metadata.
+    /// * `metadataType` - The type of metadata.
     ///
-    /// `metadata` - The PictureMetadata pointer will be operated.
+    /// * `metadata` - The PictureMetadata pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] metadata is nullptr.
     ///
@@ -1466,15 +1466,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `metadata` - The PictureMetadata pointer will be operated.
+    /// * `metadata` - The PictureMetadata pointer will be operated.
     ///
-    /// `key` - The property's key.
+    /// * `key` - The property's key.
     ///
-    /// `value` - The property's value.
+    /// * `value` - The property's value.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] metadata is nullptr, or key is nullptr, or value is nullptr.
     /// [`IMAGE_UNSUPPORTED_METADATA`] unsupported metadata type, or the metadata type does not match the
@@ -1492,15 +1492,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `metadata` - The PictureMetadata pointer will be operated.
+    /// * `metadata` - The PictureMetadata pointer will be operated.
     ///
-    /// `key` - The property's key.
+    /// * `key` - The property's key.
     ///
-    /// `value` - The property's value.
+    /// * `value` - The property's value.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] metadata is nullptr, or key is nullptr, or value is nullptr.
     /// [`IMAGE_UNSUPPORTED_METADATA`] unsupported metadata type, or the metadata type does not match the
@@ -1518,11 +1518,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `metadata` - The PictureMetadata pointer will be operated.
+    /// * `metadata` - The PictureMetadata pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] metadata is nullptr.
     ///
@@ -1534,13 +1534,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `oldMetadata` - The PictureMetadata pointer will be operated.
+    /// * `oldMetadata` - The PictureMetadata pointer will be operated.
     ///
-    /// `newMetadata` - The PictureMetadata pointer will be cloned.
+    /// * `newMetadata` - The PictureMetadata pointer will be cloned.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] metadata is nullptr.
     /// [`IMAGE_ALLOC_FAILED`] memory alloc failed.

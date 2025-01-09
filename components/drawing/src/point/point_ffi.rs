@@ -16,13 +16,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `x` - Indicates the x-axis coordinates of the point.
+    /// * `x` - Indicates the x-axis coordinates of the point.
     ///
-    /// `y` - Indicates the y-axis coordinates of the point.
+    /// * `y` - Indicates the y-axis coordinates of the point.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Point</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Point</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -36,13 +36,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
     ///
-    /// `x` - Indicates the x-axis coordinate of the point.
+    /// * `x` - Indicates the x-axis coordinate of the point.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if point or x is nullptr.
     ///
@@ -61,13 +61,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
     ///
-    /// `y` - Indicates the y-axis coordinate of the point.
+    /// * `y` - Indicates the y-axis coordinate of the point.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if point or y is nullptr.
     ///
@@ -86,15 +86,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
     ///
-    /// `x` - Indicates the x-axis coordinate of the point.
+    /// * `x` - Indicates the x-axis coordinate of the point.
     ///
-    /// `y` - Indicates the y-axis coordinate of the point.
+    /// * `y` - Indicates the y-axis coordinate of the point.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if point is nullptr.
     ///
@@ -114,7 +114,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `OH_Drawing_Point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
     ///
     /// Available since API-level: 11
     ///
