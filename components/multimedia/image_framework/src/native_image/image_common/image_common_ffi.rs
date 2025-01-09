@@ -171,49 +171,49 @@ pub struct Image_ErrorCode(pub ::core::ffi::c_uint);
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const MIME_TYPE_BMP: &[u8; 10] = b"image/bmp\0";
+pub const MIME_TYPE_BMP: &::core::ffi::CStr = c"image/bmp";
 /// Defines the jpeg mime type.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const MIME_TYPE_JPEG: &[u8; 11] = b"image/jpeg\0";
+pub const MIME_TYPE_JPEG: &::core::ffi::CStr = c"image/jpeg";
 /// Defines the heic mime type.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const MIME_TYPE_HEIC: &[u8; 11] = b"image/heic\0";
+pub const MIME_TYPE_HEIC: &::core::ffi::CStr = c"image/heic";
 /// Defines the png mime type.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const MIME_TYPE_PNG: &[u8; 10] = b"image/png\0";
+pub const MIME_TYPE_PNG: &::core::ffi::CStr = c"image/png";
 /// Defines the webp mime type.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const MIME_TYPE_WEBP: &[u8; 11] = b"image/webp\0";
+pub const MIME_TYPE_WEBP: &::core::ffi::CStr = c"image/webp";
 /// Defines the gif mime type.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const MIME_TYPE_GIF: &[u8; 10] = b"image/gif\0";
+pub const MIME_TYPE_GIF: &::core::ffi::CStr = c"image/gif";
 /// Defines the x-icon mime type.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const MIME_TYPE_ICON: &[u8; 13] = b"image/x-icon\0";
+pub const MIME_TYPE_ICON: &::core::ffi::CStr = c"image/x-icon";
 /// Defines a pointer to bits per sample, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -221,7 +221,7 @@ pub const MIME_TYPE_ICON: &[u8; 13] = b"image/x-icon\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_BITS_PER_SAMPLE: &[u8; 14] = b"BitsPerSample\0";
+pub const OHOS_IMAGE_PROPERTY_BITS_PER_SAMPLE: &::core::ffi::CStr = c"BitsPerSample";
 /// Defines a pointer to the orientation, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -229,7 +229,7 @@ pub const OHOS_IMAGE_PROPERTY_BITS_PER_SAMPLE: &[u8; 14] = b"BitsPerSample\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_ORIENTATION: &[u8; 12] = b"Orientation\0";
+pub const OHOS_IMAGE_PROPERTY_ORIENTATION: &::core::ffi::CStr = c"Orientation";
 /// Defines a pointer to the image length, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -237,7 +237,7 @@ pub const OHOS_IMAGE_PROPERTY_ORIENTATION: &[u8; 12] = b"Orientation\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_IMAGE_LENGTH: &[u8; 12] = b"ImageLength\0";
+pub const OHOS_IMAGE_PROPERTY_IMAGE_LENGTH: &::core::ffi::CStr = c"ImageLength";
 /// Defines a pointer to the image width, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -245,7 +245,7 @@ pub const OHOS_IMAGE_PROPERTY_IMAGE_LENGTH: &[u8; 12] = b"ImageLength\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_IMAGE_WIDTH: &[u8; 11] = b"ImageWidth\0";
+pub const OHOS_IMAGE_PROPERTY_IMAGE_WIDTH: &::core::ffi::CStr = c"ImageWidth";
 /// Defines a pointer to the GPS latitude, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -253,7 +253,7 @@ pub const OHOS_IMAGE_PROPERTY_IMAGE_WIDTH: &[u8; 11] = b"ImageWidth\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_LATITUDE: &[u8; 12] = b"GPSLatitude\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_LATITUDE: &::core::ffi::CStr = c"GPSLatitude";
 /// Defines a pointer to the GPS longitude, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -261,7 +261,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_LATITUDE: &[u8; 12] = b"GPSLatitude\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_LONGITUDE: &[u8; 13] = b"GPSLongitude\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_LONGITUDE: &::core::ffi::CStr = c"GPSLongitude";
 /// Defines a pointer to the GPS latitude reference information, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -269,7 +269,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_LONGITUDE: &[u8; 13] = b"GPSLongitude\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_LATITUDE_REF: &[u8; 15] = b"GPSLatitudeRef\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_LATITUDE_REF: &::core::ffi::CStr = c"GPSLatitudeRef";
 /// Defines a pointer to the GPS longitude reference information, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -277,7 +277,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_LATITUDE_REF: &[u8; 15] = b"GPSLatitudeRef\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_LONGITUDE_REF: &[u8; 16] = b"GPSLongitudeRef\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_LONGITUDE_REF: &::core::ffi::CStr = c"GPSLongitudeRef";
 /// Defines a pointer to the created date and time, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -285,7 +285,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_LONGITUDE_REF: &[u8; 16] = b"GPSLongitudeRef\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_DATE_TIME_ORIGINAL: &[u8; 17] = b"DateTimeOriginal\0";
+pub const OHOS_IMAGE_PROPERTY_DATE_TIME_ORIGINAL: &::core::ffi::CStr = c"DateTimeOriginal";
 /// Defines a pointer to the exposure time, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -293,7 +293,7 @@ pub const OHOS_IMAGE_PROPERTY_DATE_TIME_ORIGINAL: &[u8; 17] = b"DateTimeOriginal
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_EXPOSURE_TIME: &[u8; 13] = b"ExposureTime\0";
+pub const OHOS_IMAGE_PROPERTY_EXPOSURE_TIME: &::core::ffi::CStr = c"ExposureTime";
 /// Defines a pointer to the scene type, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -301,7 +301,7 @@ pub const OHOS_IMAGE_PROPERTY_EXPOSURE_TIME: &[u8; 13] = b"ExposureTime\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SCENE_TYPE: &[u8; 10] = b"SceneType\0";
+pub const OHOS_IMAGE_PROPERTY_SCENE_TYPE: &::core::ffi::CStr = c"SceneType";
 /// Defines a pointer to the ISO speed ratings, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -309,7 +309,7 @@ pub const OHOS_IMAGE_PROPERTY_SCENE_TYPE: &[u8; 10] = b"SceneType\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_ISO_SPEED_RATINGS: &[u8; 16] = b"ISOSpeedRatings\0";
+pub const OHOS_IMAGE_PROPERTY_ISO_SPEED_RATINGS: &::core::ffi::CStr = c"ISOSpeedRatings";
 /// Defines a pointer to the f-number of the image, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -317,7 +317,7 @@ pub const OHOS_IMAGE_PROPERTY_ISO_SPEED_RATINGS: &[u8; 16] = b"ISOSpeedRatings\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_F_NUMBER: &[u8; 8] = b"FNumber\0";
+pub const OHOS_IMAGE_PROPERTY_F_NUMBER: &::core::ffi::CStr = c"FNumber";
 /// Defines a pointer to the compressed bits per pixel, one of the image properties.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -325,7 +325,8 @@ pub const OHOS_IMAGE_PROPERTY_F_NUMBER: &[u8; 8] = b"FNumber\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_COMPRESSED_BITS_PER_PIXEL: &[u8; 23] = b"CompressedBitsPerPixel\0";
+pub const OHOS_IMAGE_PROPERTY_COMPRESSED_BITS_PER_PIXEL: &::core::ffi::CStr =
+    c"CompressedBitsPerPixel";
 /// The scheme used for image compression.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -333,7 +334,7 @@ pub const OHOS_IMAGE_PROPERTY_COMPRESSED_BITS_PER_PIXEL: &[u8; 23] = b"Compresse
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_COMPRESSION: &[u8; 12] = b"Compression\0";
+pub const OHOS_IMAGE_PROPERTY_COMPRESSION: &::core::ffi::CStr = c"Compression";
 /// Pixel composition, such as RGB or YCbCr.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -341,8 +342,8 @@ pub const OHOS_IMAGE_PROPERTY_COMPRESSION: &[u8; 12] = b"Compression\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_PHOTOMETRIC_INTERPRETATION: &[u8; 26] =
-    b"PhotometricInterpretation\0";
+pub const OHOS_IMAGE_PROPERTY_PHOTOMETRIC_INTERPRETATION: &::core::ffi::CStr =
+    c"PhotometricInterpretation";
 /// For each strip, the byte offset of that strip.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -350,7 +351,7 @@ pub const OHOS_IMAGE_PROPERTY_PHOTOMETRIC_INTERPRETATION: &[u8; 26] =
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_STRIP_OFFSETS: &[u8; 13] = b"StripOffsets\0";
+pub const OHOS_IMAGE_PROPERTY_STRIP_OFFSETS: &::core::ffi::CStr = c"StripOffsets";
 /// The number of components per pixel.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -358,7 +359,7 @@ pub const OHOS_IMAGE_PROPERTY_STRIP_OFFSETS: &[u8; 13] = b"StripOffsets\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SAMPLES_PER_PIXEL: &[u8; 16] = b"SamplesPerPixel\0";
+pub const OHOS_IMAGE_PROPERTY_SAMPLES_PER_PIXEL: &::core::ffi::CStr = c"SamplesPerPixel";
 /// The number of rows per strip of image data.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -366,7 +367,7 @@ pub const OHOS_IMAGE_PROPERTY_SAMPLES_PER_PIXEL: &[u8; 16] = b"SamplesPerPixel\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_ROWS_PER_STRIP: &[u8; 13] = b"RowsPerStrip\0";
+pub const OHOS_IMAGE_PROPERTY_ROWS_PER_STRIP: &::core::ffi::CStr = c"RowsPerStrip";
 /// The total number of bytes in each strip of image data.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -374,7 +375,7 @@ pub const OHOS_IMAGE_PROPERTY_ROWS_PER_STRIP: &[u8; 13] = b"RowsPerStrip\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_STRIP_BYTE_COUNTS: &[u8; 16] = b"StripByteCounts\0";
+pub const OHOS_IMAGE_PROPERTY_STRIP_BYTE_COUNTS: &::core::ffi::CStr = c"StripByteCounts";
 /// The image resolution in the width direction.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -382,7 +383,7 @@ pub const OHOS_IMAGE_PROPERTY_STRIP_BYTE_COUNTS: &[u8; 16] = b"StripByteCounts\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_X_RESOLUTION: &[u8; 12] = b"XResolution\0";
+pub const OHOS_IMAGE_PROPERTY_X_RESOLUTION: &::core::ffi::CStr = c"XResolution";
 /// The image resolution in the height direction.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -390,7 +391,7 @@ pub const OHOS_IMAGE_PROPERTY_X_RESOLUTION: &[u8; 12] = b"XResolution\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_Y_RESOLUTION: &[u8; 12] = b"YResolution\0";
+pub const OHOS_IMAGE_PROPERTY_Y_RESOLUTION: &::core::ffi::CStr = c"YResolution";
 /// Indicates whether pixel components are recorded in a chunky or planar format.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -398,7 +399,7 @@ pub const OHOS_IMAGE_PROPERTY_Y_RESOLUTION: &[u8; 12] = b"YResolution\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_PLANAR_CONFIGURATION: &[u8; 20] = b"PlanarConfiguration\0";
+pub const OHOS_IMAGE_PROPERTY_PLANAR_CONFIGURATION: &::core::ffi::CStr = c"PlanarConfiguration";
 /// The unit used to measure XResolution and YResolution.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -406,7 +407,7 @@ pub const OHOS_IMAGE_PROPERTY_PLANAR_CONFIGURATION: &[u8; 20] = b"PlanarConfigur
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_RESOLUTION_UNIT: &[u8; 15] = b"ResolutionUnit\0";
+pub const OHOS_IMAGE_PROPERTY_RESOLUTION_UNIT: &::core::ffi::CStr = c"ResolutionUnit";
 /// The transfer function for the image, typically used for color correction.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -414,7 +415,7 @@ pub const OHOS_IMAGE_PROPERTY_RESOLUTION_UNIT: &[u8; 15] = b"ResolutionUnit\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_TRANSFER_FUNCTION: &[u8; 17] = b"TransferFunction\0";
+pub const OHOS_IMAGE_PROPERTY_TRANSFER_FUNCTION: &::core::ffi::CStr = c"TransferFunction";
 /// The name and version of the software used to generate the image.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -422,7 +423,7 @@ pub const OHOS_IMAGE_PROPERTY_TRANSFER_FUNCTION: &[u8; 17] = b"TransferFunction\
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SOFTWARE: &[u8; 9] = b"Software\0";
+pub const OHOS_IMAGE_PROPERTY_SOFTWARE: &::core::ffi::CStr = c"Software";
 /// The name of the person who created the image.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -430,7 +431,7 @@ pub const OHOS_IMAGE_PROPERTY_SOFTWARE: &[u8; 9] = b"Software\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_ARTIST: &[u8; 7] = b"Artist\0";
+pub const OHOS_IMAGE_PROPERTY_ARTIST: &::core::ffi::CStr = c"Artist";
 /// The chromaticity of the white point of the image.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -438,7 +439,7 @@ pub const OHOS_IMAGE_PROPERTY_ARTIST: &[u8; 7] = b"Artist\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_WHITE_POINT: &[u8; 11] = b"WhitePoint\0";
+pub const OHOS_IMAGE_PROPERTY_WHITE_POINT: &::core::ffi::CStr = c"WhitePoint";
 /// The chromaticity of the primary colors of the image.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -446,7 +447,7 @@ pub const OHOS_IMAGE_PROPERTY_WHITE_POINT: &[u8; 11] = b"WhitePoint\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_PRIMARY_CHROMATICITIES: &[u8; 22] = b"PrimaryChromaticities\0";
+pub const OHOS_IMAGE_PROPERTY_PRIMARY_CHROMATICITIES: &::core::ffi::CStr = c"PrimaryChromaticities";
 /// The matrix coefficients for transformation from RGB to YCbCr image data.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -454,7 +455,7 @@ pub const OHOS_IMAGE_PROPERTY_PRIMARY_CHROMATICITIES: &[u8; 22] = b"PrimaryChrom
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_YCBCR_COEFFICIENTS: &[u8; 18] = b"YCbCrCoefficients\0";
+pub const OHOS_IMAGE_PROPERTY_YCBCR_COEFFICIENTS: &::core::ffi::CStr = c"YCbCrCoefficients";
 /// The sampling ratio of chrominance components to the luminance component.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -462,7 +463,7 @@ pub const OHOS_IMAGE_PROPERTY_YCBCR_COEFFICIENTS: &[u8; 18] = b"YCbCrCoefficient
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_YCBCR_SUB_SAMPLING: &[u8; 17] = b"YCbCrSubSampling\0";
+pub const OHOS_IMAGE_PROPERTY_YCBCR_SUB_SAMPLING: &::core::ffi::CStr = c"YCbCrSubSampling";
 /// The position of chrominance components in relation to the luminance component.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -470,7 +471,7 @@ pub const OHOS_IMAGE_PROPERTY_YCBCR_SUB_SAMPLING: &[u8; 17] = b"YCbCrSubSampling
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_YCBCR_POSITIONING: &[u8; 17] = b"YCbCrPositioning\0";
+pub const OHOS_IMAGE_PROPERTY_YCBCR_POSITIONING: &::core::ffi::CStr = c"YCbCrPositioning";
 /// The reference black point value and reference white point value.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -478,7 +479,7 @@ pub const OHOS_IMAGE_PROPERTY_YCBCR_POSITIONING: &[u8; 17] = b"YCbCrPositioning\
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_REFERENCE_BLACK_WHITE: &[u8; 20] = b"ReferenceBlackWhite\0";
+pub const OHOS_IMAGE_PROPERTY_REFERENCE_BLACK_WHITE: &::core::ffi::CStr = c"ReferenceBlackWhite";
 /// Copyright information for the image.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -486,7 +487,7 @@ pub const OHOS_IMAGE_PROPERTY_REFERENCE_BLACK_WHITE: &[u8; 20] = b"ReferenceBlac
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_COPYRIGHT: &[u8; 10] = b"Copyright\0";
+pub const OHOS_IMAGE_PROPERTY_COPYRIGHT: &::core::ffi::CStr = c"Copyright";
 /// The offset to the start byte (SOI) of JPEG compressed thumbnail data.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -494,7 +495,8 @@ pub const OHOS_IMAGE_PROPERTY_COPYRIGHT: &[u8; 10] = b"Copyright\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_JPEG_INTERCHANGE_FORMAT: &[u8; 22] = b"JPEGInterchangeFormat\0";
+pub const OHOS_IMAGE_PROPERTY_JPEG_INTERCHANGE_FORMAT: &::core::ffi::CStr =
+    c"JPEGInterchangeFormat";
 /// The number of bytes of JPEG compressed thumbnail data.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -502,8 +504,8 @@ pub const OHOS_IMAGE_PROPERTY_JPEG_INTERCHANGE_FORMAT: &[u8; 22] = b"JPEGInterch
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_JPEG_INTERCHANGE_FORMAT_LENGTH: &[u8; 28] =
-    b"JPEGInterchangeFormatLength\0";
+pub const OHOS_IMAGE_PROPERTY_JPEG_INTERCHANGE_FORMAT_LENGTH: &::core::ffi::CStr =
+    c"JPEGInterchangeFormatLength";
 /// The class of the program used by the camera to set exposure when the picture is taken.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -511,7 +513,7 @@ pub const OHOS_IMAGE_PROPERTY_JPEG_INTERCHANGE_FORMAT_LENGTH: &[u8; 28] =
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_EXPOSURE_PROGRAM: &[u8; 16] = b"ExposureProgram\0";
+pub const OHOS_IMAGE_PROPERTY_EXPOSURE_PROGRAM: &::core::ffi::CStr = c"ExposureProgram";
 /// Indicates the spectral sensitivity of each channel of the camera used.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -519,7 +521,7 @@ pub const OHOS_IMAGE_PROPERTY_EXPOSURE_PROGRAM: &[u8; 16] = b"ExposureProgram\0"
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SPECTRAL_SENSITIVITY: &[u8; 20] = b"SpectralSensitivity\0";
+pub const OHOS_IMAGE_PROPERTY_SPECTRAL_SENSITIVITY: &::core::ffi::CStr = c"SpectralSensitivity";
 /// Indicates the Opto-Electric Conversion Function (OECF) specified in ISO 14524.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -527,7 +529,7 @@ pub const OHOS_IMAGE_PROPERTY_SPECTRAL_SENSITIVITY: &[u8; 20] = b"SpectralSensit
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_OECF: &[u8; 5] = b"OECF\0";
+pub const OHOS_IMAGE_PROPERTY_OECF: &::core::ffi::CStr = c"OECF";
 /// The version of the Exif standard supported.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -535,7 +537,7 @@ pub const OHOS_IMAGE_PROPERTY_OECF: &[u8; 5] = b"OECF\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_EXIF_VERSION: &[u8; 12] = b"ExifVersion\0";
+pub const OHOS_IMAGE_PROPERTY_EXIF_VERSION: &::core::ffi::CStr = c"ExifVersion";
 /// The date and time when the image was stored as digital data.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -543,7 +545,7 @@ pub const OHOS_IMAGE_PROPERTY_EXIF_VERSION: &[u8; 12] = b"ExifVersion\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_DATE_TIME_DIGITIZED: &[u8; 18] = b"DateTimeDigitized\0";
+pub const OHOS_IMAGE_PROPERTY_DATE_TIME_DIGITIZED: &::core::ffi::CStr = c"DateTimeDigitized";
 /// Information specific to compressed data.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -551,7 +553,8 @@ pub const OHOS_IMAGE_PROPERTY_DATE_TIME_DIGITIZED: &[u8; 18] = b"DateTimeDigitiz
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_COMPONENTS_CONFIGURATION: &[u8; 24] = b"ComponentsConfiguration\0";
+pub const OHOS_IMAGE_PROPERTY_COMPONENTS_CONFIGURATION: &::core::ffi::CStr =
+    c"ComponentsConfiguration";
 /// The shutter speed, expressed as an APEX (Additive System of Photographic Exposure) value.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -559,7 +562,7 @@ pub const OHOS_IMAGE_PROPERTY_COMPONENTS_CONFIGURATION: &[u8; 24] = b"Components
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SHUTTER_SPEED_VALUE: &[u8; 18] = b"ShutterSpeedValue\0";
+pub const OHOS_IMAGE_PROPERTY_SHUTTER_SPEED_VALUE: &::core::ffi::CStr = c"ShutterSpeedValue";
 /// The brightness value of the image, in APEX units.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -567,7 +570,7 @@ pub const OHOS_IMAGE_PROPERTY_SHUTTER_SPEED_VALUE: &[u8; 18] = b"ShutterSpeedVal
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_BRIGHTNESS_VALUE: &[u8; 16] = b"BrightnessValue\0";
+pub const OHOS_IMAGE_PROPERTY_BRIGHTNESS_VALUE: &::core::ffi::CStr = c"BrightnessValue";
 /// The smallest F number of lens.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -575,7 +578,7 @@ pub const OHOS_IMAGE_PROPERTY_BRIGHTNESS_VALUE: &[u8; 16] = b"BrightnessValue\0"
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_MAX_APERTURE_VALUE: &[u8; 17] = b"MaxApertureValue\0";
+pub const OHOS_IMAGE_PROPERTY_MAX_APERTURE_VALUE: &::core::ffi::CStr = c"MaxApertureValue";
 /// The distance to the subject, measured in meters.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -583,7 +586,7 @@ pub const OHOS_IMAGE_PROPERTY_MAX_APERTURE_VALUE: &[u8; 17] = b"MaxApertureValue
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SUBJECT_DISTANCE: &[u8; 16] = b"SubjectDistance\0";
+pub const OHOS_IMAGE_PROPERTY_SUBJECT_DISTANCE: &::core::ffi::CStr = c"SubjectDistance";
 /// This tag indicate the location and area of the main subject in the overall scene.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -591,7 +594,7 @@ pub const OHOS_IMAGE_PROPERTY_SUBJECT_DISTANCE: &[u8; 16] = b"SubjectDistance\0"
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SUBJECT_AREA: &[u8; 12] = b"SubjectArea\0";
+pub const OHOS_IMAGE_PROPERTY_SUBJECT_AREA: &::core::ffi::CStr = c"SubjectArea";
 /// A tag for manufacturers of Exif/DCF writers to record any desired infomation.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -599,7 +602,7 @@ pub const OHOS_IMAGE_PROPERTY_SUBJECT_AREA: &[u8; 12] = b"SubjectArea\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_MAKER_NOTE: &[u8; 10] = b"MakerNote\0";
+pub const OHOS_IMAGE_PROPERTY_MAKER_NOTE: &::core::ffi::CStr = c"MakerNote";
 /// A tag for record fractions of seconds for the DateTime tag.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -607,7 +610,7 @@ pub const OHOS_IMAGE_PROPERTY_MAKER_NOTE: &[u8; 10] = b"MakerNote\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SUBSEC_TIME: &[u8; 11] = b"SubsecTime\0";
+pub const OHOS_IMAGE_PROPERTY_SUBSEC_TIME: &::core::ffi::CStr = c"SubsecTime";
 /// A tag used to record fractions of seconds for the DateTimeOriginal tag.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -615,7 +618,7 @@ pub const OHOS_IMAGE_PROPERTY_SUBSEC_TIME: &[u8; 11] = b"SubsecTime\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SUBSEC_TIME_ORIGINAL: &[u8; 19] = b"SubsecTimeOriginal\0";
+pub const OHOS_IMAGE_PROPERTY_SUBSEC_TIME_ORIGINAL: &::core::ffi::CStr = c"SubsecTimeOriginal";
 /// A tag used to record fractions of seconds for the DateTimeDigitized tag.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -623,7 +626,7 @@ pub const OHOS_IMAGE_PROPERTY_SUBSEC_TIME_ORIGINAL: &[u8; 19] = b"SubsecTimeOrig
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SUBSEC_TIME_DIGITIZED: &[u8; 20] = b"SubsecTimeDigitized\0";
+pub const OHOS_IMAGE_PROPERTY_SUBSEC_TIME_DIGITIZED: &::core::ffi::CStr = c"SubsecTimeDigitized";
 /// This tag denotes the Flashpix format version supported by an FPXR file, enhancing device compatibility.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -631,7 +634,7 @@ pub const OHOS_IMAGE_PROPERTY_SUBSEC_TIME_DIGITIZED: &[u8; 20] = b"SubsecTimeDig
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FLASHPIX_VERSION: &[u8; 16] = b"FlashpixVersion\0";
+pub const OHOS_IMAGE_PROPERTY_FLASHPIX_VERSION: &::core::ffi::CStr = c"FlashpixVersion";
 /// The color space information tag, often recorded as the color space specifier.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -639,7 +642,7 @@ pub const OHOS_IMAGE_PROPERTY_FLASHPIX_VERSION: &[u8; 16] = b"FlashpixVersion\0"
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_COLOR_SPACE: &[u8; 11] = b"ColorSpace\0";
+pub const OHOS_IMAGE_PROPERTY_COLOR_SPACE: &::core::ffi::CStr = c"ColorSpace";
 /// The name of an audio file related to the image data.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -647,7 +650,7 @@ pub const OHOS_IMAGE_PROPERTY_COLOR_SPACE: &[u8; 11] = b"ColorSpace\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_RELATED_SOUND_FILE: &[u8; 17] = b"RelatedSoundFile\0";
+pub const OHOS_IMAGE_PROPERTY_RELATED_SOUND_FILE: &::core::ffi::CStr = c"RelatedSoundFile";
 /// Strobe energy at image capture, in BCPS.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -655,7 +658,7 @@ pub const OHOS_IMAGE_PROPERTY_RELATED_SOUND_FILE: &[u8; 17] = b"RelatedSoundFile
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FLASH_ENERGY: &[u8; 12] = b"FlashEnergy\0";
+pub const OHOS_IMAGE_PROPERTY_FLASH_ENERGY: &::core::ffi::CStr = c"FlashEnergy";
 /// Camera or input device spatial frequency table.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -663,7 +666,8 @@ pub const OHOS_IMAGE_PROPERTY_FLASH_ENERGY: &[u8; 12] = b"FlashEnergy\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SPATIAL_FREQUENCY_RESPONSE: &[u8; 25] = b"SpatialFrequencyResponse\0";
+pub const OHOS_IMAGE_PROPERTY_SPATIAL_FREQUENCY_RESPONSE: &::core::ffi::CStr =
+    c"SpatialFrequencyResponse";
 /// Pixels per FocalPlaneResolutionUnit in the image width.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -671,7 +675,8 @@ pub const OHOS_IMAGE_PROPERTY_SPATIAL_FREQUENCY_RESPONSE: &[u8; 25] = b"SpatialF
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FOCAL_PLANE_X_RESOLUTION: &[u8; 22] = b"FocalPlaneXResolution\0";
+pub const OHOS_IMAGE_PROPERTY_FOCAL_PLANE_X_RESOLUTION: &::core::ffi::CStr =
+    c"FocalPlaneXResolution";
 /// Pixels per FocalPlaneResolutionUnit in the image height.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -679,7 +684,8 @@ pub const OHOS_IMAGE_PROPERTY_FOCAL_PLANE_X_RESOLUTION: &[u8; 22] = b"FocalPlane
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FOCAL_PLANE_Y_RESOLUTION: &[u8; 22] = b"FocalPlaneYResolution\0";
+pub const OHOS_IMAGE_PROPERTY_FOCAL_PLANE_Y_RESOLUTION: &::core::ffi::CStr =
+    c"FocalPlaneYResolution";
 /// Unit for measuring FocalPlaneXResolution and FocalPlaneYResolution.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -687,8 +693,8 @@ pub const OHOS_IMAGE_PROPERTY_FOCAL_PLANE_Y_RESOLUTION: &[u8; 22] = b"FocalPlane
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FOCAL_PLANE_RESOLUTION_UNIT: &[u8; 25] =
-    b"FocalPlaneResolutionUnit\0";
+pub const OHOS_IMAGE_PROPERTY_FOCAL_PLANE_RESOLUTION_UNIT: &::core::ffi::CStr =
+    c"FocalPlaneResolutionUnit";
 /// Location of the main subject, relative to the left edge.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -696,7 +702,7 @@ pub const OHOS_IMAGE_PROPERTY_FOCAL_PLANE_RESOLUTION_UNIT: &[u8; 25] =
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SUBJECT_LOCATION: &[u8; 16] = b"SubjectLocation\0";
+pub const OHOS_IMAGE_PROPERTY_SUBJECT_LOCATION: &::core::ffi::CStr = c"SubjectLocation";
 /// Selected exposure index at capture.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -704,7 +710,7 @@ pub const OHOS_IMAGE_PROPERTY_SUBJECT_LOCATION: &[u8; 16] = b"SubjectLocation\0"
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_EXPOSURE_INDEX: &[u8; 14] = b"ExposureIndex\0";
+pub const OHOS_IMAGE_PROPERTY_EXPOSURE_INDEX: &::core::ffi::CStr = c"ExposureIndex";
 /// Image sensor type on the camera.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -712,7 +718,7 @@ pub const OHOS_IMAGE_PROPERTY_EXPOSURE_INDEX: &[u8; 14] = b"ExposureIndex\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SENSING_METHOD: &[u8; 14] = b"SensingMethod\0";
+pub const OHOS_IMAGE_PROPERTY_SENSING_METHOD: &::core::ffi::CStr = c"SensingMethod";
 /// Indicates the image source.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -720,7 +726,7 @@ pub const OHOS_IMAGE_PROPERTY_SENSING_METHOD: &[u8; 14] = b"SensingMethod\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FILE_SOURCE: &[u8; 11] = b"FileSource\0";
+pub const OHOS_IMAGE_PROPERTY_FILE_SOURCE: &::core::ffi::CStr = c"FileSource";
 /// Color filter array (CFA) geometric pattern of the image sensor.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -728,7 +734,7 @@ pub const OHOS_IMAGE_PROPERTY_FILE_SOURCE: &[u8; 11] = b"FileSource\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_CFA_PATTERN: &[u8; 11] = b"CFAPattern\0";
+pub const OHOS_IMAGE_PROPERTY_CFA_PATTERN: &::core::ffi::CStr = c"CFAPattern";
 /// Indicates special processing on image data.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -736,7 +742,7 @@ pub const OHOS_IMAGE_PROPERTY_CFA_PATTERN: &[u8; 11] = b"CFAPattern\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_CUSTOM_RENDERED: &[u8; 15] = b"CustomRendered\0";
+pub const OHOS_IMAGE_PROPERTY_CUSTOM_RENDERED: &::core::ffi::CStr = c"CustomRendered";
 /// Exposure mode set when the image was shot.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -744,7 +750,7 @@ pub const OHOS_IMAGE_PROPERTY_CUSTOM_RENDERED: &[u8; 15] = b"CustomRendered\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_EXPOSURE_MODE: &[u8; 13] = b"ExposureMode\0";
+pub const OHOS_IMAGE_PROPERTY_EXPOSURE_MODE: &::core::ffi::CStr = c"ExposureMode";
 /// Digital zoom ratio at the time of capture.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -752,7 +758,7 @@ pub const OHOS_IMAGE_PROPERTY_EXPOSURE_MODE: &[u8; 13] = b"ExposureMode\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_DIGITAL_ZOOM_RATIO: &[u8; 17] = b"DigitalZoomRatio\0";
+pub const OHOS_IMAGE_PROPERTY_DIGITAL_ZOOM_RATIO: &::core::ffi::CStr = c"DigitalZoomRatio";
 /// Type of scene captured.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -760,7 +766,7 @@ pub const OHOS_IMAGE_PROPERTY_DIGITAL_ZOOM_RATIO: &[u8; 17] = b"DigitalZoomRatio
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SCENE_CAPTURE_TYPE: &[u8; 17] = b"SceneCaptureType\0";
+pub const OHOS_IMAGE_PROPERTY_SCENE_CAPTURE_TYPE: &::core::ffi::CStr = c"SceneCaptureType";
 /// Degree of overall image gain adjustment.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -768,7 +774,7 @@ pub const OHOS_IMAGE_PROPERTY_SCENE_CAPTURE_TYPE: &[u8; 17] = b"SceneCaptureType
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GAIN_CONTROL: &[u8; 12] = b"GainControl\0";
+pub const OHOS_IMAGE_PROPERTY_GAIN_CONTROL: &::core::ffi::CStr = c"GainControl";
 /// Direction of contrast processing applied by the camera.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -776,7 +782,7 @@ pub const OHOS_IMAGE_PROPERTY_GAIN_CONTROL: &[u8; 12] = b"GainControl\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_CONTRAST: &[u8; 9] = b"Contrast\0";
+pub const OHOS_IMAGE_PROPERTY_CONTRAST: &::core::ffi::CStr = c"Contrast";
 /// Direction of saturation processing applied by the camera.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -784,7 +790,7 @@ pub const OHOS_IMAGE_PROPERTY_CONTRAST: &[u8; 9] = b"Contrast\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SATURATION: &[u8; 11] = b"Saturation\0";
+pub const OHOS_IMAGE_PROPERTY_SATURATION: &::core::ffi::CStr = c"Saturation";
 /// The direction of sharpness processing applied by the camera.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -792,7 +798,7 @@ pub const OHOS_IMAGE_PROPERTY_SATURATION: &[u8; 11] = b"Saturation\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SHARPNESS: &[u8; 10] = b"Sharpness\0";
+pub const OHOS_IMAGE_PROPERTY_SHARPNESS: &::core::ffi::CStr = c"Sharpness";
 /// Information on picture-taking conditions for a specific camera model.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -800,7 +806,8 @@ pub const OHOS_IMAGE_PROPERTY_SHARPNESS: &[u8; 10] = b"Sharpness\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_DEVICE_SETTING_DESCRIPTION: &[u8; 25] = b"DeviceSettingDescription\0";
+pub const OHOS_IMAGE_PROPERTY_DEVICE_SETTING_DESCRIPTION: &::core::ffi::CStr =
+    c"DeviceSettingDescription";
 /// Indicates the distance range to the subject.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -808,7 +815,7 @@ pub const OHOS_IMAGE_PROPERTY_DEVICE_SETTING_DESCRIPTION: &[u8; 25] = b"DeviceSe
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SUBJECT_DISTANCE_RANGE: &[u8; 21] = b"SubjectDistanceRange\0";
+pub const OHOS_IMAGE_PROPERTY_SUBJECT_DISTANCE_RANGE: &::core::ffi::CStr = c"SubjectDistanceRange";
 /// An identifier uniquely assigned to each image.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -816,7 +823,7 @@ pub const OHOS_IMAGE_PROPERTY_SUBJECT_DISTANCE_RANGE: &[u8; 21] = b"SubjectDista
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_IMAGE_UNIQUE_ID: &[u8; 14] = b"ImageUniqueID\0";
+pub const OHOS_IMAGE_PROPERTY_IMAGE_UNIQUE_ID: &::core::ffi::CStr = c"ImageUniqueID";
 /// The version of the GPSInfoIFD.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -824,7 +831,7 @@ pub const OHOS_IMAGE_PROPERTY_IMAGE_UNIQUE_ID: &[u8; 14] = b"ImageUniqueID\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_VERSION_ID: &[u8; 13] = b"GPSVersionID\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_VERSION_ID: &::core::ffi::CStr = c"GPSVersionID";
 /// Reference altitude used for GPS altitude.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -832,7 +839,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_VERSION_ID: &[u8; 13] = b"GPSVersionID\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_ALTITUDE_REF: &[u8; 15] = b"GPSAltitudeRef\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_ALTITUDE_REF: &::core::ffi::CStr = c"GPSAltitudeRef";
 /// The altitude based on the reference in GPSAltitudeRef.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -840,7 +847,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_ALTITUDE_REF: &[u8; 15] = b"GPSAltitudeRef\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_ALTITUDE: &[u8; 12] = b"GPSAltitude\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_ALTITUDE: &::core::ffi::CStr = c"GPSAltitude";
 /// The GPS satellites used for measurements.
 /// Used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -848,7 +855,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_ALTITUDE: &[u8; 12] = b"GPSAltitude\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_SATELLITES: &[u8; 14] = b"GPSSatellites\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_SATELLITES: &::core::ffi::CStr = c"GPSSatellites";
 /// The status of the GPS receiver when the image is recorded.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -856,7 +863,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_SATELLITES: &[u8; 14] = b"GPSSatellites\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_STATUS: &[u8; 10] = b"GPSStatus\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_STATUS: &::core::ffi::CStr = c"GPSStatus";
 /// The GPS measurement mode.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -864,7 +871,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_STATUS: &[u8; 10] = b"GPSStatus\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_MEASURE_MODE: &[u8; 15] = b"GPSMeasureMode\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_MEASURE_MODE: &::core::ffi::CStr = c"GPSMeasureMode";
 /// The GPS DOP (data degree of precision).
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -872,7 +879,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_MEASURE_MODE: &[u8; 15] = b"GPSMeasureMode\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_DOP: &[u8; 7] = b"GPSDOP\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_DOP: &::core::ffi::CStr = c"GPSDOP";
 /// The unit used to express the GPS receiver speed of movement.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -880,7 +887,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_DOP: &[u8; 7] = b"GPSDOP\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_SPEED_REF: &[u8; 12] = b"GPSSpeedRef\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_SPEED_REF: &::core::ffi::CStr = c"GPSSpeedRef";
 /// The speed of GPS receiver movement.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -888,7 +895,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_SPEED_REF: &[u8; 12] = b"GPSSpeedRef\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_SPEED: &[u8; 9] = b"GPSSpeed\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_SPEED: &::core::ffi::CStr = c"GPSSpeed";
 /// The reference for giving the direction of GPS receiver movement.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -896,7 +903,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_SPEED: &[u8; 9] = b"GPSSpeed\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_TRACK_REF: &[u8; 12] = b"GPSTrackRef\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_TRACK_REF: &::core::ffi::CStr = c"GPSTrackRef";
 /// The direction of GPS receiver movement.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -904,7 +911,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_TRACK_REF: &[u8; 12] = b"GPSTrackRef\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_TRACK: &[u8; 9] = b"GPSTrack\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_TRACK: &::core::ffi::CStr = c"GPSTrack";
 /// The reference for the image's direction.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -912,7 +919,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_TRACK: &[u8; 9] = b"GPSTrack\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_IMG_DIRECTION_REF: &[u8; 19] = b"GPSImgDirectionRef\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_IMG_DIRECTION_REF: &::core::ffi::CStr = c"GPSImgDirectionRef";
 /// The direction of the image when captured.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -920,7 +927,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_IMG_DIRECTION_REF: &[u8; 19] = b"GPSImgDirecti
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_IMG_DIRECTION: &[u8; 16] = b"GPSImgDirection\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_IMG_DIRECTION: &::core::ffi::CStr = c"GPSImgDirection";
 /// Geodetic survey data used by the GPS receiver.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -928,7 +935,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_IMG_DIRECTION: &[u8; 16] = b"GPSImgDirection\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_MAP_DATUM: &[u8; 12] = b"GPSMapDatum\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_MAP_DATUM: &::core::ffi::CStr = c"GPSMapDatum";
 /// Indicates the latitude reference of the destination point.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -936,7 +943,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_MAP_DATUM: &[u8; 12] = b"GPSMapDatum\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LATITUDE_REF: &[u8; 19] = b"GPSDestLatitudeRef\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LATITUDE_REF: &::core::ffi::CStr = c"GPSDestLatitudeRef";
 /// The latitude of the destination point.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -944,7 +951,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LATITUDE_REF: &[u8; 19] = b"GPSDestLatitu
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LATITUDE: &[u8; 16] = b"GPSDestLatitude\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LATITUDE: &::core::ffi::CStr = c"GPSDestLatitude";
 /// Indicates the longitude reference of the destination point.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -952,7 +959,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LATITUDE: &[u8; 16] = b"GPSDestLatitude\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LONGITUDE_REF: &[u8; 20] = b"GPSDestLongitudeRef\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LONGITUDE_REF: &::core::ffi::CStr = c"GPSDestLongitudeRef";
 /// A character string recording the name of the method used for location finding.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -960,7 +967,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LONGITUDE_REF: &[u8; 20] = b"GPSDestLongi
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_PROCESSING_METHOD: &[u8; 20] = b"GPSProcessingMethod\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_PROCESSING_METHOD: &::core::ffi::CStr = c"GPSProcessingMethod";
 /// A character string recording the name of the GPS area.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -968,7 +975,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_PROCESSING_METHOD: &[u8; 20] = b"GPSProcessing
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_AREA_INFORMATION: &[u8; 19] = b"GPSAreaInformation\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_AREA_INFORMATION: &::core::ffi::CStr = c"GPSAreaInformation";
 /// This field denotes if differential correction was applied to GPS data, crucial for precise location accuracy.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -976,7 +983,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_AREA_INFORMATION: &[u8; 19] = b"GPSAreaInforma
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_DIFFERENTIAL: &[u8; 16] = b"GPSDifferential\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_DIFFERENTIAL: &::core::ffi::CStr = c"GPSDifferential";
 /// The serial number of the camera body.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -984,7 +991,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_DIFFERENTIAL: &[u8; 16] = b"GPSDifferential\0"
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_BODY_SERIAL_NUMBER: &[u8; 17] = b"BodySerialNumber\0";
+pub const OHOS_IMAGE_PROPERTY_BODY_SERIAL_NUMBER: &::core::ffi::CStr = c"BodySerialNumber";
 /// The name of the camera owner.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -992,7 +999,7 @@ pub const OHOS_IMAGE_PROPERTY_BODY_SERIAL_NUMBER: &[u8; 17] = b"BodySerialNumber
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_CAMERA_OWNER_NAME: &[u8; 16] = b"CameraOwnerName\0";
+pub const OHOS_IMAGE_PROPERTY_CAMERA_OWNER_NAME: &::core::ffi::CStr = c"CameraOwnerName";
 /// The name of the camera owner.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1000,7 +1007,7 @@ pub const OHOS_IMAGE_PROPERTY_CAMERA_OWNER_NAME: &[u8; 16] = b"CameraOwnerName\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_COMPOSITE_IMAGE: &[u8; 15] = b"CompositeImage\0";
+pub const OHOS_IMAGE_PROPERTY_COMPOSITE_IMAGE: &::core::ffi::CStr = c"CompositeImage";
 /// The DNGVersion tag encodes the four-tier version number for DNG specification compliance.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1008,7 +1015,7 @@ pub const OHOS_IMAGE_PROPERTY_COMPOSITE_IMAGE: &[u8; 15] = b"CompositeImage\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_DNG_VERSION: &[u8; 11] = b"DNGVersion\0";
+pub const OHOS_IMAGE_PROPERTY_DNG_VERSION: &::core::ffi::CStr = c"DNGVersion";
 /// The longitude of the destination point.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1016,7 +1023,7 @@ pub const OHOS_IMAGE_PROPERTY_DNG_VERSION: &[u8; 11] = b"DNGVersion\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LONGITUDE: &[u8; 17] = b"GPSDestLongitude\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LONGITUDE: &::core::ffi::CStr = c"GPSDestLongitude";
 /// The reference for the bearing to the destination point.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1024,7 +1031,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_DEST_LONGITUDE: &[u8; 17] = b"GPSDestLongitude
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_DEST_BEARING_REF: &[u8; 18] = b"GPSDestBearingRef\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_DEST_BEARING_REF: &::core::ffi::CStr = c"GPSDestBearingRef";
 /// The bearing to the destination point.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1032,7 +1039,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_DEST_BEARING_REF: &[u8; 18] = b"GPSDestBearing
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_DEST_BEARING: &[u8; 15] = b"GPSDestBearing\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_DEST_BEARING: &::core::ffi::CStr = c"GPSDestBearing";
 /// The measurement unit for the distance to the target point.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1040,7 +1047,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_DEST_BEARING: &[u8; 15] = b"GPSDestBearing\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_DEST_DISTANCE_REF: &[u8; 19] = b"GPSDestDistanceRef\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_DEST_DISTANCE_REF: &::core::ffi::CStr = c"GPSDestDistanceRef";
 /// The distance to the destination point.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1048,7 +1055,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_DEST_DISTANCE_REF: &[u8; 19] = b"GPSDestDistan
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_DEST_DISTANCE: &[u8; 16] = b"GPSDestDistance\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_DEST_DISTANCE: &::core::ffi::CStr = c"GPSDestDistance";
 /// DefaultCropSize specifies the final image size in raw coordinates, accounting for extra edge pixels.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1056,7 +1063,7 @@ pub const OHOS_IMAGE_PROPERTY_GPS_DEST_DISTANCE: &[u8; 16] = b"GPSDestDistance\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_DEFAULT_CROP_SIZE: &[u8; 16] = b"DefaultCropSize\0";
+pub const OHOS_IMAGE_PROPERTY_DEFAULT_CROP_SIZE: &::core::ffi::CStr = c"DefaultCropSize";
 /// Indicates the value of coefficient gamma.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1064,7 +1071,7 @@ pub const OHOS_IMAGE_PROPERTY_DEFAULT_CROP_SIZE: &[u8; 16] = b"DefaultCropSize\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GAMMA: &[u8; 6] = b"Gamma\0";
+pub const OHOS_IMAGE_PROPERTY_GAMMA: &::core::ffi::CStr = c"Gamma";
 /// The tag indicate the ISO speed latitude yyy value of the camera or input device that is defined in ISO 12232.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1072,7 +1079,7 @@ pub const OHOS_IMAGE_PROPERTY_GAMMA: &[u8; 6] = b"Gamma\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEYYY: &[u8; 20] = b"ISOSpeedLatitudeyyy\0";
+pub const OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEYYY: &::core::ffi::CStr = c"ISOSpeedLatitudeyyy";
 /// The tag indicate the ISO speed latitude zzz value of the camera or input device that is defined in ISO 12232.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1080,7 +1087,7 @@ pub const OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEYYY: &[u8; 20] = b"ISOSpeedLatit
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEZZZ: &[u8; 20] = b"ISOSpeedLatitudezzz\0";
+pub const OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEZZZ: &::core::ffi::CStr = c"ISOSpeedLatitudezzz";
 /// The manufacturer of the lens.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1088,7 +1095,7 @@ pub const OHOS_IMAGE_PROPERTY_ISO_SPEED_LATITUDEZZZ: &[u8; 20] = b"ISOSpeedLatit
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_LENS_MAKE: &[u8; 9] = b"LensMake\0";
+pub const OHOS_IMAGE_PROPERTY_LENS_MAKE: &::core::ffi::CStr = c"LensMake";
 /// The model name of the lens.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1096,7 +1103,7 @@ pub const OHOS_IMAGE_PROPERTY_LENS_MAKE: &[u8; 9] = b"LensMake\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_LENS_MODEL: &[u8; 10] = b"LensModel\0";
+pub const OHOS_IMAGE_PROPERTY_LENS_MODEL: &::core::ffi::CStr = c"LensModel";
 /// The serial number of the lens.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1104,7 +1111,7 @@ pub const OHOS_IMAGE_PROPERTY_LENS_MODEL: &[u8; 10] = b"LensModel\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_LENS_SERIAL_NUMBER: &[u8; 17] = b"LensSerialNumber\0";
+pub const OHOS_IMAGE_PROPERTY_LENS_SERIAL_NUMBER: &::core::ffi::CStr = c"LensSerialNumber";
 /// Specifications of the lens used.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1112,7 +1119,7 @@ pub const OHOS_IMAGE_PROPERTY_LENS_SERIAL_NUMBER: &[u8; 17] = b"LensSerialNumber
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_LENS_SPECIFICATION: &[u8; 18] = b"LensSpecification\0";
+pub const OHOS_IMAGE_PROPERTY_LENS_SPECIFICATION: &::core::ffi::CStr = c"LensSpecification";
 /// This tag provides a broad description of the data type in this subfile.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1120,7 +1127,7 @@ pub const OHOS_IMAGE_PROPERTY_LENS_SPECIFICATION: &[u8; 18] = b"LensSpecificatio
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_NEW_SUBFILE_TYPE: &[u8; 15] = b"NewSubfileType\0";
+pub const OHOS_IMAGE_PROPERTY_NEW_SUBFILE_TYPE: &::core::ffi::CStr = c"NewSubfileType";
 /// This tag records the UTC offset for the DateTime tag, ensuring accurate timestamps regardless of location.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1128,7 +1135,7 @@ pub const OHOS_IMAGE_PROPERTY_NEW_SUBFILE_TYPE: &[u8; 15] = b"NewSubfileType\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_OFFSET_TIME: &[u8; 11] = b"OffsetTime\0";
+pub const OHOS_IMAGE_PROPERTY_OFFSET_TIME: &::core::ffi::CStr = c"OffsetTime";
 /// This tag logs the UTC offset when the image was digitized, aiding in accurate timestamp adjustment.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1136,7 +1143,7 @@ pub const OHOS_IMAGE_PROPERTY_OFFSET_TIME: &[u8; 11] = b"OffsetTime\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_OFFSET_TIME_DIGITIZED: &[u8; 20] = b"OffsetTimeDigitized\0";
+pub const OHOS_IMAGE_PROPERTY_OFFSET_TIME_DIGITIZED: &::core::ffi::CStr = c"OffsetTimeDigitized";
 /// This tag records the UTC offset when the original image was created, crucial for time-sensitive applications.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1144,7 +1151,7 @@ pub const OHOS_IMAGE_PROPERTY_OFFSET_TIME_DIGITIZED: &[u8; 20] = b"OffsetTimeDig
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_OFFSET_TIME_ORIGINAL: &[u8; 19] = b"OffsetTimeOriginal\0";
+pub const OHOS_IMAGE_PROPERTY_OFFSET_TIME_ORIGINAL: &::core::ffi::CStr = c"OffsetTimeOriginal";
 /// Exposure times of source images for a composite image.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1152,8 +1159,8 @@ pub const OHOS_IMAGE_PROPERTY_OFFSET_TIME_ORIGINAL: &[u8; 19] = b"OffsetTimeOrig
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE: &[u8; 36] =
-    b"SourceExposureTimesOfCompositeImage\0";
+pub const OHOS_IMAGE_PROPERTY_SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE: &::core::ffi::CStr =
+    c"SourceExposureTimesOfCompositeImage";
 /// The number of source images used for a composite image.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1161,8 +1168,8 @@ pub const OHOS_IMAGE_PROPERTY_SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE: &[u8; 36
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE: &[u8; 34] =
-    b"SourceImageNumberOfCompositeImage\0";
+pub const OHOS_IMAGE_PROPERTY_SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE: &::core::ffi::CStr =
+    c"SourceImageNumberOfCompositeImage";
 /// This deprecated field signifies the type of data in this subfile. Use the NewSubfileType field instead.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1170,7 +1177,7 @@ pub const OHOS_IMAGE_PROPERTY_SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE: &[u8; 34] 
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SUBFILE_TYPE: &[u8; 12] = b"SubfileType\0";
+pub const OHOS_IMAGE_PROPERTY_SUBFILE_TYPE: &::core::ffi::CStr = c"SubfileType";
 /// This tag indicates horizontal positioning errors in meters.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1178,7 +1185,7 @@ pub const OHOS_IMAGE_PROPERTY_SUBFILE_TYPE: &[u8; 12] = b"SubfileType\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GPS_H_POSITIONING_ERROR: &[u8; 21] = b"GPSHPositioningError\0";
+pub const OHOS_IMAGE_PROPERTY_GPS_H_POSITIONING_ERROR: &::core::ffi::CStr = c"GPSHPositioningError";
 /// This tag indicates the sensitivity of the camera or input device when the image was shot.
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1186,7 +1193,8 @@ pub const OHOS_IMAGE_PROPERTY_GPS_H_POSITIONING_ERROR: &[u8; 21] = b"GPSHPositio
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_PHOTOGRAPHIC_SENSITIVITY: &[u8; 24] = b"PhotographicSensitivity\0";
+pub const OHOS_IMAGE_PROPERTY_PHOTOGRAPHIC_SENSITIVITY: &::core::ffi::CStr =
+    c"PhotographicSensitivity";
 /// Burst Number
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1194,7 +1202,7 @@ pub const OHOS_IMAGE_PROPERTY_PHOTOGRAPHIC_SENSITIVITY: &[u8; 24] = b"Photograph
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_BURST_NUMBER: &[u8; 19] = b"HwMnoteBurstNumber\0";
+pub const OHOS_IMAGE_PROPERTY_BURST_NUMBER: &::core::ffi::CStr = c"HwMnoteBurstNumber";
 /// Face Conf
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1202,7 +1210,7 @@ pub const OHOS_IMAGE_PROPERTY_BURST_NUMBER: &[u8; 19] = b"HwMnoteBurstNumber\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FACE_CONF: &[u8; 16] = b"HwMnoteFaceConf\0";
+pub const OHOS_IMAGE_PROPERTY_FACE_CONF: &::core::ffi::CStr = c"HwMnoteFaceConf";
 /// Face Leye Center
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1210,7 +1218,7 @@ pub const OHOS_IMAGE_PROPERTY_FACE_CONF: &[u8; 16] = b"HwMnoteFaceConf\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FACE_LEYE_CENTER: &[u8; 22] = b"HwMnoteFaceLeyeCenter\0";
+pub const OHOS_IMAGE_PROPERTY_FACE_LEYE_CENTER: &::core::ffi::CStr = c"HwMnoteFaceLeyeCenter";
 /// Face Mouth Center
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1218,7 +1226,7 @@ pub const OHOS_IMAGE_PROPERTY_FACE_LEYE_CENTER: &[u8; 22] = b"HwMnoteFaceLeyeCen
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FACE_MOUTH_CENTER: &[u8; 23] = b"HwMnoteFaceMouthCenter\0";
+pub const OHOS_IMAGE_PROPERTY_FACE_MOUTH_CENTER: &::core::ffi::CStr = c"HwMnoteFaceMouthCenter";
 /// Face Pointer
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1226,7 +1234,7 @@ pub const OHOS_IMAGE_PROPERTY_FACE_MOUTH_CENTER: &[u8; 23] = b"HwMnoteFaceMouthC
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FACE_POINTER: &[u8; 19] = b"HwMnoteFacePointer\0";
+pub const OHOS_IMAGE_PROPERTY_FACE_POINTER: &::core::ffi::CStr = c"HwMnoteFacePointer";
 /// Face Rect
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1234,7 +1242,7 @@ pub const OHOS_IMAGE_PROPERTY_FACE_POINTER: &[u8; 19] = b"HwMnoteFacePointer\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FACE_RECT: &[u8; 16] = b"HwMnoteFaceRect\0";
+pub const OHOS_IMAGE_PROPERTY_FACE_RECT: &::core::ffi::CStr = c"HwMnoteFaceRect";
 /// Face Reye Center
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1242,7 +1250,7 @@ pub const OHOS_IMAGE_PROPERTY_FACE_RECT: &[u8; 16] = b"HwMnoteFaceRect\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FACE_REYE_CENTER: &[u8; 22] = b"HwMnoteFaceReyeCenter\0";
+pub const OHOS_IMAGE_PROPERTY_FACE_REYE_CENTER: &::core::ffi::CStr = c"HwMnoteFaceReyeCenter";
 /// Face Smile Score
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1250,7 +1258,7 @@ pub const OHOS_IMAGE_PROPERTY_FACE_REYE_CENTER: &[u8; 22] = b"HwMnoteFaceReyeCen
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FACE_SMILE_SCORE: &[u8; 22] = b"HwMnoteFaceSmileScore\0";
+pub const OHOS_IMAGE_PROPERTY_FACE_SMILE_SCORE: &::core::ffi::CStr = c"HwMnoteFaceSmileScore";
 /// Face Version
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1258,7 +1266,7 @@ pub const OHOS_IMAGE_PROPERTY_FACE_SMILE_SCORE: &[u8; 22] = b"HwMnoteFaceSmileSc
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FACE_VERSION: &[u8; 19] = b"HwMnoteFaceVersion\0";
+pub const OHOS_IMAGE_PROPERTY_FACE_VERSION: &::core::ffi::CStr = c"HwMnoteFaceVersion";
 /// Front Camera
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1266,7 +1274,7 @@ pub const OHOS_IMAGE_PROPERTY_FACE_VERSION: &[u8; 19] = b"HwMnoteFaceVersion\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_FRONT_CAMERA: &[u8; 19] = b"HwMnoteFrontCamera\0";
+pub const OHOS_IMAGE_PROPERTY_FRONT_CAMERA: &::core::ffi::CStr = c"HwMnoteFrontCamera";
 /// Scene Pointer
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1274,7 +1282,7 @@ pub const OHOS_IMAGE_PROPERTY_FRONT_CAMERA: &[u8; 19] = b"HwMnoteFrontCamera\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SCENE_POINTER: &[u8; 20] = b"HwMnoteScenePointer\0";
+pub const OHOS_IMAGE_PROPERTY_SCENE_POINTER: &::core::ffi::CStr = c"HwMnoteScenePointer";
 /// Scene Version
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1282,7 +1290,7 @@ pub const OHOS_IMAGE_PROPERTY_SCENE_POINTER: &[u8; 20] = b"HwMnoteScenePointer\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_SCENE_VERSION: &[u8; 20] = b"HwMnoteSceneVersion\0";
+pub const OHOS_IMAGE_PROPERTY_SCENE_VERSION: &::core::ffi::CStr = c"HwMnoteSceneVersion";
 /// Is Xmage Supported
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1290,7 +1298,7 @@ pub const OHOS_IMAGE_PROPERTY_SCENE_VERSION: &[u8; 20] = b"HwMnoteSceneVersion\0
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_IS_XMAGE_SUPPORTED: &[u8; 24] = b"HwMnoteIsXmageSupported\0";
+pub const OHOS_IMAGE_PROPERTY_IS_XMAGE_SUPPORTED: &::core::ffi::CStr = c"HwMnoteIsXmageSupported";
 /// Xmage Mode
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1298,7 +1306,7 @@ pub const OHOS_IMAGE_PROPERTY_IS_XMAGE_SUPPORTED: &[u8; 24] = b"HwMnoteIsXmageSu
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_XMAGE_MODE: &[u8; 17] = b"HwMnoteXmageMode\0";
+pub const OHOS_IMAGE_PROPERTY_XMAGE_MODE: &::core::ffi::CStr = c"HwMnoteXmageMode";
 /// Xmage X1 Coordinate
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1306,7 +1314,7 @@ pub const OHOS_IMAGE_PROPERTY_XMAGE_MODE: &[u8; 17] = b"HwMnoteXmageMode\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_XMAGE_LEFT: &[u8; 17] = b"HwMnoteXmageLeft\0";
+pub const OHOS_IMAGE_PROPERTY_XMAGE_LEFT: &::core::ffi::CStr = c"HwMnoteXmageLeft";
 /// Xmage Y1 Coordinate
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1314,7 +1322,7 @@ pub const OHOS_IMAGE_PROPERTY_XMAGE_LEFT: &[u8; 17] = b"HwMnoteXmageLeft\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_XMAGE_TOP: &[u8; 16] = b"HwMnoteXmageTop\0";
+pub const OHOS_IMAGE_PROPERTY_XMAGE_TOP: &::core::ffi::CStr = c"HwMnoteXmageTop";
 /// Xmage X2 Coordinate
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1322,7 +1330,7 @@ pub const OHOS_IMAGE_PROPERTY_XMAGE_TOP: &[u8; 16] = b"HwMnoteXmageTop\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_XMAGE_RIGHT: &[u8; 18] = b"HwMnoteXmageRight\0";
+pub const OHOS_IMAGE_PROPERTY_XMAGE_RIGHT: &::core::ffi::CStr = c"HwMnoteXmageRight";
 /// Xmage Y2 Coordinate
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1330,7 +1338,7 @@ pub const OHOS_IMAGE_PROPERTY_XMAGE_RIGHT: &[u8; 18] = b"HwMnoteXmageRight\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_XMAGE_BOTTOM: &[u8; 19] = b"HwMnoteXmageBottom\0";
+pub const OHOS_IMAGE_PROPERTY_XMAGE_BOTTOM: &::core::ffi::CStr = c"HwMnoteXmageBottom";
 /// Cloud Enhancement Mode
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1338,7 +1346,8 @@ pub const OHOS_IMAGE_PROPERTY_XMAGE_BOTTOM: &[u8; 19] = b"HwMnoteXmageBottom\0";
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_CLOUD_ENHANCEMENT_MODE: &[u8; 28] = b"HwMnoteCloudEnhancementMode\0";
+pub const OHOS_IMAGE_PROPERTY_CLOUD_ENHANCEMENT_MODE: &::core::ffi::CStr =
+    c"HwMnoteCloudEnhancementMode";
 /// Wind Snapshot Mode
 /// It is used in [`OH_ImageSource_GetImageProperty`] and [`OH_ImageSource_ModifyImageProperty`].
 ///
@@ -1346,7 +1355,7 @@ pub const OHOS_IMAGE_PROPERTY_CLOUD_ENHANCEMENT_MODE: &[u8; 28] = b"HwMnoteCloud
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_WIND_SNAPSHOT_MODE: &[u8; 24] = b"HwMnoteWindSnapshotMode\0";
+pub const OHOS_IMAGE_PROPERTY_WIND_SNAPSHOT_MODE: &::core::ffi::CStr = c"HwMnoteWindSnapshotMode";
 /// Gif Loop Count
 /// It is used in [`OH_ImageSource_GetImageProperty`].
 /// If infinite loop returns 0, other values represent the number of loops
@@ -1355,4 +1364,4 @@ pub const OHOS_IMAGE_PROPERTY_WIND_SNAPSHOT_MODE: &[u8; 24] = b"HwMnoteWindSnaps
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub const OHOS_IMAGE_PROPERTY_GIF_LOOP_COUNT: &[u8; 13] = b"GIFLoopCount\0";
+pub const OHOS_IMAGE_PROPERTY_GIF_LOOP_COUNT: &::core::ffi::CStr = c"GIFLoopCount";
