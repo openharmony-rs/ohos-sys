@@ -47,6 +47,10 @@ pub struct OH_OnFrameAvailableListener {
 extern "C" {
     /// Create a <b>OH_NativeImage</b> related to an Opengl ES texture and target.
     ///
+    /// This interface needs to be used in conjunction with <b>OH_NativeImage_Destroy<otherwise memory leaks will occur.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
@@ -68,6 +72,9 @@ extern "C" {
     pub fn OH_NativeImage_Create(textureId: u32, textureTarget: u32) -> *mut OH_NativeImage;
     /// Acquire the OHNativeWindow for the OH_NativeImage.
     ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
@@ -85,6 +92,9 @@ extern "C" {
     /// Attach the OH_NativeImage to Opengl ES context, and the Opengl ES texture is bound to the
     ///
     /// GL_TEXTURE_EXTERNAL_OES, which will update by the OH_NativeImage.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
@@ -104,6 +114,9 @@ extern "C" {
     pub fn OH_NativeImage_AttachContext(image: *mut OH_NativeImage, textureId: u32) -> i32;
     /// Detach the OH_NativeImage from the Opengl ES context.
     ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
@@ -120,6 +133,13 @@ extern "C" {
     pub fn OH_NativeImage_DetachContext(image: *mut OH_NativeImage) -> i32;
     /// Update the related Opengl ES texture with the OH_NativeImage acquired buffer.
     ///
+    /// This interface needs to be called in the Opengl ES context thread.
+    ///
+    /// This interface needs to be called after receiving the <b>OH_OnFrameAvailableListener<callback.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
@@ -135,6 +155,9 @@ extern "C" {
     /// Version: 1.0
     pub fn OH_NativeImage_UpdateSurfaceImage(image: *mut OH_NativeImage) -> i32;
     /// Get the timestamp of the texture image set by the most recent call to OH_NativeImage_UpdateSurfaceImage.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
@@ -175,6 +198,9 @@ extern "C" {
     pub fn OH_NativeImage_GetTransformMatrix(image: *mut OH_NativeImage, matrix: *mut f32) -> i32;
     /// Return the native image's surface id.
     ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
@@ -194,6 +220,11 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_NativeImage_GetSurfaceId(image: *mut OH_NativeImage, surfaceId: *mut u64) -> i32;
     /// Set the frame available callback.
+    ///
+    /// Not allow calling other interfaces in the callback function.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
@@ -218,6 +249,9 @@ extern "C" {
     ) -> i32;
     /// Unset the frame available callback.
     ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     /// # Arguments
@@ -235,8 +269,10 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_NativeImage_UnsetOnFrameAvailableListener(image: *mut OH_NativeImage) -> i32;
     /// Destroy the <b>OH_NativeImage</b> created by OH_NativeImage_Create, and the pointer to
-    ///
     /// <b>OH_NativeImage</b> will be null after this operation.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
@@ -249,6 +285,10 @@ extern "C" {
     /// Version: 1.0
     pub fn OH_NativeImage_Destroy(image: *mut *mut OH_NativeImage);
     /// Obtains the transform matrix of the texture image by producer transform type.
+    ///
+    /// The matrix will not be update until <b>OH_NativeImage_UpdateSurfaceImage<is called.
+    ///
+    /// This interface is a non-thread-safe type interface.
     ///
     ///
     ///
@@ -287,6 +327,8 @@ extern "C" {
     ///
     /// When the fenceFd is used up, you need to close it.
     ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
@@ -318,6 +360,8 @@ extern "C" {
     /// <b>OH_NativeImage</b> instance for reuse.
     ///
     /// The fenceFd will be close by system.
+    ///
+    /// This interface is a non-thread-safe type interface.
     ///
     ///
     ///
@@ -353,6 +397,9 @@ extern "C" {
     ///
     /// This interface needs to be used in conjunction with <b>OH_NativeImage_Destroy<otherwise memory leaks will occur.
     ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
     ///
@@ -368,4 +415,58 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ConsumerSurface_Create() -> *mut OH_NativeImage;
+    /// Set the default usage of the <b>OH_NativeImage</b>.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// `usage` - Indicates the usage of the <b>OH_NativeImage</b>.Refer to the enum <b>OH_NativeBuffer_Usage</b>.
+    ///
+    /// # Returns
+    ///
+    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
+    ///
+    /// Available since API-level: 13
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_ConsumerSurface_SetDefaultUsage(image: *mut OH_NativeImage, usage: u64) -> i32;
+    /// Set the default size of the <b>OH_NativeImage</b>.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// `width` - Indicates the width of the <b>OH_NativeImage</b>, and it should be greater than 0.
+    ///
+    /// `height` - Indicates the height of the <b>OH_NativeImage</b>, and it should be greater than 0.
+    ///
+    /// # Returns
+    ///
+    /// [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL or width, height less than or equal to 0.
+    ///
+    /// Available since API-level: 13
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_ConsumerSurface_SetDefaultSize(
+        image: *mut OH_NativeImage,
+        width: i32,
+        height: i32,
+    ) -> i32;
 }
