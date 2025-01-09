@@ -1,4 +1,4 @@
-# v0.6.0
+# v0.6.0 (2025-01-09)
 
 ## Breaking 
 
@@ -7,9 +7,10 @@
 - native_window: Duplicate bindings for `native_buffer` types were removed. Use the bindings from `native_buffer` instead.
 - native_buffer: `OH_NativeBuffer_MetadataType` is now a wrapper around `c_int` instead of `c_uint`.
 
-## Changed
+## Add
 
 - Made vsync bindings also available as dedicated ohos-vsync-sys crate. No user facing changes.
+- Updated all bindings for API-13.
 
 # v0.5.0 (2025-01-04)
 

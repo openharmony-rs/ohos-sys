@@ -1,6 +1,7 @@
-# 0.3.0 (unreleased)
+# 0.3.0 (2025-01-09)
 
 - The constant `OH_NATIVE_XCOMPONENT_OBJ` is now a `CStr` instead of raw byte string
+- Updated bindings for API-13
 
 # 0.2.0 (2025-01-04)
 
