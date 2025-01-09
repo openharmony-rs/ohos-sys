@@ -33,7 +33,7 @@ jobs:
   api_feature_levels:
     strategy:
       matrix:
-        api_level: ["api-10", "api-11", "api-12"]
+        api_level: ["api-10", "api-11", "api-12", "api-13"]
     name: Build with API feature levels
     runs-on: ubuntu-latest
     steps:
@@ -56,6 +56,8 @@ jobs:
         run: cargo build --features api-11 --features ${{ matrix.component }}
       - name: Build minimal features API-12
         run: cargo build --features api-12 --features ${{ matrix.component }}
+      - name: Build minimal features API-13
+        run: cargo build --features api-13 --features ${{ matrix.component }}
 
   semver_checks:
     runs-on: ubuntu-latest

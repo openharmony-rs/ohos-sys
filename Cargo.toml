@@ -106,9 +106,21 @@ api-12 = ["api-11",
     "ohos-ime-sys?/api-12",
     "ohos-image-kit-sys?/api-12",
     "xcomponent-sys?/api-12",
-    "ohos-vsync-sys?/api-11",
+    "ohos-vsync-sys?/api-12",
 ]
 
+## Enables bindings for OpenHarmony API-level 13
+api-13 = ["api-12",
+    "arkui-sys?/api-13",
+    "ohos-deviceinfo-sys?/api-13",
+    "ohos-drawing-sys?/api-13",
+    "hilog-sys?/api-13",
+    "hitrace-sys?/api-13",
+    "ohos-ime-sys?/api-13",
+    "ohos-image-kit-sys?/api-13",
+    "xcomponent-sys?/api-13",
+    "ohos-vsync-sys?/api-13",
+]
 #! ### Features of dependencies
 #!
 #! Re-exports features of individual component crates of `ohos-sys`.
