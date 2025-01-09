@@ -1,6 +1,10 @@
-# unreleased
+# 0.2.0 (2025-01-09)
 
-## Changes
+## Breaking 
+
+- Use `CStr` instead of raw byte strings
+
+## Add
 
 - Updated the bindings for API-13
 
