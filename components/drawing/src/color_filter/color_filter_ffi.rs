@@ -16,13 +16,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `color` - Indicates the color, which is a 32-bit (ARGB) variable.
+    /// * `color` - Indicates the color, which is a 32-bit (ARGB) variable.
     ///
-    /// `OH_Drawing_BlendMode` - Indicates the blend mode.
+    /// * `OH_Drawing_BlendMode` - Indicates the blend mode.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -39,13 +39,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
     ///
-    /// `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -62,11 +62,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `matrix` - Indicates the matrix, which is represented as a float array of length 20.
+    /// * `matrix` - Indicates the matrix, which is represented as a float array of length 20.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -81,7 +81,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -96,7 +96,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -112,7 +112,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -126,7 +126,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
     ///
     /// Available since API-level: 11
     ///

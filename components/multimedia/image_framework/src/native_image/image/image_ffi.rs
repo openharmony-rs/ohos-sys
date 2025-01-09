@@ -21,13 +21,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
     ///
-    /// `size` - Indicates the pointer to the [`Image_Size`] object obtained.
+    /// * `size` - Indicates the pointer to the [`Image_Size`] object obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter.
     /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
     ///
@@ -42,15 +42,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
     ///
-    /// `types` - Indicates the pointer to an [`OH_ImageNative`] component arry obtained.
+    /// * `types` - Indicates the pointer to an [`OH_ImageNative`] component arry obtained.
     ///
-    /// `typeSize` - Indicates the pointer to the [`OH_ImageNative`] component arry size obtained.
+    /// * `typeSize` - Indicates the pointer to the [`OH_ImageNative`] component arry size obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
@@ -65,15 +65,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
     ///
-    /// `componentType` - Indicates the type of component.
+    /// * `componentType` - Indicates the type of component.
     ///
-    /// `nativeBuffer` - Indicates the pointer to the component buffer obtained.
+    /// * `nativeBuffer` - Indicates the pointer to the component buffer obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
@@ -88,15 +88,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
     ///
-    /// `componentType` - Indicates the type of component.
+    /// * `componentType` - Indicates the type of component.
     ///
-    /// `size` - Indicates the pointer to the size of buffer obtained.
+    /// * `size` - Indicates the pointer to the size of buffer obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
@@ -111,15 +111,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
     ///
-    /// `componentType` - Indicates the type of component.
+    /// * `componentType` - Indicates the type of component.
     ///
-    /// `rowStride` - Indicates the pointer to the row stride obtained.
+    /// * `rowStride` - Indicates the pointer to the row stride obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
@@ -134,15 +134,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
     ///
-    /// `componentType` - Indicates the type of component.
+    /// * `componentType` - Indicates the type of component.
     ///
-    /// `pixelStride` - Indicates the pointer to the pixel stride obtained.
+    /// * `pixelStride` - Indicates the pointer to the pixel stride obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
@@ -157,13 +157,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
     ///
-    /// `timestamp` - Indicates the pointer to the timestamp obtained.
+    /// * `timestamp` - Indicates the pointer to the timestamp obtained.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] if the input parameter is invalid.
     ///
@@ -179,11 +179,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12

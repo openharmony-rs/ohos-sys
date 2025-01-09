@@ -17,15 +17,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
-    /// `fontFamily` - Indicates the family-name of the font which need to register.
+    /// * `fontFamily` - Indicates the family-name of the font which need to register.
     ///
-    /// `familySrc` - Indicates the path of the font file which need to register.
+    /// * `familySrc` - Indicates the path of the font file which need to register.
     ///
     /// # Returns
     ///
-    /// error code.
+    /// * error code.
     ///
     /// Available since API-level: 11
     ///
@@ -44,17 +44,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
-    /// `fontFamily` - Indicates the family-name of the font which need to register.
+    /// * `fontFamily` - Indicates the family-name of the font which need to register.
     ///
-    /// `fontBuffer` - Indicates the buffer of the font file which need to register.
+    /// * `fontBuffer` - Indicates the buffer of the font file which need to register.
     ///
-    /// `length` - Indicates the length of the font file which need to register.
+    /// * `length` - Indicates the length of the font file which need to register.
     ///
     /// # Returns
     ///
-    /// error code.
+    /// * error code.
     ///
     /// Available since API-level: 11
     ///

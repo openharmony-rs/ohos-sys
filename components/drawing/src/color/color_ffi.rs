@@ -16,17 +16,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `alpha` - Indicates a variable that describes alpha. The value ranges from 0x00 to 0xFF.
+    /// * `alpha` - Indicates a variable that describes alpha. The value ranges from 0x00 to 0xFF.
     ///
-    /// `red` - Indicates a variable that describes red. The value ranges from 0x00 to 0xFF.
+    /// * `red` - Indicates a variable that describes red. The value ranges from 0x00 to 0xFF.
     ///
-    /// `green` - Indicates a variable that describes green. The value ranges from 0x00 to 0xFF.
+    /// * `green` - Indicates a variable that describes green. The value ranges from 0x00 to 0xFF.
     ///
-    /// `blue` - Indicates a variable that describes blue. The value ranges from 0x00 to 0xFF.
+    /// * `blue` - Indicates a variable that describes blue. The value ranges from 0x00 to 0xFF.
     ///
     /// # Returns
     ///
-    /// Returns a 32-bit (ARGB) variable that describes the color.
+    /// * Returns a 32-bit (ARGB) variable that describes the color.
     ///
     /// Available since API-level: 8
     ///

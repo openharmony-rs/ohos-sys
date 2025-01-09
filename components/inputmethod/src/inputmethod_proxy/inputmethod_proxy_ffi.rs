@@ -16,12 +16,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
     /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`].
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
     /// [`IME_ERR_IMMS`] - input method manager service error.
@@ -39,12 +39,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
     /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`].
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
     /// [`IME_ERR_IMMS`] - input method manager service error.
@@ -64,20 +64,20 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
     /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`].
     ///
-    /// `text` - The whole input text.
+    /// * `text` - The whole input text.
     ///
-    /// `length` - The length of text. Max length is 8K.
+    /// * `length` - The length of text. Max length is 8K.
     ///
-    /// `start` - The start position of selected text.
+    /// * `start` - The start position of selected text.
     ///
-    /// `end` - The end position of selected text.
+    /// * `end` - The end position of selected text.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
@@ -100,16 +100,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
     /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`].
     ///
-    /// `enterKey` - The enter key type.
+    /// * `enterKey` - The enter key type.
     ///
-    /// `textType` - The text input type.
+    /// * `textType` - The text input type.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
@@ -130,15 +130,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
     /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`].
     ///
-    /// `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
+    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
     /// The cursor information.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
@@ -158,16 +158,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
     /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`].
     ///
-    /// `privateCommand` - The private commands, which is defined in [`InputMethod_PrivateCommand`]. Max size 32KB.
+    /// * `privateCommand` - The private commands, which is defined in [`InputMethod_PrivateCommand`]. Max size 32KB.
     ///
-    /// `size` - The size of privateCommand. Max is 5.
+    /// * `size` - The size of privateCommand. Max is 5.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
     /// [`IME_ERR_IMCLIENT`] - input method client error.

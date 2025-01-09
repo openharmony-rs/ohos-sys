@@ -39,11 +39,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - Indicates the pointer to the <b>OH_ImageReceiverOptions</b> object obtained.
+    /// * `options` - Indicates the pointer to the <b>OH_ImageReceiverOptions</b> object obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if alloc failed.
     ///
@@ -57,13 +57,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
+    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
     ///
-    /// `size` - Indicates the value of the [`Image_Size`] object will be obtained.
+    /// * `size` - Indicates the value of the [`Image_Size`] object will be obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
@@ -77,13 +77,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
+    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
     ///
-    /// `size` - Indicates the value of the [`Image_Size`] object will be seted.
+    /// * `size` - Indicates the value of the [`Image_Size`] object will be seted.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
@@ -97,13 +97,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
+    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
     ///
-    /// `capacity` - Indicates the pointer to capacity will be obtained.
+    /// * `capacity` - Indicates the pointer to capacity will be obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
@@ -117,13 +117,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
+    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
     ///
-    /// `capacity` - Indicates the value of capacity will be seted.
+    /// * `capacity` - Indicates the value of capacity will be seted.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
@@ -138,11 +138,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
+    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// [`OH_ImageReceiverOptions`]
     /// Available since API-level: 12
@@ -155,13 +155,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - Indicates the options for setting the <b>OH_ImageReceiverNative</b> object.
+    /// * `options` - Indicates the options for setting the <b>OH_ImageReceiverNative</b> object.
     ///
-    /// `receiver` - Indicates the pointer to the <b>OH_ImageReceiverNative</b> object obtained.
+    /// * `receiver` - Indicates the pointer to the <b>OH_ImageReceiverNative</b> object obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if alloc failed.
     ///
@@ -176,13 +176,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
     ///
-    /// `surfaceId` - Indicates the pointer to the surfaceID will be obtained.
+    /// * `surfaceId` - Indicates the pointer to the surfaceID will be obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
     /// [`OH_ImageReceiverNative`]
@@ -197,13 +197,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
     ///
-    /// `image` - Indicates the pointer to an <b>OH_ImageNative</b> object at the application layer.
+    /// * `image` - Indicates the pointer to an <b>OH_ImageNative</b> object at the application layer.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
     /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if alloc failed.
@@ -220,13 +220,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
     ///
-    /// `image` - Indicates the pointer to an <b>OH_ImageNative</b> object at the application layer.
+    /// * `image` - Indicates the pointer to an <b>OH_ImageNative</b> object at the application layer.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
     /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if alloc failed.
@@ -245,13 +245,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
     ///
-    /// `callback` - Indicates the [`OH_ImageReceiver_OnCallback`] callback event to register.
+    /// * `callback` - Indicates the [`OH_ImageReceiver_OnCallback`] callback event to register.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// [`OH_ImageReceiverNative,`] OH_ImageReceiver_OnCallback
     ///
@@ -268,11 +268,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// [`OH_ImageReceiverNative,`] OH_ImageReceiverNative_On
     ///
@@ -284,13 +284,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
     ///
-    /// `size` - Indicates the pointer to the [`Image_Size`] object will be obtained.
+    /// * `size` - Indicates the pointer to the [`Image_Size`] object will be obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// [`OH_ImageReceiverNative,`] Image_Size
     ///
@@ -305,13 +305,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
     ///
-    /// `capacity` - Indicates the pointer to the capacity will be obtained.
+    /// * `capacity` - Indicates the pointer to the capacity will be obtained.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// [`OH_ImageReceiverNative`]
     /// Available since API-level: 12
@@ -327,11 +327,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// [`OH_ImageReceiverNative`]
     /// Available since API-level: 12

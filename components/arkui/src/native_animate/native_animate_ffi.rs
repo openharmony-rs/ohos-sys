@@ -94,22 +94,22 @@ pub struct ArkUI_NativeAnimateAPI_1 {
     /// Defines an explicit animation.
     ///
     ///
-    /// Note:** Make sure the component attributes to be set in the event closure have been set before.
+    /// **Note:** Make sure the component attributes to be set in the event closure have been set before.
     ///
     /// # Arguments
     ///
-    /// `context` - Indicates a <b>UIContext</b> instance.
+    /// * `context` - Indicates a <b>UIContext</b> instance.
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
-    /// `update` - Indicates the animation closure. The system automatically inserts a transition animation for the
+    /// * `update` - Indicates the animation closure. The system automatically inserts a transition animation for the
     /// state change caused by the closure.
     ///
-    /// `complete` - Indicates the callback to be invoked when the animation playback is complete.
+    /// * `complete` - Indicates the callback to be invoked when the animation playback is complete.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub animateTo: ::core::option::Option<
@@ -125,13 +125,13 @@ pub struct ArkUI_NativeAnimateAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `context` - Indicates a <b>UIContext</b> instance.
+    /// * `context` - Indicates a <b>UIContext</b> instance.
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub keyframeAnimateTo: ::core::option::Option<
@@ -144,13 +144,13 @@ pub struct ArkUI_NativeAnimateAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `context` - Indicates a <b>UIContext</b> instance.
+    /// * `context` - Indicates a <b>UIContext</b> instance.
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the animator object; returns <b>NULL</b> if a function parameter error occurs.
+    /// * Returns the pointer to the animator object; returns <b>NULL</b> if a function parameter error occurs.
     pub createAnimator: ::core::option::Option<
         unsafe extern "C" fn(
             context: ArkUI_ContextHandle,
@@ -161,7 +161,7 @@ pub struct ArkUI_NativeAnimateAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `animator` - Indicates the target animator object.
+    /// * `animator` - Indicates the target animator object.
     pub disposeAnimator:
         ::core::option::Option<unsafe extern "C" fn(animatorHandle: ArkUI_AnimatorHandle)>,
 }
@@ -171,7 +171,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created animation configuration.
+    /// * Returns the pointer to the created animation configuration.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -188,11 +188,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
     /// # Returns
     ///
-    /// Returns the duration.
+    /// * Returns the duration.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -202,11 +202,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
     /// # Returns
     ///
-    /// Returns the animation playback speed.
+    /// * Returns the animation playback speed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -216,11 +216,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
     /// # Returns
     ///
-    /// Returns the animated curve.If Null is returned, it means option is an invalid value.
+    /// * Returns the animated curve.If Null is returned, it means option is an invalid value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -232,11 +232,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
     /// # Returns
     ///
-    /// Returns the animation delay.
+    /// * Returns the animation delay.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -246,11 +246,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
     /// # Returns
     ///
-    /// Returns the number of times that the animation is played.
+    /// * Returns the number of times that the animation is played.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -260,11 +260,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
     /// # Returns
     ///
-    /// Returns the animation playback mode.
+    /// * Returns the animation playback mode.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -276,11 +276,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
     /// # Returns
     ///
-    /// Returns the expected frame rate range.
+    /// * Returns the expected frame rate range.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -292,9 +292,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
-    /// `value` - Indicates the duration, in milliseconds.
+    /// * `value` - Indicates the duration, in milliseconds.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -304,9 +304,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
-    /// `value` - Indicates the animation playback speed.
+    /// * `value` - Indicates the animation playback speed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -316,9 +316,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
-    /// `value` - Indicates the animated curve. Default value：ARKUI_CURVE_LINEAR.
+    /// * `value` - Indicates the animated curve. Default value：ARKUI_CURVE_LINEAR.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -331,9 +331,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
-    /// `value` - Indicates the animation delay.
+    /// * `value` - Indicates the animation delay.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -343,9 +343,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
-    /// `value` - Indicates the number of times that the animation is played.
+    /// * `value` - Indicates the number of times that the animation is played.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -355,9 +355,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
-    /// `value` - Indicates the animation playback mode.
+    /// * `value` - Indicates the animation playback mode.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -370,9 +370,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
-    /// `value` - Indicates the expected frame rate range.
+    /// * `value` - Indicates the expected frame rate range.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -384,12 +384,12 @@ extern "C" {
     /// Sets the animation curve for the animation of an animator.
     ///
     ///
-    /// Note:** This method is better than the value set by OH_ArkUI_AnimateOption_SetCurve.
+    /// **Note:** This method is better than the value set by OH_ArkUI_AnimateOption_SetCurve.
     /// # Arguments
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
-    /// `value` - Indicates the animation curve settings.
+    /// * `value` - Indicates the animation curve settings.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -402,11 +402,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns the animation curve of the specified animation.
+    /// * Returns the animation curve of the specified animation.
     /// If Null is returned, it means option is an invalid value.
     ///
     /// Available since API-level: 12
@@ -417,11 +417,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `size` - Indicates the number of keyframe animation states.
+    /// * `size` - Indicates the number of keyframe animation states.
     ///
     /// # Returns
     ///
-    /// Returns the keyframe animation parameter object; returns <b>NULL</b> if the value of <b>size</b> is less than
+    /// * Returns the keyframe animation parameter object; returns <b>NULL</b> if the value of <b>size</b> is less than
     /// 0.
     ///
     /// Available since API-level: 12
@@ -432,7 +432,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameter object.
+    /// * `option` - Indicates the keyframe animation parameter object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -443,13 +443,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
-    /// `value` - Indicates the delay, in milliseconds.
+    /// * `value` - Indicates the delay, in milliseconds.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -466,13 +466,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
-    /// `value` - Indicates the number of times that the animation is played.
+    /// * `value` - Indicates the number of times that the animation is played.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -488,15 +488,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
-    /// `userData` - Indicates the pointer to a custom object.
+    /// * `userData` - Indicates the pointer to a custom object.
     ///
-    /// `onFinish` - Indicates the callback.
+    /// * `onFinish` - Indicates the callback.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -512,15 +512,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
-    /// `value` - Indicates the duration to set, in milliseconds.
+    /// * `value` - Indicates the duration to set, in milliseconds.
     ///
-    /// `index` - Indicates a state index.
+    /// * `index` - Indicates a state index.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -535,19 +535,19 @@ extern "C" {
     /// Sets the animation curve for a specific keyframe in a keyframe animation.
     ///
     ///
-    /// Note:** Because the <b>springMotion</b>, <b>responsiveSpringMotion</b>, and <b>interpolatingSpring</b> curves do not
+    /// **Note:** Because the <b>springMotion</b>, <b>responsiveSpringMotion</b>, and <b>interpolatingSpring</b> curves do not
     /// have effective duration settings, they are not supported.
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
-    /// `value` - Indicates the animation curve to set. Default value：EASE_IN_OUT.
+    /// * `value` - Indicates the animation curve to set. Default value：EASE_IN_OUT.
     ///
-    /// `index` - Indicates a state index.
+    /// * `index` - Indicates a state index.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -564,17 +564,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
-    /// `event` - Indicates a closure function.
+    /// * `event` - Indicates a closure function.
     ///
-    /// `userData` - Indicates the pointer to a custom object.
+    /// * `userData` - Indicates the pointer to a custom object.
     ///
-    /// `index` - Indicates a state index.
+    /// * `index` - Indicates a state index.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -591,11 +591,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
     /// # Returns
     ///
-    /// Returns the overall delay.
+    /// * Returns the overall delay.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -606,11 +606,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
     /// # Returns
     ///
-    /// Returns the number of times that the animation is played.
+    /// * Returns the number of times that the animation is played.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -622,13 +622,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
-    /// `index` - Indicates a state index.
+    /// * `index` - Indicates a state index.
     ///
     /// # Returns
     ///
-    /// Returns the duration. The unit is millisecond.
+    /// * Returns the duration. The unit is millisecond.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -641,13 +641,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Indicates the keyframe animation parameters.
     ///
-    /// `index` - Indicates a state index.
+    /// * `index` - Indicates a state index.
     ///
     /// # Returns
     ///
-    /// Returns the animated curve.
+    /// * Returns the animated curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -660,15 +660,15 @@ extern "C" {
     /// Creates an animator parameter object.
     ///
     ///
-    /// Note:** When <b>keyframeSize</b> is greater than 0, the animation interpolation start point is 0, and the animation
+    /// **Note:** When <b>keyframeSize</b> is greater than 0, the animation interpolation start point is 0, and the animation
     /// interpolation end point is 1; no setting is allowed.
     /// # Arguments
     ///
-    /// `keyframeSize` - Indicates the number of keyframes.
+    /// * `keyframeSize` - Indicates the number of keyframes.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the animator parameter object.
+    /// * Returns the pointer to the animator parameter object.
     /// returns <b>NULL</b> if the value of <b>size</b> is less than 0.
     ///
     /// Available since API-level: 12
@@ -686,13 +686,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the target animator parameter object.
+    /// * `option` - Indicates the target animator parameter object.
     ///
-    /// `value` - Indicates the playback duration, in milliseconds.
+    /// * `value` - Indicates the playback duration, in milliseconds.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -707,13 +707,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `value` - Indicates the delay to set, in milliseconds.
+    /// * `value` - Indicates the delay to set, in milliseconds.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -725,17 +725,17 @@ extern "C" {
     /// animation, and <b>-1</b> means to play the animation for an unlimited number of times.
     ///
     ///
-    /// Note:** If this parameter is set to a negative value other than <b>-1</b>, the value is invalid. In this case, the
+    /// **Note:** If this parameter is set to a negative value other than <b>-1</b>, the value is invalid. In this case, the
     /// animation is played once.
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `value` - Indicates the number of times that the animation is played.
+    /// * `value` - Indicates the number of times that the animation is played.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -750,13 +750,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `value` - Indicates whether to restore the animation to the initial state after the animation is executed.
+    /// * `value` - Indicates whether to restore the animation to the initial state after the animation is executed.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -771,13 +771,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `value` - Indicates the animation playback direction.
+    /// * `value` - Indicates the animation playback direction.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -791,18 +791,18 @@ extern "C" {
     /// Sets the interpolation curve for the animation of an animator.
     ///
     ///
-    /// Note:** <b>springCurve</b>, <b>springMotion</b>, <b>responsiveSpringMotion</b>, <b>interpolatingSpring</b>,
+    /// **Note:** <b>springCurve</b>, <b>springMotion</b>, <b>responsiveSpringMotion</b>, <b>interpolatingSpring</b>,
     /// and <b>customCurve</b> curves are not supported.
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `value` - Indicates the target interpolation curve. Default value：ARKUI_CURVE_LINEAR.
+    /// * `value` - Indicates the target interpolation curve. Default value：ARKUI_CURVE_LINEAR.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -815,17 +815,17 @@ extern "C" {
     ) -> i32;
     /// Sets the interpolation start point for the animation of an animator.
     ///
-    /// Note:** This API does not take effect when the animation is a keyframe animation.
+    /// **Note:** This API does not take effect when the animation is a keyframe animation.
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `value` - Indicates the interpolation start point to set.
+    /// * `value` - Indicates the interpolation start point to set.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -835,17 +835,17 @@ extern "C" {
     pub fn OH_ArkUI_AnimatorOption_SetBegin(option: *mut ArkUI_AnimatorOption, value: f32) -> i32;
     /// Sets the interpolation end point for the animation of an animator.
     ///
-    /// Note:** This API does not take effect when the animation is a keyframe animation.
+    /// **Note:** This API does not take effect when the animation is a keyframe animation.
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `value` - Indicates the interpolation end point to set.
+    /// * `value` - Indicates the interpolation end point to set.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -857,13 +857,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `value` - Indicates the expected frame rate range to set.
+    /// * `value` - Indicates the expected frame rate range to set.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -878,17 +878,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `time` - Indicates the keyframe time. Value range: [0,1].
+    /// * `time` - Indicates the keyframe time. Value range: [0,1].
     ///
-    /// `value` - Indicates the keyframe value.
+    /// * `value` - Indicates the keyframe value.
     ///
-    /// `index` - Indicates the keyframe index.
+    /// * `index` - Indicates the keyframe index.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -904,20 +904,20 @@ extern "C" {
     /// Sets the keyframe curve type for the animation of an animator.
     ///
     ///
-    /// Note:** <b>springCurve</b>, <b>springMotion</b>, <b>responsiveSpringMotion</b>, <b>interpolatingSpring</b>,
+    /// **Note:** <b>springCurve</b>, <b>springMotion</b>, <b>responsiveSpringMotion</b>, <b>interpolatingSpring</b>,
     /// and <b>customCurve</b> curves are not supported.
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `value` - Indicates the target interpolation curve.
+    /// * `value` - Indicates the target interpolation curve.
     ///
-    /// `index` - Indicates the keyframe index.
+    /// * `index` - Indicates the keyframe index.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -933,11 +933,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns the duration for playing the animation, in milliseconds.
+    /// * Returns the duration for playing the animation, in milliseconds.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -947,11 +947,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns the delay for playing the animation, in milliseconds.
+    /// * Returns the delay for playing the animation, in milliseconds.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -961,11 +961,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Animator animation parameter.
+    /// * `option` - Animator animation parameter.
     ///
     /// # Returns
     ///
-    /// Returns the number of times that the animation is played.
+    /// * Returns the number of times that the animation is played.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -975,11 +975,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns whether the animator animation is restored to the initial state after being executed.
+    /// * Returns whether the animator animation is restored to the initial state after being executed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -991,11 +991,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns the animation playback direction.
+    /// * Returns the animation playback direction.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1007,11 +1007,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns the interpolation curve of the animation.
+    /// * Returns the interpolation curve of the animation.
     /// Returns <b>NULL</b> if a parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -1023,11 +1023,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns the interpolation start point of the animation.
+    /// * Returns the interpolation start point of the animation.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1037,11 +1037,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns the interpolation end point of the animation.
+    /// * Returns the interpolation end point of the animation.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1051,11 +1051,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the expected frame rate range object.
+    /// * Returns the pointer to the expected frame rate range object.
     /// Returns <b>NULL</b> if a parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -1068,13 +1068,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `index` - Indicates the keyframe index.
+    /// * `index` - Indicates the keyframe index.
     ///
     /// # Returns
     ///
-    /// Returns the keyframe time.
+    /// * Returns the keyframe time.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1087,13 +1087,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `index` - Indicates the keyframe index.
+    /// * `index` - Indicates the keyframe index.
     ///
     /// # Returns
     ///
-    /// Returns the keyframe value.
+    /// * Returns the keyframe value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1106,13 +1106,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `index` - Indicates the keyframe index.
+    /// * `index` - Indicates the keyframe index.
     ///
     /// # Returns
     ///
-    /// Returns the interpolation curve.
+    /// * Returns the interpolation curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -1126,11 +1126,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates an animation event object.
+    /// * `event` - Indicates an animation event object.
     ///
     /// # Returns
     ///
-    /// Returns the custom object.
+    /// * Returns the custom object.
     /// Returns <b>NULL</b> if a parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -1143,11 +1143,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates an animation event object.
+    /// * `event` - Indicates an animation event object.
     ///
     /// # Returns
     ///
-    /// Returns the custom object.
+    /// * Returns the custom object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1159,11 +1159,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates an animation event object.
+    /// * `event` - Indicates an animation event object.
     ///
     /// # Returns
     ///
-    /// Returns the animation progress.
+    /// * Returns the animation progress.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1173,15 +1173,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `userData` - Indicates the custom parameter.
+    /// * `userData` - Indicates the custom parameter.
     ///
-    /// `callback` - Indicates the callback to set.
+    /// * `callback` - Indicates the callback to set.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1199,15 +1199,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `userData` - Indicates the custom parameter.
+    /// * `userData` - Indicates the custom parameter.
     ///
-    /// `callback` - Indicates the callback to set.
+    /// * `callback` - Indicates the callback to set.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1223,15 +1223,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `userData` - Indicates the custom parameter.
+    /// * `userData` - Indicates the custom parameter.
     ///
-    /// `callback` - Indicates the callback to set.
+    /// * `callback` - Indicates the callback to set.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1247,15 +1247,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates an animator parameter object.
+    /// * `option` - Indicates an animator parameter object.
     ///
-    /// `userData` - Indicates the custom parameter.
+    /// * `userData` - Indicates the custom parameter.
     ///
-    /// `callback` - Indicates the callback to set.
+    /// * `callback` - Indicates the callback to set.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1271,13 +1271,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Indicates an animator object.
     ///
-    /// `option` - Indicates the animator parameters.
+    /// * `option` - Indicates the animator parameters.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1292,11 +1292,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Indicates an animator object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1308,11 +1308,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Indicates an animator object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1324,11 +1324,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Indicates an animator object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1340,11 +1340,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Indicates an animator object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1356,11 +1356,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Indicates an animator object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1373,25 +1373,25 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `curve` - Indicates the curve type.
+    /// * `curve` - Indicates the curve type.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the interpolation object of the curve.
+    /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
     pub fn OH_ArkUI_Curve_CreateCurveByType(curve: ArkUI_AnimationCurve) -> ArkUI_CurveHandle;
     /// Creates a step curve.
     ///
     /// # Arguments
     ///
-    /// `count` - Indicates the number of steps. The value must be a positive integer. Value range: [1, +∞).
+    /// * `count` - Indicates the number of steps. The value must be a positive integer. Value range: [1, +∞).
     ///
-    /// `end` - Indicates whether jumping occurs when the interpolation ends.
+    /// * `end` - Indicates whether jumping occurs when the interpolation ends.
     /// <b>true</b>: Jumping occurs when the interpolation ends. <b>false</b>: Jumping occurs when the interpolation starts.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the interpolation object of the curve.
+    /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
     pub fn OH_ArkUI_Curve_CreateStepsCurve(count: i32, end: bool) -> ArkUI_CurveHandle;
     /// Creates a cubic Bezier curve.
@@ -1399,19 +1399,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `x1` - Indicates the X coordinate of the first point on the Bezier curve. Value range: [0, 1].
+    /// * `x1` - Indicates the X coordinate of the first point on the Bezier curve. Value range: [0, 1].
     /// A value less than 0 is handed as <b>0</b>. A value greater than 1 is handed as <b>1</b>.
     ///
-    /// `y1` - Indicates the Y coordinate of the first point on the Bezier curve.
+    /// * `y1` - Indicates the Y coordinate of the first point on the Bezier curve.
     ///
-    /// `x2` - Indicates the X coordinate of the second point on the Bezier curve. Value range: [0, 1].
+    /// * `x2` - Indicates the X coordinate of the second point on the Bezier curve. Value range: [0, 1].
     /// A value less than 0 is handed as <b>0</b>. A value greater than 1 is handed as <b>1</b>.
     ///
-    /// `y2` - Indicates the Y coordinate of the second point on the Bezier curve.
+    /// * `y2` - Indicates the Y coordinate of the second point on the Bezier curve.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the interpolation object of the curve.
+    /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
     pub fn OH_ArkUI_Curve_CreateCubicBezierCurve(
         x1: f32,
@@ -1424,25 +1424,25 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `velocity` - Indicates the initial velocity of the spring. It is applied by external factors to the spring
+    /// * `velocity` - Indicates the initial velocity of the spring. It is applied by external factors to the spring
     /// animation, designed to help ensure the smooth transition from the previous motion state. The velocity is the
     /// normalized velocity, and its value is equal to the actual velocity at the beginning of the animation divided by the
     /// animation attribute change value.
     ///
-    /// `mass` - Indicates the mass, which influences the inertia in the spring system. The greater the mass, the greater
+    /// * `mass` - Indicates the mass, which influences the inertia in the spring system. The greater the mass, the greater
     /// the amplitude of the oscillation, and the slower the speed of restoring to the equilibrium position.
     ///
-    /// `stiffness` - Indicates the stiffness. It is the degree to which an object deforms by resisting the force applied.
+    /// * `stiffness` - Indicates the stiffness. It is the degree to which an object deforms by resisting the force applied.
     /// In an elastic system, the greater the stiffness, the stronger the ability to resist deformation, and the faster the
     /// speed of restoring to the equilibrium position.
     ///
-    /// `damping` - Indicates the damping. It is used to describe the oscillation and attenuation of the system after
+    /// * `damping` - Indicates the damping. It is used to describe the oscillation and attenuation of the system after
     /// being disturbed. The larger the damping, the smaller the number of oscillations of elastic motion, and the smaller
     /// the oscillation amplitude.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the interpolation object of the curve.
+    /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
     pub fn OH_ArkUI_Curve_CreateSpringCurve(
         velocity: f32,
@@ -1453,25 +1453,25 @@ extern "C" {
     /// Creates a spring animation curve. If multiple spring animations are applied to the same attribute of an
     /// object, each animation replaces their predecessor and inherits the velocity.
     ///
-    /// Note:** The animation duration is subject to the curve parameters, rather than the <b>duration</b> parameter in
+    /// **Note:** The animation duration is subject to the curve parameters, rather than the <b>duration</b> parameter in
     /// <b>animation</b> or <b>animateTo</b>.
     ///
     /// # Arguments
     ///
-    /// `response` - Indicates the duration of one complete oscillation.
+    /// * `response` - Indicates the duration of one complete oscillation.
     ///
-    /// `dampingFraction` - Indicates the damping coefficient.
+    /// * `dampingFraction` - Indicates the damping coefficient.
     /// > 0 and < 1: underdamped. In this case, the spring overshoots the equilibrium position.
     /// <b>1</b>: critically damped.
     /// > 1: overdamped. In this case, the spring approaches equilibrium gradually.
     ///
-    /// `overlapDuration` - Indicates the duration for animations to overlap. When animations overlap, the <b>response</b>
+    /// * `overlapDuration` - Indicates the duration for animations to overlap. When animations overlap, the <b>response</b>
     /// values of these animations will
     /// transit smoothly over this duration if they are different.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the interpolation object of the curve.
+    /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
     pub fn OH_ArkUI_Curve_CreateSpringMotion(
         response: f32,
@@ -1481,25 +1481,25 @@ extern "C" {
     /// Creates a responsive spring animation curve. It is a special case of <b>springMotion</b>, with the only
     /// difference in the default values. It can be used together with <b>springMotion</b>.
     ///
-    /// Note:** The animation duration is subject to the curve parameters, rather than the <b>duration</b> parameter in
+    /// **Note:** The animation duration is subject to the curve parameters, rather than the <b>duration</b> parameter in
     /// <b>animation</b> or <b>animateTo</b>.
     ///
     /// # Arguments
     ///
-    /// `response` - Indicates the duration of one complete oscillation.
+    /// * `response` - Indicates the duration of one complete oscillation.
     ///
-    /// `dampingFraction` - Indicates the damping coefficient.
+    /// * `dampingFraction` - Indicates the damping coefficient.
     /// > 0 and < 1: underdamped. In this case, the spring overshoots the equilibrium position.
     /// <b>1</b>: critically damped.
     /// > 1: overdamped. In this case, the spring approaches equilibrium gradually.
     ///
-    /// `overlapDuration` - Indicates the duration for animations to overlap. When animations overlap, the
+    /// * `overlapDuration` - Indicates the duration for animations to overlap. When animations overlap, the
     /// <b>response</b> values of these animations will
     /// transit smoothly over this duration if they are different.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the interpolation object of the curve.
+    /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
     pub fn OH_ArkUI_Curve_CreateResponsiveSpringMotion(
         response: f32,
@@ -1509,32 +1509,32 @@ extern "C" {
     /// Creates an interpolating spring curve animated from 0 to 1. The actual animation value is calculated based on
     /// the curve.
     ///
-    /// Note:** The animation duration is subject to the curve parameters, rather than the <b>duration</b> parameter in
+    /// **Note:** The animation duration is subject to the curve parameters, rather than the <b>duration</b> parameter in
     /// <b>animation</b> or <b>animateTo</b>.
     ///
     ///
     /// # Arguments
     ///
-    /// `velocity` - Indicates the initial velocity of the spring. It is applied by external factors to the spring
+    /// * `velocity` - Indicates the initial velocity of the spring. It is applied by external factors to the spring
     /// animation, esigned to help ensure the smooth transition from the previous motion state. The velocity is the
     /// normalized velocity, and its value is equal to the actual velocity
     /// at the beginning of the animation divided by the animation attribute change value.
     ///
-    /// `mass` - Indicates the mass, which influences the inertia in the spring system.
+    /// * `mass` - Indicates the mass, which influences the inertia in the spring system.
     /// The greater the mass, the greater the amplitude of the oscillation, and the slower the speed of restoring to the
     /// equilibrium position.
     ///
-    /// `stiffness` - Indicates the stiffness. It is the degree to which an object deforms by resisting the force applied.
+    /// * `stiffness` - Indicates the stiffness. It is the degree to which an object deforms by resisting the force applied.
     /// In an elastic system, the greater the stiffness, the stronger the ability to resist deformation, and the faster the
     /// speed of restoring to the equilibrium position.
     ///
-    /// `damping` - Indicates the damping. It is used to describe the oscillation and attenuation of the system after
+    /// * `damping` - Indicates the damping. It is used to describe the oscillation and attenuation of the system after
     /// being disturbed. The larger the damping, the smaller the number of oscillations of elastic motion, and the smaller
     /// the oscillation amplitude.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the interpolation object of the curve.
+    /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
     pub fn OH_ArkUI_Curve_CreateInterpolatingSpring(
         velocity: f32,
@@ -1546,9 +1546,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `userData` - Indicates the custom data.
+    /// * `userData` - Indicates the custom data.
     ///
-    /// `interpolate` - Indicates the custom interpolation callback. <b>fraction</b> indicates the input x value for
+    /// * `interpolate` - Indicates the custom interpolation callback. <b>fraction</b> indicates the input x value for
     /// interpolation when the animation starts; value range: [0,1].
     /// The return value is the y value of the curve; value range: [0,1].
     /// If <b>fraction</b> is <b>0</b>, the return value <b>0</b> corresponds to the animation start point; any other return
@@ -1559,7 +1559,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the interpolation object of the curve.
+    /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
     pub fn OH_ArkUI_Curve_CreateCustomCurve(
         userData: *mut ::core::ffi::c_void,
@@ -1571,20 +1571,20 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `curve` - Indicates the pointer to the interpolation object of the curve.
+    /// * `curve` - Indicates the pointer to the interpolation object of the curve.
     pub fn OH_ArkUI_Curve_DisposeCurve(curveHandle: ArkUI_CurveHandle);
     /// Creates an opacity object for component transition.
     ///
     ///
-    /// Note:** If the value specified is less than 0, the value <b>0</b> is used. If the value specified is greater than 1,
+    /// **Note:** If the value specified is less than 0, the value <b>0</b> is used. If the value specified is greater than 1,
     /// the value <b>1</b> is used.
     /// # Arguments
     ///
-    /// `opacity` - Indicates the opacity. Value range: [0, 1].
+    /// * `opacity` - Indicates the opacity. Value range: [0, 1].
     ///
     /// # Returns
     ///
-    /// Returns the created opacity object for component transition.
+    /// * Returns the created opacity object for component transition.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1594,11 +1594,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `translate` - Indicates the translation settings for component transition.
+    /// * `translate` - Indicates the translation settings for component transition.
     ///
     /// # Returns
     ///
-    /// Returns the translation object created for component transition.
+    /// * Returns the translation object created for component transition.
     /// Returns <b>NULL</b> if a parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -1611,11 +1611,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `scale` - Indicates the scaling settings for component transition.
+    /// * `scale` - Indicates the scaling settings for component transition.
     ///
     /// # Returns
     ///
-    /// Returns the scaling object created for component transition.
+    /// * Returns the scaling object created for component transition.
     /// Returns <b>NULL</b> if a parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -1628,11 +1628,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `rotate` - Indicates the rotation settings for component transition.
+    /// * `rotate` - Indicates the rotation settings for component transition.
     ///
     /// # Returns
     ///
-    /// Returns the rotation object created for component transition.
+    /// * Returns the rotation object created for component transition.
     /// Returns <b>NULL</b> if a parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -1645,11 +1645,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `edge` - Indicates the movement type.
+    /// * `edge` - Indicates the movement type.
     ///
     /// # Returns
     ///
-    /// Returns the movement object created for component transition.
+    /// * Returns the movement object created for component transition.
     /// Returns <b>NULL</b> if a parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -1661,17 +1661,17 @@ extern "C" {
     /// Creates an asymmetric transition effect.
     ///
     ///
-    /// Note:** If the <b>asymmetric</b> function is not used for <b>TransitionEffect</b>, the transition effect takes effect
+    /// **Note:** If the <b>asymmetric</b> function is not used for <b>TransitionEffect</b>, the transition effect takes effect
     /// for both appearance and disappearance of the component.
     /// # Arguments
     ///
-    /// `appear` - Indicates the transition effect for appearance.
+    /// * `appear` - Indicates the transition effect for appearance.
     ///
-    /// `disappear` - Indicates the transition effect for disappearance.
+    /// * `disappear` - Indicates the transition effect for disappearance.
     ///
     /// # Returns
     ///
-    /// Returns the asymmetric transition effect.
+    /// * Returns the asymmetric transition effect.
     /// Returns <b>NULL</b> if a parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -1685,7 +1685,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `effect` - Indicates the transition effect to dispose of.
+    /// * `effect` - Indicates the transition effect to dispose of.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1695,13 +1695,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `firstEffect` - Indicates the transition effect options.
+    /// * `firstEffect` - Indicates the transition effect options.
     ///
-    /// `secondEffect` - Indicates the combination of transition effects.
+    /// * `secondEffect` - Indicates the combination of transition effects.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -1715,17 +1715,17 @@ extern "C" {
     /// Sets transition effect animation settings.
     ///
     ///
-    /// Note:** If <b>combine</b> is used for combining transition effects, the animation settings of a transition effect are
+    /// **Note:** If <b>combine</b> is used for combining transition effects, the animation settings of a transition effect are
     /// applicable to the one following it.
     /// # Arguments
     ///
-    /// `effect` - Indicates the transition effect options.
+    /// * `effect` - Indicates the transition effect options.
     ///
-    /// `animation` - Indicates the animation settings.
+    /// * `animation` - Indicates the animation settings.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///

@@ -54,11 +54,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The PackingOptions pointer will be operated.
+    /// * `options` - The PackingOptions pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -68,14 +68,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - The OH_PackingOptions pointer will be operated.
     ///
-    /// `format` - the number of image format.The user can pass in a null pointer and zero size, we will allocate memory,
+    /// * `format` - the number of image format.The user can pass in a null pointer and zero size, we will allocate memory,
     /// but user must free memory after use.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -88,13 +88,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - The OH_PackingOptions pointer will be operated.
     ///
-    /// `format` - the number of image format.
+    /// * `format` - the number of image format.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -107,13 +107,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - The OH_PackingOptions pointer will be operated.
     ///
-    /// `quality` - The number of image quality.
+    /// * `quality` - The number of image quality.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -126,13 +126,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - The OH_PackingOptions pointer will be operated.
     ///
-    /// `quality` - The number of image quality.
+    /// * `quality` - The number of image quality.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -145,13 +145,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - The OH_PackingOptions pointer will be operated.
     ///
-    /// `needsPackProperties` - Whether the image properties can be saved, like Exif.
+    /// * `needsPackProperties` - Whether the image properties can be saved, like Exif.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -164,13 +164,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - The OH_PackingOptions pointer will be operated.
     ///
-    /// `needsPackProperties` - Whether the image properties can be saved, like Exif.
+    /// * `needsPackProperties` - Whether the image properties can be saved, like Exif.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -183,13 +183,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The PackingOptions pointer will be operated. Pointer connot be null.
+    /// * `options` - The PackingOptions pointer will be operated. Pointer connot be null.
     ///
-    /// `desiredDynamicRange` - The number of dynamic range [`IMAGE_PACKER_DYNAMIC_RANGE`]. Pointer connot be null.
+    /// * `desiredDynamicRange` - The number of dynamic range [`IMAGE_PACKER_DYNAMIC_RANGE`]. Pointer connot be null.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
     ///
     /// Available since API-level: 12
@@ -203,13 +203,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The PackingOptions pointer will be operated. Pointer connot be null.
+    /// * `options` - The PackingOptions pointer will be operated. Pointer connot be null.
     ///
-    /// `desiredDynamicRange` - The number of dynamic range [`IMAGE_PACKER_DYNAMIC_RANGE`].
+    /// * `desiredDynamicRange` - The number of dynamic range [`IMAGE_PACKER_DYNAMIC_RANGE`].
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
     ///
     /// Available since API-level: 12
@@ -223,11 +223,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - The OH_PackingOptions pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -237,11 +237,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The OH_ImagePackerNative pointer will be operated.
+    /// * `options` - The OH_ImagePackerNative pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -253,19 +253,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imagePacker` - The imagePacker to use for packing.
+    /// * `imagePacker` - The imagePacker to use for packing.
     ///
-    /// `options` - Indicates the encoding [`OH_PackingOptions`].
+    /// * `options` - Indicates the encoding [`OH_PackingOptions`].
     ///
-    /// `pixelmap` - The pixelmap to be packed.
+    /// * `pixelmap` - The pixelmap to be packed.
     ///
-    /// `outData` - The output data buffer to store the packed image.
+    /// * `outData` - The output data buffer to store the packed image.
     ///
-    /// `size` - A pointer to the size of the output data buffer.
+    /// * `size` - A pointer to the size of the output data buffer.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -281,19 +281,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imagePacker` - The imagePacker to use for packing.
+    /// * `imagePacker` - The imagePacker to use for packing.
     ///
-    /// `options` - Indicates the encoding [`OH_PackingOptions`].
+    /// * `options` - Indicates the encoding [`OH_PackingOptions`].
     ///
-    /// `picture` - The picture to be packed.
+    /// * `picture` - The picture to be packed.
     ///
-    /// `outData` - The output data buffer to store the packed image.
+    /// * `outData` - The output data buffer to store the packed image.
     ///
-    /// `size` - A pointer to the size of the output data buffer.
+    /// * `size` - A pointer to the size of the output data buffer.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] imagePacker is nullptr, or picture is nullptr, or outData is nullptr,
     /// or size is invalid.
@@ -313,17 +313,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imagePacker` - The image packer to use for packing.
+    /// * `imagePacker` - The image packer to use for packing.
     ///
-    /// `options` - Indicates the encoding [`OH_PackingOptions`].
+    /// * `options` - Indicates the encoding [`OH_PackingOptions`].
     ///
-    /// `pixelmap` - The pixelmap to be packed.
+    /// * `pixelmap` - The pixelmap to be packed.
     ///
-    /// `fd` - Indicates a writable file descriptor.
+    /// * `fd` - Indicates a writable file descriptor.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -338,17 +338,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imagePacker` - The imagePacker to use for packing.
+    /// * `imagePacker` - The imagePacker to use for packing.
     ///
-    /// `options` - Indicates the encoding [`OH_PackingOptions`].
+    /// * `options` - Indicates the encoding [`OH_PackingOptions`].
     ///
-    /// `picture` - The picture to be packed.
+    /// * `picture` - The picture to be packed.
     ///
-    /// `fd` - Indicates a writable file descriptor.
+    /// * `fd` - Indicates a writable file descriptor.
     ///
     /// # Returns
     ///
-    /// Image functions result code.
+    /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] imagePacker is nullptr, or picture is nullptr, or fd is invalid.
     /// [`IMAGE_ENCODE_FAILED`] encode failed.
@@ -366,11 +366,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imagePacker` - A pointer to the image packer object to be released.
+    /// * `imagePacker` - A pointer to the image packer object to be released.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

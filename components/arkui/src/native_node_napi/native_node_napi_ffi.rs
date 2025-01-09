@@ -13,15 +13,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Indicates the NAPI environment pointer.
+    /// * `env` - Indicates the NAPI environment pointer.
     ///
-    /// `frameNode` - Indicates the <b>FrameNode</b> object created on the ArkTS side.
+    /// * `frameNode` - Indicates the <b>FrameNode</b> object created on the ArkTS side.
     ///
-    /// `handle` - Indicates the pointer to the <b>ArkUI_NodeHandle</b> object.
+    /// * `handle` - Indicates the pointer to the <b>ArkUI_NodeHandle</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -38,15 +38,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - ndicates the NAPI environment pointer.
+    /// * `env` - ndicates the NAPI environment pointer.
     ///
-    /// `value` - Indicates the <b>UIContext</b> object created on the ArkTS side.
+    /// * `value` - Indicates the <b>UIContext</b> object created on the ArkTS side.
     ///
-    /// `context` - Indicates the pointer to the <b>ArkUI_ContextHandle</b> object.
+    /// * `context` - Indicates the pointer to the <b>ArkUI_ContextHandle</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -63,15 +63,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - ndicates the NAPI environment pointer.
+    /// * `env` - ndicates the NAPI environment pointer.
     ///
-    /// `value` - Indicates the <b>NodeContent</b> object created on the ArkTS side.
+    /// * `value` - Indicates the <b>NodeContent</b> object created on the ArkTS side.
     ///
-    /// `content` - Indicates the pointer to the <b>ArkUI_NodeContentHandle</b> object.
+    /// * `content` - Indicates the pointer to the <b>ArkUI_NodeContentHandle</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -88,15 +88,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Indicates the NAPI environment pointer.
+    /// * `env` - Indicates the NAPI environment pointer.
     ///
-    /// `value` - Indicates the <b>DrawableDescriptor</b> object created on the ArkTS side.
+    /// * `value` - Indicates the <b>DrawableDescriptor</b> object created on the ArkTS side.
     ///
-    /// `drawableDescriptor` - Indicates the pointer to the <b>ArkUI_DrawableDescriptro</b> object.
+    /// * `drawableDescriptor` - Indicates the pointer to the <b>ArkUI_DrawableDescriptro</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -113,15 +113,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `env` - Indicates the NAPI environment pointer.
+    /// * `env` - Indicates the NAPI environment pointer.
     ///
-    /// `value` - Indicates the <b>Resource</b> object created on the ArkTS side.
+    /// * `value` - Indicates the <b>Resource</b> object created on the ArkTS side.
     ///
-    /// `drawableDescriptor` - Indicates the pointer to the <b>ArkUI_DrawableDescriptro</b> object.
+    /// * `drawableDescriptor` - Indicates the pointer to the <b>ArkUI_DrawableDescriptro</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -137,21 +137,21 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `buffer` - The buffer to which NavigationID writes to the memory,
+    /// * `buffer` - The buffer to which NavigationID writes to the memory,
     /// memory space needs to be allocated by the developer.
     ///
-    /// `bufferSize` - The buffer size
+    /// * `bufferSize` - The buffer size
     ///
-    /// `writeLength` - Indicates the string length actually written to the buffer
+    /// * `writeLength` - Indicates the string length actually written to the buffer
     /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`].
     /// Indicates the minimum buffer size that can accommodate the target
     /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] is returned.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node, buffer or writeLength is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,
@@ -171,21 +171,21 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `buffer` - The buffer to which NavDestination name writes to the memory,
+    /// * `buffer` - The buffer to which NavDestination name writes to the memory,
     /// memory space needs to be allocated by the developer.
     ///
-    /// `bufferSize` - The buffer size
+    /// * `bufferSize` - The buffer size
     ///
-    /// `writeLength` - Indicates the string length actually written to the buffer
+    /// * `writeLength` - Indicates the string length actually written to the buffer
     /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`].
     /// Indicates the minimum buffer size that can accommodate the target
     /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] is returned.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node, buffer or writeLength is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,
@@ -205,13 +205,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `length` - The length of the stack. After the operation succeeds, the result is written back to this parameter.
+    /// * `length` - The length of the stack. After the operation succeeds, the result is written back to this parameter.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node or length is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,
@@ -227,23 +227,23 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `index` - The index of the NavDestination in the stack is queried.
+    /// * `index` - The index of the NavDestination in the stack is queried.
     ///
-    /// `buffer` - The buffer to which NavDestination index writes to the memory,
+    /// * `buffer` - The buffer to which NavDestination index writes to the memory,
     /// memory space needs to be allocated by the developer.
     ///
-    /// `bufferSize` - The buffer size
+    /// * `bufferSize` - The buffer size
     ///
-    /// `writeLength` - Indicates the string length actually written to the buffer
+    /// * `writeLength` - Indicates the string length actually written to the buffer
     /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`].
     /// Indicates the minimum buffer size that can accommodate the target
     /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] is returned.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node, buffer or writeLength is null.
     /// [`ARKUI_ERROR_CODE_NODE_INDEX_INVALID`] if index is an invalid value.
@@ -265,21 +265,21 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `buffer` - The buffer to which NavDestination ID writes to the memory,
+    /// * `buffer` - The buffer to which NavDestination ID writes to the memory,
     /// memory space needs to be allocated by the developer.
     ///
-    /// `bufferSize` - The buffer size
+    /// * `bufferSize` - The buffer size
     ///
-    /// `writeLength` - Indicates the string length actually written to the buffer
+    /// * `writeLength` - Indicates the string length actually written to the buffer
     /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`].
     /// Indicates the minimum buffer size that can accommodate the target
     /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] is returned.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node, buffer or writeLength is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,
@@ -299,13 +299,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `state` - The state value of NavDestination is written back into this parameter.
+    /// * `state` - The state value of NavDestination is written back into this parameter.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node or state is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,
@@ -322,13 +322,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `index` - Index value, counted from 0.
+    /// * `index` - Index value, counted from 0.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node or index is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,
@@ -345,11 +345,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
     /// # Returns
     ///
-    /// The parameters.
+    /// * The parameters.
     /// If a null pointer is returned, it may be because the node is empty or the parameters does not exist.
     ///
     /// Available since API-level: 12
@@ -360,13 +360,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `index` - Index value, counted from 1.
+    /// * `index` - Index value, counted from 1.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node or index is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,
@@ -380,21 +380,21 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `buffer` - The buffer to which page name writes to the memory,
+    /// * `buffer` - The buffer to which page name writes to the memory,
     /// memory space needs to be allocated by the developer.
     ///
-    /// `bufferSize` - The buffer size
+    /// * `bufferSize` - The buffer size
     ///
-    /// `writeLength` - Indicates the string length actually written to the buffer
+    /// * `writeLength` - Indicates the string length actually written to the buffer
     /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`].
     /// Indicates the minimum buffer size that can accommodate the target
     /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] is returned.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node, buffer or writeLength is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,
@@ -414,21 +414,21 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `buffer` - The buffer to which page path writes to the memory,
+    /// * `buffer` - The buffer to which page path writes to the memory,
     /// memory space needs to be allocated by the developer.
     ///
-    /// `bufferSize` - The buffer size
+    /// * `bufferSize` - The buffer size
     ///
-    /// `writeLength` - Indicates the string length actually written to the buffer
+    /// * `writeLength` - Indicates the string length actually written to the buffer
     /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`].
     /// Indicates the minimum buffer size that can accommodate the target
     /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] is returned.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node, buffer or writeLength is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,
@@ -448,13 +448,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `state` - The state value of the page is written back to this parameter.
+    /// * `state` - The state value of the page is written back to this parameter.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node or state is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,
@@ -471,21 +471,21 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
-    /// `buffer` - The buffer to which page ID writes to the memory,
+    /// * `buffer` - The buffer to which page ID writes to the memory,
     /// memory space needs to be allocated by the developer.
     ///
-    /// `bufferSize` - The buffer size
+    /// * `bufferSize` - The buffer size
     ///
-    /// `writeLength` - Indicates the string length actually written to the buffer
+    /// * `writeLength` - Indicates the string length actually written to the buffer
     /// when returning [`ARKUI_ERROR_CODE_NO_ERROR`].
     /// Indicates the minimum buffer size that can accommodate the target
     /// when [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] is returned.
     ///
     /// # Returns
     ///
-    /// The error code.
+    /// * The error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node, buffer or writeLength is null.
     /// [`ARKUI_ERROR_CODE_GET_INFO_FAILED`] if query information failed,

@@ -262,7 +262,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: width, in vp.
-    ///
     pub const NODE_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(0);
 }
 #[cfg(feature = "api-12")]
@@ -279,7 +278,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: height, in vp.
-    ///
     pub const NODE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1);
 }
 #[cfg(feature = "api-12")]
@@ -296,7 +294,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: background color. The value is in 0xARGB format. For example, 0xFFFF0000 indicates red.
-    ///
     pub const NODE_BACKGROUND_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(2);
 }
 #[cfg(feature = "api-12")]
@@ -322,7 +319,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to repeat the image. The parameter type is [`ArkUI_ImageRepeat`].
     ///
     /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
-    ///
     pub const NODE_BACKGROUND_IMAGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3);
 }
 #[cfg(feature = "api-12")]
@@ -357,7 +353,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: bottom padding, in vp.
     ///
     /// .value[3].f32: left padding, in vp.
-    ///
     pub const NODE_PADDING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4);
 }
 #[cfg(feature = "api-12")]
@@ -374,7 +369,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: component ID.
-    ///
     pub const NODE_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5);
 }
 #[cfg(feature = "api-12")]
@@ -391,7 +385,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: The value <b>1</b> means that the component can interact with users, and <b>0</b> means the opposite.
-    ///
     pub const NODE_ENABLED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(6);
 }
 #[cfg(feature = "api-12")]
@@ -426,7 +419,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: bottom margin, in vp.
     ///
     /// .value[3].f32: left margin, in vp.
-    ///
     pub const NODE_MARGIN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7);
 }
 #[cfg(feature = "api-12")]
@@ -451,7 +443,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].f32: distance to translate along the y-axis, in vp.
     ///
     /// .value[2].f32: distance to translate along the z-axis, in vp.
-    ///
     pub const NODE_TRANSLATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8);
 }
 #[cfg(feature = "api-12")]
@@ -472,7 +463,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32: scale factor along the x-axis.
     ///
     /// .value[1].f32: scale factor along the y-axis.
-    ///
     pub const NODE_SCALE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(9);
 }
 #[cfg(feature = "api-12")]
@@ -506,7 +496,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[3].f32: rotation angle.
     ///
     /// .value[4].f32: line of sight, that is, the distance from the viewpoint to the z=0 plane, in vp.
-    ///
     pub const NODE_ROTATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10);
 }
 #[cfg(feature = "api-12")]
@@ -523,7 +512,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: brightness value.
-    ///
     pub const NODE_BRIGHTNESS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11);
 }
 #[cfg(feature = "api-12")]
@@ -540,7 +528,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: saturation value.
-    ///
     pub const NODE_SATURATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12);
 }
 #[cfg(feature = "api-12")]
@@ -559,7 +546,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: blur radius. The larger the fuzzy radius, the more blurred the image. If the value is <b>0</b>,
     /// the image is not blurred. The unit is vp.
-    ///
     pub const NODE_BLUR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13);
 }
 #[cfg(feature = "api-12")]
@@ -605,7 +591,6 @@ impl ArkUI_NodeAttributeType {
     /// stops: stop positions of the color stops.
     ///
     /// size: number of colors.
-    ///
     pub const NODE_LINEAR_GRADIENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(14);
 }
 #[cfg(feature = "api-12")]
@@ -623,7 +608,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`].
-    ///
     pub const NODE_ALIGNMENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(15);
 }
 #[cfg(feature = "api-12")]
@@ -640,7 +624,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: opacity value. The value ranges from 0 to 1.
-    ///
     pub const NODE_OPACITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(16);
 }
 #[cfg(feature = "api-12")]
@@ -671,7 +654,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: width of the bottom border.
     ///
     /// .value[3].f32: width of the left border.
-    ///
     pub const NODE_BORDER_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17);
 }
 #[cfg(feature = "api-12")]
@@ -702,7 +684,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: radius of the lower left corner.
     ///
     /// .value[3].f32: radius of the lower right corner.
-    ///
     pub const NODE_BORDER_RADIUS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18);
 }
 #[cfg(feature = "api-12")]
@@ -733,7 +714,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].u32: color of the lower border, in 0xARGB format, for example, <b>0xFFFF11FF</b>.
     ///
     /// .value[3].u32: color of the left border, in 0xARGB format, for example, <b>0xFFFF11FF</b>.
-    ///
     pub const NODE_BORDER_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19);
 }
 #[cfg(feature = "api-12")]
@@ -769,7 +749,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].i32: line style of the bottom border.
     ///
     /// .value[3].i32: line style of the left border.
-    ///
     pub const NODE_BORDER_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(20);
 }
 #[cfg(feature = "api-12")]
@@ -787,7 +766,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: z-index value.
-    ///
     pub const NODE_Z_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(21);
 }
 #[cfg(feature = "api-12")]
@@ -806,7 +784,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to show or hide the component. The parameter type is [`ArkUI_Visibility`].
     /// The default value is <b>ARKUI_VISIBILITY_VISIBLE</b>.
-    ///
     pub const NODE_VISIBILITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(22);
 }
 #[cfg(feature = "api-12")]
@@ -826,7 +803,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to clip the component based on the parent container bounds.
     /// The value <b>1</b> means to clip the component, and <b>0</b> means the opposite.
-    ///
     pub const NODE_CLIP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(23);
 }
 #[cfg(feature = "api-12")]
@@ -939,7 +915,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: height of the path.
     ///
     /// .string: command for drawing the path.
-    ///
     pub const NODE_CLIP_SHAPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(24);
 }
 #[cfg(feature = "api-12")]
@@ -957,7 +932,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0...15].f32: 16 floating-point numbers.
-    ///
     pub const NODE_TRANSFORM: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(25);
 }
 #[cfg(feature = "api-12")]
@@ -976,7 +950,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: hit test mode. The parameter type is [`ArkUI_HitTestMode`].
     /// The default value is <b>ARKUI_HIT_TEST_MODE_DEFAULT</b>.
-    ///
     pub const NODE_HIT_TEST_BEHAVIOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(26);
 }
 #[cfg(feature = "api-12")]
@@ -998,7 +971,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32: X coordinate.
     ///
     /// .value[1].f32: Y coordinate.
-    ///
     pub const NODE_POSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(27);
 }
 #[cfg(feature = "api-12")]
@@ -1015,7 +987,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: shadow effect. The parameter type is [`ArkUI_ShadowStyle`].
-    ///
     pub const NODE_SHADOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(28);
 }
 #[cfg(feature = "api-12")]
@@ -1060,7 +1031,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[6].u32: whether to fill the shadow. The value <b>1</b> means to fill the shadow, and <b>0</b>
     /// means the opposite.
-    ///
     pub const NODE_CUSTOM_SHADOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(29);
 }
 #[cfg(feature = "api-12")]
@@ -1082,7 +1052,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32: width of the image, in vp.
     ///
     /// .value[1].f32: height of the image, in vp.
-    ///
     pub const NODE_BACKGROUND_IMAGE_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(30);
 }
 #[cfg(feature = "api-12")]
@@ -1100,7 +1069,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: size of the background image. The value is an enum of [`ArkUI_ImageSize`].
-    ///
     pub const NODE_BACKGROUND_IMAGE_SIZE_WITH_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(31);
 }
@@ -1138,7 +1106,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[4].f32: start boundary of grayscale blur.
     ///
     /// .value[5].f32: end boundary of grayscale blur.
-    ///
     pub const NODE_BACKGROUND_BLUR_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(32);
 }
 #[cfg(feature = "api-12")]
@@ -1215,7 +1182,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[5].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
     ///
     /// .value[6].f32: animation playback speed.
-    ///
     pub const NODE_OPACITY_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(34);
 }
 #[cfg(feature = "api-12")]
@@ -1274,7 +1240,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[9].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
     ///
     /// .value[10].f32: animation playback speed.
-    ///
     pub const NODE_ROTATE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(35);
 }
 #[cfg(feature = "api-12")]
@@ -1325,7 +1290,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[7].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
     ///
     /// .value[8].f32: animation playback speed.
-    ///
     pub const NODE_SCALE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(36);
 }
 #[cfg(feature = "api-12")]
@@ -1377,7 +1341,6 @@ impl ArkUI_NodeAttributeType {
     /// value[7].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
     ///
     /// value[8].f32: animation playback speed.
-    ///
     pub const NODE_TRANSLATE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(37);
 }
 #[cfg(feature = "api-12")]
@@ -1419,7 +1382,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[5].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
     ///
     /// .value[6].f32: animation playback speed.
-    ///
     pub const NODE_MOVE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(38);
 }
 #[cfg(feature = "api-12")]
@@ -1569,7 +1531,6 @@ impl ArkUI_NodeAttributeType {
     /// stops: stop positions of the color stops.
     ///
     /// size: number of colors.
-    ///
     pub const NODE_SWEEP_GRADIENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(43);
 }
 #[cfg(feature = "api-12")]
@@ -1619,7 +1580,6 @@ impl ArkUI_NodeAttributeType {
     /// stops: stop positions of the color stops.
     ///
     /// size: number of colors.
-    ///
     pub const NODE_RADIAL_GRADIENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(44);
 }
 #[cfg(feature = "api-12")]
@@ -1799,7 +1759,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: maximum value of the progress indicator.
     ///
     /// .value[3].u32: color of the progress indicator.
-    ///
     pub const NODE_MASK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(45);
 }
 #[cfg(feature = "api-12")]
@@ -1825,7 +1784,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].i32: how the specified blend mode is applied. The parameter type is [`ArkUI_BlendApplyType`].
     /// The default value is <b>ARKUI_BLEND_APPLY_TYPE_FAST</b>.
-    ///
     pub const NODE_BLEND_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(46);
 }
 #[cfg(feature = "api-12")]
@@ -1847,7 +1805,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: direction of the main axis.
     ///
     /// The parameter type is [`ArkUI_Direction`]. The default value is <b>ARKUI_DIRECTION_AUTO</b>.
-    ///
     pub const NODE_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(47);
 }
 #[cfg(feature = "api-12")]
@@ -1877,7 +1834,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: minimum height, in vp.
     ///
     /// .value[3].f32: maximum height, in vp.
-    ///
     pub const NODE_CONSTRAINT_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(48);
 }
 #[cfg(feature = "api-12")]
@@ -1896,7 +1852,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: grayscale conversion ratio. The value ranges from 0 to 1.
-    ///
     pub const NODE_GRAY_SCALE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(49);
 }
 #[cfg(feature = "api-12")]
@@ -1915,7 +1870,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: image inversion ratio. The value ranges from 0 to 1.
-    ///
     pub const NODE_INVERT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(50);
 }
 #[cfg(feature = "api-12")]
@@ -1934,7 +1888,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: sepia conversion ratio. The value ranges from 0 to 1.
-    ///
     pub const NODE_SEPIA: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(51);
 }
 #[cfg(feature = "api-12")]
@@ -1952,7 +1905,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: contrast. Value range: [0, 10).
-    ///
     pub const NODE_CONTRAST: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(52);
 }
 #[cfg(feature = "api-12")]
@@ -1971,7 +1923,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: color value, in 0xARGB format.
-    ///
     pub const NODE_FOREGROUND_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(53);
 }
 #[cfg(feature = "api-12")]
@@ -1993,7 +1944,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32 : offset along the x-axis, in vp.
     ///
     /// .value[1].f32 : offset along the y-axis, in vp.
-    ///
     pub const NODE_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(54);
 }
 #[cfg(feature = "api-12")]
@@ -2015,7 +1965,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32: X coordinate of the anchor, in vp.
     ///
     /// .value[1].f32: Y coordinate of the anchor, in vp.
-    ///
     pub const NODE_MARK_ANCHOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(55);
 }
 #[cfg(feature = "api-12")]
@@ -2037,7 +1986,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32: position along the x-axis, in px.
     ///
     /// .value[1].f32: position along the y-axis, in px.
-    ///
     pub const NODE_BACKGROUND_IMAGE_POSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(56);
 }
 #[cfg(feature = "api-12")]
@@ -2055,7 +2003,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .object: Use the [`ArkUI_AlignmentRuleOption`] object as the component’s alignment rule.
-    ///
     pub const NODE_ALIGN_RULES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(57);
 }
 #[cfg(feature = "api-12")]
@@ -2077,7 +2024,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: alignment mode of the child components along the cross axis of the parent container.
     ///
     /// The parameter type is [`ArkUI_ItemAlignment`]. The default value is <b>ARKUI_ITEM_ALIGNMENT_AUTO</b>.
-    ///
     pub const NODE_ALIGN_SELF: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(58);
 }
 #[cfg(feature = "api-12")]
@@ -2095,7 +2041,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: percentage of the parent container's remaining space that is allocated to the component.
-    ///
     pub const NODE_FLEX_GROW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(59);
 }
 #[cfg(feature = "api-12")]
@@ -2113,7 +2058,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: percentage of the parent container's shrink size that is allocated to the component.
-    ///
     pub const NODE_FLEX_SHRINK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(60);
 }
 #[cfg(feature = "api-12")]
@@ -2131,7 +2075,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: percentage of the parent container's remaining space that is allocated to the component.
-    ///
     pub const NODE_FLEX_BASIS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(61);
 }
 #[cfg(feature = "api-12")]
@@ -2206,7 +2149,7 @@ impl ArkUI_NodeAttributeType {
 impl ArkUI_NodeAttributeType {
     /// Defines the focused state. This attribute can be set and obtained as required through APIs.
     ///
-    /// Note:** Setting the parameter to <b>0</b> shifts focus from the currently focused component on the current level
+    /// **Note:** Setting the parameter to <b>0</b> shifts focus from the currently focused component on the current level
     /// of the page to the root container.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2233,7 +2176,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: aspect ratio of the component, in width/height format.
-    ///
     pub const NODE_ASPECT_RATIO: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(67);
 }
 #[cfg(feature = "api-12")]
@@ -2252,7 +2194,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: weight of the component along the main axis.
-    ///
     pub const NODE_LAYOUT_WEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(68);
 }
 #[cfg(feature = "api-12")]
@@ -2270,7 +2211,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: display priority of the component in the container.
-    ///
     pub const NODE_DISPLAY_PRIORITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(69);
 }
 #[cfg(feature = "api-12")]
@@ -2299,7 +2239,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: thickness of the right outline.
     ///
     /// .value[3].f32: thickness of the bottom outline.
-    ///
     pub const NODE_OUTLINE_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(70);
 }
 #[cfg(feature = "api-12")]
@@ -2316,7 +2255,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: width, in percentage.
-    ///
     pub const NODE_WIDTH_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(71);
 }
 #[cfg(feature = "api-12")]
@@ -2333,7 +2271,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: height, in percentage.
-    ///
     pub const NODE_HEIGHT_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(72);
 }
 #[cfg(feature = "api-12")]
@@ -2368,7 +2305,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: bottom padding, in percentage.
     ///
     /// .value[3].f32: left padding, in percentage.
-    ///
     pub const NODE_PADDING_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(73);
 }
 #[cfg(feature = "api-12")]
@@ -2403,7 +2339,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: bottom margin, in percentage.
     ///
     /// .value[3].f32: left margin, in percentage.
-    ///
     pub const NODE_MARGIN_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(74);
 }
 #[cfg(feature = "api-12")]
@@ -2478,7 +2413,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32 Content filling mode [`ArkUI_RenderFit`].
-    ///
     pub const NODE_RENDER_FIT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(77);
 }
 #[cfg(feature = "api-12")]
@@ -2510,7 +2444,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].u32: Set the lower side box color, denoted by 0xargb, such as 0xFFFF11FF.
     ///
     /// .value[3].u32: Set the left border color, denoted by 0xargb, such as 0xFFFF11FF.
-    ///
     pub const NODE_OUTLINE_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(78);
 }
 #[cfg(feature = "api-12")]
@@ -2532,7 +2465,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32: Width value, unit is vp;
     ///
     /// .value[1].f32: Height value, unit is vp;
-    ///
     pub const NODE_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(79);
 }
 #[cfg(feature = "api-12")]
@@ -2567,7 +2499,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: The color of the overlay is represented by 0xargb, such as 0xFFFF11FF.
-    ///
     pub const NODE_COLOR_BLEND: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(81);
 }
 #[cfg(feature = "api-12")]
@@ -2613,7 +2544,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[4].f32 It is a gray-level fuzzy parameter. The value range is [0,127].
     ///
     /// .value[5].f32 It is a gray-level fuzzy parameter. The value range is [0,127].
-    ///
     pub const NODE_FOREGROUND_BLUR_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(82);
 }
 #[cfg(feature = "api-12")]
@@ -2681,7 +2611,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: width of the bottom border, in percentage.
     ///
     /// .value[3].f32: width of the left border, in percentage.
-    ///
     pub const NODE_BORDER_WIDTH_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(85);
 }
 #[cfg(feature = "api-12")]
@@ -2712,7 +2641,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: radius of the lower left corner, in percentage.
     ///
     /// .value[3].f32: radius of the lower right corner, in percentage.
-    ///
     pub const NODE_BORDER_RADIUS_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(86);
 }
 #[cfg(feature = "api-12")]
@@ -2723,7 +2651,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32：Accessible ID。
-    ///
     pub const NODE_ACCESSIBILITY_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(87);
 }
 #[cfg(feature = "api-12")]
@@ -2740,7 +2667,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32：accessible action types，and uses the [`ArkUI_AccessibilityActionType`] enumeration value.
-    ///
     pub const NODE_ACCESSIBILITY_ACTIONS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(88);
 }
 #[cfg(feature = "api-12")]
@@ -2757,7 +2683,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32：accessible role type，and uses the [`ArkUI_NodeType`] enumeration value.
-    ///
     pub const NODE_ACCESSIBILITY_ROLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(89);
 }
 #[cfg(feature = "api-12")]
@@ -2774,7 +2699,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
     /// .object：the parameter type is [`ArkUI_AccessibilityState`].
-    ///
     pub const NODE_ACCESSIBILITY_STATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(90);
 }
 #[cfg(feature = "api-12")]
@@ -2791,7 +2715,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .object：the parameter type is [`ArkUI_AccessibilityValue`].
-    ///
     pub const NODE_ACCESSIBILITY_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(91);
 }
 #[cfg(feature = "api-12")]
@@ -2818,7 +2741,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].u32: indicates the direction to extend the security zone.
     /// .
-    ///
     pub const NODE_EXPAND_SAFE_AREA: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(92);
 }
 #[cfg(feature = "api-12")]
@@ -2835,7 +2757,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[...].f32: threshold array.
-    ///
     pub const NODE_VISIBLE_AREA_CHANGE_RATIO: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(93);
 }
 #[cfg(feature = "api-12")]
@@ -2853,7 +2774,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .object: transition effect. The parameter type is [`ArkUI_TransitionEffect`].
-    ///
     pub const NODE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(94);
 }
 #[cfg(feature = "api-12")]
@@ -2865,7 +2785,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the [`ArkUI_AttributeItem`] parameter for obtaining the attribute:
     ///
     /// .value[0].i32: component ID.
-    ///
     pub const NODE_UNIQUE_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(95);
 }
 #[cfg(feature = "api-12")]
@@ -2886,7 +2805,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].u32: Focus box color.
     ///
     ///
-    ///
     pub const NODE_FOCUS_BOX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(96);
 }
 #[cfg(feature = "api-12")]
@@ -2898,7 +2816,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
     /// .value[0].f32: allowed moving distance of a finger, in vp.
-    ///
     pub const NODE_CLICK_DISTANCE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(97);
 }
 #[cfg(feature = "api-12")]
@@ -2915,7 +2832,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: text content.
-    ///
     pub const NODE_TEXT_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1000);
 }
 #[cfg(feature = "api-12")]
@@ -2932,7 +2848,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: font color value, in 0xARGB format.
-    ///
     pub const NODE_FONT_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001);
 }
 #[cfg(feature = "api-12")]
@@ -2949,7 +2864,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: font size, in fp.
-    ///
     pub const NODE_FONT_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002);
 }
 #[cfg(feature = "api-12")]
@@ -2966,7 +2880,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: font style [`ArkUI_FontStyle`].
-    ///
     pub const NODE_FONT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003);
 }
 #[cfg(feature = "api-12")]
@@ -2983,7 +2896,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: font weight [`ArkUI_FontWeight`].
-    ///
     pub const NODE_FONT_WEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1004);
 }
 #[cfg(feature = "api-12")]
@@ -3000,7 +2912,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: line height, in fp.
-    ///
     pub const NODE_TEXT_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1005);
 }
 #[cfg(feature = "api-12")]
@@ -3027,7 +2938,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].u32: text decoration color, in 0xARGB format.
     ///
     /// .value[2].i32: text decoration style [`ArkUI_TextDecorationStyle`].
-    ///
     pub const NODE_TEXT_DECORATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1006);
 }
 #[cfg(feature = "api-12")]
@@ -3044,7 +2954,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: text case.
-    ///
     pub const NODE_TEXT_CASE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1007);
 }
 #[cfg(feature = "api-12")]
@@ -3061,7 +2970,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: letter spacing, in fp.
-    ///
     pub const NODE_TEXT_LETTER_SPACING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1008);
 }
 #[cfg(feature = "api-12")]
@@ -3079,7 +2987,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: maximum number of lines in the text.
-    ///
     pub const NODE_TEXT_MAX_LINES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1009);
 }
 #[cfg(feature = "api-12")]
@@ -3097,7 +3004,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: horizontal alignment mode of the text. The value is an enum of [`ArkUI_TextAlignment`].
-    ///
     pub const NODE_TEXT_ALIGN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1010);
 }
 #[cfg(feature = "api-12")]
@@ -3114,7 +3020,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: display mode when the text is too long. [`ArkUI_TextOverflow`]
-    ///
     pub const NODE_TEXT_OVERFLOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1011);
 }
 #[cfg(feature = "api-12")]
@@ -3163,7 +3068,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: baseline offset, in fp.
-    ///
     pub const NODE_TEXT_BASELINE_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1014);
 }
 #[cfg(feature = "api-12")]
@@ -3196,7 +3100,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[3].f32: offset of the shadow along the x-axis, in vp.
     ///
     /// .value[4].f32: offset of the shadow along the y-axis, in vp.
-    ///
     pub const NODE_TEXT_TEXT_SHADOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1015);
 }
 #[cfg(feature = "api-12")]
@@ -3294,7 +3197,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: indentation of the first line.
-    ///
     pub const NODE_TEXT_INDENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1020);
 }
 #[cfg(feature = "api-12")]
@@ -3311,7 +3213,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`].
-    ///
     pub const NODE_TEXT_WORD_BREAK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1021);
 }
 #[cfg(feature = "api-12")]
@@ -3328,7 +3229,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: The parameter type is [`ArkUI_EllipsisMode`].
-    ///
     pub const NODE_TEXT_ELLIPSIS_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1022);
 }
 #[cfg(feature = "api-12")]
@@ -3345,7 +3245,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: line spacing, in fp.
-    ///
     pub const NODE_TEXT_LINE_SPACING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1023);
 }
 #[cfg(feature = "api-12")]
@@ -3390,7 +3289,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32：Enable Text Recognition
-    ///
     pub const NODE_TEXT_ENABLE_DATA_DETECTOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1025);
 }
@@ -3408,7 +3306,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0...].i32：Array of entity types, parameter types[`ArkUI_TextDataDetectorType`]。
-    ///
     pub const NODE_TEXT_ENABLE_DATA_DETECTOR_CONFIG: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1026);
 }
@@ -3427,7 +3324,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: color value, in 0xARGB format.
-    ///
     pub const NODE_TEXT_SELECTED_BACKGROUND_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1027);
 }
@@ -3463,7 +3359,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: whether to center text vertically.
-    ///
     pub const NODE_TEXT_HALF_LEADING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1029);
 }
 #[cfg(feature = "api-12")]
@@ -3480,7 +3375,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: content of the text span.
-    ///
     pub const NODE_SPAN_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(2000);
 }
 #[cfg(feature = "api-12")]
@@ -3518,7 +3412,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[3].f32: radius of the lower left corner, in vp.
     ///
     /// .value[4].f32: radius of the lower right corner, in vp.
-    ///
     pub const NODE_SPAN_TEXT_BACKGROUND_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(2001);
 }
@@ -3537,7 +3430,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: baseline offset, in fp.
-    ///
     pub const NODE_SPAN_BASELINE_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(2002);
 }
 #[cfg(feature = "api-12")]
@@ -3559,7 +3451,6 @@ impl ArkUI_NodeAttributeType {
     /// .string: image address of the image span.
     ///
     /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
-    ///
     pub const NODE_IMAGE_SPAN_SRC: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3000);
 }
 #[cfg(feature = "api-12")]
@@ -3579,7 +3470,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: alignment mode of the image with the text.
     /// The value is an enum of [`ArkUI_ImageSpanAlignment`].
-    ///
     pub const NODE_IMAGE_SPAN_VERTICAL_ALIGNMENT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(3001);
 }
@@ -3602,7 +3492,6 @@ impl ArkUI_NodeAttributeType {
     /// .string: placeholder image source.
     ///
     /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
-    ///
     pub const NODE_IMAGE_SPAN_ALT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3002);
 }
 #[cfg(feature = "api-12")]
@@ -3651,7 +3540,6 @@ impl ArkUI_NodeAttributeType {
     /// .string: image source.
     ///
     /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
-    ///
     pub const NODE_IMAGE_SRC: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4000);
 }
 #[cfg(feature = "api-12")]
@@ -3669,7 +3557,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: how the image is resized to fit its container. The value is an enum of [`ArkUI_ObjectFit`].
-    ///
     pub const NODE_IMAGE_OBJECT_FIT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4001);
 }
 #[cfg(feature = "api-12")]
@@ -3687,7 +3574,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: interpolation effect of the image. The value is an enum of [`ArkUI_ImageInterpolation`].
-    ///
     pub const NODE_IMAGE_INTERPOLATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4002);
 }
 #[cfg(feature = "api-12")]
@@ -3705,7 +3591,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: how the image is repeated. The value is an enum of [`ArkUI_ImageRepeat`].
-    ///
     pub const NODE_IMAGE_OBJECT_REPEAT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4003);
 }
 #[cfg(feature = "api-12")]
@@ -3731,7 +3616,6 @@ impl ArkUI_NodeAttributeType {
     /// .size: 5 x 4 filter array size.
     ///
     /// .object: the pointer to OH_Drawing_ColorFilter.
-    ///
     pub const NODE_IMAGE_COLOR_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4004);
 }
 #[cfg(feature = "api-12")]
@@ -3748,7 +3632,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32 : whether to resize the image source.
-    ///
     pub const NODE_IMAGE_AUTO_RESIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4005);
 }
 #[cfg(feature = "api-12")]
@@ -3770,7 +3653,6 @@ impl ArkUI_NodeAttributeType {
     /// .string: placeholder image source.
     ///
     /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
-    ///
     pub const NODE_IMAGE_ALT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4006);
 }
 #[cfg(feature = "api-12")]
@@ -3788,7 +3670,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: whether the image is draggable.
-    ///
     pub const NODE_IMAGE_DRAGGABLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4007);
 }
 #[cfg(feature = "api-12")]
@@ -3805,7 +3686,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: The parameter type is [`ArkUI_ImageRenderMode`].
-    ///
     pub const NODE_IMAGE_RENDER_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4008);
 }
 #[cfg(feature = "api-12")]
@@ -3823,7 +3703,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: wheter to follow, true means to follow.
-    ///
     pub const NODE_IMAGE_FIT_ORIGINAL_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4009);
 }
 #[cfg(feature = "api-12")]
@@ -3841,7 +3720,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: fill color, in 0xARGB format.
-    ///
     pub const NODE_IMAGE_FILL_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4010);
 }
 #[cfg(feature = "api-12")]
@@ -3870,7 +3748,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: width of the right edge. The unit is vp.
     ///
     /// .value[3].f32: width of the bottom edge. The unit is vp.
-    ///
     pub const NODE_IMAGE_RESIZABLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4011);
 }
 #[cfg(feature = "api-12")]
@@ -3888,7 +3765,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: background color, in 0xARGB format.
-    ///
     pub const NODE_TOGGLE_SELECTED_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5000);
 }
 #[cfg(feature = "api-12")]
@@ -3906,7 +3782,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: color of the circular slider, in 0xARGB format.
-    ///
     pub const NODE_TOGGLE_SWITCH_POINT_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(5001);
 }
@@ -3924,7 +3799,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: whether to enable the toggle.
-    ///
     pub const NODE_TOGGLE_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5002);
 }
 #[cfg(feature = "api-12")]
@@ -3942,7 +3816,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: background color, in 0xARGB format.
-    ///
     pub const NODE_TOGGLE_UNSELECTED_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5003);
 }
 #[cfg(feature = "api-12")]
@@ -3960,7 +3833,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: foreground color, in 0xARGB format.
-    ///
     pub const NODE_LOADING_PROGRESS_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(6000);
 }
 #[cfg(feature = "api-12")]
@@ -3979,7 +3851,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: The value <b>1</b> means to show the loading animation, and <b>0</b> means the opposite.
-    ///
     pub const NODE_LOADING_PROGRESS_ENABLE_LOADING: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(6001);
 }
@@ -3998,7 +3869,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: default placeholder text.
-    ///
     pub const NODE_TEXT_INPUT_PLACEHOLDER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7000);
 }
 #[cfg(feature = "api-12")]
@@ -4016,7 +3886,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: default text content.
-    ///
     pub const NODE_TEXT_INPUT_TEXT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7001);
 }
 #[cfg(feature = "api-12")]
@@ -4034,7 +3903,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: caret color, in 0xARGB format.
-    ///
     pub const NODE_TEXT_INPUT_CARET_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7002);
 }
 #[cfg(feature = "api-12")]
@@ -4052,7 +3920,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: caret width, in vp.
-    ///
     pub const NODE_TEXT_INPUT_CARET_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7003);
 }
 #[cfg(feature = "api-12")]
@@ -4071,7 +3938,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: The value <b>1</b> means to show an underline, and <b>0</b> means the opposite.
-    ///
     pub const NODE_TEXT_INPUT_SHOW_UNDERLINE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7004);
 }
@@ -4090,7 +3956,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: maximum number of characters in the text input.
-    ///
     pub const NODE_TEXT_INPUT_MAX_LENGTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7005);
 }
 #[cfg(feature = "api-12")]
@@ -4108,7 +3973,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`].
-    ///
     pub const NODE_TEXT_INPUT_ENTER_KEY_TYPE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7006);
 }
@@ -4127,7 +3991,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: color value, in 0xARGB format.
-    ///
     pub const NODE_TEXT_INPUT_PLACEHOLDER_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7007);
 }
@@ -4161,7 +4024,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].i32: font weight [`ArkUI_FontWeight`].
     ///
     /// .string: font family. Multiple font families are separated by commas (,).
-    ///
     pub const NODE_TEXT_INPUT_PLACEHOLDER_FONT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7008);
 }
@@ -4183,7 +4045,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The value <b>1</b> means to enable the input method when the component obtains focus,
     /// and <b>0</b> means the opposite.
-    ///
     pub const NODE_TEXT_INPUT_ENABLE_KEYBOARD_ON_FOCUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7009);
 }
@@ -4202,7 +4063,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: text box type [`ArkUI_TextInputType`].
-    ///
     pub const NODE_TEXT_INPUT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7010);
 }
 #[cfg(feature = "api-12")]
@@ -4220,7 +4080,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: color value, in 0xARGB format.
-    ///
     pub const NODE_TEXT_INPUT_SELECTED_BACKGROUND_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7011);
 }
@@ -4241,7 +4100,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The value <b>1</b> means to display the password icon at the end of the password text box,
     /// and <b>0</b> means the opposite.
-    ///
     pub const NODE_TEXT_INPUT_SHOW_PASSWORD_ICON: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7012);
 }
@@ -4261,7 +4119,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the [`ArkUI_AttributeItem`] parameter for obtaining the attribute:
     /// .value[0].i32: whether to remain in the editable state. The value <b>true</b> means to remain in the editable
     /// state, and <b>false</b> means to exit the editable state.
-    ///
     pub const NODE_TEXT_INPUT_EDITING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7013);
 }
 #[cfg(feature = "api-12")]
@@ -4292,7 +4149,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].u32: button icon color, in 0xARGB format.
     ///
     /// .string: button icon image source.
-    ///
     pub const NODE_TEXT_INPUT_CANCEL_BUTTON: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7014);
 }
@@ -4315,7 +4171,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: start position of the text selection.
     ///
     /// .value[1].i32: end position of the text selection.
-    ///
     pub const NODE_TEXT_INPUT_TEXT_SELECTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7015);
 }
@@ -4352,7 +4207,6 @@ impl ArkUI_NodeAttributeType {
     /// The value is in 0xARGB format.
     ///
     /// .value[3].u32: color of the underline applied to the text when it is disabled. The value is in 0xARGB format.
-    ///
     pub const NODE_TEXT_INPUT_UNDERLINE_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7016);
 }
@@ -4370,7 +4224,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: whether to enable autofill.
-    ///
     pub const NODE_TEXT_INPUT_ENABLE_AUTO_FILL: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7017);
 }
@@ -4388,7 +4241,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`].
-    ///
     pub const NODE_TEXT_INPUT_CONTENT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7018);
 }
 #[cfg(feature = "api-12")]
@@ -4406,7 +4258,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: rules for generating passwords.
-    ///
     pub const NODE_TEXT_INPUT_PASSWORD_RULES: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7019);
 }
@@ -4424,7 +4275,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: whether to select all text in the initial state.
-    ///
     pub const NODE_TEXT_INPUT_SELECT_ALL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7020);
 }
 #[cfg(feature = "api-12")]
@@ -4444,7 +4294,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: regular expression.
-    ///
     pub const NODE_TEXT_INPUT_INPUT_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7021);
 }
 #[cfg(feature = "api-12")]
@@ -4463,7 +4312,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: text input style. The parameter type is [`ArkUI_TextInputStyle`].
-    ///
     pub const NODE_TEXT_INPUT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7022);
 }
 #[cfg(feature = "api-12")]
@@ -4502,7 +4350,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: content width.
     ///
     /// .value[3].f32: content height.
-    ///
     pub const NODE_TEXT_INPUT_CONTENT_RECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7024);
 }
 #[cfg(feature = "api-12")]
@@ -4513,7 +4360,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: number of lines of the edited text.
-    ///
     pub const NODE_TEXT_INPUT_CONTENT_LINE_COUNT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7025);
 }
@@ -4534,7 +4380,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click, or
     /// right-clicked.
-    ///
     pub const NODE_TEXT_INPUT_SELECTION_MENU_HIDDEN: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7026);
 }
@@ -4552,7 +4397,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: whether the text box loses focus.
-    ///
     pub const NODE_TEXT_INPUT_BLUR_ON_SUBMIT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7027);
 }
@@ -4574,7 +4418,6 @@ impl ArkUI_NodeAttributeType {
     /// .object:custom keyboard,The parameter type is[`ArkUI_NodeHandle`]。
     ///
     /// .value[0].i32：Set whether the custom keyboard supports the avoidance function.
-    ///
     pub const NODE_TEXT_INPUT_CUSTOM_KEYBOARD: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7028);
 }
@@ -4592,7 +4435,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`].
-    ///
     pub const NODE_TEXT_INPUT_WORD_BREAK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7029);
 }
 #[cfg(feature = "api-12")]
@@ -4610,7 +4452,6 @@ impl ArkUI_NodeAttributeType {
     /// Attribute acquisition method return value [`ArkUI_AttributeItem`] format:
     ///
     /// .value[0].i32: Whether to pop up the keyboard.
-    ///
     pub const NODE_TEXT_INPUT_SHOW_KEYBOARD_ON_FOCUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7030);
 }
@@ -4628,7 +4469,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: the value of numberOfLines.
-    ///
     pub const NODE_TEXT_INPUT_NUMBER_OF_LINES: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7031);
 }
@@ -4647,7 +4487,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: default placeholder text.
-    ///
     pub const NODE_TEXT_AREA_PLACEHOLDER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8000);
 }
 #[cfg(feature = "api-12")]
@@ -4665,7 +4504,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: default text content.
-    ///
     pub const NODE_TEXT_AREA_TEXT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8001);
 }
 #[cfg(feature = "api-12")]
@@ -4683,7 +4521,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: maximum number of characters in the text input.
-    ///
     pub const NODE_TEXT_AREA_MAX_LENGTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8002);
 }
 #[cfg(feature = "api-12")]
@@ -4701,7 +4538,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: color value, in 0xARGB format.
-    ///
     pub const NODE_TEXT_AREA_PLACEHOLDER_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8003);
 }
@@ -4732,7 +4568,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].i32: font weight [`ArkUI_FontWeight`].
     ///
     /// .string: font family. Multiple font families are separated by commas (,).
-    ///
     pub const NODE_TEXT_AREA_PLACEHOLDER_FONT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8004);
 }
@@ -4751,7 +4586,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: background color, in 0xARGB format.
-    ///
     pub const NODE_TEXT_AREA_CARET_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8005);
 }
 #[cfg(feature = "api-12")]
@@ -4772,7 +4606,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to remain in the editable state. The value <b>true</b> means to remain in the editable
     /// state, and <b>false</b> means to exit the editable state.
     ///
-    ///
     pub const NODE_TEXT_AREA_EDITING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8006);
 }
 #[cfg(feature = "api-12")]
@@ -4790,7 +4623,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: text box type [`ArkUI_TextAreaType`].
-    ///
     pub const NODE_TEXT_AREA_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8007);
 }
 #[cfg(feature = "api-12")]
@@ -4820,7 +4652,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].i32: whether to highlight the border when the number of entered characters reaches the maximum.
     /// The default value is <b>true</b>.
-    ///
     pub const NODE_TEXT_AREA_SHOW_COUNTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8008);
 }
 #[cfg(feature = "api-12")]
@@ -4840,7 +4671,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click,
     /// or right-clicked.
-    ///
     pub const NODE_TEXT_AREA_SELECTION_MENU_HIDDEN: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8009);
 }
@@ -4858,7 +4688,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: whether the text box loses focus.
-    ///
     pub const NODE_TEXT_AREA_BLUR_ON_SUBMIT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8010);
 }
@@ -4879,7 +4708,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: regular expression.
-    ///
     pub const NODE_TEXT_AREA_INPUT_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8011);
 }
 #[cfg(feature = "api-12")]
@@ -4897,7 +4725,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: color value, in 0xARGB format.
-    ///
     pub const NODE_TEXT_AREA_SELECTED_BACKGROUND_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8012);
 }
@@ -4916,7 +4743,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`].
-    ///
     pub const NODE_TEXT_AREA_ENTER_KEY_TYPE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8013);
 }
@@ -4938,7 +4764,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The value <b>1</b> means to enable the input method when the component obtains focus,
     /// and <b>0</b> means the opposite.
-    ///
     pub const NODE_TEXT_AREA_ENABLE_KEYBOARD_ON_FOCUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8014);
 }
@@ -4960,7 +4785,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The value <b>1</b> means to enable the input method when the component obtains focus,
     /// and <b>0</b> means the opposite.
-    ///
     pub const NODE_TEXT_AREA_CARET_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8015);
 }
 #[cfg(feature = "api-12")]
@@ -4977,7 +4801,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: content width.
     ///
     /// .value[3].f32: content height.
-    ///
     pub const NODE_TEXT_AREA_CONTENT_RECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8016);
 }
 #[cfg(feature = "api-12")]
@@ -4988,7 +4811,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: number of lines of the edited text.
-    ///
     pub const NODE_TEXT_AREA_CONTENT_LINE_COUNT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8017);
 }
@@ -5011,7 +4833,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: start position of the text selection.
     ///
     /// .value[1].i32: end position of the text selection.
-    ///
     pub const NODE_TEXT_AREA_TEXT_SELECTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8018);
 }
@@ -5029,7 +4850,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: whether to enable autofill.
-    ///
     pub const NODE_TEXT_AREA_ENABLE_AUTO_FILL: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8019);
 }
@@ -5047,7 +4867,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`].
-    ///
     pub const NODE_TEXT_AREA_CONTENT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8020);
 }
 #[cfg(feature = "api-12")]
@@ -5065,7 +4884,6 @@ impl ArkUI_NodeAttributeType {
     /// Attribute acquisition method return value [`ArkUI_AttributeItem`] format:
     ///
     /// .value[0].i32: Whether to pop up the keyboard.
-    ///
     pub const NODE_TEXT_AREA_SHOW_KEYBOARD_ON_FOCUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8021);
 }
@@ -5083,7 +4901,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: Set the value of numberOfLines
-    ///
     pub const NODE_TEXT_AREA_NUMBER_OF_LINES: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8022);
 }
@@ -5101,7 +4918,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: default text content.
-    ///
     pub const NODE_BUTTON_LABEL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(9000);
 }
 #[cfg(feature = "api-12")]
@@ -5120,7 +4936,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: button type. The parameter type is [`ArkUI_ButtonType`].
     /// The default value is <b>ARKUI_BUTTON_TYPE_CAPSULE</b>.
-    ///
     pub const NODE_BUTTON_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(9001);
 }
 #[cfg(feature = "api-12")]
@@ -5138,7 +4953,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: current value of the progress indicator.
-    ///
     pub const NODE_PROGRESS_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10000);
 }
 #[cfg(feature = "api-12")]
@@ -5156,7 +4970,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: total value of the progress indicator.
-    ///
     pub const NODE_PROGRESS_TOTAL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10001);
 }
 #[cfg(feature = "api-12")]
@@ -5174,7 +4987,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: color value, in 0xARGB format.
-    ///
     pub const NODE_PROGRESS_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10002);
 }
 #[cfg(feature = "api-12")]
@@ -5193,7 +5005,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: type of the progress indicator [`ArkUI_ProgressType`].
-    ///
     pub const NODE_PROGRESS_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10003);
 }
 #[cfg(feature = "api-12")]
@@ -5212,7 +5023,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: The value <b>1</b> means that the check box is selected, and <b>0</b> means the opposite.
-    ///
     pub const NODE_CHECKBOX_SELECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11000);
 }
 #[cfg(feature = "api-12")]
@@ -5273,7 +5083,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].f32: size of the internal mark, in vp.
     ///
     /// .value[2].f32: stroke width of the internal mark, in vp. The default value is <b>2</b>.
-    ///
     pub const NODE_CHECKBOX_MARK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11003);
 }
 #[cfg(feature = "api-12")]
@@ -5308,7 +5117,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: component ID.
-    ///
     pub const NODE_XCOMPONENT_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12000);
 }
 #[cfg(feature = "api-12")]
@@ -5326,7 +5134,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: type [`ArkUI_XComponentType`].
-    ///
     pub const NODE_XCOMPONENT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12001);
 }
 #[cfg(feature = "api-12")]
@@ -5348,7 +5155,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].u32: width, in px.
     ///
     /// .value[1].u32: height, in px.
-    ///
     pub const NODE_XCOMPONENT_SURFACE_SIZE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(12002);
 }
@@ -5384,7 +5190,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: date.
-    ///
     pub const NODE_DATE_PICKER_START: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13001);
 }
 #[cfg(feature = "api-12")]
@@ -5402,7 +5207,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: date.
-    ///
     pub const NODE_DATE_PICKER_END: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13002);
 }
 #[cfg(feature = "api-12")]
@@ -5461,7 +5265,6 @@ impl ArkUI_NodeAttributeType {
     /// Parameter 5: font style. Available options are ("normal", "italic").
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
-    ///
     pub const NODE_DATE_PICKER_DISAPPEAR_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(13004);
 }
@@ -5504,7 +5307,6 @@ impl ArkUI_NodeAttributeType {
     /// Parameter 5: font style. Available options are ("normal", "italic").
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
-    ///
     pub const NODE_DATE_PICKER_TEXT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13005);
 }
 #[cfg(feature = "api-12")]
@@ -5546,7 +5348,6 @@ impl ArkUI_NodeAttributeType {
     /// Parameter 5: font style. Available options are ("normal", "italic").
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
-    ///
     pub const NODE_DATE_PICKER_SELECTED_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(13006);
 }
@@ -5624,7 +5425,6 @@ impl ArkUI_NodeAttributeType {
     /// Parameter 5: font style. Available options are ("normal", "italic").
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
-    ///
     pub const NODE_TIME_PICKER_DISAPPEAR_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(14002);
 }
@@ -5667,7 +5467,6 @@ impl ArkUI_NodeAttributeType {
     /// Parameter 5: font style. Available options are ("normal", "italic").
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
-    ///
     pub const NODE_TIME_PICKER_TEXT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(14003);
 }
 #[cfg(feature = "api-12")]
@@ -5709,7 +5508,6 @@ impl ArkUI_NodeAttributeType {
     /// Parameter 5: font style. Available options are ("normal", "italic").
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
-    ///
     pub const NODE_TIME_PICKER_SELECTED_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(14004);
 }
@@ -5755,7 +5553,6 @@ impl ArkUI_NodeAttributeType {
     /// 1: single-column picker with image support. The output structure is [`ARKUI_TextPickerRangeContent`].
     ///
     /// 2: multi-column interconnected picker. The output structure is [`ARKUI_TextPickerCascadeRangeContent`].
-    ///
     pub const NODE_TEXT_PICKER_OPTION_RANGE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15000);
 }
@@ -5774,7 +5571,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].u32: index. If there are multiple index values, add them one by one.
-    ///
     pub const NODE_TEXT_PICKER_OPTION_SELECTED: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15001);
 }
@@ -5795,7 +5591,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: value of the selected item. If there are multiple values, add them one by one and
     /// separate them with semicolons (;).
-    ///
     pub const NODE_TEXT_PICKER_OPTION_VALUE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15002);
 }
@@ -5838,7 +5633,6 @@ impl ArkUI_NodeAttributeType {
     /// Parameter 5: font style. Available options are ("normal", "italic").
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
-    ///
     pub const NODE_TEXT_PICKER_DISAPPEAR_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15003);
 }
@@ -5881,7 +5675,6 @@ impl ArkUI_NodeAttributeType {
     /// Parameter 5: font style. Available options are ("normal", "italic").
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
-    ///
     pub const NODE_TEXT_PICKER_TEXT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(15004);
 }
 #[cfg(feature = "api-12")]
@@ -5923,7 +5716,6 @@ impl ArkUI_NodeAttributeType {
     /// Parameter 5: font style. Available options are ("normal", "italic").
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
-    ///
     pub const NODE_TEXT_PICKER_SELECTED_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15005);
 }
@@ -5956,7 +5748,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// value[0].i32: The value <b>1</b> means to support scroll looping, and <b>0</b> means the opposite.
-    ///
     pub const NODE_TEXT_PICKER_CAN_LOOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(15007);
 }
 #[cfg(feature = "api-12")]
@@ -5974,7 +5765,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// value[0].f32: item height, in vp.
-    ///
     pub const NODE_TEXT_PICKER_DEFAULT_PICKER_ITEM_HEIGHT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15008);
 }
@@ -5999,7 +5789,6 @@ impl ArkUI_NodeAttributeType {
     /// If the value is <b>0</b>, the background is a rectangle with square corners.
     /// If the value is in the 0–16 range, the background is a rectangle with rounded corners. If the value is equal to or
     /// greater than 16, the background is a circle.
-    ///
     pub const NODE_CALENDAR_PICKER_HINT_RADIUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(16000);
 }
@@ -6026,7 +5815,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].u32: month of the selected date.
     ///
     /// .value[2].u32: day of the selected date.
-    ///
     pub const NODE_CALENDAR_PICKER_SELECTED_DATE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(16001);
 }
@@ -6057,7 +5845,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2]?.f32: offset of the picker relative to the entry component along the y-axis after alignment based on
     /// the specified alignment mode.
-    ///
     pub const NODE_CALENDAR_PICKER_EDGE_ALIGNMENT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(16002);
 }
@@ -6083,7 +5870,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].f32: font size of the entry area, in fp.
     ///
     /// .value[2].i32: font weight of the entry area. The parameter type is [`ArkUI_FontWeight`].
-    ///
     pub const NODE_CALENDAR_PICKER_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(16003);
 }
@@ -6153,7 +5939,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to display the stepping value. The value <b>1</b> means to display the stepping value,
     /// and <b>0</b> (default value) means the opposite.
-    ///
     pub const NODE_SLIDER_SHOW_STEPS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17003);
 }
 #[cfg(feature = "api-12")]
@@ -6270,7 +6055,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[3].f32: height of the path.
     ///
     /// .string: command for drawing the path.
-    ///
     pub const NODE_SLIDER_BLOCK_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17004);
 }
 #[cfg(feature = "api-12")]
@@ -6411,7 +6195,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: track thickness of the slider, in vp.
-    ///
     pub const NODE_SLIDER_TRACK_THICKNESS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17012);
 }
 #[cfg(feature = "api-12")]
@@ -6476,7 +6259,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: radio value.
-    ///
     pub const NODE_RADIO_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18002);
 }
 #[cfg(feature = "api-12")]
@@ -6494,7 +6276,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: name of the group to which the current option box belongs.
-    ///
     pub const NODE_RADIO_GROUP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18003);
 }
 #[cfg(feature = "api-12")]
@@ -6516,7 +6297,6 @@ impl ArkUI_NodeAttributeType {
     /// .size: number of the images.
     ///
     /// .object: array of the images, the type is [`ArkUI_ImageAnimatorFrameInfo`] array.
-    ///
     pub const NODE_IMAGE_ANIMATOR_IMAGES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19000);
 }
 #[cfg(feature = "api-12")]
@@ -6533,7 +6313,6 @@ impl ArkUI_NodeAttributeType {
     /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
     ///
     /// .value[0].i32: the playback status of the animation, the type is [`ArkUI_AnimationStatus`].
-    ///
     pub const NODE_IMAGE_ANIMATOR_STATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19001);
 }
 #[cfg(feature = "api-12")]
@@ -6552,7 +6331,6 @@ impl ArkUI_NodeAttributeType {
     /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
     ///
     /// .value[0].i32: the playback duration, the unit is ms.
-    ///
     pub const NODE_IMAGE_ANIMATOR_DURATION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(19002);
 }
@@ -6572,7 +6350,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: the playback direction. 0 indicates that images are played from the first one to the last one,
     /// and 1 indicates that images are played from the last one to the first one.
-    ///
     pub const NODE_IMAGE_ANIMATOR_REVERSE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19003);
 }
 #[cfg(feature = "api-12")]
@@ -6630,7 +6407,6 @@ impl ArkUI_NodeAttributeType {
     /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
     ///
     /// .value[0].i32: the number of times that the animation is played.
-    ///
     pub const NODE_IMAGE_ANIMATOR_ITERATION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(19006);
 }
@@ -6650,7 +6426,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`].
-    ///
     pub const NODE_STACK_ALIGN_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1000000);
 }
 #[cfg(feature = "api-12")]
@@ -6668,7 +6443,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: scrollbar status. The parameter type is [`ArkUI_ScrollBarDisplayMode`].
-    ///
     pub const NODE_SCROLL_BAR_DISPLAY_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1002000);
 }
@@ -6687,7 +6461,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: width of the scrollbar, in vp.
-    ///
     pub const NODE_SCROLL_BAR_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002001);
 }
 #[cfg(feature = "api-12")]
@@ -6705,7 +6478,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .data[0].u32: color of the scrollbar, in 0xARGB format.
-    ///
     pub const NODE_SCROLL_BAR_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002002);
 }
 #[cfg(feature = "api-12")]
@@ -6723,7 +6495,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: scroll direction. The parameter type is [`ArkUI_ScrollDirection`].
-    ///
     pub const NODE_SCROLL_SCROLL_DIRECTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1002003);
 }
@@ -6751,7 +6522,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].i32: whether to enable the scroll effect when the component content size is smaller than the component
     /// itself. Optional. The value <b>1</b> means to enable the scroll effect, and <b>0</b> means the opposite.
-    ///
     pub const NODE_SCROLL_EDGE_EFFECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002004);
 }
 #[cfg(feature = "api-12")]
@@ -6769,7 +6539,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: whether to support scroll gestures.
-    ///
     pub const NODE_SCROLL_ENABLE_SCROLL_INTERACTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1002005);
 }
@@ -6830,7 +6599,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3...].f32: snap points for the <b><Scroll></b> component. Each snap point defines the offset from an edge
     /// to which the <b><Scroll></b> component can scroll.
-    ///
     pub const NODE_SCROLL_SNAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002007);
 }
 #[cfg(feature = "api-12")]
@@ -6887,7 +6655,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32: horizontal scrolling offset, in vp.
     ///
     /// .value[1].f32: vertical scrolling offset, in vp.
-    ///
     pub const NODE_SCROLL_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002009);
 }
 #[cfg(feature = "api-12")]
@@ -6927,7 +6694,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: whether to enable the swipe-to-turn-pages feature.
-    ///
     pub const NODE_SCROLL_ENABLE_PAGING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002011);
 }
 #[cfg(feature = "api-12")]
@@ -6941,7 +6707,6 @@ impl ArkUI_NodeAttributeType {
     /// indicates scroll to previous page.
     ///
     /// .value[1]?.i32 Indicates whether to enable animation. Value 1 indicates enable and 0 indicates disable.
-    ///
     pub const NODE_SCROLL_PAGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002012);
 }
 #[cfg(feature = "api-12")]
@@ -6954,7 +6719,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32：Horizontal scrolling distance in vp;
     ///
     /// .value[1].f32: Vertical scrolling distance in vp;
-    ///
     pub const NODE_SCROLL_BY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002013);
 }
 #[cfg(feature = "api-12")]
@@ -6991,7 +6755,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: direction in which the list items are arranged. The parameter type is [`ArkUI_Axis`].
-    ///
     pub const NODE_LIST_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003000);
 }
 #[cfg(feature = "api-12")]
@@ -7030,7 +6793,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: spacing between list items along the main axis.
-    ///
     pub const NODE_LIST_SPACE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003002);
 }
 #[cfg(feature = "api-12")]
@@ -7073,7 +6835,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2]?.i32：Specify the alignment of the sliding element with the current container,The parameter type is
     /// [`ArkUI_ScrollAlignment`], default value is ARKUI_SCROLL_ALIGNMENT_START.
-    ///
     pub const NODE_LIST_SCROLL_TO_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003005);
 }
 #[cfg(feature = "api-12")]
@@ -7159,7 +6920,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: the distance between the divider and the beginning of the side of the list, unit vp;
     ///
     /// .value[3].f32: the distance between the divider and the end of the side of the list (unit: vp).
-    ///
     pub const NODE_LIST_DIVIDER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003009);
 }
 #[cfg(feature = "api-12")]
@@ -7179,7 +6939,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to enable loop playback. The value <b>1</b> means to enable loop playback, and <b>0</b>
     /// means the opposite. The default value is <b>1</b>.
-    ///
     pub const NODE_SWIPER_LOOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001000);
 }
 #[cfg(feature = "api-12")]
@@ -7199,7 +6958,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to enable automatic playback for child component switching. The value <b>1</b> means
     /// to enable automatic playback, and <b>0</b> means the opposite. The default value is <b>0</b>.
-    ///
     pub const NODE_SWIPER_AUTO_PLAY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001001);
 }
 #[cfg(feature = "api-12")]
@@ -7219,7 +6977,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to enable the navigation point indicator. The value <b>1</b> means to enable the
     /// navigation point indicator, and <b>0</b> means the opposite. The default value is <b>1</b>.
-    ///
     pub const NODE_SWIPER_SHOW_INDICATOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001002);
 }
@@ -7238,7 +6995,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: interval for automatic playback, in milliseconds.
-    ///
     pub const NODE_SWIPER_INTERVAL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001003);
 }
 #[cfg(feature = "api-12")]
@@ -7258,7 +7014,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether vertical swiping is used. The value <b>1</b> means that vertical swiping is used, and
     /// <b>0</b> means the opposite. The default value is <b>0</b>.
-    ///
     pub const NODE_SWIPER_VERTICAL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001004);
 }
 #[cfg(feature = "api-12")]
@@ -7278,7 +7033,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: duration of the animation for switching child components, in milliseconds. The default value is
     /// <b>400</b>.
-    ///
     pub const NODE_SWIPER_DURATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001005);
 }
 #[cfg(feature = "api-12")]
@@ -7298,7 +7052,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: animation curve. The parameter type is [`ArkUI_AnimationCurve`].
     /// The default value is <b>ARKUI_CURVE_LINEAR</b>.
-    ///
     pub const NODE_SWIPER_CURVE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001006);
 }
 #[cfg(feature = "api-12")]
@@ -7316,7 +7069,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: spacing between child components.
-    ///
     pub const NODE_SWIPER_ITEM_SPACE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001007);
 }
 #[cfg(feature = "api-12")]
@@ -7334,7 +7086,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: index value of the child component.
-    ///
     pub const NODE_SWIPER_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001008);
 }
 #[cfg(feature = "api-12")]
@@ -7352,7 +7103,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: index value of the child component.
-    ///
     pub const NODE_SWIPER_DISPLAY_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001009);
 }
 #[cfg(feature = "api-12")]
@@ -7372,7 +7122,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to disable the swipe feature. The value <b>1</b> means to disable the swipe
     /// feature, and <b>0</b> means the opposite. The default value is <b>0</b>.
-    ///
     pub const NODE_SWIPER_DISABLE_SWIPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001010);
 }
 #[cfg(feature = "api-12")]
@@ -7396,7 +7145,6 @@ impl ArkUI_NodeAttributeType {
     /// The parameter type is [`ArkUI_SwiperArrow`].
     ///
     /// The default value is <b>ARKUI_SWIPER_ARROW_HIDE</b>.
-    ///
     pub const NODE_SWIPER_SHOW_DISPLAY_ARROW: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001011);
 }
@@ -7419,7 +7167,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: effect used at the edges of the swiper when the boundary of the scrollable content is reached.
     /// The parameter type is [`ArkUI_EdgeEffect`].
-    ///
     pub const NODE_SWIPER_EDGE_EFFECT_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001012);
 }
@@ -7503,7 +7250,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: navigation indicator type, the parameter type is [`ArkUI_SwiperIndicatorType`].
     ///
     /// .object: The parameter type is [`ArkUI_SwiperIndicator`].
-    ///
     pub const NODE_SWIPER_INDICATOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001017);
 }
 #[cfg(feature = "api-12")]
@@ -7571,7 +7317,6 @@ impl ArkUI_NodeAttributeType {
     /// The return value of the attribute acquisition method [`ArkUI_AttributeItem`] format:
     ///
     /// .object: Construct using the [`ArkUI_ListitemSwipeActionOption`] object.
-    ///
     pub const NODE_LIST_ITEM_SWIPE_ACTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1004000);
 }
@@ -7590,7 +7335,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .object: [`ArkUI_NodeHandle`] object to be used as the header of the list item group.
-    ///
     pub const NODE_LIST_ITEM_GROUP_SET_HEADER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005000);
 }
@@ -7609,7 +7353,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .object: [`ArkUI_NodeHandle`] object to be used as the footer of the list item group.
-    ///
     pub const NODE_LIST_ITEM_GROUP_SET_FOOTER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005001);
 }
@@ -7641,7 +7384,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: distance between the divider and the start of the list, in vp.
     ///
     /// .value[3].f32: distance between the divider and the end of the list, in vp.
-    ///
     ///
     pub const NODE_LIST_ITEM_GROUP_SET_DIVIDER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005002);
@@ -7682,7 +7424,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: horizontal alignment mode of child components.
     /// The parameter type is [`ArkUI_HorizontalAlignment`].
-    ///
     pub const NODE_COLUMN_ALIGN_ITEMS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1006000);
 }
 #[cfg(feature = "api-12")]
@@ -7702,7 +7443,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: vertical alignment mode of child components. The parameter type is [`ArkUI_FlexAlignment`].
-    ///
     pub const NODE_COLUMN_JUSTIFY_CONTENT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1006001);
 }
@@ -7725,7 +7465,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: vertical alignment mode of child components.
     /// The parameter type is [`ArkUI_VerticalAlignment`].
-    ///
     pub const NODE_ROW_ALIGN_ITEMS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1007000);
 }
 #[cfg(feature = "api-12")]
@@ -7747,7 +7486,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: horizontal alignment mode of child components.
     /// The parameter type is [`ArkUI_FlexAlignment`].
-    ///
     pub const NODE_ROW_JUSTIFY_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1007001);
 }
 #[cfg(feature = "api-12")]
@@ -7785,7 +7523,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[3].i32: alignment mode along the cross axis.
     ///
     /// .value[4].i32: alignment mode along the cross axis for multi-line content.
-    ///
     pub const NODE_FLEX_OPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1008000);
 }
 #[cfg(feature = "api-12")]
@@ -7905,7 +7642,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: number of columns in the layout.
-    ///
     pub const NODE_WATER_FLOW_COLUMN_TEMPLATE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010001);
 }
@@ -7930,7 +7666,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: number of rows in the layout.
-    ///
     pub const NODE_WATER_FLOW_ROW_TEMPLATE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010002);
 }
@@ -7949,7 +7684,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: gap between columns, in vp.
-    ///
     pub const NODE_WATER_FLOW_COLUMN_GAP: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010003);
 }
@@ -7968,7 +7702,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: gap between lines, in vp.
-    ///
     pub const NODE_WATER_FLOW_ROW_GAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1010004);
 }
 #[cfg(feature = "api-12")]
@@ -7988,7 +7721,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .object: [`ArkUI_WaterFlowSectionOption`] object.
-    ///
     pub const NODE_WATER_FLOW_SECTION_OPTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010005);
 }
@@ -8044,7 +7776,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2]?.i32：Specify the alignment of the sliding element with the current container，The parameter type is
     /// [`ArkUI_ScrollAlignment`]. Default value is </b>ARKUI_SCROLL_ALIGNMENT_START</b>。
-    ///
     pub const NODE_WATER_FLOW_SCROLL_TO_INDEX: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010009);
 }
@@ -8075,7 +7806,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: minimum height, in vp.
     ///
     /// .value[3].f32: maximum height, in vp.
-    ///
     pub const NODE_WATER_FLOW_ITEM_CONSTRAINT_SIZE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010010);
 }
@@ -8094,7 +7824,6 @@ impl ArkUI_NodeAttributeType {
     /// Attribute acquisition method return value [`ArkUI_AttributeItem`] format:
     ///
     /// .object: Auxiliary lines within the RelativeContaine container:
-    ///
     pub const NODE_RELATIVE_CONTAINER_GUIDE_LINE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1012000);
 }
@@ -8113,7 +7842,6 @@ impl ArkUI_NodeAttributeType {
     /// Attribute acquisition method return value [`ArkUI_AttributeItem`] format:
     ///
     /// .object: Barrier within the RelativeContaine container:
-    ///
     pub const NODE_RELATIVE_CONTAINER_BARRIER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1012001);
 }
@@ -8138,7 +7866,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: number of columns in the layout.
-    ///
     pub const NODE_GRID_COLUMN_TEMPLATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013000);
 }
 #[cfg(feature = "api-12")]
@@ -8162,7 +7889,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .string: number of rows in the layout.
-    ///
     pub const NODE_GRID_ROW_TEMPLATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013001);
 }
 #[cfg(feature = "api-12")]
@@ -8179,7 +7905,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: gap between columns, in vp.
-    ///
     pub const NODE_GRID_COLUMN_GAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013002);
 }
 #[cfg(feature = "api-12")]
@@ -8196,7 +7921,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: gap between lines, in vp.
-    ///
     pub const NODE_GRID_ROW_GAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013003);
 }
 #[cfg(feature = "api-12")]
@@ -8500,7 +8224,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].u32</b>: accessibility action type，the union type is
     /// [`ArkUI_AccessibilityActionType`]
-    ///
     pub const NODE_ON_ACCESSIBILITY_ACTIONS: ArkUI_NodeEventType = ArkUI_NodeEventType(13);
 }
 #[cfg(feature = "api-12")]
@@ -8599,7 +8322,6 @@ impl ArkUI_NodeEventType {
     /// [`ArkUI_StringAsyncEvent`]contains 1 parameter
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>：Indicates the result of text recognition, in Json format.
-    ///
     pub const NODE_TEXT_ON_DETECT_RESULT_UPDATE: ArkUI_NodeEventType = ArkUI_NodeEventType(1000);
 }
 #[cfg(feature = "api-12")]
@@ -8777,7 +8499,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: start position of the text selection area.
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: end position of the text selection area.
-    ///
     pub const NODE_TEXT_INPUT_ON_TEXT_SELECTION_CHANGE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(7004);
 }
@@ -8794,7 +8515,6 @@ impl ArkUI_NodeEventType {
     /// [`ArkUI_NodeComponentEvent`] contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: <b>true</b> indicates that text input is in progress.
-    ///
     pub const NODE_TEXT_INPUT_ON_EDIT_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(7005);
 }
 #[cfg(feature = "api-12")]
@@ -8812,7 +8532,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: Indicates the width of the text.
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: Indicates the height of the text.
-    ///
     pub const NODE_TEXT_INPUT_ON_CONTENT_SIZE_CHANGE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(7006);
 }
@@ -8830,7 +8549,6 @@ impl ArkUI_NodeEventType {
     /// [`ArkUI_StringAsyncEvent`] contains one parameter:
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: content that is filtered out when regular expression matching fails.
-    ///
     pub const NODE_TEXT_INPUT_ON_INPUT_FILTER_ERROR: ArkUI_NodeEventType =
         ArkUI_NodeEventType(7007);
 }
@@ -8851,7 +8569,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: Indicates the vertical coordinate offset of
     ///
     /// the text in the content area.
-    ///
     pub const NODE_TEXT_INPUT_ON_CONTENT_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(7008);
 }
 #[cfg(feature = "api-12")]
@@ -8869,7 +8586,7 @@ impl ArkUI_NodeEventType {
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the text is entered; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the text is entered; returns <b>false</b> otherwise.
     /// You can set the return value using <b>OH_ArkUI_NodeEvent_SetReturnNumberValue</b>.
     pub const NODE_TEXT_INPUT_ON_WILL_INSERT: ArkUI_NodeEventType = ArkUI_NodeEventType(7009);
 }
@@ -8906,7 +8623,7 @@ impl ArkUI_NodeEventType {
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the text is deleted; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the text is deleted; returns <b>false</b> otherwise.
     ///
     /// You can set the return value using <b>OH_ArkUI_NodeEvent_SetReturnNumberValue</b>.
     pub const NODE_TEXT_INPUT_ON_WILL_DELETE: ArkUI_NodeEventType = ArkUI_NodeEventType(7011);
@@ -8975,7 +8692,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: start position of the text selection area.
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: end position of the text selection area.
-    ///
     pub const NODE_TEXT_AREA_ON_TEXT_SELECTION_CHANGE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(8002);
 }
@@ -8993,7 +8709,6 @@ impl ArkUI_NodeEventType {
     /// [`ArkUI_StringAsyncEvent`] contains one parameter:
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: content that is filtered out when regular expression matching fails.
-    ///
     pub const NODE_TEXT_AREA_ON_INPUT_FILTER_ERROR: ArkUI_NodeEventType = ArkUI_NodeEventType(8003);
 }
 #[cfg(feature = "api-12")]
@@ -9013,7 +8728,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: Indicates the vertical coordinate offset of
     ///
     /// the text in the content area.
-    ///
     pub const NODE_TEXT_AREA_ON_CONTENT_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(8004);
 }
 #[cfg(feature = "api-12")]
@@ -9030,7 +8744,6 @@ impl ArkUI_NodeEventType {
     /// [`ArkUI_NodeComponentEvent`] contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: <b>true</b> indicates that text input is in progress.
-    ///
     pub const NODE_TEXT_AREA_ON_EDIT_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(8005);
 }
 #[cfg(feature = "api-12")]
@@ -9065,7 +8778,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: Indicates the width of the text.
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: Indicates the height of the text.
-    ///
     pub const NODE_TEXT_AREA_ON_CONTENT_SIZE_CHANGE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(8007);
 }
@@ -9084,7 +8796,7 @@ impl ArkUI_NodeEventType {
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the text is entered; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the text is entered; returns <b>false</b> otherwise.
     /// You can set the return value using <b>OH_ArkUI_NodeEvent_SetReturnNumberValue</b>.
     pub const NODE_TEXT_AREA_ON_WILL_INSERT: ArkUI_NodeEventType = ArkUI_NodeEventType(8008);
 }
@@ -9121,7 +8833,7 @@ impl ArkUI_NodeEventType {
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the text is deleted; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the text is deleted; returns <b>false</b> otherwise.
     ///
     /// You can set the return value using <b>OH_ArkUI_NodeEvent_SetReturnNumberValue</b>.
     pub const NODE_TEXT_AREA_ON_WILL_DELETE: ArkUI_NodeEventType = ArkUI_NodeEventType(8010);
@@ -9261,7 +8973,6 @@ impl ArkUI_NodeEventType {
     /// [`ArkUI_NodeComponentEvent`].
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameter:
-    ///
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_START: ArkUI_NodeEventType = ArkUI_NodeEventType(19000);
 }
 #[cfg(feature = "api-12")]
@@ -9274,7 +8985,6 @@ impl ArkUI_NodeEventType {
     /// [`ArkUI_NodeComponentEvent`].
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameter:
-    ///
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_PAUSE: ArkUI_NodeEventType = ArkUI_NodeEventType(19001);
 }
 #[cfg(feature = "api-12")]
@@ -9287,7 +8997,6 @@ impl ArkUI_NodeEventType {
     /// [`ArkUI_NodeComponentEvent`].
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameter:
-    ///
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_REPEAT: ArkUI_NodeEventType = ArkUI_NodeEventType(19002);
 }
 #[cfg(feature = "api-12")]
@@ -9300,7 +9009,6 @@ impl ArkUI_NodeEventType {
     /// [`ArkUI_NodeComponentEvent`].
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameter:
-    ///
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_CANCEL: ArkUI_NodeEventType = ArkUI_NodeEventType(19003);
 }
 #[cfg(feature = "api-12")]
@@ -9313,7 +9021,6 @@ impl ArkUI_NodeEventType {
     /// [`ArkUI_NodeComponentEvent`].
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameter:
-    ///
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_FINISH: ArkUI_NodeEventType = ArkUI_NodeEventType(19004);
 }
 #[cfg(feature = "api-12")]
@@ -9526,7 +9233,7 @@ impl ArkUI_NodeEventType {
     ///
     /// # Returns
     ///
-    /// Does not return or returns a number that sets the actual scroll distance of the scroll component.
+    /// * Does not return or returns a number that sets the actual scroll distance of the scroll component.
     pub const NODE_SCROLL_EVENT_ON_WILL_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1002002);
 }
 #[cfg(feature = "api-12")]
@@ -9717,7 +9424,7 @@ impl ArkUI_NodeEventType {
     ///
     /// # Returns
     ///
-    /// Does not return or returns a number that sets the actual scroll distance of the scroll component.
+    /// * Does not return or returns a number that sets the actual scroll distance of the scroll component.
     pub const NODE_LIST_ON_WILL_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1003001);
 }
 #[cfg(feature = "api-12")]
@@ -9822,7 +9529,7 @@ impl ArkUI_NodeEventType {
     ///
     /// # Returns
     ///
-    /// Does not return or returns a number that sets the actual scroll distance of the scroll component.
+    /// * Does not return or returns a number that sets the actual scroll distance of the scroll component.
     pub const NODE_ON_WILL_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1010000);
 }
 #[cfg(feature = "api-12")]
@@ -10044,30 +9751,30 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `type` - Indicates the type of component to create.
+    /// * `type` - Indicates the type of component to create.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created component. If the component fails to be created, NULL is returned.
+    /// * Returns the pointer to the created component. If the component fails to be created, NULL is returned.
     pub createNode:
         ::core::option::Option<unsafe extern "C" fn(type_: ArkUI_NodeType) -> ArkUI_NodeHandle>,
     /// Destroys the component to which the specified pointer points.
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the pointer.
+    /// * `node` - Indicates the pointer.
     pub disposeNode: ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle)>,
     /// Adds a component to a parent node.
     ///
     /// # Arguments
     ///
-    /// `parent` - Indicates the pointer to the parent node.
+    /// * `parent` - Indicates the pointer to the parent node.
     ///
-    /// `child` - Indicates the pointer to the child node.
+    /// * `child` - Indicates the pointer to the child node.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
@@ -10080,13 +9787,13 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `parent` - Indicates the pointer to the parent node.
+    /// * `parent` - Indicates the pointer to the parent node.
     ///
-    /// `child` - Indicates the pointer to the child node.
+    /// * `child` - Indicates the pointer to the child node.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
@@ -10099,16 +9806,16 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `parent` - Indicates the pointer to the parent node.
+    /// * `parent` - Indicates the pointer to the parent node.
     ///
-    /// `child` - Indicates the pointer to the child node.
+    /// * `child` - Indicates the pointer to the child node.
     ///
-    /// `sibling` - Indicates the pointer to the sibling node after which the target node is to be inserted.
+    /// * `sibling` - Indicates the pointer to the sibling node after which the target node is to be inserted.
     /// If the value is null, the node is inserted at the start of the parent node.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
@@ -10125,16 +9832,16 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `parent` - Indicates the pointer to the parent node.
+    /// * `parent` - Indicates the pointer to the parent node.
     ///
-    /// `child` - Indicates the pointer to the child node.
+    /// * `child` - Indicates the pointer to the child node.
     ///
-    /// `sibling` - Indicates the pointer to the sibling node before which the target node is to be inserted.
+    /// * `sibling` - Indicates the pointer to the sibling node before which the target node is to be inserted.
     /// If the value is null, the node is inserted at the end of the parent node.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
@@ -10151,16 +9858,16 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `parent` - Indicates the pointer to the parent node.
+    /// * `parent` - Indicates the pointer to the parent node.
     ///
-    /// `child` - Indicates the pointer to the child node.
+    /// * `child` - Indicates the pointer to the child node.
     ///
-    /// `position` - Indicates the position to which the target child node is to be inserted. If the value is a
+    /// * `position` - Indicates the position to which the target child node is to be inserted. If the value is a
     /// negative number or invalid, the node is inserted at the end of the parent node.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
@@ -10177,15 +9884,15 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the node whose attribute needs to be set.
+    /// * `node` - Indicates the node whose attribute needs to be set.
     ///
-    /// `attribute` - Indicates the type of attribute to set.
+    /// * `attribute` - Indicates the type of attribute to set.
     ///
-    /// `value` - Indicates the attribute value.
+    /// * `value` - Indicates the attribute value.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] if the dynamic implementation library
@@ -10207,13 +9914,13 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// time. Otherwise, the pointer may be overwritten by other values.
     /// # Arguments
     ///
-    /// `node` - Indicates the node whose attribute needs to be obtained.
+    /// * `node` - Indicates the node whose attribute needs to be obtained.
     ///
-    /// `attribute` - Indicates the type of attribute to obtain.
+    /// * `attribute` - Indicates the type of attribute to obtain.
     ///
     /// # Returns
     ///
-    /// Returns the attribute value. If the operation fails, a null pointer is returned.
+    /// * Returns the attribute value. If the operation fails, a null pointer is returned.
     pub getAttribute: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -10224,13 +9931,13 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the node whose attribute needs to be reset.
+    /// * `node` - Indicates the node whose attribute needs to be reset.
     ///
-    /// `attribute` - Indicates the type of attribute to reset.
+    /// * `attribute` - Indicates the type of attribute to reset.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] if the dynamic implementation library
@@ -10247,18 +9954,18 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `eventType` - Indicates the type of event to register.
+    /// * `eventType` - Indicates the type of event to register.
     ///
-    /// `targetId` - Indicates the custom event ID, which is passed in the callback of [`ArkUI_NodeEvent`]
+    /// * `targetId` - Indicates the custom event ID, which is passed in the callback of [`ArkUI_NodeEvent`]
     /// when the event is triggered.
     ///
-    /// `userData` - Indicates the custom event parameter, which is passed in the callback of [`ArkUI_NodeEvent`]
+    /// * `userData` - Indicates the custom event parameter, which is passed in the callback of [`ArkUI_NodeEvent`]
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] if the dynamic implementation library
@@ -10280,9 +9987,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `eventType` - Indicates the type of event to unregister.
+    /// * `eventType` - Indicates the type of event to unregister.
     pub unregisterNodeEvent: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, eventType: ArkUI_NodeEventType),
     >,
@@ -10301,7 +10008,7 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `eventReceiver` - Indicates the event receiver to register.
+    /// * `eventReceiver` - Indicates the event receiver to register.
     pub registerNodeEventReceiver: ::core::option::Option<
         unsafe extern "C" fn(
             eventReceiver: ::core::option::Option<unsafe extern "C" fn(event: *mut ArkUI_NodeEvent)>,
@@ -10315,9 +10022,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// measuring, layout, or rendering again. In this case, you do not need to call this API.
     /// # Arguments
     ///
-    /// `node` - Indicates the node for which you want to mark as dirty area.
+    /// * `node` - Indicates the node for which you want to mark as dirty area.
     ///
-    /// `dirtyFlag` - Indicates type of dirty area.
+    /// * `dirtyFlag` - Indicates type of dirty area.
     pub markDirty: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, dirtyFlag: ArkUI_NodeDirtyFlag),
     >,
@@ -10325,24 +10032,24 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
     /// # Returns
     ///
-    /// the number of subnodes. If not, returns 0.
+    /// * the number of subnodes. If not, returns 0.
     pub getTotalChildCount:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> u32>,
     /// Obtains a subnode.
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `position` - Indicates the position of the subnode.
+    /// * `position` - Indicates the position of the subnode.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+    /// * Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
     pub getChildAt: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, position: i32) -> ArkUI_NodeHandle,
     >,
@@ -10350,44 +10057,44 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+    /// * Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
     pub getFirstChild:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle>,
     /// Obtains the last subnode.
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+    /// * Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
     pub getLastChild:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle>,
     /// Obtains the previous sibling node.
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+    /// * Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
     pub getPreviousSibling:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle>,
     /// Obtains the next sibling node.
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+    /// * Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
     pub getNextSibling:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle>,
     /// Registers a custom event for a node. When the event is triggered, the value is returned through the entry
@@ -10395,19 +10102,19 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `eventType` - Indicates the type of event to register.
+    /// * `eventType` - Indicates the type of event to register.
     ///
-    /// `targetId` - Indicates the custom event ID, which is passed in the callback of [`ArkUI_NodeCustomEvent`]
+    /// * `targetId` - Indicates the custom event ID, which is passed in the callback of [`ArkUI_NodeCustomEvent`]
     /// when the event is triggered.
     ///
-    /// `userData` - Indicates the custom event parameter, which is passed in the callback of
+    /// * `userData` - Indicates the custom event parameter, which is passed in the callback of
     /// [`ArkUI_NodeCustomEvent`] when the event is triggered.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] if the dynamic implementation library
@@ -10424,9 +10131,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `eventType` - Indicates the type of event to unregister.
+    /// * `eventType` - Indicates the type of event to unregister.
     pub unregisterNodeCustomEvent: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, eventType: ArkUI_NodeCustomEventType),
     >,
@@ -10444,7 +10151,7 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `eventReceiver` - Indicates the event receiver to register.
+    /// * `eventReceiver` - Indicates the event receiver to register.
     pub registerNodeCustomEventReceiver: ::core::option::Option<
         unsafe extern "C" fn(
             eventReceiver: ::core::option::Option<
@@ -10458,15 +10165,15 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `width` - Indicates the width.
+    /// * `width` - Indicates the width.
     ///
-    /// `height` - Indicates the height.
+    /// * `height` - Indicates the height.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
     pub setMeasuredSize: ::core::option::Option<
@@ -10476,15 +10183,15 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `positionX` - Indicates the X coordinate.
+    /// * `positionX` - Indicates the X coordinate.
     ///
-    /// `positionY` - Indicates the Y coordinate.
+    /// * `positionY` - Indicates the Y coordinate.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
     pub setLayoutPosition: ::core::option::Option<
@@ -10494,35 +10201,35 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
     /// # Returns
     ///
-    /// Returns the width and height of the component.
+    /// * Returns the width and height of the component.
     pub getMeasuredSize:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_IntSize>,
     /// Obtains the position of a component after the layout is complete.
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
     /// # Returns
     ///
-    /// Returns the position of the component.
+    /// * Returns the position of the component.
     pub getLayoutPosition:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_IntOffset>,
     /// Measures a node. You can use the <b>getMeasuredSize</b> API to obtain the size after the measurement.
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `Constraint` - Indicates the size constraint.
+    /// * `Constraint` - Indicates the size constraint.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
     pub measureNode: ::core::option::Option<
@@ -10537,15 +10244,15 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `positionX` - Indicates the X coordinate.
+    /// * `positionX` - Indicates the X coordinate.
     ///
-    /// `positionY` - Indicates the Y coordinate.
+    /// * `positionY` - Indicates the Y coordinate.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
     pub layoutNode: ::core::option::Option<
@@ -10566,13 +10273,13 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the component for which you want to add the event callback function.
+    /// * `node` - Indicates the component for which you want to add the event callback function.
     ///
-    /// `eventReceiver` - Indicates the component event callback function to add.
+    /// * `eventReceiver` - Indicates the component event callback function to add.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
     pub addNodeEventReceiver: ::core::option::Option<
@@ -10585,13 +10292,13 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the component from which you want to remove the event callback function.
+    /// * `node` - Indicates the component from which you want to remove the event callback function.
     ///
-    /// `eventReceiver` - Indicates the component event callback function to remove.
+    /// * `eventReceiver` - Indicates the component event callback function to remove.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
     pub removeNodeEventReceiver: ::core::option::Option<
@@ -10615,13 +10322,13 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the component for which you want to add the custom event callback function.
+    /// * `node` - Indicates the component for which you want to add the custom event callback function.
     ///
-    /// `eventReceiver` - Indicates the custom event callback function to add.
+    /// * `eventReceiver` - Indicates the custom event callback function to add.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub addNodeCustomEventReceiver: ::core::option::Option<
@@ -10636,13 +10343,13 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the component from which you want to remove the custom event callback function.
+    /// * `node` - Indicates the component from which you want to remove the custom event callback function.
     ///
-    /// `eventReceiver` - Indicates the custom event callback function to remove.
+    /// * `eventReceiver` - Indicates the custom event callback function to remove.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub removeNodeCustomEventReceiver: ::core::option::Option<
@@ -10657,13 +10364,13 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the component on which the custom data will be saved.
+    /// * `node` - Indicates the component on which the custom data will be saved.
     ///
-    /// `userData` - Indicates the custom data to be saved.
+    /// * `userData` - Indicates the custom data to be saved.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
     pub setUserData: ::core::option::Option<
@@ -10673,11 +10380,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target component.
+    /// * `node` - Indicates the target component.
     ///
     /// # Returns
     ///
-    /// Returns the custom data.
+    /// * Returns the custom data.
     pub getUserData: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle) -> *mut ::core::ffi::c_void,
     >,
@@ -10685,14 +10392,14 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the component for which you want to set the unit.
+    /// * `node` - Indicates the component for which you want to set the unit.
     ///
-    /// `unit` - Indicates the unit, which is an enumerated value of [`ArkUI_LengthMetricUnit`].
+    /// * `unit` - Indicates the unit, which is an enumerated value of [`ArkUI_LengthMetricUnit`].
     /// The default value is <b>ARKUI_LENGTH_METRIC_UNIT_DEFAULT</b>.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub setLengthMetricUnit: ::core::option::Option<
@@ -10702,22 +10409,22 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - target node object.
+    /// * `node` - target node object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer of the component, if not return NULL
+    /// * Returns the pointer of the component, if not return NULL
     pub getParent:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle>,
     /// Uninstall all child nodes from the parent component.
     ///
     /// # Arguments
     ///
-    /// `parent` - target node object.
+    /// * `parent` - target node object.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -10764,11 +10471,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the component event.
+    /// * `event` - Indicates the pointer to the component event.
     ///
     /// # Returns
     ///
-    /// Returns the type of the component event.
+    /// * Returns the type of the component event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -10781,11 +10488,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the component event.
+    /// * `event` - Indicates the pointer to the component event.
     ///
     /// # Returns
     ///
-    /// Returns the custom ID of the component event.
+    /// * Returns the custom ID of the component event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -10795,11 +10502,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the component event.
+    /// * `event` - Indicates the pointer to the component event.
     ///
     /// # Returns
     ///
-    /// Returns the component object that triggers the component event.
+    /// * Returns the component object that triggers the component event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -10809,11 +10516,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the component event.
+    /// * `event` - Indicates the pointer to the component event.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the input event data.
+    /// * Returns the pointer to the input event data.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -10824,11 +10531,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the component event.
+    /// * `event` - Indicates the pointer to the component event.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the numerical data.
+    /// * Returns the pointer to the numerical data.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -10840,11 +10547,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the component event.
+    /// * `event` - Indicates the pointer to the component event.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the string data.
+    /// * Returns the pointer to the string data.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -10859,11 +10566,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the component event.
+    /// * `event` - Indicates the pointer to the component event.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the custom data.
+    /// * Returns the pointer to the custom data.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -10873,15 +10580,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the component event.
+    /// * `event` - Indicates the pointer to the component event.
     ///
-    /// `index` - Indicates the index of the return value.
+    /// * `index` - Indicates the index of the return value.
     ///
-    /// `value` - Indicates the return value.
+    /// * `value` - Indicates the return value.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE`] if the parameter length exceeds
     /// the limit.
@@ -10900,17 +10607,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the component event.
+    /// * `event` - Indicates the pointer to the component event.
     ///
-    /// `index` - Indicates the index of the return value.
+    /// * `index` - Indicates the index of the return value.
     ///
-    /// `string` - Indicates the pointer to the string array.
+    /// * `string` - Indicates the pointer to the string array.
     ///
-    /// `stringSize` - Indicates the length of the string array.
+    /// * `stringSize` - Indicates the length of the string array.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE`] if the parameter length exceeds
     /// the limit.
@@ -10929,15 +10636,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the component event.
+    /// * `event` - Indicates the pointer to the component event.
     ///
-    /// `value` - Indicates the numeric-type array.
+    /// * `value` - Indicates the numeric-type array.
     ///
-    /// `size` - Indicates the array length.
+    /// * `size` - Indicates the array length.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_NO_RETURN`] if the component event does not support return values.
     /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INVALID`] if data does not exist in the component event.
@@ -10961,7 +10668,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -10971,13 +10678,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
-    /// `size` - Indicates the number of elements.
+    /// * `size` - Indicates the number of elements.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -10992,11 +10699,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
     /// # Returns
     ///
-    /// Returns the total number of elements in the adapter.
+    /// * Returns the total number of elements in the adapter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11006,15 +10713,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
-    /// `userData` - Indicates custom data.
+    /// * `userData` - Indicates custom data.
     ///
-    /// `receiver` - Indicates the event receiver callback.
+    /// * `receiver` - Indicates the event receiver callback.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11030,7 +10737,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11040,11 +10747,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11056,15 +10763,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
-    /// `startPosition` - Indicates the start position of the elements to reload.
+    /// * `startPosition` - Indicates the start position of the elements to reload.
     ///
-    /// `itemCount` - Indicates the number of the elements to reload.
+    /// * `itemCount` - Indicates the number of the elements to reload.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11080,15 +10787,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
-    /// `startPosition` - Indicates the start position of the elements to remove.
+    /// * `startPosition` - Indicates the start position of the elements to remove.
     ///
-    /// `itemCount` - Indicates the number of the elements to remove.
+    /// * `itemCount` - Indicates the number of the elements to remove.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11104,15 +10811,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
-    /// `startPosition` - Indicates the start position of the elements to insert.
+    /// * `startPosition` - Indicates the start position of the elements to insert.
     ///
-    /// `itemCount` - Indicates the number of the elements to insert.
+    /// * `itemCount` - Indicates the number of the elements to insert.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11128,15 +10835,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
-    /// `from` - Indicates the start position of the elements to move.
+    /// * `from` - Indicates the start position of the elements to move.
     ///
-    /// `to` - Indicates the end position of the elements to move.
+    /// * `to` - Indicates the end position of the elements to move.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11155,15 +10862,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the target component adapter.
+    /// * `handle` - Indicates the target component adapter.
     ///
-    /// `items` - Indicates the pointer to the array of the elements in the adapter.
+    /// * `items` - Indicates the pointer to the array of the elements in the adapter.
     ///
-    /// `size` - Indicates the number of elements.
+    /// * `size` - Indicates the number of elements.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11179,7 +10886,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the target adapter event.
+    /// * `event` - Indicates the target adapter event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11191,11 +10898,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the target adapter event.
+    /// * `event` - Indicates the target adapter event.
     ///
     /// # Returns
     ///
-    /// Returns the event type.
+    /// * Returns the event type.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11207,11 +10914,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the target adapter event.
+    /// * `event` - Indicates the target adapter event.
     ///
     /// # Returns
     ///
-    /// Returns the element to be removed.
+    /// * Returns the element to be removed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11223,11 +10930,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the target adapter event.
+    /// * `event` - Indicates the target adapter event.
     ///
     /// # Returns
     ///
-    /// Returns the index of the element.
+    /// * Returns the index of the element.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11237,11 +10944,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the target adapter event.
+    /// * `event` - Indicates the target adapter event.
     ///
     /// # Returns
     ///
-    /// Returns the scrollable container node that uses the specified adapter.
+    /// * Returns the scrollable container node that uses the specified adapter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11253,13 +10960,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the target adapter event.
+    /// * `event` - Indicates the target adapter event.
     ///
-    /// `node` - Indicates the component to be added.
+    /// * `node` - Indicates the component to be added.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11274,13 +10981,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the target adapter event.
+    /// * `event` - Indicates the target adapter event.
     ///
-    /// `id` - Indicates the component ID to set.
+    /// * `id` - Indicates the component ID to set.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11292,11 +10999,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the custom component event.
+    /// * `event` - Indicates the pointer to the custom component event.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the size constraint.
+    /// * Returns the pointer to the size constraint.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11309,11 +11016,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the custom component event.
+    /// * `event` - Indicates the pointer to the custom component event.
     ///
     /// # Returns
     ///
-    /// Returns the expected position relative to the parent component.
+    /// * Returns the expected position relative to the parent component.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11325,11 +11032,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the custom component event.
+    /// * `event` - Indicates the pointer to the custom component event.
     ///
     /// # Returns
     ///
-    /// Returns the drawing context.
+    /// * Returns the drawing context.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11341,11 +11048,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the custom component event.
+    /// * `event` - Indicates the pointer to the custom component event.
     ///
     /// # Returns
     ///
-    /// Returns the ID of the custom component event.
+    /// * Returns the ID of the custom component event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11355,11 +11062,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the custom component event.
+    /// * `event` - Indicates the pointer to the custom component event.
     ///
     /// # Returns
     ///
-    /// Returns the custom event parameters.
+    /// * Returns the custom event parameters.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11371,11 +11078,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the custom component event.
+    /// * `event` - Indicates the pointer to the custom component event.
     ///
     /// # Returns
     ///
-    /// Returns the component object.
+    /// * Returns the component object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11387,11 +11094,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the custom component event.
+    /// * `event` - Indicates the pointer to the custom component event.
     ///
     /// # Returns
     ///
-    /// Returns the type of the custom component event.
+    /// * Returns the type of the custom component event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11403,13 +11110,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the custom component event.
+    /// * `event` - Indicates the pointer to the custom component event.
     ///
-    /// `info` - Indicates the measurement information to be obtained.
+    /// * `info` - Indicates the measurement information to be obtained.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
@@ -11425,13 +11132,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the custom component event.
+    /// * `event` - Indicates the pointer to the custom component event.
     ///
-    /// `metrics` - Indicates the measurement metrics to set.
+    /// * `metrics` - Indicates the measurement metrics to set.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
@@ -11447,13 +11154,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the custom component event.
+    /// * `event` - Indicates the pointer to the custom component event.
     ///
-    /// `info` - Indicates the drawing information to obtain.
+    /// * `info` - Indicates the drawing information to obtain.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
@@ -11469,13 +11176,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `content` - Indicates the pointer to the node content instance.
+    /// * `content` - Indicates the pointer to the node content instance.
     ///
-    /// `callback` - Indicates the callback function.
+    /// * `callback` - Indicates the callback function.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11490,11 +11197,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the node content event.
+    /// * `event` - Indicates the pointer to the node content event.
     ///
     /// # Returns
     ///
-    /// Returns the type of the node content event.
+    /// * Returns the type of the node content event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11506,11 +11213,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the node content event.
+    /// * `event` - Indicates the pointer to the node content event.
     ///
     /// # Returns
     ///
-    /// Returns the node content object that triggers the node content event.
+    /// * Returns the node content object that triggers the node content event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11522,13 +11229,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `content` - Indicates the node content on which the custom data will be saved.
+    /// * `content` - Indicates the node content on which the custom data will be saved.
     ///
-    /// `userData` - Indicates the custom data to be saved.
+    /// * `userData` - Indicates the custom data to be saved.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11543,11 +11250,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `content` - Indicates the target node content.
+    /// * `content` - Indicates the target node content.
     ///
     /// # Returns
     ///
-    /// Returns the custom data.
+    /// * Returns the custom data.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11559,13 +11266,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `content` - Indicates the pointer to the node content instance.
+    /// * `content` - Indicates the pointer to the node content instance.
     ///
-    /// `node` - Indicates the pointer to the node
+    /// * `node` - Indicates the pointer to the node
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11580,13 +11287,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `content` - Indicates the pointer to the node content instance.
+    /// * `content` - Indicates the pointer to the node content instance.
     ///
-    /// `node` - Indicates the pointer to the node
+    /// * `node` - Indicates the pointer to the node
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11601,15 +11308,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `content` - Indicates the pointer to the node content instance.
+    /// * `content` - Indicates the pointer to the node content instance.
     ///
-    /// `node` - Indicates the pointer to the node
+    /// * `node` - Indicates the pointer to the node
     ///
-    /// `position` - Indicates the position for inserting the node
+    /// * `position` - Indicates the position for inserting the node
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11626,13 +11333,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - ArkUI_NodeHandle pointer.
+    /// * `node` - ArkUI_NodeHandle pointer.
     ///
-    /// `size` - The drawing area size of the component handle, in px.
+    /// * `size` - The drawing area size of the component handle, in px.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11648,13 +11355,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - ArkUI_NodeHandle pointer.
+    /// * `node` - ArkUI_NodeHandle pointer.
     ///
-    /// `localOffset` - The offset value of the component handle relative to the parent component, in px.
+    /// * `localOffset` - The offset value of the component handle relative to the parent component, in px.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11670,13 +11377,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - ArkUI_NodeHandle pointer.
+    /// * `node` - ArkUI_NodeHandle pointer.
     ///
-    /// `globalOffset` - The offset value of the component handle relative to the window, in px.
+    /// * `globalOffset` - The offset value of the component handle relative to the window, in px.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11692,13 +11399,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - ArkUI_NodeHandle pointer.
+    /// * `node` - ArkUI_NodeHandle pointer.
     ///
-    /// `screenOffset` - The offset value of the component handle relative to the screen, in px.
+    /// * `screenOffset` - The offset value of the component handle relative to the screen, in px.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11713,14 +11420,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - ArkUI_NodeHandle pointer.
+    /// * `node` - ArkUI_NodeHandle pointer.
     ///
-    /// `translateOffset` - The cumulative offset value of the component handle itself,
+    /// * `translateOffset` - The cumulative offset value of the component handle itself,
     /// parent components, and ancestor nodes, in px.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11735,14 +11442,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - ArkUI_NodeHandle pointer.
+    /// * `node` - ArkUI_NodeHandle pointer.
     ///
-    /// `translateOffset` - The cumulative offset value of the component handle itself,
+    /// * `translateOffset` - The cumulative offset value of the component handle itself,
     /// parent components, and ancestor nodes, in px.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -11757,11 +11464,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - ArkUI_NodeHandle pointer.
+    /// * `node` - ArkUI_NodeHandle pointer.
     ///
-    /// `name` - The name of the custom property. Passing null pointers is not allowed.
+    /// * `name` - The name of the custom property. Passing null pointers is not allowed.
     ///
-    /// `value` - The value of the custom property. Passing null pointers is not allowed.
+    /// * `value` - The value of the custom property. Passing null pointers is not allowed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -11775,9 +11482,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - ArkUI_NodeHandle pointer.
+    /// * `node` - ArkUI_NodeHandle pointer.
     ///
-    /// `name` - The name of the custom property.
+    /// * `name` - The name of the custom property.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -11790,15 +11497,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Node objects that need to be registered for events.
+    /// * `node` - Node objects that need to be registered for events.
     ///
-    /// `userData` - Custom event parameters are carried back in the callback parameter when the event is triggered.
+    /// * `userData` - Custom event parameters are carried back in the callback parameter when the event is triggered.
     ///
-    /// `onFinish` - The callback triggered after the completion of the folding animation.
+    /// * `onFinish` - The callback triggered after the completion of the folding animation.
     ///
     /// # Returns
     ///
-    /// Error code.
+    /// * Error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] The component does not support this event.
@@ -11815,11 +11522,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - The node.
+    /// * `node` - The node.
     ///
     /// # Returns
     ///
-    /// The UIContext pointer.
+    /// * The UIContext pointer.
     /// If a null pointer is returned, it may be because the node is empty.
     ///
     /// Available since API-level: 12
@@ -11831,15 +11538,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `userData` - Indicates the custom data to be saved.
+    /// * `userData` - Indicates the custom data to be saved.
     ///
-    /// `onColorModeChange` - Callback Events.
+    /// * `onColorModeChange` - Callback Events.
     ///
     /// # Returns
     ///
-    /// Error code.
+    /// * Error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] The component does not support this event.
@@ -11861,7 +11568,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11872,15 +11579,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
-    /// `userData` - Indicates the custom data to be saved.
+    /// * `userData` - Indicates the custom data to be saved.
     ///
-    /// `onFontStyleChange` - Callback Events.
+    /// * `onFontStyleChange` - Callback Events.
     ///
     /// # Returns
     ///
-    /// Error code.
+    /// * Error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] The component does not support this event.
@@ -11902,7 +11609,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the target node.
+    /// * `node` - Indicates the target node.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11912,11 +11619,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates a pointer to the current system font change event.
+    /// * `event` - Indicates a pointer to the current system font change event.
     ///
     /// # Returns
     ///
-    /// Updated system font size scaling factor. Default value: 1.0.
+    /// * Updated system font size scaling factor. Default value: 1.0.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11928,11 +11635,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates a pointer to the current system font change event.
+    /// * `event` - Indicates a pointer to the current system font change event.
     ///
     /// # Returns
     ///
-    /// The updated system font thickness scaling factor. Default value: 1.0.
+    /// * The updated system font thickness scaling factor. Default value: 1.0.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

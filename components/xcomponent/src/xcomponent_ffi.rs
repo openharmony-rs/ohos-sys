@@ -1453,9 +1453,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `id` - Indicates the char buffer to keep the ID of this <b>OH_NativeXComponent</b> instance.
+    /// * `id` - Indicates the char buffer to keep the ID of this <b>OH_NativeXComponent</b> instance.
     ///
     /// Notice that a null-terminator will be appended to the char buffer, so the size of the
     ///
@@ -1463,11 +1463,11 @@ extern "C" {
     ///
     /// It is recommended that the size of the char buffer be [OH_XCOMPONENT_ID_LEN_MAX + 1].
     ///
-    /// `size` - Indicates the pointer to the length of <b>id</b>, which you can receive.
+    /// * `size` - Indicates the pointer to the length of <b>id</b>, which you can receive.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 8
     ///
@@ -1481,17 +1481,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `window` - Indicates the native window handler.
+    /// * `window` - Indicates the native window handler.
     ///
-    /// `width` - Indicates the pointer to the width of the current surface.
+    /// * `width` - Indicates the pointer to the width of the current surface.
     ///
-    /// `height` - Indicates the pointer to the height of the current surface.
+    /// * `height` - Indicates the pointer to the height of the current surface.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 8
     ///
@@ -1506,17 +1506,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `window` - Indicates the native window handler.
+    /// * `window` - Indicates the native window handler.
     ///
-    /// `x` - Indicates the pointer to the x coordinate of the current surface.
+    /// * `x` - Indicates the pointer to the x coordinate of the current surface.
     ///
-    /// `y` - Indicates the pointer to the y coordinate of the current surface.
+    /// * `y` - Indicates the pointer to the y coordinate of the current surface.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 8
     ///
@@ -1531,15 +1531,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `window` - Indicates the native window handler.
+    /// * `window` - Indicates the native window handler.
     ///
-    /// `touchEvent` - Indicates the pointer to the current touch event.
+    /// * `touchEvent` - Indicates the pointer to the current touch event.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 8
     ///
@@ -1553,15 +1553,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
     ///
-    /// `toolType` - Indicates the tool Type of the pointer.
+    /// * `toolType` - Indicates the tool Type of the pointer.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 9
     ///
@@ -1575,15 +1575,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
     ///
-    /// `tiltX` - Indicates the x tilt of the pointer.
+    /// * `tiltX` - Indicates the x tilt of the pointer.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 9
     ///
@@ -1597,15 +1597,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
     ///
-    /// `tiltY` - Indicates the y tilt of the pointer.
+    /// * `tiltY` - Indicates the y tilt of the pointer.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 9
     ///
@@ -1621,17 +1621,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
     ///
-    /// `windowX` - Indicates the x coordinate relative to the upper left corner of the current
+    /// * `windowX` - Indicates the x coordinate relative to the upper left corner of the current
     ///
     /// application window.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`] get windowX success.
     /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`] component is NULL, windowX is NULL
     ///
@@ -1653,17 +1653,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
     ///
-    /// `windowY` - Indicates the y coordinate relative to the upper left corner of the current
+    /// * `windowY` - Indicates the y coordinate relative to the upper left corner of the current
     ///
     /// application window.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`] get windowY success.
     /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`] component is NULL, windowY is NULL
     ///
@@ -1685,17 +1685,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
     ///
-    /// `displayX` - Indicates the x coordinate relative to the upper left corner of the current
+    /// * `displayX` - Indicates the x coordinate relative to the upper left corner of the current
     ///
     /// screen.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`] get displayX success.
     /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`] component is NULL, displayX is NULL
     ///
@@ -1717,17 +1717,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `pointIndex` - Indicates the pointer index in the touchPoints.
+    /// * `pointIndex` - Indicates the pointer index in the touchPoints.
     ///
-    /// `displayY` - Indicates the y coordinate relative to the upper left corner of the current
+    /// * `displayY` - Indicates the y coordinate relative to the upper left corner of the current
     ///
     /// screen.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`] get displayY success.
     /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`] component is NULL, displayY is NULL
     ///
@@ -1747,15 +1747,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `window` - Indicates the native window handler.
+    /// * `window` - Indicates the native window handler.
     ///
-    /// `historicalPoints` - Indicates the pointer to the current historicalPoints.
+    /// * `historicalPoints` - Indicates the pointer to the current historicalPoints.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 10
     ///
@@ -1770,15 +1770,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `window` - Indicates the native window handler.
+    /// * `window` - Indicates the native window handler.
     ///
-    /// `mouseEvent` - Indicates the pointer to the current mouse event.
+    /// * `mouseEvent` - Indicates the pointer to the current mouse event.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 9
     ///
@@ -1792,13 +1792,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to a surface lifecycle and touch event callback.
+    /// * `callback` - Indicates the pointer to a surface lifecycle and touch event callback.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 8
     ///
@@ -1811,13 +1811,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to a mouse event callback.
+    /// * `callback` - Indicates the pointer to a mouse event callback.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 9
     ///
@@ -1830,13 +1830,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to a focus event callback.
+    /// * `callback` - Indicates the pointer to a focus event callback.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 10
     ///
@@ -1854,13 +1854,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to a key event callback.
+    /// * `callback` - Indicates the pointer to a key event callback.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 10
     ///
@@ -1878,13 +1878,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to a blur event callback.
+    /// * `callback` - Indicates the pointer to a blur event callback.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 10
     ///
@@ -1902,13 +1902,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `keyEvent` - Indicates the pointer to pointer of <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Indicates the pointer to pointer of <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 10
     ///
@@ -1921,13 +1921,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
-    /// `action` - Indicates the action of the <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `action` - Indicates the action of the <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 10
     ///
@@ -1940,13 +1940,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
-    /// `code` - Indicates the keyCode of the <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `code` - Indicates the keyCode of the <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 10
     ///
@@ -1959,13 +1959,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
-    /// `sourceType` - Indicates the sourceType of the <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `sourceType` - Indicates the sourceType of the <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 10
     ///
@@ -1978,13 +1978,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
-    /// `deviceId` - Indicates the deviceId of the <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `deviceId` - Indicates the deviceId of the <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 10
     ///
@@ -1997,13 +1997,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
-    /// `timestamp` - Indicates the timestamp of the <b>OH_NativeXComponent_KeyEvent</b> instance.
+    /// * `timestamp` - Indicates the timestamp of the <b>OH_NativeXComponent_KeyEvent</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 10
     ///
@@ -2016,13 +2016,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to a expected rate range.
+    /// * `callback` - Indicates the pointer to a expected rate range.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 11
     ///
@@ -2037,13 +2037,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to a onFrame callback.
+    /// * `callback` - Indicates the pointer to a onFrame callback.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 11
     ///
@@ -2064,11 +2064,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 11
     ///
@@ -2082,13 +2082,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to a surface show event callback.
+    /// * `callback` - Indicates the pointer to a surface show event callback.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 12
     ///
@@ -2108,13 +2108,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to a surface hide event callback.
+    /// * `callback` - Indicates the pointer to a surface hide event callback.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 12
     ///
@@ -2133,14 +2133,14 @@ extern "C" {
     /// Set whether the <b>OH_NativeXComponent</b> instance needs soft keyboard.
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `needSoftKeyboard` - Indicates whether the <b>OH_NativeXComponent</b> instance needs soft keyboard or not.
+    /// * `needSoftKeyboard` - Indicates whether the <b>OH_NativeXComponent</b> instance needs soft keyboard or not.
     /// Default value is false.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 12
     ///
@@ -2155,15 +2155,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// `pointId` - Indicates the id of the touch point which triggers this touch event.
+    /// * `pointId` - Indicates the id of the touch point which triggers this touch event.
     ///
-    /// `sourceType` - Indicates the source type of this touch event.
+    /// * `sourceType` - Indicates the source type of this touch event.
     ///
     /// # Returns
     ///
-    /// Returns OH_NATIVEXCOMPONENT_RESULT_SUCCESS if success.
+    /// * Returns OH_NATIVEXCOMPONENT_RESULT_SUCCESS if success.
     /// Returns OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER if a parameter exception occurs.
     /// Returns OH_NATIVEXCOMPONENT_RESULT_FAILED if other exceptions occur.
     ///
@@ -2182,13 +2182,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
     ///
-    /// `handle` - Indicates the pointer to the <b>ArkUI_AccessibilityProvider</b> instance.
+    /// * `handle` - Indicates the pointer to the <b>ArkUI_AccessibilityProvider</b> instance.
     ///
     /// # Returns
     ///
-    /// Returns [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`] if the operation is successful.
     /// Returns [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`] if a parameter error occurs.
     ///
     /// Available since API-level: 13

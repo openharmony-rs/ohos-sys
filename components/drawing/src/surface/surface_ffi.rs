@@ -16,15 +16,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_GpuContext` - Indicates the pointer to an <b>OH_Drawing_GpuContext</b> object.
+    /// * `OH_Drawing_GpuContext` - Indicates the pointer to an <b>OH_Drawing_GpuContext</b> object.
     ///
-    /// `bool` - Indicates whether an allocation should count against a cache budget.
+    /// * `bool` - Indicates whether an allocation should count against a cache budget.
     ///
-    /// `OH_Drawing_Image_Info` - Indicates the image info.
+    /// * `OH_Drawing_Image_Info` - Indicates the image info.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Surface</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Surface</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -42,11 +42,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Surface` - Indicates the pointer to an <b>OH_Drawing_Surface</b> object.
+    /// * `OH_Drawing_Surface` - Indicates the pointer to an <b>OH_Drawing_Surface</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Canvas</b> object. The returned pointer does not need to be managed
+    /// * Returns the pointer to the <b>OH_Drawing_Canvas</b> object. The returned pointer does not need to be managed
     /// by the caller.
     ///
     /// Available since API-level: 12
@@ -61,7 +61,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Surface` - Indicates the pointer to an <b>OH_Drawing_Surface</b> object.
+    /// * `OH_Drawing_Surface` - Indicates the pointer to an <b>OH_Drawing_Surface</b> object.
     ///
     /// Available since API-level: 12
     ///

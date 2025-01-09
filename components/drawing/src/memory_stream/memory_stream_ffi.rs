@@ -17,14 +17,14 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_MemoryStream</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_MemoryStream</b> object created.
     /// # Arguments
     ///
-    /// `data` - file path.
+    /// * `data` - file path.
     ///
-    /// `length` - Data length.
+    /// * `length` - Data length.
     ///
-    /// `copyData` - Copy data or not.
+    /// * `copyData` - Copy data or not.
     ///
     /// Available since API-level: 12
     ///
@@ -42,7 +42,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_MemoryStream` - Indicates the pointer to an <b>OH_Drawing_MemoryStream</b> object.
+    /// * `OH_Drawing_MemoryStream` - Indicates the pointer to an <b>OH_Drawing_MemoryStream</b> object.
     ///
     /// Available since API-level: 12
     ///

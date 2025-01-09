@@ -14,13 +14,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `positionY` - The y-coordinate of the avoid area.
+    /// * `positionY` - The y-coordinate of the avoid area.
     ///
-    /// `height` - The height of the avoid area.
+    /// * `height` - The height of the avoid area.
     ///
     /// # Returns
     ///
-    /// If the creation succeeds, a pointer to the newly created [`InputMethod_TextAvoidInfo`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_TextAvoidInfo`]
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
@@ -31,7 +31,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be destroyed.
+    /// * `options` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -41,13 +41,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be set value.
+    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be set value.
     ///
-    /// `positionY` - Represents positionY value.
+    /// * `positionY` - Represents positionY value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -63,13 +63,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be set value.
+    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be set value.
     ///
-    /// `height` - Represents height value.
+    /// * `height` - Represents height value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -85,13 +85,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be get value from.
+    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be get value from.
     ///
-    /// `positionY` - Represents positionY value.
+    /// * `positionY` - Represents positionY value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -107,13 +107,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be get value from.
+    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be get value from.
     ///
-    /// `height` - Represents height value.
+    /// * `height` - Represents height value.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].

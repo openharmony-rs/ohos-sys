@@ -12,13 +12,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
     ///
-    /// `root` - Indicates the pointer to the component instance created by the native API.
+    /// * `root` - Indicates the pointer to the component instance created by the native API.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -34,13 +34,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
     ///
-    /// `root` - Indicates the pointer to the component instance created by the native API.
+    /// * `root` - Indicates the pointer to the component instance created by the native API.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -57,15 +57,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to the UI input event callback.
+    /// * `callback` - Indicates the pointer to the UI input event callback.
     ///
-    /// `type` - Indicates the type of the current UI input event.
+    /// * `type` - Indicates the type of the current UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
@@ -88,13 +88,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
     ///
-    /// `callback` - Indicates the pointer to the custom event intercept callback.
+    /// * `callback` - Indicates the pointer to the custom event intercept callback.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///

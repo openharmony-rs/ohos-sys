@@ -52,7 +52,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Matrix</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Matrix</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -67,13 +67,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `deg` - angle of axes relative to upright axes
+    /// * `deg` - angle of axes relative to upright axes
     ///
-    /// `x` - pivot on x-axis.
+    /// * `x` - pivot on x-axis.
     ///
-    /// `y` - pivot on y-axis.
+    /// * `y` - pivot on y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -88,19 +88,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `sx` - horizontal scale factor.
+    /// * `sx` - horizontal scale factor.
     ///
-    /// `sy` - vertical scale factor.
+    /// * `sy` - vertical scale factor.
     ///
-    /// `px` - pivot on x-axis.
+    /// * `px` - pivot on x-axis.
     ///
-    /// `py` - pivot on y-axis.
+    /// * `py` - pivot on y-axis.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Matrix</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Matrix</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -119,15 +119,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `dx` - horizontal translation.
+    /// * `dx` - horizontal translation.
     ///
-    /// `dy` - vertical translation.
+    /// * `dy` - vertical translation.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Matrix</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Matrix</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -141,25 +141,25 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `scaleX` - horizontal scale factor to store
+    /// * `scaleX` - horizontal scale factor to store
     ///
-    /// `skewX` - horizontal skew factor to store
+    /// * `skewX` - horizontal skew factor to store
     ///
-    /// `transX` - horizontal translation to store
+    /// * `transX` - horizontal translation to store
     ///
-    /// `skewY` - vertical skew factor to store
+    /// * `skewY` - vertical skew factor to store
     ///
-    /// `scaleY` - vertical scale factor to store
+    /// * `scaleY` - vertical scale factor to store
     ///
-    /// `transY` - vertical translation to store
+    /// * `transY` - vertical translation to store
     ///
-    /// `persp0` - input x-axis values perspective factor to store
+    /// * `persp0` - input x-axis values perspective factor to store
     ///
-    /// `persp1` - input y-axis values perspective factor to store
+    /// * `persp1` - input y-axis values perspective factor to store
     ///
-    /// `persp2` - perspective scale factor to store
+    /// * `persp2` - perspective scale factor to store
     ///
     /// Available since API-level: 11
     ///
@@ -184,17 +184,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `src` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object rect to map from.
+    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object rect to map from.
     ///
-    /// `dst` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object rect to map to.
+    /// * `dst` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object rect to map to.
     ///
-    /// `stf` - Scales to fit enum method.
+    /// * `stf` - Scales to fit enum method.
     ///
     /// # Returns
     ///
-    /// Returns true if dst is empty, and sets matrix to:
+    /// * Returns true if dst is empty, and sets matrix to:
     /// | 0 0 0 |
     /// | 0 0 0 |
     /// | 0 0 1 |
@@ -236,13 +236,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `degree` - Indicates the angle of axes relative to upright axes.
+    /// * `degree` - Indicates the angle of axes relative to upright axes.
     ///
-    /// `px` - Indicates the pivot on x-axis.
+    /// * `px` - Indicates the pivot on x-axis.
     ///
-    /// `py` - Indicates the pivot on y-axis.
+    /// * `py` - Indicates the pivot on y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -272,15 +272,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `sx` - Horizontal scale factor.
+    /// * `sx` - Horizontal scale factor.
     ///
-    /// `sy` - Vertical scale factor.
+    /// * `sy` - Vertical scale factor.
     ///
-    /// `px` - Pivot on x-axis.
+    /// * `px` - Pivot on x-axis.
     ///
-    /// `py` - Pivot on y-axis.
+    /// * `py` - Pivot on y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -308,11 +308,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `dx` - Indicates the horizontal translation.
+    /// * `dx` - Indicates the horizontal translation.
     ///
-    /// `dy` - Indicates the vertical translation.
+    /// * `dy` - Indicates the vertical translation.
     ///
     /// Available since API-level: 12
     ///
@@ -345,13 +345,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `degree` - Indicates the angle of axes relative to upright axes.
+    /// * `degree` - Indicates the angle of axes relative to upright axes.
     ///
-    /// `px` - Indicates the pivot on x-axis.
+    /// * `px` - Indicates the pivot on x-axis.
     ///
-    /// `py` - Indicates the pivot on y-axis.
+    /// * `py` - Indicates the pivot on y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -376,15 +376,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `sx` - Horizontal scale factor.
+    /// * `sx` - Horizontal scale factor.
     ///
-    /// `sy` - Vertical scale factor.
+    /// * `sy` - Vertical scale factor.
     ///
-    /// `px` - Pivot on x-axis.
+    /// * `px` - Pivot on x-axis.
     ///
-    /// `py` - Pivot on y-axis.
+    /// * `py` - Pivot on y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -415,11 +415,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `dx` - Indicates the horizontal translation.
+    /// * `dx` - Indicates the horizontal translation.
     ///
-    /// `dy` - Indicates the vertical translation.
+    /// * `dy` - Indicates the vertical translation.
     ///
     /// Available since API-level: 12
     ///
@@ -436,7 +436,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -457,11 +457,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `total` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object that a * b.
+    /// * `total` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object that a * b.
     ///
-    /// `a` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `a` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `b` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `b` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -479,13 +479,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `value` - Storages for nine matrix values.
+    /// * `value` - Storages for nine matrix values.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if matrix or value is nullptr.
     ///
@@ -503,13 +503,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `index` - one of 0-8.
+    /// * `index` - one of 0-8.
     ///
     /// # Returns
     ///
-    /// Returns value corresponding to index.Returns 0 if out of range.
+    /// * Returns value corresponding to index.Returns 0 if out of range.
     ///
     /// Available since API-level: 12
     ///
@@ -527,13 +527,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `degree` - Indicates the angle of axes relative to upright axes.
+    /// * `degree` - Indicates the angle of axes relative to upright axes.
     ///
-    /// `px` - Indicates the pivot on x-axis.
+    /// * `px` - Indicates the pivot on x-axis.
     ///
-    /// `py` - Indicates the pivot on y-axis.
+    /// * `py` - Indicates the pivot on y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -547,11 +547,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `dx` - Indicates the horizontal translation.
+    /// * `dx` - Indicates the horizontal translation.
     ///
-    /// `dy` - Indicates the vertical translation.
+    /// * `dy` - Indicates the vertical translation.
     ///
     /// Available since API-level: 12
     ///
@@ -565,15 +565,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `sx` - Indicates the horizontal scale factor.
+    /// * `sx` - Indicates the horizontal scale factor.
     ///
-    /// `sy` - Indicates the vertical scale factor.
+    /// * `sy` - Indicates the vertical scale factor.
     ///
-    /// `px` - Indicates the pivot on x-axis.
+    /// * `px` - Indicates the pivot on x-axis.
     ///
-    /// `py` - Indicates the pivot on y-axis.
+    /// * `py` - Indicates the pivot on y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -587,13 +587,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `inverse` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `inverse` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// # Returns
     ///
-    /// Returns true if the matrix is not nullptr and can be inverted;
+    /// * Returns true if the matrix is not nullptr and can be inverted;
     /// returns false if the matrix is nullptr or cannot be inverted.
     ///
     /// Available since API-level: 12
@@ -612,17 +612,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `src` - Points to map from.
+    /// * `src` - Points to map from.
     ///
-    /// `dst` - Points to map to.
+    /// * `dst` - Points to map to.
     ///
-    /// `count` - Number of point in src and dst.
+    /// * `count` - Number of point in src and dst.
     ///
     /// # Returns
     ///
-    /// Returns true if matrix is constructed successfully.
+    /// * Returns true if matrix is constructed successfully.
     ///
     /// Available since API-level: 12
     ///
@@ -641,13 +641,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `src` - Points to map from.
+    /// * `src` - Points to map from.
     ///
-    /// `dst` - Points to map to.
+    /// * `dst` - Points to map to.
     ///
-    /// `count` - Number of point in src and dst.
+    /// * `count` - Number of point in src and dst.
     ///
     /// Available since API-level: 12
     ///
@@ -666,15 +666,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `src` - Rect to map from.
+    /// * `src` - Rect to map from.
     ///
-    /// `dst` - Rect to map to.
+    /// * `dst` - Rect to map to.
     ///
     /// # Returns
     ///
-    /// Returns true if the mapped src is equal to the dst; returns false is not equal.
+    /// * Returns true if the mapped src is equal to the dst; returns false is not equal.
     ///
     /// Available since API-level: 12
     ///
@@ -692,13 +692,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `other` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// # Returns
     ///
-    /// Returns true if the two matrices are equal; returns false if not equal.
+    /// * Returns true if the two matrices are equal; returns false if not equal.
     ///
     /// Available since API-level: 12
     ///
@@ -718,11 +718,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// # Returns
     ///
-    /// Returns true if matrix is identity; returns false if not identity.
+    /// * Returns true if matrix is identity; returns false if not identity.
     ///
     /// Available since API-level: 12
     ///
@@ -736,7 +736,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 11
     ///

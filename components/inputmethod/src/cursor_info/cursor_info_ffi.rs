@@ -14,17 +14,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `left` - The left point of the cursor and must be absolute coordinate of the physical screen.
+    /// * `left` - The left point of the cursor and must be absolute coordinate of the physical screen.
     ///
-    /// `top` - The top point of the cursor and must be absolute coordinate of the physical screen.
+    /// * `top` - The top point of the cursor and must be absolute coordinate of the physical screen.
     ///
-    /// `width` - The width of the cursor.
+    /// * `width` - The width of the cursor.
     ///
-    /// `height` - The height of the cursor.
+    /// * `height` - The height of the cursor.
     ///
     /// # Returns
     ///
-    /// If the creation succeeds, a pointer to the newly created [`InputMethod_CursorInfo`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_CursorInfo`]
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
@@ -40,7 +40,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance which will be destroyed.
+    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance which will be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -50,19 +50,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
+    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
     ///
-    /// `left` - The left point of the cursor and must be absolute coordinate of the physical screen.
+    /// * `left` - The left point of the cursor and must be absolute coordinate of the physical screen.
     ///
-    /// `top` - The top point of the cursor and must be absolute coordinate of the physical screen.
+    /// * `top` - The top point of the cursor and must be absolute coordinate of the physical screen.
     ///
-    /// `width` - The width of the cursor.
+    /// * `width` - The width of the cursor.
     ///
-    /// `height` - The height of the cursor.
+    /// * `height` - The height of the cursor.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
@@ -81,19 +81,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
+    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
     ///
-    /// `left` - The left point of the cursor and must be absolute coordinate of the physical screen.
+    /// * `left` - The left point of the cursor and must be absolute coordinate of the physical screen.
     ///
-    /// `top` - The top point of the cursor and must be absolute coordinate of the physical screen.
+    /// * `top` - The top point of the cursor and must be absolute coordinate of the physical screen.
     ///
-    /// `width` - The width of the cursor.
+    /// * `width` - The width of the cursor.
     ///
-    /// `height` - The height of the cursor.
+    /// * `height` - The height of the cursor.
     ///
     /// # Returns
     ///
-    /// Returns a specific error code.
+    /// * Returns a specific error code.
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].

@@ -18,7 +18,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_FontCollection</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_FontCollection</b> object created.
     ///
     /// Available since API-level: 8
     ///
@@ -30,7 +30,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -42,7 +42,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -56,7 +56,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -72,7 +72,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_FontCollection</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_FontCollection</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -86,7 +86,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
     /// Available since API-level: 12
     ///

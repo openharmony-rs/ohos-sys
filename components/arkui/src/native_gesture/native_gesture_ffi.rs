@@ -398,15 +398,15 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `countNum` - Indicates the number of consecutive taps. If the value is less than 1 or is not set,
+    /// * `countNum` - Indicates the number of consecutive taps. If the value is less than 1 or is not set,
     /// the default value <b>1</b> is used.
     ///
-    /// `fingersNum` - Indicates the number of fingers required to trigger a tap. The value ranges
+    /// * `fingersNum` - Indicates the number of fingers required to trigger a tap. The value ranges
     /// from 1 to 10. If the value is less than 1 or is not set, the default value <b>1</b> is used.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created gesture.
+    /// * Returns the pointer to the created gesture.
     pub createTapGesture: ::core::option::Option<
         unsafe extern "C" fn(countNum: i32, fingersNum: i32) -> *mut ArkUI_GestureRecognizer,
     >,
@@ -431,17 +431,17 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `fingersNum` - Indicates the minimum number of fingers to trigger a long press gesture.
+    /// * `fingersNum` - Indicates the minimum number of fingers to trigger a long press gesture.
     /// The value ranges from 1 to 10.
     ///
-    /// `repeatResult` - Indicates whether to continuously trigger the event callback.
+    /// * `repeatResult` - Indicates whether to continuously trigger the event callback.
     ///
-    /// `durationNum` - Indicates the minimum hold-down time, in ms.
+    /// * `durationNum` - Indicates the minimum hold-down time, in ms.
     /// If the value is less than or equal to 0, the default value <b>500</b> is used.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created gesture.
+    /// * Returns the pointer to the created gesture.
     pub createLongPressGesture: ::core::option::Option<
         unsafe extern "C" fn(
             fingersNum: i32,
@@ -460,17 +460,17 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `fingersNum` - Indicates the minimum number of fingers to trigger a pan gesture. The value ranges from 1 to 10.
+    /// * `fingersNum` - Indicates the minimum number of fingers to trigger a pan gesture. The value ranges from 1 to 10.
     /// If the value is less than 1 or is not set, the default value <b>1</b> is used.
     ///
-    /// `directions` - Indicates the pan direction. The value supports the AND (&amp;) and OR (operations.
+    /// * `directions` - Indicates the pan direction. The value supports the AND (&amp;) and OR (operations.
     ///
-    /// `distanceNum` - Indicates the minimum pan distance to trigger the gesture, in vp. If this parameter is
+    /// * `distanceNum` - Indicates the minimum pan distance to trigger the gesture, in vp. If this parameter is
     /// set to a value less than or equal to 0, the default value <b>5</b> is used.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created gesture.
+    /// * Returns the pointer to the created gesture.
     pub createPanGesture: ::core::option::Option<
         unsafe extern "C" fn(
             fingersNum: i32,
@@ -489,15 +489,15 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `fingersNum` - Indicates the minimum number of fingers to trigger a pinch. The value ranges from 2 to 5.
+    /// * `fingersNum` - Indicates the minimum number of fingers to trigger a pinch. The value ranges from 2 to 5.
     /// Default value: <b>2</b>
     ///
-    /// `distanceNum` - Indicates the minimum recognition distance, in px. If this parameter is set to a value less
+    /// * `distanceNum` - Indicates the minimum recognition distance, in px. If this parameter is set to a value less
     /// than or equal to 0, the default value <b>5</b> is used.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created gesture.
+    /// * Returns the pointer to the created gesture.
     pub createPinchGesture: ::core::option::Option<
         unsafe extern "C" fn(fingersNum: i32, distanceNum: f64) -> *mut ArkUI_GestureRecognizer,
     >,
@@ -512,16 +512,16 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `fingersNum` - Indicates the minimum number of fingers to trigger a rotation. The value ranges from 2 to 5.
+    /// * `fingersNum` - Indicates the minimum number of fingers to trigger a rotation. The value ranges from 2 to 5.
     /// Default value: <b>2</b>
     ///
-    /// `angleNum` - Indicates the minimum degree that can trigger the rotation gesture. Default value: <b>1</b>
+    /// * `angleNum` - Indicates the minimum degree that can trigger the rotation gesture. Default value: <b>1</b>
     /// If this parameter is set to a value less than or equal to 0 or greater than 360,
     /// the default value <b>1</b> is used.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created gesture.
+    /// * Returns the pointer to the created gesture.
     pub createRotationGesture: ::core::option::Option<
         unsafe extern "C" fn(fingersNum: i32, angleNum: f64) -> *mut ArkUI_GestureRecognizer,
     >,
@@ -533,17 +533,17 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `fingersNum` - Indicates the minimum number of fingers to trigger a swipe gesture.
+    /// * `fingersNum` - Indicates the minimum number of fingers to trigger a swipe gesture.
     /// The value ranges from 1 to 10.
     ///
-    /// `directions` - Indicates the swipe direction.
+    /// * `directions` - Indicates the swipe direction.
     ///
-    /// `speedNum` - Indicates the minimum speed of the swipe gesture, in px/s.
+    /// * `speedNum` - Indicates the minimum speed of the swipe gesture, in px/s.
     /// If this parameter is set to a value less than or equal to 0, the default value <b>100</b> is used.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created gesture.
+    /// * Returns the pointer to the created gesture.
     pub createSwipeGesture: ::core::option::Option<
         unsafe extern "C" fn(
             fingersNum: i32,
@@ -555,11 +555,11 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `gestureMode` - Indicates the gesture group mode.
+    /// * `gestureMode` - Indicates the gesture group mode.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created gesture group.
+    /// * Returns the pointer to the created gesture group.
     pub createGroupGesture: ::core::option::Option<
         unsafe extern "C" fn(gestureMode: ArkUI_GroupGestureMode) -> *mut ArkUI_GestureRecognizer,
     >,
@@ -567,20 +567,20 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to the gesture to dispose.
+    /// * `recognizer` - Indicates the pointer to the gesture to dispose.
     pub dispose:
         ::core::option::Option<unsafe extern "C" fn(recognizer: *mut ArkUI_GestureRecognizer)>,
     /// Adds a gesture to a gesture group.
     ///
     /// # Arguments
     ///
-    /// `group` - Indicates the pointer to the gesture group.
+    /// * `group` - Indicates the pointer to the gesture group.
     ///
-    /// `child` - Indicates the gesture to be added to the gesture group.
+    /// * `child` - Indicates the gesture to be added to the gesture group.
     ///
     /// # Returns
     ///
-    /// Returns <b>0</b> if success.
+    /// * Returns <b>0</b> if success.
     /// Returns <b>401</b> if a parameter exception occurs. Returns 401 if a parameter exception occurs.
     pub addChildGesture: ::core::option::Option<
         unsafe extern "C" fn(
@@ -592,13 +592,13 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `group` - Indicates the pointer to the gesture group.
+    /// * `group` - Indicates the pointer to the gesture group.
     ///
-    /// `child` - Indicates the gesture to be removed to the gesture group.
+    /// * `child` - Indicates the gesture to be removed to the gesture group.
     ///
     /// # Returns
     ///
-    /// Returns <b>0</b> if success.
+    /// * Returns <b>0</b> if success.
     /// Returns <b>401</b> if a parameter exception occurs.
     pub removeChildGesture: ::core::option::Option<
         unsafe extern "C" fn(
@@ -610,20 +610,20 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to the gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to the gesture recognizer.
     ///
-    /// `actionTypeMask` - Indicates the set of gesture event types. Multiple callbacks can be registered at once,
+    /// * `actionTypeMask` - Indicates the set of gesture event types. Multiple callbacks can be registered at once,
     /// with the callback event types distinguished in the callbacks.
     /// Example: actionTypeMask = GESTURE_EVENT_ACTION_ACCEPT | GESTURE_EVENT_ACTION_UPDATE;
     ///
-    /// `extraParams` - Indicates the context passed in the <b>targetReceiver</b> callback.
+    /// * `extraParams` - Indicates the context passed in the <b>targetReceiver</b> callback.
     ///
-    /// `targetReceiver` - Indicates the callback to register for processing the gesture event types.
+    /// * `targetReceiver` - Indicates the callback to register for processing the gesture event types.
     /// <b>event</b> indicates the gesture callback data.
     ///
     /// # Returns
     ///
-    /// Returns <b>0</b> if success.
+    /// * Returns <b>0</b> if success.
     /// Returns <b>401</b> if a parameter exception occurs.
     pub setGestureEventTarget: ::core::option::Option<
         unsafe extern "C" fn(
@@ -642,18 +642,18 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the UI component to which you want to add the gesture.
+    /// * `node` - Indicates the UI component to which you want to add the gesture.
     ///
-    /// `recognizer` - Indicates the gesture to be added to the UI component.
+    /// * `recognizer` - Indicates the gesture to be added to the UI component.
     ///
-    /// `mode` - Indicates the gesture event mode. Available options are <b>NORMAL_GESTURE</b>,
+    /// * `mode` - Indicates the gesture event mode. Available options are <b>NORMAL_GESTURE</b>,
     /// <b>PARALLEL_GESTURE</b>, and <b>PRIORITY_GESTURE</b>.
     ///
-    /// `mask` - Indicates the gesture masking mode.
+    /// * `mask` - Indicates the gesture masking mode.
     ///
     /// # Returns
     ///
-    /// Returns <b>0</b> if success.
+    /// * Returns <b>0</b> if success.
     /// Returns <b>401</b> if a parameter exception occurs.
     pub addGestureToNode: ::core::option::Option<
         unsafe extern "C" fn(
@@ -667,13 +667,13 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the node from which you want to remove the gesture.
+    /// * `node` - Indicates the node from which you want to remove the gesture.
     ///
-    /// `recognizer` - Indicates the gesture to be removed.
+    /// * `recognizer` - Indicates the gesture to be removed.
     ///
     /// # Returns
     ///
-    /// Returns <b>0</b> if success.
+    /// * Returns <b>0</b> if success.
     /// Returns <b>401</b> if a parameter exception occurs.
     pub removeGestureFromNode: ::core::option::Option<
         unsafe extern "C" fn(
@@ -685,16 +685,16 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the node for which you want to set a gesture interruption callback.
+    /// * `node` - Indicates the node for which you want to set a gesture interruption callback.
     ///
-    /// `interrupter` - Indicates the gesture interruption callback to set.
+    /// * `interrupter` - Indicates the gesture interruption callback to set.
     /// <b>info</b> indicates the gesture interruption data. If <b>interrupter</b> returns
     /// <b>GESTURE_INTERRUPT_RESULT_CONTINUE</b>, the gesture recognition process continues. If it returns
     /// <b>GESTURE_INTERRUPT_RESULT_REJECT</b>, the gesture recognition process is paused.
     ///
     /// # Returns
     ///
-    /// Returns <b>0</b> if success.
+    /// * Returns <b>0</b> if success.
     /// Returns <b>401</b> if a parameter exception occurs.
     pub setGestureInterrupterToNode: ::core::option::Option<
         unsafe extern "C" fn(
@@ -710,11 +710,11 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to the gesture.
+    /// * `recognizer` - Indicates the pointer to the gesture.
     ///
     /// # Returns
     ///
-    /// Returns the gesture type.
+    /// * Returns the gesture type.
     pub getGestureType: ::core::option::Option<
         unsafe extern "C" fn(
             recognizer: *mut ArkUI_GestureRecognizer,
@@ -724,17 +724,17 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `node` - Indicates the ArkUI node for which the callback of a parallel internal gesture event is to be set.
+    /// * `node` - Indicates the ArkUI node for which the callback of a parallel internal gesture event is to be set.
     ///
-    /// `userData` - Indicates the custom data.
+    /// * `userData` - Indicates the custom data.
     ///
-    /// `parallelInnerGesture` - Indicates the parallel internal gesture event. <b>event</b> returns the data of the
+    /// * `parallelInnerGesture` - Indicates the parallel internal gesture event. <b>event</b> returns the data of the
     /// parallel internal gesture event; <b>parallelInnerGesture</b> returns the pointer to the gesture recognizer
     /// that requires parallel recognition.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     pub setInnerGestureParallelTo: ::core::option::Option<
         unsafe extern "C" fn(
@@ -768,18 +768,18 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `countNum` - Indicates the number of consecutive taps. If the value is less than 1 or is not set, the default
+    /// * `countNum` - Indicates the number of consecutive taps. If the value is less than 1 or is not set, the default
     /// value <b>1</b> is used.
     ///
-    /// `fingersNum` - Indicates the number of fingers required to trigger a tap. The value ranges from 1 to 10.
+    /// * `fingersNum` - Indicates the number of fingers required to trigger a tap. The value ranges from 1 to 10.
     /// If the value is less than 1 or is not set, the default value <b>1</b> is used.
     ///
-    /// `distanceThreshold` - Indicates the allowed moving distance of a finger.
+    /// * `distanceThreshold` - Indicates the allowed moving distance of a finger.
     /// If the value is less than 0 or is not set, it will be converted to the default value of infinity.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created gesture.
+    /// * Returns the pointer to the created gesture.
     pub createTapGestureWithDistanceThreshold: ::core::option::Option<
         unsafe extern "C" fn(
             countNum: i32,
@@ -793,11 +793,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture interruption information.
+    /// * `event` - Indicates the pointer to the gesture interruption information.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the gesture is a built-in gesture; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the gesture is a built-in gesture; returns <b>false</b> otherwise.
     ///
     ///
     /// Available since API-level: 12
@@ -810,11 +810,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture interruption information.
+    /// * `event` - Indicates the pointer to the gesture interruption information.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to interrupted gesture recognizer.
+    /// * Returns the pointer to interrupted gesture recognizer.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -826,11 +826,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture interruption information.
+    /// * `event` - Indicates the pointer to the gesture interruption information.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the interrupted gesture event.
+    /// * Returns the pointer to the interrupted gesture event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -842,11 +842,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture interruption information.
+    /// * `event` - Indicates the pointer to the gesture interruption information.
     ///
     /// # Returns
     ///
-    /// Returns the type of the system gesture to trigger. If the gesture to trigger is not a system gesture,
+    /// * Returns the type of the system gesture to trigger. If the gesture to trigger is not a system gesture,
     /// <b>-1</b> is returned.
     ///
     /// Available since API-level: 12
@@ -859,11 +859,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the gesture event type.
+    /// * Returns the gesture event type.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -875,11 +875,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the input event of the gesture event.
+    /// * Returns the pointer to the input event of the gesture event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -891,11 +891,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the number of times that the long press gesture is triggered periodically.
+    /// * Returns the number of times that the long press gesture is triggered periodically.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -905,11 +905,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the velocity of the pan gesture along the main axis, in px/s.
+    /// * Returns the velocity of the pan gesture along the main axis, in px/s.
     /// The value is the square root of the sum of the squares of the velocity on the x-axis and y-axis.
     ///
     /// Available since API-level: 12
@@ -920,11 +920,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the velocity of the pan gesture along the x-axis, in px/s.
+    /// * Returns the velocity of the pan gesture along the x-axis, in px/s.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -934,11 +934,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the velocity of the pan gesture along the y-axis, in px/s.
+    /// * Returns the velocity of the pan gesture along the y-axis, in px/s.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -948,11 +948,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the relative offset of the gesture along the x-axis, in px.
+    /// * Returns the relative offset of the gesture along the x-axis, in px.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -962,11 +962,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the relative offset of the gesture along the y-axis, in px.
+    /// * Returns the relative offset of the gesture along the y-axis, in px.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -988,11 +988,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the angle of the swipe gesture, which is the result obtained based on the aforementioned formula.
+    /// * Returns the angle of the swipe gesture, which is the result obtained based on the aforementioned formula.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1002,11 +1002,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the average velocity of all fingers used in the swipe gesture, in px/s.
+    /// * Returns the average velocity of all fingers used in the swipe gesture, in px/s.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1016,11 +1016,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the rotation angle.
+    /// * Returns the rotation angle.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1030,11 +1030,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the scale ratio.
+    /// * Returns the scale ratio.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1045,11 +1045,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate of the center of the pinch gesture, in vp,
+    /// * Returns the X coordinate of the center of the pinch gesture, in vp,
     /// relative to the upper left corner of the current component.
     ///
     /// Available since API-level: 12
@@ -1061,11 +1061,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture event.
+    /// * `event` - Indicates the pointer to the gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate of the center of the pinch gesture, in vp,
+    /// * Returns the Y coordinate of the center of the pinch gesture, in vp,
     /// relative to the upper left corner of the current component.
     ///
     /// Available since API-level: 12
@@ -1076,15 +1076,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the gesture interruption information.
+    /// * `event` - Indicates the pointer to the gesture interruption information.
     ///
-    /// `responseChain` - Indicates the pointer to an array of gesture recognizers on the response chain.
+    /// * `responseChain` - Indicates the pointer to an array of gesture recognizers on the response chain.
     ///
-    /// `count` - Indicates the pointer to the number of gesture recognizers on the response chain.
+    /// * `count` - Indicates the pointer to the number of gesture recognizers on the response chain.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     ///
     /// Available since API-level: 12
@@ -1099,13 +1099,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to a gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
     ///
-    /// `enabled` - Indicates the enabled state.
+    /// * `enabled` - Indicates the enabled state.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     ///
     /// Available since API-level: 12
@@ -1119,11 +1119,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to a gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the gesture recognizer is enabled.
+    /// * Returns <b>true</b> if the gesture recognizer is enabled.
     /// Returns <b>false</b> if the gesture recognizer is disabled.
     ///
     /// Available since API-level: 12
@@ -1134,13 +1134,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to a gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
     ///
-    /// `state` - Indicates the pointer to the state of the gesture recognizer.
+    /// * `state` - Indicates the pointer to the state of the gesture recognizer.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     ///
     /// Available since API-level: 12
@@ -1154,13 +1154,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to a gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
     ///
-    /// `info` - Indicates the information about a gesture event target.
+    /// * `info` - Indicates the information about a gesture event target.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     ///
     /// Available since API-level: 12
@@ -1174,13 +1174,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Indicates the information about a gesture event target.
+    /// * `info` - Indicates the information about a gesture event target.
     ///
-    /// `ret` - Indicates whether the scroll container is scrolled to the top.
+    /// * `ret` - Indicates whether the scroll container is scrolled to the top.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     /// Returns [`ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER`] if the component is not a scroll container.
     ///
@@ -1195,13 +1195,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Indicates the information about a gesture event target.
+    /// * `info` - Indicates the information about a gesture event target.
     ///
-    /// `ret` - Indicates whether the scroll container is scrolled to the bottom.
+    /// * `ret` - Indicates whether the scroll container is scrolled to the bottom.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     /// Returns [`ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER`] if the component is not a scroll container.
     ///
@@ -1216,13 +1216,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to a gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
     ///
-    /// `directionMask` - Indicates the pan direction.
+    /// * `directionMask` - Indicates the pan direction.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     ///
     /// Available since API-level: 12
@@ -1236,11 +1236,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to a gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the gesture is a built-in gesture; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the gesture is a built-in gesture; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1250,17 +1250,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to a gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
     ///
-    /// `buffer` - Indicates the buffer.
+    /// * `buffer` - Indicates the buffer.
     ///
-    /// `bufferSize` - Indicates the buffer size.
+    /// * `bufferSize` - Indicates the buffer size.
     ///
-    /// `result` - Indicates the length of the string to be written to the buffer.
+    /// * `result` - Indicates the length of the string to be written to the buffer.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`] if the buffer is not large enough.
     ///
@@ -1277,17 +1277,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to a gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
     ///
-    /// `nodeId` - Indicates the component ID.
+    /// * `nodeId` - Indicates the component ID.
     ///
-    /// `size` - Indicates the buffer size.
+    /// * `size` - Indicates the buffer size.
     ///
-    /// `result` - Indicates the length of the string to be written to the buffer.
+    /// * `result` - Indicates the length of the string to be written to the buffer.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`] if the buffer is not large enough.
     ///
@@ -1304,11 +1304,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to a gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the gesture recognizer is valid.
+    /// * Returns <b>true</b> if the gesture recognizer is valid.
     /// Returns <b>false</b> if the gesture recognizer is invalid.
     ///
     /// Available since API-level: 12
@@ -1319,11 +1319,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to a parallel internal gesture event.
+    /// * `event` - Indicates the pointer to a parallel internal gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to custom data.
+    /// * Returns the pointer to custom data.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1335,11 +1335,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to a parallel internal gesture event.
+    /// * `event` - Indicates the pointer to a parallel internal gesture event.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the current gesture recognizer.
+    /// * Returns the pointer to the current gesture recognizer.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1351,15 +1351,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to a parallel internal gesture event.
+    /// * `event` - Indicates the pointer to a parallel internal gesture event.
     ///
-    /// `array` - Indicates the pointer to the array of conflicting gesture recognizers.
+    /// * `array` - Indicates the pointer to the array of conflicting gesture recognizers.
     ///
-    /// `size` - Indicates the size of the array of conflicting gesture recognizers.
+    /// * `size` - Indicates the size of the array of conflicting gesture recognizers.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     ///
     /// Available since API-level: 12
@@ -1374,15 +1374,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `recognizer` - Indicates the pointer to a gesture recognizer.
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
     ///
-    /// `callback` - Indicates the callback function for notifying gesture recognizer destruction.
+    /// * `callback` - Indicates the callback function for notifying gesture recognizer destruction.
     ///
-    /// `userData` - Indicates the custom data.
+    /// * `userData` - Indicates the custom data.
     ///
     /// # Returns
     ///
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
     pub fn OH_ArkUI_SetArkUIGestureRecognizerDisposeNotify(
         recognizer: *mut ArkUI_GestureRecognizer,

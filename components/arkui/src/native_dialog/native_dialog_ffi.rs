@@ -63,31 +63,31 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Creates a custom dialog box and returns the pointer to the created dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the created custom dialog box; returns a null pointer if the creation fails.
+    /// * Returns the pointer to the created custom dialog box; returns a null pointer if the creation fails.
     pub create: ::core::option::Option<unsafe extern "C" fn() -> ArkUI_NativeDialogHandle>,
     /// Destroys a custom dialog box.
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     pub dispose: ::core::option::Option<unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle)>,
     /// Attaches the content of a custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `content` - Indicates the pointer to the root node of the custom dialog box content.
+    /// * `content` - Indicates the pointer to the root node of the custom dialog box content.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub setContent: ::core::option::Option<
@@ -96,14 +96,14 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Detaches the content of a custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub removeContent:
@@ -111,20 +111,20 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Sets the alignment mode for a custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `alignment` - Indicates the alignment mode. The parameter type is [`ArkUI_Alignment`].
+    /// * `alignment` - Indicates the alignment mode. The parameter type is [`ArkUI_Alignment`].
     ///
-    /// `offsetX` - Indicates the horizontal offset of the custom dialog box. The value is a floating point number.
+    /// * `offsetX` - Indicates the horizontal offset of the custom dialog box. The value is a floating point number.
     ///
-    /// `offsetY` - Indicates the vertical offset of the custom dialog box. The value is a floating point number.
+    /// * `offsetY` - Indicates the vertical offset of the custom dialog box. The value is a floating point number.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub setContentAlignment: ::core::option::Option<
@@ -138,14 +138,14 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Resets the alignment mode of a custom dialog box to its default settings.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub resetContentAlignment:
@@ -153,17 +153,17 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Sets the modal mode for a custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `isModal` - Specifies whether the custom dialog box is a modal, which has a mask applied. The value
+    /// * `isModal` - Specifies whether the custom dialog box is a modal, which has a mask applied. The value
     /// <b>true</b> means that the custom dialog box is a modal, and <b>false</b> means the opposite.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub setModalMode: ::core::option::Option<
@@ -172,17 +172,17 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Specifies whether to allow users to touch the mask to dismiss the custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `autoCancel` - Specifies whether to allow users to touch the mask to dismiss the dialog box.
+    /// * `autoCancel` - Specifies whether to allow users to touch the mask to dismiss the dialog box.
     /// The value <b>true</b> means to allow users to do so, and <b>false</b> means the opposite.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub setAutoCancel: ::core::option::Option<
@@ -191,19 +191,19 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Sets the mask for a custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `maskColor` - Indicates the mask color, in 0xARGB format.
+    /// * `maskColor` - Indicates the mask color, in 0xARGB format.
     ///
-    /// `maskRect` - Indicates the pointer to the mask area. Events outside the mask area are transparently
+    /// * `maskRect` - Indicates the pointer to the mask area. Events outside the mask area are transparently
     /// transmitted, and events within the mask area are not. The parameter type is [`ArkUI_Rect`].
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub setMask: ::core::option::Option<
@@ -216,16 +216,16 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Sets the background color for a custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `backgroundColor` - Indicates the background color of the custom dialog box, in 0xARGB format.
+    /// * `backgroundColor` - Indicates the background color of the custom dialog box, in 0xARGB format.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub setBackgroundColor: ::core::option::Option<
@@ -234,22 +234,22 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Sets the background corner radius for a custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `topLeft` - Indicates the radius of the upper left corner of the custom dialog box background.
+    /// * `topLeft` - Indicates the radius of the upper left corner of the custom dialog box background.
     ///
-    /// `topRight` - Indicates the radius of the upper right corner of the custom dialog box background.
+    /// * `topRight` - Indicates the radius of the upper right corner of the custom dialog box background.
     ///
-    /// `bottomLeft` - Indicates the radius of the lower left corner of the custom dialog box background.
+    /// * `bottomLeft` - Indicates the radius of the lower left corner of the custom dialog box background.
     ///
-    /// `bottomRight` - Indicates the radius of the lower right corner of the custom dialog box background.
+    /// * `bottomRight` - Indicates the radius of the lower right corner of the custom dialog box background.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub setCornerRadius: ::core::option::Option<
@@ -264,17 +264,17 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Sets the number of grid columns occupied by a custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `gridCount` - Indicates the number of grid columns occupied by the dialog box. The default value is subject to
+    /// * `gridCount` - Indicates the number of grid columns occupied by the dialog box. The default value is subject to
     /// the window size, and the maximum value is the maximum number of columns supported by the system.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub setGridColumnCount: ::core::option::Option<
@@ -283,12 +283,12 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Specifies whether to use a custom style for the custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `enableCustomStyle` - Specifies whether to use a custom style for the dialog box.
+    /// * `enableCustomStyle` - Specifies whether to use a custom style for the dialog box.
     /// <b>true</b>: The dialog box automatically adapts its width to the child components; the rounded corner is 0;
     /// the background color is transparent.
     /// <b>false</b>: The dialog box automatically adapts its width to the grid system and its height to the child
@@ -296,7 +296,7 @@ pub struct ArkUI_NativeDialogAPI_1 {
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub enableCustomStyle: ::core::option::Option<
@@ -305,17 +305,17 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// Specifies whether to use a custom animation for a custom dialog box.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `enableCustomAnimation` - Specifies whether to use a custom animation. The value <b>true</b> means to use a
+    /// * `enableCustomAnimation` - Specifies whether to use a custom animation. The value <b>true</b> means to use a
     /// custom animation, and <b>false</b> means to use the default animation.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub enableCustomAnimation: ::core::option::Option<
@@ -325,16 +325,16 @@ pub struct ArkUI_NativeDialogAPI_1 {
     /// after they touch the Back button or press the Esc key.
     ///
     ///
-    /// Note:** This method must be called before the <b>show</b> method.
+    /// **Note:** This method must be called before the <b>show</b> method.
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `eventHandler` - Indicates the callback to register. The parameter type is [`ArkUI_OnWillDismissEvent`].
+    /// * `eventHandler` - Indicates the callback to register. The parameter type is [`ArkUI_OnWillDismissEvent`].
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub registerOnWillDismiss: ::core::option::Option<
@@ -347,13 +347,13 @@ pub struct ArkUI_NativeDialogAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `showInSubWindow` - Specifies whether to show the dialog box in a sub-window.
+    /// * `showInSubWindow` - Specifies whether to show the dialog box in a sub-window.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub show: ::core::option::Option<
@@ -363,11 +363,11 @@ pub struct ArkUI_NativeDialogAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
     /// # Returns
     ///
-    /// Returns the error code.
+    /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub close:
@@ -376,15 +376,15 @@ pub struct ArkUI_NativeDialogAPI_1 {
     ///
     /// # Arguments
     ///
-    /// `handle` - Indicates the pointer to the custom dialog box controller.
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// `userData` - Indicates the pointer to the custom data.
+    /// * `userData` - Indicates the pointer to the custom data.
     ///
-    /// `callback` - Indicates the callback for the dismiss event of the custom dialog box.
+    /// * `callback` - Indicates the callback for the dismiss event of the custom dialog box.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     pub registerOnWillDismissWithUserData: ::core::option::Option<
@@ -402,9 +402,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to a dialog box dismiss event object.
+    /// * `event` - Indicates the pointer to a dialog box dismiss event object.
     ///
-    /// `shouldBlockDismiss` - Indicates whether to block the system behavior of dismissing the dialog box. The value
+    /// * `shouldBlockDismiss` - Indicates whether to block the system behavior of dismissing the dialog box. The value
     /// <b>true</b> means to block the system behavior, and <b>false</b> means the opposite.
     ///
     /// Available since API-level: 12
@@ -418,12 +418,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to a dialog box dismiss event object.
+    /// * `event` - Indicates the pointer to a dialog box dismiss event object.
     ///
     ///
     /// # Returns
     ///
-    /// Returns the pointer to user data.
+    /// * Returns the pointer to user data.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -435,12 +435,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to a dialog box dismiss event object.
+    /// * `event` - Indicates the pointer to a dialog box dismiss event object.
     ///
     ///
     /// # Returns
     ///
-    /// Returns the dismissal reason. Returns <b>-1</b> if an exception occurs.
+    /// * Returns the dismissal reason. Returns <b>-1</b> if an exception occurs.
     /// [`DIALOG_DISMISS_BACK_PRESS`]: touching the Back button, swiping left or right on the screen, or
     /// pressing the Esc key.
     /// [`DIALOG_DISMISS_TOUCH_OUTSIDE`]: touching the mask.

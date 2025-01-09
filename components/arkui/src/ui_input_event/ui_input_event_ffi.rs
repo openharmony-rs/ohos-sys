@@ -148,11 +148,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the type of the current UI input event; returns <b>0</b> if any parameter error occurs.
+    /// * Returns the type of the current UI input event; returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -162,11 +162,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the action type of the current UI input event; returns <b>0</b> if any parameter error occurs.
+    /// * Returns the action type of the current UI input event; returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -176,11 +176,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the source type of the current UI input event.
+    /// * Returns the source type of the current UI input event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -190,11 +190,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the tool type of the current UI input event.
+    /// * Returns the tool type of the current UI input event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -204,11 +204,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the time when the UI input event occurs; returns <b>0</b> if any parameter error occurs.
+    /// * Returns the time when the UI input event occurs; returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -219,11 +219,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the number of touch points for the directional input event.
+    /// * Returns the number of touch points for the directional input event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -234,13 +234,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the ID of the corresponding touch point.
+    /// * Returns the ID of the corresponding touch point.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -254,11 +254,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the directional input event.
+    /// * `event` - Indicates the pointer to the directional input event.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate relative to the upper left corner of the current component;
+    /// * Returns the X coordinate relative to the upper left corner of the current component;
     /// returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -270,13 +270,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate relative to the upper left corner of the current component;
+    /// * Returns the X coordinate relative to the upper left corner of the current component;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -291,11 +291,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the UI input event.
+    /// * `event` - Indicates the pointer to the UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate relative to the upper left corner of the current component;
+    /// * Returns the Y coordinate relative to the upper left corner of the current component;
     /// returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -307,13 +307,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate relative to the upper left corner of the current component;
+    /// * Returns the Y coordinate relative to the upper left corner of the current component;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -328,11 +328,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the UI input event.
+    /// * `event` - Indicates the pointer to the UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate relative to the upper left corner of the current application window;
+    /// * Returns the X coordinate relative to the upper left corner of the current application window;
     /// returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -344,13 +344,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate relative to the upper left corner of the current application window;
+    /// * Returns the X coordinate relative to the upper left corner of the current application window;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -365,11 +365,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the UI input event.
+    /// * `event` - Indicates the pointer to the UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate relative to the upper left corner of the current application window;
+    /// * Returns the Y coordinate relative to the upper left corner of the current application window;
     /// returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -381,13 +381,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate relative to the upper left corner of the current application window;
+    /// * Returns the Y coordinate relative to the upper left corner of the current application window;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -402,11 +402,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the UI input event.
+    /// * `event` - Indicates the pointer to the UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate relative to the upper left corner of the current screen;
+    /// * Returns the X coordinate relative to the upper left corner of the current screen;
     /// returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -418,13 +418,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate relative to the upper left corner of the current screen;
+    /// * Returns the X coordinate relative to the upper left corner of the current screen;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -439,11 +439,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the UI input event.
+    /// * `event` - Indicates the pointer to the UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate relative to the upper left corner of the current screen;
+    /// * Returns the Y coordinate relative to the upper left corner of the current screen;
     /// returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -455,13 +455,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate relative to the upper left corner of the current screen;
+    /// * Returns the Y coordinate relative to the upper left corner of the current screen;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -475,13 +475,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the pressure applied to the touchscreen; returns <b>0.0f</b> if any parameter error occurs.
+    /// * Returns the pressure applied to the touchscreen; returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -495,13 +495,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the angle relative to the YZ plane.
+    /// * Returns the angle relative to the YZ plane.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -515,13 +515,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the angle relative to the XZ plane.
+    /// * Returns the angle relative to the XZ plane.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -534,13 +534,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the width of the touch area.
+    /// * Returns the width of the touch area.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -553,13 +553,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
     /// # Returns
     ///
-    /// Returns the height of the touch area.
+    /// * Returns the height of the touch area.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -573,11 +573,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the number of historical events.
+    /// * Returns the number of historical events.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -588,13 +588,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the time when the UI input event occurs; returns <b>0</b> if any parameter error occurs.
+    /// * Returns the time when the UI input event occurs; returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -608,13 +608,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the number of touch points in the specified historical event
+    /// * Returns the number of touch points in the specified historical event
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -628,15 +628,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the ID of the corresponding touch point in the specified historical event.
+    /// * Returns the ID of the corresponding touch point in the specified historical event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -651,15 +651,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate relative to the upper left corner of the current component;
+    /// * Returns the X coordinate relative to the upper left corner of the current component;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -675,15 +675,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate relative to the upper left corner of the current component;
+    /// * Returns the Y coordinate relative to the upper left corner of the current component;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -699,15 +699,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate relative to the upper left corner of the current application window;
+    /// * Returns the X coordinate relative to the upper left corner of the current application window;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -723,15 +723,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate relative to the upper left corner of the current application window;
+    /// * Returns the Y coordinate relative to the upper left corner of the current application window;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -747,15 +747,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the X coordinate relative to the upper left corner of the current screen;
+    /// * Returns the X coordinate relative to the upper left corner of the current screen;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -771,15 +771,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the Y coordinate relative to the upper left corner of the current screen;
+    /// * Returns the Y coordinate relative to the upper left corner of the current screen;
     /// returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -795,15 +795,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the pressure applied to the touchscreen; returns <b>0.0f</b> if any parameter error occurs.
+    /// * Returns the pressure applied to the touchscreen; returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -818,15 +818,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the angle relative to the YZ plane.
+    /// * Returns the angle relative to the YZ plane.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -841,15 +841,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the angle relative to the XZ plane.
+    /// * Returns the angle relative to the XZ plane.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -864,15 +864,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the width of the touch area.
+    /// * Returns the width of the touch area.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -887,15 +887,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
     ///
-    /// `historyIndex` - Indicates the index of the target historical event.
+    /// * `historyIndex` - Indicates the index of the target historical event.
     ///
     /// # Returns
     ///
-    /// Returns the height of the touch area.
+    /// * Returns the height of the touch area.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -909,11 +909,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the UI input event.
+    /// * `event` - Indicates the pointer to the UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the value of the vertical scroll axis of the current axis event;
+    /// * Returns the value of the vertical scroll axis of the current axis event;
     /// returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -924,11 +924,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the UI input event.
+    /// * `event` - Indicates the pointer to the UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the value of the horizontal scroll axis of the current axis event;
+    /// * Returns the value of the horizontal scroll axis of the current axis event;
     /// returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -939,11 +939,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the UI input event.
+    /// * `event` - Indicates the pointer to the UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the scale value of the pinch axis of the current axis event;
+    /// * Returns the scale value of the pinch axis of the current axis event;
     /// returns <b>0</b> if any parameter error occurs.
     ///
     /// Available since API-level: 12
@@ -954,13 +954,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `mode` - Indicates how the component behaves during hit testing. The parameter type is [`HitTestMode`].
+    /// * `mode` - Indicates how the component behaves during hit testing. The parameter type is [`HitTestMode`].
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution.
+    /// * Returns the status code of the execution.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -973,11 +973,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Represents a pointer to the current UI input event.
+    /// * `event` - Represents a pointer to the current UI input event.
     ///
     /// # Returns
     ///
-    /// Return to the mouse button type, where <b>1</b> is the left button, <b>2</b> is the right button,
+    /// * Return to the mouse button type, where <b>1</b> is the left button, <b>2</b> is the right button,
     /// <b>3</b> is the middle button, <b>4</b> is the back button, and <b>5</b> is the forward button.
     ///
     /// Available since API-level: 12
@@ -988,11 +988,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Represents a pointer to the current UI input event.
+    /// * `event` - Represents a pointer to the current UI input event.
     ///
     /// # Returns
     ///
-    /// Returns the type of mouse action, where <b>1</b> represents button pressed,
+    /// * Returns the type of mouse action, where <b>1</b> represents button pressed,
     /// <b>2</b> represents button released, and <b>3</b> represents mouse movement.
     ///
     /// Available since API-level: 12
@@ -1003,13 +1003,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `event` - Indicates the pointer to the current UI input event.
+    /// * `event` - Indicates the pointer to the current UI input event.
     ///
-    /// `stopPropagation` - Indicates whether the event is prevented from bubbling.
+    /// * `stopPropagation` - Indicates whether the event is prevented from bubbling.
     ///
     /// # Returns
     ///
-    /// Returns the status code of the execution. If 0 is returned, the setting is successful.
+    /// * Returns the status code of the execution. If 0 is returned, the setting is successful.
     /// If 401 is returned, the execution fails.
     /// The possible cause of the failure is that the event parameter is abnormal, such as a null pointer.
     ///

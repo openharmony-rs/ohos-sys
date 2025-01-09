@@ -4196,11 +4196,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the new size constraint.
+    /// * Returns the pointer to the new size constraint.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4212,7 +4212,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4224,11 +4224,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
     /// # Returns
     ///
-    /// Returns the maximum width.
+    /// * Returns the maximum width.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4238,11 +4238,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
     /// # Returns
     ///
-    /// Returns the minimum width.
+    /// * Returns the minimum width.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4252,11 +4252,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
     /// # Returns
     ///
-    /// Returns the maximum height.
+    /// * Returns the maximum height.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4267,11 +4267,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
     /// # Returns
     ///
-    /// Returns the minimum height.
+    /// * Returns the minimum height.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4282,11 +4282,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
     /// # Returns
     ///
-    /// Returns the width percentage reference.
+    /// * Returns the width percentage reference.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4298,11 +4298,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
     /// # Returns
     ///
-    /// Returns the height percentage reference.
+    /// * Returns the height percentage reference.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4314,9 +4314,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
-    /// `value` - Indicates the maximum width, in px.
+    /// * `value` - Indicates the maximum width, in px.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4329,9 +4329,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
-    /// `value` - Indicates the minimum width, in px.
+    /// * `value` - Indicates the minimum width, in px.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4344,9 +4344,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
-    /// `value` - Indicates the maximum height, in px.
+    /// * `value` - Indicates the maximum height, in px.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4359,9 +4359,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
-    /// `value` - Indicates the minimum height, in px.
+    /// * `value` - Indicates the minimum height, in px.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4374,9 +4374,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
-    /// `value` - Indicates the width percentage reference, in px.
+    /// * `value` - Indicates the width percentage reference, in px.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4389,9 +4389,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `Constraint` - Indicates the pointer to the size constraint.
+    /// * `Constraint` - Indicates the pointer to the size constraint.
     ///
-    /// `value` - Indicates the height percentage reference, in px.
+    /// * `value` - Indicates the height percentage reference, in px.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4405,11 +4405,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `context` - Indicates the pointer to the drawing context.
+    /// * `context` - Indicates the pointer to the drawing context.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the canvas for drawing.
+    /// * Returns the pointer to the canvas for drawing.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4421,11 +4421,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `context` - Indicates the pointer to the drawing context.
+    /// * `context` - Indicates the pointer to the drawing context.
     ///
     /// # Returns
     ///
-    /// Returns the size of the drawing area.
+    /// * Returns the size of the drawing area.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4436,7 +4436,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the water flow section configuration.
+    /// * Returns the water flow section configuration.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4446,7 +4446,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4456,9 +4456,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - FlowItem Indicates the packet configuration.
+    /// * `option` - FlowItem Indicates the packet configuration.
     ///
-    /// `size` - Array Length.
+    /// * `size` - Array Length.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4471,11 +4471,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - FlowItem Indicates the packet configuration.
+    /// * `option` - FlowItem Indicates the packet configuration.
     ///
     /// # Returns
     ///
-    /// Array size. If -1 is returned, the return fails.
+    /// * Array size. If -1 is returned, the return fails.
     /// The possible cause of the failure is that the option parameter is abnormal, such as a null pointer.
     ///
     /// Available since API-level: 12
@@ -4488,11 +4488,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
-    /// `itemCount` - Indicates the number of items in the water flow section.
+    /// * `itemCount` - Indicates the number of items in the water flow section.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4506,13 +4506,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
     /// # Returns
     ///
-    /// Returns the number of items in the water flow section.
+    /// * Returns the number of items in the water flow section.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4526,11 +4526,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
-    /// `callback` - Gets the spindle size of the specified Item based on index.
+    /// * `callback` - Gets the spindle size of the specified Item based on index.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4545,13 +4545,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
-    /// `userData` - FlowItem Custom data.
+    /// * `userData` - FlowItem Custom data.
     ///
-    /// `callback` - Gets the spindle size of the specified Item based on index.
+    /// * `callback` - Gets the spindle size of the specified Item based on index.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4568,11 +4568,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
-    /// `crossCount` - Indicates the number of columns or rows, depending on the layout direction.
+    /// * `crossCount` - Indicates the number of columns or rows, depending on the layout direction.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4587,13 +4587,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
     /// # Returns
     ///
-    /// Returns the number of columns or rows.
+    /// * Returns the number of columns or rows.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4606,11 +4606,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
-    /// `columnGap` - Indicates the gap between columns to set.
+    /// * `columnGap` - Indicates the gap between columns to set.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4624,13 +4624,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
     /// # Returns
     ///
-    /// Returns the gap between columns.
+    /// * Returns the gap between columns.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4643,11 +4643,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
-    /// `rowGap` - Indicates the gap between rows to set.
+    /// * `rowGap` - Indicates the gap between rows to set.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4661,13 +4661,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
     /// # Returns
     ///
-    /// Returns the gap between rows.
+    /// * Returns the gap between rows.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4680,17 +4680,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
-    /// `marginTop` - Indicates the top margin of the water flow section.
+    /// * `marginTop` - Indicates the top margin of the water flow section.
     ///
-    /// `marginRight` - Indicates the right margin of the water flow section.
+    /// * `marginRight` - Indicates the right margin of the water flow section.
     ///
-    /// `marginBottom` - Indicates the bottom margin of the water flow section.
+    /// * `marginBottom` - Indicates the bottom margin of the water flow section.
     ///
-    /// `marginLeft` - Indicates the left margin of the water flow section.
+    /// * `marginLeft` - Indicates the left margin of the water flow section.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4707,13 +4707,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Indicates the pointer to a water flow section configuration.
+    /// * `option` - Indicates the pointer to a water flow section configuration.
     ///
-    /// `index` - Indicates the index of the target water flow section.
+    /// * `index` - Indicates the index of the target water flow section.
     ///
     /// # Returns
     ///
-    /// Returns the margins.
+    /// * Returns the margins.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4726,11 +4726,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `type` - Indicates the type of the indicator.
+    /// * `type` - Indicates the type of the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the new indicator.
+    /// * Returns the pointer to the new indicator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4742,7 +4742,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4752,9 +4752,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `value` - Indicates the distance between the navigation point and the start of the swiper.
+    /// * `value` - Indicates the distance between the navigation point and the start of the swiper.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4767,11 +4767,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the distance between the navigation point and the start of the swiper.
+    /// * Returns the distance between the navigation point and the start of the swiper.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4781,9 +4781,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `value` - Indicates the distance between the navigation point and the top of the swiper.
+    /// * `value` - Indicates the distance between the navigation point and the top of the swiper.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4796,11 +4796,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the distance between the navigation point and the top of the swiper.
+    /// * Returns the distance between the navigation point and the top of the swiper.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4810,9 +4810,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `value` - Indicates the distance between the navigation point and the right of the swiper.
+    /// * `value` - Indicates the distance between the navigation point and the right of the swiper.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4825,11 +4825,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the distance between the navigation point and the end of the swiper.
+    /// * Returns the distance between the navigation point and the end of the swiper.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4839,9 +4839,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `value` - Indicates the distance between the navigation point and the bottom of the swiper.
+    /// * `value` - Indicates the distance between the navigation point and the bottom of the swiper.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4854,11 +4854,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the distance between the navigation point and the bottom of the swiper.
+    /// * Returns the distance between the navigation point and the bottom of the swiper.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4869,9 +4869,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `value` - Indicates the width of the dot for the dot indicator.
+    /// * `value` - Indicates the width of the dot for the dot indicator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4881,11 +4881,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the width of the dot for the dot indicator.
+    /// * Returns the width of the dot for the dot indicator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4895,9 +4895,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `value` - Indicates the height of the dot for the dot indicator.
+    /// * `value` - Indicates the height of the dot for the dot indicator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4910,11 +4910,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the height of the dot for the dot indicator.
+    /// * Returns the height of the dot for the dot indicator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4924,9 +4924,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `value` - Indicates the width of the selected dot for the dot indicator.
+    /// * `value` - Indicates the width of the selected dot for the dot indicator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4939,11 +4939,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the width of the selected dot for the dot indicator.
+    /// * Returns the width of the selected dot for the dot indicator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4955,9 +4955,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `value` - Indicates the height of the selected dot for the dot indicator.
+    /// * `value` - Indicates the height of the selected dot for the dot indicator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4970,11 +4970,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the height of the selected dot for the dot indicator.
+    /// * Returns the height of the selected dot for the dot indicator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4986,9 +4986,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `mask` - Whether to display the mask style. True means to display.
+    /// * `mask` - Whether to display the mask style. True means to display.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4998,11 +4998,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns whether to display the mask style. True means to display.
+    /// * Returns whether to display the mask style. True means to display.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5012,9 +5012,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `color` - the color of the dot navigation indicator, in 0xARGB format.
+    /// * `color` - the color of the dot navigation indicator, in 0xARGB format.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5024,11 +5024,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the color of the dot navigation indicator, in 0xARGB format.
+    /// * Returns the color of the dot navigation indicator, in 0xARGB format.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5038,9 +5038,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `color` - the color of the selected dot, in 0xARGB format.
+    /// * `color` - the color of the selected dot, in 0xARGB format.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5053,11 +5053,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the color of the selected dot, in 0xARGB format.
+    /// * Returns the color of the selected dot, in 0xARGB format.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5067,13 +5067,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// `maxDisplayCount` - the maxDisplayCount of the navigation dot, span is 6-9.
+    /// * `maxDisplayCount` - the maxDisplayCount of the navigation dot, span is 6-9.
     ///
     /// # Returns
     ///
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// * [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] indicator is null or maxDisplayCount less then 6 or
     /// maxDisplayCount more then 9
     ///
@@ -5088,11 +5088,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `indicator` - Indicates the pointer to the indicator.
+    /// * `indicator` - Indicates the pointer to the indicator.
     ///
     /// # Returns
     ///
-    /// Returns the number of the maxDisplayCount, span is 6-9.
+    /// * Returns the number of the maxDisplayCount, span is 6-9.
     /// 0 - indicator is null
     ///
     /// Available since API-level: 12
@@ -5105,11 +5105,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `size` - The number of auxiliary lines.
+    /// * `size` - The number of auxiliary lines.
     ///
     /// # Returns
     ///
-    /// auxiliary line information.
+    /// * auxiliary line information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5119,7 +5119,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `guideline` - auxiliary line information.
+    /// * `guideline` - auxiliary line information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5129,11 +5129,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `guideline` - auxiliary line information.
+    /// * `guideline` - auxiliary line information.
     ///
-    /// `value` - id, must be unique and cannot have the same name as the component in the container.
+    /// * `value` - id, must be unique and cannot have the same name as the component in the container.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5147,11 +5147,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `guideline` - auxiliary line information.
+    /// * `guideline` - auxiliary line information.
     ///
-    /// `value` - direction.
+    /// * `value` - direction.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5165,11 +5165,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `guideline` - auxiliary line information.
+    /// * `guideline` - auxiliary line information.
     ///
-    /// `value` - The distance from the left or top of the container.
+    /// * `value` - The distance from the left or top of the container.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5183,11 +5183,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `guideline` - auxiliary line information.
+    /// * `guideline` - auxiliary line information.
     ///
-    /// `value` - The distance from the right side or bottom of the container.
+    /// * `value` - The distance from the right side or bottom of the container.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5201,13 +5201,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `guideline` - auxiliary line information.
+    /// * `guideline` - auxiliary line information.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// # Returns
     ///
-    /// Id.
+    /// * Id.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5220,13 +5220,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `guideline` - auxiliary line information.
+    /// * `guideline` - auxiliary line information.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// # Returns
     ///
-    /// direction.
+    /// * direction.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5239,13 +5239,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `guideline` - auxiliary line information.
+    /// * `guideline` - auxiliary line information.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// # Returns
     ///
-    /// The distance from the left or top of the container.
+    /// * The distance from the left or top of the container.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5258,13 +5258,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `guideline` - auxiliary line information.
+    /// * `guideline` - auxiliary line information.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// # Returns
     ///
-    /// The distance from the right side or bottom of the container.
+    /// * The distance from the right side or bottom of the container.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5277,11 +5277,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `size` - Number of barriers.
+    /// * `size` - Number of barriers.
     ///
     /// # Returns
     ///
-    /// barrier information.
+    /// * barrier information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5291,7 +5291,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `barrierStyle` - barrier information.
+    /// * `barrierStyle` - barrier information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5301,11 +5301,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `barrierStyle` - barrier information.
+    /// * `barrierStyle` - barrier information.
     ///
-    /// `value` - id, must be unique and cannot have the same name as the component in the container.
+    /// * `value` - id, must be unique and cannot have the same name as the component in the container.
     ///
-    /// `index` - Barrier index value.
+    /// * `index` - Barrier index value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5319,11 +5319,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `barrierStyle` - barrier information.
+    /// * `barrierStyle` - barrier information.
     ///
-    /// `value` - direction.
+    /// * `value` - direction.
     ///
-    /// `index` - Barrier index value.
+    /// * `index` - Barrier index value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5337,11 +5337,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `barrierStyle` - barrier information.
+    /// * `barrierStyle` - barrier information.
     ///
-    /// `value` - The ID of the dependent component.
+    /// * `value` - The ID of the dependent component.
     ///
-    /// `index` - Barrier index value.
+    /// * `index` - Barrier index value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5355,13 +5355,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `barrierStyle` - auxiliary line information.
+    /// * `barrierStyle` - auxiliary line information.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// # Returns
     ///
-    /// The Id of the barrier.
+    /// * The Id of the barrier.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5374,13 +5374,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `barrierStyle` - auxiliary line information.
+    /// * `barrierStyle` - auxiliary line information.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// # Returns
     ///
-    /// The direction of the barrier.
+    /// * The direction of the barrier.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5393,15 +5393,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `barrierStyle` - auxiliary line information.
+    /// * `barrierStyle` - auxiliary line information.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
-    /// `referencedIndex` - dependent component Id index value.
+    /// * `referencedIndex` - dependent component Id index value.
     ///
     /// # Returns
     ///
-    /// The barrier's dependent components.
+    /// * The barrier's dependent components.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5415,13 +5415,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `barrierStyle` - auxiliary line information.
+    /// * `barrierStyle` - auxiliary line information.
     ///
-    /// `index` - auxiliary line index value.
+    /// * `index` - auxiliary line index value.
     ///
     /// # Returns
     ///
-    /// The number of dependent components of the barrier.
+    /// * The number of dependent components of the barrier.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5435,7 +5435,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Alignment rule information.
+    /// * Alignment rule information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5445,7 +5445,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5455,11 +5455,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
-    /// `id` - The id value of the anchor component.
+    /// * `id` - The id value of the anchor component.
     ///
-    /// `value` - Alignment relative to the anchor component.
+    /// * `value` - Alignment relative to the anchor component.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5473,11 +5473,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
-    /// `id` - The id value of the anchor component.
+    /// * `id` - The id value of the anchor component.
     ///
-    /// `value` - Alignment relative to the anchor component.
+    /// * `value` - Alignment relative to the anchor component.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5491,11 +5491,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
-    /// `id` - The id value of the anchor component.
+    /// * `id` - The id value of the anchor component.
     ///
-    /// `value` - Alignment relative to anchor component
+    /// * `value` - Alignment relative to anchor component
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5509,11 +5509,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
-    /// `id` - The id value of the anchor component.
+    /// * `id` - The id value of the anchor component.
     ///
-    /// `value` - Alignment relative to anchor component
+    /// * `value` - Alignment relative to anchor component
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5527,11 +5527,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
-    /// `id` - The id value of the anchor component.
+    /// * `id` - The id value of the anchor component.
     ///
-    /// `value` - Alignment relative to anchor component
+    /// * `value` - Alignment relative to anchor component
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5545,11 +5545,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
-    /// `id` - The id value of the anchor component.
+    /// * `id` - The id value of the anchor component.
     ///
-    /// `value` - Alignment relative to the anchor component.
+    /// * `value` - Alignment relative to the anchor component.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5563,9 +5563,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
-    /// `horizontal` - bias value in the horizontal direction.
+    /// * `horizontal` - bias value in the horizontal direction.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5578,9 +5578,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
-    /// `horizontal` - bias value in the vertical direction.
+    /// * `horizontal` - bias value in the vertical direction.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5593,11 +5593,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The id value of the anchor component.
+    /// * The id value of the anchor component.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5609,11 +5609,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The alignment of the parameters.
+    /// * The alignment of the parameters.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5625,11 +5625,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// End-aligned parameter id.
+    /// * End-aligned parameter id.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5641,11 +5641,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The alignment of the end-aligned parameter.
+    /// * The alignment of the end-aligned parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5657,11 +5657,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The id of the parameter of horizontal center alignment.
+    /// * The id of the parameter of horizontal center alignment.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5673,11 +5673,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The alignment of the horizontally centered alignment parameter.
+    /// * The alignment of the horizontally centered alignment parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5689,11 +5689,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// Top aligned parameter id.
+    /// * Top aligned parameter id.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5705,11 +5705,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The alignment of the top-aligned parameter.
+    /// * The alignment of the top-aligned parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5721,11 +5721,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The id of the bottom-aligned parameter.
+    /// * The id of the bottom-aligned parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5737,11 +5737,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The alignment of the bottom-aligned parameter.
+    /// * The alignment of the bottom-aligned parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5753,11 +5753,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The id of the vertical center alignment parameter.
+    /// * The id of the vertical center alignment parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5769,11 +5769,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The alignment of the vertical center alignment parameter.
+    /// * The alignment of the vertical center alignment parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5785,11 +5785,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// The bias value in the horizontal direction.
+    /// * The bias value in the horizontal direction.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5801,11 +5801,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - Alignment rule information of subcomponents in the relative container.
+    /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
     /// # Returns
     ///
-    /// bias value in vertical direction.
+    /// * bias value in vertical direction.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5818,7 +5818,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// List Item SwipeActionItem configuration item instance. If the object returns a null pointer,
+    /// * List Item SwipeActionItem configuration item instance. If the object returns a null pointer,
     /// it indicates creation failure, and the reason for the failure may be that the address space is full.
     ///
     /// Available since API-level: 12
@@ -5829,7 +5829,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance to be destroyed.
+    /// * `option` - List Item SwipeActionItem instance to be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5839,9 +5839,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `builder` - Layout information.
+    /// * `builder` - Layout information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5854,9 +5854,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `distance` - Component long-distance sliding deletion distance threshold.
+    /// * `distance` - Component long-distance sliding deletion distance threshold.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5869,11 +5869,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
     /// # Returns
     ///
-    /// Component long-distance sliding deletion distance threshold. If -1.0f is returned, the return fails.
+    /// * Component long-distance sliding deletion distance threshold. If -1.0f is returned, the return fails.
     /// The possible cause of the failure is that the item parameter is abnormal, such as a null pointer.
     ///
     /// Available since API-level: 12
@@ -5886,9 +5886,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `callback` - Callback Events.
+    /// * `callback` - Callback Events.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5901,11 +5901,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `userData` - User defined data.
+    /// * `userData` - User defined data.
     ///
-    /// `callback` - Callback Events.
+    /// * `callback` - Callback Events.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5919,9 +5919,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `callback` - Callback Events.
+    /// * `callback` - Callback Events.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5934,11 +5934,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `userData` - User defined data.
+    /// * `userData` - User defined data.
     ///
-    /// `callback` - Callback Events.
+    /// * `callback` - Callback Events.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5952,9 +5952,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `callback` - Callback Events.
+    /// * `callback` - Callback Events.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5967,11 +5967,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `userData` - User defined data.
+    /// * `userData` - User defined data.
     ///
-    /// `callback` - Callback Events.
+    /// * `callback` - Callback Events.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5985,9 +5985,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `callback` - Callback Events.
+    /// * `callback` - Callback Events.
     /// swipeActionState The changed state.
     ///
     /// Available since API-level: 12
@@ -6003,11 +6003,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `userData` - User defined data.
+    /// * `userData` - User defined data.
     ///
-    /// `callback` - Callback Events.
+    /// * `callback` - Callback Events.
     /// swipeActionState The changed state.
     ///
     /// Available since API-level: 12
@@ -6028,7 +6028,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// List Item SwipeActionOption configuration item instance.If the object returns a null pointer,
+    /// * List Item SwipeActionOption configuration item instance.If the object returns a null pointer,
     /// it indicates a creation failure, and the reason for the failure may be that the address space is full.
     ///
     /// Available since API-level: 12
@@ -6039,7 +6039,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionOption instance to be destroyed.
+    /// * `option` - List Item SwipeActionOption instance to be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6050,9 +6050,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `builder` - Layout information.
+    /// * `builder` - Layout information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6066,9 +6066,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `builder` - Layout information.
+    /// * `builder` - Layout information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6081,9 +6081,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `edgeEffect` - Sliding effect.
+    /// * `edgeEffect` - Sliding effect.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6096,11 +6096,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
     /// # Returns
     ///
-    /// Sliding effect. The default return value is 0. If -1 is returned, the return fails.
+    /// * Sliding effect. The default return value is 0. If -1 is returned, the return fails.
     /// The possible cause of the failure is that the option parameter is abnormal, such as a null pointer.
     ///
     /// Available since API-level: 12
@@ -6113,9 +6113,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `callback` - Callback Events.
+    /// * `callback` - Callback Events.
     /// offset Slide offset.
     ///
     /// Available since API-level: 12
@@ -6129,11 +6129,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - List Item SwipeActionItem instance.
+    /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// `userData` - User defined data.
+    /// * `userData` - User defined data.
     ///
-    /// `callback` - Callback Events.
+    /// * `callback` - Callback Events.
     /// offset Slide offset.
     ///
     /// Available since API-level: 12
@@ -6151,7 +6151,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// ListChildrenMainSize configuration item instance.If the object returns a null pointer,
+    /// * ListChildrenMainSize configuration item instance.If the object returns a null pointer,
     /// it indicates a creation failure, and the reason for the failure may be that the address space is full.
     ///
     /// Available since API-level: 12
@@ -6162,7 +6162,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - The ListChildrenMainSize instance to be destroyed.
+    /// * `option` - The ListChildrenMainSize instance to be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6172,13 +6172,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - ListChildrenMainSize instance.
+    /// * `option` - ListChildrenMainSize instance.
     ///
-    /// `defaultMainSize` - The default size of the ListItem under the List, measured in vp.
+    /// * `defaultMainSize` - The default size of the ListItem under the List, measured in vp.
     ///
     /// # Returns
     ///
-    /// 0 represents success. If defaultMainSize is less than 0 or option is a null pointer, return 401.
+    /// * 0 represents success. If defaultMainSize is less than 0 or option is a null pointer, return 401.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6191,11 +6191,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - ListChildrenMainSize instance.
+    /// * `option` - ListChildrenMainSize instance.
     ///
     /// # Returns
     ///
-    /// The default size of the ListItem under the List is 0, measured in vp.
+    /// * The default size of the ListItem under the List is 0, measured in vp.
     /// When the option is a null pointer, it returns -1.
     ///
     /// Available since API-level: 12
@@ -6208,9 +6208,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - ListChildrenMainSize instance.
+    /// * `option` - ListChildrenMainSize instance.
     ///
-    /// `totalSize` - Array size.
+    /// * `totalSize` - Array size.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6223,17 +6223,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - ListChildrenMainSize instance.
+    /// * `option` - ListChildrenMainSize instance.
     ///
-    /// `index` - To modify the starting position of the MainSize array.
+    /// * `index` - To modify the starting position of the MainSize array.
     ///
-    /// `deleteCount` - The number of MainSize arrays to be deleted starting from index.
+    /// * `deleteCount` - The number of MainSize arrays to be deleted starting from index.
     ///
-    /// `addCount` - The number of MainSize arrays to be added starting from index.
+    /// * `addCount` - The number of MainSize arrays to be added starting from index.
     ///
     /// # Returns
     ///
-    /// 0 represents success. If the function parameter is abnormal, return 401.
+    /// * 0 represents success. If the function parameter is abnormal, return 401.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6248,15 +6248,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - ListChildrenMainSize instance.
+    /// * `option` - ListChildrenMainSize instance.
     ///
-    /// `index` - To modify the starting position of the MainSize array.
+    /// * `index` - To modify the starting position of the MainSize array.
     ///
-    /// `mainSize` - The actual modified value.
+    /// * `mainSize` - The actual modified value.
     ///
     /// # Returns
     ///
-    /// 0 represents success. If the function parameter is abnormal, return 401.
+    /// * 0 represents success. If the function parameter is abnormal, return 401.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6270,13 +6270,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `option` - ListChildrenMainSize instance.
+    /// * `option` - ListChildrenMainSize instance.
     ///
-    /// `index` - The index position of the value to be obtained.
+    /// * `index` - The index position of the value to be obtained.
     ///
     /// # Returns
     ///
-    /// The value of the specific position of the array. If the function parameter is abnormal, return -1.
+    /// * The value of the specific position of the array. If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6290,7 +6290,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns a <b>CustomSpanMeasureInfo</b> instance.
+    /// * Returns a <b>CustomSpanMeasureInfo</b> instance.
     /// <br> If the result returns nullptr, there may be out of memory.
     ///
     /// Available since API-level: 12
@@ -6301,7 +6301,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The CustomSpanMeasureInfo instance to be destroyed.
+    /// * `info` - The CustomSpanMeasureInfo instance to be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6311,11 +6311,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Indicates the pointer to the measurement information of a custom span.
+    /// * `info` - Indicates the pointer to the measurement information of a custom span.
     ///
     /// # Returns
     ///
-    /// Returns the font size. If a parameter error occurs, <b>0.0f</b> is returned.
+    /// * Returns the font size. If a parameter error occurs, <b>0.0f</b> is returned.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
@@ -6329,7 +6329,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns a <b>CustomSpanMetrics</b> instance.
+    /// * Returns a <b>CustomSpanMetrics</b> instance.
     /// <br> If the result returns nullptr, there may be out of memory.
     ///
     /// Available since API-level: 12
@@ -6340,7 +6340,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The CustomSpanMetrics instance to be destroyed.
+    /// * `info` - The CustomSpanMetrics instance to be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6350,13 +6350,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `metrics` - Indicates the pointer to a <b>CustomSpanMetrics</b> instance.
+    /// * `metrics` - Indicates the pointer to a <b>CustomSpanMetrics</b> instance.
     ///
-    /// `width` - Indicates the width, in px. The width should be greater than 0.
+    /// * `width` - Indicates the width, in px. The width should be greater than 0.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
@@ -6372,13 +6372,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `metrics` - Indicates the pointer to a <b>CustomSpanMetrics</b> instance.
+    /// * `metrics` - Indicates the pointer to a <b>CustomSpanMetrics</b> instance.
     ///
-    /// `width` - Indicates the height, in px. The width should be greater than 0.
+    /// * `width` - Indicates the height, in px. The width should be greater than 0.
     ///
     /// # Returns
     ///
-    /// Returns the result code.
+    /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
@@ -6395,7 +6395,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns a <b>CustomSpanDrawInfo</b> instance.
+    /// * Returns a <b>CustomSpanDrawInfo</b> instance.
     /// <br> If the result returns nullptr, there may be out of memory.
     ///
     /// Available since API-level: 12
@@ -6406,7 +6406,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The CustomSpanDrawInfo instance to be destroyed.
+    /// * `info` - The CustomSpanDrawInfo instance to be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6416,11 +6416,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Indicates the pointer to the drawing information of a custom span.
+    /// * `info` - Indicates the pointer to the drawing information of a custom span.
     ///
     /// # Returns
     ///
-    /// Returns the x-axis offset. If a parameter error occurs, <b>0.0f</b> is returned.
+    /// * Returns the x-axis offset. If a parameter error occurs, <b>0.0f</b> is returned.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
@@ -6431,11 +6431,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Indicates the pointer to the drawing information of a custom span.
+    /// * `info` - Indicates the pointer to the drawing information of a custom span.
     ///
     /// # Returns
     ///
-    /// Returns the top margin. If a parameter error occurs, <b>0.0f</b> is returned.
+    /// * Returns the top margin. If a parameter error occurs, <b>0.0f</b> is returned.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
@@ -6446,11 +6446,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Indicates the pointer to the drawing information of a custom span.
+    /// * `info` - Indicates the pointer to the drawing information of a custom span.
     ///
     /// # Returns
     ///
-    /// Returns the bottom margin. If a parameter error occurs, <b>0.0f</b> is returned.
+    /// * Returns the bottom margin. If a parameter error occurs, <b>0.0f</b> is returned.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
@@ -6461,11 +6461,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - Indicates the pointer to the drawing information of a custom span.
+    /// * `info` - Indicates the pointer to the drawing information of a custom span.
     ///
     /// # Returns
     ///
-    /// Returns the baseline offset. If a parameter error occurs, <b>0.0f</b> is returned.
+    /// * Returns the baseline offset. If a parameter error occurs, <b>0.0f</b> is returned.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
@@ -6475,11 +6475,11 @@ extern "C" {
     /// Create a image frame from the image path.
     /// # Arguments
     ///
-    /// `src` - Indicates the image path.
+    /// * `src` - Indicates the image path.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the image frame object.
+    /// * Returns the pointer to the image frame object.
     /// If a null pointer is returned, the object fails to be created. The possible cause is that
     /// the src parameter is abnormal, for example, the pointer is null.
     ///
@@ -6493,11 +6493,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `drawable` - Indicates the pointer to the drawable descriptor.
+    /// * `drawable` - Indicates the pointer to the drawable descriptor.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the image frame object.
+    /// * Returns the pointer to the image frame object.
     /// If a null pointer is returned, the object fails to be created. The possible cause is that
     /// the drawable parameter is abnormal, for example, the pointer is null.
     ///
@@ -6511,7 +6511,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6521,9 +6521,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
-    /// `width` - Indicates the width of the image frame, and the unit is PX.
+    /// * `width` - Indicates the width of the image frame, and the unit is PX.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6536,11 +6536,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
     /// # Returns
     ///
-    /// Return the width of the image frame, and the unit is PX. Return 0 when the imageInfo is null.
+    /// * Return the width of the image frame, and the unit is PX. Return 0 when the imageInfo is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6552,9 +6552,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
-    /// `height` - Indicates the height of the image frame, and the unit is PX.
+    /// * `height` - Indicates the height of the image frame, and the unit is PX.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6567,11 +6567,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
     /// # Returns
     ///
-    /// Return the height of the image frame, and the unit is PX. Return 0 when the imageInfo is null.
+    /// * Return the height of the image frame, and the unit is PX. Return 0 when the imageInfo is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6583,9 +6583,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
-    /// `top` - Indicates the vertical coordinate of the image relative to the upper left corner of the widget,
+    /// * `top` - Indicates the vertical coordinate of the image relative to the upper left corner of the widget,
     /// and the unit is PX.
     ///
     /// Available since API-level: 12
@@ -6599,11 +6599,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
     /// # Returns
     ///
-    /// Returns the vertical coordinate of the image relative to the upper left corner of the widget,
+    /// * Returns the vertical coordinate of the image relative to the upper left corner of the widget,
     /// and the unit is PX. Return 0 when the imageInfo is null.
     ///
     /// Available since API-level: 12
@@ -6616,9 +6616,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
-    /// `left` - Indicates the horizontal coordinate of the image relative to the upper left corner of the widget,
+    /// * `left` - Indicates the horizontal coordinate of the image relative to the upper left corner of the widget,
     /// and the unit is PX.
     ///
     /// Available since API-level: 12
@@ -6632,11 +6632,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
     /// # Returns
     ///
-    /// Returns the horizontal coordinate of the image relative to the upper left corner of the widget,
+    /// * Returns the horizontal coordinate of the image relative to the upper left corner of the widget,
     /// and the unit is PX. Return 0 when the imageInfo is null.
     ///
     /// Available since API-level: 12
@@ -6649,9 +6649,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
-    /// `duration` - Indicates the playback duration of each image frame, and the unit is milliseconds.
+    /// * `duration` - Indicates the playback duration of each image frame, and the unit is milliseconds.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6664,11 +6664,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `imageInfo` - Indicates the pointer to the image frame.
+    /// * `imageInfo` - Indicates the pointer to the image frame.
     ///
     /// # Returns
     ///
-    /// Returns the playback duration of the image frame, and the unit is milliseconds.
+    /// * Returns the playback duration of the image frame, and the unit is milliseconds.
     /// Return 0 when the imageInfo is null.
     ///
     /// Available since API-level: 12
@@ -6682,7 +6682,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the accessibility state object.
+    /// * Returns the pointer to the accessibility state object.
     /// If a null pointer is returned, the object fails to be created. The possible cause is that the address space is full.
     ///
     /// Available since API-level: 12
@@ -6693,7 +6693,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `state` - accessibility state object.
+    /// * `state` - accessibility state object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6703,9 +6703,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `state` - accessibility state object.
+    /// * `state` - accessibility state object.
     ///
-    /// `isDisabled` - accessibility state disabled, Value 1 indicates disabled and 0 indicates enbled.
+    /// * `isDisabled` - accessibility state disabled, Value 1 indicates disabled and 0 indicates enbled.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6718,11 +6718,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `state` - accessibility state object.
+    /// * `state` - accessibility state object.
     ///
     /// # Returns
     ///
-    /// accessibility state disabled, Value 1 indicates disabled and 0 indicates enbled. The default value is 0.
+    /// * accessibility state disabled, Value 1 indicates disabled and 0 indicates enbled. The default value is 0.
     /// If the function parameter is abnormal, return the default value.
     ///
     /// Available since API-level: 12
@@ -6733,9 +6733,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `state` - accessibility state object.
+    /// * `state` - accessibility state object.
     ///
-    /// `isSelected` - accessibility state selected, Value 1 indicates selected, and 0 indicates not selected.
+    /// * `isSelected` - accessibility state selected, Value 1 indicates selected, and 0 indicates not selected.
     /// The default value is 0.
     ///
     /// Available since API-level: 12
@@ -6749,11 +6749,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `state` - accessibility state object.
+    /// * `state` - accessibility state object.
     ///
     /// # Returns
     ///
-    /// accessibility state selected, Value 1 indicates selected, and 0 indicates not selected.
+    /// * accessibility state selected, Value 1 indicates selected, and 0 indicates not selected.
     /// The default value is 0.
     /// If the function parameter is abnormal, return the default value.
     ///
@@ -6765,9 +6765,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `state` - accessibility state object.
+    /// * `state` - accessibility state object.
     ///
-    /// `checkedState` - checked state, and uses the [`ArkUI_AccessibilityCheckedState`] enumeration value,
+    /// * `checkedState` - checked state, and uses the [`ArkUI_AccessibilityCheckedState`] enumeration value,
     /// The default value is ARKUI_ACCESSIBILITY_UNCHECKED.
     ///
     /// Available since API-level: 12
@@ -6781,11 +6781,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `state` - accessibility state object.
+    /// * `state` - accessibility state object.
     ///
     /// # Returns
     ///
-    /// checked state, and uses the [`ArkUI_AccessibilityCheckedState`] enumeration value,
+    /// * checked state, and uses the [`ArkUI_AccessibilityCheckedState`] enumeration value,
     /// The default value is ARKUI_ACCESSIBILITY_UNCHECKED.
     /// If the function parameter is abnormal, return the default value.
     ///
@@ -6799,7 +6799,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the accessibility state object.
+    /// * Returns the pointer to the accessibility state object.
     /// If a null pointer is returned, the object fails to be created. The possible cause is that the address space is full.
     ///
     /// Available since API-level: 12
@@ -6810,7 +6810,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `state` - accessibility value object.
+    /// * `state` - accessibility value object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6820,9 +6820,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `value` - accessibility value object.
+    /// * `value` - accessibility value object.
     ///
-    /// `min` - minimum value based on range components, The default value is -1.
+    /// * `min` - minimum value based on range components, The default value is -1.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6832,11 +6832,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `value` - accessibility value object.
+    /// * `value` - accessibility value object.
     ///
     /// # Returns
     ///
-    /// minimum value based on range components, The default value is -1.
+    /// * minimum value based on range components, The default value is -1.
     /// If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 12
@@ -6847,9 +6847,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `value` - accessibility value object.
+    /// * `value` - accessibility value object.
     ///
-    /// `max` - maximum value based on range components, The default value is -1.
+    /// * `max` - maximum value based on range components, The default value is -1.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6859,11 +6859,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `value` - accessibility value object.
+    /// * `value` - accessibility value object.
     ///
     /// # Returns
     ///
-    /// maximum value based on range components, The default value is -1.
+    /// * maximum value based on range components, The default value is -1.
     /// If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 12
@@ -6874,9 +6874,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `value` - accessibility value object.
+    /// * `value` - accessibility value object.
     ///
-    /// `current` - value based on range components, The default value is -1.
+    /// * `current` - value based on range components, The default value is -1.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6889,11 +6889,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `value` - accessibility value object.
+    /// * `value` - accessibility value object.
     ///
     /// # Returns
     ///
-    /// current value based on range components, The default value is -1.
+    /// * current value based on range components, The default value is -1.
     /// If the function parameter is abnormal, return -1.
     ///
     /// Available since API-level: 12
@@ -6904,9 +6904,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `value` - accessibility value object.
+    /// * `value` - accessibility value object.
     ///
-    /// `text` - The textual description information of the component, which defaults to an empty string.
+    /// * `text` - The textual description information of the component, which defaults to an empty string.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6919,11 +6919,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `value` - accessibility value object.
+    /// * `value` - accessibility value object.
     ///
     /// # Returns
     ///
-    /// The textual description information of the component, which defaults to an empty string;
+    /// * The textual description information of the component, which defaults to an empty string;
     /// If the function parameter is abnormal, return null.
     ///
     /// Available since API-level: 12

@@ -171,7 +171,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Path</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Path</b> object created.
     ///
     /// Available since API-level: 8
     ///
@@ -183,11 +183,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Path</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Path</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -201,7 +201,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -213,11 +213,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `x` - Indicates the x coordinate of the start point.
+    /// * `x` - Indicates the x coordinate of the start point.
     ///
-    /// `y` - Indicates the y coordinate of the start point.
+    /// * `y` - Indicates the y coordinate of the start point.
     ///
     /// Available since API-level: 8
     ///
@@ -229,11 +229,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `x` - Indicates the x coordinate of the target point.
+    /// * `x` - Indicates the x coordinate of the target point.
     ///
-    /// `y` - Indicates the y coordinate of the target point.
+    /// * `y` - Indicates the y coordinate of the target point.
     ///
     /// Available since API-level: 8
     ///
@@ -250,19 +250,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `x1` - Indicates the x coordinate of the upper left corner of the rectangle.
+    /// * `x1` - Indicates the x coordinate of the upper left corner of the rectangle.
     ///
-    /// `y1` - Indicates the y coordinate of the upper left corner of the rectangle.
+    /// * `y1` - Indicates the y coordinate of the upper left corner of the rectangle.
     ///
-    /// `x2` - Indicates the x coordinate of the lower right corner of the rectangle.
+    /// * `x2` - Indicates the x coordinate of the lower right corner of the rectangle.
     ///
-    /// `y2` - Indicates the y coordinate of the lower right corner of the rectangle.
+    /// * `y2` - Indicates the y coordinate of the lower right corner of the rectangle.
     ///
-    /// `startDeg` - Indicates the start angle, in degrees.
+    /// * `startDeg` - Indicates the start angle, in degrees.
     ///
-    /// `sweepDeg` - Indicates the angle to sweep, in degrees.
+    /// * `sweepDeg` - Indicates the angle to sweep, in degrees.
     ///
     /// Available since API-level: 8
     ///
@@ -282,15 +282,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `ctrlX` - Indicates the x coordinate of the control point.
+    /// * `ctrlX` - Indicates the x coordinate of the control point.
     ///
-    /// `ctrlY` - Indicates the y coordinate of the control point.
+    /// * `ctrlY` - Indicates the y coordinate of the control point.
     ///
-    /// `endX` - Indicates the x coordinate of the target point.
+    /// * `endX` - Indicates the x coordinate of the target point.
     ///
-    /// `endY` - Indicates the y coordinate of the target point.
+    /// * `endY` - Indicates the y coordinate of the target point.
     ///
     /// Available since API-level: 8
     ///
@@ -308,17 +308,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `ctrlX` - Indicates the x coordinate of the control point.
+    /// * `ctrlX` - Indicates the x coordinate of the control point.
     ///
-    /// `ctrlY` - Indicates the y coordinate of the control point.
+    /// * `ctrlY` - Indicates the y coordinate of the control point.
     ///
-    /// `endX` - Indicates the x coordinate of the target point.
+    /// * `endX` - Indicates the x coordinate of the target point.
     ///
-    /// `endY` - Indicates the y coordinate of the target point.
+    /// * `endY` - Indicates the y coordinate of the target point.
     ///
-    /// `weight` - Indicates the weight of added conic.
+    /// * `weight` - Indicates the weight of added conic.
     ///
     /// Available since API-level: 12
     ///
@@ -339,19 +339,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `ctrlX1` - Indicates the x coordinate of the first control point.
+    /// * `ctrlX1` - Indicates the x coordinate of the first control point.
     ///
-    /// `ctrlY1` - Indicates the y coordinate of the first control point.
+    /// * `ctrlY1` - Indicates the y coordinate of the first control point.
     ///
-    /// `ctrlX2` - Indicates the x coordinate of the second control point.
+    /// * `ctrlX2` - Indicates the x coordinate of the second control point.
     ///
-    /// `ctrlY2` - Indicates the y coordinate of the second control point.
+    /// * `ctrlY2` - Indicates the y coordinate of the second control point.
     ///
-    /// `endX` - Indicates the x coordinate of the target point.
+    /// * `endX` - Indicates the x coordinate of the target point.
     ///
-    /// `endY` - Indicates the y coordinate of the target point.
+    /// * `endY` - Indicates the y coordinate of the target point.
     ///
     /// Available since API-level: 8
     ///
@@ -371,11 +371,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `x` - Indicates the x coordinate of the relative starting point.
+    /// * `x` - Indicates the x coordinate of the relative starting point.
     ///
-    /// `y` - Indicates the y coordinate of the relative starting point.
+    /// * `y` - Indicates the y coordinate of the relative starting point.
     ///
     /// Available since API-level: 12
     ///
@@ -389,11 +389,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `x` - Indicates the x coordinate of the relative target point.
+    /// * `x` - Indicates the x coordinate of the relative target point.
     ///
-    /// `y` - Indicates the y coordinate of the relative target point.
+    /// * `y` - Indicates the y coordinate of the relative target point.
     ///
     /// Available since API-level: 12
     ///
@@ -407,15 +407,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `ctrlX` - Indicates the x coordinate of the relative control point.
+    /// * `ctrlX` - Indicates the x coordinate of the relative control point.
     ///
-    /// `ctrlY` - Indicates the y coordinate of the relative control point.
+    /// * `ctrlY` - Indicates the y coordinate of the relative control point.
     ///
-    /// `endX` - Indicates the x coordinate of the relative target point.
+    /// * `endX` - Indicates the x coordinate of the relative target point.
     ///
-    /// `endY` - Indicates the y coordinate of the relative target point.
+    /// * `endY` - Indicates the y coordinate of the relative target point.
     ///
     /// Available since API-level: 12
     ///
@@ -435,17 +435,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `ctrlX` - Indicates the x coordinate of the relative control point.
+    /// * `ctrlX` - Indicates the x coordinate of the relative control point.
     ///
-    /// `ctrlY` - Indicates the y coordinate of the relative control point.
+    /// * `ctrlY` - Indicates the y coordinate of the relative control point.
     ///
-    /// `endX` - Indicates the x coordinate of the relative target point.
+    /// * `endX` - Indicates the x coordinate of the relative target point.
     ///
-    /// `endY` - Indicates the y coordinate of the relative target point.
+    /// * `endY` - Indicates the y coordinate of the relative target point.
     ///
-    /// `weight` - Indicates the weight of added conic.
+    /// * `weight` - Indicates the weight of added conic.
     ///
     /// Available since API-level: 12
     ///
@@ -466,19 +466,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `ctrlX1` - Indicates the x coordinate of the first relative control point.
+    /// * `ctrlX1` - Indicates the x coordinate of the first relative control point.
     ///
-    /// `ctrlY1` - Indicates the y coordinate of the first relative control point.
+    /// * `ctrlY1` - Indicates the y coordinate of the first relative control point.
     ///
-    /// `ctrlX2` - Indicates the x coordinate of the second relative control point.
+    /// * `ctrlX2` - Indicates the x coordinate of the second relative control point.
     ///
-    /// `ctrlY2` - Indicates the y coordinate of the second relative control point.
+    /// * `ctrlY2` - Indicates the y coordinate of the second relative control point.
     ///
-    /// `endX` - Indicates the x coordinate of the relative target point.
+    /// * `endX` - Indicates the x coordinate of the relative target point.
     ///
-    /// `endY` - Indicates the y coordinate of the relative target point.
+    /// * `endY` - Indicates the y coordinate of the relative target point.
     ///
     /// Available since API-level: 12
     ///
@@ -500,17 +500,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `left` - Indicates the left coordinate of the upper left corner of the rectangle.
+    /// * `left` - Indicates the left coordinate of the upper left corner of the rectangle.
     ///
-    /// `top` - Indicates the top coordinate of the upper top corner of the rectangle.
+    /// * `top` - Indicates the top coordinate of the upper top corner of the rectangle.
     ///
-    /// `right` - Indicates the right coordinate of the lower right corner of the rectangle.
+    /// * `right` - Indicates the right coordinate of the lower right corner of the rectangle.
     ///
-    /// `bottom` - Indicates the bottom coordinate of the lower bottom corner of the rectangle.
+    /// * `bottom` - Indicates the bottom coordinate of the lower bottom corner of the rectangle.
     ///
-    /// `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
     ///
     /// Available since API-level: 12
     ///
@@ -531,13 +531,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
     ///
-    /// `start` - Indicates initial corner of rect to add.
+    /// * `start` - Indicates initial corner of rect to add.
     ///
     /// Available since API-level: 12
     ///
@@ -556,11 +556,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
-    /// `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
     ///
     /// Available since API-level: 12
     ///
@@ -578,13 +578,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `start` - Index of initial point of ellipse.
+    /// * `start` - Index of initial point of ellipse.
     ///
-    /// `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
     ///
     /// Available since API-level: 12
     ///
@@ -603,11 +603,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
     ///
     /// Available since API-level: 12
     ///
@@ -629,13 +629,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `startAngle` - Indicates the starting angle of arc in degrees.
+    /// * `startAngle` - Indicates the starting angle of arc in degrees.
     ///
-    /// `sweepAngle` - Indicates the sweep, in degrees. Positive is clockwise.
+    /// * `sweepAngle` - Indicates the sweep, in degrees. Positive is clockwise.
     ///
     /// Available since API-level: 12
     ///
@@ -655,11 +655,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the length of the <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the length of the <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -678,13 +678,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the length of the <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the length of the <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `OH_Drawing_PathAddMode` - Indicates the add path's add mode.
+    /// * `OH_Drawing_PathAddMode` - Indicates the add path's add mode.
     ///
     /// Available since API-level: 12
     ///
@@ -704,11 +704,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object, which is Appends src path to path.
+    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object, which is Appends src path to path.
     ///
-    /// `OH_Drawing_PathAddMode` - Indicates the add path's add mode.
+    /// * `OH_Drawing_PathAddMode` - Indicates the add path's add mode.
     ///
     /// Available since API-level: 12
     ///
@@ -727,15 +727,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `dx` - Indicates offset added to src path x-axis coordinates.
+    /// * `dx` - Indicates offset added to src path x-axis coordinates.
     ///
-    /// `dy` - Indicates offset added to src path y-axis coordinates.
+    /// * `dy` - Indicates offset added to src path y-axis coordinates.
     ///
-    /// `OH_Drawing_PathAddMode` - Indicates the add path's add mode.
+    /// * `OH_Drawing_PathAddMode` - Indicates the add path's add mode.
     ///
     /// Available since API-level: 12
     ///
@@ -755,13 +755,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `points` - Indicates the point array.
+    /// * `points` - Indicates the point array.
     ///
-    /// `count` - Indicates the size of point array.
+    /// * `count` - Indicates the size of point array.
     ///
-    /// `isClosed` - Indicates Whether to add lines that connect the end and start.
+    /// * `isClosed` - Indicates Whether to add lines that connect the end and start.
     ///
     /// Available since API-level: 12
     ///
@@ -780,15 +780,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `x` - Indicates the x coordinate of the center of the circle.
+    /// * `x` - Indicates the x coordinate of the center of the circle.
     ///
-    /// `y` - Indicates the y coordinate of the center of the circle.
+    /// * `y` - Indicates the y coordinate of the center of the circle.
     ///
-    /// `radius` - Indicates the radius of the circle.
+    /// * `radius` - Indicates the radius of the circle.
     ///
-    /// `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
     ///
     /// Available since API-level: 12
     ///
@@ -808,13 +808,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `str` - Indicates the string of the SVG path.
+    /// * `str` - Indicates the string of the SVG path.
     ///
     /// # Returns
     ///
-    /// Returns true if build path is successful, returns false otherwise.
+    /// * Returns true if build path is successful, returns false otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -831,15 +831,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `x` - Indicates the x-axis value of containment test.
+    /// * `x` - Indicates the x-axis value of containment test.
     ///
-    /// `y` - Indicates the y-axis value of containment test.
+    /// * `y` - Indicates the y-axis value of containment test.
     ///
     /// # Returns
     ///
-    /// Returns true if the point (x, y) is contained by path.
+    /// * Returns true if the point (x, y) is contained by path.
     ///
     /// Available since API-level: 12
     ///
@@ -854,9 +854,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -871,13 +871,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `dst` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `dst` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `applyPerspectiveClip` - Indicates whether to apply perspective clip.
+    /// * `applyPerspectiveClip` - Indicates whether to apply perspective clip.
     ///
     /// Available since API-level: 12
     ///
@@ -896,9 +896,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_PathFillType` - Indicates the add path's fill type.
+    /// * `OH_Drawing_PathFillType` - Indicates the add path's fill type.
     ///
     /// Available since API-level: 12
     ///
@@ -912,13 +912,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `forceClosed` - Indicates whether free to modify/delete the path after this call.
+    /// * `forceClosed` - Indicates whether free to modify/delete the path after this call.
     ///
     /// # Returns
     ///
-    /// Returns the length of the current path object.
+    /// * Returns the length of the current path object.
     ///
     /// Available since API-level: 12
     ///
@@ -932,9 +932,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -948,7 +948,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -960,13 +960,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `dst` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `dst` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `dx` - Indicates offset added to dst path x-axis coordinates.
+    /// * `dx` - Indicates offset added to dst path x-axis coordinates.
     ///
-    /// `dy` - Indicates offset added to dst path y-axis coordinates.
+    /// * `dy` - Indicates offset added to dst path y-axis coordinates.
     ///
     /// Available since API-level: 12
     ///
@@ -985,7 +985,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// Available since API-level: 8
     ///
@@ -997,13 +997,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `forceClosed` - Whether to close the Path.
+    /// * `forceClosed` - Whether to close the Path.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the path current contour is closed; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the path current contour is closed; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -1017,19 +1017,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `forceClosed` - Whether to close the Path.
+    /// * `forceClosed` - Whether to close the Path.
     ///
-    /// `distance` - The distance from the start of the Path.
+    /// * `distance` - The distance from the start of the Path.
     ///
-    /// `position` - Sets to the position of distance from the starting position of the Path.
+    /// * `position` - Sets to the position of distance from the starting position of the Path.
     ///
-    /// `tangent` - Sets to the tangent of distance from the starting position of the Path.
+    /// * `tangent` - Sets to the tangent of distance from the starting position of the Path.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if succeeded; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if succeeded; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -1049,15 +1049,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `other` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `op` - Indicates the operation to apply to combine.
+    /// * `op` - Indicates the operation to apply to combine.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if constructed path is not empty; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if constructed path is not empty; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -1075,19 +1075,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// `forceClosed` - Whether to close the Path.
+    /// * `forceClosed` - Whether to close the Path.
     ///
-    /// `distance` - The distance from the start of the Path.
+    /// * `distance` - The distance from the start of the Path.
     ///
-    /// `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
-    /// `flag` - Indicates what should be returned in the matrix.
+    /// * `flag` - Indicates what should be returned in the matrix.
     ///
     /// # Returns
     ///
-    /// Returns <b>false</b> if path is nullptr or zero-length;
+    /// * Returns <b>false</b> if path is nullptr or zero-length;
     /// returns <b>true</b> if path is not nullptr and not zero-length.
     ///
     /// Available since API-level: 12

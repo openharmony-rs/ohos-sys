@@ -290,11 +290,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -306,13 +306,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
-    /// `width` - the number of image width.
+    /// * `width` - the number of image width.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -325,13 +325,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
-    /// `width` - the number of image width.
+    /// * `width` - the number of image width.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -344,13 +344,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
-    /// `height` - the number of image height.
+    /// * `height` - the number of image height.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -363,13 +363,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
-    /// `height` - the number of image height.
+    /// * `height` - the number of image height.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -382,13 +382,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
-    /// `pixelFormat` - the number of image pixelFormat.
+    /// * `pixelFormat` - the number of image pixelFormat.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -401,13 +401,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
-    /// `pixelFormat` - the number of image pixelFormat.
+    /// * `pixelFormat` - the number of image pixelFormat.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -420,13 +420,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
-    /// `srcpixelFormat` - the number of image srcpixelFormat.
+    /// * `srcpixelFormat` - the number of image srcpixelFormat.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -439,13 +439,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
-    /// `srcpixelFormat` - the number of image srcpixelFormat.
+    /// * `srcpixelFormat` - the number of image srcpixelFormat.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -458,13 +458,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOptions pointer will be operated.
+    /// * `options` - The InitializationOptions pointer will be operated.
     ///
-    /// `rowStride` - the rowStride of image buffer.
+    /// * `rowStride` - the rowStride of image buffer.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if rowStride is null.
     /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error, maybe options is released.
     ///
@@ -479,13 +479,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOptions pointer will be operated.
+    /// * `options` - The InitializationOptions pointer will be operated.
     ///
-    /// `rowStride` - the rowStride of image buffer.
+    /// * `rowStride` - the rowStride of image buffer.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if rowStride does not match width.
     /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error, maybe options is released.
     ///
@@ -500,13 +500,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
-    /// `alphaType` - the number of image alphaType.
+    /// * `alphaType` - the number of image alphaType.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -519,13 +519,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
-    /// `alphaType` - the number of image alphaType.
+    /// * `alphaType` - the number of image alphaType.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -538,11 +538,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOtions pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -554,11 +554,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The imageinfo pointer will be operated.
+    /// * `info` - The imageinfo pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -568,13 +568,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The imageinfo pointer will be operated.
+    /// * `info` - The imageinfo pointer will be operated.
     ///
-    /// `width` - The number of imageinfo width.
+    /// * `width` - The number of imageinfo width.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -587,13 +587,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The imageinfo pointer will be operated.
+    /// * `info` - The imageinfo pointer will be operated.
     ///
-    /// `height` - The number of imageinfo height.
+    /// * `height` - The number of imageinfo height.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -606,13 +606,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The imageinfo pointer will be operated.
+    /// * `info` - The imageinfo pointer will be operated.
     ///
-    /// `rowStride` - The number of imageinfo rowStride.
+    /// * `rowStride` - The number of imageinfo rowStride.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -625,13 +625,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The imageinfo pointer will be operated.
+    /// * `info` - The imageinfo pointer will be operated.
     ///
-    /// `pixelFormat` - The number of imageinfo pixelFormat.
+    /// * `pixelFormat` - The number of imageinfo pixelFormat.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -644,13 +644,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The imageinfo pointer will be operated.
+    /// * `info` - The imageinfo pointer will be operated.
     ///
-    /// `density` - The number of imageinfo density.
+    /// * `density` - The number of imageinfo density.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -663,13 +663,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The imageinfo pointer will be operated. Pointer connot be null.
+    /// * `info` - The imageinfo pointer will be operated. Pointer connot be null.
     ///
-    /// `isHdr` - Whether the image has a high dynamic range.
+    /// * `isHdr` - Whether the image has a high dynamic range.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
     ///
     /// Available since API-level: 12
@@ -683,11 +683,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `info` - The imageinfo pointer will be operated.
+    /// * `info` - The imageinfo pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -697,17 +697,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `data` - Color buffer in BGRA_8888 format.
+    /// * `data` - Color buffer in BGRA_8888 format.
     ///
-    /// `dataLength` - Color buffer size in BGRA_8888 format.
+    /// * `dataLength` - Color buffer size in BGRA_8888 format.
     ///
-    /// `options` - IPixel properties, including the alpha type, size, pixel format, and editable.
+    /// * `options` - IPixel properties, including the alpha type, size, pixel format, and editable.
     ///
-    /// `pixelmap` - Pixelmap pointer for created.
+    /// * `pixelmap` - Pixelmap pointer for created.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -723,15 +723,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// `destination` - Buffer to which the image pixel map data will be written.
+    /// * `destination` - Buffer to which the image pixel map data will be written.
     ///
-    /// `bufferSize` - Buffer size to which the image pixel map data will be written.
+    /// * `bufferSize` - Buffer size to which the image pixel map data will be written.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -745,15 +745,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// `source` - Buffer from which the image data will be read.
+    /// * `source` - Buffer from which the image data will be read.
     ///
-    /// `bufferSize` - Buffer size from which the image data will be read.
+    /// * `bufferSize` - Buffer size from which the image data will be read.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -767,15 +767,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer to be operated.
+    /// * `pixelmap` - The Pixelmap pointer to be operated.
     ///
-    /// `destination` - Buffer to which the image pixel map data will be written.
+    /// * `destination` - Buffer to which the image pixel map data will be written.
     ///
-    /// `bufferSize` - Buffer size to which the image pixel map data will be written.
+    /// * `bufferSize` - Buffer size to which the image pixel map data will be written.
     ///
     /// # Returns
     ///
-    /// Function result code:
+    /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, destination and bufferSize are incorrect.
     /// [`IMAGE_UNSUPPORTED_CONVERSION`] If format does not support conversion to argb or conversion failed.
@@ -794,11 +794,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated. Pointer connot be null.
+    /// * `pixelmap` - The Pixelmap pointer will be operated. Pointer connot be null.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
     /// returns [`Image_ErrorCode`] IMAGE_UNSUPPORTED_OPERATION - Unsupported operation.Pixelmap can't be converted.
     ///
@@ -810,13 +810,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// `imageInfo` - Indicates the pointer to the image information.
+    /// * `imageInfo` - Indicates the pointer to the image information.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -829,13 +829,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// `rate` - Opacity rate to set. The value ranges from 0 to 1.
+    /// * `rate` - Opacity rate to set. The value ranges from 0 to 1.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -848,15 +848,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// `scaleX` - Scaling ratio of the width.
+    /// * `scaleX` - Scaling ratio of the width.
     ///
-    /// `scaleY` - Scaling ratio of the height.
+    /// * `scaleY` - Scaling ratio of the height.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -870,17 +870,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// `scaleX` - Scaling ratio of the width.
+    /// * `scaleX` - Scaling ratio of the width.
     ///
-    /// `scaleY` - Scaling ratio of the height.
+    /// * `scaleY` - Scaling ratio of the height.
     ///
-    /// `level` - The anti-aliasing algorithm to be used.
+    /// * `level` - The anti-aliasing algorithm to be used.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, x and y are incorrect.
     /// returns [`Image_ErrorCode`] IMAGE_TOO_LARGE - if image is too large.
     /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if device has no memory.
@@ -899,15 +899,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// `x` - The distance to be translate in the X direction.
+    /// * `x` - The distance to be translate in the X direction.
     ///
-    /// `y` - The distance to be translate in the Y direction.
+    /// * `y` - The distance to be translate in the Y direction.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -921,13 +921,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// `angle` - Angle to rotate.
+    /// * `angle` - Angle to rotate.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -940,15 +940,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// `shouldFilpHorizontally` - Whether to flip the image horizontally.
+    /// * `shouldFilpHorizontally` - Whether to flip the image horizontally.
     ///
-    /// `shouldFilpVertically` - Whether to flip the image vertically.
+    /// * `shouldFilpVertically` - Whether to flip the image vertically.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -962,13 +962,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// `region` - Area size, read according to area.
+    /// * `region` - Area size, read according to area.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -981,11 +981,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer will be operated.
+    /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -995,15 +995,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `srcpixelmap` - The source pixel map pointer will be operated.
+    /// * `srcpixelmap` - The source pixel map pointer will be operated.
     ///
-    /// `dstpixelmap` - The destination pixel map pointer will be operated.
+    /// * `dstpixelmap` - The destination pixel map pointer will be operated.
     ///
-    /// `isPremul` - Whether it is pre-multiplied, true for prediction, false for non-pre-multiplied.
+    /// * `isPremul` - Whether it is pre-multiplied, true for prediction, false for non-pre-multiplied.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1017,13 +1017,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `options` - IPixel properties, including the alpha type, size, pixel format, and editable.
+    /// * `options` - IPixel properties, including the alpha type, size, pixel format, and editable.
     ///
-    /// `pixelmap` - Pixelmap pointer for created.
+    /// * `pixelmap` - Pixelmap pointer for created.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`]
+    /// * Returns [`Image_ErrorCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1036,15 +1036,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer to be operated.
+    /// * `pixelmap` - The Pixelmap pointer to be operated.
     ///
-    /// `key` - Type of metadata.
+    /// * `key` - Type of metadata.
     ///
-    /// `value` - Value of metadata.
+    /// * `value` - Value of metadata.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, key and value are incorrect.
     /// returns [`Image_ErrorCode`] IMAGE_DMA_NOT_EXIST - if DMA memory does not exist.
     /// returns [`Image_ErrorCode`] IMAGE_COPY_FAILED - if memory copy failed.
@@ -1061,15 +1061,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer to be operated.
+    /// * `pixelmap` - The Pixelmap pointer to be operated.
     ///
-    /// `key` - Type of metadata.
+    /// * `key` - Type of metadata.
     ///
-    /// `value` - Value of metadata.
+    /// * `value` - Value of metadata.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, key and value are incorrect.
     /// returns [`Image_ErrorCode`] IMAGE_DMA_NOT_EXIST - if DMA memory does not exist.
     /// returns [`Image_ErrorCode`] IMAGE_COPY_FAILED - if memory copy failed.
@@ -1086,13 +1086,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The PixelMap to get the native buffer from.
+    /// * `pixelmap` - The PixelMap to get the native buffer from.
     ///
-    /// `nativeBuffer` - The native buffer to retrieve.
+    /// * `nativeBuffer` - The native buffer to retrieve.
     ///
     /// # Returns
     ///
-    /// Returns [`Image_ErrorCode`] IMAGE_RESULT_SUCCESS - if the operation is successful.
+    /// * Returns [`Image_ErrorCode`] IMAGE_RESULT_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, pixelmap or nativeBuffer is null.
     /// returns [`Image_ErrorCode`] IMAGE_DMA_NOT_EXIST - if DMA memory dose not exist.
     /// returns [`Image_ErrorCode`] IMAGE_DMA_OPERATION_FAILED - if operations related to DMA memory has failed.
@@ -1108,15 +1108,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The Pixelmap pointer to be operated.
+    /// * `pixelmap` - The Pixelmap pointer to be operated.
     ///
-    /// `name` - The pointer of name that needs to be set.
+    /// * `name` - The pointer of name that needs to be set.
     ///
-    /// `size` - The size of name size that needs to be set.
+    /// * `size` - The size of name size that needs to be set.
     ///
     /// # Returns
     ///
-    /// Function result code:
+    /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, name and size are incorrect.
     /// [`IMAGE_UNSUPPORTED_MEMORY_FORMAT`] If memory format is unsupported.
@@ -1133,13 +1133,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The native pixelmap to get the native colorspace from.
+    /// * `pixelmap` - The native pixelmap to get the native colorspace from.
     ///
-    /// `colorSpaceNative` - The native colorspace to retrieve.
+    /// * `colorSpaceNative` - The native colorspace to retrieve.
     ///
     /// # Returns
     ///
-    /// Function result code:
+    /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] The param of pixelmap or colorSpaceNative is nullptr or invalid.
     /// [`OH_PixelmapNative`]
@@ -1154,13 +1154,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `pixelmap` - The native pixelmap to set the native colorspace for.
+    /// * `pixelmap` - The native pixelmap to set the native colorspace for.
     ///
-    /// `colorSpaceNative` - The native colorspace to set.
+    /// * `colorSpaceNative` - The native colorspace to set.
     ///
     /// # Returns
     ///
-    /// Function result code:
+    /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] The param of pixelmap or colorSpaceNative is nullptr or invalid.
     /// [`OH_PixelmapNative`]

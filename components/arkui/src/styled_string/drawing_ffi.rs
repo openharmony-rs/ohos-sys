@@ -15,13 +15,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `style` - A pointer to OH_Drawing_TypographyStyle, obtained by [`OH_Drawing_CreateTypographyStyle`].
+    /// * `style` - A pointer to OH_Drawing_TypographyStyle, obtained by [`OH_Drawing_CreateTypographyStyle`].
     ///
-    /// `collection` - A pointer to OH_Drawing_FontCollection, obtained by [`OH_Drawing_CreateFontCollection`].
+    /// * `collection` - A pointer to OH_Drawing_FontCollection, obtained by [`OH_Drawing_CreateFontCollection`].
     ///
     /// # Returns
     ///
-    /// Creates a pointer to the ArkUI_StyledString object. If the object returns a null pointer,
+    /// * Creates a pointer to the ArkUI_StyledString object. If the object returns a null pointer,
     /// the creation failed, either because the address space was full,
     /// or because the style, collection parameter was an exception such as a null pointer.
     ///
@@ -36,9 +36,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - A pointer to the ArkUI_StyledString object.
+    /// * `handle` - A pointer to the ArkUI_StyledString object.
     ///
-    /// `style` - A pointer to the OH_Drawing_TextStyle object.
+    /// * `style` - A pointer to the OH_Drawing_TextStyle object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -52,11 +52,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - A pointer to the ArkUI_StyledString object.
+    /// * `handle` - A pointer to the ArkUI_StyledString object.
     ///
     /// # Returns
     ///
-    /// A pointer to the OH_Drawing_Typography object. If the object returns a null pointer,
+    /// * A pointer to the OH_Drawing_Typography object. If the object returns a null pointer,
     /// the creation fails because the handle parameter is abnormal, such as a null pointer.
     ///
     /// Available since API-level: 12
@@ -69,9 +69,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `handle` - A pointer to the ArkUI_StyledString object.
+    /// * `handle` - A pointer to the ArkUI_StyledString object.
     ///
-    /// `placeholder` - A pointer to the OH_Drawing_PlaceholderSpan object.
+    /// * `placeholder` - A pointer to the OH_Drawing_PlaceholderSpan object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

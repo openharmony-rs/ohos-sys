@@ -16,17 +16,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `left` - Indicates the left position of the rect.
+    /// * `left` - Indicates the left position of the rect.
     ///
-    /// `top` - Indicates the top position of the rect.
+    /// * `top` - Indicates the top position of the rect.
     ///
-    /// `right` - Indicates the right position of the rect.
+    /// * `right` - Indicates the right position of the rect.
     ///
-    /// `bottom` - Indicates the bottom position of the rect.
+    /// * `bottom` - Indicates the bottom position of the rect.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_Rect</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_Rect</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -45,13 +45,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `other` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
-    /// Returns true if have area in common.
+    /// * Returns true if have area in common.
     ///
     /// Available since API-level: 12
     ///
@@ -68,13 +68,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `other` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
-    /// Returns true if rect and other are not nullptr, and other is not empty;
+    /// * Returns true if rect and other are not nullptr, and other is not empty;
     /// false if rect or other is nullptr, or other is empty.
     ///
     /// Available since API-level: 12
@@ -89,9 +89,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `left` - Indicates the left position of the rect.
+    /// * `left` - Indicates the left position of the rect.
     ///
     /// Available since API-level: 12
     ///
@@ -105,9 +105,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `top` - Indicates the top position of the rect.
+    /// * `top` - Indicates the top position of the rect.
     ///
     /// Available since API-level: 12
     ///
@@ -121,9 +121,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `right` - Indicates the right position of the rect.
+    /// * `right` - Indicates the right position of the rect.
     ///
     /// Available since API-level: 12
     ///
@@ -137,9 +137,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `bottom` - Indicates the bottom position of the rect.
+    /// * `bottom` - Indicates the bottom position of the rect.
     ///
     /// Available since API-level: 12
     ///
@@ -153,11 +153,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
-    /// Return the left position of the rect.
+    /// * Return the left position of the rect.
     ///
     /// Available since API-level: 12
     ///
@@ -171,11 +171,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
-    /// Return the top position of the rect.
+    /// * Return the top position of the rect.
     ///
     /// Available since API-level: 12
     ///
@@ -189,11 +189,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
-    /// Return the right position of the rect.
+    /// * Return the right position of the rect.
     ///
     /// Available since API-level: 12
     ///
@@ -207,11 +207,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
-    /// Return the bottom position of the rect.
+    /// * Return the bottom position of the rect.
     ///
     /// Available since API-level: 12
     ///
@@ -225,7 +225,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -240,9 +240,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `src` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// `dst` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `dst` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -256,7 +256,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 11
     ///

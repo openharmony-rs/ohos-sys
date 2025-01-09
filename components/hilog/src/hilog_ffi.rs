@@ -66,16 +66,16 @@ pub struct LogLevel(pub ::core::ffi::c_uint);
 ///
 /// # Arguments
 ///
-/// `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`].
+/// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`].
 ///
-/// `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
+/// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
 /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
 ///
-/// `domain` - Indicates the service domain of logs. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFF.
+/// * `domain` - Indicates the service domain of logs. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFF.
 ///
-/// `tag` - Indicates the log tag, which is a string used to identify the class, file, or service behavior.
+/// * `tag` - Indicates the log tag, which is a string used to identify the class, file, or service behavior.
 ///
-/// `msg` - Indicates the log message itself, which is a formatted log string.
+/// * `msg` - Indicates the log message itself, which is a formatted log string.
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -97,26 +97,26 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`].
+    /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`].
     ///
-    /// `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
+    /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
     /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
     ///
-    /// `domain` - Indicates the service domain of logs. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFF.
+    /// * `domain` - Indicates the service domain of logs. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFF.
     ///
-    /// `tag` - Indicates the log tag, which is a string used to identify the class, file, or service behavior.
+    /// * `tag` - Indicates the log tag, which is a string used to identify the class, file, or service behavior.
     ///
-    /// `fmt` - Indicates the format string, which is an enhancement of a printf format string and supports the privacy
+    /// * `fmt` - Indicates the format string, which is an enhancement of a printf format string and supports the privacy
     /// identifier. Specifically, {public} or {private} is added between the % character and the format specifier
     /// in each parameter.
     ///
     ///
-    /// `...` - Indicates a list of parameters. The number and type of parameters must map onto the format specifiers
+    /// * `...` - Indicates a list of parameters. The number and type of parameters must map onto the format specifiers
     /// in the format string.
     ///
     /// # Returns
     ///
-    /// Returns <b>0</b> or a larger value if the operation is successful; returns a value smaller
+    /// * Returns <b>0</b> or a larger value if the operation is successful; returns a value smaller
     /// than <b>0</b> otherwise.
     ///
     /// Available since API-level: 8
@@ -132,15 +132,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `domain` - Indicates the service domain of logs.
+    /// * `domain` - Indicates the service domain of logs.
     ///
-    /// `tag` - Indicates the log tag.
+    /// * `tag` - Indicates the log tag.
     ///
-    /// `level` - Indicates the log level.
+    /// * `level` - Indicates the log level.
     ///
     /// # Returns
     ///
-    /// Returns <b>true</b> if the specified logs can be output; returns <b>false</b> otherwise.
+    /// * Returns <b>true</b> if the specified logs can be output; returns <b>false</b> otherwise.
     ///
     /// Available since API-level: 8
     pub fn OH_LOG_IsLoggable(
@@ -158,7 +158,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// `callback` - Indicates the callback function implemented by the user. If you do not need to process hilog logs,
+    /// * `callback` - Indicates the callback function implemented by the user. If you do not need to process hilog logs,
     /// you can transfer a null pointer.
     ///
     /// Available since API-level: 11

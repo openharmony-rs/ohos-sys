@@ -36,7 +36,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_TextBlobBuilder</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_TextBlobBuilder</b> object created.
     ///
     /// Available since API-level: 11
     ///
@@ -50,17 +50,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `text` - Indicates the the pointer to text.
+    /// * `text` - Indicates the the pointer to text.
     ///
-    /// `byteLength` - Indicates the text length.
+    /// * `byteLength` - Indicates the text length.
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `OH_Drawing_TextEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
+    /// * `OH_Drawing_TextEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_TextBlob</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_TextBlob</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -79,19 +79,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `text` - Indicates the the pointer to text.
+    /// * `text` - Indicates the the pointer to text.
     ///
-    /// `byteLength` - Indicates the text length.
+    /// * `byteLength` - Indicates the text length.
     ///
-    /// `OH_Drawing_Point2D` - Indicates the pointer to an <b>OH_Drawing_Point2D</b> array object.
+    /// * `OH_Drawing_Point2D` - Indicates the pointer to an <b>OH_Drawing_Point2D</b> array object.
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `OH_Drawing_TextEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
+    /// * `OH_Drawing_TextEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_TextBlob</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_TextBlob</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -111,15 +111,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `str` - Indicates the the pointer to text.
+    /// * `str` - Indicates the the pointer to text.
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `OH_Drawing_TextEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
+    /// * `OH_Drawing_TextEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_TextBlob</b> object created.
+    /// * Returns the pointer to the <b>OH_Drawing_TextBlob</b> object created.
     ///
     /// Available since API-level: 12
     ///
@@ -137,9 +137,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
     ///
-    /// `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -153,11 +153,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
     ///
     /// # Returns
     ///
-    /// Returns identifier for the <b>OH_Drawing_TextBlob</b> object.
+    /// * Returns identifier for the <b>OH_Drawing_TextBlob</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -172,13 +172,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_TextBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
+    /// * `OH_Drawing_TextBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
     ///
-    /// `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// `count` - Indicates the number of glyphs.
+    /// * `count` - Indicates the number of glyphs.
     ///
-    /// `OH_Drawing_Rect` - Indicates the optional run bounding box.
+    /// * `OH_Drawing_Rect` - Indicates the optional run bounding box.
     ///
     /// Available since API-level: 11
     ///
@@ -197,11 +197,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_TextBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
+    /// * `OH_Drawing_TextBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
     ///
     /// # Returns
     ///
-    /// Returns the pointer to the <b>OH_Drawing_TextBlob</b> object.
+    /// * Returns the pointer to the <b>OH_Drawing_TextBlob</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -217,7 +217,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -231,7 +231,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// `OH_Drawing_TextBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
+    /// * `OH_Drawing_TextBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
     ///
     /// Available since API-level: 11
     ///
