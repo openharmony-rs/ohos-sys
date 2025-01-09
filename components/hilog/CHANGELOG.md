@@ -1,3 +1,7 @@
+## 0.1.4 (2025-01-09)
+
+- Added API-13 feature (no changes)
+
 ## 0.1.3 (2025-01-04)
 
 - Regenerated the bindings with new generator (Should have no user visible changes)
