@@ -1,10 +1,17 @@
+## 0.2.3 (2025-01-09)
+
+### Add
+
+- native_dialog
+- native_interface
+
 ## 0.2.2 (2025-01-08)
 
 - Update bindings to api-13
 
 ## 0.2.1 (2025-01-05)
 
-## Add
+### Add
 
 - drag and drop
 - drawable descriptor
