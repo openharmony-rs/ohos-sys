@@ -1,3 +1,7 @@
+## 0.1.4 (2025-01-09)
+
+- Added API-13 feature (no changes)
+
 # v0.1.2 (2025-01-04)
 
 - Internal changes: Regenerate bindings with new generator
