@@ -9,5 +9,3 @@ ROOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"/.. &> /dev/null && pwd )
 
 cd "${ROOT_DIR}"
 cargo +nightly fmt
-fd -e rs . "${ROOT_DIR}/src/" --exec rustfmt +nightly
-fd -e rs . "${ROOT_DIR}/components" --exec rustfmt +nightly

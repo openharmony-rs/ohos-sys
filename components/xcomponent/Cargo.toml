@@ -1,6 +1,6 @@
 [package]
 name = "xcomponent-sys"
-version = "0.2.1"
+version = "0.3.0"
 edition = "2021"
 description = "Raw Bindings to the `xcomponent` API of OpenHarmony"
 license = "Apache-2.0"

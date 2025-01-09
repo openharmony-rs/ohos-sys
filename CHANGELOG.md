@@ -3,6 +3,7 @@
 ## Breaking 
 
 - napi: `napi_property_descriptor`, `napi_node_version`, `napi_extended_error_info` no longer derive Copy/Clone.
+- `xcomponent`: The constant `OH_NATIVE_XCOMPONENT_OBJ` is now a `CStr` instead of raw byte string
 
 ## Changed
 

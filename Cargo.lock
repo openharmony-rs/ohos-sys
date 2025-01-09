@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "arkui-sys"
-version = "0.2.1"
+version = "0.2.2"
 dependencies = [
  "document-features",
  "ohos-drawing-sys",
@@ -73,7 +73,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-drawing-sys"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -81,7 +81,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-image-kit-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -113,7 +113,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-sys-opaque-types"
-version = "0.1.0"
+version = "0.1.1"
 
 [[package]]
 name = "ohos-vsync-sys"
@@ -185,7 +185,7 @@ checksum = "f6ccf251212114b54433ec949fd6a7841275f9ada20dddd2f29e9ceea4501493"
 
 [[package]]
 name = "xcomponent-sys"
-version = "0.2.1"
+version = "0.3.0"
 dependencies = [
  "arkui-sys",
  "document-features",
