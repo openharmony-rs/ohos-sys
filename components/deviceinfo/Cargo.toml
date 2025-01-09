@@ -1,6 +1,6 @@
 [package]
 name = "ohos-deviceinfo-sys"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Bindings to OpenHarmony OS APIs providing information about the device"
 license = "Apache-2.0"
@@ -21,9 +21,11 @@ default = ["api-10"]
 ## No effect. API-10 bindings can't be deselected. The feature exists for internal purposes.
 api-10 = []
 ## Enables API-11. No changes or additions compared to API-10
-api-11 = []
+api-11 = ["api-10"]
 ## Enables API-12. No changes or additions compared to API-11
-api-12 = []
+api-12 = ["api-11"]
+## Enables API-13. No changes or additions compared to API-12
+api-13 = ["api-12"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 
