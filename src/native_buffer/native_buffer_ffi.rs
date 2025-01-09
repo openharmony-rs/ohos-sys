@@ -136,9 +136,12 @@ impl OH_NativeBuffer_MetadataType {
 impl OH_NativeBuffer_MetadataType {
     pub const OH_VIDEO_HDR_VIVID: OH_NativeBuffer_MetadataType = OH_NativeBuffer_MetadataType(2);
 }
+impl OH_NativeBuffer_MetadataType {
+    pub const OH_VIDEO_NONE: OH_NativeBuffer_MetadataType = OH_NativeBuffer_MetadataType(-1);
+}
 #[repr(transparent)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_NativeBuffer_MetadataType(pub ::core::ffi::c_uint);
+pub struct OH_NativeBuffer_MetadataType(pub ::core::ffi::c_int);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeBuffer_ColorXY {
@@ -781,6 +784,11 @@ extern "C" {
     ///
     /// A new <b>OH_NativeBuffer</b> instance is created each time this function is called.
     ///
+    /// This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unreference<otherwise memory leaks will occur.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
@@ -799,6 +807,11 @@ extern "C" {
     pub fn OH_NativeBuffer_Alloc(config: *const OH_NativeBuffer_Config) -> *mut OH_NativeBuffer;
     /// Adds the reference count of a OH_NativeBuffer.
     ///
+    /// This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unreference<otherwise memory leaks will occur.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
@@ -814,8 +827,10 @@ extern "C" {
     /// Version: 1.0
     pub fn OH_NativeBuffer_Reference(buffer: *mut OH_NativeBuffer) -> i32;
     /// Decreases the reference count of a OH_NativeBuffer and, when the reference count reaches 0,
-    ///
     /// destroys this OH_NativeBuffer.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -832,6 +847,9 @@ extern "C" {
     /// Version: 1.0
     pub fn OH_NativeBuffer_Unreference(buffer: *mut OH_NativeBuffer) -> i32;
     /// Return a config of the OH_NativeBuffer in the passed OHNativeBufferConfig struct.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -854,6 +872,9 @@ extern "C" {
     );
     /// Provide direct cpu access to the OH_NativeBuffer in the process's address space.
     ///
+    /// This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unmap<This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
@@ -875,6 +896,9 @@ extern "C" {
     ) -> i32;
     /// Remove direct cpu access ability of the OH_NativeBuffer in the process's address space.
     ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
@@ -891,6 +915,9 @@ extern "C" {
     pub fn OH_NativeBuffer_Unmap(buffer: *mut OH_NativeBuffer) -> i32;
     /// Get the systen wide unique sequence number of the OH_NativeBuffer.
     ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
@@ -906,6 +933,9 @@ extern "C" {
     /// Version: 1.0
     pub fn OH_NativeBuffer_GetSeqNum(buffer: *mut OH_NativeBuffer) -> u32;
     /// Provide direct cpu access to the potentially multi-plannar OH_NativeBuffer in the process's address space.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -933,6 +963,9 @@ extern "C" {
     ) -> i32;
     /// Converts an <b>OHNativeWindowBuffer</b> instance to an <b>OH_NativeBuffer</b>.
     ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
@@ -956,6 +989,9 @@ extern "C" {
     ) -> i32;
     /// Set the color space of the OH_NativeBuffer.
     ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
     /// # Arguments
@@ -978,6 +1014,9 @@ extern "C" {
         colorSpace: OH_NativeBuffer_ColorSpace,
     ) -> i32;
     /// Get the color space of the OH_NativeBuffer.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -1003,6 +1042,9 @@ extern "C" {
         colorSpace: *mut OH_NativeBuffer_ColorSpace,
     ) -> i32;
     /// Set the metadata type of the OH_NativeBuffer.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -1035,6 +1077,9 @@ extern "C" {
         metadata: *mut u8,
     ) -> i32;
     /// Set the metadata type of the OH_NativeBuffer.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
