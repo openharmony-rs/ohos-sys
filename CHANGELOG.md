@@ -4,6 +4,7 @@
 
 - napi: `napi_property_descriptor`, `napi_node_version`, `napi_extended_error_info` no longer derive Copy/Clone.
 - `xcomponent`: The constant `OH_NATIVE_XCOMPONENT_OBJ` is now a `CStr` instead of raw byte string
+- native_window: Duplicate bindings for `native_buffer` types were removed. Use the bindings from `native_buffer` instead.
 
 ## Changed
 
