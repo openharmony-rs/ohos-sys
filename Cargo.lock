@@ -96,6 +96,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-input-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-rawfile-sys"
 version = "0.1.0"
 dependencies = [
