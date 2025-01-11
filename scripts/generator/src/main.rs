@@ -540,9 +540,8 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                     }
                     "image_source" => {
                         builder
-                            // FIXME: Add necessary feature guards for `rawfile` and remove the blocklist
-                            .blocklist_function("^OH_ImageSourceNative_CreateFromRawFile")
                             .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                            .raw_line("use ohos_rawfile_sys::RawFileDescriptor;")
                             .raw_line("#[cfg(feature = \"api-13\")]")
                             .raw_line("use crate::native_image::picture::{OH_PictureNative, Image_AuxiliaryPictureType};")
                     }

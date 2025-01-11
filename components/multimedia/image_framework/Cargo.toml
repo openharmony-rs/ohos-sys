@@ -1,6 +1,6 @@
 [package]
 name = "ohos-image-kit-sys"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "Bindings to the multimedia Image Kit API of OpenHarmony"
 license = "Apache-2.0"
@@ -12,6 +12,7 @@ readme = "README.md"
 [dependencies]
 document-features = { version = "0.2", optional = true }
 ohos-sys-opaque-types = { workspace = true }
+ohos-rawfile-sys = { version = "0.1", default-features = false, optional = true, path = "../../rawfile"}
 
 
 [features]
@@ -24,7 +25,7 @@ default = []
 #! OpenHarmony versions.
 
 ## Enables bindings for OpenHarmony API-level 12.
-api-12 = []
+api-12 = ["ohos-rawfile-sys?/api-12"]
 ## Enables bindings for OpenHarmony API-level 13.
 api-13 = ["api-12"]
 
@@ -38,7 +39,7 @@ image-packer = []
 ## Obtain image data from the native layer
 image-receiver = []
 ## Image decoding
-image-source = []
+image-source = ["dep:ohos-rawfile-sys"]
 ## Pixel Map
 pixelmap = []
 ## Document available features when building the documentation

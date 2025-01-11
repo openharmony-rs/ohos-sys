@@ -81,9 +81,10 @@ dependencies = [
 
 [[package]]
 name = "ohos-image-kit-sys"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "document-features",
+ "ohos-rawfile-sys",
  "ohos-sys-opaque-types",
 ]
 
