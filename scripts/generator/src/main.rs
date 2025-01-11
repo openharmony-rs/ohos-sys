@@ -540,6 +540,7 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                     }
                     "image_source" => {
                         builder
+                            .raw_line("pub use ohos_sys_opaque_types::OH_ImageSourceNative;")
                             .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
                             .raw_line("use ohos_rawfile_sys::RawFileDescriptor;")
                             .raw_line("#[cfg(feature = \"api-13\")]")
@@ -551,8 +552,9 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                     }
                     "image_packer" => {
                         builder
-                            .blocklist_function("^OH_ImagePackerNative_PackTo(Data|File)FromImageSource")
                             .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                            .raw_line("#[cfg(feature = \"api-12\")]")
+                            .raw_line("use ohos_sys_opaque_types::OH_ImageSourceNative;")
                             .raw_line("#[cfg(feature = \"api-13\")]")
                             .raw_line("use crate::native_image::picture::OH_PictureNative;")
                     }

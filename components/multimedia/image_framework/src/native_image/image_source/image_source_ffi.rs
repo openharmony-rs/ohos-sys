@@ -7,18 +7,9 @@ use crate::native_image::common::*;
 #[cfg(feature = "api-13")]
 use crate::native_image::picture::{Image_AuxiliaryPictureType, OH_PictureNative};
 use ohos_rawfile_sys::RawFileDescriptor;
+pub use ohos_sys_opaque_types::OH_ImageSourceNative;
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
-/// Defines an image source object for the image interface.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct OH_ImageSourceNative {
-    _unused: [u8; 0],
-}
 /// Defines image source infomation
 /// [`OH_ImageSourceInfo_Create`].
 ///

@@ -6,6 +6,8 @@
 use crate::native_image::common::*;
 #[cfg(feature = "api-13")]
 use crate::native_image::picture::OH_PictureNative;
+#[cfg(feature = "api-12")]
+use ohos_sys_opaque_types::OH_ImageSourceNative;
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
 /// Define a ImagePacker struct type, used for ImagePacker pointer controls.
@@ -249,6 +251,34 @@ extern "C" {
     pub fn OH_ImagePackerNative_Create(
         imagePacker: *mut *mut OH_ImagePackerNative,
     ) -> Image_ErrorCode;
+    /// Encoding an <b>ImageSource</b> into the data with required format.
+    ///
+    /// # Arguments
+    ///
+    /// * `imagePacker` - The imagePacker to use for packing.
+    ///
+    /// * `options` - Indicates the encoding [`OH_PackingOptions`].
+    ///
+    /// * `imageSource` - The imageSource to be packed.
+    ///
+    /// * `outData` - The output data buffer to store the packed image.
+    ///
+    /// * `size` - A pointer to the size of the output data buffer.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`Image_ErrorCode`]
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ImagePackerNative_PackToDataFromImageSource(
+        imagePacker: *mut OH_ImagePackerNative,
+        options: *mut OH_PackingOptions,
+        imageSource: *mut OH_ImageSourceNative,
+        outData: *mut u8,
+        size: *mut usize,
+    ) -> Image_ErrorCode;
     /// Encoding a <b>Pixelmap</b> into the data with required format.
     ///
     /// # Arguments
@@ -308,6 +338,31 @@ extern "C" {
         picture: *mut OH_PictureNative,
         outData: *mut u8,
         size: *mut usize,
+    ) -> Image_ErrorCode;
+    /// Encoding an <b>ImageSource</b> into the a file with fd with required format.
+    ///
+    /// # Arguments
+    ///
+    /// * `imagePacker` - The image packer to use for packing.
+    ///
+    /// * `options` - Indicates the encoding [`OH_PackingOptions`].
+    ///
+    /// * `imageSource` - The imageSource to be packed.
+    ///
+    /// * `fd` - Indicates a writable file descriptor.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`Image_ErrorCode`]
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ImagePackerNative_PackToFileFromImageSource(
+        imagePacker: *mut OH_ImagePackerNative,
+        options: *mut OH_PackingOptions,
+        imageSource: *mut OH_ImageSourceNative,
+        fd: i32,
     ) -> Image_ErrorCode;
     /// Encoding a <b>Pixelmap</b> into the a file with fd with required format
     ///
