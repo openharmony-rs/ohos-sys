@@ -454,64 +454,6 @@ fn strip_prefix(input: &str, prefix: &str) -> String {
     }
 }
 
-fn apply_drawing_nocopy(builder: bindgen::Builder) -> bindgen::Builder {
-    let blocklist = [
-        "OH_Drawing_Canvas",
-        "OH_Drawing_Pen",
-        "OH_Drawing_Brush",
-        "OH_Drawing_Path",
-        "OH_Drawing_Bitmap",
-        "OH_Drawing_FontCollection",
-        "OH_Drawing_Typography",
-        "OH_Drawing_TextStyle",
-        "OH_Drawing_TypographyStyle",
-        "OH_Drawing_TypographyCreate",
-        //--- API-11 -------------------------------------
-        "OH_Drawing_Point",
-        "OH_Drawing_Rect",
-        "OH_Drawing_RoundRect",
-        "OH_Drawing_ShaderEffect",
-        "OH_Drawing_Filter",
-        "OH_Drawing_MaskFilter",
-        "OH_Drawing_ColorFilter",
-        "OH_Drawing_Font",
-        "OH_Drawing_Typeface",
-        "OH_Drawing_TextBlob",
-        "OH_Drawing_TextBlobBuilder",
-        "OH_Drawing_TextBox",
-        "OH_Drawing_PositionAndAffinity",
-        "OH_Drawing_Range",
-        "OH_Drawing_Matrix",
-        "OH_Drawing_RunBuffer",
-        // ---- API-12 ---------------------------------------
-        "OH_Drawing_Region",
-        "OH_Drawing_PixelMap",
-        "OH_Drawing_ColorSpace",
-        "OH_Drawing_Point2D",
-        "OH_Drawing_Point3D",
-        "OH_Drawing_PathEffect",
-        "OH_Drawing_ShadowLayer",
-        "OH_Drawing_MemoryStream",
-        "OH_Drawing_Image",
-        "OH_Drawing_ImageFilter",
-        "OH_Drawing_SamplingOptions",
-        "OH_Drawing_GpuContext",
-        "OH_Drawing_Surface",
-        "OH_Drawing_FontMgr",
-        "OH_Drawing_FontStyleSet",
-        "OH_Drawing_BitmapFormat",
-        "OH_Drawing_FontParser",
-        "OH_Drawing_TextShadow",
-        // Maybe: OH_Drawing_StrutStyle
-    ];
-    let mut builder = builder;
-    for obj in blocklist {
-        builder = builder.no_copy(obj);
-        builder = builder.no_debug(obj);
-    }
-    builder
-}
-
 // todo: unify via trait
 fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
     vec![DirBindingsConf {
@@ -683,9 +625,13 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                          "pixel_map" => {
                             builder.raw_line("use ohos_sys_opaque_types::{OH_PixelmapNative, NativePixelMap_};")
                          }
-                         _ => builder,
+                         "text_blob" => {
+                             builder
+                                 .no_copy("OH_Drawing_RunBuffer")
+                         }
+                          _ => builder,
                      };
-                     let builder = builder
+                     builder
                          .allowlist_file(format!("{}", header_path.to_str().unwrap()))
                          .allowlist_recursively(false)
                          .default_enum_style(EnumVariation::NewType {
@@ -693,9 +639,8 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                              is_global: false,
                          })
                          .prepend_enum_name(false)
-                         .clang_args(&["-x", "c++"]);
+                         .clang_args(&["-x", "c++"])
 
-                     apply_drawing_nocopy(builder)
                  }
              ),
          },

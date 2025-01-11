@@ -49,6 +49,7 @@ pub struct OH_Drawing_ColorSpace {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_Point2D {
     pub x: f32,
     pub y: f32,
@@ -71,6 +72,7 @@ pub type OH_Drawing_Corner_Radii = OH_Drawing_Point2D;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_Point3D {
     pub x: f32,
     pub y: f32,
