@@ -546,7 +546,6 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                             .raw_line("#[cfg(feature = \"api-13\")]")
                             .raw_line("use crate::native_image::picture::{OH_PictureNative, Image_AuxiliaryPictureType};")
                     }
-                    // Todo: these bindings are hand-picked and feature guarded right now - autogenerate...
                     "image_receiver" => {
                         builder.raw_line("use crate::native_image::image::OH_ImageNative;")
                     }
