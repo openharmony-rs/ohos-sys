@@ -6,6 +6,7 @@
 use crate::native_image::common::*;
 #[cfg(feature = "api-13")]
 use crate::native_image::picture::{Image_AuxiliaryPictureType, OH_PictureNative};
+use ohos_rawfile_sys::RawFileDescriptor;
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
 /// Defines an image source object for the image interface.
@@ -481,6 +482,25 @@ extern "C" {
     pub fn OH_ImageSourceNative_CreateFromData(
         data: *mut u8,
         dataSize: usize,
+        res: *mut *mut OH_ImageSourceNative,
+    ) -> Image_ErrorCode;
+    /// Creates an void pointer
+    ///
+    /// # Arguments
+    ///
+    /// * `rawFile` - Indicates the raw file's file descriptor.
+    ///
+    /// * `res` - Indicates a void pointer to the <b>ImageSource</b> object created at the C++ native layer.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`Image_ErrorCode`]
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ImageSourceNative_CreateFromRawFile(
+        rawFile: *mut RawFileDescriptor,
         res: *mut *mut OH_ImageSourceNative,
     ) -> Image_ErrorCode;
     /// Decodes an void pointer
