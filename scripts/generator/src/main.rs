@@ -845,6 +845,40 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                  }
              ),
          },
+         DirBindingsConf {
+             directory: "multimodalinput".to_string(),
+             output_dir: "components/multimodal-input/src".to_string(),
+             min_api_version: 12,
+             rename_output_file: Some(Box::new(|name| name.trim_start_matches("oh_").to_string())),
+             set_builder_opts: Box::new(
+                 |file_stem, header_path, builder| {
+                     let builder = builder
+                         .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                         .allowlist_recursively(false)
+                         .default_enum_style(EnumVariation::NewType {
+                             is_bitfield: false,
+                             is_global: false,
+                         })
+                         .prepend_enum_name(false);
+                         //.clang_args(&["-x", "c++"]);
+                     match file_stem {
+                         "input_manager" => {
+                             builder
+                                 .raw_line("use crate::axis_type::{InputEvent_AxisAction, InputEvent_AxisEventType, InputEvent_AxisType};")
+                         },
+                         "key_code" => {
+                             builder
+                                 // Input_KeyCode is not directly exposed via FFI, instead a
+                                 // raw integer is used there. Hence, we can use a rust enum here
+                                 // which is much nicer to use.
+                                 .rustified_enum("Input_KeyCode")
+
+                         }
+                         _ => builder,
+                     }
+                 }
+             ),
+         },
     ]
 }
 
