@@ -1,0 +1,36 @@
+[package]
+name = "ohos-rawfile-sys"
+version = "0.1.0"
+edition = "2021"
+description = "Raw Bindings to the rawfile API of OpenHarmony"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "ffi", "rawfile", "file"]
+readme = "README.md"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+ohos-sys-opaque-types = { workspace = true}
+
+[features]
+default = ["_functions"]
+
+## Internal feature: Enables functions
+##
+## Enabled by default. Users should not disable this feature.
+## Removing this feature only leaves a couple of type definitions, which are required by some other
+## OpenHarmony sys crates for interop. This allows us to make linking against `rawfile` shared library optional,
+## and only happen if a user actually needs to use this crate.
+_functions = []
+
+api-10 = []
+api-11 = ["api-10"]
+api-12 = ["api-11"]
+api-13 = ["api-12"]
+## Document available features when building the documentation
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true

@@ -55,7 +55,7 @@ already been generated.
 | ohcamera                   |        |           |
 | purgeable_memory           |        |           |
 | qos                        |        |           |
-| rawfile                    |        |           |
+| rawfile                    | ✅      | 13        |
 | resourcemanager            |        |           |
 | sensors                    |        |           |
 | telephony                  |        |           |
