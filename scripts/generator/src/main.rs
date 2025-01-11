@@ -528,9 +528,9 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                 };
                 let builder = match file_stem {
                     "pixelmap" => {
-                        // FIXME: Add necessary feature guards for `napi` and remove the blocklist
-                        builder.blocklist_function("^OH_PixelmapNative_ConvertPixelmapNative(To|From)Napi")
-                            .raw_line("use ohos_sys_opaque_types::{OH_NativeBuffer, OH_PixelmapNative, OH_NativeColorSpaceManager};")
+                        builder
+                            .raw_line("use ohos_sys_opaque_types::{napi_env, napi_value, \
+                            OH_NativeBuffer, OH_PixelmapNative, OH_NativeColorSpaceManager};")
 
                     },
                     "picture" => {

@@ -4,7 +4,9 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_image::common::*;
-use ohos_sys_opaque_types::{OH_NativeBuffer, OH_NativeColorSpaceManager, OH_PixelmapNative};
+use ohos_sys_opaque_types::{
+    napi_env, napi_value, OH_NativeBuffer, OH_NativeColorSpaceManager, OH_PixelmapNative,
+};
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -717,6 +719,54 @@ extern "C" {
         dataLength: usize,
         options: *mut OH_Pixelmap_InitializationOptions,
         pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> Image_ErrorCode;
+    /// Convert a native <b>PixelMap</b> object to <b>PixelMap</b> napi object.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Indicates the NAPI environment pointer.
+    ///
+    /// * `pixelmapNative` - Indicates a pointer to the <b>PixelMap</b> object created at the native layer.
+    ///
+    /// * `pixelmapNapi` - the <b>PixelMap</b> pointer will be converted.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] pixelmapNative is nullptr
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_PixelmapNative_ConvertPixelmapNativeToNapi(
+        env: napi_env,
+        pixelmapNative: *mut OH_PixelmapNative,
+        pixelmapNapi: *mut napi_value,
+    ) -> Image_ErrorCode;
+    /// Convert a <b>PixelMap</b> napi object to native <b>PixelMap</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Indicates the NAPI environment pointer.
+    ///
+    /// * `pixelmapNapi` - Indicates napi <b>PixelMap</b> object.
+    ///
+    /// * `pixelmapNative` - Indicates native <b>PixelMap</b> pointer to created.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] pixelmapNative is nullptr, or pixelmapNapi is not a PixelMap
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_PixelmapNative_ConvertPixelmapNativeFromNapi(
+        env: napi_env,
+        pixelmapNapi: napi_value,
+        pixelmapNative: *mut *mut OH_PixelmapNative,
     ) -> Image_ErrorCode;
     /// Reads data of this pixel map to an Buffer. If this pixel map is created in the BGRA_8888 format,
     /// the data read is the same as the original data.

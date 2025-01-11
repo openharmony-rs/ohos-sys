@@ -15,7 +15,7 @@ members = ["components/*", "components/multimedia/image_framework"]
 exclude = ["components/multimedia", "scripts"]
 
 [workspace.dependencies]
-ohos-sys-opaque-types = { version = "0.1.3", path = "components/opaque-types" }
+ohos-sys-opaque-types = { version = "0.1.4", path = "components/opaque-types" }
 
 
 [dependencies]
