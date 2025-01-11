@@ -422,6 +422,19 @@ fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .raw_line("pub use ohos_drawing_sys::text_declaration::{OH_Drawing_FontCollection, OH_Drawing_TextStyle, OH_Drawing_Typography, OH_Drawing_TypographyStyle};")
             }),
         },
+        BindingConf {
+            include_filename: "rawfile/raw_file.h".to_string(),
+            output_prefix: "components/rawfile/src/raw_file_types".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .ignore_functions()
+                    .clang_args(["-x", "c++"])
+                    .blocklist_var("_LIBCPP.*")
+                    .raw_line("#[cfg(doc)]")
+                    .raw_line("use crate::{raw_file::{OH_ResourceManager_GetRawFileDescriptor,OH_ResourceManager_GetRawFileDescriptor64},\
+                        raw_file_manager::OH_ResourceManager_OpenRawFile};")
+            }),
+        },
     ]
 }
 
@@ -774,6 +787,59 @@ fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
                                  .blocklist_item("UI_MOUSE_EVENT_BUTTON_.*")
 
                          },
+                         _ => builder,
+                     }
+                 }
+             ),
+         },
+
+         DirBindingsConf {
+             directory: "rawfile".to_string(),
+             output_dir: "components/rawfile/src".to_string(),
+             min_api_version: 10,
+             rename_output_file: None,
+             set_builder_opts: Box::new(
+                 |file_stem, header_path, builder| {
+                     let builder = builder
+                         .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                         .allowlist_recursively(false)
+                         .default_enum_style(EnumVariation::NewType {
+                             is_bitfield: false,
+                             is_global: false,
+                         })
+                         .prepend_enum_name(false)
+                         .clang_args(&["-x", "c++"]);
+                     match file_stem {
+                        "raw_file" => {
+                            builder
+                                // Types are generated separately, since they might be shared.
+                                .blocklist_var(".*")
+                                .blocklist_type(".*")
+                                .raw_line("use crate::raw_file_types_ffi::*;")
+                                .raw_line("#[cfg(doc)]")
+                                .raw_line("use crate::raw_file_manager::{OH_ResourceManager_OpenRawFile, OH_ResourceManager_OpenRawDir};")
+                                .raw_line("#[cfg(doc)]")
+                                .raw_line("use crate::raw_file_manager::OH_ResourceManager_OpenRawFile64;")
+                        },
+                         "raw_dir" => {
+                             builder
+                                 .raw_line("#[cfg(doc)]")
+                                 .raw_line("use crate::raw_file_manager::{OH_ResourceManager_OpenRawFile, OH_ResourceManager_OpenRawDir};")
+
+                         }
+                         "raw_file_manager" => {
+                             builder
+                                 .raw_line("use ohos_sys_opaque_types::{napi_env, napi_value};")
+                                 .raw_line("use crate::raw_dir::RawDir;")
+                                 .raw_line("use crate::RawFile;")
+                                 .raw_line("#[cfg(doc)]")
+                                 .raw_line("use crate::raw_dir::OH_ResourceManager_CloseRawDir;")
+                                 .raw_line("#[cfg(doc)]")
+                                 .raw_line("use crate::raw_file::{OH_ResourceManager_CloseRawFile, OH_ResourceManager_CloseRawFile64};")
+                                 .raw_line("#[cfg(feature = \"api-11\")]")
+                                 .raw_line("use crate::RawFile64;")
+
+                         }
                          _ => builder,
                      }
                  }
