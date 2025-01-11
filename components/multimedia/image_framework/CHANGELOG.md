@@ -1,8 +1,8 @@
 # Changelog
 
-## unreleased
+## 0.2.1 (2025-01-11)
 
-- Add `OH_ImageSourceNative_CreateFromRawFile()` binding.
+- Add `OH_ImageSourceNative_CreateFromRawFile()` and `OH_PixelmapNative_ConvertPixelmapNativeToNapi` bindings.
 
 ## 0.2.0 (2025-01-09)
 
