@@ -18,6 +18,7 @@ use crate::error_code::OH_Drawing_ErrorCode;
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
+#[derive(Debug)]
 pub struct OH_Drawing_RunBuffer {
     /// storage for glyph indexes in run
     pub glyphs: *mut u16,
