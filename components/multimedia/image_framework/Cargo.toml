@@ -1,6 +1,6 @@
 [package]
 name = "ohos-image-kit-sys"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 description = "Bindings to the multimedia Image Kit API of OpenHarmony"
 license = "Apache-2.0"
@@ -28,6 +28,8 @@ default = []
 api-12 = ["ohos-rawfile-sys?/api-12"]
 ## Enables bindings for OpenHarmony API-level 13.
 api-13 = ["api-12"]
+## Enables bindings for OpenHarmony API-level 14.
+api-14 = ["api-13"]
 
 #! ### Image Kit Modules
 #!
