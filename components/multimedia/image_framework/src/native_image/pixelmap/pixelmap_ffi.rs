@@ -642,13 +642,13 @@ extern "C" {
         info: *mut OH_Pixelmap_ImageInfo,
         pixelFormat: *mut i32,
     ) -> Image_ErrorCode;
-    /// Get density number for imageinfo struct.
+    /// Get alphaType number for imageinfo struct.
     ///
     /// # Arguments
     ///
     /// * `info` - The imageinfo pointer will be operated.
     ///
-    /// * `density` - The number of imageinfo density.
+    /// * `alphaType` - The number of imageinfo alphaType.
     ///
     /// # Returns
     ///
@@ -1154,31 +1154,6 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         nativeBuffer: *mut *mut OH_NativeBuffer,
     ) -> Image_ErrorCode;
-    /// Set pixelmap memory name.
-    ///
-    /// # Arguments
-    ///
-    /// * `pixelmap` - The Pixelmap pointer to be operated.
-    ///
-    /// * `name` - The pointer of name that needs to be set.
-    ///
-    /// * `size` - The size of name size that needs to be set.
-    ///
-    /// # Returns
-    ///
-    /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, name and size are incorrect.
-    /// [`IMAGE_UNSUPPORTED_MEMORY_FORMAT`] If memory format is unsupported.
-    /// [`OH_PixelmapNative`]
-    /// Available since API-level: 13
-    #[cfg(feature = "api-13")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_PixelmapNative_SetMemoryName(
-        pixelmap: *mut OH_PixelmapNative,
-        name: *mut ::core::ffi::c_char,
-        size: *mut usize,
-    ) -> Image_ErrorCode;
     /// Get the native colorspace from the PixelMap.
     ///
     /// # Arguments
@@ -1220,5 +1195,30 @@ extern "C" {
     pub fn OH_PixelmapNative_SetColorSpaceNative(
         pixelmap: *mut OH_PixelmapNative,
         colorSpaceNative: *mut OH_NativeColorSpaceManager,
+    ) -> Image_ErrorCode;
+    /// Set pixelmap memory name.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - The Pixelmap pointer to be operated.
+    ///
+    /// * `name` - The pointer of name that needs to be set.
+    ///
+    /// * `size` - The size of name size that needs to be set.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, name and size are incorrect.
+    /// [`IMAGE_UNSUPPORTED_MEMORY_FORMAT`] If memory format is unsupported.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_PixelmapNative_SetMemoryName(
+        pixelmap: *mut OH_PixelmapNative,
+        name: *mut ::core::ffi::c_char,
+        size: *mut usize,
     ) -> Image_ErrorCode;
 }
