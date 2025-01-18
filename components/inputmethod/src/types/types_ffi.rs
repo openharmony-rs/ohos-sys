@@ -326,7 +326,7 @@ impl InputMethod_ErrorCode {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl InputMethod_ErrorCode {
-    /// The error code when the package manager error.
+    /// The error code when the bundle manager error.
     pub const IME_ERR_PACKAGEMANAGER: InputMethod_ErrorCode = InputMethod_ErrorCode(12800001);
 }
 #[cfg(feature = "api-12")]
@@ -344,7 +344,7 @@ impl InputMethod_ErrorCode {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl InputMethod_ErrorCode {
-    /// The error code when configuration persisting error.
+    /// The error code when configuration persistence error.
     pub const IME_ERR_CONFIG_PERSIST: InputMethod_ErrorCode = InputMethod_ErrorCode(12800005);
 }
 #[cfg(feature = "api-12")]
@@ -368,7 +368,7 @@ impl InputMethod_ErrorCode {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl InputMethod_ErrorCode {
-    /// The error code when input method client is detached.
+    /// The error code when input method client detached.
     pub const IME_ERR_DETACHED: InputMethod_ErrorCode = InputMethod_ErrorCode(12800009);
 }
 #[cfg(feature = "api-12")]
