@@ -1,6 +1,6 @@
 [package]
 name = "xcomponent-sys"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2021"
 description = "Raw Bindings to the `xcomponent` API of OpenHarmony"
 license = "Apache-2.0"
@@ -22,6 +22,7 @@ api-10 = []
 api-11 = ["api-10"]
 api-12 = ["api-11", "arkui-sys?/api-12"]
 api-13 = ["api-12" ]
+api-14 = ["api-13"]
 ## Enables XComponent APIs that depend on ArkUI.
 arkui = ["dep:arkui-sys"]
 ## Provides optional conversion from the OH keyboard enum to the keyboard-types enum.

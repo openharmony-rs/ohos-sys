@@ -7,6 +7,7 @@
 use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;
 
 pub const OH_NATIVE_XCOMPONENT_OBJ: &::core::ffi::CStr = c"__NATIVE_XCOMPONENT_OBJ__";
+pub const OH_NATIVE_XCOMPONENT_MAX_TOUCH_POINTS_NUMBER: u32 = 10;
 impl OH_NativeXComponent_KeyCode {
     pub const KEY_UNKNOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(-1);
 }
@@ -2197,5 +2198,35 @@ extern "C" {
     pub fn OH_NativeXComponent_GetNativeAccessibilityProvider(
         component: *mut OH_NativeXComponent,
         handle: *mut *mut ArkUI_AccessibilityProvider,
+    ) -> i32;
+    /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    ///
+    /// * `callback` - Indicates the pointer to a key event callback with result.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`] the callback function is successfully registered.
+    ///
+    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`] component is nullptr or callback is nullptr.
+    ///
+    ///
+    /// Available since API-level: 14
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_NativeXComponent_RegisterKeyEventCallbackWithResult(
+        component: *mut OH_NativeXComponent,
+        callback: ::core::option::Option<
+            unsafe extern "C" fn(
+                component: *mut OH_NativeXComponent,
+                window: *mut ::core::ffi::c_void,
+            ) -> bool,
+        >,
     ) -> i32;
 }
