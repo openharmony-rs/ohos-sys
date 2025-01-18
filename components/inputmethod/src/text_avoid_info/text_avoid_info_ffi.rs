@@ -31,7 +31,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `options` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be destroyed.
+    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

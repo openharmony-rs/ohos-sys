@@ -25,7 +25,7 @@ extern "C" {
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
     /// [`IME_ERR_IMMS`] - input method manager service error.
-    /// [`IME_ERR_DETACHED`] - input method client is detached.
+    /// [`IME_ERR_DETACHED`] - input method client detached.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
     ///
@@ -48,7 +48,7 @@ extern "C" {
     /// [`IME_ERR_OK`] - success.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
     /// [`IME_ERR_IMMS`] - input method manager service error.
-    /// [`IME_ERR_DETACHED`] - input method client is detached.
+    /// [`IME_ERR_DETACHED`] - input method client detached.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
     ///
@@ -82,7 +82,7 @@ extern "C" {
     /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
     /// [`IME_ERR_IMMS`] - input method manager service error.
-    /// [`IME_ERR_DETACHED`] - input method client is detached.
+    /// [`IME_ERR_DETACHED`] - input method client detached.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
     ///
@@ -114,7 +114,7 @@ extern "C" {
     /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
     /// [`IME_ERR_IMMS`] - input method manager service error.
-    /// [`IME_ERR_DETACHED`] - input method client is detached.
+    /// [`IME_ERR_DETACHED`] - input method client detached.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
     ///
@@ -143,7 +143,7 @@ extern "C" {
     /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
     /// [`IME_ERR_IMMS`] - input method manager service error.
-    /// [`IME_ERR_DETACHED`] - input method client is detached.
+    /// [`IME_ERR_DETACHED`] - input method client detached.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
     ///
@@ -172,7 +172,7 @@ extern "C" {
     /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
     /// [`IME_ERR_IMCLIENT`] - input method client error.
     /// [`IME_ERR_IMMS`] - input method manager service error.
-    /// [`IME_ERR_DETACHED`] - input method client is detached.
+    /// [`IME_ERR_DETACHED`] - input method client detached.
     /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
     /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
     ///
