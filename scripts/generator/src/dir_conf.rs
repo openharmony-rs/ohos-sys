@@ -370,8 +370,8 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
                              is_bitfield: false,
                              is_global: false,
                          })
-                         .prepend_enum_name(false);
-                     //.clang_args(&["-x", "c++"]);
+                         .prepend_enum_name(false)
+                         .clang_args(["-include", "stdbool.h"]);
                      match file_stem {
                          "input_manager" => {
                              builder
