@@ -1,6 +1,6 @@
 [package]
 name = "ohos-vsync-sys"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Raw Bindings to the vsync (Vertical Synchroization) API of OpenHarmony"
 license = "Apache-2.0"
@@ -18,6 +18,8 @@ api-10 = []
 api-11 = ["api-10"]
 api-12 = ["api-11"]
 api-13 = ["api-12"]
+## Enables API-14 bindings, including support for DVSync (Decoupled Vsync)
+api-14 = ["api-13"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 

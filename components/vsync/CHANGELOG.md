@@ -1,3 +1,7 @@
+# 0.1.2 (2025-01-18)
+
+- Update bindings for API-14 (Beta 2)
+
 # 0.1.1 (2025-01-09)
 
 - Update bindings for API-13
