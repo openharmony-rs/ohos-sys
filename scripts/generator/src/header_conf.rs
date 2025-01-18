@@ -176,6 +176,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                         is_bitfield: false,
                         is_global: false,
                     })
+                    .clang_args(["-include", "stdbool.h", "-include", "stdint.h"])
             }),
         },
         BindingConf {
