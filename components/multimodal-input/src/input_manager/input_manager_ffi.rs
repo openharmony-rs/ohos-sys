@@ -329,6 +329,10 @@ pub struct Input_TouchEvent {
 pub struct Input_AxisEvent {
     _unused: [u8; 0],
 }
+#[repr(C)]
+pub struct Input_Hotkey {
+    _unused: [u8; 0],
+}
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Input_Result {
@@ -356,6 +360,12 @@ impl Input_Result {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Input_Result {
+    /// Device not support
+    pub const INPUT_DEVICE_NOT_SUPPORTED: Input_Result = Input_Result(801);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl Input_Result {
     /// Service error
     pub const INPUT_SERVICE_EXCEPTION: Input_Result = Input_Result(3800001);
 }
@@ -364,6 +374,26 @@ impl Input_Result {
 impl Input_Result {
     /// Interceptor repeatedly created for an application
     pub const INPUT_REPEAT_INTERCEPTOR: Input_Result = Input_Result(4200001);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl Input_Result {
+    /// Already occupied by the system
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub const INPUT_OCCUPIED_BY_SYSTEM: Input_Result = Input_Result(4200002);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl Input_Result {
+    /// Already occupied by the other
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub const INPUT_OCCUPIED_BY_OTHER: Input_Result = Input_Result(4200003);
 }
 #[repr(transparent)]
 /// Enumerates error codes.
@@ -374,6 +404,13 @@ impl Input_Result {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Input_Result(pub ::core::ffi::c_uint);
+/// Callback used to return shortcut key events.
+///
+/// Available since API-level: 14
+#[cfg(feature = "api-14")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+pub type Input_HotkeyCallback =
+    ::core::option::Option<unsafe extern "C" fn(hotkey: *mut Input_Hotkey)>;
 #[repr(C)]
 pub struct Input_DeviceInfo {
     _unused: [u8; 0],
@@ -952,7 +989,7 @@ extern "C" {
     ///
     /// * `mouseEvent` - Mouse event object.
     ///
-    /// * `axisType` - Axis value. A positive value means scrolling forward,
+    /// * `axisValue` - Axis value. A positive value means scrolling forward,
     /// and a negative number means scrolling backward.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -995,7 +1032,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Mouse event object.
+    /// * `mouseEvent` - Mouse event object.
     ///
     /// # Returns
     ///
@@ -1177,7 +1214,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - Touch event object.
+    /// * `touchEvent` - Touch event object.
     ///
     /// * `actionTime` - Time when the touch event occurs.
     ///
@@ -1191,7 +1228,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `keyEvent` - touch event object.
+    /// * `touchEvent` - touch event object.
     ///
     /// # Returns
     ///
@@ -1584,7 +1621,7 @@ extern "C" {
     ///
     /// * `axisEvent` - Axis event object.
     ///
-    /// * `axisEventType` - Axis event source type. The values are defined in [`InputEvent_SourceType`].
+    /// * `sourceType` - Axis event source type. The values are defined in [`InputEvent_SourceType`].
     ///
     /// # Returns
     ///
@@ -1972,6 +2009,301 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_RemoveInputEventInterceptor() -> Input_Result;
+    /// Obtains the interval since the last system input event.
+    ///
+    /// # Arguments
+    ///
+    /// * `timeInterval` - Interval, in microseconds.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetIntervalSinceLastInput status code, specifically.
+    /// [`INPUT_SUCCESS`] if the Operation is successful.
+    ///
+    /// [`INPUT_SERVICE_EXCEPTION`] Failed to get the interval because the service is exception.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The timeInterval is NULL.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_GetIntervalSinceLastInput(timeInterval: *mut i64) -> Input_Result;
+    /// Creates a hot key object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns an [`Input_Hotkey`] pointer object if the operation is successful. Otherwise, a null pointer is
+    /// returned. The possible cause is memory allocation failure.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_CreateHotkey() -> *mut Input_Hotkey;
+    /// Destroys a hot key object.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkey` - Hot key object.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_DestroyHotkey(hotkey: *mut *mut Input_Hotkey);
+    /// Sets a modifier key.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkey` - Hotkey key object.
+    ///
+    /// * `preKeys` - List of modifier keys.
+    ///
+    /// * `size` - Number of modifier keys. One or two modifier keys are supported.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_SetPreKeys(hotkey: *mut Input_Hotkey, preKeys: *mut i32, size: i32);
+    /// Obtains a modifier key.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkey` - Hotkey key object.
+    ///
+    /// * `preKeys` - List of modifier keys.
+    ///
+    /// * `preKeyCount` - Number of modifier keys.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetPreKeys status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The hotkey is NULL or the pressedKeys is NULL or the pressedKeyCount
+    /// is NULL;
+    ///
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_GetPreKeys(
+        hotkey: *const Input_Hotkey,
+        preKeys: *mut *mut i32,
+        preKeyCount: *mut i32,
+    ) -> Input_Result;
+    /// Sets a modified key.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkey` - Hotkey key object.
+    ///
+    /// * `finalKey` - Modified key. Only one modified key is supported.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_SetFinalKey(hotkey: *mut Input_Hotkey, finalKey: i32);
+    /// Obtains a modified key.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkey` - Hotkey key object.
+    ///
+    /// * `finalKeyCode` - Returns the key value of the decorated key.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetfinalKey status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The hotkey is NULL or the finalKeyCode is NULL;
+    ///
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_GetFinalKey(
+        hotkey: *const Input_Hotkey,
+        finalKeyCode: *mut i32,
+    ) -> Input_Result;
+    /// Creates an array of [`Input_Hotkey`] instances.
+    ///
+    /// # Arguments
+    ///
+    /// * `count` - Number of [`Input_Hotkey`] instances to be created. The count must be the same as the number of
+    /// system shortcut keys.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to an array of [`Input_Hotkey`] instances if the operation is successful. If the
+    /// operation fails, a null pointer is returned. The possible cause is memory allocation failure or count is not equal
+    /// to the number of system hotkeys.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_CreateAllSystemHotkeys(count: i32) -> *mut *mut Input_Hotkey;
+    /// Destroys an array of [`Input_Hotkey`] instances and reclaims memory.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkeys` - Pointer to an array of [`Input_Hotkey`] instances created by the
+    /// [`OH_Input_CreateAllSystemHotkeys`] method.
+    ///
+    /// * `count` - Count of the array to be destroyed, which must be the same as the number of system shortcut keys.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_DestroyAllSystemHotkeys(hotkeys: *mut *mut Input_Hotkey, count: i32);
+    /// Obtains all hot keys supported by the system.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkey` - Array of [`Input_Hotkey`] instances.
+    /// When calling this API for the first time, you can pass NULL to obtain the array length.
+    ///
+    /// * `count` - Number of hot keys supported by the system.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetAllSystemHotkeys status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The hotkey or count is NULL, or the value of count does not match the number
+    /// of system shortcut keys supported by the system;
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_GetAllSystemHotkeys(
+        hotkey: *mut *mut Input_Hotkey,
+        count: *mut i32,
+    ) -> Input_Result;
+    /// Specifies whether to report repeated key events.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkey` - Shortcut key object.
+    ///
+    /// * `isRepeat` - Whether to report repeated key events.
+    /// The value <b>true</b> means to report repeated key events, and the value <b>false</b> means the opposite.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_SetRepeat(hotkey: *mut Input_Hotkey, isRepeat: bool);
+    /// Checks whether to report repeated key events.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkey` - Shortcut key object.
+    ///
+    /// * `isRepeat` - Whether a key event is repeated.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetIsRepeat status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] otherwise;
+    ///
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_GetRepeat(hotkey: *const Input_Hotkey, isRepeat: *mut bool) -> Input_Result;
+    /// Subscribes to shortcut key events.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkey` - Shortcut key object.
+    ///
+    /// * `callback` - Callback used to return shortcut key events.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_AddHotkeyMonitor status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] if hotkey or callback is NULL;
+    ///
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported;
+    ///
+    /// [`INPUT_OCCUPIED_BY_SYSTEM`] The hotkey has been used by the system. You can call the [`GetAllSystemHotkeys`] interface to query all system shortcut keys.
+    ///
+    /// [`INPUT_OCCUPIED_BY_OTHER`] The hotkey has been subscribed to by another.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_AddHotkeyMonitor(
+        hotkey: *const Input_Hotkey,
+        callback: Input_HotkeyCallback,
+    ) -> Input_Result;
+    /// Unsubscribes from shortcut key events.
+    ///
+    /// # Arguments
+    ///
+    /// * `hotkey` - Shortcut key object.
+    ///
+    /// * `callback` - Callback used to return shortcut key events.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_RemoveHotkeyMonitor status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] if hotkey or callback is NULL;
+    ///
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Input_RemoveHotkeyMonitor(
+        hotkey: *const Input_Hotkey,
+        callback: Input_HotkeyCallback,
+    ) -> Input_Result;
     /// Obtains the IDs of all input devices.
     ///
     /// # Arguments
