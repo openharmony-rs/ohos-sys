@@ -41,12 +41,40 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
     /// # Arguments
     ///
-    /// * `window` - Indicates the pointer to a <b>NativeVsync</b> instance.
+    /// * `nativeVsync` - Indicates the pointer to a <b>NativeVsync</b> instance.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     pub fn OH_NativeVSync_Destroy(nativeVsync: *mut OH_NativeVSync);
+    /// Creates a <b>NativeVsync</b> instance.
+    ///
+    /// A new <b>NativeVsync</b> instance is created each time this function is called.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
+    /// # Arguments
+    ///
+    /// * `windowID` - Indicates the id of the associated window.
+    ///
+    /// * `name` - Indicates the vsync connection name.
+    ///
+    /// * `length` - Indicates the name's length.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>NativeVsync</b> instance created.
+    ///
+    /// Available since API-level: 14
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_NativeVSync_Create_ForAssociatedWindow(
+        windowID: u64,
+        name: *const ::core::ffi::c_char,
+        length: ::core::ffi::c_uint,
+    ) -> *mut OH_NativeVSync;
     /// Request next vsync with callback.
     /// If you call this interface multiple times in one frame, it will only call the last callback.
     ///
@@ -123,5 +151,43 @@ extern "C" {
     pub fn OH_NativeVSync_GetPeriod(
         nativeVsync: *mut OH_NativeVSync,
         period: *mut ::core::ffi::c_longlong,
+    ) -> ::core::ffi::c_int;
+    /// Enables DVSync to improve the smoothness of self-drawing animations.
+    /// DVSync, short for Decoupled VSync, is a frame timing management policy that is decoupled from the hardware's VSync.
+    /// DVSync drives the early rendering of upcoming animation frames by sending VSync signals with future timestamps.
+    /// These frames are stored in a frame buffer queue. This helps DVSync reduce potential frame drop and therefore
+    /// enhances the smoothness of animations.
+    /// DVSync requires free self-drawing frame buffers to store these pre-rendered animation frames.
+    /// Therefore, you must ensure that at least one free frame buffer is available. Otherwise, do not enable DVSync.
+    /// After DVSync is enabled, you must correctly respond to the early VSync signals and request the subsequent VSync
+    /// after the animation frame associated with the previous VSync is complete. In addition, the self-drawing frames must
+    /// carry timestamps that align with VSync.
+    /// After the animation ends, disable DVSync.
+    /// Only phones and tablets support DVSync.
+    /// On a platform that does not support DVSync or if another application has enabled DVSync, the attempt to enable it
+    /// will not take effect, and the application still receives normal VSync signals.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
+    /// # Arguments
+    ///
+    /// * `nativeVsync` - Indicates the pointer to a NativeVsync.
+    ///
+    /// * `enable` - Whether to enable DVSync.The value true means to enable DVSync, and false means the opposite.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - the parameter nativeVsync is NULL.
+    /// [`NATIVE_ERROR_BINDER_ERROR`] 50401000 - ipc send failed.
+    ///
+    /// Available since API-level: 14
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_NativeVSync_DVSyncSwitch(
+        nativeVsync: *mut OH_NativeVSync,
+        enable: bool,
     ) -> ::core::ffi::c_int;
 }
