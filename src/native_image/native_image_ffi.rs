@@ -393,9 +393,13 @@ extern "C" {
     ) -> i32;
     /// Create a <b>OH_NativeImage</b> as a consumerSurface.
     ///
+    /// This interface is only used for memory rotation on the surface consumer,
+    /// the <b>OH_NativeImage</b> will not actively perform memory rendering processing.
+    ///
     /// This method can not be used at the same time with <b>OH_NativeImage_UpdateSurfaceImage</b>.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeImage_Destroy<otherwise memory leaks will occur.
+    /// This interface is used in conjunction with <b>OH_NativeImage_AcquireNativeWindowBuffer<and
+    /// <b>OH_NativeImage_ReleaseNativeWindowBuffer<This interface needs to be used in conjunction with <b>OH_NativeImage_Destroy<otherwise memory leaks will occur.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
