@@ -1,6 +1,6 @@
 [package]
 name = "ohos-sys"
-version = "0.6.0"
+version = "0.6.1"
 edition = "2021"
 description = "Bindings to the native API of OpenHarmony OS"
 license = "Apache-2.0"
@@ -120,6 +120,19 @@ api-13 = ["api-12",
     "ohos-image-kit-sys?/api-13",
     "xcomponent-sys?/api-13",
     "ohos-vsync-sys?/api-13",
+]
+
+## Enables bindings for OpenHarmony API-level 13
+api-14 = ["api-13",
+    "arkui-sys?/api-14",
+    # "ohos-deviceinfo-sys?/api-14",
+    "ohos-drawing-sys?/api-14",
+    # "hilog-sys?/api-14",
+    # "hitrace-sys?/api-14",
+    "ohos-ime-sys?/api-14",
+    "ohos-image-kit-sys?/api-14",
+    "xcomponent-sys?/api-14",
+    "ohos-vsync-sys?/api-14",
 ]
 #! ### Features of dependencies
 #!

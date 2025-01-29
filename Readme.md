@@ -15,6 +15,7 @@ already been generated.
 | BasicServicesKit           |        |           |
 | ConnectivityKit            |        |           |
 | CryptoArchitectureKit      |        |           |
+| DataProtectionKit          |        |           |
 | IPCKit                     |        |           |
 | LocationKit                |        |           |
 | NotificationKit            |        |           |
