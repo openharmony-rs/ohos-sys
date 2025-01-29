@@ -45,4 +45,94 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_StyledString_PopTextStyle(handle: *mut ArkUI_StyledString);
+    /// Creates an <b>ArkUI_StyledString_Descriptor</b> object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>ArkUI_StyledString_Descriptor</b> object created.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_Create() -> *mut ArkUI_StyledString_Descriptor;
+    /// Destroys an <b>ArkUI_StyledString_Descriptor</b> object and reclaims the memory occupied by the object.
+    ///
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to an <b>ArkUI_StyledString_Descriptor</b> object.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_StyledString_Descriptor_Destroy(descriptor: *mut ArkUI_StyledString_Descriptor);
+    /// Converts styled string information into HTML.
+    ///
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to an <b>ArkUI_StyledString_Descriptor</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the resulting HTML string. This pointer is managed internally and should be destroyed
+    /// by calling <b>OH_ArkUI_StyledString_Descriptor_Destroy()</b> when no longer needed to free the memory.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_ConvertToHtml(
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+    ) -> *const ::core::ffi::c_char;
+    /// Deserializes a byte array containing styled string information into a styled string.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - Byte array to be deserialized.
+    ///
+    /// * `bufferSize` - Length of the byte array.
+    ///
+    /// * `descriptor` - Pointer to an <b>ArkUI_StyledString_Descriptor</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_UnmarshallStyledStringDescriptor(
+        buffer: *mut u8,
+        bufferSize: usize,
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+    ) -> i32;
+    /// Serializes the styled string information into a byte array.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - Byte array where the serialized data will be stored.
+    ///
+    /// * `bufferSize` - Length of the byte array.
+    ///
+    /// * `descriptor` - Pointer to an <b>ArkUI_StyledString_Descriptor</b> object.
+    ///
+    /// * `resultSize` - Actual length of the byte array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INVALID_STYLED_STRING`] if the styled string is invalid.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_MarshallStyledStringDescriptor(
+        buffer: *mut u8,
+        bufferSize: usize,
+        descriptor: *mut ArkUI_StyledString_Descriptor,
+        resultSize: *mut usize,
+    ) -> i32;
 }

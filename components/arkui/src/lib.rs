@@ -69,3 +69,7 @@ pub mod styled_string;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod ui_input_event;
+
+#[cfg(feature = "api-14")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+pub mod native_key_event;
