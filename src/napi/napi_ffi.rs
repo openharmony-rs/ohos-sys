@@ -896,6 +896,31 @@ extern "C" {
     pub fn napi_create_date(env: napi_env, time: f64, result: *mut napi_value) -> napi_status;
     pub fn napi_is_date(env: napi_env, value: napi_value, is_date: *mut bool) -> napi_status;
     pub fn napi_get_date_value(env: napi_env, value: napi_value, result: *mut f64) -> napi_status;
+    /// Adds a 'napi_finalize' callback, which will be called when the ArkTS object is garbage-collected.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `js_object` - The ArkTS object value.
+    ///
+    /// * `native_object` - Native object to bind with the ArkTS object.
+    ///
+    /// * `finalize_cb` - Native callback that can be used to free the native object when the ArkTS object is
+    /// garbage-collected.
+    ///
+    /// * `finalize_hint` - Optional contextual hint that is passed to the finalize callback.
+    ///
+    /// * `result` - Optional reference of the ArkTS object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Return the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_add_finalizer(
         env: napi_env,
         js_object: napi_value,
@@ -948,12 +973,49 @@ extern "C" {
         key_conversion: napi_key_conversion,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Associates data with the currently running environment.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `data` - Data item to bind with the 'env'.
+    ///
+    /// * `finalize_cb` - Optional native callback that will be triggered when 'env' is destroyed or this interface
+    /// repeatedly calls.
+    ///
+    /// * `finalize_hint` - Optional contextual hint that is passed to the finalize callback.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_set_instance_data(
         env: napi_env,
         data: *mut ::core::ffi::c_void,
         finalize_cb: napi_finalize,
         finalize_hint: *mut ::core::ffi::c_void,
     ) -> napi_status;
+    /// Retrieves the data that was previously associated with the currently running environment.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `data` - Data item is bound with the 'env'.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_get_instance_data(
         env: napi_env,
         data: *mut *mut ::core::ffi::c_void,
@@ -984,13 +1046,77 @@ extern "C" {
         message: *const ::core::ffi::c_char,
         message_len: usize,
     ) -> !;
+    /// Creates an asynchronous context. The capabilities related to 'async_hook' are not supported currently.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `async_resource` - Object associated with the async work that will be passed to possible 'async_hook'.
+    ///
+    /// * `async_resource_name` - Identifier for the kind of resource that is being provided for diagnostic information
+    /// exposed by the async_hooks API.
+    ///
+    /// * `result` - The initialized async context.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_async_init(
         env: napi_env,
         async_resource: napi_value,
         async_resource_name: napi_value,
         result: *mut napi_async_context,
     ) -> napi_status;
+    /// Destroys the previously created asynchronous context. The capabilities related to 'async_hook' are not
+    /// supported currently.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `async_context` - The async context to be destroyed.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_async_destroy(env: napi_env, async_context: napi_async_context) -> napi_status;
+    /// Allows a JS function to be called in the asynchronous context. The capabilities related to **async_hook** are
+    /// not supported currently.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `async_context` - The context environment for the async operation.
+    ///
+    /// * `recv` - The 'this' pointer of the function.
+    ///
+    /// * `func` - ArkTS function to be called.
+    ///
+    /// * `argc` - Size of the argument array which is passed to 'func'.
+    ///
+    /// * `argv` - Argument array.
+    ///
+    /// * `result` - Result returned by the ArkTS function.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_make_callback(
         env: napi_env,
         async_context: napi_async_context,
@@ -1000,6 +1126,23 @@ extern "C" {
         argv: *const napi_value,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Creates a ArkTS buffer of the specified size.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `length` - The size of the buffer to be created.
+    ///
+    /// * `data` - Raw pointer of the ArkTS buffer.
+    ///
+    /// * `result` - Result returned by the ArkTS function.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_buffer(
         env: napi_env,
         length: usize,
@@ -1045,23 +1188,109 @@ extern "C" {
         version: *mut *const napi_node_version,
     ) -> napi_status;
     pub fn napi_get_uv_event_loop(env: napi_env, loop_: *mut *mut uv_loop_s) -> napi_status;
+    /// Throws UncaughtException to ArkTS.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `err` - Error object which is passed to 'UncaughtException'.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn napi_fatal_exception(env: napi_env, err: napi_value) -> napi_status;
+    /// Registers a clean-up hook for releasing resources when the environment exits.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `fun` - Function pointer which will be triggered when environment is destroy.
+    ///
+    /// * `arg` - The argument is passed to the function pointer 'fun'.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_add_env_cleanup_hook(
         env: napi_env,
         fun: ::core::option::Option<unsafe extern "C" fn(arg: *mut ::core::ffi::c_void)>,
         arg: *mut ::core::ffi::c_void,
     ) -> napi_status;
+    /// Unregisters the clean-up hook.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `fun` - Function pointer which will be triggered when environment is destroy.
+    ///
+    /// * `arg` - The argument is passed to the function pointer 'fun'.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_remove_env_cleanup_hook(
         env: napi_env,
         fun: ::core::option::Option<unsafe extern "C" fn(arg: *mut ::core::ffi::c_void)>,
         arg: *mut ::core::ffi::c_void,
     ) -> napi_status;
+    /// Opens a callback scope. The capabilities related to 'async_hook' are not supported currently.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `resource_object` - The resource object to be passed to possible 'async_hook'.
+    ///
+    /// * `context` - The context environment for the async operation.
+    ///
+    /// * `result` - The generated callback scope.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_open_callback_scope(
         env: napi_env,
         resource_object: napi_value,
         context: napi_async_context,
         result: *mut napi_callback_scope,
     ) -> napi_status;
+    /// Closes the callback scope. The capabilities related to 'async_hook' are not supported currently.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `scope` - The callback scope to be closed.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_close_callback_scope(env: napi_env, scope: napi_callback_scope) -> napi_status;
     pub fn napi_create_threadsafe_function(
         env: napi_env,
@@ -1098,15 +1327,65 @@ extern "C" {
         env: napi_env,
         func: napi_threadsafe_function,
     ) -> napi_status;
+    /// Registers an asynchronous clean-up hook for releasing resources when the environment exits.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `hook` - The function pointer to call at environment teardown.
+    ///
+    /// * `arg` - The pointer to pass to `hook` when it gets called.
+    ///
+    /// * `remove_handle` - Optional handle that refers to the asynchronous cleanup.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_add_async_cleanup_hook(
         env: napi_env,
         hook: napi_async_cleanup_hook,
         arg: *mut ::core::ffi::c_void,
         remove_handle: *mut napi_async_cleanup_hook_handle,
     ) -> napi_status;
+    /// Unregisters the asynchronous clean-up hook.
+    ///
+    /// # Arguments
+    ///
+    /// * `remove_handle` - Optional handle that refers to the asynchronous cleanup.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_remove_async_cleanup_hook(
         remove_handle: napi_async_cleanup_hook_handle,
     ) -> napi_status;
+    /// Obtains the absolute path of the location, from which the addon is loaded.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `result` - The absolute path of the location of the loaded addon.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn node_api_get_module_file_name(
         env: napi_env,
         result: *mut *const ::core::ffi::c_char,
@@ -1121,41 +1400,78 @@ extern "C" {
         work: napi_async_work,
         qos: napi_qos_t,
     ) -> napi_status;
-    pub fn napi_load_module(
-        env: napi_env,
-        path: *const ::core::ffi::c_char,
-        result: *mut napi_value,
-    ) -> napi_status;
-    /// The module is loaded through the NAPI. By default, the default object is exported from the module.
-    ///
+    /// Loads an .abc file as a module. This API returns the namespace of the module.
     /// # Arguments
     ///
     /// * `env` - Current running virtual machine context.
     ///
-    /// * `path` - Path name of the module to be loaded, like
-    /// * `module_info` - Path names of bundle and module, like com.example.application/entry.
+    /// * `path` - Path of the .abc file or name of the module to load.
     ///
-    /// * `result` - Result of loading a module, which is an exported object of the module.
+    /// * `result` - Result of the module object.
+    ///
     ///
     /// # Returns
     ///
     /// * Returns the function execution status.
     ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn napi_load_module_with_info(
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    pub fn napi_load_module(
         env: napi_env,
         path: *const ::core::ffi::c_char,
-        module_info: *const ::core::ffi::c_char,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Create JSObject with initial properties given by descriptors, note that property key must be String, and
+    /// must can not convert to element_index, also all keys must not duplicate.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `result` - The created ArkTS object.
+    ///
+    /// * `property_count` - Number of the property descriptors.
+    ///
+    /// * `properties` - Array of property descriptors which are expected to be applied to the ArkTS object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_create_object_with_properties(
         env: napi_env,
         result: *mut napi_value,
         property_count: usize,
         properties: *const napi_property_descriptor,
     ) -> napi_status;
+    /// Create JSObject with initial properties given by keys and values, note that property key must be String, and
+    /// must can not convert to element_index, also all keys must not duplicate.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `result` - The absolute path of the location of the loaded addon.
+    ///
+    /// * `property_count` - Number of the propertied which needs to be applied on the ArkTS object.
+    ///
+    /// * `keys` - Array of the keys of the properties.
+    ///
+    /// * `values` - Array of the values of the properties.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 11
+    #[cfg(feature = "api-11")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_create_object_with_named_properties(
         env: napi_env,
         result: *mut napi_value,
@@ -1167,17 +1483,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `env` (direction in) - Current running virtual machine context.
+    /// * `env` - Current running virtual machine context.
     ///
-    /// * `js_object` (direction in) - The JavaScript value to coerce.
+    /// * `js_object` - The JavaScript value to coerce.
     ///
-    /// * `detach_cb` (direction in) - Native callback that can be used to detach the js object and the native object.
+    /// * `detach_cb` - Native callback that can be used to detach the js object and the native object.
     ///
-    /// * `attach_cb` (direction in) - Native callback that can be used to bind the js object and the native object.
+    /// * `attach_cb` - Native callback that can be used to bind the js object and the native object.
     ///
-    /// * `native_object` (direction in) - User-provided native instance to pass to thr detach callback and attach callback.
+    /// * `native_object` - User-provided native instance to pass to thr detach callback and attach callback.
     ///
-    /// * `hint` (direction in) - Optional hint to pass to the detach callback and attach callback.
+    /// * `hint` - Optional hint to pass to the detach callback and attach callback.
+    ///
     ///
     /// # Returns
     ///
@@ -1194,11 +1511,41 @@ extern "C" {
         native_object: *mut ::core::ffi::c_void,
         hint: *mut ::core::ffi::c_void,
     ) -> napi_status;
+    /// The module is loaded through the NAPI. By default, the default object is exported from the module.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `path` - Path name of the module to be loaded, like
+    /// * `module_info` - Path names of bundle and module, like com.example.application/entry.
+    ///
+    /// * `result` - Result of loading a module, which is an exported object of the module.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn napi_load_module_with_info(
+        env: napi_env,
+        path: *const ::core::ffi::c_char,
+        module_info: *const ::core::ffi::c_char,
+        result: *mut napi_value,
+    ) -> napi_status;
     /// Create the ark runtime.
     ///
     /// # Arguments
     ///
     /// * `env` - Indicates the ark runtime environment.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Return the function execution status.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1210,10 +1557,46 @@ extern "C" {
     ///
     /// * `env` - Indicates the ark runtime environment.
     ///
+    ///
+    /// # Returns
+    ///
+    /// * Return the function execution status.
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn napi_destroy_ark_runtime(env: *mut napi_env) -> napi_status;
+    /// Defines a sendable class.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - The environment that the API is invoked under.
+    ///
+    /// * `utf8name` - Name of the ArkTS constructor function.
+    ///
+    /// * `length` - The length of the utf8name in bytes, or NAPI_AUTO_LENGTH if it is null-terminated.
+    ///
+    /// * `constructor` - Callback function that handles constructing instances of the class.
+    ///
+    /// * `data` - Optional data to be passed to the constructor callback as the data property of the callback info.
+    ///
+    /// * `property_count` - Number of items in the properties array argument.
+    ///
+    /// * `properties` - Array of property descriptors describing static and instance data properties, accessors, and
+    /// methods on the class. See napi_property_descriptor.
+    ///
+    /// * `parent` - A napi_value representing the Superclass.
+    ///
+    /// * `result` - A napi_value representing the constructor function for the class.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Return the function execution status.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn napi_define_sendable_class(
         env: napi_env,
         utf8name: *const ::core::ffi::c_char,
@@ -1235,6 +1618,7 @@ extern "C" {
     ///
     /// * `result` - Boolean value that is set to true if napi_value is sendable, false otherwise.
     ///
+    ///
     /// # Returns
     ///
     /// * Return the function execution status.
@@ -1252,6 +1636,9 @@ extern "C" {
     /// * `property_count` - The count of object properties.
     ///
     /// * `properties` - Object properties.
+    ///
+    /// * `result` - The created sendable object.
+    ///
     ///
     /// # Returns
     ///
@@ -1276,10 +1663,11 @@ extern "C" {
     ///
     /// * `native_object` - The native instance that will be wrapped in the ArkTS object.
     ///
-    /// * `finalize_lib` - Optional native callback that can be used to free the native instance when the ArkTS object
+    /// * `finalize_cb` - Optional native callback that can be used to free the native instance when the ArkTS object
     /// has been garbage-collected.
     ///
     /// * `finalize_hint` - Optional contextual hint that is passed to the finalize callback.
+    ///
     ///
     /// # Returns
     ///
@@ -1305,12 +1693,13 @@ extern "C" {
     ///
     /// * `native_object` - The native instance that will be wrapped in the ArkTS object.
     ///
-    /// * `finalize_lib` - Optional native callback that can be used to free the native instance when the ArkTS object
+    /// * `finalize_cb` - Optional native callback that can be used to free the native instance when the ArkTS object
     /// has been garbage-collected.
     ///
     /// * `finalize_hint` - Optional contextual hint that is passed to the finalize callback.
     ///
     /// * `native_binding_size` - The size of native binding.
+    ///
     ///
     /// # Returns
     ///
@@ -1337,6 +1726,7 @@ extern "C" {
     ///
     /// * `result` - Pointer to the wrapped native instance.
     ///
+    ///
     /// # Returns
     ///
     /// * Return the function execution status.
@@ -1359,6 +1749,7 @@ extern "C" {
     ///
     /// * `result` - Pointer to the wrapped native instance.
     ///
+    ///
     /// # Returns
     ///
     /// * Return the function execution status.
@@ -1371,18 +1762,97 @@ extern "C" {
         js_object: napi_value,
         result: *mut *mut ::core::ffi::c_void,
     ) -> napi_status;
+    /// Create a sendable array.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - The environment that the API is invoked under.
+    ///
+    /// * `result` - A napi_value representing a sendable array.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Return the function execution status.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn napi_create_sendable_array(env: napi_env, result: *mut napi_value) -> napi_status;
+    /// Create a sendable array with length.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - The environment that the API is invoked under.
+    ///
+    /// * `length` - The initial length of the sendable array.
+    ///
+    /// * `result` - A napi_value representing a sendable array.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Return the function execution status.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn napi_create_sendable_array_with_length(
         env: napi_env,
         length: usize,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Create a sendable arraybuffer.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - The environment that the API is invoked under.
+    ///
+    /// * `byte_length` - The length in bytes of the sendable arraybuffer to create.
+    ///
+    /// * `data` - Pointer to the underlying byte buffer of the sendable arraybuffer.
+    ///
+    /// * `result` - A napi_value representing a sendable arraybuffer.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Return the function execution status.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn napi_create_sendable_arraybuffer(
         env: napi_env,
         byte_length: usize,
         data: *mut *mut ::core::ffi::c_void,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Create a sendable typedarray.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - The environment that the API is invoked under.
+    ///
+    /// * `type` - Scalar datatype of the elements within the sendable typedarray.
+    ///
+    /// * `length` - Number of elements in the typedarray.
+    ///
+    /// * `arraybuffer` - Sendable arraybuffer underlying the sendable typedarray.
+    ///
+    /// * `byte_offset` - The byte offset within the sendable arraybuffer from which to start projecting the
+    /// sendable typedarray.
+    ///
+    /// * `result` - A napi_value representing a sendable typedarray.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Return the function execution status.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn napi_create_sendable_typedarray(
         env: napi_env,
         type_: napi_typedarray_type,
@@ -1401,6 +1871,7 @@ extern "C" {
     ///
     /// * `mode` - Indicates the running mode of the native event loop.
     ///
+    ///
     /// # Returns
     ///
     /// * Return the function execution status.
@@ -1416,6 +1887,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `env` - Current running virtual machine context.
+    ///
     ///
     /// # Returns
     ///
@@ -1438,6 +1910,7 @@ extern "C" {
     /// * `clone_list` - List of Sendable data to transfer in clone mode.
     ///
     /// * `result` - Serialization result of the JS object.
+    ///
     ///
     /// # Returns
     ///
@@ -1463,6 +1936,7 @@ extern "C" {
     ///
     /// * `object` - ArkTS object obtained by deserialization.
     ///
+    ///
     /// # Returns
     ///
     /// * Returns the function execution status.
@@ -1482,6 +1956,7 @@ extern "C" {
     /// * `env` - Current running virtual machine context.
     ///
     /// * `buffer` - Data to delete.
+    ///
     ///
     /// # Returns
     ///
@@ -1508,6 +1983,7 @@ extern "C" {
     /// * `isTail` - Indicates the way of the task dispatched into the native event queue. When "isTail" is true,
     /// the task will be dispatched to the tail of the native event queue. Conversely, when "isTail" is false, the
     /// tasks will be dispatched to the head of the native event queue.
+    ///
     ///
     /// # Returns
     ///
