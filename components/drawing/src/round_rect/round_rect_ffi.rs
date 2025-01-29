@@ -51,7 +51,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// * `xRad` - Indicates the corner radii on x-axis.
     ///
@@ -67,7 +67,7 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_RoundRectCreate(
-        arg1: *const OH_Drawing_Rect,
+        rect: *const OH_Drawing_Rect,
         xRad: f32,
         yRad: f32,
     ) -> *mut OH_Drawing_RoundRect;
@@ -77,11 +77,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// * `pos` - Indicates the corner radii position.
     ///
-    /// * `OH_Drawing_Corner_Radii` - Indicates the corner radii on x-axis and y-axis.
+    /// * `radii` - Indicates the corner radii on x-axis and y-axis.
     ///
     /// Available since API-level: 12
     ///
@@ -89,9 +89,9 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RoundRectSetCorner(
-        arg1: *mut OH_Drawing_RoundRect,
+        roundRect: *mut OH_Drawing_RoundRect,
         pos: OH_Drawing_CornerPos,
-        arg2: OH_Drawing_Corner_Radii,
+        radii: OH_Drawing_Corner_Radii,
     );
     /// Gets an <b>OH_Drawing_Corner_Radii</b> struct, the point is round corner radiusX and radiusY.
     ///
@@ -99,7 +99,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
     /// * `pos` - Indicates the corner radii position.
     ///
@@ -113,7 +113,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RoundRectGetCorner(
-        arg1: *mut OH_Drawing_RoundRect,
+        roundRect: *mut OH_Drawing_RoundRect,
         pos: OH_Drawing_CornerPos,
     ) -> OH_Drawing_Corner_Radii;
     /// Destroys an <b>OH_Drawing_RoundRect</b> object and reclaims the memory occupied by the object.
@@ -122,14 +122,14 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_RoundRectDestroy(arg1: *mut OH_Drawing_RoundRect);
+    pub fn OH_Drawing_RoundRectDestroy(roundRect: *mut OH_Drawing_RoundRect);
     /// Translates round rect by (dx, dy).
     ///
     ///

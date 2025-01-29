@@ -17,7 +17,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `NativePixelMap_` - Indicates a pointer to an native pixelmap supported by image framework.
+    /// * `nativePixelMap` - Indicates a pointer to an native pixelmap supported by image framework.
     ///
     /// # Returns
     ///
@@ -29,7 +29,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PixelMapGetFromNativePixelMap(
-        arg1: *mut NativePixelMap_,
+        nativePixelMap: *mut NativePixelMap_,
     ) -> *mut OH_Drawing_PixelMap;
     /// Gets an <b>OH_Drawing_PixelMap</b> object.
     ///
@@ -37,7 +37,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_PixelmapNative` - Indicates a pointer to the <b>OH_PixelmapNative</b> object supported by image framework.
+    /// * `pixelmapNative` - Indicates a pointer to the <b>OH_PixelmapNative</b> object supported by image framework.
     ///
     /// # Returns
     ///
@@ -51,7 +51,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PixelMapGetFromOhPixelMapNative(
-        arg1: *mut OH_PixelmapNative,
+        pixelmapNative: *mut OH_PixelmapNative,
     ) -> *mut OH_Drawing_PixelMap;
     /// Dissolves the relationship between <b>OH_Drawing_PixelMap</b> object and <b>NativePixelMap_</b> or
     /// <b>OH_PixelmapNative</b> which is build by 'GetFrom' function.
@@ -60,12 +60,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_PixelMap` - Indicates a pointer to the <b>OH_Drawing_PixelMap</b>.
+    /// * `pixelMap` - Indicates a pointer to the <b>OH_Drawing_PixelMap</b>.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PixelMapDissolve(arg1: *mut OH_Drawing_PixelMap);
+    pub fn OH_Drawing_PixelMapDissolve(pixelMap: *mut OH_Drawing_PixelMap);
 }

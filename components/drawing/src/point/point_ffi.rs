@@ -114,12 +114,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_PointDestroy(arg1: *mut OH_Drawing_Point);
+    pub fn OH_Drawing_PointDestroy(point: *mut OH_Drawing_Point);
 }

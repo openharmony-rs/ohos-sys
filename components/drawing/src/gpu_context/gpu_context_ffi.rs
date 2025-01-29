@@ -30,7 +30,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_GpuContextOptions` - Indicates the GPU context options.
+    /// * `gpuContextOptions` - Indicates the GPU context options.
     ///
     /// # Returns
     ///
@@ -42,7 +42,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_GpuContextCreateFromGL(
-        arg1: OH_Drawing_GpuContextOptions,
+        gpuContextOptions: OH_Drawing_GpuContextOptions,
     ) -> *mut OH_Drawing_GpuContext;
     /// Destroys an <b>OH_Drawing_GpuContext</b> object and reclaims the memory occupied by the object.
     ///
@@ -50,12 +50,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_GpuContext` - Indicates the pointer to an <b>OH_Drawing_GpuContext</b> object.
+    /// * `gpuContext` - Indicates the pointer to an <b>OH_Drawing_GpuContext</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_GpuContextDestroy(arg1: *mut OH_Drawing_GpuContext);
+    pub fn OH_Drawing_GpuContextDestroy(gpuContext: *mut OH_Drawing_GpuContext);
 }

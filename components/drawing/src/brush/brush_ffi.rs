@@ -29,7 +29,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// # Returns
     ///
@@ -42,19 +42,19 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_BrushCopy(arg1: *mut OH_Drawing_Brush) -> *mut OH_Drawing_Brush;
+    pub fn OH_Drawing_BrushCopy(brush: *mut OH_Drawing_Brush) -> *mut OH_Drawing_Brush;
     /// Destroys an <b>OH_Drawing_Brush</b> object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_BrushDestroy(arg1: *mut OH_Drawing_Brush);
+    pub fn OH_Drawing_BrushDestroy(brush: *mut OH_Drawing_Brush);
     /// Checks whether anti-aliasing is enabled for a brush. If anti-aliasing is enabled,
     /// edges will be drawn with partial transparency.
     ///
@@ -62,7 +62,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// # Returns
     ///
@@ -71,7 +71,7 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_BrushIsAntiAlias(arg1: *const OH_Drawing_Brush) -> bool;
+    pub fn OH_Drawing_BrushIsAntiAlias(brush: *const OH_Drawing_Brush) -> bool;
     /// Enables or disables anti-aliasing for a brush. If anti-aliasing is enabled,
     /// edges will be drawn with partial transparency.
     ///
@@ -79,22 +79,22 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
-    /// * `bool` - Specifies whether to enable anti-aliasing. The value <b>true</b> means
+    /// * `antiAlias` - Specifies whether to enable anti-aliasing. The value <b>true</b> means
     /// to enable anti-aliasing, and <b>false</b> means the opposite.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_BrushSetAntiAlias(arg1: *mut OH_Drawing_Brush, arg2: bool);
+    pub fn OH_Drawing_BrushSetAntiAlias(brush: *mut OH_Drawing_Brush, antiAlias: bool);
     /// Obtains the color of a brush. The color is used by the brush to fill in a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// # Returns
     ///
@@ -103,28 +103,28 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_BrushGetColor(arg1: *const OH_Drawing_Brush) -> u32;
+    pub fn OH_Drawing_BrushGetColor(brush: *const OH_Drawing_Brush) -> u32;
     /// Sets the color for a brush. The color will be used by the brush to fill in a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// * `color` - Indicates the color to set, which is a 32-bit (ARGB) variable.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_BrushSetColor(arg1: *mut OH_Drawing_Brush, color: u32);
+    pub fn OH_Drawing_BrushSetColor(brush: *mut OH_Drawing_Brush, color: u32);
     /// Obtains the alpha of a brush. The alpha is used by the brush to fill in a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// # Returns
     ///
@@ -135,14 +135,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_BrushGetAlpha(arg1: *const OH_Drawing_Brush) -> u8;
+    pub fn OH_Drawing_BrushGetAlpha(brush: *const OH_Drawing_Brush) -> u8;
     /// Sets the alpha for a brush. The alpha will be used by the brush to fill in a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// * `alpha` - Indicates the alpha to set, which is a 8-bit variable.
     ///
@@ -151,16 +151,16 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_BrushSetAlpha(arg1: *mut OH_Drawing_Brush, alpha: u8);
+    pub fn OH_Drawing_BrushSetAlpha(brush: *mut OH_Drawing_Brush, alpha: u8);
     /// Sets the shaderEffect for a brush.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
-    /// * `OH_Drawing_ShaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
+    /// * `shaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -168,8 +168,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_BrushSetShaderEffect(
-        arg1: *mut OH_Drawing_Brush,
-        arg2: *mut OH_Drawing_ShaderEffect,
+        brush: *mut OH_Drawing_Brush,
+        shaderEffect: *mut OH_Drawing_ShaderEffect,
     );
     /// Sets the shadowLayer for a brush.
     ///
@@ -177,9 +177,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
-    /// * `OH_Drawing_ShadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
+    /// * `shadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -187,8 +187,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_BrushSetShadowLayer(
-        arg1: *mut OH_Drawing_Brush,
-        arg2: *mut OH_Drawing_ShadowLayer,
+        brush: *mut OH_Drawing_Brush,
+        shadowLayer: *mut OH_Drawing_ShadowLayer,
     );
     /// Sets the filter for a brush.
     ///
@@ -196,60 +196,63 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
-    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_BrushSetFilter(arg1: *mut OH_Drawing_Brush, arg2: *mut OH_Drawing_Filter);
+    pub fn OH_Drawing_BrushSetFilter(brush: *mut OH_Drawing_Brush, filter: *mut OH_Drawing_Filter);
     /// Gets the filter from a brush.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
-    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_BrushGetFilter(arg1: *mut OH_Drawing_Brush, arg2: *mut OH_Drawing_Filter);
+    pub fn OH_Drawing_BrushGetFilter(brush: *mut OH_Drawing_Brush, filter: *mut OH_Drawing_Filter);
     /// Sets a blender that implements the specified blendmode enum for a brush.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
-    /// * `OH_Drawing_BlendMode` - Indicates the blend mode.
+    /// * `blendMode` - Indicates the blend mode.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_BrushSetBlendMode(arg1: *mut OH_Drawing_Brush, arg2: OH_Drawing_BlendMode);
+    pub fn OH_Drawing_BrushSetBlendMode(
+        brush: *mut OH_Drawing_Brush,
+        blendMode: OH_Drawing_BlendMode,
+    );
     /// Resets all brush contents to their initial values.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_BrushReset(arg1: *mut OH_Drawing_Brush);
+    pub fn OH_Drawing_BrushReset(brush: *mut OH_Drawing_Brush);
 }

@@ -31,23 +31,23 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_ImageDestroy(arg1: *mut OH_Drawing_Image);
+    pub fn OH_Drawing_ImageDestroy(image: *mut OH_Drawing_Image);
     /// Rebuilds an <b>OH_Drawing_Image</b> object, sharing or copying bitmap pixels.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
@@ -59,8 +59,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ImageBuildFromBitmap(
-        arg1: *mut OH_Drawing_Image,
-        arg2: *mut OH_Drawing_Bitmap,
+        image: *mut OH_Drawing_Image,
+        bitmap: *mut OH_Drawing_Bitmap,
     ) -> bool;
     /// Gets pixel count in each row of image.
     ///
@@ -68,7 +68,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
     /// # Returns
     ///
@@ -79,14 +79,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_ImageGetWidth(arg1: *mut OH_Drawing_Image) -> i32;
+    pub fn OH_Drawing_ImageGetWidth(image: *mut OH_Drawing_Image) -> i32;
     /// Gets pixel row count of image.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
     /// # Returns
     ///
@@ -97,16 +97,16 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_ImageGetHeight(arg1: *mut OH_Drawing_Image) -> i32;
+    pub fn OH_Drawing_ImageGetHeight(image: *mut OH_Drawing_Image) -> i32;
     /// Gets the image info.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
-    /// * `OH_Drawing_Image_Info` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `imageInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -114,7 +114,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ImageGetImageInfo(
-        arg1: *mut OH_Drawing_Image,
-        arg2: *mut OH_Drawing_Image_Info,
+        image: *mut OH_Drawing_Image,
+        imageInfo: *mut OH_Drawing_Image_Info,
     );
 }

@@ -31,9 +31,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
-    /// * `OH_Drawing_ImageFilter` - Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
+    /// * `imageFilter` - Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -41,8 +41,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FilterSetImageFilter(
-        arg1: *mut OH_Drawing_Filter,
-        arg2: *mut OH_Drawing_ImageFilter,
+        filter: *mut OH_Drawing_Filter,
+        imageFilter: *mut OH_Drawing_ImageFilter,
     );
     /// Sets an <b>OH_Drawing_MaskFilter</b> object for an <b>OH_Drawing_Filter</b> object.
     ///
@@ -50,9 +50,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
-    /// * `OH_Drawing_MaskFilter` - Indicates the pointer to an <b>OH_Drawing_MaskFilter</b> object.
+    /// * `maskFilter` - Indicates the pointer to an <b>OH_Drawing_MaskFilter</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -60,8 +60,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_FilterSetMaskFilter(
-        arg1: *mut OH_Drawing_Filter,
-        arg2: *mut OH_Drawing_MaskFilter,
+        filter: *mut OH_Drawing_Filter,
+        maskFilter: *mut OH_Drawing_MaskFilter,
     );
     /// Sets an <b>OH_Drawing_ColorFilter</b> object for an <b>OH_Drawing_Filter</b> object.
     ///
@@ -69,9 +69,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
-    /// * `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `colorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -79,8 +79,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_FilterSetColorFilter(
-        arg1: *mut OH_Drawing_Filter,
-        arg2: *mut OH_Drawing_ColorFilter,
+        filter: *mut OH_Drawing_Filter,
+        colorFilter: *mut OH_Drawing_ColorFilter,
     );
     /// Gets an <b>OH_Drawing_ColorFilter</b> object from an <b>OH_Drawing_Filter</b> object.
     ///
@@ -88,9 +88,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
-    /// * `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `colorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -98,8 +98,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FilterGetColorFilter(
-        arg1: *mut OH_Drawing_Filter,
-        arg2: *mut OH_Drawing_ColorFilter,
+        filter: *mut OH_Drawing_Filter,
+        colorFilter: *mut OH_Drawing_ColorFilter,
     );
     /// Destroys an <b>OH_Drawing_Filter</b> object and reclaims the memory occupied by the object.
     ///
@@ -107,12 +107,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_FilterDestroy(arg1: *mut OH_Drawing_Filter);
+    pub fn OH_Drawing_FilterDestroy(filter: *mut OH_Drawing_Filter);
 }

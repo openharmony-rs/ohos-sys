@@ -77,12 +77,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_MaskFilter` - Indicates the pointer to an <b>OH_Drawing_MaskFilter</b> object.
+    /// * `maskFilter` - Indicates the pointer to an <b>OH_Drawing_MaskFilter</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_MaskFilterDestroy(arg1: *mut OH_Drawing_MaskFilter);
+    pub fn OH_Drawing_MaskFilterDestroy(maskFilter: *mut OH_Drawing_MaskFilter);
 }

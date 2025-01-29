@@ -42,12 +42,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_BitmapDestroy(arg1: *mut OH_Drawing_Bitmap);
+    pub fn OH_Drawing_BitmapDestroy(bitmap: *mut OH_Drawing_Bitmap);
     /// Creates an <b>OH_Drawing_Bitmap</b> object with <b>OH_Drawing_Image_Info</b> object
     /// and sets the mem address or pixel storage.
     ///
@@ -55,7 +55,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Image_Info` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `imageInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
     ///
     /// * `pixels` - the pointer to memory address or pixel storage.
     ///
@@ -71,7 +71,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_BitmapCreateFromPixels(
-        arg1: *mut OH_Drawing_Image_Info,
+        imageInfo: *mut OH_Drawing_Image_Info,
         pixels: *mut ::core::ffi::c_void,
         rowBytes: u32,
     ) -> *mut OH_Drawing_Bitmap;
@@ -82,23 +82,23 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// * `width` - Indicates the width of the bitmap to be initialized.
     ///
     /// * `height` - Indicates the height of the bitmap to be initialized.
     ///
-    /// * `OH_Drawing_BitmapFormat` - Indicates the pixel format of the bitmap to be initialized,
+    /// * `bitmapFormat` - Indicates the pixel format of the bitmap to be initialized,
     /// including the pixel color type and alpha type.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BitmapBuild(
-        arg1: *mut OH_Drawing_Bitmap,
+        bitmap: *mut OH_Drawing_Bitmap,
         width: u32,
         height: u32,
-        arg2: *const OH_Drawing_BitmapFormat,
+        bitmapFormat: *const OH_Drawing_BitmapFormat,
     );
     /// Obtains the width of a bitmap.
     ///
@@ -106,7 +106,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
@@ -115,14 +115,14 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_BitmapGetWidth(arg1: *mut OH_Drawing_Bitmap) -> u32;
+    pub fn OH_Drawing_BitmapGetWidth(bitmap: *mut OH_Drawing_Bitmap) -> u32;
     /// Obtains the height of a bitmap.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
@@ -131,14 +131,14 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_BitmapGetHeight(arg1: *mut OH_Drawing_Bitmap) -> u32;
+    pub fn OH_Drawing_BitmapGetHeight(bitmap: *mut OH_Drawing_Bitmap) -> u32;
     /// Obtains the color format of a bitmap.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
@@ -149,14 +149,16 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_BitmapGetColorFormat(arg1: *mut OH_Drawing_Bitmap) -> OH_Drawing_ColorFormat;
+    pub fn OH_Drawing_BitmapGetColorFormat(
+        bitmap: *mut OH_Drawing_Bitmap,
+    ) -> OH_Drawing_ColorFormat;
     /// Obtains the alpha format of a bitmap.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
@@ -167,14 +169,16 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_BitmapGetAlphaFormat(arg1: *mut OH_Drawing_Bitmap) -> OH_Drawing_AlphaFormat;
+    pub fn OH_Drawing_BitmapGetAlphaFormat(
+        bitmap: *mut OH_Drawing_Bitmap,
+    ) -> OH_Drawing_AlphaFormat;
     /// Obtains the pixel address of a bitmap. You can use this address to obtain the pixel data of the bitmap.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// # Returns
     ///
@@ -183,16 +187,16 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_BitmapGetPixels(arg1: *mut OH_Drawing_Bitmap) -> *mut ::core::ffi::c_void;
+    pub fn OH_Drawing_BitmapGetPixels(bitmap: *mut OH_Drawing_Bitmap) -> *mut ::core::ffi::c_void;
     /// Gets the image info.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
-    /// * `OH_Drawing_Image_Info` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `imageInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -200,8 +204,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_BitmapGetImageInfo(
-        arg1: *mut OH_Drawing_Bitmap,
-        arg2: *mut OH_Drawing_Image_Info,
+        bitmap: *mut OH_Drawing_Bitmap,
+        imageInfo: *mut OH_Drawing_Image_Info,
     );
     /// Copies a rect of pixels from bitmap to dstPixels. Copy starts at (srcX, srcY),
     /// and does not exceed bitmap width and height.
@@ -210,7 +214,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// * `dstInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
     ///
@@ -232,7 +236,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_BitmapReadPixels(
-        arg1: *mut OH_Drawing_Bitmap,
+        bitmap: *mut OH_Drawing_Bitmap,
         dstInfo: *const OH_Drawing_Image_Info,
         dstPixels: *mut ::core::ffi::c_void,
         dstRowBytes: usize,

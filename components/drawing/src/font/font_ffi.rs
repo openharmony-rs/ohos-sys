@@ -139,7 +139,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `baselineSnap` - Indicates whether the font baselines and pixels alignment.
     ///
@@ -148,14 +148,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontSetBaselineSnap(arg1: *mut OH_Drawing_Font, baselineSnap: bool);
+    pub fn OH_Drawing_FontSetBaselineSnap(font: *mut OH_Drawing_Font, baselineSnap: bool);
     /// Gets whether the font baselines and pixels alignment when the transformation matrix is ​​axis aligned.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -166,14 +166,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontIsBaselineSnap(arg1: *const OH_Drawing_Font) -> bool;
+    pub fn OH_Drawing_FontIsBaselineSnap(font: *const OH_Drawing_Font) -> bool;
     /// Sets whether the font uses sub-pixel rendering.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `isSubpixel` - Indicates whether the font uses sub-pixel rendering.
     ///
@@ -182,14 +182,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontSetSubpixel(arg1: *mut OH_Drawing_Font, isSubpixel: bool);
+    pub fn OH_Drawing_FontSetSubpixel(font: *mut OH_Drawing_Font, isSubpixel: bool);
     /// Gets whether the font uses sub-pixel rendering.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -200,14 +200,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontIsSubpixel(arg1: *const OH_Drawing_Font) -> bool;
+    pub fn OH_Drawing_FontIsSubpixel(font: *const OH_Drawing_Font) -> bool;
     /// Sets whether the font outline is automatically adjusted.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `isForceAutoHinting` - Indicates whether the font outline is automatically adjusted.
     ///
@@ -216,14 +216,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontSetForceAutoHinting(arg1: *mut OH_Drawing_Font, isForceAutoHinting: bool);
+    pub fn OH_Drawing_FontSetForceAutoHinting(font: *mut OH_Drawing_Font, isForceAutoHinting: bool);
     /// Gets whether the font outline is automatically adjusted.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -234,30 +234,33 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontIsForceAutoHinting(arg1: *const OH_Drawing_Font) -> bool;
+    pub fn OH_Drawing_FontIsForceAutoHinting(font: *const OH_Drawing_Font) -> bool;
     /// Sets an <b>OH_Drawing_Typeface</b> object for an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// * `OH_Drawing_Typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    /// * `typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_FontSetTypeface(arg1: *mut OH_Drawing_Font, arg2: *mut OH_Drawing_Typeface);
+    pub fn OH_Drawing_FontSetTypeface(
+        font: *mut OH_Drawing_Font,
+        typeface: *mut OH_Drawing_Typeface,
+    );
     /// Gets an <b>OH_Drawing_Typeface</b> object from the <b>OH_Drawing_Typeface</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -268,14 +271,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontGetTypeface(arg1: *mut OH_Drawing_Font) -> *mut OH_Drawing_Typeface;
+    pub fn OH_Drawing_FontGetTypeface(font: *mut OH_Drawing_Font) -> *mut OH_Drawing_Typeface;
     /// Sets text size for an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `textSize` - Indicates the text size.
     ///
@@ -284,14 +287,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_FontSetTextSize(arg1: *mut OH_Drawing_Font, textSize: f32);
+    pub fn OH_Drawing_FontSetTextSize(font: *mut OH_Drawing_Font, textSize: f32);
     /// Gets text size for an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -302,14 +305,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontGetTextSize(arg1: *const OH_Drawing_Font) -> f32;
+    pub fn OH_Drawing_FontGetTextSize(font: *const OH_Drawing_Font) -> f32;
     /// Calculate number of glyphs represented by text.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `text` - Indicates the character storage encoded with text encoding.
     ///
@@ -323,7 +326,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontCountText(
-        arg1: *mut OH_Drawing_Font,
+        font: *mut OH_Drawing_Font,
         text: *const ::core::ffi::c_void,
         byteLength: usize,
         encoding: OH_Drawing_TextEncoding,
@@ -334,7 +337,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `text` - Indicates the character storage encoded with text encoding.
     ///
@@ -356,7 +359,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontTextToGlyphs(
-        arg1: *const OH_Drawing_Font,
+        font: *const OH_Drawing_Font,
         text: *const ::core::ffi::c_void,
         byteLength: u32,
         encoding: OH_Drawing_TextEncoding,
@@ -369,7 +372,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `glyphs` - Indicates the array of glyph indices to be measured.
     ///
@@ -383,7 +386,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontGetWidths(
-        arg1: *const OH_Drawing_Font,
+        font: *const OH_Drawing_Font,
         glyphs: *const u16,
         count: ::core::ffi::c_int,
         widths: *mut f32,
@@ -461,7 +464,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `isLinearText` - Indicates whether to enable linearly scalable font.
     ///
@@ -470,14 +473,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_FontSetLinearText(arg1: *mut OH_Drawing_Font, isLinearText: bool);
+    pub fn OH_Drawing_FontSetLinearText(font: *mut OH_Drawing_Font, isLinearText: bool);
     /// Gets whether the font is linearly scalable.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -488,14 +491,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontIsLinearText(arg1: *const OH_Drawing_Font) -> bool;
+    pub fn OH_Drawing_FontIsLinearText(font: *const OH_Drawing_Font) -> bool;
     /// Sets text skew on x-axis for an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `skewX` - Indicates the additional shear on x-axis relative to y-axis.
     ///
@@ -504,14 +507,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_FontSetTextSkewX(arg1: *mut OH_Drawing_Font, skewX: f32);
+    pub fn OH_Drawing_FontSetTextSkewX(font: *mut OH_Drawing_Font, skewX: f32);
     /// Gets text skew on x-axis for an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -522,14 +525,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontGetTextSkewX(arg1: *const OH_Drawing_Font) -> f32;
+    pub fn OH_Drawing_FontGetTextSkewX(font: *const OH_Drawing_Font) -> f32;
     /// Enables or disables to increase stroke width to approximate bold fonts for an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `isFakeBoldText` - Indicates whether to enable to increase stroke width.
     ///
@@ -538,14 +541,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_FontSetFakeBoldText(arg1: *mut OH_Drawing_Font, isFakeBoldText: bool);
+    pub fn OH_Drawing_FontSetFakeBoldText(font: *mut OH_Drawing_Font, isFakeBoldText: bool);
     /// Gets whether to increase the stroke width to approximate bold fonts.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -556,14 +559,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontIsFakeBoldText(arg1: *const OH_Drawing_Font) -> bool;
+    pub fn OH_Drawing_FontIsFakeBoldText(font: *const OH_Drawing_Font) -> bool;
     /// Sets text scale on x-axis for an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `scaleX` - Indicates the text horizontal scale.
     ///
@@ -572,14 +575,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontSetScaleX(arg1: *mut OH_Drawing_Font, scaleX: f32);
+    pub fn OH_Drawing_FontSetScaleX(font: *mut OH_Drawing_Font, scaleX: f32);
     /// Gets text scale on x-axis from an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -590,30 +593,33 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontGetScaleX(arg1: *const OH_Drawing_Font) -> f32;
+    pub fn OH_Drawing_FontGetScaleX(font: *const OH_Drawing_Font) -> f32;
     /// Sets hinting pattern for an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// * `OH_Drawing_FontHinting` - Indicates the font hinting pattern.
+    /// * `fontHinting` - Indicates the font hinting pattern.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontSetHinting(arg1: *mut OH_Drawing_Font, arg2: OH_Drawing_FontHinting);
+    pub fn OH_Drawing_FontSetHinting(
+        font: *mut OH_Drawing_Font,
+        fontHinting: OH_Drawing_FontHinting,
+    );
     /// Gets hinting pattern from an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -624,14 +630,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontGetHinting(arg1: *const OH_Drawing_Font) -> OH_Drawing_FontHinting;
+    pub fn OH_Drawing_FontGetHinting(font: *const OH_Drawing_Font) -> OH_Drawing_FontHinting;
     /// Sets whether to use bitmaps instead of outlines in the <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `isEmbeddedBitmaps` - Indicates whether to use bitmaps instead of outlines.
     ///
@@ -640,14 +646,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontSetEmbeddedBitmaps(arg1: *mut OH_Drawing_Font, isEmbeddedBitmaps: bool);
+    pub fn OH_Drawing_FontSetEmbeddedBitmaps(font: *mut OH_Drawing_Font, isEmbeddedBitmaps: bool);
     /// Gets whether to use bitmaps instead of outlines in the <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -658,30 +664,30 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontIsEmbeddedBitmaps(arg1: *const OH_Drawing_Font) -> bool;
+    pub fn OH_Drawing_FontIsEmbeddedBitmaps(font: *const OH_Drawing_Font) -> bool;
     /// Sets the font edging effect for an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// * `OH_Drawing_FontEdging` - Indicates the font edging effect.
+    /// * `fontEdging` - Indicates the font edging effect.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontSetEdging(arg1: *mut OH_Drawing_Font, arg2: OH_Drawing_FontEdging);
+    pub fn OH_Drawing_FontSetEdging(font: *mut OH_Drawing_Font, fontEdging: OH_Drawing_FontEdging);
     /// Gets the font edging effect from an <b>OH_Drawing_Font</b> object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// # Returns
     ///
@@ -692,30 +698,30 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontGetEdging(arg1: *const OH_Drawing_Font) -> OH_Drawing_FontEdging;
+    pub fn OH_Drawing_FontGetEdging(font: *const OH_Drawing_Font) -> OH_Drawing_FontEdging;
     /// Destroys an <b>OH_Drawing_Font</b> object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_FontDestroy(arg1: *mut OH_Drawing_Font);
+    pub fn OH_Drawing_FontDestroy(font: *mut OH_Drawing_Font);
     /// Obtains the metrics of a font.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// * `OH_Drawing_Font_Metrics` - Indicates the pointer to an <b>OH_Drawing_Font_Metrics</b> object.
+    /// * `fontMetrics` - Indicates the pointer to an <b>OH_Drawing_Font_Metrics</b> object.
     ///
     /// # Returns
     ///
@@ -727,7 +733,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontGetMetrics(
-        arg1: *mut OH_Drawing_Font,
-        arg2: *mut OH_Drawing_Font_Metrics,
+        font: *mut OH_Drawing_Font,
+        fontMetrics: *mut OH_Drawing_Font_Metrics,
     ) -> f32;
 }

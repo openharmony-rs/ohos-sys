@@ -21,9 +21,9 @@ extern "C" {
     ///
     /// * `sigmaY` - Indicates the Gaussian sigma value for blurring along the y axis.
     ///
-    /// * `OH_Drawing_TileMode` - Indicates the tile mode applied at edges.
+    /// * `tileMode` - Indicates the tile mode applied at edges.
     ///
-    /// * `OH_Drawing_ImageFilter` - Indicates the input filter that is blurred, uses source bitmap if this is null.
+    /// * `imageFilter` - Indicates the input filter that is blurred, uses source bitmap if this is null.
     ///
     /// # Returns
     ///
@@ -39,8 +39,8 @@ extern "C" {
     pub fn OH_Drawing_ImageFilterCreateBlur(
         sigmaX: f32,
         sigmaY: f32,
-        arg1: OH_Drawing_TileMode,
-        arg2: *mut OH_Drawing_ImageFilter,
+        tileMode: OH_Drawing_TileMode,
+        imageFilter: *mut OH_Drawing_ImageFilter,
     ) -> *mut OH_Drawing_ImageFilter;
     /// Creates an <b>OH_Drawing_ImageFilter</b> object that applies the color filter to the input.
     ///
@@ -48,9 +48,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_ColorFilter` - Indicates the color filter that transforms the input image.
+    /// * `colorFilter` - Indicates the color filter that transforms the input image.
     ///
-    /// * `OH_Drawing_ImageFilter` - Indicates the input filter, or uses the source bitmap if this is null.
+    /// * `imageFilter` - Indicates the input filter, or uses the source bitmap if this is null.
     ///
     /// # Returns
     ///
@@ -65,8 +65,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ImageFilterCreateFromColorFilter(
-        arg1: *mut OH_Drawing_ColorFilter,
-        arg2: *mut OH_Drawing_ImageFilter,
+        colorFilter: *mut OH_Drawing_ColorFilter,
+        imageFilter: *mut OH_Drawing_ImageFilter,
     ) -> *mut OH_Drawing_ImageFilter;
     /// Destroys an <b>OH_Drawing_ImageFilter</b> object and reclaims the memory occupied by the object.
     ///
@@ -74,12 +74,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_ImageFilter` - Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
+    /// * `imageFilter` - Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_ImageFilterDestroy(arg1: *mut OH_Drawing_ImageFilter);
+    pub fn OH_Drawing_ImageFilterDestroy(imageFilter: *mut OH_Drawing_ImageFilter);
 }

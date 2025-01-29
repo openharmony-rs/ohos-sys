@@ -82,7 +82,7 @@ extern "C" {
     ///
     /// * `size` - Indicates the number of colors and pos.
     ///
-    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `tileMode` - Indicates the tile mode.
     ///
     /// # Returns
     ///
@@ -99,7 +99,7 @@ extern "C" {
         colors: *const u32,
         pos: *const f32,
         size: u32,
-        arg1: OH_Drawing_TileMode,
+        tileMode: OH_Drawing_TileMode,
     ) -> *mut OH_Drawing_ShaderEffect;
     /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a linear gradient between the two specified points.
     ///
@@ -118,9 +118,9 @@ extern "C" {
     ///
     /// * `size` - Indicates the number of colors and pos(if pos is not nullptr).
     ///
-    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `tileMode` - Indicates the tile mode.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
     /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
     /// If matrix is nullptr, defaults to the identity matrix.
     ///
@@ -141,8 +141,8 @@ extern "C" {
         colors: *const u32,
         pos: *const f32,
         size: u32,
-        arg1: OH_Drawing_TileMode,
-        arg2: *const OH_Drawing_Matrix,
+        tileMode: OH_Drawing_TileMode,
+        matrix: *const OH_Drawing_Matrix,
     ) -> *mut OH_Drawing_ShaderEffect;
     /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a radial gradient given the center and radius.
     ///
@@ -160,7 +160,7 @@ extern "C" {
     ///
     /// * `size` - Indicates the number of colors and pos.
     ///
-    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `tileMode` - Indicates the tile mode.
     ///
     /// # Returns
     ///
@@ -177,7 +177,7 @@ extern "C" {
         colors: *const u32,
         pos: *const f32,
         size: u32,
-        arg1: OH_Drawing_TileMode,
+        tileMode: OH_Drawing_TileMode,
     ) -> *mut OH_Drawing_ShaderEffect;
     /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a radial gradient given the center and radius.
     ///
@@ -195,9 +195,9 @@ extern "C" {
     ///
     /// * `size` - Indicates the number of colors and pos.
     ///
-    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `tileMode` - Indicates the tile mode.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
     /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
     /// If matrix is nullptr, defaults to the identity matrix.
     ///
@@ -218,8 +218,8 @@ extern "C" {
         colors: *const u32,
         pos: *const f32,
         size: u32,
-        arg1: OH_Drawing_TileMode,
-        arg2: *const OH_Drawing_Matrix,
+        tileMode: OH_Drawing_TileMode,
+        matrix: *const OH_Drawing_Matrix,
     ) -> *mut OH_Drawing_ShaderEffect;
     /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a sweep gradient given a center.
     ///
@@ -235,7 +235,7 @@ extern "C" {
     ///
     /// * `size` - Indicates the number of colors and pos.
     ///
-    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `tileMode` - Indicates the tile mode.
     ///
     /// # Returns
     ///
@@ -251,7 +251,7 @@ extern "C" {
         colors: *const u32,
         pos: *const f32,
         size: u32,
-        arg1: OH_Drawing_TileMode,
+        tileMode: OH_Drawing_TileMode,
     ) -> *mut OH_Drawing_ShaderEffect;
     /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a image shader.
     ///
@@ -259,15 +259,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
     /// * `tileX` - Indicates the tileX.
     ///
     /// * `tileY` - Indicates the tileY.
     ///
-    /// * `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     /// If matrix is nullptr, defaults to the identity matrix.
     ///
     /// # Returns
@@ -280,11 +280,11 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ShaderEffectCreateImageShader(
-        arg1: *mut OH_Drawing_Image,
+        image: *mut OH_Drawing_Image,
         tileX: OH_Drawing_TileMode,
         tileY: OH_Drawing_TileMode,
-        arg2: *const OH_Drawing_SamplingOptions,
-        arg3: *const OH_Drawing_Matrix,
+        samplingOptions: *const OH_Drawing_SamplingOptions,
+        matrix: *const OH_Drawing_Matrix,
     ) -> *mut OH_Drawing_ShaderEffect;
     /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a conical gradient given two circles.
     ///
@@ -306,9 +306,9 @@ extern "C" {
     ///
     /// * `size` - Indicates the number of colors and pos.
     ///
-    /// * `OH_Drawing_TileMode` - Indicates the tile mode.
+    /// * `tileMode` - Indicates the tile mode.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
     /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
     /// If matrix is nullptr, defaults to the identity matrix.
     ///
@@ -331,8 +331,8 @@ extern "C" {
         colors: *const u32,
         pos: *const f32,
         size: u32,
-        arg1: OH_Drawing_TileMode,
-        arg2: *const OH_Drawing_Matrix,
+        tileMode: OH_Drawing_TileMode,
+        matrix: *const OH_Drawing_Matrix,
     ) -> *mut OH_Drawing_ShaderEffect;
     /// Destroys an <b>OH_Drawing_ShaderEffect</b> object and reclaims the memory occupied by the object.
     ///
@@ -340,12 +340,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_ShaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
+    /// * `shaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_ShaderEffectDestroy(arg1: *mut OH_Drawing_ShaderEffect);
+    pub fn OH_Drawing_ShaderEffectDestroy(shaderEffect: *mut OH_Drawing_ShaderEffect);
 }
