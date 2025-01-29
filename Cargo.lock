@@ -112,7 +112,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-sys"
-version = "0.6.1"
+version = "0.6.2"
 dependencies = [
  "arkui-sys",
  "document-features",
@@ -122,6 +122,8 @@ dependencies = [
  "ohos-drawing-sys",
  "ohos-image-kit-sys",
  "ohos-ime-sys",
+ "ohos-input-sys",
+ "ohos-rawfile-sys",
  "ohos-sys-opaque-types",
  "ohos-vsync-sys",
  "xcomponent-sys",

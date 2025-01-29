@@ -40,7 +40,7 @@ already been generated.
 | inputmethod                | ✅      | 14        |
 | mindspore                  |        |           |
 | multimedia                 |        |           |
-| multimodalinput            |        |           |
+| multimodalinput            | ✅      | 14        |
 | napi                       | ✅      | 13        |
 | native_buffer              | ✅      | 14        |
 | native_color_space_manager |        |           |
