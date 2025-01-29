@@ -33,7 +33,7 @@ jobs:
   api_feature_levels:
     strategy:
       matrix:
-        api_level: ["api-10", "api-11", "api-12", "api-13"]
+        api_level: ["api-10", "api-11", "api-12", "api-13", "api-14"]
     name: Build with API feature levels
     runs-on: ubuntu-latest
     steps:
@@ -44,7 +44,22 @@ jobs:
   api_minimal_featueres:
     strategy:
       matrix:
-        component: ["drawing", "hilog", "napi", "hitrace", "native_buffer", "native_image", "native_window", "xcomponent", "vsync"]
+        component:
+          - arkui
+          - deviceinfo
+          - drawing
+          - hilog
+          - hitrace
+          - inputmethod
+          - image-kit
+          - multimodal-input
+          - napi
+          - native_buffer
+          - native_image
+          - native_window
+          - rawfile
+          - vsync
+          - xcomponent
     name: Build with minimal features
     runs-on: ubuntu-latest
     steps:
