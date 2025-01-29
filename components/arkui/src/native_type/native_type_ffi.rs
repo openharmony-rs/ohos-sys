@@ -92,6 +92,10 @@ pub struct ArkUI_SwiperIndicator {
     _unused: [u8; 0],
 }
 #[repr(C)]
+pub struct ArkUI_StyledString_Descriptor {
+    _unused: [u8; 0],
+}
+#[repr(C)]
 pub struct ArkUI_AlignmentRuleOption {
     _unused: [u8; 0],
 }
@@ -117,6 +121,14 @@ pub struct ArkUI_AccessibilityState {
 }
 #[repr(C)]
 pub struct ArkUI_AccessibilityValue {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct ArkUI_CustomProperty {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct ArkUI_ActiveChildrenInfo {
     _unused: [u8; 0],
 }
 /// Defines the event callback type.
@@ -3686,6 +3698,16 @@ impl ArkUI_ErrorCode {
     /// The buffer is not large enough.
     pub const ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH: ArkUI_ErrorCode = ArkUI_ErrorCode(180002);
 }
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_ErrorCode {
+    /// invalid styled string.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub const ARKUI_ERROR_CODE_INVALID_STYLED_STRING: ArkUI_ErrorCode = ArkUI_ErrorCode(180101);
+}
 #[repr(transparent)]
 /// Define error code enumeration values.
 ///
@@ -6810,7 +6832,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `state` - accessibility value object.
+    /// * `value` - accessibility value object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -6932,4 +6954,73 @@ extern "C" {
     pub fn OH_ArkUI_AccessibilityValue_GetText(
         value: *mut ArkUI_AccessibilityValue,
     ) -> *const ::core::ffi::c_char;
+    /// Destroy the instance of Customs Property.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - The instance of Customs Property to be destroyed.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_CustomProperty_Destroy(handle: *mut ArkUI_CustomProperty);
+    /// Get custom attribute value information.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - Custom attribute object pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Customize the value information within the attribute structure.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_CustomProperty_GetStringValue(
+        handle: *mut ArkUI_CustomProperty,
+    ) -> *const ::core::ffi::c_char;
+    /// Destroy ActiveChildenInfo instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - ActiveChild instance to be destroyed.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_ActiveChildrenInfo_Destroy(handle: *mut ArkUI_ActiveChildrenInfo);
+    /// Retrieve the child nodes of ActiveChildenInfo with the structure index.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - The ActiveChildenInfo instance for obtaining information.
+    ///
+    /// * `index` - The index of child nodes.
+    ///
+    /// # Returns
+    ///
+    /// * The child node pointer corresponding to the index. Return nullptr in case of exception.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_ActiveChildrenInfo_GetNodeByIndex(
+        handle: *mut ArkUI_ActiveChildrenInfo,
+        index: i32,
+    ) -> ArkUI_NodeHandle;
+    /// Retrieve the number of nodes within the structure of ActiveChildenInfo.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - The ActiveChildenInfo instance for obtaining information.
+    ///
+    /// # Returns
+    ///
+    /// * Number of child nodes. Default value: 0.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_ActiveChildrenInfo_GetCount(handle: *mut ArkUI_ActiveChildrenInfo) -> i32;
 }

@@ -258,6 +258,10 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
                              builder
                                  .raw_line("use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;")
                          },
+                         "native_key_event" => {
+                             builder
+                                 .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
+                         }
                          "native_node" => {
                              builder
                                  .blocklist_var("MAX_NODE_SCOPE_NUM")

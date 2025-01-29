@@ -759,13 +759,13 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
-    /// .value[0].f32: z-index value.
+    /// .value[0].i32: z-index value.
     ///
     ///
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
-    /// .value[0].f32: z-index value.
+    /// .value[0].i32: z-index value.
     pub const NODE_Z_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(21);
 }
 #[cfg(feature = "api-12")]
@@ -2817,6 +2817,27 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: allowed moving distance of a finger, in vp.
     pub const NODE_CLICK_DISTANCE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(97);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_NodeAttributeType {
+    /// Sets whether the focus can be placed on this component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether the focus can be placed on the current component. The parameter type is 1 or 0.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether the focus can be placed on the current component. The parameter type is 1 or 0.
+    ///
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub const NODE_TAB_STOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(98);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -6742,6 +6763,51 @@ impl ArkUI_NodeAttributeType {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_NodeAttributeType {
+    /// Sets the fading effect for the edges of scrollable components.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// .value[0].i32: whether to enable the fading effect on edges. The value 0 means to disable the fading effect,
+    /// and 1 means to enable it.
+    /// .value[1]?.f32: length of the fading effect on edges, in vp. Default value: 32.
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// .value[0].i32: whether the fading effect on edges is enabled. The value 0 means that the fading effect is
+    /// disabled, and 1 means that it is enabled.
+    /// .value[1].f32: length of the fading effect on edges, in vp.
+    ///
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub const NODE_SCROLL_FADING_EDGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002015);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_NodeAttributeType {
+    /// Obtains the total size of all child components when fully expanded in the scrollable component.
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: total width of all child components when fully expanded in the scrollable component.
+    /// The default unit is vp.
+    ///
+    /// .value[1].f32: total height of all child components when fully expanded in the scrollable component.
+    /// The default unit is vp.
+    ///
+    /// When <b>NODE_PADDING</b>, <b>NODE_MARGIN</b>, or <b>NODE_BORDER_WIDTH</b> is set, the values are rounded to the
+    /// nearest pixel when being converted from vp to px.
+    /// The returned values are calculated based on these rounded pixel values.
+    ///
+    ///
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub const NODE_SCROLL_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002016);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_NodeAttributeType {
     /// Defines the direction in which the list items are arranged. This attribute can be set, reset, and
     /// obtained as required through APIs.
     ///
@@ -8311,6 +8377,45 @@ impl ArkUI_NodeEventType {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_NodeEventType {
+    /// Defines the event triggered when a key event occurs.
+    ///
+    /// The callback can be triggered during interactions with a focused window using an external keyboard or other input
+    /// device.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub const NODE_ON_KEY_EVENT: ArkUI_NodeEventType = ArkUI_NodeEventType(21);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_NodeEventType {
+    /// Defines the event triggered before the input method responds to the key action.
+    ///
+    /// If the return value of this callback is <b>true</b>, it is considered that the key event has been consumed, and
+    /// subsequent event callbacks (<b>keyboardShortcut</b>, input method events, <b>onKeyEvent</b>) will be intercepted
+    /// and no longer triggered.
+    /// The callback can be triggered during interactions with a focused window using an external keyboard or other input
+    /// device.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub const NODE_ON_KEY_PRE_IME: ArkUI_NodeEventType = ArkUI_NodeEventType(22);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_NodeEventType {
     /// Triggers onDetectResultUpdate callback
     /// when the text is set to TextDataDetectorConfig and recognized successfully.
     ///
@@ -8918,6 +9023,27 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0...11].i32</b>: value of the selected item.
     pub const NODE_TEXT_PICKER_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(15000);
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_NodeEventType {
+    /// Defines the event triggered when an item is selected and scrolling has stopped in the
+    /// <b>ARKUI_NODE_TEXT_PICKER</b> component.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0...11].i32</b>: value of the selected item.
+    ///
+    ///
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub const NODE_TEXT_PICKER_EVENT_ON_SCROLL_STOP: ArkUI_NodeEventType =
+        ArkUI_NodeEventType(15001);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -11172,7 +11298,7 @@ extern "C" {
         event: *mut ArkUI_NodeCustomEvent,
         info: *mut ArkUI_CustomSpanDrawInfo,
     ) -> i32;
-    /// register a callback functoin to a node content.
+    /// register a callback function to a node content.
     ///
     /// # Arguments
     ///
@@ -11493,6 +11619,109 @@ extern "C" {
         node: ArkUI_NodeHandle,
         name: *const ::core::ffi::c_char,
     );
+    /// Get the value of the custom property of the component.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI-NodeHandle pointer.
+    ///
+    /// * `name` - The name of the custom attribute.
+    ///
+    /// * `handle` - The structure of the custom attribute corresponding to the key parameter name obtained.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_NodeUtils_GetCustomProperty(
+        node: ArkUI_NodeHandle,
+        name: *const ::core::ffi::c_char,
+        handle: *mut *mut ArkUI_CustomProperty,
+    ) -> i32;
+    /// Get the parent node to obtain the component nodes created by ArkTs.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Target node object.
+    ///
+    /// # Returns
+    ///
+    /// * Return the pointer of the component.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_NodeUtils_GetParentInPageTree(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle;
+    /// Retrieve all active child nodes of a node. Span will not be counted in the children.
+    ///
+    /// # Arguments
+    ///
+    /// * `head` - Pass in the node that needs to be obtained.
+    ///
+    /// * `handle` - The structure corresponding to the sub node information of the head node.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_NodeUtils_GetActiveChildrenInfo(
+        head: ArkUI_NodeHandle,
+        handle: *mut *mut ArkUI_ActiveChildrenInfo,
+    ) -> i32;
+    /// Retrieve the root node of the current page.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Target node object.
+    ///
+    /// # Returns
+    ///
+    /// * Return the pointer of the component.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_NodeUtils_GetCurrentPageRootNode(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle;
+    /// Retrieve whether the component is labeled by C-API.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Target node object.
+    ///
+    /// # Returns
+    ///
+    /// * Return whether the node is a Tag created by C-API,
+    /// true represents created by C-API, false represents not created by C-API.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_NodeUtils_IsCreatedByNDK(node: ArkUI_NodeHandle) -> bool;
+    /// Get the type of node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Target node object.
+    ///
+    /// # Returns
+    ///
+    /// * Return the type of the node.
+    /// For specific open types, refer to [`ArkUI_NodeType`]. For unopened nodes, return -1.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_NodeUtils_GetNodeType(node: ArkUI_NodeHandle) -> i32;
     /// Collapse the ListItem in its expanded state.
     ///
     /// # Arguments

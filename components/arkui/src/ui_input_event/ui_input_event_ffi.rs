@@ -1020,4 +1020,46 @@ extern "C" {
         event: *const ArkUI_UIInputEvent,
         stopPropagation: bool,
     ) -> i32;
+    /// Obtains the ID of device that triggers UI input event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the device ID.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_UIInputEvent_GetDeviceId(event: *const ArkUI_UIInputEvent) -> i32;
+    /// Obtains the pressed status of modifier keys from UI input event.
+    /// The following modifier keys are supported: Ctrl, Alt, Shift, Fn. However, the <b>Fn</b> key on external keyboards
+    /// is not supported.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `pressedKeyCodes` - Array of all keys that are pressed. You need to allocate the memory space.
+    ///
+    /// * `length` - Length of the passed pressedKeyCodes array (when used as an input parameter);
+    /// number of the keys pressed (when used as an output parameter).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] if the giving buffer is not enough.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 14
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_ArkUI_UIInputEvent_GetPressedKeys(
+        event: *const ArkUI_UIInputEvent,
+        pressedKeyCodes: *mut i32,
+        length: *mut i32,
+    ) -> i32;
 }

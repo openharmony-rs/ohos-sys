@@ -21,7 +21,7 @@ already been generated.
 | accesstoken                |        |           |
 | ace/xcomponent             | ✅      | 13        |
 | ark_runtime                |        |           |
-| arkui                      | ✅      | 13        |
+| arkui                      | ✅      | 14        |
 | asset                      |        |           |
 | bundle                     |        |           |
 | database                   |        |           |
@@ -47,7 +47,7 @@ already been generated.
 | native_drawing             | ✅      | 13        |
 | native_effect              |        |           |
 | native_image               | ✅      | 13        |
-| native_vsync               | ✅      | 13        |
+| native_vsync               | ✅      | 14        |
 | native_window              | ✅      | 13        |
 | network                    |        |           |
 | neural_network_runtime     |        |           |

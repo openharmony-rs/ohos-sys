@@ -1384,6 +1384,10 @@ extern "C" {
     ///
     /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_SetArkUIGestureRecognizerDisposeNotify(
         recognizer: *mut ArkUI_GestureRecognizer,
         callback: ArkUI_GestureRecognizerDisposeNotifyCallback,
