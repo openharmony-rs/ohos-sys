@@ -1,6 +1,6 @@
 [package]
 name = "ohos-sys"
-version = "0.6.1"
+version = "0.6.2"
 edition = "2021"
 description = "Bindings to the native API of OpenHarmony OS"
 license = "Apache-2.0"
@@ -21,15 +21,17 @@ ohos-sys-opaque-types = { version = "0.1.4", path = "components/opaque-types" }
 [dependencies]
 arkui-sys = { version = "0.2.2", optional = true, path = "components/arkui" }
 document-features = { version = "0.2", optional = true }
-ohos-drawing-sys = { path = "components/drawing", version = "0.2.1", optional = true}
-ohos-deviceinfo-sys = { version = "0.1.2", optional = true, path = "components/deviceinfo"}
-hitrace-sys = { version = "0.1.4", optional = true, path = "components/hitrace"}
-ohos-ime-sys = { version = "0.1.3", optional = true, path = "components/inputmethod"}
 hilog-sys = { version = "0.1.4", optional = true, path = "components/hilog"}
-xcomponent-sys = {version = "0.3.0", optional = true, path = "components/xcomponent"}
+hitrace-sys = { version = "0.1.4", optional = true, path = "components/hitrace"}
+ohos-deviceinfo-sys = { version = "0.1.2", optional = true, path = "components/deviceinfo"}
+ohos-drawing-sys = { path = "components/drawing", version = "0.2.1", optional = true}
 ohos-image-kit-sys = {version = "0.2", optional = true, path = "components/multimedia/image_framework"}
+ohos-ime-sys = { version = "0.1.3", optional = true, path = "components/inputmethod"}
+ohos-input-sys = { version = "0.1.1", optional = true, path  = "components/multimodal-input"}
+ohos-rawfile-sys = { version = "0.1.0", optional = true, path = "components/rawfile"}
 ohos-sys-opaque-types = { workspace = true}
 ohos-vsync-sys = { version = "0.1.1", optional = true, path = "components/vsync"}
+xcomponent-sys = {version = "0.3.0", optional = true, path = "components/xcomponent"}
 
 
 [features]
@@ -48,6 +50,8 @@ hitrace = ["dep:hitrace-sys"]
 inputmethod = ["dep:ohos-ime-sys"]
 ## Bindings to the [Image Kit](https://docs.openharmony.cn/pages/v5.0/en/application-dev/media/image/image-overview.md)
 image-kit = ["dep:ohos-image-kit-sys"]
+## Bindings to the Multimodal Input kit.
+multimodal-input = ["dep:ohos-input-sys"]
 ## Enables bindings to `napi`
 napi = []
 ## Enables bindings to `native_buffer`
@@ -56,6 +60,8 @@ native_buffer = ['native_window']
 native_image = ['native_window']
 ## Enables bindings to `native_window`
 native_window = ['native_buffer']
+## Enables bindings to `rawfile`
+rawfile = ['ohos-rawfile-sys']
 ## Enables bindings to `native_vsync`
 vsync = ["dep:ohos-vsync-sys"]
 ## Enables bindings to `native_xcomponent`
@@ -73,10 +79,12 @@ all-components = [
     "image-kit-image-receiver",
     "image-kit-image-source",
     "image-kit-pixelmap",
+    "multimodal-input",
     "napi",
     "native_buffer",
     "native_image",
     "native_window",
+    "rawfile",
     "xcomponent",
     "vsync"]
 
@@ -89,50 +97,57 @@ all-components = [
 api-10 = []
 ## Enables bindings for OpenHarmony API-level 11
 api-11 = ["api-10",
-    "ohos-deviceinfo-sys?/api-11",
-    "ohos-drawing-sys?/api-11",
     "hilog-sys?/api-11",
     "hitrace-sys?/api-11",
-    "xcomponent-sys?/api-11",
+    "ohos-deviceinfo-sys?/api-11",
+    "ohos-drawing-sys?/api-11",
     "ohos-vsync-sys?/api-11",
+    "ohos-rawfile-sys?/api-11",
+    "xcomponent-sys?/api-11",
     ]
 ## Enables bindings for OpenHarmony API-level 12
 api-12 = ["api-11",
     "arkui-sys?/api-12",
-    "ohos-deviceinfo-sys?/api-12",
-    "ohos-drawing-sys?/api-12",
     "hilog-sys?/api-12",
     "hitrace-sys?/api-12",
-    "ohos-ime-sys?/api-12",
+    "ohos-deviceinfo-sys?/api-12",
+    "ohos-drawing-sys?/api-12",
     "ohos-image-kit-sys?/api-12",
-    "xcomponent-sys?/api-12",
+    "ohos-ime-sys?/api-12",
+    "ohos-input-sys?/api-12",
+    "ohos-rawfile-sys?/api-12",
     "ohos-vsync-sys?/api-12",
+    "xcomponent-sys?/api-12",
 ]
 
 ## Enables bindings for OpenHarmony API-level 13
 api-13 = ["api-12",
     "arkui-sys?/api-13",
-    "ohos-deviceinfo-sys?/api-13",
-    "ohos-drawing-sys?/api-13",
     "hilog-sys?/api-13",
     "hitrace-sys?/api-13",
-    "ohos-ime-sys?/api-13",
+    "ohos-deviceinfo-sys?/api-13",
+    "ohos-drawing-sys?/api-13",
     "ohos-image-kit-sys?/api-13",
-    "xcomponent-sys?/api-13",
+    "ohos-ime-sys?/api-13",
+    "ohos-input-sys?/api-13",
+    "ohos-rawfile-sys?/api-13",
     "ohos-vsync-sys?/api-13",
+    "xcomponent-sys?/api-13",
 ]
 
 ## Enables bindings for OpenHarmony API-level 13
 api-14 = ["api-13",
     "arkui-sys?/api-14",
-    # "ohos-deviceinfo-sys?/api-14",
     "ohos-drawing-sys?/api-14",
+    "ohos-image-kit-sys?/api-14",
+    "ohos-ime-sys?/api-14",
+    "ohos-input-sys?/api-14",
+    "ohos-vsync-sys?/api-14",
+    "xcomponent-sys?/api-14",
     # "hilog-sys?/api-14",
     # "hitrace-sys?/api-14",
-    "ohos-ime-sys?/api-14",
-    "ohos-image-kit-sys?/api-14",
-    "xcomponent-sys?/api-14",
-    "ohos-vsync-sys?/api-14",
+    # "ohos-rawfile-sys?/api-14",
+    # "ohos-deviceinfo-sys?/api-14",
 ]
 #! ### Features of dependencies
 #!

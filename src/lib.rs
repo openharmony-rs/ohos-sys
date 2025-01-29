@@ -34,6 +34,16 @@ pub use hilog_sys as hilog;
 #[cfg_attr(docsrs, doc(cfg(feature = "hitrace")))]
 pub use hitrace_sys as hitrace;
 
+#[cfg(feature = "inputmethod")]
+#[cfg_attr(docsrs, doc(cfg(feature = "inputmethod")))]
+pub use ohos_ime_sys as inputmethod;
+
+#[cfg(feature = "multimodal-input")]
+#[cfg_attr(docsrs, doc(cfg(feature = "multimodal-input")))]
+pub use ohos_input_sys as multimodal_input;
+
+pub mod multimedia;
+
 #[cfg(feature = "napi")]
 #[cfg_attr(docsrs, doc(cfg(feature = "napi")))]
 pub mod napi;

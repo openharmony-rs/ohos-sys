@@ -1,8 +1,8 @@
-//! Bindings to Input-kit API of OpenHarmony
+//! Bindings to the Multimodal Input-kit API of OpenHarmony
 //!
 //! Available with API-level 12 and newer
 //!
-//! Official documentation: https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/_input_method-V5
+//! Official documentation: <https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V14/input-V14>
 //!
 //! ## Feature flags
 #![cfg_attr(
