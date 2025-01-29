@@ -19,7 +19,7 @@ already been generated.
 | LocationKit                |        |           |
 | NotificationKit            |        |           |
 | accesstoken                |        |           |
-| ace/xcomponent             | ✅      | 13        |
+| ace/xcomponent             | ✅      | 14        |
 | ark_runtime                |        |           |
 | arkui                      | ✅      | 14        |
 | asset                      |        |           |
@@ -32,30 +32,30 @@ already been generated.
 | hicollie                   |        |           |
 | hid                        |        |           |
 | hidebug                    |        |           |
-| hilog                      | ✅      | 13        |
-| hitrace                    | ✅      | 13        |
+| hilog                      | ✅      | 14        |
+| hitrace                    | ✅      | 14        |
 | huks                       |        |           |
 | info                       |        |           |
-| inputmethod                | ✅      | 13        |
+| inputmethod                | ✅      | 14        |
 | mindspore                  |        |           |
 | multimedia                 |        |           |
 | multimodalinput            |        |           |
 | napi                       | ✅      | 13        |
-| native_buffer              | ✅      | 13        |
+| native_buffer              | ✅      | 14        |
 | native_color_space_manager |        |           |
 | native_display_soloist     |        |           |
-| native_drawing             | ✅      | 13        |
+| native_drawing             | ✅      | 14        |
 | native_effect              |        |           |
-| native_image               | ✅      | 13        |
+| native_image               | ✅      | 14        |
 | native_vsync               | ✅      | 14        |
-| native_window              | ✅      | 13        |
+| native_window              | ✅      | 14        |
 | network                    |        |           |
 | neural_network_runtime     |        |           |
 | ohaudio                    |        |           |
 | ohcamera                   |        |           |
 | purgeable_memory           |        |           |
 | qos                        |        |           |
-| rawfile                    | ✅      | 13        |
+| rawfile                    | ✅      | 14        |
 | resourcemanager            |        |           |
 | sensors                    |        |           |
 | telephony                  |        |           |
