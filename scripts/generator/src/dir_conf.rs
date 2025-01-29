@@ -173,10 +173,11 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
                                  .raw_line("use crate::text_declaration::*;")
                                  .raw_line("#[cfg(feature = \"api-12\")]")
                                  .raw_line("use crate::font::OH_Drawing_Font_Metrics;")
-                                 // FIXME: This needs to be guarded behind API-level-12 (fixed in SDK-13)
-                                 // We blocklist for now and remove when updating to SDK-13
-                                 .blocklist_function("OH_Drawing_TypographyGetLineFontMetrics")
-                         }
+                         },
+                         "text_font_descriptor" => {
+                             builder
+                                .raw_line("use crate::text_typography::OH_Drawing_FontDescriptor;")
+                         },
                          "register_font" => {
                              builder
                                  .raw_line("use crate::text_declaration::*;")

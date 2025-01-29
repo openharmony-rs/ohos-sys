@@ -1,7 +1,8 @@
 # Changelog
 
-## unreleased
+## v0.2.2 (2025-01-29)
 
+- Update bindings to API-14
 - `OH_Drawing_Point2D` and `OH_Drawing_Point3D` now derive Copy, Clone and Debug
 
 ## v0.2.1 (2025-01-08)

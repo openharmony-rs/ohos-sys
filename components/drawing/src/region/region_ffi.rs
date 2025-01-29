@@ -81,9 +81,9 @@ extern "C" {
     ///
     /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
-    /// * `int32_t` - x-coordinate.
+    /// * `x` - x-coordinate.
     ///
-    /// * `int32_t` - y-coordinate.
+    /// * `y` - y-coordinate.
     ///
     /// # Returns
     ///
@@ -127,9 +127,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
@@ -176,12 +176,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_RegionDestroy(arg1: *mut OH_Drawing_Region);
+    pub fn OH_Drawing_RegionDestroy(region: *mut OH_Drawing_Region);
 }

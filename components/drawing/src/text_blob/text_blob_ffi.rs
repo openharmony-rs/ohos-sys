@@ -55,9 +55,9 @@ extern "C" {
     ///
     /// * `byteLength` - Indicates the text length.
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// * `OH_Drawing_TextEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
+    /// * `textEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
     ///
     /// # Returns
     ///
@@ -71,8 +71,8 @@ extern "C" {
     pub fn OH_Drawing_TextBlobCreateFromText(
         text: *const ::core::ffi::c_void,
         byteLength: usize,
-        arg1: *const OH_Drawing_Font,
-        arg2: OH_Drawing_TextEncoding,
+        font: *const OH_Drawing_Font,
+        textEncoding: OH_Drawing_TextEncoding,
     ) -> *mut OH_Drawing_TextBlob;
     /// Creates an <b>OH_Drawing_TextBlob</b> object from pos text.
     ///
@@ -84,11 +84,11 @@ extern "C" {
     ///
     /// * `byteLength` - Indicates the text length.
     ///
-    /// * `OH_Drawing_Point2D` - Indicates the pointer to an <b>OH_Drawing_Point2D</b> array object.
+    /// * `point2D` - Indicates the pointer to an <b>OH_Drawing_Point2D</b> array object.
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// * `OH_Drawing_TextEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
+    /// * `textEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
     ///
     /// # Returns
     ///
@@ -102,9 +102,9 @@ extern "C" {
     pub fn OH_Drawing_TextBlobCreateFromPosText(
         text: *const ::core::ffi::c_void,
         byteLength: usize,
-        arg1: *mut OH_Drawing_Point2D,
-        arg2: *const OH_Drawing_Font,
-        arg3: OH_Drawing_TextEncoding,
+        point2D: *mut OH_Drawing_Point2D,
+        font: *const OH_Drawing_Font,
+        textEncoding: OH_Drawing_TextEncoding,
     ) -> *mut OH_Drawing_TextBlob;
     /// Creates an <b>OH_Drawing_TextBlob</b> object from pos text.
     ///
@@ -114,9 +114,9 @@ extern "C" {
     ///
     /// * `str` - Indicates the the pointer to text.
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
-    /// * `OH_Drawing_TextEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
+    /// * `textEncoding` - Indicates the pointer to an <b>OH_Drawing_TextEncoding</b> object.
     ///
     /// # Returns
     ///
@@ -129,8 +129,8 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextBlobCreateFromString(
         str_: *const ::core::ffi::c_char,
-        arg1: *const OH_Drawing_Font,
-        arg2: OH_Drawing_TextEncoding,
+        font: *const OH_Drawing_Font,
+        textEncoding: OH_Drawing_TextEncoding,
     ) -> *mut OH_Drawing_TextBlob;
     /// Gets the bounds of textblob, assigned to the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
@@ -138,23 +138,26 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `textBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_TextBlobGetBounds(arg1: *mut OH_Drawing_TextBlob, arg2: *mut OH_Drawing_Rect);
+    pub fn OH_Drawing_TextBlobGetBounds(
+        textBlob: *mut OH_Drawing_TextBlob,
+        rect: *mut OH_Drawing_Rect,
+    );
     /// Gets a non-zero value unique among all <b>OH_Drawing_TextBlob</b> objects.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `textBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
     ///
     /// # Returns
     ///
@@ -165,7 +168,7 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_TextBlobUniqueID(arg1: *const OH_Drawing_TextBlob) -> u32;
+    pub fn OH_Drawing_TextBlobUniqueID(textBlob: *const OH_Drawing_TextBlob) -> u32;
     /// Alloc run with storage for glyphs and positions. The returned pointer does not need to be managed
     /// by the caller and is forbidden to be used after OH_Drawing_TextBlobBuilderMake is called.
     ///
@@ -173,13 +176,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_TextBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
+    /// * `textBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `count` - Indicates the number of glyphs.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the optional run bounding box.
+    /// * `rect` - Indicates the optional run bounding box.
     ///
     /// Available since API-level: 11
     ///
@@ -187,10 +190,10 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_TextBlobBuilderAllocRunPos(
-        arg1: *mut OH_Drawing_TextBlobBuilder,
-        arg2: *const OH_Drawing_Font,
+        textBlobBuilder: *mut OH_Drawing_TextBlobBuilder,
+        font: *const OH_Drawing_Font,
         count: i32,
-        arg3: *const OH_Drawing_Rect,
+        rect: *const OH_Drawing_Rect,
     ) -> *const OH_Drawing_RunBuffer;
     /// Make an <b>OH_Drawing_TextBlob</b> from <b>OH_Drawing_TextBlobBuilder</b>.
     ///
@@ -198,7 +201,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_TextBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
+    /// * `textBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
     ///
     /// # Returns
     ///
@@ -210,7 +213,7 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_TextBlobBuilderMake(
-        arg1: *mut OH_Drawing_TextBlobBuilder,
+        textBlobBuilder: *mut OH_Drawing_TextBlobBuilder,
     ) -> *mut OH_Drawing_TextBlob;
     /// Destroys an <b>OH_Drawing_TextBlob</b> object and reclaims the memory occupied by the object.
     ///
@@ -218,26 +221,26 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `textBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_TextBlobDestroy(arg1: *mut OH_Drawing_TextBlob);
+    pub fn OH_Drawing_TextBlobDestroy(textBlob: *mut OH_Drawing_TextBlob);
     /// Destroys an <b>OH_Drawing_TextBlobBuilder</b> object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_TextBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
+    /// * `textBlobBuilder` - Indicates the pointer to an <b>OH_Drawing_TextBlobBuilder</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_TextBlobBuilderDestroy(arg1: *mut OH_Drawing_TextBlobBuilder);
+    pub fn OH_Drawing_TextBlobBuilderDestroy(textBlobBuilder: *mut OH_Drawing_TextBlobBuilder);
 }

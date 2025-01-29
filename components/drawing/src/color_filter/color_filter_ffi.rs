@@ -18,7 +18,7 @@ extern "C" {
     ///
     /// * `color` - Indicates the color, which is a 32-bit (ARGB) variable.
     ///
-    /// * `OH_Drawing_BlendMode` - Indicates the blend mode.
+    /// * `blendMode` - Indicates the blend mode.
     ///
     /// # Returns
     ///
@@ -31,17 +31,17 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_ColorFilterCreateBlendMode(
         color: u32,
-        arg1: OH_Drawing_BlendMode,
+        blendMode: OH_Drawing_BlendMode,
     ) -> *mut OH_Drawing_ColorFilter;
-    /// Creates an <b>OH_Drawing_ColorFilter</b> applies the colorFilter1 and then applies colorFilter2.
+    /// Creates an <b>OH_Drawing_ColorFilter</b> applies the outerColorFilter and then applies innerColorFilter.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `outerColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
     ///
-    /// * `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `innerColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
     ///
     /// # Returns
     ///
@@ -53,8 +53,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_ColorFilterCreateCompose(
-        colorFilter1: *mut OH_Drawing_ColorFilter,
-        colorFilter2: *mut OH_Drawing_ColorFilter,
+        outerColorFilter: *mut OH_Drawing_ColorFilter,
+        innerColorFilter: *mut OH_Drawing_ColorFilter,
     ) -> *mut OH_Drawing_ColorFilter;
     /// Creates an <b>OH_Drawing_ColorFilter</b> with a 5x4 color matrix.
     ///
@@ -126,12 +126,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_ColorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `colorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_ColorFilterDestroy(arg1: *mut OH_Drawing_ColorFilter);
+    pub fn OH_Drawing_ColorFilterDestroy(colorFilter: *mut OH_Drawing_ColorFilter);
 }

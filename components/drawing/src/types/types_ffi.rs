@@ -460,6 +460,22 @@ pub struct OH_Drawing_RectStyle_Info {
     /// radius in left bottom of rectstyle
     pub leftBottomRadius: f64,
 }
+/// Defines the string information struct.
+///
+///
+/// Available since API-level: 14
+///
+/// Version: 1.0
+#[cfg(feature = "api-14")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_Drawing_String {
+    /// A pointer to a byte string containing UTF-16 encoded entities
+    pub strData: *mut u8,
+    /// The length of `strData` in bytes
+    pub strLen: u32,
+}
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_TextEncoding {
@@ -508,5 +524,9 @@ pub struct OH_Drawing_RecordCmdUtils {
 }
 #[repr(C)]
 pub struct OH_Drawing_RecordCmd {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_Drawing_Array {
     _unused: [u8; 0],
 }

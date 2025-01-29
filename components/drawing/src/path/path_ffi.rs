@@ -183,7 +183,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
@@ -194,26 +194,26 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PathCopy(arg1: *mut OH_Drawing_Path) -> *mut OH_Drawing_Path;
+    pub fn OH_Drawing_PathCopy(path: *mut OH_Drawing_Path) -> *mut OH_Drawing_Path;
     /// Destroys an <b>OH_Drawing_Path</b> object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PathDestroy(arg1: *mut OH_Drawing_Path);
+    pub fn OH_Drawing_PathDestroy(path: *mut OH_Drawing_Path);
     /// Sets the start point of a path.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `x` - Indicates the x coordinate of the start point.
     ///
@@ -222,14 +222,14 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PathMoveTo(arg1: *mut OH_Drawing_Path, x: f32, y: f32);
+    pub fn OH_Drawing_PathMoveTo(path: *mut OH_Drawing_Path, x: f32, y: f32);
     /// Draws a line segment from the last point of a path to the target point.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `x` - Indicates the x coordinate of the target point.
     ///
@@ -238,7 +238,7 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PathLineTo(arg1: *mut OH_Drawing_Path, x: f32, y: f32);
+    pub fn OH_Drawing_PathLineTo(path: *mut OH_Drawing_Path, x: f32, y: f32);
     /// Draws an arc to a path.
     ///
     /// This is done by using angle arc mode. In this mode, a rectangle that encloses an ellipse is specified first,
@@ -250,7 +250,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `x1` - Indicates the x coordinate of the upper left corner of the rectangle.
     ///
@@ -268,7 +268,7 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PathArcTo(
-        arg1: *mut OH_Drawing_Path,
+        path: *mut OH_Drawing_Path,
         x1: f32,
         y1: f32,
         x2: f32,
@@ -282,7 +282,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `ctrlX` - Indicates the x coordinate of the control point.
     ///
@@ -296,7 +296,7 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PathQuadTo(
-        arg1: *mut OH_Drawing_Path,
+        path: *mut OH_Drawing_Path,
         ctrlX: f32,
         ctrlY: f32,
         endX: f32,
@@ -308,7 +308,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `ctrlX` - Indicates the x coordinate of the control point.
     ///
@@ -326,7 +326,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathConicTo(
-        arg1: *mut OH_Drawing_Path,
+        path: *mut OH_Drawing_Path,
         ctrlX: f32,
         ctrlY: f32,
         endX: f32,
@@ -339,7 +339,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `ctrlX1` - Indicates the x coordinate of the first control point.
     ///
@@ -357,7 +357,7 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PathCubicTo(
-        arg1: *mut OH_Drawing_Path,
+        path: *mut OH_Drawing_Path,
         ctrlX1: f32,
         ctrlY1: f32,
         ctrlX2: f32,
@@ -371,7 +371,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `x` - Indicates the x coordinate of the relative starting point.
     ///
@@ -382,14 +382,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PathRMoveTo(arg1: *mut OH_Drawing_Path, x: f32, y: f32);
+    pub fn OH_Drawing_PathRMoveTo(path: *mut OH_Drawing_Path, x: f32, y: f32);
     /// Draws a line segment from the last point of a path to the relative target point.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `x` - Indicates the x coordinate of the relative target point.
     ///
@@ -400,14 +400,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PathRLineTo(arg1: *mut OH_Drawing_Path, x: f32, y: f32);
+    pub fn OH_Drawing_PathRLineTo(path: *mut OH_Drawing_Path, x: f32, y: f32);
     /// Draws a quadratic bezier curve from the last point of a path to the relative target point.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `ctrlX` - Indicates the x coordinate of the relative control point.
     ///
@@ -423,7 +423,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathRQuadTo(
-        arg1: *mut OH_Drawing_Path,
+        path: *mut OH_Drawing_Path,
         ctrlX: f32,
         ctrlY: f32,
         endX: f32,
@@ -435,7 +435,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `ctrlX` - Indicates the x coordinate of the relative control point.
     ///
@@ -453,7 +453,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathRConicTo(
-        arg1: *mut OH_Drawing_Path,
+        path: *mut OH_Drawing_Path,
         ctrlX: f32,
         ctrlY: f32,
         endX: f32,
@@ -466,7 +466,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `ctrlX1` - Indicates the x coordinate of the first relative control point.
     ///
@@ -486,7 +486,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathRCubicTo(
-        arg1: *mut OH_Drawing_Path,
+        path: *mut OH_Drawing_Path,
         ctrlX1: f32,
         ctrlY1: f32,
         ctrlX2: f32,
@@ -500,7 +500,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `left` - Indicates the left coordinate of the upper left corner of the rectangle.
     ///
@@ -510,7 +510,7 @@ extern "C" {
     ///
     /// * `bottom` - Indicates the bottom coordinate of the lower bottom corner of the rectangle.
     ///
-    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `pathDirection` - Indicates the path direction.
     ///
     /// Available since API-level: 12
     ///
@@ -518,12 +518,12 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathAddRect(
-        arg1: *mut OH_Drawing_Path,
+        path: *mut OH_Drawing_Path,
         left: f32,
         top: f32,
         right: f32,
         bottom: f32,
-        arg2: OH_Drawing_PathDirection,
+        pathDirection: OH_Drawing_PathDirection,
     );
     /// Adds a new contour to the path, defined by the rect, and wound in the specified direction.
     ///
@@ -531,11 +531,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `pathDirection` - Indicates the path direction.
     ///
     /// * `start` - Indicates initial corner of rect to add.
     ///
@@ -545,9 +545,9 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathAddRectWithInitialCorner(
-        arg1: *mut OH_Drawing_Path,
-        arg2: *const OH_Drawing_Rect,
-        arg3: OH_Drawing_PathDirection,
+        path: *mut OH_Drawing_Path,
+        rect: *const OH_Drawing_Rect,
+        pathDirection: OH_Drawing_PathDirection,
         start: u32,
     );
     /// Adds a new contour to the path, defined by the round rect, and wound in the specified direction.
@@ -556,11 +556,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
-    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `pathDirection` - Indicates the path direction.
     ///
     /// Available since API-level: 12
     ///
@@ -568,9 +568,9 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathAddRoundRect(
-        arg1: *mut OH_Drawing_Path,
+        path: *mut OH_Drawing_Path,
         roundRect: *const OH_Drawing_RoundRect,
-        arg2: OH_Drawing_PathDirection,
+        pathDirection: OH_Drawing_PathDirection,
     );
     /// Adds a oval to the path, defined by the rect, and wound in the specified direction.
     ///
@@ -578,13 +578,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// * `start` - Index of initial point of ellipse.
     ///
-    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `pathDirection` - Indicates the path direction.
     ///
     /// Available since API-level: 12
     ///
@@ -592,10 +592,10 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathAddOvalWithInitialPoint(
-        arg1: *mut OH_Drawing_Path,
-        arg2: *const OH_Drawing_Rect,
+        path: *mut OH_Drawing_Path,
+        rect: *const OH_Drawing_Rect,
         start: u32,
-        arg3: OH_Drawing_PathDirection,
+        pathDirection: OH_Drawing_PathDirection,
     );
     /// Adds a oval to the path, defined by the rect, and wound in the specified direction.
     ///
@@ -603,11 +603,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `pathDirection` - Indicates the path direction.
     ///
     /// Available since API-level: 12
     ///
@@ -615,9 +615,9 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathAddOval(
-        arg1: *mut OH_Drawing_Path,
-        arg2: *const OH_Drawing_Rect,
-        arg3: OH_Drawing_PathDirection,
+        path: *mut OH_Drawing_Path,
+        rect: *const OH_Drawing_Rect,
+        pathDirection: OH_Drawing_PathDirection,
     );
     /// Appends arc to path, as the start of new contour.Arc added is part of ellipse bounded by oval,
     /// from startAngle through sweepAngle. Both startAngle and sweepAngle are measured in degrees, where zero degrees
@@ -629,9 +629,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// * `startAngle` - Indicates the starting angle of arc in degrees.
     ///
@@ -643,8 +643,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathAddArc(
-        arg1: *mut OH_Drawing_Path,
-        arg2: *const OH_Drawing_Rect,
+        path: *mut OH_Drawing_Path,
+        rect: *const OH_Drawing_Rect,
         startAngle: f32,
         sweepAngle: f32,
     );
@@ -655,11 +655,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the length of the <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the length of the <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -667,9 +667,9 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathAddPath(
-        arg1: *mut OH_Drawing_Path,
+        path: *mut OH_Drawing_Path,
         src: *const OH_Drawing_Path,
-        arg2: *const OH_Drawing_Matrix,
+        matrix: *const OH_Drawing_Matrix,
     );
     /// Appends src path to path, transformed by matrix and mode. Transformed curves may have different verbs,
     /// point, and conic weights.
@@ -682,9 +682,9 @@ extern "C" {
     ///
     /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the length of the <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the length of the <b>OH_Drawing_Matrix</b> object.
     ///
-    /// * `OH_Drawing_PathAddMode` - Indicates the add path's add mode.
+    /// * `pathAddMode` - Indicates the add path's add mode.
     ///
     /// Available since API-level: 12
     ///
@@ -694,8 +694,8 @@ extern "C" {
     pub fn OH_Drawing_PathAddPathWithMatrixAndMode(
         path: *mut OH_Drawing_Path,
         src: *const OH_Drawing_Path,
-        arg1: *const OH_Drawing_Matrix,
-        arg2: OH_Drawing_PathAddMode,
+        matrix: *const OH_Drawing_Matrix,
+        pathAddMode: OH_Drawing_PathAddMode,
     );
     /// Appends src path to path, transformed by mode. Transformed curves may have different verbs,
     /// point, and conic weights.
@@ -708,7 +708,7 @@ extern "C" {
     ///
     /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object, which is Appends src path to path.
     ///
-    /// * `OH_Drawing_PathAddMode` - Indicates the add path's add mode.
+    /// * `pathAddMode` - Indicates the add path's add mode.
     ///
     /// Available since API-level: 12
     ///
@@ -718,7 +718,7 @@ extern "C" {
     pub fn OH_Drawing_PathAddPathWithMode(
         path: *mut OH_Drawing_Path,
         src: *const OH_Drawing_Path,
-        arg1: OH_Drawing_PathAddMode,
+        pathAddMode: OH_Drawing_PathAddMode,
     );
     /// Appends src path to path, transformed by offset and mode. Transformed curves may have different verbs,
     /// point, and conic weights.
@@ -735,7 +735,7 @@ extern "C" {
     ///
     /// * `dy` - Indicates offset added to src path y-axis coordinates.
     ///
-    /// * `OH_Drawing_PathAddMode` - Indicates the add path's add mode.
+    /// * `pathAddMode` - Indicates the add path's add mode.
     ///
     /// Available since API-level: 12
     ///
@@ -747,7 +747,7 @@ extern "C" {
         src: *const OH_Drawing_Path,
         dx: f32,
         dy: f32,
-        arg1: OH_Drawing_PathAddMode,
+        pathAddMode: OH_Drawing_PathAddMode,
     );
     /// Adds contour created from point array, adding (count - 1) line segments.
     ///
@@ -788,7 +788,7 @@ extern "C" {
     ///
     /// * `radius` - Indicates the radius of the circle.
     ///
-    /// * `OH_Drawing_PathDirection` - Indicates the path direction.
+    /// * `pathDirection` - Indicates the path direction.
     ///
     /// Available since API-level: 12
     ///
@@ -800,7 +800,7 @@ extern "C" {
         x: f32,
         y: f32,
         radius: f32,
-        arg1: OH_Drawing_PathDirection,
+        pathDirection: OH_Drawing_PathDirection,
     );
     /// Parses the svg path from the string.
     ///
@@ -831,7 +831,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `x` - Indicates the x-axis value of containment test.
     ///
@@ -846,7 +846,7 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PathContains(arg1: *mut OH_Drawing_Path, x: f32, y: f32) -> bool;
+    pub fn OH_Drawing_PathContains(path: *mut OH_Drawing_Path, x: f32, y: f32) -> bool;
     /// Transforms verb array, point array, and weight by matrix. transform may change verbs
     /// and increase their number. path is replaced by transformed data.
     ///
@@ -854,16 +854,16 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PathTransform(arg1: *mut OH_Drawing_Path, arg2: *const OH_Drawing_Matrix);
+    pub fn OH_Drawing_PathTransform(path: *mut OH_Drawing_Path, matrix: *const OH_Drawing_Matrix);
     /// Transforms verb array, point array, and weight by matrix.
     /// Transform may change verbs and increase their number.
     ///
@@ -873,7 +873,7 @@ extern "C" {
     ///
     /// * `src` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `dst` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
@@ -886,7 +886,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PathTransformWithPerspectiveClip(
         src: *mut OH_Drawing_Path,
-        arg1: *const OH_Drawing_Matrix,
+        matrix: *const OH_Drawing_Matrix,
         dst: *mut OH_Drawing_Path,
         applyPerspectiveClip: bool,
     );
@@ -896,23 +896,26 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_PathFillType` - Indicates the add path's fill type.
+    /// * `pathFillType` - Indicates the add path's fill type.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PathSetFillType(arg1: *mut OH_Drawing_Path, arg2: OH_Drawing_PathFillType);
+    pub fn OH_Drawing_PathSetFillType(
+        path: *mut OH_Drawing_Path,
+        pathFillType: OH_Drawing_PathFillType,
+    );
     /// Gets the length of the current path object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `forceClosed` - Indicates whether free to modify/delete the path after this call.
     ///
@@ -925,35 +928,35 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PathGetLength(arg1: *mut OH_Drawing_Path, forceClosed: bool) -> f32;
+    pub fn OH_Drawing_PathGetLength(path: *mut OH_Drawing_Path, forceClosed: bool) -> f32;
     /// Gets the smallest bounding box that contains the path.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PathGetBounds(arg1: *mut OH_Drawing_Path, arg2: *mut OH_Drawing_Rect);
+    pub fn OH_Drawing_PathGetBounds(path: *mut OH_Drawing_Path, rect: *mut OH_Drawing_Rect);
     /// Closes a path. A line segment from the start point to the last point of the path is added.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PathClose(arg1: *mut OH_Drawing_Path);
+    pub fn OH_Drawing_PathClose(path: *mut OH_Drawing_Path);
     /// Offset path replaces dst.
     ///
     ///
@@ -985,12 +988,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PathReset(arg1: *mut OH_Drawing_Path);
+    pub fn OH_Drawing_PathReset(path: *mut OH_Drawing_Path);
     /// Determines whether the path current contour is closed.
     ///
     ///

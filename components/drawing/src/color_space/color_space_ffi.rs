@@ -46,12 +46,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_ColorSpace` - Indicates the pointer to an <b>OH_Drawing_ColorSpace</b> object.
+    /// * `colorSpace` - Indicates the pointer to an <b>OH_Drawing_ColorSpace</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_ColorSpaceDestroy(arg1: *mut OH_Drawing_ColorSpace);
+    pub fn OH_Drawing_ColorSpaceDestroy(colorSpace: *mut OH_Drawing_ColorSpace);
 }

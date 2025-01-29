@@ -32,21 +32,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontMgrDestroy(arg1: *mut OH_Drawing_FontMgr);
+    pub fn OH_Drawing_FontMgrDestroy(drawingFontMgr: *mut OH_Drawing_FontMgr);
     /// Gets the count of font families.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
     /// # Returns
     ///
@@ -57,14 +57,16 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontMgrGetFamilyCount(arg1: *mut OH_Drawing_FontMgr) -> ::core::ffi::c_int;
+    pub fn OH_Drawing_FontMgrGetFamilyCount(
+        drawingFontMgr: *mut OH_Drawing_FontMgr,
+    ) -> ::core::ffi::c_int;
     /// Gets the font family name by the index.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
     /// * `index` - Indicates the index to get the font family name.
     ///
@@ -78,7 +80,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontMgrGetFamilyName(
-        arg1: *mut OH_Drawing_FontMgr,
+        drawingFontMgr: *mut OH_Drawing_FontMgr,
         index: ::core::ffi::c_int,
     ) -> *mut ::core::ffi::c_char;
     /// Releases the memory occupied by font family name.
@@ -101,7 +103,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
     /// * `index` - Indicates the index used to get the font style set object from the font manager object.
     ///
@@ -115,7 +117,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontMgrCreateFontStyleSet(
-        arg1: *mut OH_Drawing_FontMgr,
+        drawingFontMgr: *mut OH_Drawing_FontMgr,
         index: ::core::ffi::c_int,
     ) -> *mut OH_Drawing_FontStyleSet;
     /// Releases the memory occupied by an <b>OH_Drawing_FontStyleSet</b> object.
@@ -124,21 +126,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `drawingFontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontMgrDestroyFontStyleSet(arg1: *mut OH_Drawing_FontStyleSet);
+    pub fn OH_Drawing_FontMgrDestroyFontStyleSet(drawingFontStyleSet: *mut OH_Drawing_FontStyleSet);
     /// Get the pointer to an <b>OH_Drawing_FontStyleSet</b> object for the given font style set family name.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
     /// * `familyName` - Indicates the family name of a font style set to be matched.
     ///
@@ -152,7 +154,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontMgrMatchFamily(
-        arg1: *mut OH_Drawing_FontMgr,
+        drawingFontMgr: *mut OH_Drawing_FontMgr,
         familyName: *const ::core::ffi::c_char,
     ) -> *mut OH_Drawing_FontStyleSet;
     /// Get the pointer to an <b>OH_Drawing_Typeface</b> object based on the given font style and family name.
@@ -161,11 +163,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
     /// * `familyName` - Indicates the family name of a font style set to be matched.
     ///
-    /// * `OH_Drawing_FontStyleStruct` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
+    /// * `fontStyle` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
     ///
     /// # Returns
     ///
@@ -177,7 +179,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontMgrMatchFamilyStyle(
-        arg1: *mut OH_Drawing_FontMgr,
+        drawingFontMgr: *mut OH_Drawing_FontMgr,
         familyName: *const ::core::ffi::c_char,
         fontStyle: OH_Drawing_FontStyleStruct,
     ) -> *mut OH_Drawing_Typeface;
@@ -187,11 +189,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
     ///
     /// * `familyName` - Indicates the family name of a font style set to be matched.
     ///
-    /// * `OH_Drawing_FontStyleStruct` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
+    /// * `fontStyle` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
     ///
     /// * `bcp47` - Indicates an array of languages which indicate the language of character.
     ///
@@ -209,7 +211,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontMgrMatchFamilyStyleCharacter(
-        arg1: *mut OH_Drawing_FontMgr,
+        drawingFontMgr: *mut OH_Drawing_FontMgr,
         familyName: *const ::core::ffi::c_char,
         fontStyle: OH_Drawing_FontStyleStruct,
         bcp47: *mut *const ::core::ffi::c_char,
@@ -222,7 +224,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `fontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
     ///
     /// * `index` - Indicates the index of the typeface in this fontStyleSet.
     ///
@@ -236,7 +238,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontStyleSetCreateTypeface(
-        arg1: *mut OH_Drawing_FontStyleSet,
+        fontStyleSet: *mut OH_Drawing_FontStyleSet,
         index: ::core::ffi::c_int,
     ) -> *mut OH_Drawing_Typeface;
     /// Get font style for the specified typeface.
@@ -245,7 +247,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `fontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
     ///
     /// * `index` - Indicates the index of the typeface in this fontStyleSet.
     ///
@@ -261,7 +263,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontStyleSetGetStyle(
-        arg1: *mut OH_Drawing_FontStyleSet,
+        fontStyleSet: *mut OH_Drawing_FontStyleSet,
         index: i32,
         styleName: *mut *mut ::core::ffi::c_char,
     ) -> OH_Drawing_FontStyleStruct;
@@ -285,7 +287,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `fontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
     ///
     /// * `fontStyleStruct` - Indicates the <b>OH_Drawing_FontStyleStruct</b> structure.
     ///
@@ -299,7 +301,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontStyleSetMatchStyle(
-        arg1: *mut OH_Drawing_FontStyleSet,
+        fontStyleSet: *mut OH_Drawing_FontStyleSet,
         fontStyleStruct: OH_Drawing_FontStyleStruct,
     ) -> *mut OH_Drawing_Typeface;
     /// Get the count of typeface.
@@ -308,7 +310,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `fontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
     ///
     /// # Returns
     ///
@@ -319,5 +321,7 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_FontStyleSetCount(arg1: *mut OH_Drawing_FontStyleSet) -> ::core::ffi::c_int;
+    pub fn OH_Drawing_FontStyleSetCount(
+        fontStyleSet: *mut OH_Drawing_FontStyleSet,
+    ) -> ::core::ffi::c_int;
 }

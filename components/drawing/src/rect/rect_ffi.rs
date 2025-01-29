@@ -153,7 +153,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
@@ -164,14 +164,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_RectGetLeft(arg1: *mut OH_Drawing_Rect) -> f32;
+    pub fn OH_Drawing_RectGetLeft(rect: *mut OH_Drawing_Rect) -> f32;
     /// Get the top position of the rect.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
@@ -182,14 +182,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_RectGetTop(arg1: *mut OH_Drawing_Rect) -> f32;
+    pub fn OH_Drawing_RectGetTop(rect: *mut OH_Drawing_Rect) -> f32;
     /// Get the right position of the rect.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
@@ -200,14 +200,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_RectGetRight(arg1: *mut OH_Drawing_Rect) -> f32;
+    pub fn OH_Drawing_RectGetRight(rect: *mut OH_Drawing_Rect) -> f32;
     /// Get the bottom position of the rect.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// # Returns
     ///
@@ -218,22 +218,39 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_RectGetBottom(arg1: *mut OH_Drawing_Rect) -> f32;
+    pub fn OH_Drawing_RectGetBottom(rect: *mut OH_Drawing_Rect) -> f32;
     /// Get the height position of the rect.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_RectGetHeight(arg1: *mut OH_Drawing_Rect) -> f32;
-    pub fn OH_Drawing_RectGetWidth(arg1: *mut OH_Drawing_Rect) -> f32;
+    pub fn OH_Drawing_RectGetHeight(rect: *mut OH_Drawing_Rect) -> f32;
+    /// Get the width position of the rect.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the width.
+    ///
+    /// Available since API-level: 12
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_Drawing_RectGetWidth(rect: *mut OH_Drawing_Rect) -> f32;
     /// Copy the original rectangular object to the destination rectangular object.
     ///
     ///
@@ -256,12 +273,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_RectDestroy(arg1: *mut OH_Drawing_Rect);
+    pub fn OH_Drawing_RectDestroy(rect: *mut OH_Drawing_Rect);
 }

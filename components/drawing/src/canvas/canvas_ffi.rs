@@ -173,12 +173,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_CanvasDestroy(arg1: *mut OH_Drawing_Canvas);
+    pub fn OH_Drawing_CanvasDestroy(canvas: *mut OH_Drawing_Canvas);
     /// Binds a bitmap to a canvas so that the content drawn on the canvas
     /// is output to the bitmap (this process is called CPU rendering).
     ///
@@ -186,28 +186,28 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_CanvasBind(arg1: *mut OH_Drawing_Canvas, arg2: *mut OH_Drawing_Bitmap);
+    pub fn OH_Drawing_CanvasBind(canvas: *mut OH_Drawing_Canvas, bitmap: *mut OH_Drawing_Bitmap);
     /// Attaches a pen to a canvas so that the canvas will use the style and color of the pen to outline a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_CanvasAttachPen(arg1: *mut OH_Drawing_Canvas, arg2: *const OH_Drawing_Pen);
+    pub fn OH_Drawing_CanvasAttachPen(canvas: *mut OH_Drawing_Canvas, pen: *const OH_Drawing_Pen);
     /// Detaches the pen from a canvas so that the canvas will not use the style
     /// and color of the pen to outline a shape.
     ///
@@ -215,28 +215,28 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_CanvasDetachPen(arg1: *mut OH_Drawing_Canvas);
+    pub fn OH_Drawing_CanvasDetachPen(canvas: *mut OH_Drawing_Canvas);
     /// Attaches a brush to a canvas so that the canvas will use the style and color of the brush to fill in a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasAttachBrush(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Brush,
+        canvas: *mut OH_Drawing_Canvas,
+        brush: *const OH_Drawing_Brush,
     );
     /// Detaches the brush from a canvas so that the canvas will not use the style
     /// and color of the brush to fill in a shape.
@@ -245,24 +245,24 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_CanvasDetachBrush(arg1: *mut OH_Drawing_Canvas);
+    pub fn OH_Drawing_CanvasDetachBrush(canvas: *mut OH_Drawing_Canvas);
     /// Saves the current canvas status (canvas matrix) to the top of the stack.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_CanvasSave(arg1: *mut OH_Drawing_Canvas);
+    pub fn OH_Drawing_CanvasSave(canvas: *mut OH_Drawing_Canvas);
     /// Saves matrix and clip, and allocates a bitmap for subsequent drawing.
     /// Calling restore discards changes to matrix and clip, and draws the bitmap.
     ///
@@ -270,11 +270,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -282,9 +282,9 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasSaveLayer(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Rect,
-        arg3: *const OH_Drawing_Brush,
+        canvas: *mut OH_Drawing_Canvas,
+        rect: *const OH_Drawing_Rect,
+        brush: *const OH_Drawing_Brush,
     );
     /// Restores the canvas status (canvas matrix) saved on the top of the stack.
     ///
@@ -292,19 +292,19 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_CanvasRestore(arg1: *mut OH_Drawing_Canvas);
+    pub fn OH_Drawing_CanvasRestore(canvas: *mut OH_Drawing_Canvas);
     /// Gets the number of the canvas status (canvas matrix) saved in the stack.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// # Returns
     ///
@@ -315,14 +315,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_CanvasGetSaveCount(arg1: *mut OH_Drawing_Canvas) -> u32;
+    pub fn OH_Drawing_CanvasGetSaveCount(canvas: *mut OH_Drawing_Canvas) -> u32;
     /// Restores the specific number of the canvas status (canvas matrix) saved in the stack.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// * `saveCount` - Indicates the specific number of canvas status.
     ///
@@ -331,14 +331,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_CanvasRestoreToCount(arg1: *mut OH_Drawing_Canvas, saveCount: u32);
+    pub fn OH_Drawing_CanvasRestoreToCount(canvas: *mut OH_Drawing_Canvas, saveCount: u32);
     /// Draws a line segment.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// * `x1` - Indicates the x coordinate of the start point of the line segment.
     ///
@@ -352,7 +352,7 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasDrawLine(
-        arg1: *mut OH_Drawing_Canvas,
+        canvas: *mut OH_Drawing_Canvas,
         x1: f32,
         y1: f32,
         x2: f32,
@@ -364,29 +364,29 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_CanvasDrawPath(arg1: *mut OH_Drawing_Canvas, arg2: *const OH_Drawing_Path);
+    pub fn OH_Drawing_CanvasDrawPath(canvas: *mut OH_Drawing_Canvas, path: *const OH_Drawing_Path);
     /// Draw the specified area of the Media::PixelMap to the specified area of the canvas.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_PixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    /// * `pixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
     ///
     /// * `src` - the area of source pixelmap.
     ///
     /// * `dst` - the area of destination canvas.
     ///
-    /// * `OH_Drawing_SamplingOptions` - the sampling mode.
+    /// * `samplingOptions` - the sampling mode.
     ///
     /// Available since API-level: 12
     ///
@@ -394,11 +394,11 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasDrawPixelMapRect(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *mut OH_Drawing_PixelMap,
+        canvas: *mut OH_Drawing_Canvas,
+        pixelMap: *mut OH_Drawing_PixelMap,
         src: *const OH_Drawing_Rect,
         dst: *const OH_Drawing_Rect,
-        arg3: *const OH_Drawing_SamplingOptions,
+        samplingOptions: *const OH_Drawing_SamplingOptions,
     );
     /// Fills clipped canvas area with brush.
     ///
@@ -406,9 +406,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -416,8 +416,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasDrawBackground(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Brush,
+        canvas: *mut OH_Drawing_Canvas,
+        brush: *const OH_Drawing_Brush,
     );
     /// Draws region using clip, matrix and paint.
     ///
@@ -425,9 +425,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -435,8 +435,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasDrawRegion(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Region,
+        canvas: *mut OH_Drawing_Canvas,
+        region: *const OH_Drawing_Region,
     );
     /// Draws a point.
     ///
@@ -469,13 +469,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// * `mode` - Draw points enum.
     ///
     /// * `count` - The point count.
     ///
-    /// * `OH_Drawing_Point2D` - Point struct array.
+    /// * `point2D` - Point struct array.
     ///
     /// Available since API-level: 12
     ///
@@ -483,10 +483,10 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasDrawPoints(
-        arg1: *mut OH_Drawing_Canvas,
+        canvas: *mut OH_Drawing_Canvas,
         mode: OH_Drawing_PointMode,
         count: u32,
-        arg2: *const OH_Drawing_Point2D,
+        point2D: *const OH_Drawing_Point2D,
     );
     /// Draws a bitmap.
     ///
@@ -494,9 +494,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// * `left` - Indicates the left position of the <b>OH_Drawing_Bitmap</b>.
     ///
@@ -508,8 +508,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasDrawBitmap(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Bitmap,
+        canvas: *mut OH_Drawing_Canvas,
+        bitmap: *const OH_Drawing_Bitmap,
         left: f32,
         top: f32,
     );
@@ -519,15 +519,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// * `src` - the area of source bitmap, can be nullptr.
     ///
     /// * `dst` - the area of destination canvas.
     ///
-    /// * `OH_Drawing_SamplingOptions` - the sampling mode.
+    /// * `samplingOptions` - the sampling mode.
     ///
     /// Available since API-level: 12
     ///
@@ -535,11 +535,11 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasDrawBitmapRect(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Bitmap,
+        canvas: *mut OH_Drawing_Canvas,
+        bitmap: *const OH_Drawing_Bitmap,
         src: *const OH_Drawing_Rect,
         dst: *const OH_Drawing_Rect,
-        arg3: *const OH_Drawing_SamplingOptions,
+        samplingOptions: *const OH_Drawing_SamplingOptions,
     );
     /// Draws a rect.
     ///
@@ -547,25 +547,25 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_CanvasDrawRect(arg1: *mut OH_Drawing_Canvas, arg2: *const OH_Drawing_Rect);
+    pub fn OH_Drawing_CanvasDrawRect(canvas: *mut OH_Drawing_Canvas, rect: *const OH_Drawing_Rect);
     /// Draws a circle.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
     ///
     /// * `radius` - Indicates the radius of the circle.
     ///
@@ -575,8 +575,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasDrawCircle(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Point,
+        canvas: *mut OH_Drawing_Canvas,
+        point: *const OH_Drawing_Point,
         radius: f32,
     );
     /// Fills the entire canvas with the specified color and blend mode.
@@ -613,25 +613,25 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_CanvasDrawOval(arg1: *mut OH_Drawing_Canvas, arg2: *const OH_Drawing_Rect);
+    pub fn OH_Drawing_CanvasDrawOval(canvas: *mut OH_Drawing_Canvas, rect: *const OH_Drawing_Rect);
     /// Draws an arc.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// * `startAngle` - Indicates the startAngle of the arc.
     ///
@@ -643,8 +643,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasDrawArc(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Rect,
+        canvas: *mut OH_Drawing_Canvas,
+        rect: *const OH_Drawing_Rect,
         startAngle: f32,
         sweepAngle: f32,
     );
@@ -654,9 +654,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -664,8 +664,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasDrawRoundRect(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_RoundRect,
+        canvas: *mut OH_Drawing_Canvas,
+        roundRect: *const OH_Drawing_RoundRect,
     );
     /// Draws a single character.
     ///
@@ -673,11 +673,11 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// * `str` - Indicates the single character encoded in UTF-8.
     ///
-    /// * `OH_Drawing_Font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
     ///
     /// * `x` - Indicates the horizontal offset applied to the single character.
     ///
@@ -708,9 +708,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_TextBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
+    /// * `textBlob` - Indicates the pointer to an <b>OH_Drawing_TextBlob</b> object.
     ///
     /// * `x` - Indicates the horizontal offset applied to blob.
     ///
@@ -722,8 +722,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasDrawTextBlob(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_TextBlob,
+        canvas: *mut OH_Drawing_Canvas,
+        textBlob: *const OH_Drawing_TextBlob,
         x: f32,
         y: f32,
     );
@@ -733,9 +733,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// * `clipOp` - Indicates the operation to apply to clip.
     ///
@@ -747,8 +747,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasClipRect(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Rect,
+        canvas: *mut OH_Drawing_Canvas,
+        rect: *const OH_Drawing_Rect,
         clipOp: OH_Drawing_CanvasClipOp,
         doAntiAlias: bool,
     );
@@ -758,9 +758,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_RoundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
     ///
     /// * `clipOp` - Indicates the operation to apply to clip.
     ///
@@ -772,8 +772,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasClipRoundRect(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_RoundRect,
+        canvas: *mut OH_Drawing_Canvas,
+        roundRect: *const OH_Drawing_RoundRect,
         clipOp: OH_Drawing_CanvasClipOp,
         doAntiAlias: bool,
     );
@@ -783,9 +783,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
     ///
     /// * `clipOp` - Indicates the operation to apply to clip.
     ///
@@ -797,8 +797,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_CanvasClipPath(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Path,
+        canvas: *mut OH_Drawing_Canvas,
+        path: *const OH_Drawing_Path,
         clipOp: OH_Drawing_CanvasClipOp,
         doAntiAlias: bool,
     );
@@ -836,7 +836,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// * `degrees` - Indicates the amount to rotate, in degrees.
     ///
@@ -849,14 +849,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_CanvasRotate(arg1: *mut OH_Drawing_Canvas, degrees: f32, px: f32, py: f32);
+    pub fn OH_Drawing_CanvasRotate(canvas: *mut OH_Drawing_Canvas, degrees: f32, px: f32, py: f32);
     /// Translates by dx along the x-axis and dy along the y-axis.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// * `dx` - Indicates the distance to translate on x-axis.
     ///
@@ -867,14 +867,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_CanvasTranslate(arg1: *mut OH_Drawing_Canvas, dx: f32, dy: f32);
+    pub fn OH_Drawing_CanvasTranslate(canvas: *mut OH_Drawing_Canvas, dx: f32, dy: f32);
     /// Scales by sx on the x-axis and sy on the y-axis.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// * `sx` - Indicates the amount to scale on x-axis.
     ///
@@ -885,14 +885,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_CanvasScale(arg1: *mut OH_Drawing_Canvas, sx: f32, sy: f32);
+    pub fn OH_Drawing_CanvasScale(canvas: *mut OH_Drawing_Canvas, sx: f32, sy: f32);
     /// Skew by sx on the x-axis and sy on the y-axis.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// * `sx` - Indicates the amount to skew on x-axis.
     ///
@@ -903,58 +903,44 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_CanvasSkew(arg1: *mut OH_Drawing_Canvas, sx: f32, sy: f32);
-    /// Clears a canvas by using a specified color.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
-    /// # Arguments
-    ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
-    ///
-    /// * `color` - Indicates the color, which is a 32-bit (ARGB) variable.
-    ///
-    /// Available since API-level: 8
-    ///
-    /// Version: 1.0
-    pub fn OH_Drawing_CanvasClear(arg1: *mut OH_Drawing_Canvas, color: u32);
+    pub fn OH_Drawing_CanvasSkew(canvas: *mut OH_Drawing_Canvas, sx: f32, sy: f32);
     /// Get the width of a canvas.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_CanvasGetWidth(arg1: *mut OH_Drawing_Canvas) -> i32;
+    pub fn OH_Drawing_CanvasGetWidth(canvas: *mut OH_Drawing_Canvas) -> i32;
     /// Get the height of a canvas.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_CanvasGetHeight(arg1: *mut OH_Drawing_Canvas) -> i32;
+    pub fn OH_Drawing_CanvasGetHeight(canvas: *mut OH_Drawing_Canvas) -> i32;
     /// Get the bounds of clip of a canvas.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -962,8 +948,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasGetLocalClipBounds(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *mut OH_Drawing_Rect,
+        canvas: *mut OH_Drawing_Canvas,
+        rect: *mut OH_Drawing_Rect,
     );
     /// Get a 3x3 matrix of the transform from local coordinates to 'device'.
     ///
@@ -971,9 +957,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -981,8 +967,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasGetTotalMatrix(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *mut OH_Drawing_Matrix,
+        canvas: *mut OH_Drawing_Canvas,
+        matrix: *mut OH_Drawing_Matrix,
     );
     /// Use the passed matrix to transforming the geometry, then use existing matrix.
     ///
@@ -990,9 +976,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
     /// represents the matrix which is passed.
     ///
     /// Available since API-level: 12
@@ -1001,8 +987,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasConcatMatrix(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *mut OH_Drawing_Matrix,
+        canvas: *mut OH_Drawing_Canvas,
+        matrix: *mut OH_Drawing_Matrix,
     );
     /// Use circular light to draw an offset spot shadow and outlining ambient shadow for the given path.
     ///
@@ -1010,9 +996,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object, use to generate shadows.
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object, use to generate shadows.
     ///
     /// * `planeParams` - Represents the value of the function which returns Z offset of the occluder from the
     /// canvas based on x and y.
@@ -1033,8 +1019,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasDrawShadow(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *mut OH_Drawing_Path,
+        canvas: *mut OH_Drawing_Canvas,
+        path: *mut OH_Drawing_Path,
         planeParams: OH_Drawing_Point3D,
         devLightPos: OH_Drawing_Point3D,
         lightRadius: f32,
@@ -1042,36 +1028,53 @@ extern "C" {
         spotColor: u32,
         flag: OH_Drawing_CanvasShadowFlags,
     );
+    /// Clears a canvas by using a specified color.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// * `color` - Indicates the color, which is a 32-bit (ARGB) variable.
+    ///
+    /// Available since API-level: 8
+    ///
+    /// Version: 1.0
+    pub fn OH_Drawing_CanvasClear(canvas: *mut OH_Drawing_Canvas, color: u32);
     /// Sets matrix of canvas.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_CanvasSetMatrix(arg1: *mut OH_Drawing_Canvas, arg2: *mut OH_Drawing_Matrix);
+    pub fn OH_Drawing_CanvasSetMatrix(
+        canvas: *mut OH_Drawing_Canvas,
+        matrix: *mut OH_Drawing_Matrix,
+    );
     /// Reset matrix to the idenmtity matrix, any prior matrix state is overwritten.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_CanvasResetMatrix(arg1: *mut OH_Drawing_Canvas);
+    pub fn OH_Drawing_CanvasResetMatrix(canvas: *mut OH_Drawing_Canvas);
     /// Draws the specified source rectangle of the image onto the canvas,
     /// scaled and translated to the destination rectangle.
     ///
@@ -1079,17 +1082,17 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
     /// * `src` - The area of source image.
     ///
     /// * `dst` - The area of destination canvas.
     ///
-    /// * `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
     ///
-    /// * `OH_Drawing_SrcRectConstraint` - Constraint type.
+    /// * `srcRectConstraint` - Constraint type.
     ///
     /// Available since API-level: 12
     ///
@@ -1097,12 +1100,12 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasDrawImageRectWithSrc(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *const OH_Drawing_Image,
+        canvas: *mut OH_Drawing_Canvas,
+        image: *const OH_Drawing_Image,
         src: *const OH_Drawing_Rect,
         dst: *const OH_Drawing_Rect,
-        arg3: *const OH_Drawing_SamplingOptions,
-        arg4: OH_Drawing_SrcRectConstraint,
+        samplingOptions: *const OH_Drawing_SamplingOptions,
+        srcRectConstraint: OH_Drawing_SrcRectConstraint,
     );
     /// Draws the specified source rectangle of the image onto the canvas,
     /// scaled and translated to the destination rectangle.
@@ -1111,13 +1114,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
     ///
-    /// * `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -1125,10 +1128,10 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasDrawImageRect(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *mut OH_Drawing_Image,
-        dst: *mut OH_Drawing_Rect,
-        arg3: *mut OH_Drawing_SamplingOptions,
+        canvas: *mut OH_Drawing_Canvas,
+        image: *mut OH_Drawing_Image,
+        rect: *mut OH_Drawing_Rect,
+        samplingOptions: *mut OH_Drawing_SamplingOptions,
     );
     /// Draw a triangular mesh with vertex descriptions.
     ///
@@ -1136,7 +1139,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
     /// * `vertexMmode` - Draw a set of vertices.
     ///
@@ -1152,13 +1155,15 @@ extern "C" {
     ///
     /// * `indices` - Index data pointer.
     ///
+    /// * `mode` - Blend mode used for drawing.
+    ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasDrawVertices(
-        arg1: *mut OH_Drawing_Canvas,
+        canvas: *mut OH_Drawing_Canvas,
         vertexMmode: OH_Drawing_VertexMode,
         vertexCount: i32,
         positions: *const OH_Drawing_Point2D,
@@ -1174,9 +1179,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Image_Info` - width, height, colorType, and alphaType of dstPixels.
+    /// * `imageInfo` - width, height, colorType, and alphaType of dstPixels.
     ///
     /// * `dstPixels` - destination pixel storage.
     ///
@@ -1196,8 +1201,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasReadPixels(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *mut OH_Drawing_Image_Info,
+        canvas: *mut OH_Drawing_Canvas,
+        imageInfo: *mut OH_Drawing_Image_Info,
         dstPixels: *mut ::core::ffi::c_void,
         dstRowBytes: u32,
         srcX: i32,
@@ -1209,9 +1214,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
     ///
-    /// * `OH_Drawing_Bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
     ///
     /// * `srcX` - offset into canvas writable pixels on x-axis.
     ///
@@ -1227,8 +1232,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_CanvasReadPixelsToBitmap(
-        arg1: *mut OH_Drawing_Canvas,
-        arg2: *mut OH_Drawing_Bitmap,
+        canvas: *mut OH_Drawing_Canvas,
+        bitmap: *mut OH_Drawing_Bitmap,
         srcX: i32,
         srcY: i32,
     ) -> bool;

@@ -30,40 +30,42 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_DestroyFontCollection(arg1: *mut OH_Drawing_FontCollection);
+    pub fn OH_Drawing_DestroyFontCollection(fontCollection: *mut OH_Drawing_FontCollection);
     /// Disable the font collection fallback.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_DisableFontCollectionFallback(arg1: *mut OH_Drawing_FontCollection);
+    pub fn OH_Drawing_DisableFontCollectionFallback(fontCollection: *mut OH_Drawing_FontCollection);
     /// Disable the font collection systemfont.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_DisableFontCollectionSystemFont(arg1: *mut OH_Drawing_FontCollection);
+    pub fn OH_Drawing_DisableFontCollectionSystemFont(
+        fontCollection: *mut OH_Drawing_FontCollection,
+    );
     /// Creates an <b>OH_Drawing_FontCollection</b> object with shared usage between
     /// <b>OH_Drawing_TypographyCreate</b>.
     ///
@@ -86,12 +88,27 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_ClearFontCaches(arg1: *mut OH_Drawing_FontCollection);
+    pub fn OH_Drawing_ClearFontCaches(fontCollection: *mut OH_Drawing_FontCollection);
+    /// Get the <b>OH_Drawing_FontCollection</b> global instance.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    ///
+    /// # Returns
+    ///
+    /// * Return the pointer to the <b>OH_Drawing_FontCollection</b> global instance.
+    ///
+    /// Available since API-level: 14
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-14")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
+    pub fn OH_Drawing_GetFontCollectionGlobalInstance() -> *mut OH_Drawing_FontCollection;
 }

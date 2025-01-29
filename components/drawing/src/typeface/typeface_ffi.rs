@@ -113,7 +113,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_MemoryStream` - Indicates the pointer to an <b>OH_Drawing_MemoryStream</b> object.
+    /// * `memoryStream` - Indicates the pointer to an <b>OH_Drawing_MemoryStream</b> object.
     ///
     /// * `index` - memory stream index.
     ///
@@ -127,7 +127,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TypefaceCreateFromStream(
-        arg1: *mut OH_Drawing_MemoryStream,
+        memoryStream: *mut OH_Drawing_MemoryStream,
         index: i32,
     ) -> *mut OH_Drawing_Typeface;
     /// Destroys an <b>OH_Drawing_Typeface</b> object and reclaims the memory occupied by the object.
@@ -136,14 +136,14 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    /// * `typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_TypefaceDestroy(arg1: *mut OH_Drawing_Typeface);
+    pub fn OH_Drawing_TypefaceDestroy(typeface: *mut OH_Drawing_Typeface);
     /// Creates an <b>OH_Drawing_FontArguments</b> object.
     ///
     ///

@@ -42,12 +42,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_PathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
+    /// * `pathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PathEffectDestroy(arg1: *mut OH_Drawing_PathEffect);
+    pub fn OH_Drawing_PathEffectDestroy(pathEffect: *mut OH_Drawing_PathEffect);
 }

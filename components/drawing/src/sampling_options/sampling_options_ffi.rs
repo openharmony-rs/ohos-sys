@@ -68,9 +68,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_FilterMode` - sampling filter mode.
+    /// * `filterMode` - sampling filter mode.
     ///
-    /// * `OH_Drawing_MipmapMode` - sampling mipmap mode..
+    /// * `mipmapMode` - sampling mipmap mode..
     ///
     /// # Returns
     ///
@@ -82,8 +82,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_SamplingOptionsCreate(
-        arg1: OH_Drawing_FilterMode,
-        arg2: OH_Drawing_MipmapMode,
+        filterMode: OH_Drawing_FilterMode,
+        mipmapMode: OH_Drawing_MipmapMode,
     ) -> *mut OH_Drawing_SamplingOptions;
     /// Destroys an <b>OH_Drawing_SamplingOptions</b> object and reclaims the memory occupied by the object.
     ///
@@ -91,12 +91,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_SamplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_SamplingOptionsDestroy(arg1: *mut OH_Drawing_SamplingOptions);
+    pub fn OH_Drawing_SamplingOptionsDestroy(samplingOptions: *mut OH_Drawing_SamplingOptions);
 }

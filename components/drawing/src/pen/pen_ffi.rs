@@ -76,7 +76,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
@@ -89,19 +89,19 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PenCopy(arg1: *mut OH_Drawing_Pen) -> *mut OH_Drawing_Pen;
+    pub fn OH_Drawing_PenCopy(pen: *mut OH_Drawing_Pen) -> *mut OH_Drawing_Pen;
     /// Destroys an <b>OH_Drawing_Pen</b> object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenDestroy(arg1: *mut OH_Drawing_Pen);
+    pub fn OH_Drawing_PenDestroy(pen: *mut OH_Drawing_Pen);
     /// Checks whether anti-aliasing is enabled for a pen. If anti-aliasing is enabled,
     /// edges will be drawn with partial transparency.
     ///
@@ -109,7 +109,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
@@ -118,7 +118,7 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenIsAntiAlias(arg1: *const OH_Drawing_Pen) -> bool;
+    pub fn OH_Drawing_PenIsAntiAlias(pen: *const OH_Drawing_Pen) -> bool;
     /// Enables or disables anti-aliasing for a pen. If anti-aliasing is enabled,
     /// edges will be drawn with partial transparency.
     ///
@@ -126,22 +126,22 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// * `bool` - Specifies whether to enable anti-aliasing. The value <b>true</b> means
+    /// * `antiAlias` - Specifies whether to enable anti-aliasing. The value <b>true</b> means
     /// to enable anti-aliasing, and <b>false</b> means the opposite.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenSetAntiAlias(arg1: *mut OH_Drawing_Pen, arg2: bool);
+    pub fn OH_Drawing_PenSetAntiAlias(pen: *mut OH_Drawing_Pen, antiAlias: bool);
     /// Obtains the color of a pen. The color is used by the pen to outline a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
@@ -150,28 +150,28 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenGetColor(arg1: *const OH_Drawing_Pen) -> u32;
+    pub fn OH_Drawing_PenGetColor(pen: *const OH_Drawing_Pen) -> u32;
     /// Sets the color for a pen. The color is used by the pen to outline a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// * `color` - Indicates the color to set, which is a 32-bit (ARGB) variable.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenSetColor(arg1: *mut OH_Drawing_Pen, color: u32);
+    pub fn OH_Drawing_PenSetColor(pen: *mut OH_Drawing_Pen, color: u32);
     /// Obtains the alpha of a pen. The alpha is used by the pen to outline a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
@@ -182,14 +182,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_PenGetAlpha(arg1: *const OH_Drawing_Pen) -> u8;
+    pub fn OH_Drawing_PenGetAlpha(pen: *const OH_Drawing_Pen) -> u8;
     /// Sets the alpha for a pen. The alpha is used by the pen to outline a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// * `alpha` - Indicates the alpha to set, which is a 8-bit variable.
     ///
@@ -198,14 +198,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_PenSetAlpha(arg1: *mut OH_Drawing_Pen, alpha: u8);
+    pub fn OH_Drawing_PenSetAlpha(pen: *mut OH_Drawing_Pen, alpha: u8);
     /// Obtains the thickness of a pen. This thickness determines the width of the outline of a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
@@ -214,21 +214,21 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenGetWidth(arg1: *const OH_Drawing_Pen) -> f32;
+    pub fn OH_Drawing_PenGetWidth(pen: *const OH_Drawing_Pen) -> f32;
     /// Sets the thickness for a pen. This thickness determines the width of the outline of a shape.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// * `width` - Indicates the thickness to set, which is a variable.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenSetWidth(arg1: *mut OH_Drawing_Pen, width: f32);
+    pub fn OH_Drawing_PenSetWidth(pen: *mut OH_Drawing_Pen, width: f32);
     /// Obtains the stroke miter limit of a polyline drawn by a pen.
     ///
     /// When the corner type is bevel, a beveled corner is displayed if the miter limit is exceeded,
@@ -238,7 +238,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
@@ -247,7 +247,7 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenGetMiterLimit(arg1: *const OH_Drawing_Pen) -> f32;
+    pub fn OH_Drawing_PenGetMiterLimit(pen: *const OH_Drawing_Pen) -> f32;
     /// Sets the stroke miter limit for a polyline drawn by a pen.
     ///
     /// When the corner type is bevel, a beveled corner is displayed if the miter limit is exceeded,
@@ -257,21 +257,21 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// * `miter` - Indicates a variable that describes the miter limit.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenSetMiterLimit(arg1: *mut OH_Drawing_Pen, miter: f32);
+    pub fn OH_Drawing_PenSetMiterLimit(pen: *mut OH_Drawing_Pen, miter: f32);
     /// Obtains the line cap style of a pen.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
@@ -280,28 +280,28 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenGetCap(arg1: *const OH_Drawing_Pen) -> OH_Drawing_PenLineCapStyle;
+    pub fn OH_Drawing_PenGetCap(pen: *const OH_Drawing_Pen) -> OH_Drawing_PenLineCapStyle;
     /// Sets the line cap style for a pen.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// * `OH_Drawing_PenLineCapStyle` - Indicates a variable that describes the line cap style.
+    /// * `capStyle` - Indicates a variable that describes the line cap style.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenSetCap(arg1: *mut OH_Drawing_Pen, arg2: OH_Drawing_PenLineCapStyle);
+    pub fn OH_Drawing_PenSetCap(pen: *mut OH_Drawing_Pen, capStyle: OH_Drawing_PenLineCapStyle);
     /// Obtains the line join style of a pen.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// # Returns
     ///
@@ -310,30 +310,30 @@ extern "C" {
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenGetJoin(arg1: *const OH_Drawing_Pen) -> OH_Drawing_PenLineJoinStyle;
+    pub fn OH_Drawing_PenGetJoin(pen: *const OH_Drawing_Pen) -> OH_Drawing_PenLineJoinStyle;
     /// Sets the line join style for a pen.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// * `OH_Drawing_PenLineJoinStyle` - Indicates a variable that describes the line join style.
+    /// * `joinStyle` - Indicates a variable that describes the line join style.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
-    pub fn OH_Drawing_PenSetJoin(arg1: *mut OH_Drawing_Pen, arg2: OH_Drawing_PenLineJoinStyle);
+    pub fn OH_Drawing_PenSetJoin(pen: *mut OH_Drawing_Pen, joinStyle: OH_Drawing_PenLineJoinStyle);
     /// Sets the shaderEffect for a pen.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// * `OH_Drawing_ShaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
+    /// * `shaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
     ///
     /// Available since API-level: 11
     ///
@@ -341,8 +341,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_PenSetShaderEffect(
-        arg1: *mut OH_Drawing_Pen,
-        arg2: *mut OH_Drawing_ShaderEffect,
+        pen: *mut OH_Drawing_Pen,
+        shaderEffect: *mut OH_Drawing_ShaderEffect,
     );
     /// Sets the shadowLayer for a pen.
     ///
@@ -350,9 +350,9 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// * `OH_Drawing_ShadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
+    /// * `shadowLayer` - Indicates the pointer to an <b>OH_Drawing_ShadowLayer</b> object.
     ///
     /// Available since API-level: 12
     ///
@@ -360,8 +360,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PenSetShadowLayer(
-        arg1: *mut OH_Drawing_Pen,
-        arg2: *mut OH_Drawing_ShadowLayer,
+        pen: *mut OH_Drawing_Pen,
+        shadowLayer: *mut OH_Drawing_ShadowLayer,
     );
     /// Sets the pathEffect for a pen.
     ///
@@ -369,80 +369,83 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// * `OH_Drawing_PathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
+    /// * `pathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PenSetPathEffect(arg1: *mut OH_Drawing_Pen, arg2: *mut OH_Drawing_PathEffect);
+    pub fn OH_Drawing_PenSetPathEffect(
+        pen: *mut OH_Drawing_Pen,
+        pathEffect: *mut OH_Drawing_PathEffect,
+    );
     /// Sets the filter for a pen.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_PenSetFilter(arg1: *mut OH_Drawing_Pen, arg2: *mut OH_Drawing_Filter);
+    pub fn OH_Drawing_PenSetFilter(pen: *mut OH_Drawing_Pen, filter: *mut OH_Drawing_Filter);
     /// Gets the filter from a pen.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// * `OH_Drawing_Filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PenGetFilter(arg1: *mut OH_Drawing_Pen, arg2: *mut OH_Drawing_Filter);
+    pub fn OH_Drawing_PenGetFilter(pen: *mut OH_Drawing_Pen, filter: *mut OH_Drawing_Filter);
     /// Sets a blender that implements the specified blendmode enum for a pen.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
-    /// * `OH_Drawing_BlendMode` - Indicates the blend mode.
+    /// * `blendMode` - Indicates the blend mode.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PenSetBlendMode(arg1: *mut OH_Drawing_Pen, arg2: OH_Drawing_BlendMode);
+    pub fn OH_Drawing_PenSetBlendMode(pen: *mut OH_Drawing_Pen, blendMode: OH_Drawing_BlendMode);
     /// Gets the filled equivalent of the src path.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// * `src` - Indicates the Path read to create a filled version.
     ///
     /// * `dst` - Indicates the resulting Path.
     ///
-    /// * `OH_Drawing_Rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object that limits the PathEffect area if
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object that limits the PathEffect area if
     /// Pen has PathEffect.
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object that tranfomation applied to
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object that tranfomation applied to
     /// PathEffect if Pen has PathEffect.
     ///
     /// # Returns
@@ -455,11 +458,11 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_PenGetFillPath(
-        arg1: *mut OH_Drawing_Pen,
+        pen: *mut OH_Drawing_Pen,
         src: *const OH_Drawing_Path,
         dst: *mut OH_Drawing_Path,
-        arg2: *const OH_Drawing_Rect,
-        arg3: *const OH_Drawing_Matrix,
+        rect: *const OH_Drawing_Rect,
+        matrix: *const OH_Drawing_Matrix,
     ) -> bool;
     /// Resets all pen contents to their initial values.
     ///
@@ -467,12 +470,12 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_PenReset(arg1: *mut OH_Drawing_Pen);
+    pub fn OH_Drawing_PenReset(pen: *mut OH_Drawing_Pen);
 }

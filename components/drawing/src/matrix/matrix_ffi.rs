@@ -67,8 +67,6 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
-    ///
     /// * `deg` - angle of axes relative to upright axes
     ///
     /// * `x` - pivot on x-axis.
@@ -87,8 +85,6 @@ extern "C" {
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
-    ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `sx` - horizontal scale factor.
     ///
@@ -119,8 +115,6 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
-    ///
     /// * `dx` - horizontal translation.
     ///
     /// * `dy` - vertical translation.
@@ -141,7 +135,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `scaleX` - horizontal scale factor to store
     ///
@@ -167,7 +161,7 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_MatrixSetMatrix(
-        arg1: *mut OH_Drawing_Matrix,
+        matrix: *mut OH_Drawing_Matrix,
         scaleX: f32,
         skewX: f32,
         transX: f32,
@@ -184,7 +178,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `src` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object rect to map from.
     ///
@@ -206,7 +200,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixSetRectToRect(
-        arg1: *mut OH_Drawing_Matrix,
+        matrix: *mut OH_Drawing_Matrix,
         src: *const OH_Drawing_Rect,
         dst: *const OH_Drawing_Rect,
         stf: OH_Drawing_ScaleToFit,
@@ -236,7 +230,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `degree` - Indicates the angle of axes relative to upright axes.
     ///
@@ -249,7 +243,12 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_MatrixPreRotate(arg1: *mut OH_Drawing_Matrix, degree: f32, px: f32, py: f32);
+    pub fn OH_Drawing_MatrixPreRotate(
+        matrix: *mut OH_Drawing_Matrix,
+        degree: f32,
+        px: f32,
+        py: f32,
+    );
     /// Sets matrix to forward scale by sx and sy, about a pivot point at (px, py).
     /// Given:
     ///
@@ -272,7 +271,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `sx` - Horizontal scale factor.
     ///
@@ -288,7 +287,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixPreScale(
-        arg1: *mut OH_Drawing_Matrix,
+        matrix: *mut OH_Drawing_Matrix,
         sx: f32,
         sy: f32,
         px: f32,
@@ -308,7 +307,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `dx` - Indicates the horizontal translation.
     ///
@@ -319,7 +318,7 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_MatrixPreTranslate(arg1: *mut OH_Drawing_Matrix, dx: f32, dy: f32);
+    pub fn OH_Drawing_MatrixPreTranslate(matrix: *mut OH_Drawing_Matrix, dx: f32, dy: f32);
     /// Sets matrix to matrix constructed from rotating by degrees about pivot point(px, py),
     /// multiplied by matrix, positive degrees rotates clockwise.
     /// Given:
@@ -345,7 +344,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `degree` - Indicates the angle of axes relative to upright axes.
     ///
@@ -358,7 +357,12 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_MatrixPostRotate(arg1: *mut OH_Drawing_Matrix, degree: f32, px: f32, py: f32);
+    pub fn OH_Drawing_MatrixPostRotate(
+        matrix: *mut OH_Drawing_Matrix,
+        degree: f32,
+        px: f32,
+        py: f32,
+    );
     /// Sets matrix to backward scale by sx and sy, about a pivot point at (px, py).
     /// Given:
     /// | J K L | | sx 0 dx |
@@ -376,7 +380,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `sx` - Horizontal scale factor.
     ///
@@ -392,7 +396,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixPostScale(
-        arg1: *mut OH_Drawing_Matrix,
+        matrix: *mut OH_Drawing_Matrix,
         sx: f32,
         sy: f32,
         px: f32,
@@ -415,7 +419,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `dx` - Indicates the horizontal translation.
     ///
@@ -426,7 +430,7 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_MatrixPostTranslate(arg1: *mut OH_Drawing_Matrix, dx: f32, dy: f32);
+    pub fn OH_Drawing_MatrixPostTranslate(matrix: *mut OH_Drawing_Matrix, dx: f32, dy: f32);
     /// Reset matrix to identity, which has no effect on mapped point, sets matrix to:
     /// | 1 0 0 |
     /// | 0 1 0 |
@@ -436,14 +440,14 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 12
     ///
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_MatrixReset(arg1: *mut OH_Drawing_Matrix);
+    pub fn OH_Drawing_MatrixReset(matrix: *mut OH_Drawing_Matrix);
     /// Sets matrix total to matrix a multiplied by matrix b.
     /// Given:
     /// | A B C | | J K L |
@@ -503,7 +507,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `index` - one of 0-8.
     ///
@@ -517,7 +521,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixGetValue(
-        arg1: *mut OH_Drawing_Matrix,
+        matrix: *mut OH_Drawing_Matrix,
         index: ::core::ffi::c_int,
     ) -> f32;
     /// Sets matrix to rotate by degrees about a pivot point at (px, py). The pivot point is unchanged
@@ -527,7 +531,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `degree` - Indicates the angle of axes relative to upright axes.
     ///
@@ -540,14 +544,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_MatrixRotate(arg1: *mut OH_Drawing_Matrix, degree: f32, px: f32, py: f32);
+    pub fn OH_Drawing_MatrixRotate(matrix: *mut OH_Drawing_Matrix, degree: f32, px: f32, py: f32);
     /// Sets matrix to translate by (dx, dy)
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `dx` - Indicates the horizontal translation.
     ///
@@ -558,14 +562,14 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_MatrixTranslate(arg1: *mut OH_Drawing_Matrix, dx: f32, dy: f32);
+    pub fn OH_Drawing_MatrixTranslate(matrix: *mut OH_Drawing_Matrix, dx: f32, dy: f32);
     /// Sets matrix to scale by sx and sy, about a pivot point at (px, py).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `sx` - Indicates the horizontal scale factor.
     ///
@@ -580,14 +584,20 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_MatrixScale(arg1: *mut OH_Drawing_Matrix, sx: f32, sy: f32, px: f32, py: f32);
+    pub fn OH_Drawing_MatrixScale(
+        matrix: *mut OH_Drawing_Matrix,
+        sx: f32,
+        sy: f32,
+        px: f32,
+        py: f32,
+    );
     /// Sets inverse to reciprocal matrix, returning true if matrix can be inverted.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `inverse` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
@@ -602,7 +612,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixInvert(
-        arg1: *mut OH_Drawing_Matrix,
+        matrix: *mut OH_Drawing_Matrix,
         inverse: *mut OH_Drawing_Matrix,
     ) -> bool;
     /// Sets the params of matrix to map src to dst.
@@ -612,7 +622,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `src` - Points to map from.
     ///
@@ -630,7 +640,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixSetPolyToPoly(
-        arg1: *mut OH_Drawing_Matrix,
+        matrix: *mut OH_Drawing_Matrix,
         src: *const OH_Drawing_Point2D,
         dst: *const OH_Drawing_Point2D,
         count: u32,
@@ -641,7 +651,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `src` - Points to map from.
     ///
@@ -655,7 +665,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixMapPoints(
-        arg1: *const OH_Drawing_Matrix,
+        matrix: *const OH_Drawing_Matrix,
         src: *const OH_Drawing_Point2D,
         dst: *mut OH_Drawing_Point2D,
         count: ::core::ffi::c_int,
@@ -666,7 +676,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `src` - Rect to map from.
     ///
@@ -682,7 +692,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixMapRect(
-        arg1: *const OH_Drawing_Matrix,
+        matrix: *const OH_Drawing_Matrix,
         src: *const OH_Drawing_Rect,
         dst: *mut OH_Drawing_Rect,
     ) -> bool;
@@ -692,7 +702,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// * `other` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
@@ -706,7 +716,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixIsEqual(
-        arg1: *mut OH_Drawing_Matrix,
+        matrix: *mut OH_Drawing_Matrix,
         other: *mut OH_Drawing_Matrix,
     ) -> bool;
     /// Returns true if matrix is identity.
@@ -718,7 +728,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// # Returns
     ///
@@ -729,19 +739,19 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_MatrixIsIdentity(arg1: *mut OH_Drawing_Matrix) -> bool;
+    pub fn OH_Drawing_MatrixIsIdentity(matrix: *mut OH_Drawing_Matrix) -> bool;
     /// Destroys an <b>OH_Drawing_Matrix</b> object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `OH_Drawing_Matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    pub fn OH_Drawing_MatrixDestroy(arg1: *mut OH_Drawing_Matrix);
+    pub fn OH_Drawing_MatrixDestroy(matrix: *mut OH_Drawing_Matrix);
 }
