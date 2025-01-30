@@ -4,10 +4,18 @@
 
 pub mod common;
 pub mod image;
+#[cfg(feature = "image-packer")]
+#[cfg_attr(docsrs, doc(cfg(feature = "image-packer")))]
 pub mod image_packer;
+#[cfg(feature = "image-receiver")]
+#[cfg_attr(docsrs, doc(cfg(feature = "image-receiver")))]
 pub mod image_receiver;
+#[cfg(feature = "image-source")]
+#[cfg_attr(docsrs, doc(cfg(feature = "image-source")))]
 pub mod image_source;
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+#[cfg(all(feature = "api-13", feature = "pixelmap"))]
+#[cfg_attr(docsrs, doc(cfg(all(feature = "api-13", feature = "pixelmap"))))]
 pub mod picture;
+#[cfg(feature = "pixelmap")]
+#[cfg_attr(docsrs, doc(cfg(feature = "pixelmap")))]
 pub mod pixelmap;
