@@ -174,6 +174,7 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
                     builder.raw_line("use crate::types::*;")
                 } else {
                     builder
+                        .result_error_enum("InputMethod_ErrorCode")
                 }.parse_callbacks(Box::new(ResultEnumParseCallbacks {
                     rename_item: Box::new(|enum_name| {
                         match enum_name {
