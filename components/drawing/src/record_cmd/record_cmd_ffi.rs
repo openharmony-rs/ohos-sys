@@ -5,10 +5,6 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
-
 extern "C" {
     /// Creates an <b>OH_Drawing_RecordCmdUtils</b> object.
     ///
@@ -46,7 +42,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Drawing_RecordCmdUtilsDestroy(
         recordCmdUtils: *mut OH_Drawing_RecordCmdUtils,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Get the canvas that records the drawing command.
     ///
     ///
@@ -79,7 +75,7 @@ extern "C" {
         width: i32,
         height: i32,
         canvas: *mut *mut OH_Drawing_Canvas,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Finish the recording and get the recording command object.
     ///
     ///
@@ -105,7 +101,7 @@ extern "C" {
     pub fn OH_Drawing_RecordCmdUtilsFinishRecording(
         recordCmdUtils: *mut OH_Drawing_RecordCmdUtils,
         recordCmd: *mut *mut OH_Drawing_RecordCmd,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Destroys an <b>OH_Drawing_RecordCmd</b> object and reclaims the memory occupied by the object.
     ///
     ///
@@ -127,5 +123,5 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Drawing_RecordCmdDestroy(
         recordCmd: *mut OH_Drawing_RecordCmd,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
 }

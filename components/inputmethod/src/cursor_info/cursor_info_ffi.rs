@@ -76,7 +76,7 @@ extern "C" {
         top: f64,
         width: f64,
         height: f64,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get cursor info.
     ///
     /// # Arguments
@@ -107,5 +107,5 @@ extern "C" {
         top: *mut f64,
         width: *mut f64,
         height: *mut f64,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
 }

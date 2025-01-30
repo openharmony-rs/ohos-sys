@@ -66,115 +66,115 @@ pub struct OH_PictureMetadata {
 pub type Image_MimeType = Image_String;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// operation success
-    pub const IMAGE_SUCCESS: Image_ErrorCode = Image_ErrorCode(0);
+    pub const SUCCESS: ImageResult = ImageResult(0);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// invalid parameter
-    pub const IMAGE_BAD_PARAMETER: Image_ErrorCode = Image_ErrorCode(401);
+    pub const BAD_PARAMETER: ImageResult = ImageResult(401);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// unsupported mime type
-    pub const IMAGE_UNSUPPORTED_MIME_TYPE: Image_ErrorCode = Image_ErrorCode(7600101);
+    pub const UNSUPPORTED_MIME_TYPE: ImageResult = ImageResult(7600101);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// unknown mime type
-    pub const IMAGE_UNKNOWN_MIME_TYPE: Image_ErrorCode = Image_ErrorCode(7600102);
+    pub const UNKNOWN_MIME_TYPE: ImageResult = ImageResult(7600102);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// too large data or image
-    pub const IMAGE_TOO_LARGE: Image_ErrorCode = Image_ErrorCode(7600103);
+    pub const TOO_LARGE: ImageResult = ImageResult(7600103);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// DMA memory does not exist
-    pub const IMAGE_DMA_NOT_EXIST: Image_ErrorCode = Image_ErrorCode(7600173);
+    pub const DMA_NOT_EXIST: ImageResult = ImageResult(7600173);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// DMA operation failed
-    pub const IMAGE_DMA_OPERATION_FAILED: Image_ErrorCode = Image_ErrorCode(7600174);
+    pub const DMA_OPERATION_FAILED: ImageResult = ImageResult(7600174);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// unsupported operations
-    pub const IMAGE_UNSUPPORTED_OPERATION: Image_ErrorCode = Image_ErrorCode(7600201);
+    pub const UNSUPPORTED_OPERATION: ImageResult = ImageResult(7600201);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// unsupported metadata
-    pub const IMAGE_UNSUPPORTED_METADATA: Image_ErrorCode = Image_ErrorCode(7600202);
+    pub const UNSUPPORTED_METADATA: ImageResult = ImageResult(7600202);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// unsupported conversion
-    pub const IMAGE_UNSUPPORTED_CONVERSION: Image_ErrorCode = Image_ErrorCode(7600203);
+    pub const UNSUPPORTED_CONVERSION: ImageResult = ImageResult(7600203);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// invalid region
-    pub const IMAGE_INVALID_REGION: Image_ErrorCode = Image_ErrorCode(7600204);
+    pub const INVALID_REGION: ImageResult = ImageResult(7600204);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// unsupported memory format
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub const IMAGE_UNSUPPORTED_MEMORY_FORMAT: Image_ErrorCode = Image_ErrorCode(7600205);
+    pub const UNSUPPORTED_MEMORY_FORMAT: ImageResult = ImageResult(7600205);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// failed to allocate memory
-    pub const IMAGE_ALLOC_FAILED: Image_ErrorCode = Image_ErrorCode(7600301);
+    pub const ALLOC_FAILED: ImageResult = ImageResult(7600301);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// memory copy failed
-    pub const IMAGE_COPY_FAILED: Image_ErrorCode = Image_ErrorCode(7600302);
+    pub const COPY_FAILED: ImageResult = ImageResult(7600302);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// unknown error
-    pub const IMAGE_UNKNOWN_ERROR: Image_ErrorCode = Image_ErrorCode(7600901);
+    pub const UNKNOWN_ERROR: ImageResult = ImageResult(7600901);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// decode data source exception
-    pub const IMAGE_BAD_SOURCE: Image_ErrorCode = Image_ErrorCode(7700101);
+    pub const BAD_SOURCE: ImageResult = ImageResult(7700101);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// decode failed
-    pub const IMAGE_DECODE_FAILED: Image_ErrorCode = Image_ErrorCode(7700301);
+    pub const DECODE_FAILED: ImageResult = ImageResult(7700301);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Image_ErrorCode {
+impl ImageResult {
     /// encode failed
-    pub const IMAGE_ENCODE_FAILED: Image_ErrorCode = Image_ErrorCode(7800301);
+    pub const ENCODE_FAILED: ImageResult = ImageResult(7800301);
 }
 #[repr(transparent)]
 /// Enumerates the return values that may be used by the interface.
@@ -184,7 +184,7 @@ impl Image_ErrorCode {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Clone, Hash, PartialEq, Eq)]
-pub struct Image_ErrorCode(pub ::core::ffi::c_uint);
+pub struct ImageResult(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl Image_MetadataType {
@@ -1461,7 +1461,7 @@ extern "C" {
     pub fn OH_PictureMetadata_Create(
         metadataType: Image_MetadataType,
         metadata: *mut *mut OH_PictureMetadata,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the property of picture metadata.
     ///
     /// # Arguments
@@ -1487,7 +1487,7 @@ extern "C" {
         metadata: *mut OH_PictureMetadata,
         key: *mut Image_String,
         value: *mut Image_String,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set picture metadata property.
     ///
     /// # Arguments
@@ -1513,7 +1513,7 @@ extern "C" {
         metadata: *mut OH_PictureMetadata,
         key: *mut Image_String,
         value: *mut Image_String,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases this PictureMetadata object.
     ///
     /// # Arguments
@@ -1529,7 +1529,7 @@ extern "C" {
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_PictureMetadata_Release(metadata: *mut OH_PictureMetadata) -> Image_ErrorCode;
+    pub fn OH_PictureMetadata_Release(metadata: *mut OH_PictureMetadata) -> ImageResult;
     /// Obtains a clone of metadata.
     ///
     /// # Arguments
@@ -1552,5 +1552,5 @@ extern "C" {
     pub fn OH_PictureMetadata_Clone(
         oldMetadata: *mut OH_PictureMetadata,
         newMetadata: *mut *mut OH_PictureMetadata,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
 }

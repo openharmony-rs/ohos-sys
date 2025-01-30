@@ -5,10 +5,6 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
-
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_SrcRectConstraint {
@@ -462,7 +458,7 @@ extern "C" {
     pub fn OH_Drawing_CanvasDrawPoint(
         canvas: *mut OH_Drawing_Canvas,
         point: *const OH_Drawing_Point2D,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Draws point array as separate point, line segment or open polygon according to given point mode.
     ///
     ///
@@ -606,7 +602,7 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         color: u32,
         blendMode: OH_Drawing_BlendMode,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Draws an oval.
     ///
     ///
@@ -701,7 +697,7 @@ extern "C" {
         font: *const OH_Drawing_Font,
         x: f32,
         y: f32,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Draws a textblob.
     ///
     ///
@@ -829,7 +825,7 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         region: *const OH_Drawing_Region,
         clipOp: OH_Drawing_CanvasClipOp,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Rotates by degrees. Positive degrees rotates clockwise.
     ///
     ///
@@ -1261,7 +1257,7 @@ extern "C" {
     pub fn OH_Drawing_CanvasIsClipEmpty(
         canvas: *mut OH_Drawing_Canvas,
         isClipEmpty: *mut bool,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Gets image info of canvas.
     ///
     ///
@@ -1286,7 +1282,7 @@ extern "C" {
     pub fn OH_Drawing_CanvasGetImageInfo(
         canvas: *mut OH_Drawing_Canvas,
         imageInfo: *mut OH_Drawing_Image_Info,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Replay drawing command.
     ///
     ///
@@ -1311,5 +1307,5 @@ extern "C" {
     pub fn OH_Drawing_CanvasDrawRecordCmd(
         canvas: *mut OH_Drawing_Canvas,
         recordCmd: *mut OH_Drawing_RecordCmd,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
 }

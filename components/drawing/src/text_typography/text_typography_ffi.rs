@@ -3,14 +3,10 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-use crate::types::*;
-
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
 #[cfg(feature = "api-12")]
 use crate::font::OH_Drawing_Font_Metrics;
 use crate::text_declaration::*;
+use crate::types::*;
 
 impl OH_Drawing_TextDirection {
     /// Right to left (RTL)
@@ -470,28 +466,27 @@ impl OH_Drawing_FontConfigInfoErrorCode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FontConfigInfoErrorCode {
     /// Unknown error
-    pub const ERROR_FONT_CONFIG_INFO_UNKNOWN: OH_Drawing_FontConfigInfoErrorCode =
-        OH_Drawing_FontConfigInfoErrorCode(1);
+    pub const UNKNOWN: OH_Drawing_FontConfigInfoErrorCode = OH_Drawing_FontConfigInfoErrorCode(1);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FontConfigInfoErrorCode {
     /// Parse system config file error
-    pub const ERROR_FONT_CONFIG_INFO_PARSE_FILE: OH_Drawing_FontConfigInfoErrorCode =
+    pub const PARSE_FILE: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(2);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FontConfigInfoErrorCode {
     /// Alloc memory error
-    pub const ERROR_FONT_CONFIG_INFO_ALLOC_MEMORY: OH_Drawing_FontConfigInfoErrorCode =
+    pub const ALLOC_MEMORY: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(3);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FontConfigInfoErrorCode {
     /// Copy string data error
-    pub const ERROR_FONT_CONFIG_INFO_COPY_STRING_DATA: OH_Drawing_FontConfigInfoErrorCode =
+    pub const COPY_STRING_DATA: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(4);
 }
 #[repr(transparent)]

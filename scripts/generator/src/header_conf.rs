@@ -1,5 +1,5 @@
-use bindgen::EnumVariation;
 use crate::BindingConf;
+use bindgen::EnumVariation;
 
 pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
     vec![
@@ -10,6 +10,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                 builder.default_enum_style(EnumVariation::NewType {
                     is_bitfield: false,
                     is_global: false,
+                    is_result_type: false,
                 })
             }),
         },
@@ -20,6 +21,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                 builder.default_enum_style(EnumVariation::NewType {
                     is_bitfield: false,
                     is_global: false,
+                    is_result_type: false,
                 })
             }),
         },
@@ -31,6 +33,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
+                        is_result_type: false,
                     })
                     .blocklist_var("LOG_DOMAIN")
             }),
@@ -43,6 +46,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
+                        is_result_type: false,
                     })
                     .prepend_enum_name(false)
                     .no_copy("napi_property_descriptor")
@@ -60,6 +64,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
+                        is_result_type: false,
                     })
                     .bitfield_enum("^HiTrace_Flag$")
                     .rustified_non_exhaustive_enum("HiTrace_Tracepoint_Type")
@@ -76,6 +81,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
+                        is_result_type: false,
                     })
                     .allowlist_file(r".*/xcomponent/native_.*xcomponent.*\.h")
                     .allowlist_recursively(false)
@@ -128,6 +134,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
+                        is_result_type: false,
                     })
                     .allowlist_file(r".*/native_buffer/.*\.h")
                     .bitfield_enum("OH_NativeBuffer_Usage")
@@ -143,6 +150,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
+                        is_result_type: false,
                     })
                     .allowlist_file(r".*/native_image/.*\.h")
                     .blocklist_item("^(OH)?NativeWindow(Buffer)?")
@@ -160,6 +168,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
+                        is_result_type: false,
                     })
                     .constified_enum_module("^NativeWindowOperation$")
                     .allowlist_file(".*native_window/external_window.h")
@@ -175,18 +184,21 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
+                        is_result_type: false,
                     })
                     .clang_args(["-include", "stdbool.h", "-include", "stdint.h"])
             }),
         },
         BindingConf {
             include_filename: "arkui/ui_input_event.h".to_string(),
-            output_prefix: "components/arkui/src/ui_input_event/ui_input_event_anon_enums".to_string(),
+            output_prefix: "components/arkui/src/ui_input_event/ui_input_event_anon_enums"
+                .to_string(),
             set_builder_opts: Box::new(move |builder| {
                 builder
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
+                        is_result_type: false,
                     })
                     .allowlist_var("UI_TOUCH_EVENT_ACTION_.*")
                     .allowlist_var("UI_INPUT_EVENT_TOOL_TYPE_.*")
@@ -195,7 +207,6 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .allowlist_var("UI_MOUSE_EVENT_BUTTON_*")
                     .allowlist_recursively(true)
                     .clang_args(["-include", "stdbool.h"])
-
             }),
         },
         BindingConf {

@@ -10,19 +10,19 @@ pub use ohos_sys_opaque_types::OH_PixelmapNative;
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_DragResult {
     /// The drag and drop operation succeeded.
-    pub const ARKUI_DRAG_RESULT_SUCCESSFUL: ArkUI_DragResult = ArkUI_DragResult(0);
+    pub const SUCCESSFUL: ArkUI_DragResult = ArkUI_DragResult(0);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_DragResult {
     /// The drag and drop operation failed.
-    pub const ARKUI_DRAG_RESULT_FAILED: ArkUI_DragResult = ArkUI_DragResult(1);
+    pub const FAILED: ArkUI_DragResult = ArkUI_DragResult(1);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_DragResult {
     /// The drag and drop operation was canceled.
-    pub const ARKUI_DRAG_RESULT_CANCELED: ArkUI_DragResult = ArkUI_DragResult(2);
+    pub const CANCELED: ArkUI_DragResult = ArkUI_DragResult(2);
 }
 #[repr(transparent)]
 /// Defines an enum for drag results, which are set by the data receiver and transferred by the system to the

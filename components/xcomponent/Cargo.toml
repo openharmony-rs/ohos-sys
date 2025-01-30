@@ -12,7 +12,7 @@ readme = "README.md"
 [dependencies]
 document-features = { version = "0.2", optional = true }
 keyboard-types = {version = "0.7.0", optional = true}
-arkui-sys = { version = "0.2.0", path = "../arkui", optional = true}
+arkui-sys = { version = "0.3.0", path = "../arkui", optional = true}
 ohos-sys-opaque-types = { workspace = true}
 
 [features]

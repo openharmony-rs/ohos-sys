@@ -58,7 +58,7 @@ extern "C" {
     pub fn OH_TextAvoidInfo_SetPositionY(
         info: *mut InputMethod_TextAvoidInfo,
         positionY: f64,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set height value into [`InputMethod_TextAvoidInfo`].
     ///
     /// # Arguments
@@ -80,7 +80,7 @@ extern "C" {
     pub fn OH_TextAvoidInfo_SetHeight(
         info: *mut InputMethod_TextAvoidInfo,
         height: f64,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get positionY value from [`InputMethod_TextAvoidInfo`].
     ///
     /// # Arguments
@@ -102,7 +102,7 @@ extern "C" {
     pub fn OH_TextAvoidInfo_GetPositionY(
         info: *mut InputMethod_TextAvoidInfo,
         positionY: *mut f64,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get height value into [`InputMethod_TextAvoidInfo`].
     ///
     /// # Arguments
@@ -124,5 +124,5 @@ extern "C" {
     pub fn OH_TextAvoidInfo_GetHeight(
         info: *mut InputMethod_TextAvoidInfo,
         height: *mut f64,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
 }

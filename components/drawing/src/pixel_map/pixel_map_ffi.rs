@@ -4,10 +4,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::types::*;
-
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
 use ohos_sys_opaque_types::{NativePixelMap_, OH_PixelmapNative};
 
 extern "C" {

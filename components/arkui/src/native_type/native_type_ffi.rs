@@ -3608,106 +3608,114 @@ impl ArkUI_ListItemSwipeEdgeEffect {
 pub struct ArkUI_ListItemSwipeEdgeEffect(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
-    /// No errors.
-    pub const ARKUI_ERROR_CODE_NO_ERROR: ArkUI_ErrorCode = ArkUI_ErrorCode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// Parameter error.
-    pub const ARKUI_ERROR_CODE_PARAM_INVALID: ArkUI_ErrorCode = ArkUI_ErrorCode(401);
+    pub const PARAM_INVALID: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(401).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The component does not support specific properties or events.
-    pub const ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED: ArkUI_ErrorCode =
-        ArkUI_ErrorCode(106102);
+    pub const ATTRIBUTE_OR_EVENT_NOT_SUPPORTED: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106102).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The corresponding operation does not support nodes created by ArkTS.
-    pub const ARKUI_ERROR_CODE_ARKTS_NODE_NOT_SUPPORTED: ArkUI_ErrorCode = ArkUI_ErrorCode(106103);
+    pub const ARKTS_NODE_NOT_SUPPORTED: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106103).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The lazy loading adapter is not bound to the component.
-    pub const ARKUI_ERROR_CODE_ADAPTER_NOT_BOUND: ArkUI_ErrorCode = ArkUI_ErrorCode(106104);
+    pub const ADAPTER_NOT_BOUND: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106104).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The adapter already exists.
-    pub const ARKUI_ERROR_CODE_ADAPTER_EXIST: ArkUI_ErrorCode = ArkUI_ErrorCode(106105);
+    pub const ADAPTER_EXIST: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106105).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The corresponding node already has a child node and cannot add an adapter.
-    pub const ARKUI_ERROR_CODE_CHILD_NODE_EXIST: ArkUI_ErrorCode = ArkUI_ErrorCode(106106);
+    pub const CHILD_NODE_EXIST: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106106).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The parameter length in the parameter event exceeds the limit.
-    pub const ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE: ArkUI_ErrorCode =
-        ArkUI_ErrorCode(106107);
+    pub const NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106107).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The data does not exist in the component event.
-    pub const ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INVALID: ArkUI_ErrorCode = ArkUI_ErrorCode(106108);
+    pub const NODE_EVENT_PARAM_INVALID: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106108).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The component event does not support return values.
-    pub const ARKUI_ERROR_CODE_NODE_EVENT_NO_RETURN: ArkUI_ErrorCode = ArkUI_ErrorCode(106109);
+    pub const NODE_EVENT_NO_RETURN: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106109).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The index value is invalid.
-    pub const ARKUI_ERROR_CODE_NODE_INDEX_INVALID: ArkUI_ErrorCode = ArkUI_ErrorCode(106200);
+    pub const NODE_INDEX_INVALID: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106200).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// Failed to query route navigation information.
-    pub const ARKUI_ERROR_CODE_GET_INFO_FAILED: ArkUI_ErrorCode = ArkUI_ErrorCode(106201);
+    pub const GET_INFO_FAILED: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106201).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The buffer size is not large enough.
-    pub const ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR: ArkUI_ErrorCode = ArkUI_ErrorCode(106202);
+    pub const BUFFER_SIZE_ERROR: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106202).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The component is not a scroll container.
-    pub const ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER: ArkUI_ErrorCode = ArkUI_ErrorCode(180001);
+    pub const NON_SCROLLABLE_CONTAINER: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(180001).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// The buffer is not large enough.
-    pub const ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH: ArkUI_ErrorCode = ArkUI_ErrorCode(180002);
+    pub const BUFFER_SIZE_NOT_ENOUGH: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(180002).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ErrorCode {
+impl ArkUiErrorCode {
     /// invalid styled string.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-    pub const ARKUI_ERROR_CODE_INVALID_STYLED_STRING: ArkUI_ErrorCode = ArkUI_ErrorCode(180101);
+    pub const INVALID_STYLED_STRING: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(180101).unwrap() });
 }
+pub type ArkUiResult = Result<(), ArkUiErrorCode>;
 #[repr(transparent)]
 /// Define error code enumeration values.
 ///
@@ -3716,7 +3724,7 @@ impl ArkUI_ErrorCode {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Copy, Clone, Hash, PartialEq, Eq)]
-pub struct ArkUI_ErrorCode(pub ::core::ffi::c_uint);
+pub struct ArkUiErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_AnimationStatus {

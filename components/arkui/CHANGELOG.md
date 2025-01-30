@@ -1,3 +1,13 @@
+# Changelog
+
+## 0.3.0 (unreleased)
+
+### Breaking
+
+- Removed `ARKUI_DRAG_RESULT_` prefix from `ArkUI_DragResult` variants.
+- Removed `GESTURE_INTERRUPT_RESULT_` prefix from `ArkUI_GestureInterruptResult` variants.
+- Replace `ArkUI_ErrorCode` with `ArkUiResult` (an alias to `Result<(), NonZero<ArkUiErrorCode>>`)
+
 ## 0.2.3 (2025-01-09)
 
 ### Add

@@ -1,6 +1,6 @@
 [package]
 name = "arkui-sys"
-version = "0.2.4"
+version = "0.3.0"
 edition = "2021"
 description = "Bindings to the native ArkUI API of OpenHarmony"
 license = "Apache-2.0"
@@ -11,7 +11,7 @@ readme = "README.md"
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
-ohos-drawing-sys = { version = "0.2", optional = true, path = "../drawing" }
+ohos-drawing-sys = { version = "0.3", optional = true, path = "../drawing" }
 ohos-sys-opaque-types = { workspace = true }
 
 [features]

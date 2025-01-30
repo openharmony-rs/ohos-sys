@@ -265,15 +265,13 @@ pub struct ArkUI_GestureRecognizerType(pub ::core::ffi::c_uint);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_GestureInterruptResult {
     /// The gesture recognition process continues.
-    pub const GESTURE_INTERRUPT_RESULT_CONTINUE: ArkUI_GestureInterruptResult =
-        ArkUI_GestureInterruptResult(0);
+    pub const CONTINUE: ArkUI_GestureInterruptResult = ArkUI_GestureInterruptResult(0);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_GestureInterruptResult {
     /// The gesture recognition process is paused.
-    pub const GESTURE_INTERRUPT_RESULT_REJECT: ArkUI_GestureInterruptResult =
-        ArkUI_GestureInterruptResult(1);
+    pub const REJECT: ArkUI_GestureInterruptResult = ArkUI_GestureInterruptResult(1);
 }
 #[repr(transparent)]
 /// Enumerates gesture interruption results.

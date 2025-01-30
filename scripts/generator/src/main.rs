@@ -1,17 +1,17 @@
 mod dir_conf;
-mod opaque_types;
 mod header_conf;
+mod opaque_types;
 
-use std::fs;
-use std::num::ParseIntError;
+use crate::dir_conf::get_module_bindings_config;
+use crate::header_conf::get_bindings_config;
 use anyhow::{anyhow, bail, Context};
 use bindgen::{CodeGenAttributes, EnumVariation, Formatter};
+use log::{debug, error, info, warn};
+use std::fs;
+use std::num::ParseIntError;
 use std::path::{Path, PathBuf};
 use std::str::FromStr;
 use thiserror::Error;
-use log::{debug, error, info, warn};
-use crate::dir_conf::get_module_bindings_config;
-use crate::header_conf::get_bindings_config;
 
 /// Parse the api version
 ///
@@ -67,7 +67,9 @@ impl TryFrom<&str> for OpenHarmonyApiLevel {
             12 => OpenHarmonyApiLevel::Twelve,
             13 => OpenHarmonyApiLevel::Thirteen,
             14 => OpenHarmonyApiLevel::Fourteen,
-            other => { return Err(ApiLevelParseError::UnknownApiVersion(other)); }
+            other => {
+                return Err(ApiLevelParseError::UnknownApiVersion(other));
+            }
         };
         Ok(level)
     }
@@ -88,12 +90,20 @@ fn parse_deprecated_since(line: &str) -> Result<Option<OpenHarmonyApiLevel>, Par
     if line.trim() == "@deprecated" {
         return Ok(None);
     }
-    let (_, rhs) = line.split_once("@deprecated").ok_or_else(|| ParseDeprecatedError::InvalidLine(line.to_string()))?;
+    let (_, rhs) = line
+        .split_once("@deprecated")
+        .ok_or_else(|| ParseDeprecatedError::InvalidLine(line.to_string()))?;
     // Variant 1: `@deprecated(since = "XX")`
     // Note: Regex parsing might be more readable, but we want to avoid pulling in more dependencies.
-    if let Some(api_level_str) = rhs.split_once("(since = \"")
+    if let Some(api_level_str) = rhs
+        .split_once("(since = \"")
         .or_else(|| rhs.split_once("(since=\""))
-        .map(|(_, rhs)| { rhs.split_once("\"").expect("String end delimiter not found").0 }) {
+        .map(|(_, rhs)| {
+            rhs.split_once("\"")
+                .expect("String end delimiter not found")
+                .0
+        })
+    {
         return Ok(Some(OpenHarmonyApiLevel::try_from(api_level_str)?));
     }
 
@@ -105,35 +115,38 @@ fn parse_deprecated_since(line: &str) -> Result<Option<OpenHarmonyApiLevel>, Par
 }
 
 impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
-
     fn parse_comments_for_attributes(&self, comment: &str) -> Vec<CodeGenAttributes> {
         let mut attributes: Vec<CodeGenAttributes> = vec![];
-        let api_version = comment.lines()
+        let api_version = comment
+            .lines()
             // TODO: Investigate why some comments appear to have already been processed!
-            .find_map(|line| line.split_once("@since").or_else(|| line.split_once("Available since API-level: ")))
+            .find_map(|line| {
+                line.split_once("@since")
+                    .or_else(|| line.split_once("Available since API-level: "))
+            })
             .map(|(_, since)| {
-                let api_level_str = since
-                    .trim();
-                let api_level: Result<OpenHarmonyApiLevel, _> =
-                    api_level_str.try_into()
+                let api_level_str = since.trim();
+                let api_level: Result<OpenHarmonyApiLevel, _> = api_level_str
+                    .try_into()
                     .inspect_err(|err| error!("Failed to parse OH API version: {:?}", err));
                 api_level.expect("Failed to parse OH API version")
-            }
-            );
+            });
         if let Some(api_version) = api_version {
             let cfg = format!("feature = \"api-{}\"", api_version as u32);
             // Our Minimum api-level is 10, so we don't feature guard things <= API level 10.
             if api_version > OpenHarmonyApiLevel::Ten {
                 attributes.push(CodeGenAttributes::Cfg(cfg));
-                attributes.push(CodeGenAttributes::CfgAttr(format!("docsrs, doc(cfg(feature = \"api-{}\"))", api_version as u32)));
+                attributes.push(CodeGenAttributes::CfgAttr(format!(
+                    "docsrs, doc(cfg(feature = \"api-{}\"))",
+                    api_version as u32
+                )));
             }
         }
 
         if let Some(deprecated_line) = comment.lines().find(|line| line.contains("@deprecated")) {
             let deprecated_since = parse_deprecated_since(deprecated_line).expect("Parse failed");
-            let deprecated_opt =  deprecated_since.map(|since | {
-                    format!("since = \"{}\"", since as u32)
-            });
+            let deprecated_opt =
+                deprecated_since.map(|since| format!("since = \"{}\"", since as u32));
             // if let Some(since ) = deprecated_since {
             //     if since <= OpenHarmonyApiLevel::Ten {
             //         // We can't tell bindgen to not generate something directly, but we can add a
@@ -152,13 +165,21 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
     fn process_comment(&self, comment: &str) -> Option<String> {
         if comment.starts_with(" < ") {
             // The leading space breaks the ///< detection of clang-sys.
-            warn!("Invalid doxygen comment. Should apply to item on left, but malformed: `{comment}`");
+            warn!(
+                "Invalid doxygen comment. Should apply to item on left, but malformed: `{comment}`"
+            );
             return None;
         }
         // Replace manual linebreaks in doxygen with double linebreaks for markdown.
         let comment = comment.replace("\\n", "\n");
         Some(doxygen_rs::transform(&comment))
         // None
+    }
+
+    fn result_error_enum_name(&self, original_enum_name: &str) -> Option<String> {
+        original_enum_name
+            .strip_suffix("Result")
+            .map(|base| format!("{}ErrorCode", base.trim_end_matches("_")))
     }
 }
 
@@ -216,10 +237,19 @@ struct BindingConf {
     set_builder_opts: Box<dyn FnOnce(bindgen::Builder) -> bindgen::Builder>,
 }
 
-
 /// Generate bindings for the helper crate with the opaque type definitions.
-fn generate_opaque_types_bindings(root_dir: &Path, builder: bindgen::Builder, sysroot_include_dir: &Path) -> anyhow::Result<()> {
-    let mut builder = builder.header(root_dir.join("components/opaque-types/wrapper.h").to_str().unwrap())
+fn generate_opaque_types_bindings(
+    root_dir: &Path,
+    builder: bindgen::Builder,
+    sysroot_include_dir: &Path,
+) -> anyhow::Result<()> {
+    let mut builder = builder
+        .header(
+            root_dir
+                .join("components/opaque-types/wrapper.h")
+                .to_str()
+                .unwrap(),
+        )
         .ignore_functions()
         .ignore_methods()
         .derive_debug(false)
@@ -262,9 +292,7 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
         debug!("Generating binding: {}", binding.include_filename);
         let header_filename = sysroot_include_dir.join(binding.include_filename);
         let header_filename_str = header_filename.to_str().context("Unicode")?;
-        let builder = base_builder
-            .clone()
-            .header(header_filename_str);
+        let builder = base_builder.clone().header(header_filename_str);
         let builder = (binding.set_builder_opts)(builder);
         let bindings = builder.generate().context("Bindgen failed")?;
 
@@ -275,12 +303,16 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
 
     for binding in &get_module_bindings_config(api_version) {
         if binding.min_api_version > api_version {
-            continue
+            continue;
         }
         debug!("Generating binding: {}", binding.directory);
         let module_dir = sysroot_include_dir.join(&binding.directory);
         if !module_dir.exists() {
-            bail!("Could not find directory {} at {}", binding.directory, module_dir.display());
+            bail!(
+                "Could not find directory {} at {}",
+                binding.directory,
+                module_dir.display()
+            );
         }
         let paths = fs::read_dir(module_dir)?;
         for file in paths {
@@ -288,22 +320,36 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
             if file.file_type()?.is_dir() {
                 bail!("Subdirectories are not supported yet by this script");
             }
-            let file_path = file.path().canonicalize().context("Failed to canonicalize path")?;
+            let file_path = file
+                .path()
+                .canonicalize()
+                .context("Failed to canonicalize path")?;
             let header_filename_str = file_path.to_str().context("Unicode")?;
-            let file_stem = file_path.file_stem().ok_or(anyhow!("Failed to get filestem"))?.to_str().context("Unicode")?;
-            let file_stem = binding.rename_output_file.as_ref().map(|rename| rename(file_stem)).unwrap_or(file_stem.to_string());
+            let file_stem = file_path
+                .file_stem()
+                .ok_or(anyhow!("Failed to get filestem"))?
+                .to_str()
+                .context("Unicode")?;
+            let file_stem = binding
+                .rename_output_file
+                .as_ref()
+                .map(|rename| rename(file_stem))
+                .unwrap_or(file_stem.to_string());
             let builder = base_builder
                 .clone()
                 .header(header_filename_str)
                 .allowlist_file(header_filename_str);
             let builder = (binding.set_builder_opts)(&file_stem, file_path.as_path(), builder);
 
-
             let bindings = builder.generate().context("Bindgen failed")?;
             let base_path = root_dir.join(&binding.output_dir).join(&file_stem);
             if !base_path.exists() {
-                info!("Creating target directory for bindings: {}", base_path.display());
-                fs::create_dir_all(&base_path).context("Failed to create target directory for bindings")?;
+                info!(
+                    "Creating target directory for bindings: {}",
+                    base_path.display()
+                );
+                fs::create_dir_all(&base_path)
+                    .context("Failed to create target directory for bindings")?;
             }
 
             bindings

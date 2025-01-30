@@ -5,10 +5,6 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
-
 extern "C" {
     /// Creates an <b>OH_Drawing_Point</b> object.
     ///
@@ -54,7 +50,7 @@ extern "C" {
     pub fn OH_Drawing_PointGetX(
         point: *const OH_Drawing_Point,
         x: *mut f32,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Gets the y-axis coordinate of the point.
     ///
     ///
@@ -79,7 +75,7 @@ extern "C" {
     pub fn OH_Drawing_PointGetY(
         point: *const OH_Drawing_Point,
         y: *mut f32,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Sets the x-axis and y-axis coordinates of the point.
     ///
     ///
@@ -107,7 +103,7 @@ extern "C" {
         point: *mut OH_Drawing_Point,
         x: f32,
         y: f32,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Destroys an <b>OH_Drawing_Point</b> object and reclaims the memory occupied by the object.
     ///
     ///

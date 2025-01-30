@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 
+
+- Replace `Image_ErrorCode` with `ImageResult` (an alias to `Result<(), NonZero<ImageErrorCode>>`)
+
 ## 0.2.2 (2025-01-18)
 
 - Update bindings for API-14

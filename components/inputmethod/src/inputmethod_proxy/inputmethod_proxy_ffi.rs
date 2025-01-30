@@ -34,7 +34,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_InputMethodProxy_ShowKeyboard(
         inputMethodProxy: *mut InputMethod_InputMethodProxy,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Hide keyboard.
     ///
     /// # Arguments
@@ -57,7 +57,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_InputMethodProxy_HideKeyboard(
         inputMethodProxy: *mut InputMethod_InputMethodProxy,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Notify selection change.
     ///
     /// Notify selection change when text or cursor position or selected text changed.
@@ -95,7 +95,7 @@ extern "C" {
         length: usize,
         start: ::core::ffi::c_int,
         end: ::core::ffi::c_int,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Notify text editor configuration change.
     ///
     /// # Arguments
@@ -125,7 +125,7 @@ extern "C" {
         inputMethodProxy: *mut InputMethod_InputMethodProxy,
         enterKey: InputMethod_EnterKeyType,
         textType: InputMethod_TextInputType,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Notify cursor update.
     ///
     /// # Arguments
@@ -153,7 +153,7 @@ extern "C" {
     pub fn OH_InputMethodProxy_NotifyCursorUpdate(
         inputMethodProxy: *mut InputMethod_InputMethodProxy,
         cursorInfo: *mut InputMethod_CursorInfo,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Send private command.
     ///
     /// # Arguments
@@ -183,5 +183,5 @@ extern "C" {
         inputMethodProxy: *mut InputMethod_InputMethodProxy,
         privateCommand: *mut *mut InputMethod_PrivateCommand,
         size: usize,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
 }

@@ -307,81 +307,81 @@ impl InputMethod_CommandValueType {
 pub struct InputMethod_CommandValueType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code in the correct case.
-    pub const IME_ERR_OK: InputMethod_ErrorCode = InputMethod_ErrorCode(0);
+    pub const OK: InputMethodResult = InputMethodResult(0);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when error is undefined.
-    pub const IME_ERR_UNDEFINED: InputMethod_ErrorCode = InputMethod_ErrorCode(1);
+    pub const UNDEFINED: InputMethodResult = InputMethodResult(1);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when parameter check failed.
-    pub const IME_ERR_PARAMCHECK: InputMethod_ErrorCode = InputMethod_ErrorCode(401);
+    pub const PARAMCHECK: InputMethodResult = InputMethodResult(401);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when the bundle manager error.
-    pub const IME_ERR_PACKAGEMANAGER: InputMethod_ErrorCode = InputMethod_ErrorCode(12800001);
+    pub const PACKAGEMANAGER: InputMethodResult = InputMethodResult(12800001);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when input method engine error.
-    pub const IME_ERR_IMENGINE: InputMethod_ErrorCode = InputMethod_ErrorCode(12800002);
+    pub const IMENGINE: InputMethodResult = InputMethodResult(12800002);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when input method client error.
-    pub const IME_ERR_IMCLIENT: InputMethod_ErrorCode = InputMethod_ErrorCode(12800003);
+    pub const IMCLIENT: InputMethodResult = InputMethodResult(12800003);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when configuration persistence error.
-    pub const IME_ERR_CONFIG_PERSIST: InputMethod_ErrorCode = InputMethod_ErrorCode(12800005);
+    pub const CONFIG_PERSIST: InputMethodResult = InputMethodResult(12800005);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when input method controller error.
-    pub const IME_ERR_CONTROLLER: InputMethod_ErrorCode = InputMethod_ErrorCode(12800006);
+    pub const CONTROLLER: InputMethodResult = InputMethodResult(12800006);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when input method setting error.
-    pub const IME_ERR_SETTINGS: InputMethod_ErrorCode = InputMethod_ErrorCode(12800007);
+    pub const SETTINGS: InputMethodResult = InputMethodResult(12800007);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when input method manager service error.
-    pub const IME_ERR_IMMS: InputMethod_ErrorCode = InputMethod_ErrorCode(12800008);
+    pub const IMMS: InputMethodResult = InputMethodResult(12800008);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when input method client detached.
-    pub const IME_ERR_DETACHED: InputMethod_ErrorCode = InputMethod_ErrorCode(12800009);
+    pub const DETACHED: InputMethodResult = InputMethodResult(12800009);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when unexpected null pointer.
-    pub const IME_ERR_NULL_POINTER: InputMethod_ErrorCode = InputMethod_ErrorCode(12802000);
+    pub const NULL_POINTER: InputMethodResult = InputMethodResult(12802000);
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ErrorCode {
+impl InputMethodResult {
     /// The error code when query failed.
-    pub const IME_ERR_QUERY_FAILED: InputMethod_ErrorCode = InputMethod_ErrorCode(12802001);
+    pub const QUERY_FAILED: InputMethodResult = InputMethodResult(12802001);
 }
 #[repr(transparent)]
 /// The value type of command data.
@@ -391,4 +391,4 @@ impl InputMethod_ErrorCode {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Clone, Hash, PartialEq, Eq)]
-pub struct InputMethod_ErrorCode(pub ::core::ffi::c_uint);
+pub struct InputMethodResult(pub ::core::ffi::c_uint);

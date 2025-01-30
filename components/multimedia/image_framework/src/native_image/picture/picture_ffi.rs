@@ -99,7 +99,7 @@ extern "C" {
     pub fn OH_PictureNative_CreatePicture(
         mainPixelmap: *mut OH_PixelmapNative,
         picture: *mut *mut OH_PictureNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the pixel map of the main image.
     ///
     /// # Arguments
@@ -120,7 +120,7 @@ extern "C" {
     pub fn OH_PictureNative_GetMainPixelmap(
         picture: *mut OH_PictureNative,
         mainPixelmap: *mut *mut OH_PixelmapNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the hdr pixel map.
     ///
     /// # Arguments
@@ -142,7 +142,7 @@ extern "C" {
     pub fn OH_PictureNative_GetHdrComposedPixelmap(
         picture: *mut OH_PictureNative,
         hdrPixelmap: *mut *mut OH_PixelmapNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the gainmap pixel map.
     ///
     /// # Arguments
@@ -163,7 +163,7 @@ extern "C" {
     pub fn OH_PictureNative_GetGainmapPixelmap(
         picture: *mut OH_PictureNative,
         gainmapPixelmap: *mut *mut OH_PixelmapNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set auxiliary picture.
     ///
     /// # Arguments
@@ -187,7 +187,7 @@ extern "C" {
         picture: *mut OH_PictureNative,
         type_: Image_AuxiliaryPictureType,
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the auxiliary picture based on type.
     ///
     /// # Arguments
@@ -211,7 +211,7 @@ extern "C" {
         picture: *mut OH_PictureNative,
         type_: Image_AuxiliaryPictureType,
         auxiliaryPicture: *mut *mut OH_AuxiliaryPictureNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the metadata of main picture.
     ///
     /// # Arguments
@@ -236,7 +236,7 @@ extern "C" {
         picture: *mut OH_PictureNative,
         metadataType: Image_MetadataType,
         metadata: *mut *mut OH_PictureMetadata,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set main picture metadata.
     ///
     /// # Arguments
@@ -261,7 +261,7 @@ extern "C" {
         picture: *mut OH_PictureNative,
         metadataType: Image_MetadataType,
         metadata: *mut OH_PictureMetadata,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases this Picture object.
     ///
     /// # Arguments
@@ -277,7 +277,7 @@ extern "C" {
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_PictureNative_Release(picture: *mut OH_PictureNative) -> Image_ErrorCode;
+    pub fn OH_PictureNative_Release(picture: *mut OH_PictureNative) -> ImageResult;
     /// Create a <b>AuxiliaryPicture</b> object.
     ///
     /// # Arguments
@@ -308,7 +308,7 @@ extern "C" {
         size: *mut Image_Size,
         type_: Image_AuxiliaryPictureType,
         auxiliaryPicture: *mut *mut OH_AuxiliaryPictureNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Write pixels to auxiliary picture.
     ///
     /// # Arguments
@@ -334,7 +334,7 @@ extern "C" {
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
         source: *mut u8,
         bufferSize: usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Read pixels from auxiliary picture.
     ///
     /// # Arguments
@@ -361,7 +361,7 @@ extern "C" {
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
         destination: *mut u8,
         bufferSize: *mut usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the type of auxiliary picture.
     ///
     /// # Arguments
@@ -382,7 +382,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureNative_GetType(
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
         type_: *mut Image_AuxiliaryPictureType,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the info of auxiliary picture.
     ///
     /// # Arguments
@@ -403,7 +403,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureNative_GetInfo(
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
         info: *mut *mut OH_AuxiliaryPictureInfo,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set auxiliary picture info.
     ///
     /// # Arguments
@@ -424,7 +424,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureNative_SetInfo(
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
         info: *mut OH_AuxiliaryPictureInfo,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the metadata of auxiliary picture.
     ///
     /// # Arguments
@@ -450,7 +450,7 @@ extern "C" {
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
         metadataType: Image_MetadataType,
         metadata: *mut *mut OH_PictureMetadata,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set auxiliary picture metadata.
     ///
     /// # Arguments
@@ -476,7 +476,7 @@ extern "C" {
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
         metadataType: Image_MetadataType,
         metadata: *mut OH_PictureMetadata,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases this AuxiliaryPicture object.
     ///
     /// # Arguments
@@ -494,7 +494,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_AuxiliaryPictureNative_Release(
         picture: *mut OH_AuxiliaryPictureNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Create a <b>AuxiliaryPictureInfo</b> object.
     ///
     /// # Arguments
@@ -510,9 +510,7 @@ extern "C" {
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_AuxiliaryPictureInfo_Create(
-        info: *mut *mut OH_AuxiliaryPictureInfo,
-    ) -> Image_ErrorCode;
+    pub fn OH_AuxiliaryPictureInfo_Create(info: *mut *mut OH_AuxiliaryPictureInfo) -> ImageResult;
     /// Obtains the type of auxiliary picture info.
     ///
     /// # Arguments
@@ -533,7 +531,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureInfo_GetType(
         info: *mut OH_AuxiliaryPictureInfo,
         type_: *mut Image_AuxiliaryPictureType,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set auxiliary picture info type.
     ///
     /// # Arguments
@@ -554,7 +552,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureInfo_SetType(
         info: *mut OH_AuxiliaryPictureInfo,
         type_: Image_AuxiliaryPictureType,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the size of auxiliary picture info.
     ///
     /// # Arguments
@@ -575,7 +573,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureInfo_GetSize(
         info: *mut OH_AuxiliaryPictureInfo,
         size: *mut Image_Size,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set auxiliary picture info size.
     ///
     /// # Arguments
@@ -596,7 +594,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureInfo_SetSize(
         info: *mut OH_AuxiliaryPictureInfo,
         size: *mut Image_Size,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the rowStride of auxiliary picture info.
     ///
     /// # Arguments
@@ -617,7 +615,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureInfo_GetRowStride(
         info: *mut OH_AuxiliaryPictureInfo,
         rowStride: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set auxiliary picture info rowStride.
     ///
     /// # Arguments
@@ -638,7 +636,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureInfo_SetRowStride(
         info: *mut OH_AuxiliaryPictureInfo,
         rowStride: u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the pixelFormat of auxiliary picture info.
     ///
     /// # Arguments
@@ -659,7 +657,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureInfo_GetPixelFormat(
         info: *mut OH_AuxiliaryPictureInfo,
         pixelFormat: *mut PIXEL_FORMAT,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set auxiliary picture info pixelFormat.
     ///
     /// # Arguments
@@ -680,7 +678,7 @@ extern "C" {
     pub fn OH_AuxiliaryPictureInfo_SetPixelFormat(
         info: *mut OH_AuxiliaryPictureInfo,
         pixelFormat: PIXEL_FORMAT,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases this AuxiliaryPictureInfo object.
     ///
     /// # Arguments
@@ -696,5 +694,5 @@ extern "C" {
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_AuxiliaryPictureInfo_Release(info: *mut OH_AuxiliaryPictureInfo) -> Image_ErrorCode;
+    pub fn OH_AuxiliaryPictureInfo_Release(info: *mut OH_AuxiliaryPictureInfo) -> ImageResult;
 }
