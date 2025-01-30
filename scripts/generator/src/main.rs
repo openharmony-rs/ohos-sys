@@ -9,6 +9,7 @@ use bindgen::{CodeGenAttributes, EnumVariation, Formatter};
 use std::path::{Path, PathBuf};
 use std::str::FromStr;
 use thiserror::Error;
+use log::{debug, error, info, warn};
 use crate::dir_conf::get_module_bindings_config;
 use crate::header_conf::get_bindings_config;
 
@@ -104,6 +105,7 @@ fn parse_deprecated_since(line: &str) -> Result<Option<OpenHarmonyApiLevel>, Par
 }
 
 impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
+
     fn parse_comments_for_attributes(&self, comment: &str) -> Vec<CodeGenAttributes> {
         let mut attributes: Vec<CodeGenAttributes> = vec![];
         let api_version = comment.lines()
@@ -114,7 +116,7 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
                     .trim();
                 let api_level: Result<OpenHarmonyApiLevel, _> =
                     api_level_str.try_into()
-                    .inspect_err(|err| eprintln!("Failed to parse OH API version: {:?}", err));
+                    .inspect_err(|err| error!("Failed to parse OH API version: {:?}", err));
                 api_level.expect("Failed to parse OH API version")
             }
             );
@@ -150,7 +152,7 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
     fn process_comment(&self, comment: &str) -> Option<String> {
         if comment.starts_with(" < ") {
             // The leading space breaks the ///< detection of clang-sys.
-            eprintln!("Warn: Invalid doxygen comment. Should apply to item on left, but malformed: `{comment}`");
+            warn!("Invalid doxygen comment. Should apply to item on left, but malformed: `{comment}`");
             return None;
         }
         // Replace manual linebreaks in doxygen with double linebreaks for markdown.
@@ -257,7 +259,7 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
     }
 
     for binding in get_bindings_config(api_version) {
-        println!("Generating binding: {}", binding.include_filename);
+        debug!("Generating binding: {}", binding.include_filename);
         let header_filename = sysroot_include_dir.join(binding.include_filename);
         let header_filename_str = header_filename.to_str().context("Unicode")?;
         let builder = base_builder
@@ -275,7 +277,7 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
         if binding.min_api_version > api_version {
             continue
         }
-        println!("Generating binding: {}", binding.directory);
+        debug!("Generating binding: {}", binding.directory);
         let module_dir = sysroot_include_dir.join(&binding.directory);
         if !module_dir.exists() {
             bail!("Could not find directory {} at {}", binding.directory, module_dir.display());
@@ -300,7 +302,7 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
             let bindings = builder.generate().context("Bindgen failed")?;
             let base_path = root_dir.join(&binding.output_dir).join(&file_stem);
             if !base_path.exists() {
-                eprintln!("Creating target directory for bindings: {}", base_path.display());
+                info!("Creating target directory for bindings: {}", base_path.display());
                 fs::create_dir_all(&base_path).context("Failed to create target directory for bindings")?;
             }
 
@@ -314,6 +316,7 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
 }
 
 fn main() -> anyhow::Result<()> {
+    env_logger::init();
     let sdk_native_dir = std::env::var_os("OHOS_SDK_NATIVE").context(
         "Please set environment variable OHOS_SDK_NATIVE to the `native` \
         directory of the OpenHarmony SDK",
@@ -329,7 +332,7 @@ fn main() -> anyhow::Result<()> {
     let libclang_path = sdk_native_dir.join("llvm/lib");
     let clang_path = sdk_native_dir.join("llvm/bin/clang");
     let api_version = parse_api_version(&sdk_native_dir)?;
-    println!(
+    debug!(
         "Libclang: {}, clang: {}",
         libclang_path.display(),
         clang_path.display()
