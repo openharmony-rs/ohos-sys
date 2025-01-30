@@ -307,82 +307,89 @@ impl InputMethod_CommandValueType {
 pub struct InputMethod_CommandValueType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
-    /// The error code in the correct case.
-    pub const OK: InputMethodResult = InputMethodResult(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when error is undefined.
-    pub const UNDEFINED: InputMethodResult = InputMethodResult(1);
+    pub const UNDEFINED: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(1).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when parameter check failed.
-    pub const PARAMCHECK: InputMethodResult = InputMethodResult(401);
+    pub const PARAMCHECK: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(401).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when the bundle manager error.
-    pub const PACKAGEMANAGER: InputMethodResult = InputMethodResult(12800001);
+    pub const PACKAGEMANAGER: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(12800001).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when input method engine error.
-    pub const IMENGINE: InputMethodResult = InputMethodResult(12800002);
+    pub const IMENGINE: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(12800002).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when input method client error.
-    pub const IMCLIENT: InputMethodResult = InputMethodResult(12800003);
+    pub const IMCLIENT: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(12800003).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when configuration persistence error.
-    pub const CONFIG_PERSIST: InputMethodResult = InputMethodResult(12800005);
+    pub const CONFIG_PERSIST: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(12800005).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when input method controller error.
-    pub const CONTROLLER: InputMethodResult = InputMethodResult(12800006);
+    pub const CONTROLLER: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(12800006).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when input method setting error.
-    pub const SETTINGS: InputMethodResult = InputMethodResult(12800007);
+    pub const SETTINGS: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(12800007).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when input method manager service error.
-    pub const IMMS: InputMethodResult = InputMethodResult(12800008);
+    pub const IMMS: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(12800008).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when input method client detached.
-    pub const DETACHED: InputMethodResult = InputMethodResult(12800009);
+    pub const DETACHED: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(12800009).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when unexpected null pointer.
-    pub const NULL_POINTER: InputMethodResult = InputMethodResult(12802000);
+    pub const NULL_POINTER: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(12802000).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodResult {
+impl InputMethodErrorCode {
     /// The error code when query failed.
-    pub const QUERY_FAILED: InputMethodResult = InputMethodResult(12802001);
+    pub const QUERY_FAILED: InputMethodErrorCode =
+        InputMethodErrorCode(const { core::num::NonZero::new(12802001).unwrap() });
 }
+pub type InputMethodResult = Result<(), InputMethodErrorCode>;
 #[repr(transparent)]
 /// The value type of command data.
 ///
@@ -391,4 +398,4 @@ impl InputMethodResult {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Clone, Hash, PartialEq, Eq)]
-pub struct InputMethodResult(pub ::core::ffi::c_uint);
+pub struct InputMethodErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
