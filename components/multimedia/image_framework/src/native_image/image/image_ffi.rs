@@ -37,7 +37,7 @@ extern "C" {
     pub fn OH_ImageNative_GetImageSize(
         image: *mut OH_ImageNative,
         size: *mut Image_Size,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get type arry from an [`OH_ImageNative`] object.
     ///
     /// # Arguments
@@ -60,7 +60,7 @@ extern "C" {
         image: *mut OH_ImageNative,
         types: *mut *mut u32,
         typeSize: *mut usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get byte buffer from an [`OH_ImageNative`] object by the component type.
     ///
     /// # Arguments
@@ -83,7 +83,7 @@ extern "C" {
         image: *mut OH_ImageNative,
         componentType: u32,
         nativeBuffer: *mut *mut OH_NativeBuffer,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get size of buffer from an [`OH_ImageNative`] object by the component type.
     ///
     /// # Arguments
@@ -106,7 +106,7 @@ extern "C" {
         image: *mut OH_ImageNative,
         componentType: u32,
         size: *mut usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get row stride from an [`OH_ImageNative`] object by the component type.
     ///
     /// # Arguments
@@ -129,7 +129,7 @@ extern "C" {
         image: *mut OH_ImageNative,
         componentType: u32,
         rowStride: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get pixel stride from an [`OH_ImageNative`] object by the component type.
     ///
     /// # Arguments
@@ -152,7 +152,7 @@ extern "C" {
         image: *mut OH_ImageNative,
         componentType: u32,
         pixelStride: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get timestamp from an [`OH_ImageNative`] object.
     ///
     /// # Arguments
@@ -173,7 +173,7 @@ extern "C" {
     pub fn OH_ImageNative_GetTimestamp(
         image: *mut OH_ImageNative,
         timestamp: *mut i64,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases an [`OH_ImageNative`] object.
     /// It is used to release the object [`OH_ImageNative`].
     ///
@@ -189,5 +189,5 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ImageNative_Release(image: *mut OH_ImageNative) -> Image_ErrorCode;
+    pub fn OH_ImageNative_Release(image: *mut OH_ImageNative) -> ImageResult;
 }

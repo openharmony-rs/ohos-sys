@@ -40,7 +40,7 @@ extern "C" {
         textEditorProxy: *mut InputMethod_TextEditorProxy,
         options: *mut InputMethod_AttachOptions,
         inputMethodProxy: *mut *mut InputMethod_InputMethodProxy,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Detach application from the input method service.
     ///
     /// # Arguments
@@ -62,5 +62,5 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_InputMethodController_Detach(
         inputMethodProxy: *mut InputMethod_InputMethodProxy,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
 }

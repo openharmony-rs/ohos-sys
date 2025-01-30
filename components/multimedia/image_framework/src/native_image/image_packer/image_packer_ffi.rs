@@ -65,7 +65,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_PackingOptions_Create(options: *mut *mut OH_PackingOptions) -> Image_ErrorCode;
+    pub fn OH_PackingOptions_Create(options: *mut *mut OH_PackingOptions) -> ImageResult;
     /// Get mime type for OH_PackingOptions struct.
     ///
     /// # Arguments
@@ -85,7 +85,7 @@ extern "C" {
     pub fn OH_PackingOptions_GetMimeType(
         options: *mut OH_PackingOptions,
         format: *mut Image_MimeType,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set format number for OH_PackingOptions struct.
     ///
     /// # Arguments
@@ -104,7 +104,7 @@ extern "C" {
     pub fn OH_PackingOptions_SetMimeType(
         options: *mut OH_PackingOptions,
         format: *mut Image_MimeType,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get quality for OH_PackingOptions struct.
     ///
     /// # Arguments
@@ -123,7 +123,7 @@ extern "C" {
     pub fn OH_PackingOptions_GetQuality(
         options: *mut OH_PackingOptions,
         quality: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set quality number for OH_PackingOptions struct.
     ///
     /// # Arguments
@@ -142,7 +142,7 @@ extern "C" {
     pub fn OH_PackingOptions_SetQuality(
         options: *mut OH_PackingOptions,
         quality: u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get needsPackProperties for OH_PackingOptions struct.
     ///
     /// # Arguments
@@ -161,7 +161,7 @@ extern "C" {
     pub fn OH_PackingOptions_GetNeedsPackProperties(
         options: *mut OH_PackingOptions,
         needsPackProperties: *mut bool,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set needsPackProperties for OH_PackingOptions struct.
     ///
     /// # Arguments
@@ -180,7 +180,7 @@ extern "C" {
     pub fn OH_PackingOptions_SetNeedsPackProperties(
         options: *mut OH_PackingOptions,
         needsPackProperties: bool,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get desiredDynamicRange for PackingOptions struct.
     ///
     /// # Arguments
@@ -200,7 +200,7 @@ extern "C" {
     pub fn OH_PackingOptions_GetDesiredDynamicRange(
         options: *mut OH_PackingOptions,
         desiredDynamicRange: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set desiredDynamicRange number for PackingOptions struct.
     ///
     /// # Arguments
@@ -220,7 +220,7 @@ extern "C" {
     pub fn OH_PackingOptions_SetDesiredDynamicRange(
         options: *mut OH_PackingOptions,
         desiredDynamicRange: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// delete OH_PackingOptions pointer.
     ///
     /// # Arguments
@@ -234,7 +234,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_PackingOptions_Release(options: *mut OH_PackingOptions) -> Image_ErrorCode;
+    pub fn OH_PackingOptions_Release(options: *mut OH_PackingOptions) -> ImageResult;
     /// Create a pointer for OH_ImagePackerNative struct.
     ///
     /// # Arguments
@@ -248,9 +248,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ImagePackerNative_Create(
-        imagePacker: *mut *mut OH_ImagePackerNative,
-    ) -> Image_ErrorCode;
+    pub fn OH_ImagePackerNative_Create(imagePacker: *mut *mut OH_ImagePackerNative) -> ImageResult;
     /// Encoding an <b>ImageSource</b> into the data with required format.
     ///
     /// # Arguments
@@ -278,7 +276,7 @@ extern "C" {
         imageSource: *mut OH_ImageSourceNative,
         outData: *mut u8,
         size: *mut usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Encoding a <b>Pixelmap</b> into the data with required format.
     ///
     /// # Arguments
@@ -306,7 +304,7 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         outData: *mut u8,
         size: *mut usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Encoding a <b>Picture</b> into the data with required format.
     ///
     /// # Arguments
@@ -338,7 +336,7 @@ extern "C" {
         picture: *mut OH_PictureNative,
         outData: *mut u8,
         size: *mut usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Encoding an <b>ImageSource</b> into the a file with fd with required format.
     ///
     /// # Arguments
@@ -363,7 +361,7 @@ extern "C" {
         options: *mut OH_PackingOptions,
         imageSource: *mut OH_ImageSourceNative,
         fd: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Encoding a <b>Pixelmap</b> into the a file with fd with required format
     ///
     /// # Arguments
@@ -388,7 +386,7 @@ extern "C" {
         options: *mut OH_PackingOptions,
         pixelmap: *mut OH_PixelmapNative,
         fd: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Encoding a <b>Picture</b> into the a file with fd with required format.
     ///
     /// # Arguments
@@ -416,7 +414,7 @@ extern "C" {
         options: *mut OH_PackingOptions,
         picture: *mut OH_PictureNative,
         fd: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases an imagePacker object.
     ///
     /// # Arguments
@@ -430,5 +428,5 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ImagePackerNative_Release(imagePacker: *mut OH_ImagePackerNative) -> Image_ErrorCode;
+    pub fn OH_ImagePackerNative_Release(imagePacker: *mut OH_ImagePackerNative) -> ImageResult;
 }

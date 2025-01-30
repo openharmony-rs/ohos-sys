@@ -303,7 +303,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PixelmapInitializationOptions_Create(
         options: *mut *mut OH_Pixelmap_InitializationOptions,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get width number for InitializationOtions struct.
     ///
     /// # Arguments
@@ -322,7 +322,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_GetWidth(
         options: *mut OH_Pixelmap_InitializationOptions,
         width: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set width number for InitializationOtions struct.
     ///
     /// # Arguments
@@ -341,7 +341,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_SetWidth(
         options: *mut OH_Pixelmap_InitializationOptions,
         width: u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get height number for InitializationOtions struct.
     ///
     /// # Arguments
@@ -360,7 +360,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_GetHeight(
         options: *mut OH_Pixelmap_InitializationOptions,
         height: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set height number for InitializationOtions struct.
     ///
     /// # Arguments
@@ -379,7 +379,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_SetHeight(
         options: *mut OH_Pixelmap_InitializationOptions,
         height: u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get pixelFormat number for InitializationOtions struct.
     ///
     /// # Arguments
@@ -398,7 +398,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_GetPixelFormat(
         options: *mut OH_Pixelmap_InitializationOptions,
         pixelFormat: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set pixelFormat number for InitializationOtions struct.
     ///
     /// # Arguments
@@ -417,7 +417,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_SetPixelFormat(
         options: *mut OH_Pixelmap_InitializationOptions,
         pixelFormat: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get pixelFormat number for InitializationOtions struct.
     ///
     /// # Arguments
@@ -436,7 +436,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_GetSrcPixelFormat(
         options: *mut OH_Pixelmap_InitializationOptions,
         srcpixelFormat: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set pixelFormat number for InitializationOtions struct.
     ///
     /// # Arguments
@@ -455,7 +455,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_SetSrcPixelFormat(
         options: *mut OH_Pixelmap_InitializationOptions,
         srcpixelFormat: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get rowStride for InitializationOptions struct.
     ///
     /// # Arguments
@@ -476,7 +476,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_GetRowStride(
         options: *mut OH_Pixelmap_InitializationOptions,
         rowStride: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set rowStride number for InitializationOptions struct.
     ///
     /// # Arguments
@@ -497,7 +497,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_SetRowStride(
         options: *mut OH_Pixelmap_InitializationOptions,
         rowStride: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get alphaType number for InitializationOtions struct.
     ///
     /// # Arguments
@@ -516,7 +516,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_GetAlphaType(
         options: *mut OH_Pixelmap_InitializationOptions,
         alphaType: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set alphaType number for InitializationOtions struct.
     ///
     /// # Arguments
@@ -535,7 +535,7 @@ extern "C" {
     pub fn OH_PixelmapInitializationOptions_SetAlphaType(
         options: *mut OH_Pixelmap_InitializationOptions,
         alphaType: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// delete InitializationOtions pointer.
     ///
     /// # Arguments
@@ -551,7 +551,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PixelmapInitializationOptions_Release(
         options: *mut OH_Pixelmap_InitializationOptions,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Create imageinfo struct .
     ///
     /// # Arguments
@@ -565,7 +565,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_PixelmapImageInfo_Create(info: *mut *mut OH_Pixelmap_ImageInfo) -> Image_ErrorCode;
+    pub fn OH_PixelmapImageInfo_Create(info: *mut *mut OH_Pixelmap_ImageInfo) -> ImageResult;
     /// Get width number for imageinfo struct.
     ///
     /// # Arguments
@@ -584,7 +584,7 @@ extern "C" {
     pub fn OH_PixelmapImageInfo_GetWidth(
         info: *mut OH_Pixelmap_ImageInfo,
         width: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get height number for imageinfo struct.
     ///
     /// # Arguments
@@ -603,7 +603,7 @@ extern "C" {
     pub fn OH_PixelmapImageInfo_GetHeight(
         info: *mut OH_Pixelmap_ImageInfo,
         height: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get rowStride number for imageinfo struct.
     ///
     /// # Arguments
@@ -622,7 +622,7 @@ extern "C" {
     pub fn OH_PixelmapImageInfo_GetRowStride(
         info: *mut OH_Pixelmap_ImageInfo,
         rowStride: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get pixelFormat number for imageinfo struct.
     ///
     /// # Arguments
@@ -641,7 +641,7 @@ extern "C" {
     pub fn OH_PixelmapImageInfo_GetPixelFormat(
         info: *mut OH_Pixelmap_ImageInfo,
         pixelFormat: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get alphaType number for imageinfo struct.
     ///
     /// # Arguments
@@ -660,7 +660,7 @@ extern "C" {
     pub fn OH_PixelmapImageInfo_GetAlphaType(
         info: *mut OH_Pixelmap_ImageInfo,
         alphaType: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get isHdr boolean for imageinfo struct.
     ///
     /// # Arguments
@@ -680,7 +680,7 @@ extern "C" {
     pub fn OH_PixelmapImageInfo_GetDynamicRange(
         info: *mut OH_Pixelmap_ImageInfo,
         isHdr: *mut bool,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Delete imageinfo struct pointer.
     ///
     /// # Arguments
@@ -694,7 +694,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_PixelmapImageInfo_Release(info: *mut OH_Pixelmap_ImageInfo) -> Image_ErrorCode;
+    pub fn OH_PixelmapImageInfo_Release(info: *mut OH_Pixelmap_ImageInfo) -> ImageResult;
     /// Creates a <b>PixelMap</b> object.
     ///
     /// # Arguments
@@ -719,7 +719,7 @@ extern "C" {
         dataLength: usize,
         options: *mut OH_Pixelmap_InitializationOptions,
         pixelmap: *mut *mut OH_PixelmapNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Convert a native <b>PixelMap</b> object to <b>PixelMap</b> napi object.
     ///
     /// # Arguments
@@ -743,7 +743,7 @@ extern "C" {
         env: napi_env,
         pixelmapNative: *mut OH_PixelmapNative,
         pixelmapNapi: *mut napi_value,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Convert a <b>PixelMap</b> napi object to native <b>PixelMap</b> object.
     ///
     /// # Arguments
@@ -767,7 +767,7 @@ extern "C" {
         env: napi_env,
         pixelmapNapi: napi_value,
         pixelmapNative: *mut *mut OH_PixelmapNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Reads data of this pixel map to an Buffer. If this pixel map is created in the BGRA_8888 format,
     /// the data read is the same as the original data.
     ///
@@ -790,7 +790,7 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         destination: *mut u8,
         bufferSize: *mut usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Reads image data in an Buffer and writes the data to a Pixelmap object.
     ///
     /// # Arguments
@@ -812,7 +812,7 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         source: *mut u8,
         bufferSize: usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get argb pixel buffer from pixelmap.
     ///
     /// # Arguments
@@ -839,7 +839,7 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         destination: *mut u8,
         bufferSize: *mut usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Convert [`OH_PixelmapNative`] to standard dynamic range.
     ///
     /// # Arguments
@@ -855,7 +855,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_PixelmapNative_ToSdr(pixelmap: *mut OH_PixelmapNative) -> Image_ErrorCode;
+    pub fn OH_PixelmapNative_ToSdr(pixelmap: *mut OH_PixelmapNative) -> ImageResult;
     /// Obtains pixel map information of this image.
     ///
     /// # Arguments
@@ -874,7 +874,7 @@ extern "C" {
     pub fn OH_PixelmapNative_GetImageInfo(
         pixelmap: *mut OH_PixelmapNative,
         imageInfo: *mut OH_Pixelmap_ImageInfo,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Sets an opacity rate for this image pixel map.
     ///
     /// # Arguments
@@ -890,10 +890,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_PixelmapNative_Opacity(
-        pixelmap: *mut OH_PixelmapNative,
-        rate: f32,
-    ) -> Image_ErrorCode;
+    pub fn OH_PixelmapNative_Opacity(pixelmap: *mut OH_PixelmapNative, rate: f32) -> ImageResult;
     /// Scales this image based on the input width and height.
     ///
     /// # Arguments
@@ -915,7 +912,7 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         scaleX: f32,
         scaleY: f32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Scales this image based on the input width and height with anti-aliasing.
     ///
     /// # Arguments
@@ -944,7 +941,7 @@ extern "C" {
         scaleX: f32,
         scaleY: f32,
         level: OH_PixelmapNative_AntiAliasingLevel,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Translates this image based on the input coordinates.
     ///
     /// # Arguments
@@ -966,7 +963,7 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         x: f32,
         y: f32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Rotates this image based on the input angle.
     ///
     /// # Arguments
@@ -982,10 +979,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_PixelmapNative_Rotate(
-        pixelmap: *mut OH_PixelmapNative,
-        angle: f32,
-    ) -> Image_ErrorCode;
+    pub fn OH_PixelmapNative_Rotate(pixelmap: *mut OH_PixelmapNative, angle: f32) -> ImageResult;
     /// Flips this image horizontally or vertically, or both.
     ///
     /// # Arguments
@@ -1007,7 +1001,7 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         shouldFilpHorizontally: bool,
         shouldFilpVertically: bool,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Crops this image based on the input size.
     ///
     /// # Arguments
@@ -1026,7 +1020,7 @@ extern "C" {
     pub fn OH_PixelmapNative_Crop(
         pixelmap: *mut OH_PixelmapNative,
         region: *mut Image_Region,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases an <b>OH_Pixelmap</b> object.
     ///
     /// # Arguments
@@ -1040,7 +1034,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_PixelmapNative_Release(pixelmap: *mut OH_PixelmapNative) -> Image_ErrorCode;
+    pub fn OH_PixelmapNative_Release(pixelmap: *mut OH_PixelmapNative) -> ImageResult;
     /// Converting images to alpha format
     ///
     /// # Arguments
@@ -1062,7 +1056,7 @@ extern "C" {
         srcpixelmap: *mut OH_PixelmapNative,
         dstpixelmap: *mut OH_PixelmapNative,
         isPremul: bool,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Create a empty <b>PixelMap</b> object.
     ///
     /// # Arguments
@@ -1081,7 +1075,7 @@ extern "C" {
     pub fn OH_PixelmapNative_CreateEmptyPixelmap(
         options: *mut OH_Pixelmap_InitializationOptions,
         pixelmap: *mut *mut OH_PixelmapNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get metadata.
     ///
     /// # Arguments
@@ -1106,7 +1100,7 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         key: OH_Pixelmap_HdrMetadataKey,
         value: *mut *mut OH_Pixelmap_HdrMetadataValue,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set metadata.
     ///
     /// # Arguments
@@ -1131,7 +1125,7 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         key: OH_Pixelmap_HdrMetadataKey,
         value: *mut OH_Pixelmap_HdrMetadataValue,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get the native buffer from the PixelMap.
     ///
     /// # Arguments
@@ -1153,7 +1147,7 @@ extern "C" {
     pub fn OH_PixelmapNative_GetNativeBuffer(
         pixelmap: *mut OH_PixelmapNative,
         nativeBuffer: *mut *mut OH_NativeBuffer,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get the native colorspace from the PixelMap.
     ///
     /// # Arguments
@@ -1174,7 +1168,7 @@ extern "C" {
     pub fn OH_PixelmapNative_GetColorSpaceNative(
         pixelmap: *mut OH_PixelmapNative,
         colorSpaceNative: *mut *mut OH_NativeColorSpaceManager,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set the native colorspace for the PixelMap.
     ///
     /// # Arguments
@@ -1195,7 +1189,7 @@ extern "C" {
     pub fn OH_PixelmapNative_SetColorSpaceNative(
         pixelmap: *mut OH_PixelmapNative,
         colorSpaceNative: *mut OH_NativeColorSpaceManager,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set pixelmap memory name.
     ///
     /// # Arguments
@@ -1220,5 +1214,5 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         name: *mut ::core::ffi::c_char,
         size: *mut usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
 }

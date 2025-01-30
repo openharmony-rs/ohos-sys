@@ -52,7 +52,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageReceiverOptions_Create(
         options: *mut *mut OH_ImageReceiverOptions,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get size of an [`OH_ImageReceiverOptions`] object.
     ///
     /// # Arguments
@@ -72,7 +72,7 @@ extern "C" {
     pub fn OH_ImageReceiverOptions_GetSize(
         options: *mut OH_ImageReceiverOptions,
         size: *mut Image_Size,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set size of an [`OH_ImageReceiverOptions`] object.
     ///
     /// # Arguments
@@ -92,7 +92,7 @@ extern "C" {
     pub fn OH_ImageReceiverOptions_SetSize(
         options: *mut OH_ImageReceiverOptions,
         size: Image_Size,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get capacity from an [`OH_ImageReceiverOptions`] object.
     ///
     /// # Arguments
@@ -112,7 +112,7 @@ extern "C" {
     pub fn OH_ImageReceiverOptions_GetCapacity(
         options: *mut OH_ImageReceiverOptions,
         capacity: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set capacity of an [`OH_ImageReceiverOptions`] object.
     ///
     /// # Arguments
@@ -132,7 +132,7 @@ extern "C" {
     pub fn OH_ImageReceiverOptions_SetCapacity(
         options: *mut OH_ImageReceiverOptions,
         capacity: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases an [`OH_ImageReceiverOptions`] object.
     /// It is used to release the object [`OH_ImageReceiverOptions`].
     ///
@@ -148,9 +148,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ImageReceiverOptions_Release(
-        options: *mut OH_ImageReceiverOptions,
-    ) -> Image_ErrorCode;
+    pub fn OH_ImageReceiverOptions_Release(options: *mut OH_ImageReceiverOptions) -> ImageResult;
     /// Creates an <b>OH_ImageReceiverNative</b> object at the application layer.
     ///
     /// # Arguments
@@ -171,7 +169,7 @@ extern "C" {
     pub fn OH_ImageReceiverNative_Create(
         options: *mut OH_ImageReceiverOptions,
         receiver: *mut *mut OH_ImageReceiverNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the receiver ID through an [`OH_ImageReceiverNative`] object.
     ///
     /// # Arguments
@@ -192,7 +190,7 @@ extern "C" {
     pub fn OH_ImageReceiverNative_GetReceivingSurfaceId(
         receiver: *mut OH_ImageReceiverNative,
         surfaceId: *mut u64,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the latest image through an [`OH_ImageReceiverNative`] object.
     ///
     /// # Arguments
@@ -215,7 +213,7 @@ extern "C" {
     pub fn OH_ImageReceiverNative_ReadLatestImage(
         receiver: *mut OH_ImageReceiverNative,
         image: *mut *mut OH_ImageNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the next image through an [`OH_ImageReceiverNative`] object.
     ///
     /// # Arguments
@@ -238,7 +236,7 @@ extern "C" {
     pub fn OH_ImageReceiverNative_ReadNextImage(
         receiver: *mut OH_ImageReceiverNative,
         image: *mut *mut OH_ImageNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Registers an [`OH_ImageReceiver_OnCallback`] callback event.
     ///
     /// This callback event is triggered whenever a new image is received.
@@ -261,7 +259,7 @@ extern "C" {
     pub fn OH_ImageReceiverNative_On(
         receiver: *mut OH_ImageReceiverNative,
         callback: OH_ImageReceiver_OnCallback,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Unregisters the [`OH_ImageReceiver_OnCallback`] callback event.
     ///
     /// Turn off the callback witch triggered by [`OH_ImageReceiverNative_On`].
@@ -279,7 +277,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ImageReceiverNative_Off(receiver: *mut OH_ImageReceiverNative) -> Image_ErrorCode;
+    pub fn OH_ImageReceiverNative_Off(receiver: *mut OH_ImageReceiverNative) -> ImageResult;
     /// Obtains the size of the image receiver through an [`OH_ImageReceiverNative`] object.
     ///
     /// # Arguments
@@ -300,7 +298,7 @@ extern "C" {
     pub fn OH_ImageReceiverNative_GetSize(
         receiver: *mut OH_ImageReceiverNative,
         size: *mut Image_Size,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the capacity of the image receiver through an [`OH_ImageReceiverNative`] object.
     ///
     /// # Arguments
@@ -320,7 +318,7 @@ extern "C" {
     pub fn OH_ImageReceiverNative_GetCapacity(
         receiver: *mut OH_ImageReceiverNative,
         capacity: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases an [`OH_ImageReceiverNative`] object.
     ///
     /// This API is not used to release an <b>ImageReceiver2</b> object at the application layer.
@@ -337,6 +335,5 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ImageReceiverNative_Release(receiver: *mut OH_ImageReceiverNative)
-        -> Image_ErrorCode;
+    pub fn OH_ImageReceiverNative_Release(receiver: *mut OH_ImageReceiverNative) -> ImageResult;
 }

@@ -5,10 +5,6 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
-
 impl OH_Drawing_PenLineCapStyle {
     /// There is no cap style. Both ends of the line segment are cut off square.
     pub const LINE_FLAT_CAP: OH_Drawing_PenLineCapStyle = OH_Drawing_PenLineCapStyle(0);

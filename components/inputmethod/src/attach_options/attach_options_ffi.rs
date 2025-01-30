@@ -58,5 +58,5 @@ extern "C" {
     pub fn OH_AttachOptions_IsShowKeyboard(
         options: *mut InputMethod_AttachOptions,
         showKeyboard: *mut bool,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
 }

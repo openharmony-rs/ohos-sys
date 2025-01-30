@@ -5,10 +5,6 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
-
 extern "C" {
     /// Creates a default <b>OH_Drawing_Typeface</b> object.
     ///
@@ -189,7 +185,7 @@ extern "C" {
         fontArguments: *mut OH_Drawing_FontArguments,
         axis: *const ::core::ffi::c_char,
         value: f32,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Destroys an <b>OH_Drawing_FontArguments</b> object and reclaims the memory occupied by the object.
     ///
     ///
@@ -211,5 +207,5 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Drawing_FontArgumentsDestroy(
         fontArguments: *mut OH_Drawing_FontArguments,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
 }

@@ -394,7 +394,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetGetTextConfigFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         getTextConfigFunc: OH_TextEditorProxy_GetTextConfigFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_InsertTextFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -416,7 +416,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetInsertTextFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         insertTextFunc: OH_TextEditorProxy_InsertTextFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_SetDeleteForwardFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -438,7 +438,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetDeleteForwardFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         deleteForwardFunc: OH_TextEditorProxy_DeleteForwardFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_DeleteBackwardFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -460,7 +460,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetDeleteBackwardFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         deleteBackwardFunc: OH_TextEditorProxy_DeleteBackwardFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_SendKeyboardStatusFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -483,7 +483,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetSendKeyboardStatusFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         sendKeyboardStatusFunc: OH_TextEditorProxy_SendKeyboardStatusFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_SendEnterKeyFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -505,7 +505,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetSendEnterKeyFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         sendEnterKeyFunc: OH_TextEditorProxy_SendEnterKeyFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_MoveCursorFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -527,7 +527,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetMoveCursorFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         moveCursorFunc: OH_TextEditorProxy_MoveCursorFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_HandleSetSelectionFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -550,7 +550,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetHandleSetSelectionFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         handleSetSelectionFunc: OH_TextEditorProxy_HandleSetSelectionFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_HandleExtendActionFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -573,7 +573,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetHandleExtendActionFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         handleExtendActionFunc: OH_TextEditorProxy_HandleExtendActionFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -596,7 +596,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetGetLeftTextOfCursorFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         getLeftTextOfCursorFunc: OH_TextEditorProxy_GetLeftTextOfCursorFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -619,7 +619,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetGetRightTextOfCursorFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         getRightTextOfCursorFunc: OH_TextEditorProxy_GetRightTextOfCursorFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -642,7 +642,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetGetTextIndexAtCursorFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         getTextIndexAtCursorFunc: OH_TextEditorProxy_GetTextIndexAtCursorFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -665,7 +665,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetReceivePrivateCommandFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         receivePrivateCommandFunc: OH_TextEditorProxy_ReceivePrivateCommandFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_SetPreviewTextFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -687,7 +687,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetSetPreviewTextFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         setPreviewTextFunc: OH_TextEditorProxy_SetPreviewTextFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set function [`OH_TextEditorProxy_FinishTextPreviewFunc`] into [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -710,7 +710,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_SetFinishTextPreviewFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         finishTextPreviewFunc: OH_TextEditorProxy_FinishTextPreviewFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_GetTextConfigFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -733,7 +733,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetGetTextConfigFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         getTextConfigFunc: *mut OH_TextEditorProxy_GetTextConfigFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_InsertTextFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -756,7 +756,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetInsertTextFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         insertTextFunc: *mut OH_TextEditorProxy_InsertTextFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_DeleteForwardFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -779,7 +779,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetDeleteForwardFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         deleteForwardFunc: *mut OH_TextEditorProxy_DeleteForwardFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_DeleteBackwardFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -802,7 +802,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetDeleteBackwardFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         deleteBackwardFunc: *mut OH_TextEditorProxy_DeleteBackwardFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_SendKeyboardStatusFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -826,7 +826,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetSendKeyboardStatusFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         sendKeyboardStatusFunc: *mut OH_TextEditorProxy_SendKeyboardStatusFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_SendEnterKeyFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -849,7 +849,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetSendEnterKeyFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         sendEnterKeyFunc: *mut OH_TextEditorProxy_SendEnterKeyFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_MoveCursorFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -872,7 +872,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetMoveCursorFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         moveCursorFunc: *mut OH_TextEditorProxy_MoveCursorFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_HandleSetSelectionFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -896,7 +896,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetHandleSetSelectionFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         handleSetSelectionFunc: *mut OH_TextEditorProxy_HandleSetSelectionFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_HandleExtendActionFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -920,7 +920,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetHandleExtendActionFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         handleExtendActionFunc: *mut OH_TextEditorProxy_HandleExtendActionFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -944,7 +944,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetGetLeftTextOfCursorFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         getLeftTextOfCursorFunc: *mut OH_TextEditorProxy_GetLeftTextOfCursorFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -968,7 +968,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetGetRightTextOfCursorFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         getRightTextOfCursorFunc: *mut OH_TextEditorProxy_GetRightTextOfCursorFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -992,7 +992,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetGetTextIndexAtCursorFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         getTextIndexAtCursorFunc: *mut OH_TextEditorProxy_GetTextIndexAtCursorFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -1016,7 +1016,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetReceivePrivateCommandFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         receivePrivateCommandFunc: *mut OH_TextEditorProxy_ReceivePrivateCommandFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_SetPreviewTextFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -1039,7 +1039,7 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetSetPreviewTextFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         setPreviewTextFunc: *mut OH_TextEditorProxy_SetPreviewTextFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get function [`OH_TextEditorProxy_FinishTextPreviewFunc`] from [`InputMethod_TextEditorProxy`].
     ///
     /// # Arguments
@@ -1063,5 +1063,5 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetFinishTextPreviewFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         finishTextPreviewFunc: *mut OH_TextEditorProxy_FinishTextPreviewFunc,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
 }

@@ -64,7 +64,7 @@ extern "C" {
         command: *mut InputMethod_PrivateCommand,
         key: *mut ::core::ffi::c_char,
         keyLength: usize,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set bool data value into [`InputMethod_PrivateCommand`].
     ///
     /// # Arguments
@@ -86,7 +86,7 @@ extern "C" {
     pub fn OH_PrivateCommand_SetBoolValue(
         command: *mut InputMethod_PrivateCommand,
         value: bool,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set integer data value into [`InputMethod_PrivateCommand`].
     ///
     /// # Arguments
@@ -108,7 +108,7 @@ extern "C" {
     pub fn OH_PrivateCommand_SetIntValue(
         command: *mut InputMethod_PrivateCommand,
         value: i32,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set string data value into [`InputMethod_PrivateCommand`].
     ///
     /// # Arguments
@@ -133,7 +133,7 @@ extern "C" {
         command: *mut InputMethod_PrivateCommand,
         value: *mut ::core::ffi::c_char,
         valueLength: usize,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get key value from [`InputMethod_PrivateCommand`].
     ///
     /// # Arguments
@@ -158,7 +158,7 @@ extern "C" {
         command: *mut InputMethod_PrivateCommand,
         key: *mut *const ::core::ffi::c_char,
         keyLength: *mut usize,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get value type from [`InputMethod_PrivateCommand`].
     ///
     /// # Arguments
@@ -181,7 +181,7 @@ extern "C" {
     pub fn OH_PrivateCommand_GetValueType(
         command: *mut InputMethod_PrivateCommand,
         type_: *mut InputMethod_CommandValueType,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get bool data value from [`InputMethod_PrivateCommand`].
     ///
     /// # Arguments
@@ -204,7 +204,7 @@ extern "C" {
     pub fn OH_PrivateCommand_GetBoolValue(
         command: *mut InputMethod_PrivateCommand,
         value: *mut bool,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get integer data value from [`InputMethod_PrivateCommand`].
     ///
     /// # Arguments
@@ -227,7 +227,7 @@ extern "C" {
     pub fn OH_PrivateCommand_GetIntValue(
         command: *mut InputMethod_PrivateCommand,
         value: *mut i32,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get string data value from [`InputMethod_PrivateCommand`].
     ///
     /// # Arguments
@@ -253,5 +253,5 @@ extern "C" {
         command: *mut InputMethod_PrivateCommand,
         value: *mut *const ::core::ffi::c_char,
         valueLength: *mut usize,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
 }

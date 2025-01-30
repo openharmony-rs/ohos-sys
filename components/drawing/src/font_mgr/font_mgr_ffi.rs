@@ -3,12 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-use crate::types::*;
-
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
 use crate::text_typography::*;
+use crate::types::*;
 
 extern "C" {
     /// Creates an <b>OH_Drawing_FontMgr</b> object.

@@ -7,40 +7,37 @@ use crate::types::*;
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_ErrorCode {
-    /// Operation completed successfully.
-    pub const OH_DRAWING_SUCCESS: OH_Drawing_ErrorCode = OH_Drawing_ErrorCode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_ErrorCode {
+impl DrawingErrorCode {
     /// Permission verification failed.
-    pub const OH_DRAWING_ERROR_NO_PERMISSION: OH_Drawing_ErrorCode = OH_Drawing_ErrorCode(201);
+    pub const NO_PERMISSION: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(201).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_ErrorCode {
+impl DrawingErrorCode {
     /// Invalid input parameter. For example, the pointer in the parameter is a nullptr.
-    pub const OH_DRAWING_ERROR_INVALID_PARAMETER: OH_Drawing_ErrorCode = OH_Drawing_ErrorCode(401);
+    pub const INVALID_PARAMETER: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(401).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_ErrorCode {
+impl DrawingErrorCode {
     /// The parameter is not in the valid range.
-    pub const OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE: OH_Drawing_ErrorCode =
-        OH_Drawing_ErrorCode(26200001);
+    pub const PARAMETER_OUT_OF_RANGE: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200001).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_ErrorCode {
+impl DrawingErrorCode {
     /// mem allocate failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub const OH_DRAWING_ERROR_ALLOCATION_FAILED: OH_Drawing_ErrorCode =
-        OH_Drawing_ErrorCode(26200002);
+    pub const ALLOCATION_FAILED: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200002).unwrap() });
 }
+pub type DrawingResult = Result<(), DrawingErrorCode>;
 #[repr(transparent)]
 /// Enumerates error codes of drawing.
 ///
@@ -48,7 +45,7 @@ impl OH_Drawing_ErrorCode {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_Drawing_ErrorCode(pub ::core::ffi::c_uint);
+pub struct DrawingErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 extern "C" {
     /// Obtains the error code of the drawing module.
     ///
@@ -64,5 +61,5 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_Drawing_ErrorCodeGet() -> OH_Drawing_ErrorCode;
+    pub fn OH_Drawing_ErrorCodeGet() -> DrawingResult;
 }

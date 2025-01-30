@@ -55,7 +55,7 @@ extern "C" {
     pub fn OH_TextConfig_SetInputType(
         config: *mut InputMethod_TextConfig,
         inputType: InputMethod_TextInputType,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set enter key type into TextConfig.
     ///
     /// # Arguments
@@ -77,7 +77,7 @@ extern "C" {
     pub fn OH_TextConfig_SetEnterKeyType(
         config: *mut InputMethod_TextConfig,
         enterKeyType: InputMethod_EnterKeyType,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set preview text support into TextConfig.
     ///
     /// # Arguments
@@ -99,7 +99,7 @@ extern "C" {
     pub fn OH_TextConfig_SetPreviewTextSupport(
         config: *mut InputMethod_TextConfig,
         supported: bool,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set selection into TextConfig.
     ///
     /// # Arguments
@@ -124,7 +124,7 @@ extern "C" {
         config: *mut InputMethod_TextConfig,
         start: i32,
         end: i32,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Set window id into TextConfig.
     ///
     /// # Arguments
@@ -146,7 +146,7 @@ extern "C" {
     pub fn OH_TextConfig_SetWindowId(
         config: *mut InputMethod_TextConfig,
         windowId: i32,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get input type from TextConfig
     ///
     /// # Arguments
@@ -169,7 +169,7 @@ extern "C" {
     pub fn OH_TextConfig_GetInputType(
         config: *mut InputMethod_TextConfig,
         inputType: *mut InputMethod_TextInputType,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get enter key type from TextConfig
     ///
     /// # Arguments
@@ -192,7 +192,7 @@ extern "C" {
     pub fn OH_TextConfig_GetEnterKeyType(
         config: *mut InputMethod_TextConfig,
         enterKeyType: *mut InputMethod_EnterKeyType,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get is preview text supported from TextConfig.
     ///
     /// # Arguments
@@ -214,7 +214,7 @@ extern "C" {
     pub fn OH_TextConfig_IsPreviewTextSupported(
         config: *mut InputMethod_TextConfig,
         supported: *mut bool,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get cursor info from TextConfig.
     ///
     /// # Arguments
@@ -236,7 +236,7 @@ extern "C" {
     pub fn OH_TextConfig_GetCursorInfo(
         config: *mut InputMethod_TextConfig,
         cursorInfo: *mut *mut InputMethod_CursorInfo,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get text avoid information from text configuration.
     ///
     /// # Arguments
@@ -258,7 +258,7 @@ extern "C" {
     pub fn OH_TextConfig_GetTextAvoidInfo(
         config: *mut InputMethod_TextConfig,
         avoidInfo: *mut *mut InputMethod_TextAvoidInfo,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get selection from TextConfig.
     ///
     /// # Arguments
@@ -283,7 +283,7 @@ extern "C" {
         config: *mut InputMethod_TextConfig,
         start: *mut i32,
         end: *mut i32,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
     /// Get window id from TextConfig.
     ///
     /// # Arguments
@@ -305,5 +305,5 @@ extern "C" {
     pub fn OH_TextConfig_GetWindowId(
         config: *mut InputMethod_TextConfig,
         windowId: *mut i32,
-    ) -> InputMethod_ErrorCode;
+    ) -> InputMethodResult;
 }

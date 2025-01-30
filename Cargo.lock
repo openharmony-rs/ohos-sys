@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "arkui-sys"
-version = "0.2.4"
+version = "0.3.0"
 dependencies = [
  "document-features",
  "ohos-drawing-sys",
@@ -73,7 +73,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-drawing-sys"
-version = "0.2.2"
+version = "0.3.0"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -90,14 +90,14 @@ dependencies = [
 
 [[package]]
 name = "ohos-ime-sys"
-version = "0.1.4"
+version = "0.2.0"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-input-sys"
-version = "0.1.1"
+version = "0.2.0"
 dependencies = [
  "document-features",
 ]

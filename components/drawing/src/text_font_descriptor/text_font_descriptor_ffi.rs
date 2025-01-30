@@ -3,12 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-use crate::types::*;
-
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
 use crate::text_typography::OH_Drawing_FontDescriptor;
+use crate::types::*;
 
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]

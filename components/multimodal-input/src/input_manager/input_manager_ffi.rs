@@ -335,66 +335,69 @@ pub struct Input_Hotkey {
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_Result {
-    /// Success return code on success
-    pub const INPUT_SUCCESS: Input_Result = Input_Result(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_Result {
+impl InputErrorCode {
     /// Permission verification failed
-    pub const INPUT_PERMISSION_DENIED: Input_Result = Input_Result(201);
+    pub const PERMISSION_DENIED: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(201).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_Result {
+impl InputErrorCode {
     /// Non-system application
-    pub const INPUT_NOT_SYSTEM_APPLICATION: Input_Result = Input_Result(202);
+    pub const NOT_SYSTEM_APPLICATION: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(202).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_Result {
+impl InputErrorCode {
     /// Parameter check failed
-    pub const INPUT_PARAMETER_ERROR: Input_Result = Input_Result(401);
+    pub const PARAMETER_ERROR: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(401).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_Result {
+impl InputErrorCode {
     /// Device not support
-    pub const INPUT_DEVICE_NOT_SUPPORTED: Input_Result = Input_Result(801);
+    pub const DEVICE_NOT_SUPPORTED: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(801).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_Result {
+impl InputErrorCode {
     /// Service error
-    pub const INPUT_SERVICE_EXCEPTION: Input_Result = Input_Result(3800001);
+    pub const SERVICE_EXCEPTION: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(3800001).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_Result {
+impl InputErrorCode {
     /// Interceptor repeatedly created for an application
-    pub const INPUT_REPEAT_INTERCEPTOR: Input_Result = Input_Result(4200001);
+    pub const REPEAT_INTERCEPTOR: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(4200001).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_Result {
+impl InputErrorCode {
     /// Already occupied by the system
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-    pub const INPUT_OCCUPIED_BY_SYSTEM: Input_Result = Input_Result(4200002);
+    pub const OCCUPIED_BY_SYSTEM: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(4200002).unwrap() });
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_Result {
+impl InputErrorCode {
     /// Already occupied by the other
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-    pub const INPUT_OCCUPIED_BY_OTHER: Input_Result = Input_Result(4200003);
+    pub const OCCUPIED_BY_OTHER: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(4200003).unwrap() });
 }
+pub type Input_Result = Result<(), InputErrorCode>;
 #[repr(transparent)]
 /// Enumerates error codes.
 ///
@@ -403,7 +406,7 @@ impl Input_Result {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct Input_Result(pub ::core::ffi::c_uint);
+pub struct InputErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 /// Callback used to return shortcut key events.
 ///
 /// Available since API-level: 14

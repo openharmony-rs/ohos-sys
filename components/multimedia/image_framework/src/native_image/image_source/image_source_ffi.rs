@@ -81,7 +81,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ImageSourceInfo_Create(info: *mut *mut OH_ImageSource_Info) -> Image_ErrorCode;
+    pub fn OH_ImageSourceInfo_Create(info: *mut *mut OH_ImageSource_Info) -> ImageResult;
     /// Get width number for OH_ImageSource_Info struct.
     ///
     /// # Arguments
@@ -100,7 +100,7 @@ extern "C" {
     pub fn OH_ImageSourceInfo_GetWidth(
         info: *mut OH_ImageSource_Info,
         width: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get height number for OH_ImageSource_Info struct.
     ///
     /// # Arguments
@@ -119,7 +119,7 @@ extern "C" {
     pub fn OH_ImageSourceInfo_GetHeight(
         info: *mut OH_ImageSource_Info,
         height: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get isHdr for OH_ImageSource_Info struct.
     ///
     /// # Arguments
@@ -139,7 +139,7 @@ extern "C" {
     pub fn OH_ImageSourceInfo_GetDynamicRange(
         info: *mut OH_ImageSource_Info,
         isHdr: *mut bool,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// delete OH_ImageSource_Info pointer.
     ///
     /// # Arguments
@@ -153,7 +153,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ImageSourceInfo_Release(info: *mut OH_ImageSource_Info) -> Image_ErrorCode;
+    pub fn OH_ImageSourceInfo_Release(info: *mut OH_ImageSource_Info) -> ImageResult;
     /// Create a pointer for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -167,7 +167,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_DecodingOptions_Create(options: *mut *mut OH_DecodingOptions) -> Image_ErrorCode;
+    pub fn OH_DecodingOptions_Create(options: *mut *mut OH_DecodingOptions) -> ImageResult;
     /// Get pixelFormat number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -186,7 +186,7 @@ extern "C" {
     pub fn OH_DecodingOptions_GetPixelFormat(
         options: *mut OH_DecodingOptions,
         pixelFormat: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set pixelFormat number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -205,7 +205,7 @@ extern "C" {
     pub fn OH_DecodingOptions_SetPixelFormat(
         options: *mut OH_DecodingOptions,
         pixelFormat: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get index number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -224,7 +224,7 @@ extern "C" {
     pub fn OH_DecodingOptions_GetIndex(
         options: *mut OH_DecodingOptions,
         index: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set index number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -240,10 +240,8 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_DecodingOptions_SetIndex(
-        options: *mut OH_DecodingOptions,
-        index: u32,
-    ) -> Image_ErrorCode;
+    pub fn OH_DecodingOptions_SetIndex(options: *mut OH_DecodingOptions, index: u32)
+        -> ImageResult;
     /// Get rotate number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -262,7 +260,7 @@ extern "C" {
     pub fn OH_DecodingOptions_GetRotate(
         options: *mut OH_DecodingOptions,
         rotate: *mut f32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set rotate number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -281,7 +279,7 @@ extern "C" {
     pub fn OH_DecodingOptions_SetRotate(
         options: *mut OH_DecodingOptions,
         rotate: f32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Get desiredSize number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -300,7 +298,7 @@ extern "C" {
     pub fn OH_DecodingOptions_GetDesiredSize(
         options: *mut OH_DecodingOptions,
         desiredSize: *mut Image_Size,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set desiredSize number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -319,7 +317,7 @@ extern "C" {
     pub fn OH_DecodingOptions_SetDesiredSize(
         options: *mut OH_DecodingOptions,
         desiredSize: *mut Image_Size,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set desiredRegion number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -338,7 +336,7 @@ extern "C" {
     pub fn OH_DecodingOptions_GetDesiredRegion(
         options: *mut OH_DecodingOptions,
         desiredRegion: *mut Image_Region,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set desiredRegion number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -357,7 +355,7 @@ extern "C" {
     pub fn OH_DecodingOptions_SetDesiredRegion(
         options: *mut OH_DecodingOptions,
         desiredRegion: *mut Image_Region,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set desiredDynamicRange number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -377,7 +375,7 @@ extern "C" {
     pub fn OH_DecodingOptions_GetDesiredDynamicRange(
         options: *mut OH_DecodingOptions,
         desiredDynamicRange: *mut i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set desiredDynamicRange number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -397,7 +395,7 @@ extern "C" {
     pub fn OH_DecodingOptions_SetDesiredDynamicRange(
         options: *mut OH_DecodingOptions,
         desiredDynamicRange: i32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// delete OH_DecodingOptions pointer.
     ///
     /// # Arguments
@@ -411,7 +409,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_DecodingOptions_Release(options: *mut OH_DecodingOptions) -> Image_ErrorCode;
+    pub fn OH_DecodingOptions_Release(options: *mut OH_DecodingOptions) -> ImageResult;
     /// Creates an ImageSource pointer.
     ///
     /// # Arguments
@@ -433,7 +431,7 @@ extern "C" {
         uri: *mut ::core::ffi::c_char,
         uriSize: usize,
         res: *mut *mut OH_ImageSourceNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Creates an void pointer
     ///
     /// # Arguments
@@ -452,7 +450,7 @@ extern "C" {
     pub fn OH_ImageSourceNative_CreateFromFd(
         fd: i32,
         res: *mut *mut OH_ImageSourceNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Creates an void pointer
     ///
     /// # Arguments
@@ -474,7 +472,7 @@ extern "C" {
         data: *mut u8,
         dataSize: usize,
         res: *mut *mut OH_ImageSourceNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Creates an void pointer
     ///
     /// # Arguments
@@ -493,7 +491,7 @@ extern "C" {
     pub fn OH_ImageSourceNative_CreateFromRawFile(
         rawFile: *mut RawFileDescriptor,
         res: *mut *mut OH_ImageSourceNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Decodes an void pointer
     /// based on the specified [`OH_DecodingOptions`] struct.
     ///
@@ -517,7 +515,7 @@ extern "C" {
         source: *mut OH_ImageSourceNative,
         options: *mut OH_DecodingOptions,
         pixelmap: *mut *mut OH_PixelmapNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Decodes an void pointer
     /// the <b>Pixelmap</b> objects at the C++ native layer
     /// based on the specified [`OH_DecodingOptions`] struct.
@@ -546,7 +544,7 @@ extern "C" {
         options: *mut OH_DecodingOptions,
         resVecPixMap: *mut *mut OH_PixelmapNative,
         size: usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Create Picture pointer from ImageSource
     /// based on the specified [`OH_DecodingOptionsForPicture`] struct.
     ///
@@ -573,7 +571,7 @@ extern "C" {
         source: *mut OH_ImageSourceNative,
         options: *mut OH_DecodingOptionsForPicture,
         picture: *mut *mut OH_PictureNative,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the delay time list from some <b>ImageSource</b> objects (such as GIF image sources).
     ///
     /// # Arguments
@@ -595,7 +593,7 @@ extern "C" {
         source: *mut OH_ImageSourceNative,
         delayTimeList: *mut i32,
         size: usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains image source information from an <b>ImageSource</b> object by index.
     ///
     /// # Arguments
@@ -618,7 +616,7 @@ extern "C" {
         source: *mut OH_ImageSourceNative,
         index: i32,
         info: *mut OH_ImageSource_Info,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the value of an image property from an <b>ImageSource</b> object.
     ///
     /// # Arguments
@@ -642,7 +640,7 @@ extern "C" {
         source: *mut OH_ImageSourceNative,
         key: *mut Image_String,
         value: *mut Image_String,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Modifies the value of an image property of an <b>ImageSource</b> object.
     /// # Arguments
     ///
@@ -664,7 +662,7 @@ extern "C" {
         source: *mut OH_ImageSourceNative,
         key: *mut Image_String,
         value: *mut Image_String,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the number of frames from an <b>ImageSource</b> object.
     ///
     /// # Arguments
@@ -683,7 +681,7 @@ extern "C" {
     pub fn OH_ImageSourceNative_GetFrameCount(
         source: *mut OH_ImageSourceNative,
         frameCount: *mut u32,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases an <b>ImageSourc</b> object.
     ///
     /// # Arguments
@@ -697,7 +695,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ImageSourceNative_Release(source: *mut OH_ImageSourceNative) -> Image_ErrorCode;
+    pub fn OH_ImageSourceNative_Release(source: *mut OH_ImageSourceNative) -> ImageResult;
     /// Create a pointer for OH_DecodingOptionsForPicture struct.
     ///
     /// # Arguments
@@ -715,7 +713,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_DecodingOptionsForPicture_Create(
         options: *mut *mut OH_DecodingOptionsForPicture,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Obtains the desired auxiliary pictures of decoding options.
     ///
     /// # Arguments
@@ -740,7 +738,7 @@ extern "C" {
         options: *mut OH_DecodingOptionsForPicture,
         desiredAuxiliaryPictures: *mut *mut Image_AuxiliaryPictureType,
         length: *mut usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Set decoding options desired auxiliary pictures.
     ///
     /// # Arguments
@@ -765,7 +763,7 @@ extern "C" {
         options: *mut OH_DecodingOptionsForPicture,
         desiredAuxiliaryPictures: *mut Image_AuxiliaryPictureType,
         length: usize,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
     /// Releases an <b>DecodingOptionsForPicture</b> object.
     ///
     /// # Arguments
@@ -783,5 +781,5 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_DecodingOptionsForPicture_Release(
         options: *mut OH_DecodingOptionsForPicture,
-    ) -> Image_ErrorCode;
+    ) -> ImageResult;
 }

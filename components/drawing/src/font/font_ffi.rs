@@ -5,10 +5,6 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
-
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FontHinting {
@@ -419,7 +415,7 @@ extern "C" {
         font: *const OH_Drawing_Font,
         str_: *const ::core::ffi::c_char,
         textWidth: *mut f32,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Measures the width of text.
     ///
     ///
@@ -457,7 +453,7 @@ extern "C" {
         encoding: OH_Drawing_TextEncoding,
         bounds: *mut OH_Drawing_Rect,
         textWidth: *mut f32,
-    ) -> OH_Drawing_ErrorCode;
+    ) -> crate::error_code::DrawingResult;
     /// Enables or disables linearly scalable font for an <b>OH_Drawing_Font</b> object.
     ///
     ///

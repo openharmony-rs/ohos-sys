@@ -5,10 +5,6 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-#[allow(unused_imports)]
-#[cfg(feature = "api-12")]
-use crate::error_code::OH_Drawing_ErrorCode;
-
 extern "C" {
     /// Converts four variables (alpha, red, green, and blue) into a 32-bit (ARGB) variable that describes a color.
     ///

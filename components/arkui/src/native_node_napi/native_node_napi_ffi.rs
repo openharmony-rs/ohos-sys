@@ -166,7 +166,7 @@ extern "C" {
         buffer: *mut ::core::ffi::c_char,
         bufferSize: i32,
         writeLength: *mut i32,
-    ) -> ArkUI_ErrorCode;
+    ) -> ArkUiResult;
     /// Obtain the name of the NavDestination component where the node is located.
     ///
     /// # Arguments
@@ -200,7 +200,7 @@ extern "C" {
         buffer: *mut ::core::ffi::c_char,
         bufferSize: i32,
         writeLength: *mut i32,
-    ) -> ArkUI_ErrorCode;
+    ) -> ArkUiResult;
     /// Based on the given index value, obtain the length of the Navigation stack where the node is located.
     ///
     /// # Arguments
@@ -220,7 +220,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ArkUI_GetNavStackLength(node: ArkUI_NodeHandle, length: *mut i32) -> ArkUI_ErrorCode;
+    pub fn OH_ArkUI_GetNavStackLength(node: ArkUI_NodeHandle, length: *mut i32) -> ArkUiResult;
     /// Based on the given index value, obtain the page name of the corresponding position
     /// in the navigation stack where the node is located.
     /// Index values are counted from 0, with 0 being the bottom of the stack.
@@ -260,7 +260,7 @@ extern "C" {
         buffer: *mut ::core::ffi::c_char,
         bufferSize: i32,
         writeLength: *mut i32,
-    ) -> ArkUI_ErrorCode;
+    ) -> ArkUiResult;
     /// Obtain the ID of the NavDestination component where the node is located.
     ///
     /// # Arguments
@@ -294,7 +294,7 @@ extern "C" {
         buffer: *mut ::core::ffi::c_char,
         bufferSize: i32,
         writeLength: *mut i32,
-    ) -> ArkUI_ErrorCode;
+    ) -> ArkUiResult;
     /// Obtain the state of the NavDestination component where the node is located.
     ///
     /// # Arguments
@@ -317,7 +317,7 @@ extern "C" {
     pub fn OH_ArkUI_GetNavDestinationState(
         node: ArkUI_NodeHandle,
         state: *mut ArkUI_NavDestinationState,
-    ) -> ArkUI_ErrorCode;
+    ) -> ArkUiResult;
     /// Obtain the index of the NavDestination component on the Navigation stack where the node is located.
     ///
     /// # Arguments
@@ -337,10 +337,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ArkUI_GetNavDestinationIndex(
-        node: ArkUI_NodeHandle,
-        index: *mut i32,
-    ) -> ArkUI_ErrorCode;
+    pub fn OH_ArkUI_GetNavDestinationIndex(node: ArkUI_NodeHandle, index: *mut i32) -> ArkUiResult;
     /// Obtain the parameters of the NavDestination component where the node is located.
     ///
     /// # Arguments
@@ -375,7 +372,7 @@ extern "C" {
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub fn OH_ArkUI_GetRouterPageIndex(node: ArkUI_NodeHandle, index: *mut i32) -> ArkUI_ErrorCode;
+    pub fn OH_ArkUI_GetRouterPageIndex(node: ArkUI_NodeHandle, index: *mut i32) -> ArkUiResult;
     /// Obtain the name of the page where the node is located.
     ///
     /// # Arguments
@@ -409,7 +406,7 @@ extern "C" {
         buffer: *mut ::core::ffi::c_char,
         bufferSize: i32,
         writeLength: *mut i32,
-    ) -> ArkUI_ErrorCode;
+    ) -> ArkUiResult;
     /// Obtain the path of the page where the node is located.
     ///
     /// # Arguments
@@ -443,7 +440,7 @@ extern "C" {
         buffer: *mut ::core::ffi::c_char,
         bufferSize: i32,
         writeLength: *mut i32,
-    ) -> ArkUI_ErrorCode;
+    ) -> ArkUiResult;
     /// Obtain the state of the page where the node is located.
     ///
     /// # Arguments
@@ -466,7 +463,7 @@ extern "C" {
     pub fn OH_ArkUI_GetRouterPageState(
         node: ArkUI_NodeHandle,
         state: *mut ArkUI_RouterPageState,
-    ) -> ArkUI_ErrorCode;
+    ) -> ArkUiResult;
     /// Obtain the ID of the page where the node is located.
     ///
     /// # Arguments
@@ -500,5 +497,5 @@ extern "C" {
         buffer: *mut ::core::ffi::c_char,
         bufferSize: i32,
         writeLength: *mut i32,
-    ) -> ArkUI_ErrorCode;
+    ) -> ArkUiResult;
 }
