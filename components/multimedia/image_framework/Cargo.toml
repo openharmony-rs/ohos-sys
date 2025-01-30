@@ -42,6 +42,8 @@ image-packer = []
 image-receiver = []
 ## Image decoding
 image-source = ["dep:ohos-rawfile-sys"]
+## Picture
+picture = ["pixelmap"]
 ## Pixel Map
 pixelmap = []
 ## Document available features when building the documentation
