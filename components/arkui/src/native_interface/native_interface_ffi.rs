@@ -36,7 +36,7 @@ impl ArkUI_NativeAPIVariantKind {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NativeAPIVariantKind(pub ::core::ffi::c_uint);
 extern "C" {
     /// Obtains the native API set of a specified type.

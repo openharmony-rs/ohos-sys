@@ -54,7 +54,7 @@ impl IMAGE_DYNAMIC_RANGE {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct IMAGE_DYNAMIC_RANGE(pub ::core::ffi::c_uint);
 /// Defines the options for decoding the image source.
 /// It is used in [`OH_ImageSourceNative_CreatePixelmap`].

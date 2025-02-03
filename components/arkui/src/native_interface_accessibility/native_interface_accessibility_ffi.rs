@@ -117,7 +117,7 @@ impl ArkUI_Accessibility_ActionType {
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_Accessibility_ActionType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -231,7 +231,7 @@ impl ArkUI_AccessibilityEventType {
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_AccessibilityEventType(pub ::core::ffi::c_uint);
 /// Defines a struct for the accessible action.
 ///
@@ -240,6 +240,7 @@ pub struct ArkUI_AccessibilityEventType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibleAction {
     /// Action type.
     pub actionType: ArkUI_Accessibility_ActionType,
@@ -253,6 +254,7 @@ pub struct ArkUI_AccessibleAction {
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibleRect {
     /// X coordinate of the upper left corner.
     pub leftTopX: i32,
@@ -270,6 +272,7 @@ pub struct ArkUI_AccessibleRect {
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibleRangeInfo {
     /// Minimum value.
     pub min: f64,
@@ -285,6 +288,7 @@ pub struct ArkUI_AccessibleRangeInfo {
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibleGridInfo {
     /// Number of rows.
     pub rowCount: i32,
@@ -300,6 +304,7 @@ pub struct ArkUI_AccessibleGridInfo {
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibleGridItemInfo {
     /// Whether it is a header.
     pub heading: bool,
@@ -349,7 +354,7 @@ impl ArkUI_AcessbilityErrorCode {
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_AcessbilityErrorCode(pub ::core::ffi::c_int);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -393,7 +398,7 @@ impl ArkUI_AccessibilitySearchMode {
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_AccessibilitySearchMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -423,7 +428,7 @@ impl ArkUI_AccessibilityFocusType {
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_AccessibilityFocusType(pub ::core::ffi::c_int);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -481,7 +486,7 @@ impl ArkUI_AccessibilityFocusMoveDirection {
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_AccessibilityFocusMoveDirection(pub ::core::ffi::c_uint);
 #[repr(C)]
 pub struct ArkUI_AccessibilityElementInfoList {
@@ -494,6 +499,7 @@ pub struct ArkUI_AccessibilityElementInfoList {
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibilityProviderCallbacks {
     /// Called to obtain element information based on a specified node.
     ///

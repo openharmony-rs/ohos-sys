@@ -36,7 +36,7 @@ impl ArkUI_DismissReason {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_DismissReason(pub ::core::ffi::c_uint);
 /// Invoked when the dialog box is closed.
 ///

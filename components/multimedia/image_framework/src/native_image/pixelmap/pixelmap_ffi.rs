@@ -35,7 +35,7 @@ impl PIXELMAP_ALPHA_TYPE {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct PIXELMAP_ALPHA_TYPE(pub ::core::ffi::c_uint);
 impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_UNKNOWN: PIXEL_FORMAT = PIXEL_FORMAT(0);
@@ -74,7 +74,7 @@ impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_YCRCB_P010: PIXEL_FORMAT = PIXEL_FORMAT(12);
 }
 #[repr(transparent)]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct PIXEL_FORMAT(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -111,7 +111,7 @@ impl OH_PixelmapNative_AntiAliasingLevel {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct OH_PixelmapNative_AntiAliasingLevel(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -144,7 +144,7 @@ impl OH_Pixelmap_HdrMetadataKey {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Pixelmap_HdrMetadataKey(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -179,7 +179,7 @@ impl OH_Pixelmap_HdrMetadataType {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Pixelmap_HdrMetadataType(pub ::core::ffi::c_uint);
 /// Value for HDR_STATIC_METADATA.
 ///
@@ -188,6 +188,7 @@ pub struct OH_Pixelmap_HdrMetadataType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug)]
 pub struct OH_Pixelmap_HdrStaticMetadata {
     /// The X-coordinate of the primary colors. The length of the array is three. Store in the order of r, g, b.
     pub displayPrimariesX: [f32; 3usize],
@@ -213,6 +214,7 @@ pub struct OH_Pixelmap_HdrStaticMetadata {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug)]
 pub struct OH_Pixelmap_HdrDynamicMetadata {
     /// The value of dynamic metadata.
     pub data: *mut u8,
@@ -226,6 +228,7 @@ pub struct OH_Pixelmap_HdrDynamicMetadata {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug)]
 pub struct OH_Pixelmap_HdrGainmapMetadata {
     /// The version used by the writer.
     pub writerVersion: u16,
@@ -257,6 +260,7 @@ pub struct OH_Pixelmap_HdrGainmapMetadata {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug)]
 pub struct OH_Pixelmap_HdrMetadataValue {
     /// The value corresponding to the HDR_METADATA_TYPE key
     pub type_: OH_Pixelmap_HdrMetadataType,

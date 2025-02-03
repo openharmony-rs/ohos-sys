@@ -76,7 +76,7 @@ impl Image_AuxiliaryPictureType {
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct Image_AuxiliaryPictureType(pub ::core::ffi::c_uint);
 extern "C" {
     /// Create a <b>Picture</b> object.

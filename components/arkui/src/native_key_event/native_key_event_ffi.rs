@@ -811,7 +811,7 @@ impl ArkUI_KeyCode {
 /// Available since API-level: 14
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_KeyCode(pub ::core::ffi::c_int);
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -850,7 +850,7 @@ impl ArkUI_KeyEventType {
 /// Available since API-level: 14
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_KeyEventType(pub ::core::ffi::c_int);
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -877,7 +877,7 @@ impl ArkUI_KeySourceType {
 /// Available since API-level: 14
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_KeySourceType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1036,7 +1036,7 @@ impl ArkUI_KeyIntension {
 /// Available since API-level: 14
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_KeyIntension(pub ::core::ffi::c_int);
 extern "C" {
     /// Obtains the type of a key event.
