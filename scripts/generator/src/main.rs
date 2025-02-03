@@ -222,8 +222,6 @@ struct DirBindingsConf {
     directory: String,
     /// Directory the bindings should be written to.
     output_dir: String,
-    /// API version that this module was added in.
-    min_api_version: u32,
     /// Optionally transform the output file name stem
     rename_output_file: Option<Box<dyn Fn(&str) -> String>>,
     /// Options which apply to all or most files
@@ -301,10 +299,7 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
             .context("Failed to write bindings to file")?;
     }
 
-    for binding in &get_module_bindings_config(api_version) {
-        if binding.min_api_version > api_version {
-            continue;
-        }
+    for binding in &get_module_bindings_config() {
         debug!("Generating binding: {}", binding.directory);
         let module_dir = sysroot_include_dir.join(&binding.directory);
         if !module_dir.exists() {
