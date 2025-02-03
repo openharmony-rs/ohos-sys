@@ -155,7 +155,6 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
                         is_result_type: false,
                     })
                     .derive_copy(false)
-                    .derive_debug(false)
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
             }),
@@ -208,8 +207,6 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
                         is_global: false,
                         is_result_type: false,
                     })
-                    .derive_copy(false)
-                    .derive_debug(false)
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
             }),
@@ -300,8 +297,6 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
                         is_global: false,
                         is_result_type: false,
                     })
-                    .derive_copy(false)
-                    .derive_debug(false)
                     .prepend_enum_name(false)
                     .parse_callbacks(Box::new(ResultEnumParseCallbacks {
                         rename_item: Box::new(|original_item_name| match original_item_name {
@@ -323,11 +318,24 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
                     }
                     "drawable_descriptor" => {
                         builder.raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
+                    },
+                    "native_animate" => {
+                        builder
+                            .no_debug("ArkUI_NativeAnimateAPI_.*")
+                            .no_copy("ArkUI_NativeAnimateAPI_.*")
+                    }
+                    "native_dialog" => {
+                        builder
+                            .no_debug("ArkUI_NativeDialogAPI_.*")
+                            .no_copy("ArkUI_NativeDialogAPI_.*")
                     }
                     "native_gesture" => builder
                         .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
                         .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
-                        .blocklist_function("^OH_ArkUI_GestureEvent_SetNode"),
+                        .blocklist_function("^OH_ArkUI_GestureEvent_SetNode")
+                        .no_debug("ArkUI_NativeGestureAPI_1")
+                        .no_copy("ArkUI_NativeGestureAPI_1")
+                    ,
                     "native_interface_accessibility" => {
                         builder.raw_line("use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;")
                     }

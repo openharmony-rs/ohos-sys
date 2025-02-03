@@ -11,6 +11,7 @@
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug)]
 pub struct Image_Size {
     /// Image width, in pixels.
     pub width: u32,
@@ -24,6 +25,7 @@ pub struct Image_Size {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug)]
 pub struct Image_Region {
     /// X coordinate of the start point, in pixels.
     pub x: u32,
@@ -183,7 +185,7 @@ impl ImageResult {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct ImageResult(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -202,7 +204,7 @@ impl Image_MetadataType {
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct Image_MetadataType(pub ::core::ffi::c_uint);
 /// Defines the bmp mime type.
 ///

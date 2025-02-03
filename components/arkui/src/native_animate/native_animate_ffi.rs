@@ -12,6 +12,7 @@ use crate::native_type::*;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ArkUI_ExpectedFrameRateRange {
     /// Expected minimum frame rate.
     pub min: u32,

@@ -229,7 +229,7 @@ impl ArkUI_NodeType {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeType(pub ::core::ffi::c_uint);
 /// Defines the general input parameter structure of the [`setAttribute`] function.
 ///
@@ -238,6 +238,7 @@ pub struct ArkUI_NodeType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AttributeItem {
     /// Numeric array.
     pub value: *const ArkUI_NumberValue,
@@ -8017,7 +8018,7 @@ impl ArkUI_NodeAttributeType {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeAttributeType(pub ::core::ffi::c_uint);
 /// Defines the parameter type of the component callback event.
 ///
@@ -8037,6 +8038,7 @@ pub struct ArkUI_NodeComponentEvent {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ArkUI_StringAsyncEvent {
     /// String.
     pub pStr: *const ::core::ffi::c_char,
@@ -9717,7 +9719,7 @@ impl ArkUI_NodeEventType {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeEventType(pub ::core::ffi::c_uint);
 #[repr(C)]
 pub struct ArkUI_NodeEvent {
@@ -9750,7 +9752,7 @@ impl ArkUI_NodeDirtyFlag {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeDirtyFlag(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -9794,7 +9796,7 @@ impl ArkUI_NodeCustomEventType {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeCustomEventType(pub ::core::ffi::c_uint);
 #[repr(C)]
 pub struct ArkUI_NodeCustomEvent {
@@ -9857,7 +9859,7 @@ impl ArkUI_NodeAdapterEventType {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeAdapterEventType(pub ::core::ffi::c_uint);
 /// Declares a collection of native node APIs provided by ArkUI.
 ///
@@ -9870,6 +9872,7 @@ pub struct ArkUI_NodeAdapterEventType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct ArkUI_NativeNodeAPI_1 {
     /// Struct version.
     pub version: i32,
@@ -10579,7 +10582,7 @@ impl ArkUI_NodeContentEventType {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeContentEventType(pub ::core::ffi::c_uint);
 #[repr(C)]
 pub struct ArkUI_NodeContentEvent {
