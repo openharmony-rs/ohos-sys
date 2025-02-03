@@ -88,12 +88,11 @@ impl bindgen::callbacks::ParseCallbacks for ResultEnumParseCallbacks {
     }
 }
 
-pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsConf> {
+pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
     vec![
         DirBindingsConf {
             directory: "multimedia/image_framework/image".to_string(),
             output_dir: "components/multimedia/image_framework/src/native_image".to_string(),
-            min_api_version: 12,
             rename_output_file: Some(Box::new(|stem| strip_suffix(stem, "_native"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = if file_stem != "image_common" {
@@ -162,7 +161,6 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
         DirBindingsConf {
             directory: "inputmethod".to_string(),
             output_dir: "components/inputmethod/src".to_string(),
-            min_api_version: 12,
             rename_output_file: Some(Box::new(|stem| {
                 let stem = strip_suffix(stem, "_capi");
                 let stem = strip_prefix(&stem, "inputmethod_");
@@ -214,7 +212,6 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
         DirBindingsConf {
             directory: "native_drawing".to_string(),
             output_dir: "components/drawing/src".to_string(),
-            min_api_version: 12,
             rename_output_file: Some(Box::new(|stem| {
                 let stem = strip_prefix(&stem, "drawing_");
                 stem
@@ -281,7 +278,6 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
         DirBindingsConf {
             directory: "arkui".to_string(),
             output_dir: "components/arkui/src".to_string(),
-            min_api_version: 12,
             rename_output_file: None,
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = if file_stem != "native_type" {
@@ -379,7 +375,6 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
         DirBindingsConf {
             directory: "rawfile".to_string(),
             output_dir: "components/rawfile/src".to_string(),
-            min_api_version: 10,
             rename_output_file: None,
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
@@ -430,7 +425,6 @@ pub(crate) fn get_module_bindings_config(api_version: u32) -> Vec<DirBindingsCon
         DirBindingsConf {
             directory: "multimodalinput".to_string(),
             output_dir: "components/multimodal-input/src".to_string(),
-            min_api_version: 12,
             rename_output_file: Some(Box::new(|name| name.trim_start_matches("oh_").to_string())),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
