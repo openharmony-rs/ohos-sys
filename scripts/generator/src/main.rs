@@ -1,4 +1,5 @@
 mod dir_conf;
+mod enum_prefix;
 mod header_conf;
 mod opaque_types;
 
@@ -11,6 +12,7 @@ use std::fs;
 use std::num::ParseIntError;
 use std::path::{Path, PathBuf};
 use std::str::FromStr;
+use bindgen::callbacks::EnumVariantValue;
 use thiserror::Error;
 
 /// Parse the api version
@@ -115,6 +117,40 @@ fn parse_deprecated_since(line: &str) -> Result<Option<OpenHarmonyApiLevel>, Par
 }
 
 impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
+    fn result_error_enum_name(&self, original_enum_name: &str) -> Option<String> {
+        original_enum_name
+            .strip_suffix("Result")
+            .map(|base| format!("{}ErrorCode", base.trim_end_matches("_")))
+    }
+
+    fn enum_variant_name(
+        &self,
+        enum_name: Option<&str>,
+        original_variant_name: &str,
+        _variant_value: EnumVariantValue,
+    ) -> Option<String> {
+        let enum_name = enum_name?.trim_start_matches("enum ");
+            enum_prefix::ENUM_PREFIX_MAP
+                .get(enum_name)
+                .and_then(|prefix| original_variant_name.strip_prefix(prefix))
+                .map(|stripped| stripped.to_string())
+
+    }
+
+    fn process_comment(&self, comment: &str) -> Option<String> {
+        if comment.starts_with(" < ") {
+            // The leading space breaks the ///< detection of clang-sys.
+            warn!(
+                "Invalid doxygen comment. Should apply to item on left, but malformed: `{comment}`"
+            );
+            return None;
+        }
+        // Replace manual linebreaks in doxygen with double linebreaks for markdown.
+        let comment = comment.replace("\\n", "\n");
+        Some(doxygen_rs::transform(&comment))
+        // None
+    }
+
     fn parse_comments_for_attributes(&self, comment: &str) -> Vec<CodeGenAttributes> {
         let mut attributes: Vec<CodeGenAttributes> = vec![];
         let api_version = comment
@@ -160,26 +196,6 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
         }
 
         attributes
-    }
-
-    fn process_comment(&self, comment: &str) -> Option<String> {
-        if comment.starts_with(" < ") {
-            // The leading space breaks the ///< detection of clang-sys.
-            warn!(
-                "Invalid doxygen comment. Should apply to item on left, but malformed: `{comment}`"
-            );
-            return None;
-        }
-        // Replace manual linebreaks in doxygen with double linebreaks for markdown.
-        let comment = comment.replace("\\n", "\n");
-        Some(doxygen_rs::transform(&comment))
-        // None
-    }
-
-    fn result_error_enum_name(&self, original_enum_name: &str) -> Option<String> {
-        original_enum_name
-            .strip_suffix("Result")
-            .map(|base| format!("{}ErrorCode", base.trim_end_matches("_")))
     }
 }
 

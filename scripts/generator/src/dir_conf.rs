@@ -28,20 +28,6 @@ fn strip_prefix(input: &str, prefix: &str) -> String {
     }
 }
 
-/// Defines the prefixes that each enum has (which we probably want to remove)
-static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>> = LazyLock::new(|| {
-    HashMap::from([
-        ("Image_ErrorCode", "IMAGE_"),
-        ("OH_Drawing_ErrorCode", "OH_DRAWING_ERROR_"),
-        ("ArkUI_DragResult", "ARKUI_DRAG_RESULT_"),
-        ("ArkUI_GestureInterruptResult", "GESTURE_INTERRUPT_RESULT_"),
-        ("ArkUI_ErrorCode", "ARKUI_ERROR_CODE_"),
-        ("InputMethod_ErrorCode", "IME_ERR_"),
-        ("Input_Result", "INPUT_"),
-        ("OH_Drawing_FontConfigInfoErrorCode", "ERROR_FONT_CONFIG_INFO_")
-    ])
-});
-
 struct ResultEnumParseCallbacks {
     /// fn item_name(&self, original_item_name: &str) -> Option<String> {
     rename_item: Box<dyn Fn(&str) -> Option<String>>,
@@ -69,22 +55,6 @@ impl Debug for ResultEnumParseCallbacks {
 impl bindgen::callbacks::ParseCallbacks for ResultEnumParseCallbacks {
     fn item_name(&self, original_item_name: &str) -> Option<String> {
         (self.rename_item)(original_item_name)
-    }
-    fn enum_variant_name(
-        &self,
-        enum_name: Option<&str>,
-        original_variant_name: &str,
-        _variant_value: EnumVariantValue,
-    ) -> Option<String> {
-        let enum_name = enum_name?.trim_start_matches("enum ");
-        if let Some(custom_rename) = &self.rename_enum_variant {
-            (custom_rename)(enum_name, original_variant_name)
-        } else {
-            ENUM_PREFIX_MAP
-                .get(enum_name)
-                .and_then(|prefix| original_variant_name.strip_prefix(prefix))
-                .map(|stripped| stripped.to_string())
-        }
     }
 }
 
