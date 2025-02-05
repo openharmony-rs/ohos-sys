@@ -14,10 +14,6 @@ impl InputEvent_AxisType {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AXIS_TYPE_UNKNOWN: InputEvent_AxisType = InputEvent_AxisType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_AxisType {
     /// Indicates the vertical scroll axis. When you scroll the mouse wheel or make certain gestures on the touchpad,
     /// the status of the vertical scroll axis changes.
     ///
@@ -26,10 +22,6 @@ impl InputEvent_AxisType {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AXIS_TYPE_SCROLL_VERTICAL: InputEvent_AxisType = InputEvent_AxisType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_AxisType {
     /// Indicates the horizontal scroll axis.
     /// When you scroll the mouse wheel or make certain gestures on the touchpad,
     /// the status of the horizontal scroll axis changes.
@@ -39,10 +31,6 @@ impl InputEvent_AxisType {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AXIS_TYPE_SCROLL_HORIZONTAL: InputEvent_AxisType = InputEvent_AxisType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_AxisType {
     /// Indicates the pinch axis, which is used to describe a pinch gesture on the touchscreen or touchpad.
     ///
     ///
@@ -50,10 +38,6 @@ impl InputEvent_AxisType {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AXIS_TYPE_PINCH: InputEvent_AxisType = InputEvent_AxisType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_AxisType {
     /// Indicates the rotate axis, which is used to describe a rotate gesture on the touchpad.
     ///
     ///
@@ -81,10 +65,6 @@ impl InputEvent_AxisEventType {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AXIS_EVENT_TYPE_PINCH: InputEvent_AxisEventType = InputEvent_AxisEventType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_AxisEventType {
     /// Enumerates scroll axis events.
     /// The axis value can be AXIS_TYPE_SCROLL_VERTICAL or AXIS_TYPE_SCROLL_HORIZONTAL.
     /// Wherein, the value of AXIS_TYPE_SCROLL_HORIZONTAL is 0 for a mouse wheel event.
@@ -114,10 +94,6 @@ impl InputEvent_AxisAction {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AXIS_ACTION_CANCEL: InputEvent_AxisAction = InputEvent_AxisAction(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_AxisAction {
     /// Start action for the axis input event.
     ///
     ///
@@ -125,10 +101,6 @@ impl InputEvent_AxisAction {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AXIS_ACTION_BEGIN: InputEvent_AxisAction = InputEvent_AxisAction(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_AxisAction {
     /// Update action for the axis input event.
     ///
     ///
@@ -136,10 +108,6 @@ impl InputEvent_AxisAction {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AXIS_ACTION_UPDATE: InputEvent_AxisAction = InputEvent_AxisAction(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_AxisAction {
     /// End action for the axis input event.
     ///
     ///

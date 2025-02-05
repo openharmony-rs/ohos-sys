@@ -11,16 +11,8 @@ pub use ohos_sys_opaque_types::OH_PixelmapNative;
 impl ArkUI_DragResult {
     /// The drag and drop operation succeeded.
     pub const SUCCESSFUL: ArkUI_DragResult = ArkUI_DragResult(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_DragResult {
     /// The drag and drop operation failed.
     pub const FAILED: ArkUI_DragResult = ArkUI_DragResult(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_DragResult {
     /// The drag and drop operation was canceled.
     pub const CANCELED: ArkUI_DragResult = ArkUI_DragResult(2);
 }
@@ -39,10 +31,6 @@ pub struct ArkUI_DragResult(pub ::core::ffi::c_uint);
 impl ArkUI_DropOperation {
     /// Copy.
     pub const ARKUI_DROP_OPERATION_COPY: ArkUI_DropOperation = ArkUI_DropOperation(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_DropOperation {
     /// Cut.
     pub const ARKUI_DROP_OPERATION_MOVE: ArkUI_DropOperation = ArkUI_DropOperation(1);
 }
@@ -60,51 +48,23 @@ pub struct ArkUI_DropOperation(pub ::core::ffi::c_uint);
 impl ArkUI_PreDragStatus {
     /// Unknown.
     pub const ARKUI_PRE_DRAG_STATUS_UNKNOWN: ArkUI_PreDragStatus = ArkUI_PreDragStatus(-1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_PreDragStatus {
     /// A drag gesture is being detected.
     pub const ARKUI_PRE_DRAG_STATUS_ACTION_DETECTING: ArkUI_PreDragStatus = ArkUI_PreDragStatus(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_PreDragStatus {
     /// The component is ready to be dragged.
     pub const ARKUI_PRE_DRAG_STATUS_READY_TO_TRIGGER_DRAG: ArkUI_PreDragStatus =
         ArkUI_PreDragStatus(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_PreDragStatus {
     /// A lift animation is started.
     pub const ARKUI_PRE_DRAG_STATUS_PREVIEW_LIFT_STARTED: ArkUI_PreDragStatus =
         ArkUI_PreDragStatus(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_PreDragStatus {
     /// A lift animation is finished.
     pub const ARKUI_PRE_DRAG_STATUS_PREVIEW_LIFT_FINISHED: ArkUI_PreDragStatus =
         ArkUI_PreDragStatus(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_PreDragStatus {
     /// A drop animation is started.
     pub const ARKUI_PRE_DRAG_STATUS_PREVIEW_LANDING_STARTED: ArkUI_PreDragStatus =
         ArkUI_PreDragStatus(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_PreDragStatus {
     /// A drop animation is finished.
     pub const ARKUI_PRE_DRAG_STATUS_PREVIEW_LANDING_FINISHED: ArkUI_PreDragStatus =
         ArkUI_PreDragStatus(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_PreDragStatus {
     /// A drop animation is terminated.
     pub const ARKUI_PRE_DRAG_STATUS_CANCELED_BEFORE_DRAG: ArkUI_PreDragStatus =
         ArkUI_PreDragStatus(6);
@@ -125,10 +85,6 @@ impl ArkUI_DragPreviewScaleMode {
     /// scales the drag preview based on set rules.
     pub const ARKUI_DRAG_PREVIEW_SCALE_AUTO: ArkUI_DragPreviewScaleMode =
         ArkUI_DragPreviewScaleMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_DragPreviewScaleMode {
     /// The system does not scale the drag preview.
     pub const ARKUI_DRAG_PREVIEW_SCALE_DISABLED: ArkUI_DragPreviewScaleMode =
         ArkUI_DragPreviewScaleMode(1);
@@ -147,16 +103,8 @@ pub struct ArkUI_DragPreviewScaleMode(pub ::core::ffi::c_uint);
 impl ArkUI_DragStatus {
     /// Unknown.
     pub const ARKUI_DRAG_STATUS_UNKNOWN: ArkUI_DragStatus = ArkUI_DragStatus(-1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_DragStatus {
     /// Started.
     pub const ARKUI_DRAG_STATUS_STARTED: ArkUI_DragStatus = ArkUI_DragStatus(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_DragStatus {
     /// Ended.
     pub const ARKUI_DRAG_STATUS_ENDED: ArkUI_DragStatus = ArkUI_DragStatus(1);
 }

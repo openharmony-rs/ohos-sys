@@ -69,212 +69,88 @@ pub struct BufferHandle {
 impl OH_NativeBuffer_ColorSpace {
     /// None color space
     pub const OH_COLORSPACE_NONE: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT601_P | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_P << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_BT601_EBU_FULL: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(1);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT601_N | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_N << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_BT601_SMPTE_C_FULL: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(2);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT709 | (TRANSFUNC_BT709 << 8) | (MATRIX_BT709 << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_BT709_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(3);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT2020 | (TRANSFUNC_HLG << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_BT2020_HLG_FULL: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(4);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT2020 | (TRANSFUNC_PQ << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_BT2020_PQ_FULL: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(5);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT601_P | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_P << 16) | (RANGE_LIMITED << 21)
     pub const OH_COLORSPACE_BT601_EBU_LIMIT: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(6);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT601_N | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_N << 16) | (RANGE_LIMITED << 21)
     pub const OH_COLORSPACE_BT601_SMPTE_C_LIMIT: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(7);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT709 | (TRANSFUNC_BT709 << 8) | (MATRIX_BT709 << 16) | (RANGE_LIMITED << 21)
     pub const OH_COLORSPACE_BT709_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(8);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT2020 | (TRANSFUNC_HLG << 8) | (MATRIX_BT2020 << 16) | (RANGE_LIMITED << 21)
     pub const OH_COLORSPACE_BT2020_HLG_LIMIT: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(9);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT2020 | (TRANSFUNC_PQ << 8) | (MATRIX_BT2020 << 16) | (RANGE_LIMITED << 21)
     pub const OH_COLORSPACE_BT2020_PQ_LIMIT: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(10);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_SRGB | (TRANSFUNC_SRGB << 8) | (MATRIX_BT601_N << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_SRGB_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(11);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_SRGB << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_P3_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(12);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_HLG << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_P3_HLG_FULL: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(13);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_PQ << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_P3_PQ_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(14);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_ADOBERGB | (TRANSFUNC_ADOBERGB << 8) | (MATRIX_ADOBERGB << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_ADOBERGB_FULL: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(15);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_SRGB | (TRANSFUNC_SRGB << 8) | (MATRIX_BT601_N << 16) | (RANGE_LIMITED << 21)
     pub const OH_COLORSPACE_SRGB_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(16);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_SRGB << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
     pub const OH_COLORSPACE_P3_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(17);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_HLG << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
     pub const OH_COLORSPACE_P3_HLG_LIMIT: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(18);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_PQ << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
     pub const OH_COLORSPACE_P3_PQ_LIMIT: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(19);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_ADOBERGB | (TRANSFUNC_ADOBERGB << 8) | (MATRIX_ADOBERGB << 16) | (RANGE_LIMITED << 21)
     pub const OH_COLORSPACE_ADOBERGB_LIMIT: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(20);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_SRGB | (TRANSFUNC_LINEAR << 8)
     pub const OH_COLORSPACE_LINEAR_SRGB: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(21);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// equal to OH_COLORSPACE_LINEAR_SRGB
     pub const OH_COLORSPACE_LINEAR_BT709: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(22);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_LINEAR << 8)
     pub const OH_COLORSPACE_LINEAR_P3: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(23);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT2020 | (TRANSFUNC_LINEAR << 8)
     pub const OH_COLORSPACE_LINEAR_BT2020: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(24);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// equal to OH_COLORSPACE_SRGB_FULL
     pub const OH_COLORSPACE_DISPLAY_SRGB: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(25);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// equal to OH_COLORSPACE_P3_FULL
     pub const OH_COLORSPACE_DISPLAY_P3_SRGB: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(26);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// equal to OH_COLORSPACE_P3_HLG_FULL
     pub const OH_COLORSPACE_DISPLAY_P3_HLG: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(27);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// equal to OH_COLORSPACE_P3_PQ_FULL
     pub const OH_COLORSPACE_DISPLAY_P3_PQ: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(28);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// COLORPRIMARIES_BT2020 | (TRANSFUNC_SRGB << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
     pub const OH_COLORSPACE_DISPLAY_BT2020_SRGB: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(29);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// equal to OH_COLORSPACE_BT2020_HLG_FULL
     pub const OH_COLORSPACE_DISPLAY_BT2020_HLG: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(30);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
     /// equal to OH_COLORSPACE_BT2020_PQ_FULL
     pub const OH_COLORSPACE_DISPLAY_BT2020_PQ: OH_NativeBuffer_ColorSpace =
         OH_NativeBuffer_ColorSpace(31);
@@ -307,16 +183,8 @@ pub struct OH_NativeBuffer_ColorSpace(pub ::core::ffi::c_uint);
 impl OH_NativeBuffer_MetadataKey {
     /// value: OH_NativeBuffer_MetadataType
     pub const OH_HDR_METADATA_TYPE: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_NativeBuffer_MetadataKey {
     /// value: OH_NativeBuffer_StaticMetadata
     pub const OH_HDR_STATIC_METADATA: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_NativeBuffer_MetadataKey {
     /// byte stream of SEI in video stream
     pub const OH_HDR_DYNAMIC_METADATA: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(2);
 }
@@ -514,17 +382,11 @@ impl OHScalingMode {
     /// the window content is not updated until a buffer of
     /// the window size is received
     pub const OH_SCALING_MODE_FREEZE: OHScalingMode = OHScalingMode(0);
-}
-impl OHScalingMode {
     /// the buffer is scaled in two dimensions to match the window size
     pub const OH_SCALING_MODE_SCALE_TO_WINDOW: OHScalingMode = OHScalingMode(1);
-}
-impl OHScalingMode {
     /// the buffer is uniformly scaled so that the smaller size of
     /// the buffer matches the window size
     pub const OH_SCALING_MODE_SCALE_CROP: OHScalingMode = OHScalingMode(2);
-}
-impl OHScalingMode {
     /// the window is clipped to the size of the buffer's clipping rectangle
     /// pixels outside the clipping rectangle are considered fully transparent.
     pub const OH_SCALING_MODE_NO_SCALE_CROP: OHScalingMode = OHScalingMode(3);
@@ -542,30 +404,14 @@ impl OHScalingModeV2 {
     /// the window content is not updated until a buffer of
     /// the window size is received
     pub const OH_SCALING_MODE_FREEZE_V2: OHScalingModeV2 = OHScalingModeV2(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OHScalingModeV2 {
     /// the buffer is scaled in two dimensions to match the window size
     pub const OH_SCALING_MODE_SCALE_TO_WINDOW_V2: OHScalingModeV2 = OHScalingModeV2(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OHScalingModeV2 {
     /// the buffer is uniformly scaled so that the smaller size of
     /// the buffer matches the window size
     pub const OH_SCALING_MODE_SCALE_CROP_V2: OHScalingModeV2 = OHScalingModeV2(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OHScalingModeV2 {
     /// the window is clipped to the size of the buffer's clipping rectangle
     /// pixels outside the clipping rectangle are considered fully transparent.
     pub const OH_SCALING_MODE_NO_SCALE_CROP_V2: OHScalingModeV2 = OHScalingModeV2(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OHScalingModeV2 {
     /// Adapt to the buffer and scale proportionally to the buffer size. Prioritize displaying all buffer content.
     /// If the size is not the same as the window size, fill the unfilled area of the window with a background color.
     pub const OH_SCALING_MODE_SCALE_FIT_V2: OHScalingModeV2 = OHScalingModeV2(4);
@@ -580,44 +426,18 @@ impl OHScalingModeV2 {
 pub struct OHScalingModeV2(pub ::core::ffi::c_uint);
 impl OHHDRMetadataKey {
     pub const OH_METAKEY_RED_PRIMARY_X: OHHDRMetadataKey = OHHDRMetadataKey(0);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_RED_PRIMARY_Y: OHHDRMetadataKey = OHHDRMetadataKey(1);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_GREEN_PRIMARY_X: OHHDRMetadataKey = OHHDRMetadataKey(2);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_GREEN_PRIMARY_Y: OHHDRMetadataKey = OHHDRMetadataKey(3);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_BLUE_PRIMARY_X: OHHDRMetadataKey = OHHDRMetadataKey(4);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_BLUE_PRIMARY_Y: OHHDRMetadataKey = OHHDRMetadataKey(5);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_WHITE_PRIMARY_X: OHHDRMetadataKey = OHHDRMetadataKey(6);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_WHITE_PRIMARY_Y: OHHDRMetadataKey = OHHDRMetadataKey(7);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_MAX_LUMINANCE: OHHDRMetadataKey = OHHDRMetadataKey(8);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_MIN_LUMINANCE: OHHDRMetadataKey = OHHDRMetadataKey(9);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_MAX_CONTENT_LIGHT_LEVEL: OHHDRMetadataKey = OHHDRMetadataKey(10);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_MAX_FRAME_AVERAGE_LIGHT_LEVEL: OHHDRMetadataKey = OHHDRMetadataKey(11);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_HDR10_PLUS: OHHDRMetadataKey = OHHDRMetadataKey(12);
-}
-impl OHHDRMetadataKey {
     pub const OH_METAKEY_HDR_VIVID: OHHDRMetadataKey = OHHDRMetadataKey(13);
 }
 #[repr(transparent)]
@@ -652,25 +472,9 @@ pub struct OHExtDataHandle {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OHSurfaceSource {
     pub const OH_SURFACE_SOURCE_DEFAULT: OHSurfaceSource = OHSurfaceSource(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OHSurfaceSource {
     pub const OH_SURFACE_SOURCE_UI: OHSurfaceSource = OHSurfaceSource(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OHSurfaceSource {
     pub const OH_SURFACE_SOURCE_GAME: OHSurfaceSource = OHSurfaceSource(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OHSurfaceSource {
     pub const OH_SURFACE_SOURCE_CAMERA: OHSurfaceSource = OHSurfaceSource(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OHSurfaceSource {
     pub const OH_SURFACE_SOURCE_VIDEO: OHSurfaceSource = OHSurfaceSource(4);
 }
 #[repr(transparent)]

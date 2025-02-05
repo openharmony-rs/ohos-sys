@@ -11,14 +11,8 @@ pub const NAPI_AUTO_LENGTH: i32 = -1;
 pub const NAPI_MODULE_VERSION: u32 = 1;
 impl napi_qos_t {
     pub const napi_qos_background: napi_qos_t = napi_qos_t(0);
-}
-impl napi_qos_t {
     pub const napi_qos_utility: napi_qos_t = napi_qos_t(1);
-}
-impl napi_qos_t {
     pub const napi_qos_default: napi_qos_t = napi_qos_t(2);
-}
-impl napi_qos_t {
     pub const napi_qos_user_initiated: napi_qos_t = napi_qos_t(3);
 }
 #[repr(transparent)]
@@ -30,10 +24,6 @@ impl napi_event_mode {
     /// In this mode, the current asynchronous thread will be blocked and events of native event loop will
     /// be processed.
     pub const napi_event_mode_default: napi_event_mode = napi_event_mode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl napi_event_mode {
     /// In this mode, the current asynchronous thread will not be blocked. If there are events in the event loop,
     /// only one event will be processed and then the event loop will stop. If there are no events in the loop,
     /// the event loop will stop immediately.
@@ -53,22 +43,10 @@ pub struct napi_event_mode(pub ::core::ffi::c_uint);
 impl napi_task_priority {
     /// The immediate priority tasks should be promptly processed whenever feasible.
     pub const napi_priority_immediate: napi_task_priority = napi_task_priority(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl napi_task_priority {
     /// The high priority tasks, as sorted by their handle time, should be prioritized over tasks with low priority.
     pub const napi_priority_high: napi_task_priority = napi_task_priority(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl napi_task_priority {
     /// The low priority tasks, as sorted by their handle time, should be processed before idle priority tasks.
     pub const napi_priority_low: napi_task_priority = napi_task_priority(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl napi_task_priority {
     /// The idle priority tasks should be processed immediately only if there are no other priority tasks.
     pub const napi_priority_idle: napi_task_priority = napi_task_priority(3);
 }
@@ -109,23 +87,11 @@ pub struct napi_deferred__ {
 pub type napi_deferred = *mut napi_deferred__;
 impl napi_property_attributes {
     pub const napi_default: napi_property_attributes = napi_property_attributes(0);
-}
-impl napi_property_attributes {
     pub const napi_writable: napi_property_attributes = napi_property_attributes(1);
-}
-impl napi_property_attributes {
     pub const napi_enumerable: napi_property_attributes = napi_property_attributes(2);
-}
-impl napi_property_attributes {
     pub const napi_configurable: napi_property_attributes = napi_property_attributes(4);
-}
-impl napi_property_attributes {
     pub const napi_static: napi_property_attributes = napi_property_attributes(1024);
-}
-impl napi_property_attributes {
     pub const napi_default_method: napi_property_attributes = napi_property_attributes(5);
-}
-impl napi_property_attributes {
     pub const napi_default_jsproperty: napi_property_attributes = napi_property_attributes(7);
 }
 #[repr(transparent)]
@@ -133,32 +99,14 @@ impl napi_property_attributes {
 pub struct napi_property_attributes(pub ::core::ffi::c_uint);
 impl napi_valuetype {
     pub const napi_undefined: napi_valuetype = napi_valuetype(0);
-}
-impl napi_valuetype {
     pub const napi_null: napi_valuetype = napi_valuetype(1);
-}
-impl napi_valuetype {
     pub const napi_boolean: napi_valuetype = napi_valuetype(2);
-}
-impl napi_valuetype {
     pub const napi_number: napi_valuetype = napi_valuetype(3);
-}
-impl napi_valuetype {
     pub const napi_string: napi_valuetype = napi_valuetype(4);
-}
-impl napi_valuetype {
     pub const napi_symbol: napi_valuetype = napi_valuetype(5);
-}
-impl napi_valuetype {
     pub const napi_object: napi_valuetype = napi_valuetype(6);
-}
-impl napi_valuetype {
     pub const napi_function: napi_valuetype = napi_valuetype(7);
-}
-impl napi_valuetype {
     pub const napi_external: napi_valuetype = napi_valuetype(8);
-}
-impl napi_valuetype {
     pub const napi_bigint: napi_valuetype = napi_valuetype(9);
 }
 #[repr(transparent)]
@@ -166,35 +114,15 @@ impl napi_valuetype {
 pub struct napi_valuetype(pub ::core::ffi::c_uint);
 impl napi_typedarray_type {
     pub const napi_int8_array: napi_typedarray_type = napi_typedarray_type(0);
-}
-impl napi_typedarray_type {
     pub const napi_uint8_array: napi_typedarray_type = napi_typedarray_type(1);
-}
-impl napi_typedarray_type {
     pub const napi_uint8_clamped_array: napi_typedarray_type = napi_typedarray_type(2);
-}
-impl napi_typedarray_type {
     pub const napi_int16_array: napi_typedarray_type = napi_typedarray_type(3);
-}
-impl napi_typedarray_type {
     pub const napi_uint16_array: napi_typedarray_type = napi_typedarray_type(4);
-}
-impl napi_typedarray_type {
     pub const napi_int32_array: napi_typedarray_type = napi_typedarray_type(5);
-}
-impl napi_typedarray_type {
     pub const napi_uint32_array: napi_typedarray_type = napi_typedarray_type(6);
-}
-impl napi_typedarray_type {
     pub const napi_float32_array: napi_typedarray_type = napi_typedarray_type(7);
-}
-impl napi_typedarray_type {
     pub const napi_float64_array: napi_typedarray_type = napi_typedarray_type(8);
-}
-impl napi_typedarray_type {
     pub const napi_bigint64_array: napi_typedarray_type = napi_typedarray_type(9);
-}
-impl napi_typedarray_type {
     pub const napi_biguint64_array: napi_typedarray_type = napi_typedarray_type(10);
 }
 #[repr(transparent)]
@@ -202,77 +130,29 @@ impl napi_typedarray_type {
 pub struct napi_typedarray_type(pub ::core::ffi::c_uint);
 impl napi_status {
     pub const napi_ok: napi_status = napi_status(0);
-}
-impl napi_status {
     pub const napi_invalid_arg: napi_status = napi_status(1);
-}
-impl napi_status {
     pub const napi_object_expected: napi_status = napi_status(2);
-}
-impl napi_status {
     pub const napi_string_expected: napi_status = napi_status(3);
-}
-impl napi_status {
     pub const napi_name_expected: napi_status = napi_status(4);
-}
-impl napi_status {
     pub const napi_function_expected: napi_status = napi_status(5);
-}
-impl napi_status {
     pub const napi_number_expected: napi_status = napi_status(6);
-}
-impl napi_status {
     pub const napi_boolean_expected: napi_status = napi_status(7);
-}
-impl napi_status {
     pub const napi_array_expected: napi_status = napi_status(8);
-}
-impl napi_status {
     pub const napi_generic_failure: napi_status = napi_status(9);
-}
-impl napi_status {
     pub const napi_pending_exception: napi_status = napi_status(10);
-}
-impl napi_status {
     pub const napi_cancelled: napi_status = napi_status(11);
-}
-impl napi_status {
     pub const napi_escape_called_twice: napi_status = napi_status(12);
-}
-impl napi_status {
     pub const napi_handle_scope_mismatch: napi_status = napi_status(13);
-}
-impl napi_status {
     pub const napi_callback_scope_mismatch: napi_status = napi_status(14);
-}
-impl napi_status {
     pub const napi_queue_full: napi_status = napi_status(15);
-}
-impl napi_status {
     pub const napi_closing: napi_status = napi_status(16);
-}
-impl napi_status {
     pub const napi_bigint_expected: napi_status = napi_status(17);
-}
-impl napi_status {
     pub const napi_date_expected: napi_status = napi_status(18);
-}
-impl napi_status {
     pub const napi_arraybuffer_expected: napi_status = napi_status(19);
-}
-impl napi_status {
     pub const napi_detachable_arraybuffer_expected: napi_status = napi_status(20);
-}
-impl napi_status {
     pub const napi_would_deadlock: napi_status = napi_status(21);
-}
-impl napi_status {
     pub const napi_create_ark_runtime_too_many_envs: napi_status = napi_status(22);
-}
-impl napi_status {
     pub const napi_create_ark_runtime_only_one_env_per_thread: napi_status = napi_status(23);
-}
-impl napi_status {
     pub const napi_destroy_ark_runtime_env_not_exist: napi_status = napi_status(24);
 }
 #[repr(transparent)]
@@ -309,8 +189,6 @@ pub struct napi_extended_error_info {
 }
 impl napi_key_collection_mode {
     pub const napi_key_include_prototypes: napi_key_collection_mode = napi_key_collection_mode(0);
-}
-impl napi_key_collection_mode {
     pub const napi_key_own_only: napi_key_collection_mode = napi_key_collection_mode(1);
 }
 #[repr(transparent)]
@@ -318,20 +196,10 @@ impl napi_key_collection_mode {
 pub struct napi_key_collection_mode(pub ::core::ffi::c_uint);
 impl napi_key_filter {
     pub const napi_key_all_properties: napi_key_filter = napi_key_filter(0);
-}
-impl napi_key_filter {
     pub const napi_key_writable: napi_key_filter = napi_key_filter(1);
-}
-impl napi_key_filter {
     pub const napi_key_enumerable: napi_key_filter = napi_key_filter(2);
-}
-impl napi_key_filter {
     pub const napi_key_configurable: napi_key_filter = napi_key_filter(4);
-}
-impl napi_key_filter {
     pub const napi_key_skip_strings: napi_key_filter = napi_key_filter(8);
-}
-impl napi_key_filter {
     pub const napi_key_skip_symbols: napi_key_filter = napi_key_filter(16);
 }
 #[repr(transparent)]
@@ -339,8 +207,6 @@ impl napi_key_filter {
 pub struct napi_key_filter(pub ::core::ffi::c_uint);
 impl napi_key_conversion {
     pub const napi_key_keep_numbers: napi_key_conversion = napi_key_conversion(0);
-}
-impl napi_key_conversion {
     pub const napi_key_numbers_to_strings: napi_key_conversion = napi_key_conversion(1);
 }
 #[repr(transparent)]
@@ -375,8 +241,6 @@ pub type napi_threadsafe_function = *mut napi_threadsafe_function__;
 impl napi_threadsafe_function_release_mode {
     pub const napi_tsfn_release: napi_threadsafe_function_release_mode =
         napi_threadsafe_function_release_mode(0);
-}
-impl napi_threadsafe_function_release_mode {
     pub const napi_tsfn_abort: napi_threadsafe_function_release_mode =
         napi_threadsafe_function_release_mode(1);
 }
@@ -386,8 +250,6 @@ pub struct napi_threadsafe_function_release_mode(pub ::core::ffi::c_uint);
 impl napi_threadsafe_function_call_mode {
     pub const napi_tsfn_nonblocking: napi_threadsafe_function_call_mode =
         napi_threadsafe_function_call_mode(0);
-}
-impl napi_threadsafe_function_call_mode {
     pub const napi_tsfn_blocking: napi_threadsafe_function_call_mode =
         napi_threadsafe_function_call_mode(1);
 }

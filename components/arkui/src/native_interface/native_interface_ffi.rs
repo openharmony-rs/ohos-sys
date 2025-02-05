@@ -10,22 +10,10 @@ use crate::native_type::*;
 impl ArkUI_NativeAPIVariantKind {
     /// API related to UI components. For details, see the struct definition in <arkui/native_node.h>.
     pub const ARKUI_NATIVE_NODE: ArkUI_NativeAPIVariantKind = ArkUI_NativeAPIVariantKind(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NativeAPIVariantKind {
     /// API related to dialog boxes. For details, see the struct definition in <arkui/native_dialog.h>.
     pub const ARKUI_NATIVE_DIALOG: ArkUI_NativeAPIVariantKind = ArkUI_NativeAPIVariantKind(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NativeAPIVariantKind {
     /// API related to gestures. For details, see the struct definition in <arkui/native_gesture.h>.
     pub const ARKUI_NATIVE_GESTURE: ArkUI_NativeAPIVariantKind = ArkUI_NativeAPIVariantKind(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NativeAPIVariantKind {
     /// API related to animations. For details, see the struct definition in <arkui/native_animate.h>.
     pub const ARKUI_NATIVE_ANIMATE: ArkUI_NativeAPIVariantKind = ArkUI_NativeAPIVariantKind(3);
 }

@@ -11,22 +11,10 @@ use crate::types::*;
 impl OH_Drawing_SystemFontType {
     /// All font types
     pub const ALL: OH_Drawing_SystemFontType = OH_Drawing_SystemFontType(1);
-}
-#[cfg(feature = "api-14")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-impl OH_Drawing_SystemFontType {
     /// System generic font type
     pub const GENERIC: OH_Drawing_SystemFontType = OH_Drawing_SystemFontType(2);
-}
-#[cfg(feature = "api-14")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-impl OH_Drawing_SystemFontType {
     /// Stylish font type
     pub const STYLISH: OH_Drawing_SystemFontType = OH_Drawing_SystemFontType(4);
-}
-#[cfg(feature = "api-14")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-impl OH_Drawing_SystemFontType {
     /// Installed font types
     pub const INSTALLED: OH_Drawing_SystemFontType = OH_Drawing_SystemFontType(8);
 }

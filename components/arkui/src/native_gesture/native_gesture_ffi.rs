@@ -24,24 +24,12 @@ impl ArkUI_GestureEventActionType {
     /// Triggered.
     pub const GESTURE_EVENT_ACTION_ACCEPT: ArkUI_GestureEventActionType =
         ArkUI_GestureEventActionType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureEventActionType {
     /// Updated.
     pub const GESTURE_EVENT_ACTION_UPDATE: ArkUI_GestureEventActionType =
         ArkUI_GestureEventActionType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureEventActionType {
     /// Ended.
     pub const GESTURE_EVENT_ACTION_END: ArkUI_GestureEventActionType =
         ArkUI_GestureEventActionType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureEventActionType {
     /// Canceled.
     pub const GESTURE_EVENT_ACTION_CANCEL: ArkUI_GestureEventActionType =
         ArkUI_GestureEventActionType(8);
@@ -70,16 +58,8 @@ pub type ArkUI_GestureEventActionTypeMask = u32;
 impl ArkUI_GesturePriority {
     /// Normal.
     pub const NORMAL: ArkUI_GesturePriority = ArkUI_GesturePriority(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GesturePriority {
     /// High-priority.
     pub const PRIORITY: ArkUI_GesturePriority = ArkUI_GesturePriority(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GesturePriority {
     /// Parallel.
     pub const PARALLEL: ArkUI_GesturePriority = ArkUI_GesturePriority(2);
 }
@@ -96,17 +76,9 @@ pub struct ArkUI_GesturePriority(pub ::core::ffi::c_uint);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_GroupGestureMode {
     pub const SEQUENTIAL_GROUP: ArkUI_GroupGestureMode = ArkUI_GroupGestureMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GroupGestureMode {
     /// Parallel recognition. Registered gestures are recognized concurrently until all gestures are recognized.
     /// The recognition result of each gesture does not affect each other.
     pub const PARALLEL_GROUP: ArkUI_GroupGestureMode = ArkUI_GroupGestureMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GroupGestureMode {
     /// Exclusive recognition. Registered gestures are identified concurrently.
     /// If one gesture is successfully recognized, gesture recognition ends.
     pub const EXCLUSIVE_GROUP: ArkUI_GroupGestureMode = ArkUI_GroupGestureMode(2);
@@ -125,46 +97,18 @@ pub struct ArkUI_GroupGestureMode(pub ::core::ffi::c_uint);
 impl ArkUI_GestureDirection {
     /// All directions.
     pub const GESTURE_DIRECTION_ALL: ArkUI_GestureDirection = ArkUI_GestureDirection(15);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureDirection {
     /// Horizontal direction.
     pub const GESTURE_DIRECTION_HORIZONTAL: ArkUI_GestureDirection = ArkUI_GestureDirection(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureDirection {
     /// Vertical direction.
     pub const GESTURE_DIRECTION_VERTICAL: ArkUI_GestureDirection = ArkUI_GestureDirection(12);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureDirection {
     /// Leftward.
     pub const GESTURE_DIRECTION_LEFT: ArkUI_GestureDirection = ArkUI_GestureDirection(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureDirection {
     /// Rightward.
     pub const GESTURE_DIRECTION_RIGHT: ArkUI_GestureDirection = ArkUI_GestureDirection(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureDirection {
     /// Upward.
     pub const GESTURE_DIRECTION_UP: ArkUI_GestureDirection = ArkUI_GestureDirection(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureDirection {
     /// Downward.
     pub const GESTURE_DIRECTION_DOWN: ArkUI_GestureDirection = ArkUI_GestureDirection(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureDirection {
     /// None.
     pub const GESTURE_DIRECTION_NONE: ArkUI_GestureDirection = ArkUI_GestureDirection(0);
 }
@@ -194,10 +138,6 @@ pub type ArkUI_GestureDirectionMask = u32;
 impl ArkUI_GestureMask {
     /// The gestures of child components are enabled and recognized based on the default gesture recognition sequence.
     pub const NORMAL_GESTURE_MASK: ArkUI_GestureMask = ArkUI_GestureMask(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureMask {
     /// The gestures of child components are disabled, including the built-in gestures.
     pub const IGNORE_INTERNAL_GESTURE_MASK: ArkUI_GestureMask = ArkUI_GestureMask(1);
 }
@@ -215,40 +155,16 @@ pub struct ArkUI_GestureMask(pub ::core::ffi::c_uint);
 impl ArkUI_GestureRecognizerType {
     /// Tap.
     pub const TAP_GESTURE: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerType {
     /// Long press.
     pub const LONG_PRESS_GESTURE: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerType {
     /// Pan.
     pub const PAN_GESTURE: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerType {
     /// Pinch.
     pub const PINCH_GESTURE: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerType {
     /// Rotate.
     pub const ROTATION_GESTURE: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerType {
     /// Swipe.
     pub const SWIPE_GESTURE: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerType {
     /// A group of gestures.
     pub const GROUP_GESTURE: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(6);
 }
@@ -266,10 +182,6 @@ pub struct ArkUI_GestureRecognizerType(pub ::core::ffi::c_uint);
 impl ArkUI_GestureInterruptResult {
     /// The gesture recognition process continues.
     pub const CONTINUE: ArkUI_GestureInterruptResult = ArkUI_GestureInterruptResult(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureInterruptResult {
     /// The gesture recognition process is paused.
     pub const REJECT: ArkUI_GestureInterruptResult = ArkUI_GestureInterruptResult(1);
 }
@@ -288,38 +200,18 @@ impl ArkUI_GestureRecognizerState {
     /// Ready.
     pub const ARKUI_GESTURE_RECOGNIZER_STATE_READY: ArkUI_GestureRecognizerState =
         ArkUI_GestureRecognizerState(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerState {
     /// Detecting.
     pub const ARKUI_GESTURE_RECOGNIZER_STATE_DETECTING: ArkUI_GestureRecognizerState =
         ArkUI_GestureRecognizerState(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerState {
     /// Pending.
     pub const ARKUI_GESTURE_RECOGNIZER_STATE_PENDING: ArkUI_GestureRecognizerState =
         ArkUI_GestureRecognizerState(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerState {
     /// Blocked.
     pub const ARKUI_GESTURE_RECOGNIZER_STATE_BLOCKED: ArkUI_GestureRecognizerState =
         ArkUI_GestureRecognizerState(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerState {
     /// Successful.
     pub const ARKUI_GESTURE_RECOGNIZER_STATE_SUCCESSFUL: ArkUI_GestureRecognizerState =
         ArkUI_GestureRecognizerState(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_GestureRecognizerState {
     /// Failed.
     pub const ARKUI_GESTURE_RECOGNIZER_STATE_FAILED: ArkUI_GestureRecognizerState =
         ArkUI_GestureRecognizerState(5);

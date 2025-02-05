@@ -10,22 +10,10 @@ use crate::types::*;
 impl OH_Drawing_ScaleToFit {
     /// Scales in x and y to fill destination rect.
     pub const SCALE_TO_FIT_FILL: OH_Drawing_ScaleToFit = OH_Drawing_ScaleToFit(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_ScaleToFit {
     /// Scales and aligns to left and top.
     pub const SCALE_TO_FIT_START: OH_Drawing_ScaleToFit = OH_Drawing_ScaleToFit(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_ScaleToFit {
     /// Scales and aligns to center.
     pub const SCALE_TO_FIT_CENTER: OH_Drawing_ScaleToFit = OH_Drawing_ScaleToFit(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_ScaleToFit {
     /// Scales and aligns to right and bottom.
     pub const SCALE_TO_FIT_END: OH_Drawing_ScaleToFit = OH_Drawing_ScaleToFit(3);
 }

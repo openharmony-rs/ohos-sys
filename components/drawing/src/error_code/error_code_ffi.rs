@@ -5,30 +5,19 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
+pub type DrawingResult = Result<(), DrawingErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl DrawingErrorCode {
     /// Permission verification failed.
     pub const NO_PERMISSION: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(201).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl DrawingErrorCode {
     /// Invalid input parameter. For example, the pointer in the parameter is a nullptr.
     pub const INVALID_PARAMETER: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(401).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl DrawingErrorCode {
     /// The parameter is not in the valid range.
     pub const PARAMETER_OUT_OF_RANGE: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200001).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl DrawingErrorCode {
     /// mem allocate failed.
     ///
     /// Available since API-level: 13
@@ -37,7 +26,6 @@ impl DrawingErrorCode {
     pub const ALLOCATION_FAILED: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200002).unwrap() });
 }
-pub type DrawingResult = Result<(), DrawingErrorCode>;
 #[repr(transparent)]
 /// Enumerates error codes of drawing.
 ///

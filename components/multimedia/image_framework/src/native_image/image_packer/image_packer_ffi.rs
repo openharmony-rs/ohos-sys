@@ -35,10 +35,6 @@ pub struct OH_PackingOptions {
 impl IMAGE_PACKER_DYNAMIC_RANGE {
     pub const IMAGE_PACKER_DYNAMIC_RANGE_AUTO: IMAGE_PACKER_DYNAMIC_RANGE =
         IMAGE_PACKER_DYNAMIC_RANGE(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl IMAGE_PACKER_DYNAMIC_RANGE {
     pub const IMAGE_PACKER_DYNAMIC_RANGE_SDR: IMAGE_PACKER_DYNAMIC_RANGE =
         IMAGE_PACKER_DYNAMIC_RANGE(1);
 }

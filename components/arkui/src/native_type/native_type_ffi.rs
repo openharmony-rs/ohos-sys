@@ -166,52 +166,20 @@ pub union ArkUI_NumberValue {
 impl ArkUI_Alignment {
     /// Top start.
     pub const ARKUI_ALIGNMENT_TOP_START: ArkUI_Alignment = ArkUI_Alignment(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Alignment {
     /// Top center.
     pub const ARKUI_ALIGNMENT_TOP: ArkUI_Alignment = ArkUI_Alignment(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Alignment {
     /// Top end.
     pub const ARKUI_ALIGNMENT_TOP_END: ArkUI_Alignment = ArkUI_Alignment(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Alignment {
     /// Vertically centered start.
     pub const ARKUI_ALIGNMENT_START: ArkUI_Alignment = ArkUI_Alignment(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Alignment {
     /// Horizontally and vertically centered.
     pub const ARKUI_ALIGNMENT_CENTER: ArkUI_Alignment = ArkUI_Alignment(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Alignment {
     /// Vertically centered end.
     pub const ARKUI_ALIGNMENT_END: ArkUI_Alignment = ArkUI_Alignment(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Alignment {
     /// Bottom start.
     pub const ARKUI_ALIGNMENT_BOTTOM_START: ArkUI_Alignment = ArkUI_Alignment(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Alignment {
     /// Horizontally centered on the bottom.
     pub const ARKUI_ALIGNMENT_BOTTOM: ArkUI_Alignment = ArkUI_Alignment(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Alignment {
     /// Bottom end.
     pub const ARKUI_ALIGNMENT_BOTTOM_END: ArkUI_Alignment = ArkUI_Alignment(8);
 }
@@ -229,22 +197,10 @@ pub struct ArkUI_Alignment(pub ::core::ffi::c_uint);
 impl ArkUI_ImageRepeat {
     /// The image is not repeatedly drawn.
     pub const ARKUI_IMAGE_REPEAT_NONE: ArkUI_ImageRepeat = ArkUI_ImageRepeat(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageRepeat {
     /// The image is repeatedly drawn only along the x-axis.
     pub const ARKUI_IMAGE_REPEAT_X: ArkUI_ImageRepeat = ArkUI_ImageRepeat(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageRepeat {
     /// The image is repeatedly drawn only along the y-axis.
     pub const ARKUI_IMAGE_REPEAT_Y: ArkUI_ImageRepeat = ArkUI_ImageRepeat(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageRepeat {
     /// The image is repeatedly drawn along both axes.
     pub const ARKUI_IMAGE_REPEAT_XY: ArkUI_ImageRepeat = ArkUI_ImageRepeat(3);
 }
@@ -262,10 +218,6 @@ pub struct ArkUI_ImageRepeat(pub ::core::ffi::c_uint);
 impl ArkUI_FontStyle {
     /// Standard font style.
     pub const ARKUI_FONT_STYLE_NORMAL: ArkUI_FontStyle = ArkUI_FontStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontStyle {
     /// Italic font style.
     pub const ARKUI_FONT_STYLE_ITALIC: ArkUI_FontStyle = ArkUI_FontStyle(1);
 }
@@ -283,88 +235,32 @@ pub struct ArkUI_FontStyle(pub ::core::ffi::c_uint);
 impl ArkUI_FontWeight {
     /// 100
     pub const ARKUI_FONT_WEIGHT_W100: ArkUI_FontWeight = ArkUI_FontWeight(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// 200
     pub const ARKUI_FONT_WEIGHT_W200: ArkUI_FontWeight = ArkUI_FontWeight(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// 300
     pub const ARKUI_FONT_WEIGHT_W300: ArkUI_FontWeight = ArkUI_FontWeight(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// 400
     pub const ARKUI_FONT_WEIGHT_W400: ArkUI_FontWeight = ArkUI_FontWeight(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// 500
     pub const ARKUI_FONT_WEIGHT_W500: ArkUI_FontWeight = ArkUI_FontWeight(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// 600
     pub const ARKUI_FONT_WEIGHT_W600: ArkUI_FontWeight = ArkUI_FontWeight(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// 700
     pub const ARKUI_FONT_WEIGHT_W700: ArkUI_FontWeight = ArkUI_FontWeight(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// 800
     pub const ARKUI_FONT_WEIGHT_W800: ArkUI_FontWeight = ArkUI_FontWeight(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// 900
     pub const ARKUI_FONT_WEIGHT_W900: ArkUI_FontWeight = ArkUI_FontWeight(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// The font weight is bold.
     pub const ARKUI_FONT_WEIGHT_BOLD: ArkUI_FontWeight = ArkUI_FontWeight(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// The font weight is normal.
     pub const ARKUI_FONT_WEIGHT_NORMAL: ArkUI_FontWeight = ArkUI_FontWeight(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// The font weight is bolder.
     pub const ARKUI_FONT_WEIGHT_BOLDER: ArkUI_FontWeight = ArkUI_FontWeight(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// The font weight is lighter.
     pub const ARKUI_FONT_WEIGHT_LIGHTER: ArkUI_FontWeight = ArkUI_FontWeight(12);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// The font weight is medium.
     pub const ARKUI_FONT_WEIGHT_MEDIUM: ArkUI_FontWeight = ArkUI_FontWeight(13);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FontWeight {
     /// The font weight is normal.
     pub const ARKUI_FONT_WEIGHT_REGULAR: ArkUI_FontWeight = ArkUI_FontWeight(14);
 }
@@ -382,22 +278,10 @@ pub struct ArkUI_FontWeight(pub ::core::ffi::c_uint);
 impl ArkUI_TextAlignment {
     /// Aligned with the start.
     pub const ARKUI_TEXT_ALIGNMENT_START: ArkUI_TextAlignment = ArkUI_TextAlignment(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextAlignment {
     /// Horizontally centered.
     pub const ARKUI_TEXT_ALIGNMENT_CENTER: ArkUI_TextAlignment = ArkUI_TextAlignment(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextAlignment {
     /// Aligned with the end.
     pub const ARKUI_TEXT_ALIGNMENT_END: ArkUI_TextAlignment = ArkUI_TextAlignment(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextAlignment {
     /// Aligned with both margins.
     pub const ARKUI_TEXT_ALIGNMENT_JUSTIFY: ArkUI_TextAlignment = ArkUI_TextAlignment(3);
 }
@@ -415,40 +299,16 @@ pub struct ArkUI_TextAlignment(pub ::core::ffi::c_uint);
 impl ArkUI_EnterKeyType {
     /// The Enter key is labeled "Go."
     pub const ARKUI_ENTER_KEY_TYPE_GO: ArkUI_EnterKeyType = ArkUI_EnterKeyType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_EnterKeyType {
     /// The Enter key is labeled "Search."
     pub const ARKUI_ENTER_KEY_TYPE_SEARCH: ArkUI_EnterKeyType = ArkUI_EnterKeyType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_EnterKeyType {
     /// The Enter key is labeled "Send."
     pub const ARKUI_ENTER_KEY_TYPE_SEND: ArkUI_EnterKeyType = ArkUI_EnterKeyType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_EnterKeyType {
     /// The Enter key is labeled "Next."
     pub const ARKUI_ENTER_KEY_TYPE_NEXT: ArkUI_EnterKeyType = ArkUI_EnterKeyType(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_EnterKeyType {
     /// The Enter key is labeled "Done."
     pub const ARKUI_ENTER_KEY_TYPE_DONE: ArkUI_EnterKeyType = ArkUI_EnterKeyType(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_EnterKeyType {
     /// The Enter key is labeled "Previous."
     pub const ARKUI_ENTER_KEY_TYPE_PREVIOUS: ArkUI_EnterKeyType = ArkUI_EnterKeyType(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_EnterKeyType {
     /// The Enter key is labeled "New Line."
     pub const ARKUI_ENTER_KEY_TYPE_NEW_LINE: ArkUI_EnterKeyType = ArkUI_EnterKeyType(8);
 }
@@ -466,59 +326,23 @@ pub struct ArkUI_EnterKeyType(pub ::core::ffi::c_uint);
 impl ArkUI_TextInputType {
     /// Normal input mode.
     pub const ARKUI_TEXTINPUT_TYPE_NORMAL: ArkUI_TextInputType = ArkUI_TextInputType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputType {
     /// Number input mode.
     pub const ARKUI_TEXTINPUT_TYPE_NUMBER: ArkUI_TextInputType = ArkUI_TextInputType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputType {
     /// Phone number input mode.
     pub const ARKUI_TEXTINPUT_TYPE_PHONE_NUMBER: ArkUI_TextInputType = ArkUI_TextInputType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputType {
     /// Email address input mode.
     pub const ARKUI_TEXTINPUT_TYPE_EMAIL: ArkUI_TextInputType = ArkUI_TextInputType(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputType {
     /// Password input mode.
     pub const ARKUI_TEXTINPUT_TYPE_PASSWORD: ArkUI_TextInputType = ArkUI_TextInputType(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputType {
     /// Numeric password input mode.
     pub const ARKUI_TEXTINPUT_TYPE_NUMBER_PASSWORD: ArkUI_TextInputType = ArkUI_TextInputType(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputType {
     /// Lock screen password input mode.
     pub const ARKUI_TEXTINPUT_TYPE_SCREEN_LOCK_PASSWORD: ArkUI_TextInputType =
         ArkUI_TextInputType(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputType {
     /// Username input mode.
     pub const ARKUI_TEXTINPUT_TYPE_USER_NAME: ArkUI_TextInputType = ArkUI_TextInputType(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputType {
     /// New password input mode.
     pub const ARKUI_TEXTINPUT_TYPE_NEW_PASSWORD: ArkUI_TextInputType = ArkUI_TextInputType(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputType {
     /// Number input mode with a decimal point.
     pub const ARKUI_TEXTINPUT_TYPE_NUMBER_DECIMAL: ArkUI_TextInputType = ArkUI_TextInputType(12);
 }
@@ -536,22 +360,10 @@ pub struct ArkUI_TextInputType(pub ::core::ffi::c_uint);
 impl ArkUI_TextAreaType {
     /// Normal input mode.
     pub const ARKUI_TEXTAREA_TYPE_NORMAL: ArkUI_TextAreaType = ArkUI_TextAreaType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextAreaType {
     /// Number input mode.
     pub const ARKUI_TEXTAREA_TYPE_NUMBER: ArkUI_TextAreaType = ArkUI_TextAreaType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextAreaType {
     /// Phone number input mode.
     pub const ARKUI_TEXTAREA_TYPE_PHONE_NUMBER: ArkUI_TextAreaType = ArkUI_TextAreaType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextAreaType {
     /// Email address input mode.
     pub const ARKUI_TEXTAREA_TYPE_EMAIL: ArkUI_TextAreaType = ArkUI_TextAreaType(5);
 }
@@ -570,17 +382,9 @@ impl ArkUI_CancelButtonStyle {
     /// The Cancel button is always displayed.
     pub const ARKUI_CANCELBUTTON_STYLE_CONSTANT: ArkUI_CancelButtonStyle =
         ArkUI_CancelButtonStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_CancelButtonStyle {
     /// The Cancel button is always hidden.
     pub const ARKUI_CANCELBUTTON_STYLE_INVISIBLE: ArkUI_CancelButtonStyle =
         ArkUI_CancelButtonStyle(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_CancelButtonStyle {
     /// The Cancel button is displayed when there is text input.
     pub const ARKUI_CANCELBUTTON_STYLE_INPUT: ArkUI_CancelButtonStyle = ArkUI_CancelButtonStyle(2);
 }
@@ -598,10 +402,6 @@ pub struct ArkUI_CancelButtonStyle(pub ::core::ffi::c_uint);
 impl ArkUI_XComponentType {
     /// The custom content of EGL/OpenGL ES and media data is displayed individually on the screen.
     pub const ARKUI_XCOMPONENT_TYPE_SURFACE: ArkUI_XComponentType = ArkUI_XComponentType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_XComponentType {
     /// The custom content of EGL/OpenGL ES and media data is grouped and displayed together with content
     /// of the component.
     pub const ARKUI_XCOMPONENT_TYPE_TEXTURE: ArkUI_XComponentType = ArkUI_XComponentType(2);
@@ -620,28 +420,12 @@ pub struct ArkUI_XComponentType(pub ::core::ffi::c_uint);
 impl ArkUI_ProgressType {
     /// Linear style.
     pub const ARKUI_PROGRESS_TYPE_LINEAR: ArkUI_ProgressType = ArkUI_ProgressType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ProgressType {
     /// Indeterminate ring style.
     pub const ARKUI_PROGRESS_TYPE_RING: ArkUI_ProgressType = ArkUI_ProgressType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ProgressType {
     /// Eclipse style.
     pub const ARKUI_PROGRESS_TYPE_ECLIPSE: ArkUI_ProgressType = ArkUI_ProgressType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ProgressType {
     /// Determinate ring style.
     pub const ARKUI_PROGRESS_TYPE_SCALE_RING: ArkUI_ProgressType = ArkUI_ProgressType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ProgressType {
     /// Capsule style.
     pub const ARKUI_PROGRESS_TYPE_CAPSULE: ArkUI_ProgressType = ArkUI_ProgressType(4);
 }
@@ -660,24 +444,12 @@ impl ArkUI_TextDecorationType {
     /// No text decoration.
     pub const ARKUI_TEXT_DECORATION_TYPE_NONE: ArkUI_TextDecorationType =
         ArkUI_TextDecorationType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextDecorationType {
     /// Line under the text.
     pub const ARKUI_TEXT_DECORATION_TYPE_UNDERLINE: ArkUI_TextDecorationType =
         ArkUI_TextDecorationType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextDecorationType {
     /// Line over the text.
     pub const ARKUI_TEXT_DECORATION_TYPE_OVERLINE: ArkUI_TextDecorationType =
         ArkUI_TextDecorationType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextDecorationType {
     /// Line through the text.
     pub const ARKUI_TEXT_DECORATION_TYPE_LINE_THROUGH: ArkUI_TextDecorationType =
         ArkUI_TextDecorationType(3);
@@ -697,31 +469,15 @@ impl ArkUI_TextDecorationStyle {
     /// Single solid line.
     pub const ARKUI_TEXT_DECORATION_STYLE_SOLID: ArkUI_TextDecorationStyle =
         ArkUI_TextDecorationStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextDecorationStyle {
     /// Double solid line.
     pub const ARKUI_TEXT_DECORATION_STYLE_DOUBLE: ArkUI_TextDecorationStyle =
         ArkUI_TextDecorationStyle(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextDecorationStyle {
     /// Dotted line.
     pub const ARKUI_TEXT_DECORATION_STYLE_DOTTED: ArkUI_TextDecorationStyle =
         ArkUI_TextDecorationStyle(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextDecorationStyle {
     /// Dashed line.
     pub const ARKUI_TEXT_DECORATION_STYLE_DASHED: ArkUI_TextDecorationStyle =
         ArkUI_TextDecorationStyle(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextDecorationStyle {
     /// Wavy line.
     pub const ARKUI_TEXT_DECORATION_STYLE_WAVY: ArkUI_TextDecorationStyle =
         ArkUI_TextDecorationStyle(4);
@@ -740,16 +496,8 @@ pub struct ArkUI_TextDecorationStyle(pub ::core::ffi::c_uint);
 impl ArkUI_TextCase {
     /// The original case of the text is retained.
     pub const ARKUI_TEXT_CASE_NORMAL: ArkUI_TextCase = ArkUI_TextCase(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextCase {
     /// All letters in the text are in lowercase.
     pub const ARKUI_TEXT_CASE_LOWER: ArkUI_TextCase = ArkUI_TextCase(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextCase {
     /// All letters in the text are in uppercase.
     pub const ARKUI_TEXT_CASE_UPPER: ArkUI_TextCase = ArkUI_TextCase(2);
 }
@@ -767,22 +515,10 @@ pub struct ArkUI_TextCase(pub ::core::ffi::c_uint);
 impl ArkUI_CopyOptions {
     /// Copy is not allowed.
     pub const ARKUI_COPY_OPTIONS_NONE: ArkUI_CopyOptions = ArkUI_CopyOptions(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_CopyOptions {
     /// Intra-application copy is allowed.
     pub const ARKUI_COPY_OPTIONS_IN_APP: ArkUI_CopyOptions = ArkUI_CopyOptions(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_CopyOptions {
     /// Intra-device copy is allowed.
     pub const ARKUI_COPY_OPTIONS_LOCAL_DEVICE: ArkUI_CopyOptions = ArkUI_CopyOptions(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_CopyOptions {
     /// Cross-device copy is allowed.
     pub const ARKUI_COPY_OPTIONS_CROSS_DEVICE: ArkUI_CopyOptions = ArkUI_CopyOptions(3);
 }
@@ -800,10 +536,6 @@ pub struct ArkUI_CopyOptions(pub ::core::ffi::c_uint);
 impl ArkUI_ShadowType {
     /// Color.
     pub const ARKUI_SHADOW_TYPE_COLOR: ArkUI_ShadowType = ArkUI_ShadowType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ShadowType {
     /// Blur.
     pub const ARKUI_SHADOW_TYPE_BLUR: ArkUI_ShadowType = ArkUI_ShadowType(1);
 }
@@ -822,24 +554,12 @@ impl ArkUI_TextPickerRangeType {
     /// Single-column text picker.
     pub const ARKUI_TEXTPICKER_RANGETYPE_SINGLE: ArkUI_TextPickerRangeType =
         ArkUI_TextPickerRangeType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextPickerRangeType {
     /// Multi-column text picker.
     pub const ARKUI_TEXTPICKER_RANGETYPE_MULTI: ArkUI_TextPickerRangeType =
         ArkUI_TextPickerRangeType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextPickerRangeType {
     /// Single-column text picker with image resources.
     pub const ARKUI_TEXTPICKER_RANGETYPE_RANGE_CONTENT: ArkUI_TextPickerRangeType =
         ArkUI_TextPickerRangeType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextPickerRangeType {
     /// Interconnected multi-column text picker.
     pub const ARKUI_TEXTPICKER_RANGETYPE_CASCADE_RANGE_CONTENT: ArkUI_TextPickerRangeType =
         ArkUI_TextPickerRangeType(3);
@@ -889,16 +609,8 @@ impl ArkUI_EdgeEffect {
     /// Spring effect. When at one of the edges, the component can move beyond the bounds based on the initial
     /// speed or through touches, and produces a bounce effect when the user releases their finger.
     pub const ARKUI_EDGE_EFFECT_SPRING: ArkUI_EdgeEffect = ArkUI_EdgeEffect(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_EdgeEffect {
     /// Fade effect. When at one of the edges, the component produces a fade effect.
     pub const ARKUI_EDGE_EFFECT_FADE: ArkUI_EdgeEffect = ArkUI_EdgeEffect(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_EdgeEffect {
     /// No effect after the scrollbar is moved to the edge.
     pub const ARKUI_EDGE_EFFECT_NONE: ArkUI_EdgeEffect = ArkUI_EdgeEffect(2);
 }
@@ -917,16 +629,8 @@ pub struct ArkUI_EdgeEffect(pub ::core::ffi::c_uint);
 impl ArkUI_ScrollDirection {
     /// Only vertical scrolling is supported.
     pub const ARKUI_SCROLL_DIRECTION_VERTICAL: ArkUI_ScrollDirection = ArkUI_ScrollDirection(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollDirection {
     /// Only horizontal scrolling is supported.
     pub const ARKUI_SCROLL_DIRECTION_HORIZONTAL: ArkUI_ScrollDirection = ArkUI_ScrollDirection(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollDirection {
     /// Scrolling is not allowed.
     pub const ARKUI_SCROLL_DIRECTION_NONE: ArkUI_ScrollDirection = ArkUI_ScrollDirection(3);
 }
@@ -944,22 +648,10 @@ pub struct ArkUI_ScrollDirection(pub ::core::ffi::c_uint);
 impl ArkUI_ScrollSnapAlign {
     /// No alignment. This is the default value.
     pub const ARKUI_SCROLL_SNAP_ALIGN_NONE: ArkUI_ScrollSnapAlign = ArkUI_ScrollSnapAlign(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollSnapAlign {
     /// The first item in the view is aligned at the start of the list.
     pub const ARKUI_SCROLL_SNAP_ALIGN_START: ArkUI_ScrollSnapAlign = ArkUI_ScrollSnapAlign(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollSnapAlign {
     /// The middle items in the view are aligned in the center of the list.
     pub const ARKUI_SCROLL_SNAP_ALIGN_CENTER: ArkUI_ScrollSnapAlign = ArkUI_ScrollSnapAlign(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollSnapAlign {
     /// The last item in the view is aligned at the end of the list.
     pub const ARKUI_SCROLL_SNAP_ALIGN_END: ArkUI_ScrollSnapAlign = ArkUI_ScrollSnapAlign(3);
 }
@@ -978,17 +670,9 @@ impl ArkUI_ScrollBarDisplayMode {
     /// Hide.
     pub const ARKUI_SCROLL_BAR_DISPLAY_MODE_OFF: ArkUI_ScrollBarDisplayMode =
         ArkUI_ScrollBarDisplayMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollBarDisplayMode {
     /// Display on demand (displays when the screen is touched and disappears after 2s).
     pub const ARKUI_SCROLL_BAR_DISPLAY_MODE_AUTO: ArkUI_ScrollBarDisplayMode =
         ArkUI_ScrollBarDisplayMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollBarDisplayMode {
     /// Always display.
     pub const ARKUI_SCROLL_BAR_DISPLAY_MODE_ON: ArkUI_ScrollBarDisplayMode =
         ArkUI_ScrollBarDisplayMode(2);
@@ -1007,10 +691,6 @@ pub struct ArkUI_ScrollBarDisplayMode(pub ::core::ffi::c_uint);
 impl ArkUI_Axis {
     /// Only vertical scrolling is supported.
     pub const ARKUI_AXIS_VERTICAL: ArkUI_Axis = ArkUI_Axis(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Axis {
     /// Only horizontal scrolling is supported.
     pub const ARKUI_AXIS_HORIZONTAL: ArkUI_Axis = ArkUI_Axis(1);
 }
@@ -1028,22 +708,10 @@ pub struct ArkUI_Axis(pub ::core::ffi::c_uint);
 impl ArkUI_StickyStyle {
     /// In the list item group, the header is not pinned to the top, and the footer is not pinned to the bottom.
     pub const ARKUI_STICKY_STYLE_NONE: ArkUI_StickyStyle = ArkUI_StickyStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_StickyStyle {
     /// In the list item group, the header is pinned to the top, and the footer is not pinned to the bottom.
     pub const ARKUI_STICKY_STYLE_HEADER: ArkUI_StickyStyle = ArkUI_StickyStyle(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_StickyStyle {
     /// In the list item group, the footer is pinned to the bottom, and the header is not pinned to the top.
     pub const ARKUI_STICKY_STYLE_FOOTER: ArkUI_StickyStyle = ArkUI_StickyStyle(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_StickyStyle {
     /// In the list item group, the footer is pinned to the bottom, and the header is pinned to the top.
     pub const ARKUI_STICKY_STYLE_BOTH: ArkUI_StickyStyle = ArkUI_StickyStyle(3);
 }
@@ -1061,16 +729,8 @@ pub struct ArkUI_StickyStyle(pub ::core::ffi::c_uint);
 impl ArkUI_BorderStyle {
     /// Solid border.
     pub const ARKUI_BORDER_STYLE_SOLID: ArkUI_BorderStyle = ArkUI_BorderStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BorderStyle {
     /// Dashed border.
     pub const ARKUI_BORDER_STYLE_DASHED: ArkUI_BorderStyle = ArkUI_BorderStyle(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BorderStyle {
     /// Dotted border.
     pub const ARKUI_BORDER_STYLE_DOTTED: ArkUI_BorderStyle = ArkUI_BorderStyle(2);
 }
@@ -1089,24 +749,12 @@ impl ArkUI_HitTestMode {
     /// Both the node and its child node respond to the hit test of a touch event, but its sibling node is blocked from
     /// the hit test.
     pub const ARKUI_HIT_TEST_MODE_DEFAULT: ArkUI_HitTestMode = ArkUI_HitTestMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_HitTestMode {
     /// The node responds to the hit test of a touch event, but its child node and sibling node are blocked from the
     /// hit test.
     pub const ARKUI_HIT_TEST_MODE_BLOCK: ArkUI_HitTestMode = ArkUI_HitTestMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_HitTestMode {
     /// Both the node and its child node respond to the hit test of a touch event, and its sibling node is also
     /// considered during the hit test.
     pub const ARKUI_HIT_TEST_MODE_TRANSPARENT: ArkUI_HitTestMode = ArkUI_HitTestMode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_HitTestMode {
     /// The node does not respond to the hit test of a touch event.
     pub const ARKUI_HIT_TEST_MODE_NONE: ArkUI_HitTestMode = ArkUI_HitTestMode(3);
 }
@@ -1124,34 +772,14 @@ pub struct ArkUI_HitTestMode(pub ::core::ffi::c_uint);
 impl ArkUI_ShadowStyle {
     /// Mini shadow.
     pub const ARKUI_SHADOW_STYLE_OUTER_DEFAULT_XS: ArkUI_ShadowStyle = ArkUI_ShadowStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ShadowStyle {
     /// Little shadow.
     pub const ARKUI_SHADOW_STYLE_OUTER_DEFAULT_SM: ArkUI_ShadowStyle = ArkUI_ShadowStyle(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ShadowStyle {
     /// Medium shadow.
     pub const ARKUI_SHADOW_STYLE_OUTER_DEFAULT_MD: ArkUI_ShadowStyle = ArkUI_ShadowStyle(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ShadowStyle {
     /// Large shadow.
     pub const ARKUI_SHADOW_STYLE_OUTER_DEFAULT_LG: ArkUI_ShadowStyle = ArkUI_ShadowStyle(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ShadowStyle {
     /// Floating small shadow.
     pub const ARKUI_SHADOW_STYLE_OUTER_FLOATING_SM: ArkUI_ShadowStyle = ArkUI_ShadowStyle(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ShadowStyle {
     /// Floating medium shadow.
     pub const ARKUI_SHADOW_STYLE_OUTER_FLOATING_MD: ArkUI_ShadowStyle = ArkUI_ShadowStyle(5);
 }
@@ -1169,76 +797,28 @@ pub struct ArkUI_ShadowStyle(pub ::core::ffi::c_uint);
 impl ArkUI_AnimationCurve {
     /// The animation speed keeps unchanged.
     pub const ARKUI_CURVE_LINEAR: ArkUI_AnimationCurve = ArkUI_AnimationCurve(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation starts slowly, accelerates, and then slows down towards the end.
     pub const ARKUI_CURVE_EASE: ArkUI_AnimationCurve = ArkUI_AnimationCurve(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation starts at a low speed and then picks up speed until the end.
     pub const ARKUI_CURVE_EASE_IN: ArkUI_AnimationCurve = ArkUI_AnimationCurve(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation ends at a low speed.
     pub const ARKUI_CURVE_EASE_OUT: ArkUI_AnimationCurve = ArkUI_AnimationCurve(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation starts and ends at a low speed.
     pub const ARKUI_CURVE_EASE_IN_OUT: ArkUI_AnimationCurve = ArkUI_AnimationCurve(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation uses the standard curve
     pub const ARKUI_CURVE_FAST_OUT_SLOW_IN: ArkUI_AnimationCurve = ArkUI_AnimationCurve(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation uses the deceleration curve.
     pub const ARKUI_CURVE_LINEAR_OUT_SLOW_IN: ArkUI_AnimationCurve = ArkUI_AnimationCurve(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation uses the acceleration curve.
     pub const ARKUI_CURVE_FAST_OUT_LINEAR_IN: ArkUI_AnimationCurve = ArkUI_AnimationCurve(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation uses the extreme deceleration curve.
     pub const ARKUI_CURVE_EXTREME_DECELERATION: ArkUI_AnimationCurve = ArkUI_AnimationCurve(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation uses the sharp curve.
     pub const ARKUI_CURVE_SHARP: ArkUI_AnimationCurve = ArkUI_AnimationCurve(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation uses the rhythm curve.
     pub const ARKUI_CURVE_RHYTHM: ArkUI_AnimationCurve = ArkUI_AnimationCurve(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation uses the smooth curve.
     pub const ARKUI_CURVE_SMOOTH: ArkUI_AnimationCurve = ArkUI_AnimationCurve(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationCurve {
     /// The animation uses the friction curve
     pub const ARKUI_CURVE_FRICTION: ArkUI_AnimationCurve = ArkUI_AnimationCurve(12);
 }
@@ -1256,16 +836,8 @@ pub struct ArkUI_AnimationCurve(pub ::core::ffi::c_uint);
 impl ArkUI_SwiperArrow {
     /// The arrow is not displayed for the navigation point indicator.
     pub const ARKUI_SWIPER_ARROW_HIDE: ArkUI_SwiperArrow = ArkUI_SwiperArrow(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SwiperArrow {
     /// The arrow is displayed for the navigation point indicator.
     pub const ARKUI_SWIPER_ARROW_SHOW: ArkUI_SwiperArrow = ArkUI_SwiperArrow(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SwiperArrow {
     /// The arrow is displayed only when the mouse pointer hovers over the navigation point indicator.
     pub const ARKUI_SWIPER_ARROW_SHOW_ON_HOVER: ArkUI_SwiperArrow = ArkUI_SwiperArrow(2);
 }
@@ -1284,10 +856,6 @@ impl ArkUI_SwiperNestedScrollMode {
     /// Swiper only scrolls on its own and is not linked to its parent component.
     pub const ARKUI_SWIPER_NESTED_SRCOLL_SELF_ONLY: ArkUI_SwiperNestedScrollMode =
         ArkUI_SwiperNestedScrollMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SwiperNestedScrollMode {
     /// The Swiper itself scrolls first, and the parent component scrolls after it reaches the edge. After the parent
     /// component scrolls to the edge, if the parent component has an edge effect, the parent component triggers the edge
     /// effect; otherwise, the Swiper triggers the edge effect.
@@ -1308,24 +876,12 @@ pub struct ArkUI_SwiperNestedScrollMode(pub ::core::ffi::c_uint);
 impl ArkUI_AccessibilityMode {
     /// Whether the component can be identified by the accessibility service is dependent on the component.
     pub const ARKUI_ACCESSIBILITY_MODE_AUTO: ArkUI_AccessibilityMode = ArkUI_AccessibilityMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityMode {
     /// The component can be identified by the accessibility service.
     pub const ARKUI_ACCESSIBILITY_MODE_ENABLED: ArkUI_AccessibilityMode =
         ArkUI_AccessibilityMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityMode {
     /// The component cannot be identified by the accessibility service.
     pub const ARKUI_ACCESSIBILITY_MODE_DISABLED: ArkUI_AccessibilityMode =
         ArkUI_AccessibilityMode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityMode {
     /// The component and all its child components cannot be identified by the accessibility service.
     pub const ARKUI_ACCESSIBILITY_MODE_DISABLED_FOR_DESCENDANTS: ArkUI_AccessibilityMode =
         ArkUI_AccessibilityMode(3);
@@ -1344,23 +900,11 @@ pub struct ArkUI_AccessibilityMode(pub ::core::ffi::c_uint);
 impl ArkUI_TextCopyOptions {
     /// Copy is not allowed.
     pub const ARKUI_TEXT_COPY_OPTIONS_NONE: ArkUI_TextCopyOptions = ArkUI_TextCopyOptions(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextCopyOptions {
     /// Intra-application copy is allowed.
     pub const ARKUI_TEXT_COPY_OPTIONS_IN_APP: ArkUI_TextCopyOptions = ArkUI_TextCopyOptions(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextCopyOptions {
     /// Intra-device copy is allowed.
     pub const ARKUI_TEXT_COPY_OPTIONS_LOCAL_DEVICE: ArkUI_TextCopyOptions =
         ArkUI_TextCopyOptions(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextCopyOptions {
     /// Cross-device copy is allowed.
     pub const ARKUI_TEXT_COPY_OPTIONS_CROSS_DEVICE: ArkUI_TextCopyOptions =
         ArkUI_TextCopyOptions(3);
@@ -1380,17 +924,9 @@ impl ArkUI_TextHeightAdaptivePolicy {
     /// Prioritize the <b>maxLines</b> settings.
     pub const ARKUI_TEXT_HEIGHT_ADAPTIVE_POLICY_MAX_LINES_FIRST: ArkUI_TextHeightAdaptivePolicy =
         ArkUI_TextHeightAdaptivePolicy(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextHeightAdaptivePolicy {
     /// Prioritize the <b>minFontSize</b> settings.
     pub const ARKUI_TEXT_HEIGHT_ADAPTIVE_POLICY_MIN_FONT_SIZE_FIRST:
         ArkUI_TextHeightAdaptivePolicy = ArkUI_TextHeightAdaptivePolicy(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextHeightAdaptivePolicy {
     /// Prioritize the layout constraint settings in terms of height.
     pub const ARKUI_TEXT_HEIGHT_ADAPTIVE_POLICY_LAYOUT_CONSTRAINT_FIRST:
         ArkUI_TextHeightAdaptivePolicy = ArkUI_TextHeightAdaptivePolicy(2);
@@ -1411,28 +947,16 @@ impl ArkUI_ScrollNestedMode {
     /// does not scroll when the component scrolling reaches the boundary.
     pub const ARKUI_SCROLL_NESTED_MODE_SELF_ONLY: ArkUI_ScrollNestedMode =
         ArkUI_ScrollNestedMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollNestedMode {
     /// The component scrolls first, and when it hits the boundary, the parent component scrolls.
     /// When the parent component hits the boundary, its edge effect is displayed. If no edge
     /// effect is specified for the parent component, the edge effect of the child component is displayed instead.
     pub const ARKUI_SCROLL_NESTED_MODE_SELF_FIRST: ArkUI_ScrollNestedMode =
         ArkUI_ScrollNestedMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollNestedMode {
     /// The parent component scrolls first, and when it hits the boundary, the component scrolls.
     /// When the component hits the boundary, its edge effect is displayed. If no edge effect is specified for the
     /// component, the edge effect of the parent component is displayed instead.
     pub const ARKUI_SCROLL_NESTED_MODE_PARENT_FIRST: ArkUI_ScrollNestedMode =
         ArkUI_ScrollNestedMode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollNestedMode {
     /// The component and its parent component scroll at the same time. When both the component and its parent component
     /// hit the boundary, the edge effect of the component is displayed. If no edge effect is specified for the
     /// component, the edge effect of the parent component is displayed instead.
@@ -1452,22 +976,10 @@ pub struct ArkUI_ScrollNestedMode(pub ::core::ffi::c_uint);
 impl ArkUI_ScrollEdge {
     /// Top edge in the vertical direction.
     pub const ARKUI_SCROLL_EDGE_TOP: ArkUI_ScrollEdge = ArkUI_ScrollEdge(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollEdge {
     /// Bottom edge in the vertical direction.
     pub const ARKUI_SCROLL_EDGE_BOTTOM: ArkUI_ScrollEdge = ArkUI_ScrollEdge(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollEdge {
     /// Start position in the horizontal direction.
     pub const ARKUI_SCROLL_EDGE_START: ArkUI_ScrollEdge = ArkUI_ScrollEdge(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollEdge {
     /// End position in the horizontal direction.
     pub const ARKUI_SCROLL_EDGE_END: ArkUI_ScrollEdge = ArkUI_ScrollEdge(3);
 }
@@ -1485,22 +997,10 @@ pub struct ArkUI_ScrollEdge(pub ::core::ffi::c_uint);
 impl ArkUI_ScrollAlignment {
     /// Align the head. Align the head of the specified item with the head of the container.
     pub const ARKUI_SCROLL_ALIGNMENT_START: ArkUI_ScrollAlignment = ArkUI_ScrollAlignment(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollAlignment {
     /// Center alignment. Align the axis direction of the specified item to the center of the container.
     pub const ARKUI_SCROLL_ALIGNMENT_CENTER: ArkUI_ScrollAlignment = ArkUI_ScrollAlignment(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollAlignment {
     /// Tail alignment. Align the tail of the specified item with the tail of the container.
     pub const ARKUI_SCROLL_ALIGNMENT_END: ArkUI_ScrollAlignment = ArkUI_ScrollAlignment(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollAlignment {
     /// Automatic alignment. If the specified item is completely in the display area, no adjustments will be made.
     /// Otherwise, according to the principle of the shortest sliding distance, align the head or tail of the specified
     /// item with the container, so that the specified item is completely in the display area.
@@ -1521,16 +1021,8 @@ impl ArkUI_ScrollState {
     /// Idle state. Trigger when using the method provided by the controller to control scrolling, and trigger when
     /// dragging the scroll bar to scroll.
     pub const ARKUI_SCROLL_STATE_IDLE: ArkUI_ScrollState = ArkUI_ScrollState(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollState {
     /// Scroll state. Triggered when dragging the container with fingers to scroll.
     pub const ARKUI_SCROLL_STATE_SCROLL: ArkUI_ScrollState = ArkUI_ScrollState(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollState {
     /// Inertial rolling state. Triggered when inertia rolling and bouncing back to the edge are performed after
     /// releasing the hand quickly.
     pub const ARKUI_SCROLL_STATE_FLING: ArkUI_ScrollState = ArkUI_ScrollState(2);
@@ -1549,16 +1041,8 @@ pub struct ArkUI_ScrollState(pub ::core::ffi::c_uint);
 impl ArkUI_SliderBlockStyle {
     /// Round slider.
     pub const ARKUI_SLIDER_BLOCK_STYLE_DEFAULT: ArkUI_SliderBlockStyle = ArkUI_SliderBlockStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SliderBlockStyle {
     /// Slider with an image background.
     pub const ARKUI_SLIDER_BLOCK_STYLE_IMAGE: ArkUI_SliderBlockStyle = ArkUI_SliderBlockStyle(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SliderBlockStyle {
     /// Slider in a custom shape.
     pub const ARKUI_SLIDER_BLOCK_STYLE_SHAPE: ArkUI_SliderBlockStyle = ArkUI_SliderBlockStyle(2);
 }
@@ -1576,10 +1060,6 @@ pub struct ArkUI_SliderBlockStyle(pub ::core::ffi::c_uint);
 impl ArkUI_SliderDirection {
     /// Vertical direction.
     pub const ARKUI_SLIDER_DIRECTION_VERTICAL: ArkUI_SliderDirection = ArkUI_SliderDirection(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SliderDirection {
     /// Horizontal direction.
     pub const ARKUI_SLIDER_DIRECTION_HORIZONTAL: ArkUI_SliderDirection = ArkUI_SliderDirection(1);
 }
@@ -1597,16 +1077,8 @@ pub struct ArkUI_SliderDirection(pub ::core::ffi::c_uint);
 impl ArkUI_SliderStyle {
     /// The slider is on the slider track.
     pub const ARKUI_SLIDER_STYLE_OUT_SET: ArkUI_SliderStyle = ArkUI_SliderStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SliderStyle {
     /// The slider is in the slider track.
     pub const ARKUI_SLIDER_STYLE_IN_SET: ArkUI_SliderStyle = ArkUI_SliderStyle(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SliderStyle {
     /// No slider.
     pub const ARKUI_SLIDER_STYLE_NONE: ArkUI_SliderStyle = ArkUI_SliderStyle(2);
 }
@@ -1624,10 +1096,6 @@ pub struct ArkUI_SliderStyle(pub ::core::ffi::c_uint);
 impl ArkUI_CheckboxShape {
     /// Circle.
     pub const ArkUI_CHECKBOX_SHAPE_CIRCLE: ArkUI_CheckboxShape = ArkUI_CheckboxShape(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_CheckboxShape {
     /// Rounded square.
     pub const ArkUI_CHECKBOX_SHAPE_ROUNDED_SQUARE: ArkUI_CheckboxShape = ArkUI_CheckboxShape(1);
 }
@@ -1646,25 +1114,13 @@ impl ArkUI_AnimationPlayMode {
     /// The animation is played forwards.
     pub const ARKUI_ANIMATION_PLAY_MODE_NORMAL: ArkUI_AnimationPlayMode =
         ArkUI_AnimationPlayMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationPlayMode {
     /// The animation is played reversely.
     pub const ARKUI_ANIMATION_PLAY_MODE_REVERSE: ArkUI_AnimationPlayMode =
         ArkUI_AnimationPlayMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationPlayMode {
     /// The animation is played normally for an odd number of times (1, 3, 5...) and reversely for an even number
     /// of times (2, 4, 6...).
     pub const ARKUI_ANIMATION_PLAY_MODE_ALTERNATE: ArkUI_AnimationPlayMode =
         ArkUI_AnimationPlayMode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationPlayMode {
     /// The animation is played reversely for an odd number of times (1, 3, 5...) and normally for an even number
     /// of times (2, 4, 6...).
     pub const ARKUI_ANIMATION_PLAY_MODE_ALTERNATE_REVERSE: ArkUI_AnimationPlayMode =
@@ -1684,17 +1140,9 @@ pub struct ArkUI_AnimationPlayMode(pub ::core::ffi::c_uint);
 impl ArkUI_ImageSize {
     /// The original image aspect ratio is retained.
     pub const ARKUI_IMAGE_SIZE_AUTO: ArkUI_ImageSize = ArkUI_ImageSize(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageSize {
     /// Default value. The image is scaled with its aspect ratio retained for both sides to be greater than or equal
     /// to the display boundaries.
     pub const ARKUI_IMAGE_SIZE_COVER: ArkUI_ImageSize = ArkUI_ImageSize(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageSize {
     /// The image is scaled with its aspect ratio retained for the content to be completely displayed within the display
     /// boundaries.
     pub const ARKUI_IMAGE_SIZE_CONTAIN: ArkUI_ImageSize = ArkUI_ImageSize(2);
@@ -1713,10 +1161,6 @@ pub struct ArkUI_ImageSize(pub ::core::ffi::c_uint);
 impl ArkUI_AdaptiveColor {
     /// Adaptive color mode is not used.
     pub const ARKUI_ADAPTIVE_COLOR_DEFAULT: ArkUI_AdaptiveColor = ArkUI_AdaptiveColor(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AdaptiveColor {
     /// Adaptive color mode is used.
     pub const ARKUI_ADAPTIVE_COLOR_AVERAGE: ArkUI_AdaptiveColor = ArkUI_AdaptiveColor(1);
 }
@@ -1734,16 +1178,8 @@ pub struct ArkUI_AdaptiveColor(pub ::core::ffi::c_uint);
 impl ArkUI_ColorMode {
     /// Following the system color mode.
     pub const ARKUI_COLOR_MODE_SYSTEM: ArkUI_ColorMode = ArkUI_ColorMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ColorMode {
     /// Light color mode.
     pub const ARKUI_COLOR_MODE_LIGHT: ArkUI_ColorMode = ArkUI_ColorMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ColorMode {
     /// Dark color mode.
     pub const ARKUI_COLOR_MODE_DARK: ArkUI_ColorMode = ArkUI_ColorMode(2);
 }
@@ -1761,10 +1197,6 @@ pub struct ArkUI_ColorMode(pub ::core::ffi::c_uint);
 impl ArkUI_SystemColorMode {
     /// Light color mode.
     pub const ARKUI_SYSTEM_COLOR_MODE_LIGHT: ArkUI_SystemColorMode = ArkUI_SystemColorMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SystemColorMode {
     /// Dark color mode.
     pub const ARKUI_SYSTEM_COLOR_MODE_DARK: ArkUI_SystemColorMode = ArkUI_SystemColorMode(1);
 }
@@ -1782,76 +1214,28 @@ pub struct ArkUI_SystemColorMode(pub ::core::ffi::c_uint);
 impl ArkUI_BlurStyle {
     /// Thin material.
     pub const ARKUI_BLUR_STYLE_THIN: ArkUI_BlurStyle = ArkUI_BlurStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Regular material.
     pub const ARKUI_BLUR_STYLE_REGULAR: ArkUI_BlurStyle = ArkUI_BlurStyle(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Thick material.
     pub const ARKUI_BLUR_STYLE_THICK: ArkUI_BlurStyle = ArkUI_BlurStyle(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Material that creates the minimum depth of field effect.
     pub const ARKUI_BLUR_STYLE_BACKGROUND_THIN: ArkUI_BlurStyle = ArkUI_BlurStyle(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Material that creates a medium shallow depth of field effect.
     pub const ARKUI_BLUR_STYLE_BACKGROUND_REGULAR: ArkUI_BlurStyle = ArkUI_BlurStyle(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Material that creates a high shallow depth of field effect.
     pub const ARKUI_BLUR_STYLE_BACKGROUND_THICK: ArkUI_BlurStyle = ArkUI_BlurStyle(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Material that creates the maximum depth of field effect.
     pub const ARKUI_BLUR_STYLE_BACKGROUND_ULTRA_THICK: ArkUI_BlurStyle = ArkUI_BlurStyle(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// No blur.
     pub const ARKUI_BLUR_STYLE_NONE: ArkUI_BlurStyle = ArkUI_BlurStyle(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Component ultra-thin material.
     pub const ARKUI_BLUR_STYLE_COMPONENT_ULTRA_THIN: ArkUI_BlurStyle = ArkUI_BlurStyle(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Component thin material.
     pub const ARKUI_BLUR_STYLE_COMPONENT_THIN: ArkUI_BlurStyle = ArkUI_BlurStyle(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Component regular material.
     pub const ARKUI_BLUR_STYLE_COMPONENT_REGULAR: ArkUI_BlurStyle = ArkUI_BlurStyle(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Component thick material.
     pub const ARKUI_BLUR_STYLE_COMPONENT_THICK: ArkUI_BlurStyle = ArkUI_BlurStyle(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlurStyle {
     /// Component ultra-thick material.
     pub const ARKUI_BLUR_STYLE_COMPONENT_ULTRA_THICK: ArkUI_BlurStyle = ArkUI_BlurStyle(12);
 }
@@ -1869,16 +1253,8 @@ pub struct ArkUI_BlurStyle(pub ::core::ffi::c_uint);
 impl ArkUI_VerticalAlignment {
     /// Top aligned.
     pub const ARKUI_VERTICAL_ALIGNMENT_TOP: ArkUI_VerticalAlignment = ArkUI_VerticalAlignment(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_VerticalAlignment {
     /// Center aligned. This is the default alignment mode.
     pub const ARKUI_VERTICAL_ALIGNMENT_CENTER: ArkUI_VerticalAlignment = ArkUI_VerticalAlignment(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_VerticalAlignment {
     /// Bottom aligned.
     pub const ARKUI_VERTICAL_ALIGNMENT_BOTTOM: ArkUI_VerticalAlignment = ArkUI_VerticalAlignment(2);
 }
@@ -1897,17 +1273,9 @@ impl ArkUI_HorizontalAlignment {
     /// Aligned with the start edge in the same direction as the language in use.
     pub const ARKUI_HORIZONTAL_ALIGNMENT_START: ArkUI_HorizontalAlignment =
         ArkUI_HorizontalAlignment(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_HorizontalAlignment {
     /// Center aligned. This is the default alignment mode.
     pub const ARKUI_HORIZONTAL_ALIGNMENT_CENTER: ArkUI_HorizontalAlignment =
         ArkUI_HorizontalAlignment(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_HorizontalAlignment {
     /// Aligned with the end edge in the same direction as the language in use.
     pub const ARKUI_HORIZONTAL_ALIGNMENT_END: ArkUI_HorizontalAlignment =
         ArkUI_HorizontalAlignment(2);
@@ -1926,22 +1294,10 @@ pub struct ArkUI_HorizontalAlignment(pub ::core::ffi::c_uint);
 impl ArkUI_TextOverflow {
     /// Extra-long text is not clipped.
     pub const ARKUI_TEXT_OVERFLOW_NONE: ArkUI_TextOverflow = ArkUI_TextOverflow(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextOverflow {
     /// Extra-long text is clipped.
     pub const ARKUI_TEXT_OVERFLOW_CLIP: ArkUI_TextOverflow = ArkUI_TextOverflow(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextOverflow {
     /// An ellipsis (...) is used to represent text overflow.
     pub const ARKUI_TEXT_OVERFLOW_ELLIPSIS: ArkUI_TextOverflow = ArkUI_TextOverflow(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextOverflow {
     /// Text continuously scrolls when text overflow occurs.
     pub const ARKUI_TEXT_OVERFLOW_MARQUEE: ArkUI_TextOverflow = ArkUI_TextOverflow(3);
 }
@@ -1960,24 +1316,12 @@ impl ArkUI_ImageSpanAlignment {
     /// The image is bottom aligned with the text baseline.
     pub const ARKUI_IMAGE_SPAN_ALIGNMENT_BASELINE: ArkUI_ImageSpanAlignment =
         ArkUI_ImageSpanAlignment(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageSpanAlignment {
     /// The image is bottom aligned with the text.
     pub const ARKUI_IMAGE_SPAN_ALIGNMENT_BOTTOM: ArkUI_ImageSpanAlignment =
         ArkUI_ImageSpanAlignment(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageSpanAlignment {
     /// The image is centered aligned with the text.
     pub const ARKUI_IMAGE_SPAN_ALIGNMENT_CENTER: ArkUI_ImageSpanAlignment =
         ArkUI_ImageSpanAlignment(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageSpanAlignment {
     /// The image is top aligned with the text.
     pub const ARKUI_IMAGE_SPAN_ALIGNMENT_TOP: ArkUI_ImageSpanAlignment =
         ArkUI_ImageSpanAlignment(3);
@@ -1997,90 +1341,34 @@ impl ArkUI_ObjectFit {
     /// The image is scaled with its aspect ratio retained for the content to be completely displayed within the
     /// display boundaries.
     pub const ARKUI_OBJECT_FIT_CONTAIN: ArkUI_ObjectFit = ArkUI_ObjectFit(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// The image is scaled with its aspect ratio retained for both sides to be greater than or equal to the
     /// display boundaries.
     pub const ARKUI_OBJECT_FIT_COVER: ArkUI_ObjectFit = ArkUI_ObjectFit(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// The image is scaled automatically to fit the display area.
     pub const ARKUI_OBJECT_FIT_AUTO: ArkUI_ObjectFit = ArkUI_ObjectFit(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// The image is scaled to fill the display area, and its aspect ratio is not retained.
     pub const ARKUI_OBJECT_FIT_FILL: ArkUI_ObjectFit = ArkUI_ObjectFit(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// The image content is displayed with its aspect ratio retained. The size is smaller than or equal to the
     /// original size.
     pub const ARKUI_OBJECT_FIT_SCALE_DOWN: ArkUI_ObjectFit = ArkUI_ObjectFit(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// The original size is retained.
     pub const ARKUI_OBJECT_FIT_NONE: ArkUI_ObjectFit = ArkUI_ObjectFit(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// Not resized, the image is aligned with the start edge of the top of the container.
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_TOP_START: ArkUI_ObjectFit = ArkUI_ObjectFit(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// Not resized, the image is horizontally centered at the top of the container.
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_TOP: ArkUI_ObjectFit = ArkUI_ObjectFit(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// Not resized, the image is aligned with the end edge at the top of the container.
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_TOP_END: ArkUI_ObjectFit = ArkUI_ObjectFit(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// Not resized, the image is vertically centered on the start edge of the container.
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_START: ArkUI_ObjectFit = ArkUI_ObjectFit(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// Not resized, the image is horizontally and vertically centered in the container.
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_CENTER: ArkUI_ObjectFit = ArkUI_ObjectFit(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// Not resized, the image is vertically centered on the end edge of the container.
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_END: ArkUI_ObjectFit = ArkUI_ObjectFit(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// Not resized, the image is aligned with the start edge at the bottom of the container.
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_BOTTOM_START: ArkUI_ObjectFit = ArkUI_ObjectFit(12);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// Not resized, the image is horizontally centered at the bottom of the container.
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_BOTTOM: ArkUI_ObjectFit = ArkUI_ObjectFit(13);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ObjectFit {
     /// Not resized, the image is aligned with the end edge at the bottom of the container.
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_BOTTOM_END: ArkUI_ObjectFit = ArkUI_ObjectFit(14);
 }
@@ -2099,23 +1387,11 @@ impl ArkUI_ImageInterpolation {
     /// No image interpolation.
     pub const ARKUI_IMAGE_INTERPOLATION_NONE: ArkUI_ImageInterpolation =
         ArkUI_ImageInterpolation(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageInterpolation {
     /// Low quality interpolation.
     pub const ARKUI_IMAGE_INTERPOLATION_LOW: ArkUI_ImageInterpolation = ArkUI_ImageInterpolation(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageInterpolation {
     /// Medium quality interpolation.
     pub const ARKUI_IMAGE_INTERPOLATION_MEDIUM: ArkUI_ImageInterpolation =
         ArkUI_ImageInterpolation(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageInterpolation {
     /// High quality interpolation. This mode produces scaled images of the highest possible quality.
     pub const ARKUI_IMAGE_INTERPOLATION_HIGH: ArkUI_ImageInterpolation =
         ArkUI_ImageInterpolation(3);
@@ -2134,189 +1410,73 @@ pub struct ArkUI_ImageInterpolation(pub ::core::ffi::c_uint);
 impl ArkUI_BlendMode {
     /// The top image is superimposed on the bottom image without any blending.
     pub const ARKUI_BLEND_MODE_NONE: ArkUI_BlendMode = ArkUI_BlendMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// The target pixels covered by the source pixels are erased by being turned to completely transparent.
     pub const ARKUI_BLEND_MODE_CLEAR: ArkUI_BlendMode = ArkUI_BlendMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = s: Only the source pixels are displayed.
     pub const ARKUI_BLEND_MODE_SRC: ArkUI_BlendMode = ArkUI_BlendMode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = d: Only the target pixels are displayed.
     pub const ARKUI_BLEND_MODE_DST: ArkUI_BlendMode = ArkUI_BlendMode(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = s + (1 - sa) * d: The source pixels are blended based on opacity and cover the target pixels.
     pub const ARKUI_BLEND_MODE_SRC_OVER: ArkUI_BlendMode = ArkUI_BlendMode(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = d + (1 - da) * s: The target pixels are blended based on opacity and cover on the source pixels.
     pub const ARKUI_BLEND_MODE_DST_OVER: ArkUI_BlendMode = ArkUI_BlendMode(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = s * da: Only the part of the source pixels that overlap with the target pixels is displayed.
     pub const ARKUI_BLEND_MODE_SRC_IN: ArkUI_BlendMode = ArkUI_BlendMode(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = d * sa: Only the part of the target pixels that overlap with the source pixels is displayed.
     pub const ARKUI_BLEND_MODE_DST_IN: ArkUI_BlendMode = ArkUI_BlendMode(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = s * (1 - da): Only the part of the source pixels that do not overlap with the target pixels is displayed.
     pub const ARKUI_BLEND_MODE_SRC_OUT: ArkUI_BlendMode = ArkUI_BlendMode(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = d * (1 - sa): Only the part of the target pixels that do not overlap with the source pixels is displayed.
     pub const ARKUI_BLEND_MODE_DST_OUT: ArkUI_BlendMode = ArkUI_BlendMode(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = s * da + d * (1 - sa): The part of the source pixels that overlap with the target pixels is displayed and
     /// the part of the target pixels that do not overlap with the source pixels are displayed.
     pub const ARKUI_BLEND_MODE_SRC_ATOP: ArkUI_BlendMode = ArkUI_BlendMode(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = d * sa + s * (1 - da): The part of the target pixels that overlap with the source pixels and the part of
     /// the source pixels that do not overlap with the target pixels are displayed.
     pub const ARKUI_BLEND_MODE_DST_ATOP: ArkUI_BlendMode = ArkUI_BlendMode(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = s * (1 - da) + d * (1 - sa): Only the non-overlapping part between the source pixels and the target pixels
     /// is displayed.
     pub const ARKUI_BLEND_MODE_XOR: ArkUI_BlendMode = ArkUI_BlendMode(12);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = min(s + d, 1): New pixels resulting from adding the source pixels to the target pixels are displayed.
     pub const ARKUI_BLEND_MODE_PLUS: ArkUI_BlendMode = ArkUI_BlendMode(13);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = s * d: New pixels resulting from multiplying the source pixels with the target pixels are displayed.
     pub const ARKUI_BLEND_MODE_MODULATE: ArkUI_BlendMode = ArkUI_BlendMode(14);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = s + d - s * d: Pixels are blended by adding the source pixels to the target pixels and subtracting the
     /// product of their multiplication.
     pub const ARKUI_BLEND_MODE_SCREEN: ArkUI_BlendMode = ArkUI_BlendMode(15);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// The MULTIPLY or SCREEN mode is used based on the target pixels.
     pub const ARKUI_BLEND_MODE_OVERLAY: ArkUI_BlendMode = ArkUI_BlendMode(16);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// rc = s + d - max(s * da, d * sa), ra = kSrcOver: When two colors overlap, whichever is darker is used.
     pub const ARKUI_BLEND_MODE_DARKEN: ArkUI_BlendMode = ArkUI_BlendMode(17);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// rc = s + d - min(s * da, d * sa), ra =
     /// kSrcOver: The final pixels are composed of the lightest values of pixels.
     pub const ARKUI_BLEND_MODE_LIGHTEN: ArkUI_BlendMode = ArkUI_BlendMode(18);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// The colors of the target pixels are lightened to reflect the source pixels.
     pub const ARKUI_BLEND_MODE_COLOR_DODGE: ArkUI_BlendMode = ArkUI_BlendMode(19);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// The colors of the target pixels are darkened to reflect the source pixels.
     pub const ARKUI_BLEND_MODE_COLOR_BURN: ArkUI_BlendMode = ArkUI_BlendMode(20);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// The MULTIPLY or SCREEN mode is used, depending on the source pixels.
     pub const ARKUI_BLEND_MODE_HARD_LIGHT: ArkUI_BlendMode = ArkUI_BlendMode(21);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// The LIGHTEN or DARKEN mode is used, depending on the source pixels.
     pub const ARKUI_BLEND_MODE_SOFT_LIGHT: ArkUI_BlendMode = ArkUI_BlendMode(22);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// rc = s + d - 2 * (min(s * da, d * sa)), ra =
     /// kSrcOver: The final pixel is the result of subtracting the darker of the two pixels (source and target) from
     /// the lighter one.
     pub const ARKUI_BLEND_MODE_DIFFERENCE: ArkUI_BlendMode = ArkUI_BlendMode(23);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// rc = s + d - two(s * d), ra = kSrcOver: The final pixel is similar to <b>DIFFERENCE</b>, but with less contrast.
     pub const ARKUI_BLEND_MODE_EXCLUSION: ArkUI_BlendMode = ArkUI_BlendMode(24);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// r = s * (1 - da) + d * (1 - sa) + s * d: The final pixel is the result of multiplying the source pixel
     /// by the target pixel.
     pub const ARKUI_BLEND_MODE_MULTIPLY: ArkUI_BlendMode = ArkUI_BlendMode(25);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// The resultant image is created with the luminance and saturation of the source image and the hue of the target
     /// image.
     pub const ARKUI_BLEND_MODE_HUE: ArkUI_BlendMode = ArkUI_BlendMode(26);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// The resultant image is created with the luminance and hue of the target image and the saturation of the source
     /// image.
     pub const ARKUI_BLEND_MODE_SATURATION: ArkUI_BlendMode = ArkUI_BlendMode(27);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// The resultant image is created with the saturation and hue of the source image and the luminance of the target
     /// image.
     pub const ARKUI_BLEND_MODE_COLOR: ArkUI_BlendMode = ArkUI_BlendMode(28);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendMode {
     /// The resultant image is created with the saturation and hue of the target image and the luminance of the source
     /// image.
     pub const ARKUI_BLEND_MODE_LUMINOSITY: ArkUI_BlendMode = ArkUI_BlendMode(29);
@@ -2335,16 +1495,8 @@ pub struct ArkUI_BlendMode(pub ::core::ffi::c_uint);
 impl ArkUI_Direction {
     /// Components are arranged from left to right.
     pub const ARKUI_DIRECTION_LTR: ArkUI_Direction = ArkUI_Direction(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Direction {
     /// Components are arranged from right to left.
     pub const ARKUI_DIRECTION_RTL: ArkUI_Direction = ArkUI_Direction(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Direction {
     /// The default layout direction is used.
     pub const ARKUI_DIRECTION_AUTO: ArkUI_Direction = ArkUI_Direction(3);
 }
@@ -2362,34 +1514,14 @@ pub struct ArkUI_Direction(pub ::core::ffi::c_uint);
 impl ArkUI_ItemAlignment {
     /// The default configuration in the container is used.
     pub const ARKUI_ITEM_ALIGNMENT_AUTO: ArkUI_ItemAlignment = ArkUI_ItemAlignment(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ItemAlignment {
     /// The items in the container are aligned with the cross-start edge.
     pub const ARKUI_ITEM_ALIGNMENT_START: ArkUI_ItemAlignment = ArkUI_ItemAlignment(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ItemAlignment {
     /// The items in the container are centered along the cross axis.
     pub const ARKUI_ITEM_ALIGNMENT_CENTER: ArkUI_ItemAlignment = ArkUI_ItemAlignment(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ItemAlignment {
     /// The items in the container are aligned with the cross-end edge.
     pub const ARKUI_ITEM_ALIGNMENT_END: ArkUI_ItemAlignment = ArkUI_ItemAlignment(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ItemAlignment {
     /// The items in the container are stretched and padded along the cross axis.
     pub const ARKUI_ITEM_ALIGNMENT_STRETCH: ArkUI_ItemAlignment = ArkUI_ItemAlignment(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ItemAlignment {
     /// The items in the container are aligned in such a manner that their text baselines are aligned along the
     /// cross axis.
     pub const ARKUI_ITEM_ALIGNMENT_BASELINE: ArkUI_ItemAlignment = ArkUI_ItemAlignment(5);
@@ -2408,16 +1540,8 @@ pub struct ArkUI_ItemAlignment(pub ::core::ffi::c_uint);
 impl ArkUI_ColorStrategy {
     /// The foreground colors are the inverse of the component background colors.
     pub const ARKUI_COLOR_STRATEGY_INVERT: ArkUI_ColorStrategy = ArkUI_ColorStrategy(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ColorStrategy {
     /// The shadow colors of the component are the average color obtained from the component background shadow area.
     pub const ARKUI_COLOR_STRATEGY_AVERAGE: ArkUI_ColorStrategy = ArkUI_ColorStrategy(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ColorStrategy {
     /// The shadow colors of the component are the primary color obtained from the component background shadow area.
     pub const ARKUI_COLOR_STRATEGY_PRIMARY: ArkUI_ColorStrategy = ArkUI_ColorStrategy(2);
 }
@@ -2435,38 +1559,18 @@ pub struct ArkUI_ColorStrategy(pub ::core::ffi::c_uint);
 impl ArkUI_FlexAlignment {
     /// The child components are aligned with the start edge of the main axis.
     pub const ARKUI_FLEX_ALIGNMENT_START: ArkUI_FlexAlignment = ArkUI_FlexAlignment(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FlexAlignment {
     /// The child components are aligned in the center of the main axis.
     pub const ARKUI_FLEX_ALIGNMENT_CENTER: ArkUI_FlexAlignment = ArkUI_FlexAlignment(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FlexAlignment {
     /// The child components are aligned with the end edge of the main axis.
     pub const ARKUI_FLEX_ALIGNMENT_END: ArkUI_FlexAlignment = ArkUI_FlexAlignment(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FlexAlignment {
     /// The child components are evenly distributed along the main axis. The space between any two adjacent components
     /// is the same. The first component is aligned with the main-start, and the last component is aligned with
     /// the main-end.
     pub const ARKUI_FLEX_ALIGNMENT_SPACE_BETWEEN: ArkUI_FlexAlignment = ArkUI_FlexAlignment(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FlexAlignment {
     /// The child components are evenly distributed along the main axis. The space between any two adjacent components
     /// is the same. The space between the first component and main-start, and that between the last component and
     /// cross-main are both half the size of the space between two adjacent components.
     pub const ARKUI_FLEX_ALIGNMENT_SPACE_AROUND: ArkUI_FlexAlignment = ArkUI_FlexAlignment(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FlexAlignment {
     /// The child components are evenly distributed along the main axis. The space between the first component
     /// and main-start, the space between the last component and main-end, and the space between any two adjacent
     /// components are the same.
@@ -2486,22 +1590,10 @@ pub struct ArkUI_FlexAlignment(pub ::core::ffi::c_uint);
 impl ArkUI_FlexDirection {
     /// The child components are arranged in the same direction as the main axis runs along the rows.
     pub const ARKUI_FLEX_DIRECTION_ROW: ArkUI_FlexDirection = ArkUI_FlexDirection(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FlexDirection {
     /// The child components are arranged in the same direction as the main axis runs down the columns.
     pub const ARKUI_FLEX_DIRECTION_COLUMN: ArkUI_FlexDirection = ArkUI_FlexDirection(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FlexDirection {
     /// The child components are arranged opposite to the <b>ROW</b> direction.
     pub const ARKUI_FLEX_DIRECTION_ROW_REVERSE: ArkUI_FlexDirection = ArkUI_FlexDirection(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FlexDirection {
     /// The child components are arranged opposite to the <b>COLUMN</b> direction.
     pub const ARKUI_FLEX_DIRECTION_COLUMN_REVERSE: ArkUI_FlexDirection = ArkUI_FlexDirection(3);
 }
@@ -2519,16 +1611,8 @@ pub struct ArkUI_FlexDirection(pub ::core::ffi::c_uint);
 impl ArkUI_FlexWrap {
     /// The child components in the flex container are arranged in a single line, and they cannot overflow.
     pub const ARKUI_FLEX_WRAP_NO_WRAP: ArkUI_FlexWrap = ArkUI_FlexWrap(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FlexWrap {
     /// The child components in the flex container are arranged in multiple lines, and they may overflow.
     pub const ARKUI_FLEX_WRAP_WRAP: ArkUI_FlexWrap = ArkUI_FlexWrap(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FlexWrap {
     /// The child components in the flex container are reversely arranged in multiple lines, and they may overflow.
     pub const ARKUI_FLEX_WRAP_WRAP_REVERSE: ArkUI_FlexWrap = ArkUI_FlexWrap(2);
 }
@@ -2546,16 +1630,8 @@ pub struct ArkUI_FlexWrap(pub ::core::ffi::c_uint);
 impl ArkUI_Visibility {
     /// The component is visible.
     pub const ARKUI_VISIBILITY_VISIBLE: ArkUI_Visibility = ArkUI_Visibility(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Visibility {
     /// The component is hidden, and a placeholder is used for it in the layout.
     pub const ARKUI_VISIBILITY_HIDDEN: ArkUI_Visibility = ArkUI_Visibility(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_Visibility {
     /// The component is hidden. It is not involved in the layout, and no placeholder is used for it.
     pub const ARKUI_VISIBILITY_NONE: ArkUI_Visibility = ArkUI_Visibility(2);
 }
@@ -2573,16 +1649,8 @@ pub struct ArkUI_Visibility(pub ::core::ffi::c_uint);
 impl ArkUI_CalendarAlignment {
     /// Left aligned.
     pub const ARKUI_CALENDAR_ALIGNMENT_START: ArkUI_CalendarAlignment = ArkUI_CalendarAlignment(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_CalendarAlignment {
     /// Center aligned.
     pub const ARKUI_CALENDAR_ALIGNMENT_CENTER: ArkUI_CalendarAlignment = ArkUI_CalendarAlignment(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_CalendarAlignment {
     /// Right aligned.
     pub const ARKUI_CALENDAR_ALIGNMENT_END: ArkUI_CalendarAlignment = ArkUI_CalendarAlignment(2);
 }
@@ -2600,28 +1668,12 @@ pub struct ArkUI_CalendarAlignment(pub ::core::ffi::c_uint);
 impl ArkUI_MaskType {
     /// Rectangle.
     pub const ARKUI_MASK_TYPE_RECTANGLE: ArkUI_MaskType = ArkUI_MaskType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_MaskType {
     /// Circle.
     pub const ARKUI_MASK_TYPE_CIRCLE: ArkUI_MaskType = ArkUI_MaskType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_MaskType {
     /// Ellipse.
     pub const ARKUI_MASK_TYPE_ELLIPSE: ArkUI_MaskType = ArkUI_MaskType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_MaskType {
     /// Path.
     pub const ARKUI_MASK_TYPE_PATH: ArkUI_MaskType = ArkUI_MaskType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_MaskType {
     /// Progress indicator.
     pub const ARKUI_MASK_TYPE_PROGRESS: ArkUI_MaskType = ArkUI_MaskType(4);
 }
@@ -2639,22 +1691,10 @@ pub struct ArkUI_MaskType(pub ::core::ffi::c_uint);
 impl ArkUI_ClipType {
     /// Rectangle.
     pub const ARKUI_CLIP_TYPE_RECTANGLE: ArkUI_ClipType = ArkUI_ClipType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ClipType {
     /// Circle.
     pub const ARKUI_CLIP_TYPE_CIRCLE: ArkUI_ClipType = ArkUI_ClipType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ClipType {
     /// Ellipse.
     pub const ARKUI_CLIP_TYPE_ELLIPSE: ArkUI_ClipType = ArkUI_ClipType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ClipType {
     /// Path.
     pub const ARKUI_CLIP_TYPE_PATH: ArkUI_ClipType = ArkUI_ClipType(3);
 }
@@ -2688,22 +1728,10 @@ pub struct ArkUI_ColorStop {
 impl ArkUI_ShapeType {
     /// Rectangle.
     pub const ARKUI_SHAPE_TYPE_RECTANGLE: ArkUI_ShapeType = ArkUI_ShapeType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ShapeType {
     /// Circle.
     pub const ARKUI_SHAPE_TYPE_CIRCLE: ArkUI_ShapeType = ArkUI_ShapeType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ShapeType {
     /// Ellipse.
     pub const ARKUI_SHAPE_TYPE_ELLIPSE: ArkUI_ShapeType = ArkUI_ShapeType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ShapeType {
     /// Path.
     pub const ARKUI_SHAPE_TYPE_PATH: ArkUI_ShapeType = ArkUI_ShapeType(3);
 }
@@ -2722,66 +1750,30 @@ impl ArkUI_LinearGradientDirection {
     /// From right to left.
     pub const ARKUI_LINEAR_GRADIENT_DIRECTION_LEFT: ArkUI_LinearGradientDirection =
         ArkUI_LinearGradientDirection(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LinearGradientDirection {
     /// From bottom to top.
     pub const ARKUI_LINEAR_GRADIENT_DIRECTION_TOP: ArkUI_LinearGradientDirection =
         ArkUI_LinearGradientDirection(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LinearGradientDirection {
     /// From left to right.
     pub const ARKUI_LINEAR_GRADIENT_DIRECTION_RIGHT: ArkUI_LinearGradientDirection =
         ArkUI_LinearGradientDirection(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LinearGradientDirection {
     /// From top to bottom.
     pub const ARKUI_LINEAR_GRADIENT_DIRECTION_BOTTOM: ArkUI_LinearGradientDirection =
         ArkUI_LinearGradientDirection(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LinearGradientDirection {
     /// From lower right to upper left.
     pub const ARKUI_LINEAR_GRADIENT_DIRECTION_LEFT_TOP: ArkUI_LinearGradientDirection =
         ArkUI_LinearGradientDirection(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LinearGradientDirection {
     /// From upper right to lower left.
     pub const ARKUI_LINEAR_GRADIENT_DIRECTION_LEFT_BOTTOM: ArkUI_LinearGradientDirection =
         ArkUI_LinearGradientDirection(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LinearGradientDirection {
     /// From lower left to upper right.
     pub const ARKUI_LINEAR_GRADIENT_DIRECTION_RIGHT_TOP: ArkUI_LinearGradientDirection =
         ArkUI_LinearGradientDirection(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LinearGradientDirection {
     /// From upper left to lower right.
     pub const ARKUI_LINEAR_GRADIENT_DIRECTION_RIGHT_BOTTOM: ArkUI_LinearGradientDirection =
         ArkUI_LinearGradientDirection(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LinearGradientDirection {
     /// No gradient.
     pub const ARKUI_LINEAR_GRADIENT_DIRECTION_NONE: ArkUI_LinearGradientDirection =
         ArkUI_LinearGradientDirection(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LinearGradientDirection {
     /// Custom direction.
     pub const ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM: ArkUI_LinearGradientDirection =
         ArkUI_LinearGradientDirection(9);
@@ -2801,17 +1793,9 @@ impl ArkUI_WordBreak {
     /// Word breaks can occur between any two characters for Chinese, Japanese, and Korean (CJK) text, but can occur
     /// only at a space character for non-CJK text (such as English).
     pub const ARKUI_WORD_BREAK_NORMAL: ArkUI_WordBreak = ArkUI_WordBreak(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_WordBreak {
     /// Word breaks can occur between any two characters for non-CJK text. CJK text behavior is the same as for
     /// <b>NORMAL</b>.
     pub const ARKUI_WORD_BREAK_BREAK_ALL: ArkUI_WordBreak = ArkUI_WordBreak(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_WordBreak {
     /// This option has the same effect as <b>BREAK_ALL</b> for non-CJK text, except that if it preferentially wraps
     /// lines at appropriate characters (for example, spaces) whenever possible.
     /// CJK text behavior is the same as for <b>NORMAL</b>.
@@ -2831,16 +1815,8 @@ pub struct ArkUI_WordBreak(pub ::core::ffi::c_uint);
 impl ArkUI_EllipsisMode {
     /// An ellipsis is used at the start of the line of text.
     pub const ARKUI_ELLIPSIS_MODE_START: ArkUI_EllipsisMode = ArkUI_EllipsisMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_EllipsisMode {
     /// An ellipsis is used at the center of the line of text.
     pub const ARKUI_ELLIPSIS_MODE_CENTER: ArkUI_EllipsisMode = ArkUI_EllipsisMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_EllipsisMode {
     /// An ellipsis is used at the end of the line of text.
     pub const ARKUI_ELLIPSIS_MODE_END: ArkUI_EllipsisMode = ArkUI_EllipsisMode(2);
 }
@@ -2858,10 +1834,6 @@ pub struct ArkUI_EllipsisMode(pub ::core::ffi::c_uint);
 impl ArkUI_ImageRenderMode {
     /// Render image pixels as they are in the original source image.
     pub const ARKUI_IMAGE_RENDER_MODE_ORIGINAL: ArkUI_ImageRenderMode = ArkUI_ImageRenderMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ImageRenderMode {
     /// Render image pixels to create a monochrome template image.
     pub const ARKUI_IMAGE_RENDER_MODE_TEMPLATE: ArkUI_ImageRenderMode = ArkUI_ImageRenderMode(1);
 }
@@ -2879,22 +1851,10 @@ pub struct ArkUI_ImageRenderMode(pub ::core::ffi::c_uint);
 impl ArkUI_TransitionEdge {
     /// Top edge of the window.
     pub const ARKUI_TRANSITION_EDGE_TOP: ArkUI_TransitionEdge = ArkUI_TransitionEdge(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TransitionEdge {
     /// Bottom edge of the window.
     pub const ARKUI_TRANSITION_EDGE_BOTTOM: ArkUI_TransitionEdge = ArkUI_TransitionEdge(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TransitionEdge {
     /// Left edge of the window.
     pub const ARKUI_TRANSITION_EDGE_START: ArkUI_TransitionEdge = ArkUI_TransitionEdge(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TransitionEdge {
     /// Right edge of the window.
     pub const ARKUI_TRANSITION_EDGE_END: ArkUI_TransitionEdge = ArkUI_TransitionEdge(3);
 }
@@ -2912,10 +1872,6 @@ pub struct ArkUI_TransitionEdge(pub ::core::ffi::c_uint);
 impl ArkUI_BlendApplyType {
     /// The content of the view is blended in sequence on the target image.
     pub const BLEND_APPLY_TYPE_FAST: ArkUI_BlendApplyType = ArkUI_BlendApplyType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BlendApplyType {
     /// The content of the component and its child components are drawn on the offscreen canvas, and then blended with
     /// the existing content on the canvas.
     pub const BLEND_APPLY_TYPE_OFFSCREEN: ArkUI_BlendApplyType = ArkUI_BlendApplyType(1);
@@ -2980,10 +1936,6 @@ pub struct ArkUI_IntOffset {
 impl ArkUI_FinishCallbackType {
     /// The callback is invoked when the entire animation is removed once it has finished.
     pub const ARKUI_FINISH_CALLBACK_REMOVED: ArkUI_FinishCallbackType = ArkUI_FinishCallbackType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_FinishCallbackType {
     /// The callback is invoked when the animation logically enters the falling state, though it may still be in its
     /// long tail state.
     pub const ARKUI_FINISH_CALLBACK_LOGICALLY: ArkUI_FinishCallbackType =
@@ -3003,17 +1955,9 @@ pub struct ArkUI_FinishCallbackType(pub ::core::ffi::c_uint);
 impl ArkUI_ListItemAlignment {
     /// The list items are packed toward the start edge of the list container along the cross axis.
     pub const ARKUI_LIST_ITEM_ALIGNMENT_START: ArkUI_ListItemAlignment = ArkUI_ListItemAlignment(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ListItemAlignment {
     /// The list items are centered in the list container along the cross axis.
     pub const ARKUI_LIST_ITEM_ALIGNMENT_CENTER: ArkUI_ListItemAlignment =
         ArkUI_ListItemAlignment(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ListItemAlignment {
     /// The list items are packed toward the end edge of the list container along the cross axis.
     pub const ARKUI_LIST_ITEM_ALIGNMENT_END: ArkUI_ListItemAlignment = ArkUI_ListItemAlignment(2);
 }
@@ -3031,22 +1975,10 @@ pub struct ArkUI_ListItemAlignment(pub ::core::ffi::c_uint);
 impl ArkUI_BarrierDirection {
     /// The barrier is the leftmost of all its referencedIds.
     pub const ARKUI_BARRIER_DIRECTION_START: ArkUI_BarrierDirection = ArkUI_BarrierDirection(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BarrierDirection {
     /// The barrier is on the rightmost side of all its referencedIds.
     pub const ARKUI_BARRIER_DIRECTION_END: ArkUI_BarrierDirection = ArkUI_BarrierDirection(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BarrierDirection {
     /// The barrier is at the top of all its referencedIds.
     pub const ARKUI_BARRIER_DIRECTION_TOP: ArkUI_BarrierDirection = ArkUI_BarrierDirection(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_BarrierDirection {
     /// The barrier is at the bottom of all its referencedIds.
     pub const ARKUI_BARRIER_DIRECTION_BOTTOM: ArkUI_BarrierDirection = ArkUI_BarrierDirection(3);
 }
@@ -3065,18 +1997,10 @@ impl ArkUI_RelativeLayoutChainStyle {
     /// Components are evenly distributed among constraint anchor points.
     pub const ARKUI_RELATIVE_LAYOUT_CHAIN_STYLE_SPREAD: ArkUI_RelativeLayoutChainStyle =
         ArkUI_RelativeLayoutChainStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RelativeLayoutChainStyle {
     /// Except for the first and last two sub-components,
     /// other components are evenly distributed between the constraint anchor points.
     pub const ARKUI_RELATIVE_LAYOUT_CHAIN_STYLE_SPREAD_INSIDE: ArkUI_RelativeLayoutChainStyle =
         ArkUI_RelativeLayoutChainStyle(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RelativeLayoutChainStyle {
     /// No gaps in subcomponents within the chain.
     pub const ARKUI_RELATIVE_LAYOUT_CHAIN_STYLE_PACKED: ArkUI_RelativeLayoutChainStyle =
         ArkUI_RelativeLayoutChainStyle(2);
@@ -3113,22 +2037,10 @@ pub struct ArkUI_Margin {
 impl ArkUI_LengthMetricUnit {
     /// Default, which is fp for fonts and vp for non-fonts.
     pub const ARKUI_LENGTH_METRIC_UNIT_DEFAULT: ArkUI_LengthMetricUnit = ArkUI_LengthMetricUnit(-1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LengthMetricUnit {
     /// px.
     pub const ARKUI_LENGTH_METRIC_UNIT_PX: ArkUI_LengthMetricUnit = ArkUI_LengthMetricUnit(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LengthMetricUnit {
     /// vp.
     pub const ARKUI_LENGTH_METRIC_UNIT_VP: ArkUI_LengthMetricUnit = ArkUI_LengthMetricUnit(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_LengthMetricUnit {
     /// fp.
     pub const ARKUI_LENGTH_METRIC_UNIT_FP: ArkUI_LengthMetricUnit = ArkUI_LengthMetricUnit(2);
 }
@@ -3147,81 +2059,37 @@ impl ArkUI_RenderFit {
     /// Maintains the content size of the animation's final state,
     /// and the content is always centered with the component.
     pub const ARKUI_RENDER_FIT_CENTER: ArkUI_RenderFit = ArkUI_RenderFit(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Maintains the content size of the animation's final state,
     /// and the content is always aligned with the top center of the component.
     pub const ARKUI_RENDER_FIT_TOP: ArkUI_RenderFit = ArkUI_RenderFit(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Maintains the content size of the animation's final state,
     /// and the content is always aligned with the bottom center of the component.
     pub const ARKUI_RENDER_FIT_BOTTOM: ArkUI_RenderFit = ArkUI_RenderFit(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Maintains the content size of the animation's final state,
     /// and the content is always aligned to the left of the component.
     pub const ARKUI_RENDER_FIT_LEFT: ArkUI_RenderFit = ArkUI_RenderFit(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Maintains the content size of the animation's final state,
     /// and the content is always right-aligned with the component.
     pub const ARKUI_RENDER_FIT_RIGHT: ArkUI_RenderFit = ArkUI_RenderFit(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Maintains the content size of the animation's final state,
     /// and the content is always aligned with the top left corner of the component.
     pub const ARKUI_RENDER_FIT_TOP_LEFT: ArkUI_RenderFit = ArkUI_RenderFit(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Keep the content size of the animation final state,
     /// and the content is always aligned with the upper right corner of the component.
     pub const ARKUI_RENDER_FIT_TOP_RIGHT: ArkUI_RenderFit = ArkUI_RenderFit(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Keep the content size of the animation final state,
     /// and the content always aligns with the lower-left corner of the component.
     pub const ARKUI_RENDER_FIT_BOTTOM_LEFT: ArkUI_RenderFit = ArkUI_RenderFit(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Keep the content size of the animation final state,
     /// and the content always aligns with the lower-right corner of the component.
     pub const ARKUI_RENDER_FIT_BOTTOM_RIGHT: ArkUI_RenderFit = ArkUI_RenderFit(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// The aspect ratio of the animation's final state content is not considered,
     /// and the content is always scaled to the size of the component.
     pub const ARKUI_RENDER_FIT_RESIZE_FILL: ArkUI_RenderFit = ArkUI_RenderFit(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Reduce or enlarge the aspect ratio of the animation final state content,
     /// so that the content is fully displayed in the component,
     /// and keep the center aligned with the component.
     pub const ARKUI_RENDER_FIT_RESIZE_CONTAIN: ArkUI_RenderFit = ArkUI_RenderFit(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Keep the aspect ratio of the animation final state content to reduce or enlarge,
     /// so that the content is fully displayed in the component.
     /// When there is left over in the broad direction of the component,
@@ -3229,10 +2097,6 @@ impl ArkUI_RenderFit {
     /// and when there is left over in the high direction of the component,
     /// the content is aligned to the top of the component.
     pub const ARKUI_RENDER_FIT_RESIZE_CONTAIN_TOP_LEFT: ArkUI_RenderFit = ArkUI_RenderFit(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Keep the aspect ratio of the animation final state content to reduce or enlarge,
     /// so that the content is fully displayed in the component.
     /// When there is left in the wide direction of the component,
@@ -3240,28 +2104,16 @@ impl ArkUI_RenderFit {
     /// When there is left in the high direction of the component,
     /// the content is aligned with the component on the bottom.
     pub const ARKUI_RENDER_FIT_RESIZE_CONTAIN_BOTTOM_RIGHT: ArkUI_RenderFit = ArkUI_RenderFit(12);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Keep the aspect ratio of the animation final state content reduced or enlarged,
     /// so that both sides of the content are greater than or equal to both sides of the component,
     /// and keep the center aligned with the component to display the middle part of the content.
     pub const ARKUI_RENDER_FIT_RESIZE_COVER: ArkUI_RenderFit = ArkUI_RenderFit(13);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Keep the aspect ratio of the final content of the animation reduced or enlarged
     /// so that both sides of the content are exactly greater than or equal to both sides of the component.
     /// When the content width is left, the content is aligned to the left of the component,
     /// and the left portion of the content is displayed. When the content is left in the high direction,
     /// the content and the component remain top aligned, showing the top side of the content.
     pub const ARKUI_RENDER_FIT_RESIZE_COVER_TOP_LEFT: ArkUI_RenderFit = ArkUI_RenderFit(14);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RenderFit {
     /// Keep the aspect ratio of the final content of the animation reduced or enlarged so
     /// that both sides of the content are exactly greater than or equal to both sides of the component.
     /// When the content width is left, the content and the component remain right aligned,
@@ -3284,16 +2136,8 @@ pub struct ArkUI_RenderFit(pub ::core::ffi::c_uint);
 impl ArkUI_ButtonType {
     /// Normal button (without rounded corners by default).
     pub const ARKUI_BUTTON_TYPE_NORMAL: ArkUI_ButtonType = ArkUI_ButtonType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ButtonType {
     /// Capsule-type button (the round corner is half of the height by default).
     pub const ARKUI_BUTTON_TYPE_CAPSULE: ArkUI_ButtonType = ArkUI_ButtonType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ButtonType {
     /// Circle button.
     pub const ARKUI_BUTTON_TYPE_CIRCLE: ArkUI_ButtonType = ArkUI_ButtonType(2);
 }
@@ -3312,153 +2156,73 @@ impl ArkUI_TextInputContentType {
     /// Username. Password Vault, when enabled, can automatically save and fill in usernames.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_USER_NAME: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Password. Password Vault, when enabled, can automatically save and fill in passwords.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_PASSWORD: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// New password. Password Vault, when enabled, can automatically generate a new password.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_NEW_PASSWORD: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Full street address. The scenario-based autofill feature, when enabled, can automatically save and fill in full
     /// street addresses.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_FULL_STREET_ADDRESS: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// House number. The scenario-based autofill feature, when enabled, can automatically save and fill in house
     /// numbers.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_HOUSE_NUMBER: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// District and county. The scenario-based autofill feature, when enabled, can automatically save and fill in
     /// districts and counties.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_DISTRICT_ADDRESS: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// City. The scenario-based autofill feature, when enabled, can automatically save and fill in cities.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_CITY_ADDRESS: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Province. The scenario-based autofill feature, when enabled, can automatically save and fill in provinces.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_PROVINCE_ADDRESS: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Country. The scenario-based autofill feature, when enabled, can automatically save and fill in countries.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_COUNTRY_ADDRESS: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Full name. The scenario-based autofill feature, when enabled, can automatically save and fill in full names.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_PERSON_FULL_NAME: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Last name. The scenario-based autofill feature, when enabled, can automatically save and fill in last names.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_PERSON_LAST_NAME: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// First name. The scenario-based autofill feature, when enabled, can automatically save and fill in first names.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_PERSON_FIRST_NAME: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Phone number. The scenario-based autofill feature, when enabled, can automatically save and fill in phone
     /// numbers.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_PHONE_NUMBER: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(12);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Country code. The scenario-based autofill feature, when enabled, can automatically save and fill in country
     /// codes.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_PHONE_COUNTRY_CODE: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(13);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Phone number with country code. The scenario-based autofill feature, when enabled, can automatically save and
     /// fill in phone numbers with country codes.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_FULL_PHONE_NUMBER: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(14);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Email address. The scenario-based autofill feature, when enabled, can automatically save and fill in email
     /// addresses.
     pub const ARKUI_TEXTINPUT_CONTENT_EMAIL_ADDRESS: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(15);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Bank card number. The scenario-based autofill feature, when enabled, can automatically save and fill in bank
     /// card numbers.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_BANK_CARD_NUMBER: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(16);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// ID card number. The scenario-based autofill feature, when enabled, can automatically save and fill in ID card
     /// numbers.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_ID_CARD_NUMBER: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(17);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Nickname. The scenario-based autofill feature, when enabled, can automatically save and fill in nicknames.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_NICKNAME: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(18);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Address information without street address. The scenario-based autofill feature, when enabled, can automatically
     /// save and fill in address information without street addresses.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_DETAIL_INFO_WITHOUT_STREET: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(19);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputContentType {
     /// Standard address. The scenario-based autofill feature, when enabled, can automatically save and fill in standard
     /// addresses.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_FORMAT_ADDRESS: ArkUI_TextInputContentType =
@@ -3479,10 +2243,6 @@ impl ArkUI_TextInputStyle {
     /// Default style. The caret width is fixed at 1.5 vp, and the caret height is subject to the background height and
     /// font size of the selected text.
     pub const ARKUI_TEXTINPUT_STYLE_DEFAULT: ArkUI_TextInputStyle = ArkUI_TextInputStyle(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextInputStyle {
     /// Inline input style. The background height of the selected text is the same as the height of the text box.
     pub const ARKUI_TEXTINPUT_STYLE_INLINE: ArkUI_TextInputStyle = ArkUI_TextInputStyle(1);
 }
@@ -3501,24 +2261,12 @@ impl ArkUI_TextDataDetectorType {
     /// Phone Number.
     pub const ARKUI_TEXT_DATA_DETECTOR_TYPE_PHONE_NUMBER: ArkUI_TextDataDetectorType =
         ArkUI_TextDataDetectorType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextDataDetectorType {
     /// Link.
     pub const ARKUI_TEXT_DATA_DETECTOR_TYPE_URL: ArkUI_TextDataDetectorType =
         ArkUI_TextDataDetectorType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextDataDetectorType {
     /// Mailbox.
     pub const ARKUI_TEXT_DATA_DETECTOR_TYPE_EMAIL: ArkUI_TextDataDetectorType =
         ArkUI_TextDataDetectorType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_TextDataDetectorType {
     /// Address.
     pub const ARKUI_TEXT_DATA_DETECTOR_TYPE_ADDRESS: ArkUI_TextDataDetectorType =
         ArkUI_TextDataDetectorType(3);
@@ -3538,10 +2286,6 @@ impl ArkUI_SwiperIndicatorType {
     /// dot type.
     pub const ARKUI_SWIPER_INDICATOR_TYPE_DOT: ArkUI_SwiperIndicatorType =
         ArkUI_SwiperIndicatorType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SwiperIndicatorType {
     /// digit type.
     pub const ARKUI_SWIPER_INDICATOR_TYPE_DIGIT: ArkUI_SwiperIndicatorType =
         ArkUI_SwiperIndicatorType(1);
@@ -3562,18 +2306,10 @@ impl ArkUI_ListItemSwipeActionState {
     /// the operation item is hidden.
     pub const ARKUI_LIST_ITEM_SWIPE_ACTION_STATE_COLLAPSED: ArkUI_ListItemSwipeActionState =
         ArkUI_ListItemSwipeActionState(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ListItemSwipeActionState {
     /// In the folded state, when the ListItem slides in the opposite direction to the spindle,
     /// the operation item is displayed.
     pub const ARKUI_LIST_ITEM_SWIPE_ACTION_STATE_EXPANDED: ArkUI_ListItemSwipeActionState =
         ArkUI_ListItemSwipeActionState(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ListItemSwipeActionState {
     /// Long distance state, the state of deleting a ListItem after it enters the long distance deletion area.
     pub const ARKUI_LIST_ITEM_SWIPE_ACTION_STATE_ACTIONING: ArkUI_ListItemSwipeActionState =
         ArkUI_ListItemSwipeActionState(2);
@@ -3593,10 +2329,6 @@ impl ArkUI_ListItemSwipeEdgeEffect {
     /// The ListItem can continue to be scratched after the distance exceeds the size of the scratched component.
     pub const ARKUI_LIST_ITEM_SWIPE_EDGE_EFFECT_SPRING: ArkUI_ListItemSwipeEdgeEffect =
         ArkUI_ListItemSwipeEdgeEffect(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ListItemSwipeEdgeEffect {
     /// The sliding distance of the ListItem cannot exceed the size of the scratched component.
     pub const ARKUI_LIST_ITEM_SWIPE_EDGE_EFFECT_NONE: ArkUI_ListItemSwipeEdgeEffect =
         ArkUI_ListItemSwipeEdgeEffect(1);
@@ -3610,107 +2342,52 @@ impl ArkUI_ListItemSwipeEdgeEffect {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_ListItemSwipeEdgeEffect(pub ::core::ffi::c_uint);
+pub type ArkUiResult = Result<(), ArkUiErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUiErrorCode {
     /// Parameter error.
     pub const PARAM_INVALID: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(401).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The component does not support specific properties or events.
     pub const ATTRIBUTE_OR_EVENT_NOT_SUPPORTED: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106102).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The corresponding operation does not support nodes created by ArkTS.
     pub const ARKTS_NODE_NOT_SUPPORTED: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106103).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The lazy loading adapter is not bound to the component.
     pub const ADAPTER_NOT_BOUND: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106104).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The adapter already exists.
     pub const ADAPTER_EXIST: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106105).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The corresponding node already has a child node and cannot add an adapter.
     pub const CHILD_NODE_EXIST: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106106).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The parameter length in the parameter event exceeds the limit.
     pub const NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106107).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The data does not exist in the component event.
     pub const NODE_EVENT_PARAM_INVALID: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106108).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The component event does not support return values.
     pub const NODE_EVENT_NO_RETURN: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106109).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The index value is invalid.
     pub const NODE_INDEX_INVALID: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106200).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// Failed to query route navigation information.
     pub const GET_INFO_FAILED: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106201).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The buffer size is not large enough.
     pub const BUFFER_SIZE_ERROR: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106202).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The component is not a scroll container.
     pub const NON_SCROLLABLE_CONTAINER: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(180001).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// The buffer is not large enough.
     pub const BUFFER_SIZE_NOT_ENOUGH: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(180002).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUiErrorCode {
     /// invalid styled string.
     ///
     /// Available since API-level: 14
@@ -3719,7 +2396,6 @@ impl ArkUiErrorCode {
     pub const INVALID_STYLED_STRING: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(180101).unwrap() });
 }
-pub type ArkUiResult = Result<(), ArkUiErrorCode>;
 #[repr(transparent)]
 /// Define error code enumeration values.
 ///
@@ -3734,22 +2410,10 @@ pub struct ArkUiErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 impl ArkUI_AnimationStatus {
     /// The animation is in the initial state.
     pub const ARKUI_ANIMATION_STATUS_INITIAL: ArkUI_AnimationStatus = ArkUI_AnimationStatus(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationStatus {
     /// The animation is being played.
     pub const ARKUI_ANIMATION_STATUS_RUNNING: ArkUI_AnimationStatus = ArkUI_AnimationStatus(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationStatus {
     /// The animation is paused.
     pub const ARKUI_ANIMATION_STATUS_PAUSED: ArkUI_AnimationStatus = ArkUI_AnimationStatus(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationStatus {
     /// The animation is stopped.
     pub const ARKUI_ANIMATION_STATUS_STOPPED: ArkUI_AnimationStatus = ArkUI_AnimationStatus(3);
 }
@@ -3768,26 +2432,14 @@ impl ArkUI_AnimationFillMode {
     /// Before execution, the animation does not apply any styles to the target component.
     /// After execution, the animation restores the target component to its default state.
     pub const ARKUI_ANIMATION_FILL_MODE_NONE: ArkUI_AnimationFillMode = ArkUI_AnimationFillMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationFillMode {
     /// The target component retains the state set by the last keyframe encountered
     /// during execution of the animation.
     pub const ARKUI_ANIMATION_FILL_MODE_FORWARDS: ArkUI_AnimationFillMode =
         ArkUI_AnimationFillMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationFillMode {
     /// The animation applies the values defined in the first relevant keyframe once it is applied to
     /// the target component, and retains the values during the period set by delay.
     pub const ARKUI_ANIMATION_FILL_MODE_BACKWARDS: ArkUI_AnimationFillMode =
         ArkUI_AnimationFillMode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationFillMode {
     /// The animation follows the rules for both Forwards and Backwards,
     /// extending the animation attributes in both directions.
     pub const ARKUI_ANIMATION_FILL_MODE_BOTH: ArkUI_AnimationFillMode = ArkUI_AnimationFillMode(3);
@@ -3807,10 +2459,6 @@ impl ArkUI_AccessibilityCheckedState {
     /// The Checkbox unchecked.
     pub const ARKUI_ACCESSIBILITY_UNCHECKED: ArkUI_AccessibilityCheckedState =
         ArkUI_AccessibilityCheckedState(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityCheckedState {
     /// The Checkbox checked.
     pub const ARKUI_ACCESSIBILITY_CHECKED: ArkUI_AccessibilityCheckedState =
         ArkUI_AccessibilityCheckedState(1);
@@ -3830,26 +2478,14 @@ impl ArkUI_AnimationDirection {
     /// The animation plays in forward loop mode.
     pub const ARKUI_ANIMATION_DIRECTION_NORMAL: ArkUI_AnimationDirection =
         ArkUI_AnimationDirection(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationDirection {
     /// The animation plays in reverse loop mode.
     pub const ARKUI_ANIMATION_DIRECTION_REVERSE: ArkUI_AnimationDirection =
         ArkUI_AnimationDirection(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationDirection {
     /// The animation plays in alternating loop mode. When the animation is played for an odd number of times, the
     /// playback is in forward direction. When the animation is played for an even number of times, the playback is in
     /// reverse direction.
     pub const ARKUI_ANIMATION_DIRECTION_ALTERNATE: ArkUI_AnimationDirection =
         ArkUI_AnimationDirection(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AnimationDirection {
     /// The animation plays in reverse alternating loop mode. When the animation is played for an odd number of times,
     /// the playback is in reverse direction. When the animation is played for an even number of times, the playback is
     /// in forward direction.
@@ -3870,46 +2506,18 @@ pub struct ArkUI_AnimationDirection(pub ::core::ffi::c_uint);
 impl ArkUI_ScrollSource {
     /// Finger drag.
     pub const ARKUI_SCROLL_SOURCE_DRAG: ArkUI_ScrollSource = ArkUI_ScrollSource(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollSource {
     /// Inertial roll after finger drag.
     pub const ARKUI_SCROLL_SOURCE_FLING: ArkUI_ScrollSource = ArkUI_ScrollSource(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollSource {
     /// Execute the EdgeEffect.Spring edge effect when crossing the boundary.
     pub const ARKUI_SCROLL_SOURCE_EDGE_EFFECT: ArkUI_ScrollSource = ArkUI_ScrollSource(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollSource {
     /// Other user input other than dragging, such as mouse wheel, keyboard events, etc.
     pub const ARKUI_SCROLL_SOURCE_OTHER_USER_INPUT: ArkUI_ScrollSource = ArkUI_ScrollSource(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollSource {
     /// Drag the scroll bar.
     pub const ARKUI_SCROLL_SOURCE_SCROLL_BAR: ArkUI_ScrollSource = ArkUI_ScrollSource(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollSource {
     /// Inertia scrolling after dragging the scroll bar.
     pub const ARKUI_SCROLL_SOURCE_SCROLL_BAR_FLING: ArkUI_ScrollSource = ArkUI_ScrollSource(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollSource {
     /// The scroll controller causes unanimated scrolling.
     pub const ARKUI_SCROLL_SOURCE_SCROLLER: ArkUI_ScrollSource = ArkUI_ScrollSource(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ScrollSource {
     /// The scroll controller causes the scroll to drive the painting.
     pub const ARKUI_SCROLL_SOURCE_ANIMATION: ArkUI_ScrollSource = ArkUI_ScrollSource(7);
 }
@@ -3928,31 +2536,15 @@ impl ArkUI_AccessibilityActionType {
     /// click action.
     pub const ARKUI_ACCESSIBILITY_ACTION_CLICK: ArkUI_AccessibilityActionType =
         ArkUI_AccessibilityActionType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityActionType {
     /// long click action.
     pub const ARKUI_ACCESSIBILITY_ACTION_LONG_CLICK: ArkUI_AccessibilityActionType =
         ArkUI_AccessibilityActionType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityActionType {
     /// cut action.
     pub const ARKUI_ACCESSIBILITY_ACTION_CUT: ArkUI_AccessibilityActionType =
         ArkUI_AccessibilityActionType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityActionType {
     /// copy action.
     pub const ARKUI_ACCESSIBILITY_ACTION_COPY: ArkUI_AccessibilityActionType =
         ArkUI_AccessibilityActionType(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_AccessibilityActionType {
     /// paste action.
     pub const ARKUI_ACCESSIBILITY_ACTION_PASTE: ArkUI_AccessibilityActionType =
         ArkUI_AccessibilityActionType(16);
@@ -4046,59 +2638,27 @@ impl ArkUI_NavDestinationState {
     /// The NavDestination show.
     pub const ARKUI_NAV_DESTINATION_STATE_ON_SHOW: ArkUI_NavDestinationState =
         ArkUI_NavDestinationState(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NavDestinationState {
     /// The NavDestination hide.
     pub const ARKUI_NAV_DESTINATION_STATE_ON_HIDE: ArkUI_NavDestinationState =
         ArkUI_NavDestinationState(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NavDestinationState {
     /// The NavDestination is mounted to the component tree.
     pub const ARKUI_NAV_DESTINATION_STATE_ON_APPEAR: ArkUI_NavDestinationState =
         ArkUI_NavDestinationState(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NavDestinationState {
     /// The NavDestination removed from the component tree.
     pub const ARKUI_NAV_DESTINATION_STATE_ON_DISAPPEAR: ArkUI_NavDestinationState =
         ArkUI_NavDestinationState(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NavDestinationState {
     /// Before the NavDestination show.
     pub const ARKUI_NAV_DESTINATION_STATE_ON_WILL_SHOW: ArkUI_NavDestinationState =
         ArkUI_NavDestinationState(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NavDestinationState {
     /// Before the NavDestination hide.
     pub const ARKUI_NAV_DESTINATION_STATE_ON_WILL_HIDE: ArkUI_NavDestinationState =
         ArkUI_NavDestinationState(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NavDestinationState {
     /// Before the NavDestination mount to the component tree.
     pub const ARKUI_NAV_DESTINATION_STATE_ON_WILL_APPEAR: ArkUI_NavDestinationState =
         ArkUI_NavDestinationState(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NavDestinationState {
     /// Before the NavDestination removed from the component tree.
     pub const ARKUI_NAV_DESTINATION_STATE_ON_WILL_DISAPPEAR: ArkUI_NavDestinationState =
         ArkUI_NavDestinationState(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NavDestinationState {
     /// The NavDestination returns from the component.
     pub const ARKUI_NAV_DESTINATION_STATE_ON_BACK_PRESS: ArkUI_NavDestinationState =
         ArkUI_NavDestinationState(100);
@@ -4118,29 +2678,13 @@ impl ArkUI_RouterPageState {
     /// The Router Page is about to be created.
     pub const ARKUI_ROUTER_PAGE_STATE_ABOUT_TO_APPEAR: ArkUI_RouterPageState =
         ArkUI_RouterPageState(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RouterPageState {
     /// The Router Page is about to be destroyed.
     pub const ARKUI_ROUTER_PAGE_STATE_ABOUT_TO_DISAPPEAR: ArkUI_RouterPageState =
         ArkUI_RouterPageState(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RouterPageState {
     /// The Router Page show.
     pub const ARKUI_ROUTER_PAGE_STATE_ON_SHOW: ArkUI_RouterPageState = ArkUI_RouterPageState(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RouterPageState {
     /// The Router Page hide.
     pub const ARKUI_ROUTER_PAGE_STATE_ON_HIDE: ArkUI_RouterPageState = ArkUI_RouterPageState(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_RouterPageState {
     /// The Router Page returns.
     pub const ARKUI_ROUTER_PAGE_STATE_ON_BACK_PRESS: ArkUI_RouterPageState =
         ArkUI_RouterPageState(4);
@@ -4159,16 +2703,8 @@ pub struct ArkUI_RouterPageState(pub ::core::ffi::c_uint);
 impl ArkUI_SafeAreaType {
     /// The default security zone includes the status bar and navigation bar.
     pub const ARKUI_SAFE_AREA_TYPE_SYSTEM: ArkUI_SafeAreaType = ArkUI_SafeAreaType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SafeAreaType {
     /// Non-secure areas of the device, such as bangs or hole holes.
     pub const ARKUI_SAFE_AREA_TYPE_CUTOUT: ArkUI_SafeAreaType = ArkUI_SafeAreaType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SafeAreaType {
     /// Soft keyboard area.
     pub const ARKUI_SAFE_AREA_TYPE_KEYBOARD: ArkUI_SafeAreaType = ArkUI_SafeAreaType(4);
 }
@@ -4186,22 +2722,10 @@ pub struct ArkUI_SafeAreaType(pub ::core::ffi::c_uint);
 impl ArkUI_SafeAreaEdge {
     /// Upper area.
     pub const ARKUI_SAFE_AREA_EDGE_TOP: ArkUI_SafeAreaEdge = ArkUI_SafeAreaEdge(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SafeAreaEdge {
     /// Lower area.
     pub const ARKUI_SAFE_AREA_EDGE_BOTTOM: ArkUI_SafeAreaEdge = ArkUI_SafeAreaEdge(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SafeAreaEdge {
     /// Front area.
     pub const ARKUI_SAFE_AREA_EDGE_START: ArkUI_SafeAreaEdge = ArkUI_SafeAreaEdge(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_SafeAreaEdge {
     /// Tail area.
     pub const ARKUI_SAFE_AREA_EDGE_END: ArkUI_SafeAreaEdge = ArkUI_SafeAreaEdge(8);
 }

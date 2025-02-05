@@ -8,13 +8,9 @@ use crate::types::*;
 impl OH_Drawing_PenLineCapStyle {
     /// There is no cap style. Both ends of the line segment are cut off square.
     pub const LINE_FLAT_CAP: OH_Drawing_PenLineCapStyle = OH_Drawing_PenLineCapStyle(0);
-}
-impl OH_Drawing_PenLineCapStyle {
     /// Square cap style. Both ends have a square, the height of which
     /// is half of the width of the line segment, with the same width.
     pub const LINE_SQUARE_CAP: OH_Drawing_PenLineCapStyle = OH_Drawing_PenLineCapStyle(1);
-}
-impl OH_Drawing_PenLineCapStyle {
     /// Round cap style. Both ends have a semicircle centered, the diameter of which
     /// is the same as the width of the line segment.
     pub const LINE_ROUND_CAP: OH_Drawing_PenLineCapStyle = OH_Drawing_PenLineCapStyle(2);
@@ -33,12 +29,8 @@ impl OH_Drawing_PenLineJoinStyle {
     /// Mitered corner. If the angle of a polyline is small, its miter length may be inappropriate.
     /// In this case, you need to use the miter limit to limit the miter length.
     pub const LINE_MITER_JOIN: OH_Drawing_PenLineJoinStyle = OH_Drawing_PenLineJoinStyle(0);
-}
-impl OH_Drawing_PenLineJoinStyle {
     /// Round corner.
     pub const LINE_ROUND_JOIN: OH_Drawing_PenLineJoinStyle = OH_Drawing_PenLineJoinStyle(1);
-}
-impl OH_Drawing_PenLineJoinStyle {
     /// Beveled corner.
     pub const LINE_BEVEL_JOIN: OH_Drawing_PenLineJoinStyle = OH_Drawing_PenLineJoinStyle(2);
 }

@@ -10,10 +10,6 @@ use crate::types::*;
 impl OH_Drawing_PathDirection {
     /// clockwise direction for adding closed contours
     pub const PATH_DIRECTION_CW: OH_Drawing_PathDirection = OH_Drawing_PathDirection(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathDirection {
     /// counter-clockwise direction for adding closed contours
     pub const PATH_DIRECTION_CCW: OH_Drawing_PathDirection = OH_Drawing_PathDirection(1);
 }
@@ -33,22 +29,10 @@ pub struct OH_Drawing_PathDirection(pub ::core::ffi::c_uint);
 impl OH_Drawing_PathFillType {
     /// Specifies that "inside" is computed by a non-zero sum of signed edge crossings
     pub const PATH_FILL_TYPE_WINDING: OH_Drawing_PathFillType = OH_Drawing_PathFillType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathFillType {
     /// Specifies that "inside" is computed by an odd number of edge crossings
     pub const PATH_FILL_TYPE_EVEN_ODD: OH_Drawing_PathFillType = OH_Drawing_PathFillType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathFillType {
     /// Same as Winding, but draws outside of the path, rather than inside
     pub const PATH_FILL_TYPE_INVERSE_WINDING: OH_Drawing_PathFillType = OH_Drawing_PathFillType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathFillType {
     /// Same as EvenOdd, but draws outside of the path, rather than inside
     pub const PATH_FILL_TYPE_INVERSE_EVEN_ODD: OH_Drawing_PathFillType = OH_Drawing_PathFillType(3);
 }
@@ -68,10 +52,6 @@ pub struct OH_Drawing_PathFillType(pub ::core::ffi::c_uint);
 impl OH_Drawing_PathAddMode {
     /// Appended to destination unaltered
     pub const PATH_ADD_MODE_APPEND: OH_Drawing_PathAddMode = OH_Drawing_PathAddMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathAddMode {
     /// Add line if prior contour is not closed
     pub const PATH_ADD_MODE_EXTEND: OH_Drawing_PathAddMode = OH_Drawing_PathAddMode(1);
 }
@@ -91,28 +71,12 @@ pub struct OH_Drawing_PathAddMode(pub ::core::ffi::c_uint);
 impl OH_Drawing_PathOpMode {
     /// Difference operation.
     pub const PATH_OP_MODE_DIFFERENCE: OH_Drawing_PathOpMode = OH_Drawing_PathOpMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathOpMode {
     /// Intersect operation.
     pub const PATH_OP_MODE_INTERSECT: OH_Drawing_PathOpMode = OH_Drawing_PathOpMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathOpMode {
     /// Union operation.
     pub const PATH_OP_MODE_UNION: OH_Drawing_PathOpMode = OH_Drawing_PathOpMode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathOpMode {
     /// Xor operation.
     pub const PATH_OP_MODE_XOR: OH_Drawing_PathOpMode = OH_Drawing_PathOpMode(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathOpMode {
     /// Reverse difference operation.
     pub const PATH_OP_MODE_REVERSE_DIFFERENCE: OH_Drawing_PathOpMode = OH_Drawing_PathOpMode(4);
 }
@@ -133,17 +97,9 @@ impl OH_Drawing_PathMeasureMatrixFlags {
     /// Gets position.
     pub const GET_POSITION_MATRIX: OH_Drawing_PathMeasureMatrixFlags =
         OH_Drawing_PathMeasureMatrixFlags(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathMeasureMatrixFlags {
     /// Gets tangent.
     pub const GET_TANGENT_MATRIX: OH_Drawing_PathMeasureMatrixFlags =
         OH_Drawing_PathMeasureMatrixFlags(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PathMeasureMatrixFlags {
     /// Gets both position and tangent.
     pub const GET_POSITION_AND_TANGENT_MATRIX: OH_Drawing_PathMeasureMatrixFlags =
         OH_Drawing_PathMeasureMatrixFlags(2);

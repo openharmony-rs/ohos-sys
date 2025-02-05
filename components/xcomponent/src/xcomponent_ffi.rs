@@ -10,1004 +10,346 @@ pub const OH_NATIVE_XCOMPONENT_OBJ: &::core::ffi::CStr = c"__NATIVE_XCOMPONENT_O
 pub const OH_NATIVE_XCOMPONENT_MAX_TOUCH_POINTS_NUMBER: u32 = 10;
 impl OH_NativeXComponent_KeyCode {
     pub const KEY_UNKNOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(-1);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_FN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(0);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_HOME: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(1);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BACK: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_PLAY_PAUSE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(10);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_STOP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(11);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_NEXT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(12);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_PREVIOUS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(13);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_REWIND: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(14);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_FAST_FORWARD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(15);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VOLUME_UP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(16);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VOLUME_DOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(17);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_POWER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(18);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CAMERA: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(19);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VOLUME_MUTE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(22);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MUTE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(23);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BRIGHTNESS_UP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(40);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BRIGHTNESS_DOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(41);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_0: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2000);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_1: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2001);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_2: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2002);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_3: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2003);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_4: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2004);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_5: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2005);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_6: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2006);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_7: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2007);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_8: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2008);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_9: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2009);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_STAR: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2010);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_POUND: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2011);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DPAD_UP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2012);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DPAD_DOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2013);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DPAD_LEFT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2014);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DPAD_RIGHT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2015);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DPAD_CENTER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2016);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_A: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2017);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_B: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2018);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_C: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2019);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_D: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2020);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_E: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2021);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2022);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_G: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2023);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_H: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2024);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_I: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2025);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_J: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2026);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_K: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2027);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_L: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2028);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_M: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2029);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_N: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2030);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_O: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2031);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_P: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2032);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_Q: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2033);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_R: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2034);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_S: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2035);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_T: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2036);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_U: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2037);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_V: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2038);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_W: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2039);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_X: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2040);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_Y: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2041);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_Z: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2042);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_COMMA: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2043);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PERIOD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2044);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ALT_LEFT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2045);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ALT_RIGHT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2046);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SHIFT_LEFT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2047);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SHIFT_RIGHT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2048);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_TAB: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2049);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SPACE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2050);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SYM: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2051);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_EXPLORER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2052);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ENVELOPE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2053);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ENTER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2054);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DEL: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2055);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_GRAVE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2056);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MINUS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2057);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_EQUALS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2058);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_LEFT_BRACKET: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2059);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_RIGHT_BRACKET: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2060);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BACKSLASH: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2061);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SEMICOLON: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2062);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_APOSTROPHE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2063);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SLASH: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2064);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_AT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2065);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PLUS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2066);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MENU: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2067);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PAGE_UP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2068);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PAGE_DOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2069);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ESCAPE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2070);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_FORWARD_DEL: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2071);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CTRL_LEFT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2072);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CTRL_RIGHT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2073);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CAPS_LOCK: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2074);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SCROLL_LOCK: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2075);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_META_LEFT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2076);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_META_RIGHT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2077);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_FUNCTION: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2078);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SYSRQ: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2079);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BREAK: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2080);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MOVE_HOME: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2081);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MOVE_END: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2082);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_INSERT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2083);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_FORWARD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2084);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_PLAY: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2085);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_PAUSE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2086);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_CLOSE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2087);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_EJECT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2088);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_RECORD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2089);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F1: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2090);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F2: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2091);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F3: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2092);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F4: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2093);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F5: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2094);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F6: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2095);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F7: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2096);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F8: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2097);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F9: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2098);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F10: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2099);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F11: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2100);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F12: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2101);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUM_LOCK: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2102);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_0: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2103);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_1: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2104);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_2: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2105);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_3: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2106);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_4: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2107);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_5: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2108);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_6: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2109);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_7: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2110);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_8: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2111);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_9: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2112);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_DIVIDE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2113);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_MULTIPLY: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2114);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_SUBTRACT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2115);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_ADD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2116);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_DOT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2117);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_COMMA: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2118);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_ENTER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2119);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_EQUALS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2120);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_LEFT_PAREN: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2121);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_RIGHT_PAREN: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2122);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VIRTUAL_MULTITASK: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2210);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SLEEP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2600);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ZENKAKU_HANKAKU: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2601);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_102ND: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2602);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_RO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2603);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KATAKANA: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2604);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_HIRAGANA: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2605);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_HENKAN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2606);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KATAKANA_HIRAGANA: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2607);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MUHENKAN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2608);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_LINEFEED: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2609);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MACRO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2610);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NUMPAD_PLUSMINUS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2611);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SCALE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2612);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_HANGUEL: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2613);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_HANJA: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2614);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_YEN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2615);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_STOP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2616);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_AGAIN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2617);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PROPS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2618);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_UNDO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2619);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_COPY: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2620);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_OPEN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2621);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PASTE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2622);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_FIND: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2623);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CUT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2624);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_HELP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2625);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CALC: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2626);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_FILE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2627);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BOOKMARKS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2628);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NEXT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2629);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PLAYPAUSE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2630);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PREVIOUS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2631);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_STOPCD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2632);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CONFIG: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2634);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_REFRESH: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2635);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_EXIT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2636);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_EDIT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2637);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SCROLLUP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2638);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SCROLLDOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2639);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NEW: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2640);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_REDO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2641);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CLOSE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2642);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PLAY: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2643);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BASSBOOST: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2644);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PRINT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2645);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CHAT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2646);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_FINANCE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2647);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CANCEL: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2648);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KBDILLUM_TOGGLE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2649);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KBDILLUM_DOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2650);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KBDILLUM_UP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2651);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SEND: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2652);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_REPLY: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2653);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_FORWARDMAIL: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2654);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SAVE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2655);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DOCUMENTS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2656);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VIDEO_NEXT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2657);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VIDEO_PREV: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2658);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BRIGHTNESS_CYCLE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2659);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BRIGHTNESS_ZERO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2660);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DISPLAY_OFF: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2661);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_MISC: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2662);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_GOTO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2663);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_INFO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2664);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PROGRAM: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2665);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PVR: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2666);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SUBTITLE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2667);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_FULL_SCREEN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2668);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KEYBOARD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2669);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ASPECT_RATIO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2670);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PC: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2671);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_TV: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2672);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_TV2: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2673);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VCR: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2674);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VCR2: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2675);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SAT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2676);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2677);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_TAPE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2678);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_TUNER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2679);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PLAYER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2680);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DVD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2681);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_AUDIO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2682);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VIDEO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2683);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEMO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2684);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CALENDAR: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2685);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_RED: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2686);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_GREEN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2687);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_YELLOW: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2688);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BLUE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2689);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CHANNELUP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2690);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CHANNELDOWN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2691);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_LAST: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2692);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_RESTART: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2693);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SLOW: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2694);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SHUFFLE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2695);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VIDEOPHONE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2696);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_GAMES: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2697);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ZOOMIN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2698);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ZOOMOUT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2699);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ZOOMRESET: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2700);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_WORDPROCESSOR: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2701);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_EDITOR: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2702);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SPREADSHEET: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2703);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_GRAPHICSEDITOR: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2704);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PRESENTATION: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2705);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DATABASE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2706);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_NEWS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2707);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_VOICEMAIL: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2708);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ADDRESSBOOK: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2709);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MESSENGER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2710);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BRIGHTNESS_TOGGLE: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2711);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SPELLCHECK: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2712);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_COFFEE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2713);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MEDIA_REPEAT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2714);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_IMAGES: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2715);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BUTTONCONFIG: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2716);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_TASKMANAGER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2717);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_JOURNAL: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2718);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CONTROLPANEL: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2719);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_APPSELECT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2720);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SCREENSAVER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2721);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ASSISTANT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2722);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KBD_LAYOUT_NEXT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2723);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BRIGHTNESS_MIN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2724);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BRIGHTNESS_MAX: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2725);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KBDINPUTASSIST_PREV: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2726);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KBDINPUTASSIST_NEXT: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2727);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KBDINPUTASSIST_PREVGROUP: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2728);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KBDINPUTASSIST_NEXTGROUP: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2729);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KBDINPUTASSIST_ACCEPT: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2730);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_KBDINPUTASSIST_CANCEL: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2731);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_FRONT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2800);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SETUP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2801);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_WAKEUP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2802);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SENDFILE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2803);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DELETEFILE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2804);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_XFER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2805);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PROG1: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2806);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PROG2: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2807);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MSDOS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2808);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SCREENLOCK: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2809);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DIRECTION_ROTATE_DISPLAY: OH_NativeXComponent_KeyCode =
         OH_NativeXComponent_KeyCode(2810);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CYCLEWINDOWS: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2811);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_COMPUTER: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2812);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_EJECTCLOSECD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2813);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ISO: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2814);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_MOVE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2815);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F13: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2816);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F14: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2817);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F15: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2818);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F16: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2819);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F17: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2820);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F18: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2821);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F19: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2822);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F20: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2823);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F21: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2824);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F22: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2825);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F23: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2826);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_F24: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2827);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PROG3: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2828);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_PROG4: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2829);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_DASHBOARD: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2830);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SUSPEND: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2831);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_HP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2832);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SOUND: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2833);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_QUESTION: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2834);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CONNECT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2836);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SPORT: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2837);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SHOP: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2838);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_ALTERASE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2839);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_SWITCHVIDEOMODE: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2841);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BATTERY: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2842);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BLUETOOTH: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2843);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_WLAN: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2844);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_UWB: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2845);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_WWAN_WIMAX: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2846);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_RFKILL: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(2847);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_CHANNEL: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3001);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_0: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3100);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_1: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3101);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_2: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3102);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_3: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3103);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_4: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3104);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_5: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3105);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_6: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3106);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_7: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3107);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_8: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3108);
-}
-impl OH_NativeXComponent_KeyCode {
     pub const KEY_BTN_9: OH_NativeXComponent_KeyCode = OH_NativeXComponent_KeyCode(3109);
 }
 #[repr(transparent)]
@@ -1022,12 +364,8 @@ pub struct OH_NativeXComponent_KeyCode(pub ::core::ffi::c_int);
 impl OH_NativeXComponent_KeyAction {
     pub const OH_NATIVEXCOMPONENT_KEY_ACTION_UNKNOWN: OH_NativeXComponent_KeyAction =
         OH_NativeXComponent_KeyAction(-1);
-}
-impl OH_NativeXComponent_KeyAction {
     pub const OH_NATIVEXCOMPONENT_KEY_ACTION_DOWN: OH_NativeXComponent_KeyAction =
         OH_NativeXComponent_KeyAction(0);
-}
-impl OH_NativeXComponent_KeyAction {
     pub const OH_NATIVEXCOMPONENT_KEY_ACTION_UP: OH_NativeXComponent_KeyAction =
         OH_NativeXComponent_KeyAction(1);
 }
@@ -1046,23 +384,15 @@ impl OH_NativeXComponent_TouchEventType {
     /// Trigger a touch event when a finger is pressed.
     pub const OH_NATIVEXCOMPONENT_DOWN: OH_NativeXComponent_TouchEventType =
         OH_NativeXComponent_TouchEventType(0);
-}
-impl OH_NativeXComponent_TouchEventType {
     /// Trigger a touch event when a finger is lifted.
     pub const OH_NATIVEXCOMPONENT_UP: OH_NativeXComponent_TouchEventType =
         OH_NativeXComponent_TouchEventType(1);
-}
-impl OH_NativeXComponent_TouchEventType {
     /// Trigger a touch event when a finger moves on the screen in pressed state.
     pub const OH_NATIVEXCOMPONENT_MOVE: OH_NativeXComponent_TouchEventType =
         OH_NativeXComponent_TouchEventType(2);
-}
-impl OH_NativeXComponent_TouchEventType {
     /// Trigger an event when a touch event is canceled.
     pub const OH_NATIVEXCOMPONENT_CANCEL: OH_NativeXComponent_TouchEventType =
         OH_NativeXComponent_TouchEventType(3);
-}
-impl OH_NativeXComponent_TouchEventType {
     /// Invalid touch type.
     pub const OH_NATIVEXCOMPONENT_UNKNOWN: OH_NativeXComponent_TouchEventType =
         OH_NativeXComponent_TouchEventType(4);
@@ -1074,43 +404,27 @@ impl OH_NativeXComponent_TouchPointToolType {
     /// Indicates invalid tool type.
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_UNKNOWN: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(0);
-}
-impl OH_NativeXComponent_TouchPointToolType {
     /// Indicates a finger.
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_FINGER: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(1);
-}
-impl OH_NativeXComponent_TouchPointToolType {
     /// Indicates a stylus.
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_PEN: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(2);
-}
-impl OH_NativeXComponent_TouchPointToolType {
     /// Indicates a eraser.
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_RUBBER: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(3);
-}
-impl OH_NativeXComponent_TouchPointToolType {
     /// Indicates a brush.
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_BRUSH: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(4);
-}
-impl OH_NativeXComponent_TouchPointToolType {
     /// Indicates a pencil.
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_PENCIL: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(5);
-}
-impl OH_NativeXComponent_TouchPointToolType {
     /// Indicates a brush.
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_AIRBRUSH: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(6);
-}
-impl OH_NativeXComponent_TouchPointToolType {
     /// Indicates a mouse.
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_MOUSE: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(7);
-}
-impl OH_NativeXComponent_TouchPointToolType {
     /// Indicates a lens.
     pub const OH_NATIVEXCOMPONENT_TOOL_TYPE_LENS: OH_NativeXComponent_TouchPointToolType =
         OH_NativeXComponent_TouchPointToolType(8);
@@ -1128,28 +442,18 @@ impl OH_NativeXComponent_EventSourceType {
     /// Indicates an unknown input source type.
     pub const OH_NATIVEXCOMPONENT_SOURCE_TYPE_UNKNOWN: OH_NativeXComponent_EventSourceType =
         OH_NativeXComponent_EventSourceType(0);
-}
-impl OH_NativeXComponent_EventSourceType {
     /// Indicates that the input source generates a mouse multi-touch event.
     pub const OH_NATIVEXCOMPONENT_SOURCE_TYPE_MOUSE: OH_NativeXComponent_EventSourceType =
         OH_NativeXComponent_EventSourceType(1);
-}
-impl OH_NativeXComponent_EventSourceType {
     /// Indicates that the input source generates a touchscreen multi-touch event.
     pub const OH_NATIVEXCOMPONENT_SOURCE_TYPE_TOUCHSCREEN: OH_NativeXComponent_EventSourceType =
         OH_NativeXComponent_EventSourceType(2);
-}
-impl OH_NativeXComponent_EventSourceType {
     /// Indicates that the input source generates a touchpad multi-touch event.
     pub const OH_NATIVEXCOMPONENT_SOURCE_TYPE_TOUCHPAD: OH_NativeXComponent_EventSourceType =
         OH_NativeXComponent_EventSourceType(3);
-}
-impl OH_NativeXComponent_EventSourceType {
     /// Indicates that the input source generates a joystick multi-touch event.
     pub const OH_NATIVEXCOMPONENT_SOURCE_TYPE_JOYSTICK: OH_NativeXComponent_EventSourceType =
         OH_NativeXComponent_EventSourceType(4);
-}
-impl OH_NativeXComponent_EventSourceType {
     /// Indicates that the input source generates a keyboard event.
     ///
     ///
@@ -1171,16 +475,10 @@ pub struct OH_NativeXComponent_EventSourceType(pub ::core::ffi::c_uint);
 impl OH_NativeXComponent_MouseEventAction {
     pub const OH_NATIVEXCOMPONENT_MOUSE_NONE: OH_NativeXComponent_MouseEventAction =
         OH_NativeXComponent_MouseEventAction(0);
-}
-impl OH_NativeXComponent_MouseEventAction {
     pub const OH_NATIVEXCOMPONENT_MOUSE_PRESS: OH_NativeXComponent_MouseEventAction =
         OH_NativeXComponent_MouseEventAction(1);
-}
-impl OH_NativeXComponent_MouseEventAction {
     pub const OH_NATIVEXCOMPONENT_MOUSE_RELEASE: OH_NativeXComponent_MouseEventAction =
         OH_NativeXComponent_MouseEventAction(2);
-}
-impl OH_NativeXComponent_MouseEventAction {
     pub const OH_NATIVEXCOMPONENT_MOUSE_MOVE: OH_NativeXComponent_MouseEventAction =
         OH_NativeXComponent_MouseEventAction(3);
 }
@@ -1196,24 +494,14 @@ pub struct OH_NativeXComponent_MouseEventAction(pub ::core::ffi::c_uint);
 impl OH_NativeXComponent_MouseEventButton {
     pub const OH_NATIVEXCOMPONENT_NONE_BUTTON: OH_NativeXComponent_MouseEventButton =
         OH_NativeXComponent_MouseEventButton(0);
-}
-impl OH_NativeXComponent_MouseEventButton {
     pub const OH_NATIVEXCOMPONENT_LEFT_BUTTON: OH_NativeXComponent_MouseEventButton =
         OH_NativeXComponent_MouseEventButton(1);
-}
-impl OH_NativeXComponent_MouseEventButton {
     pub const OH_NATIVEXCOMPONENT_RIGHT_BUTTON: OH_NativeXComponent_MouseEventButton =
         OH_NativeXComponent_MouseEventButton(2);
-}
-impl OH_NativeXComponent_MouseEventButton {
     pub const OH_NATIVEXCOMPONENT_MIDDLE_BUTTON: OH_NativeXComponent_MouseEventButton =
         OH_NativeXComponent_MouseEventButton(4);
-}
-impl OH_NativeXComponent_MouseEventButton {
     pub const OH_NATIVEXCOMPONENT_BACK_BUTTON: OH_NativeXComponent_MouseEventButton =
         OH_NativeXComponent_MouseEventButton(8);
-}
-impl OH_NativeXComponent_MouseEventButton {
     pub const OH_NATIVEXCOMPONENT_FORWARD_BUTTON: OH_NativeXComponent_MouseEventButton =
         OH_NativeXComponent_MouseEventButton(16);
 }
@@ -1229,40 +517,22 @@ pub struct OH_NativeXComponent_MouseEventButton(pub ::core::ffi::c_uint);
 impl OH_NativeXComponent_TouchEvent_SourceTool {
     pub const OH_NATIVEXCOMPONENT_SOURCETOOL_UNKNOWN: OH_NativeXComponent_TouchEvent_SourceTool =
         OH_NativeXComponent_TouchEvent_SourceTool(0);
-}
-impl OH_NativeXComponent_TouchEvent_SourceTool {
     pub const OH_NATIVEXCOMPONENT_SOURCETOOL_FINGER: OH_NativeXComponent_TouchEvent_SourceTool =
         OH_NativeXComponent_TouchEvent_SourceTool(1);
-}
-impl OH_NativeXComponent_TouchEvent_SourceTool {
     pub const OH_NATIVEXCOMPONENT_SOURCETOOL_PEN: OH_NativeXComponent_TouchEvent_SourceTool =
         OH_NativeXComponent_TouchEvent_SourceTool(2);
-}
-impl OH_NativeXComponent_TouchEvent_SourceTool {
     pub const OH_NATIVEXCOMPONENT_SOURCETOOL_RUBBER: OH_NativeXComponent_TouchEvent_SourceTool =
         OH_NativeXComponent_TouchEvent_SourceTool(3);
-}
-impl OH_NativeXComponent_TouchEvent_SourceTool {
     pub const OH_NATIVEXCOMPONENT_SOURCETOOL_BRUSH: OH_NativeXComponent_TouchEvent_SourceTool =
         OH_NativeXComponent_TouchEvent_SourceTool(4);
-}
-impl OH_NativeXComponent_TouchEvent_SourceTool {
     pub const OH_NATIVEXCOMPONENT_SOURCETOOL_PENCIL: OH_NativeXComponent_TouchEvent_SourceTool =
         OH_NativeXComponent_TouchEvent_SourceTool(5);
-}
-impl OH_NativeXComponent_TouchEvent_SourceTool {
     pub const OH_NATIVEXCOMPONENT_SOURCETOOL_AIRBRUSH: OH_NativeXComponent_TouchEvent_SourceTool =
         OH_NativeXComponent_TouchEvent_SourceTool(6);
-}
-impl OH_NativeXComponent_TouchEvent_SourceTool {
     pub const OH_NATIVEXCOMPONENT_SOURCETOOL_MOUSE: OH_NativeXComponent_TouchEvent_SourceTool =
         OH_NativeXComponent_TouchEvent_SourceTool(7);
-}
-impl OH_NativeXComponent_TouchEvent_SourceTool {
     pub const OH_NATIVEXCOMPONENT_SOURCETOOL_LENS: OH_NativeXComponent_TouchEvent_SourceTool =
         OH_NativeXComponent_TouchEvent_SourceTool(8);
-}
-impl OH_NativeXComponent_TouchEvent_SourceTool {
     pub const OH_NATIVEXCOMPONENT_SOURCETOOL_TOUCHPAD: OH_NativeXComponent_TouchEvent_SourceTool =
         OH_NativeXComponent_TouchEvent_SourceTool(9);
 }

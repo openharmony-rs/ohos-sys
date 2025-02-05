@@ -36,15 +36,7 @@ pub struct OH_DecodingOptionsForPicture {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl IMAGE_DYNAMIC_RANGE {
     pub const IMAGE_DYNAMIC_RANGE_AUTO: IMAGE_DYNAMIC_RANGE = IMAGE_DYNAMIC_RANGE(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl IMAGE_DYNAMIC_RANGE {
     pub const IMAGE_DYNAMIC_RANGE_SDR: IMAGE_DYNAMIC_RANGE = IMAGE_DYNAMIC_RANGE(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl IMAGE_DYNAMIC_RANGE {
     pub const IMAGE_DYNAMIC_RANGE_HDR: IMAGE_DYNAMIC_RANGE = IMAGE_DYNAMIC_RANGE(2);
 }
 #[repr(transparent)]

@@ -10,23 +10,11 @@ use crate::types::*;
 impl OH_Drawing_TileMode {
     /// Replicate the edge color if the shader effect draws outside of its original bounds.
     pub const CLAMP: OH_Drawing_TileMode = OH_Drawing_TileMode(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_TileMode {
     /// Repeat the shader effect image horizontally and vertically.
     pub const REPEAT: OH_Drawing_TileMode = OH_Drawing_TileMode(1);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_TileMode {
     /// Repeat the shader effect image horizontally and vertically, alternating mirror images
     /// so that adjacent images always seam.
     pub const MIRROR: OH_Drawing_TileMode = OH_Drawing_TileMode(2);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_TileMode {
     /// Only draw within the original domain, return transparent-black everywhere else.
     pub const DECAL: OH_Drawing_TileMode = OH_Drawing_TileMode(3);
 }

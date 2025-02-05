@@ -44,28 +44,12 @@ pub struct OH_AuxiliaryPictureInfo {
 impl Image_AuxiliaryPictureType {
     pub const AUXILIARY_PICTURE_TYPE_GAINMAP: Image_AuxiliaryPictureType =
         Image_AuxiliaryPictureType(1);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl Image_AuxiliaryPictureType {
     pub const AUXILIARY_PICTURE_TYPE_DEPTH_MAP: Image_AuxiliaryPictureType =
         Image_AuxiliaryPictureType(2);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl Image_AuxiliaryPictureType {
     pub const AUXILIARY_PICTURE_TYPE_UNREFOCUS_MAP: Image_AuxiliaryPictureType =
         Image_AuxiliaryPictureType(3);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl Image_AuxiliaryPictureType {
     pub const AUXILIARY_PICTURE_TYPE_LINEAR_MAP: Image_AuxiliaryPictureType =
         Image_AuxiliaryPictureType(4);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl Image_AuxiliaryPictureType {
     pub const AUXILIARY_PICTURE_TYPE_FRAGMENT_MAP: Image_AuxiliaryPictureType =
         Image_AuxiliaryPictureType(5);
 }
