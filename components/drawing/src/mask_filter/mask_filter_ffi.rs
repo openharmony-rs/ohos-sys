@@ -10,22 +10,10 @@ use crate::types::*;
 impl OH_Drawing_BlurType {
     /// Fuzzy inside and outside.
     pub const NORMAL: OH_Drawing_BlurType = OH_Drawing_BlurType(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlurType {
     /// Solid inside, fuzzy outside.
     pub const SOLID: OH_Drawing_BlurType = OH_Drawing_BlurType(1);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlurType {
     /// Nothing inside, fuzzy outside.
     pub const OUTER: OH_Drawing_BlurType = OH_Drawing_BlurType(2);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlurType {
     /// Fuzzy inside, nothing outside.
     pub const INNER: OH_Drawing_BlurType = OH_Drawing_BlurType(3);
 }

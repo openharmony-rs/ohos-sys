@@ -12,20 +12,8 @@ use ohos_sys_opaque_types::{
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl PIXELMAP_ALPHA_TYPE {
     pub const PIXELMAP_ALPHA_TYPE_UNKNOWN: PIXELMAP_ALPHA_TYPE = PIXELMAP_ALPHA_TYPE(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl PIXELMAP_ALPHA_TYPE {
     pub const PIXELMAP_ALPHA_TYPE_OPAQUE: PIXELMAP_ALPHA_TYPE = PIXELMAP_ALPHA_TYPE(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl PIXELMAP_ALPHA_TYPE {
     pub const PIXELMAP_ALPHA_TYPE_PREMULTIPLIED: PIXELMAP_ALPHA_TYPE = PIXELMAP_ALPHA_TYPE(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl PIXELMAP_ALPHA_TYPE {
     pub const PIXELMAP_ALPHA_TYPE_UNPREMULTIPLIED: PIXELMAP_ALPHA_TYPE = PIXELMAP_ALPHA_TYPE(3);
 }
 #[repr(transparent)]
@@ -39,38 +27,16 @@ impl PIXELMAP_ALPHA_TYPE {
 pub struct PIXELMAP_ALPHA_TYPE(pub ::core::ffi::c_uint);
 impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_UNKNOWN: PIXEL_FORMAT = PIXEL_FORMAT(0);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_RGB_565: PIXEL_FORMAT = PIXEL_FORMAT(2);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_RGBA_8888: PIXEL_FORMAT = PIXEL_FORMAT(3);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_BGRA_8888: PIXEL_FORMAT = PIXEL_FORMAT(4);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_RGB_888: PIXEL_FORMAT = PIXEL_FORMAT(5);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_ALPHA_8: PIXEL_FORMAT = PIXEL_FORMAT(6);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_RGBA_F16: PIXEL_FORMAT = PIXEL_FORMAT(7);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_NV21: PIXEL_FORMAT = PIXEL_FORMAT(8);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_NV12: PIXEL_FORMAT = PIXEL_FORMAT(9);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_RGBA_1010102: PIXEL_FORMAT = PIXEL_FORMAT(10);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_YCBCR_P010: PIXEL_FORMAT = PIXEL_FORMAT(11);
-}
-impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_YCRCB_P010: PIXEL_FORMAT = PIXEL_FORMAT(12);
 }
 #[repr(transparent)]
@@ -82,24 +48,12 @@ impl OH_PixelmapNative_AntiAliasingLevel {
     /// Nearest-neighbor interpolation algorithm
     pub const OH_PixelmapNative_AntiAliasing_NONE: OH_PixelmapNative_AntiAliasingLevel =
         OH_PixelmapNative_AntiAliasingLevel(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_PixelmapNative_AntiAliasingLevel {
     /// Bilinear interpolation algorithm
     pub const OH_PixelmapNative_AntiAliasing_LOW: OH_PixelmapNative_AntiAliasingLevel =
         OH_PixelmapNative_AntiAliasingLevel(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_PixelmapNative_AntiAliasingLevel {
     /// Bilinear interpolation algorithm with mipmap linear filtering
     pub const OH_PixelmapNative_AntiAliasing_MEDIUM: OH_PixelmapNative_AntiAliasingLevel =
         OH_PixelmapNative_AntiAliasingLevel(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_PixelmapNative_AntiAliasingLevel {
     /// Cubic interpolation algorithm
     pub const OH_PixelmapNative_AntiAliasing_HIGH: OH_PixelmapNative_AntiAliasingLevel =
         OH_PixelmapNative_AntiAliasingLevel(3);
@@ -118,22 +72,10 @@ pub struct OH_PixelmapNative_AntiAliasingLevel(pub ::core::ffi::c_uint);
 impl OH_Pixelmap_HdrMetadataKey {
     /// Indicate the types of metadata that image needs to use.
     pub const HDR_METADATA_TYPE: OH_Pixelmap_HdrMetadataKey = OH_Pixelmap_HdrMetadataKey(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Pixelmap_HdrMetadataKey {
     /// Static metadata key.
     pub const HDR_STATIC_METADATA: OH_Pixelmap_HdrMetadataKey = OH_Pixelmap_HdrMetadataKey(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Pixelmap_HdrMetadataKey {
     /// Dynamic metadata key.
     pub const HDR_DYNAMIC_METADATA: OH_Pixelmap_HdrMetadataKey = OH_Pixelmap_HdrMetadataKey(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Pixelmap_HdrMetadataKey {
     /// Gainmap metadata key.
     pub const HDR_GAINMAP_METADATA: OH_Pixelmap_HdrMetadataKey = OH_Pixelmap_HdrMetadataKey(3);
 }
@@ -151,23 +93,11 @@ pub struct OH_Pixelmap_HdrMetadataKey(pub ::core::ffi::c_uint);
 impl OH_Pixelmap_HdrMetadataType {
     /// No metadata.
     pub const HDR_METADATA_TYPE_NONE: OH_Pixelmap_HdrMetadataType = OH_Pixelmap_HdrMetadataType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Pixelmap_HdrMetadataType {
     /// Indicates that metadata will be used for the base image.
     pub const HDR_METADATA_TYPE_BASE: OH_Pixelmap_HdrMetadataType = OH_Pixelmap_HdrMetadataType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Pixelmap_HdrMetadataType {
     /// Indicates that metadata will be used for the gainmap image.
     pub const HDR_METADATA_TYPE_GAINMAP: OH_Pixelmap_HdrMetadataType =
         OH_Pixelmap_HdrMetadataType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Pixelmap_HdrMetadataType {
     /// Indicates that metadata will be used for the alternate image.
     pub const HDR_METADATA_TYPE_ALTERNATE: OH_Pixelmap_HdrMetadataType =
         OH_Pixelmap_HdrMetadataType(3);

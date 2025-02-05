@@ -10,28 +10,12 @@ use crate::axis_type::{InputEvent_AxisAction, InputEvent_AxisEventType, InputEve
 impl Input_KeyStateAction {
     /// Default
     pub const KEY_DEFAULT: Input_KeyStateAction = Input_KeyStateAction(-1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_KeyStateAction {
     /// Pressing of a key
     pub const KEY_PRESSED: Input_KeyStateAction = Input_KeyStateAction(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_KeyStateAction {
     /// Release of a key
     pub const KEY_RELEASED: Input_KeyStateAction = Input_KeyStateAction(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_KeyStateAction {
     /// Key switch enabled
     pub const KEY_SWITCH_ON: Input_KeyStateAction = Input_KeyStateAction(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_KeyStateAction {
     /// Key switch disabled
     pub const KEY_SWITCH_OFF: Input_KeyStateAction = Input_KeyStateAction(3);
 }
@@ -49,16 +33,8 @@ pub struct Input_KeyStateAction(pub ::core::ffi::c_int);
 impl Input_KeyEventAction {
     /// Cancellation of a key action.
     pub const KEY_ACTION_CANCEL: Input_KeyEventAction = Input_KeyEventAction(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_KeyEventAction {
     /// Pressing of a key.
     pub const KEY_ACTION_DOWN: Input_KeyEventAction = Input_KeyEventAction(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_KeyEventAction {
     /// Release of a key.
     pub const KEY_ACTION_UP: Input_KeyEventAction = Input_KeyEventAction(2);
 }
@@ -76,40 +52,16 @@ pub struct Input_KeyEventAction(pub ::core::ffi::c_uint);
 impl Input_MouseEventAction {
     /// Cancel.
     pub const MOUSE_ACTION_CANCEL: Input_MouseEventAction = Input_MouseEventAction(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventAction {
     /// Moving of the mouse pointer.
     pub const MOUSE_ACTION_MOVE: Input_MouseEventAction = Input_MouseEventAction(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventAction {
     /// Pressing down of the mouse.
     pub const MOUSE_ACTION_BUTTON_DOWN: Input_MouseEventAction = Input_MouseEventAction(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventAction {
     /// Lifting of the mouse button.
     pub const MOUSE_ACTION_BUTTON_UP: Input_MouseEventAction = Input_MouseEventAction(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventAction {
     /// Beginning of the mouse axis event
     pub const MOUSE_ACTION_AXIS_BEGIN: Input_MouseEventAction = Input_MouseEventAction(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventAction {
     /// Updating of the mouse axis event
     pub const MOUSE_ACTION_AXIS_UPDATE: Input_MouseEventAction = Input_MouseEventAction(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventAction {
     /// End of the mouse axis event
     pub const MOUSE_ACTION_AXIS_END: Input_MouseEventAction = Input_MouseEventAction(6);
 }
@@ -127,10 +79,6 @@ pub struct Input_MouseEventAction(pub ::core::ffi::c_uint);
 impl InputEvent_MouseAxis {
     /// Vertical scroll axis
     pub const MOUSE_AXIS_SCROLL_VERTICAL: InputEvent_MouseAxis = InputEvent_MouseAxis(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_MouseAxis {
     /// Horizontal scroll axis
     pub const MOUSE_AXIS_SCROLL_HORIZONTAL: InputEvent_MouseAxis = InputEvent_MouseAxis(1);
 }
@@ -148,34 +96,14 @@ pub struct InputEvent_MouseAxis(pub ::core::ffi::c_uint);
 impl Input_MouseEventButton {
     /// Invalid button
     pub const MOUSE_BUTTON_NONE: Input_MouseEventButton = Input_MouseEventButton(-1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventButton {
     /// Left button on the mouse.
     pub const MOUSE_BUTTON_LEFT: Input_MouseEventButton = Input_MouseEventButton(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventButton {
     /// Middle button on the mouse.
     pub const MOUSE_BUTTON_MIDDLE: Input_MouseEventButton = Input_MouseEventButton(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventButton {
     /// Right button on the mouse.
     pub const MOUSE_BUTTON_RIGHT: Input_MouseEventButton = Input_MouseEventButton(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventButton {
     /// Forward button on the mouse.
     pub const MOUSE_BUTTON_FORWARD: Input_MouseEventButton = Input_MouseEventButton(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_MouseEventButton {
     /// Back button on the mouse.
     pub const MOUSE_BUTTON_BACK: Input_MouseEventButton = Input_MouseEventButton(4);
 }
@@ -193,22 +121,10 @@ pub struct Input_MouseEventButton(pub ::core::ffi::c_int);
 impl Input_TouchEventAction {
     /// Touch cancelled.
     pub const TOUCH_ACTION_CANCEL: Input_TouchEventAction = Input_TouchEventAction(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_TouchEventAction {
     /// Touch pressed.
     pub const TOUCH_ACTION_DOWN: Input_TouchEventAction = Input_TouchEventAction(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_TouchEventAction {
     /// Touch moved.
     pub const TOUCH_ACTION_MOVE: Input_TouchEventAction = Input_TouchEventAction(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl Input_TouchEventAction {
     /// Touch lifted.
     pub const TOUCH_ACTION_UP: Input_TouchEventAction = Input_TouchEventAction(3);
 }
@@ -226,34 +142,14 @@ pub struct Input_TouchEventAction(pub ::core::ffi::c_uint);
 impl Input_KeyboardType {
     /// Keyboard without keys
     pub const KEYBOARD_TYPE_NONE: Input_KeyboardType = Input_KeyboardType(0);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl Input_KeyboardType {
     /// Keyboard with unknown keys
     pub const KEYBOARD_TYPE_UNKNOWN: Input_KeyboardType = Input_KeyboardType(1);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl Input_KeyboardType {
     /// Full keyboard
     pub const KEYBOARD_TYPE_ALPHABETIC: Input_KeyboardType = Input_KeyboardType(2);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl Input_KeyboardType {
     /// Digital keyboard
     pub const KEYBOARD_TYPE_DIGITAL: Input_KeyboardType = Input_KeyboardType(3);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl Input_KeyboardType {
     /// Stylus
     pub const KEYBOARD_TYPE_STYLUS: Input_KeyboardType = Input_KeyboardType(4);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl Input_KeyboardType {
     /// Remote control
     pub const KEYBOARD_TYPE_REMOTE_CONTROL: Input_KeyboardType = Input_KeyboardType(5);
 }
@@ -277,10 +173,6 @@ impl InputEvent_SourceType {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const SOURCE_TYPE_MOUSE: InputEvent_SourceType = InputEvent_SourceType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_SourceType {
     /// Indicates that the input source generates a touchscreen multi-touch event.
     ///
     ///
@@ -288,10 +180,6 @@ impl InputEvent_SourceType {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const SOURCE_TYPE_TOUCHSCREEN: InputEvent_SourceType = InputEvent_SourceType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputEvent_SourceType {
     /// Indicates that the input source generates a touchpad multi-touch event.
     ///
     ///
@@ -333,51 +221,28 @@ pub struct Input_AxisEvent {
 pub struct Input_Hotkey {
     _unused: [u8; 0],
 }
+pub type Input_Result = Result<(), InputErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl InputErrorCode {
     /// Permission verification failed
     pub const PERMISSION_DENIED: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(201).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputErrorCode {
     /// Non-system application
     pub const NOT_SYSTEM_APPLICATION: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(202).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputErrorCode {
     /// Parameter check failed
     pub const PARAMETER_ERROR: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(401).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputErrorCode {
     /// Device not support
     pub const DEVICE_NOT_SUPPORTED: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(801).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputErrorCode {
     /// Service error
     pub const SERVICE_EXCEPTION: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3800001).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputErrorCode {
     /// Interceptor repeatedly created for an application
     pub const REPEAT_INTERCEPTOR: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(4200001).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputErrorCode {
     /// Already occupied by the system
     ///
     /// Available since API-level: 14
@@ -385,10 +250,6 @@ impl InputErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const OCCUPIED_BY_SYSTEM: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(4200002).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputErrorCode {
     /// Already occupied by the other
     ///
     /// Available since API-level: 14
@@ -397,7 +258,6 @@ impl InputErrorCode {
     pub const OCCUPIED_BY_OTHER: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(4200003).unwrap() });
 }
-pub type Input_Result = Result<(), InputErrorCode>;
 #[repr(transparent)]
 /// Enumerates error codes.
 ///

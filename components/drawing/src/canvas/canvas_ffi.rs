@@ -11,10 +11,6 @@ impl OH_Drawing_SrcRectConstraint {
     /// Using sampling only inside bounds in a slower manner.
     pub const STRICT_SRC_RECT_CONSTRAINT: OH_Drawing_SrcRectConstraint =
         OH_Drawing_SrcRectConstraint(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_SrcRectConstraint {
     /// Using sampling outside bounds in a faster manner.
     pub const FAST_SRC_RECT_CONSTRAINT: OH_Drawing_SrcRectConstraint =
         OH_Drawing_SrcRectConstraint(1);
@@ -35,16 +31,8 @@ pub struct OH_Drawing_SrcRectConstraint(pub ::core::ffi::c_uint);
 impl OH_Drawing_PointMode {
     /// Draw each point separately.
     pub const POINT_MODE_POINTS: OH_Drawing_PointMode = OH_Drawing_PointMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PointMode {
     /// Draw each pair of points as a line segment.
     pub const POINT_MODE_LINES: OH_Drawing_PointMode = OH_Drawing_PointMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_PointMode {
     /// Draw the array of points as a open polygon.
     pub const POINT_MODE_POLYGON: OH_Drawing_PointMode = OH_Drawing_PointMode(2);
 }
@@ -65,10 +53,6 @@ pub struct OH_Drawing_PointMode(pub ::core::ffi::c_uint);
 impl OH_Drawing_CanvasClipOp {
     /// Clip with difference.
     pub const DIFFERENCE: OH_Drawing_CanvasClipOp = OH_Drawing_CanvasClipOp(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_CanvasClipOp {
     /// Clip with intersection.
     pub const INTERSECT: OH_Drawing_CanvasClipOp = OH_Drawing_CanvasClipOp(1);
 }
@@ -88,24 +72,12 @@ pub struct OH_Drawing_CanvasClipOp(pub ::core::ffi::c_uint);
 impl OH_Drawing_CanvasShadowFlags {
     /// Use no shadow flags.
     pub const SHADOW_FLAGS_NONE: OH_Drawing_CanvasShadowFlags = OH_Drawing_CanvasShadowFlags(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_CanvasShadowFlags {
     /// The occluding object is transparent.
     pub const SHADOW_FLAGS_TRANSPARENT_OCCLUDER: OH_Drawing_CanvasShadowFlags =
         OH_Drawing_CanvasShadowFlags(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_CanvasShadowFlags {
     /// No need to analyze shadows.
     pub const SHADOW_FLAGS_GEOMETRIC_ONLY: OH_Drawing_CanvasShadowFlags =
         OH_Drawing_CanvasShadowFlags(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_CanvasShadowFlags {
     /// Use all shadow flags.
     pub const SHADOW_FLAGS_ALL: OH_Drawing_CanvasShadowFlags = OH_Drawing_CanvasShadowFlags(3);
 }
@@ -125,16 +97,8 @@ pub struct OH_Drawing_CanvasShadowFlags(pub ::core::ffi::c_uint);
 impl OH_Drawing_VertexMode {
     /// The vertices are a triangle list.
     pub const VERTEX_MODE_TRIANGLES: OH_Drawing_VertexMode = OH_Drawing_VertexMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_VertexMode {
     /// The vertices are a triangle strip.
     pub const VERTEX_MODE_TRIANGLES_STRIP: OH_Drawing_VertexMode = OH_Drawing_VertexMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_VertexMode {
     /// The vertices are a triangle fan.
     pub const VERTEX_MODE_TRIANGLE_FAN: OH_Drawing_VertexMode = OH_Drawing_VertexMode(2);
 }

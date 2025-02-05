@@ -13,20 +13,8 @@ pub struct ArkUI_UIInputEvent {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_UIInputEvent_Type {
     pub const ARKUI_UIINPUTEVENT_TYPE_UNKNOWN: ArkUI_UIInputEvent_Type = ArkUI_UIInputEvent_Type(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_UIInputEvent_Type {
     pub const ARKUI_UIINPUTEVENT_TYPE_TOUCH: ArkUI_UIInputEvent_Type = ArkUI_UIInputEvent_Type(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_UIInputEvent_Type {
     pub const ARKUI_UIINPUTEVENT_TYPE_AXIS: ArkUI_UIInputEvent_Type = ArkUI_UIInputEvent_Type(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_UIInputEvent_Type {
     /// Mouse event.
     pub const ARKUI_UIINPUTEVENT_TYPE_MOUSE: ArkUI_UIInputEvent_Type = ArkUI_UIInputEvent_Type(3);
 }
@@ -45,24 +33,12 @@ impl HitTestMode {
     /// Both the node and its child node respond to the hit test of a touch event, but its sibling node is blocked from
     /// the hit test.
     pub const HTM_DEFAULT: HitTestMode = HitTestMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HitTestMode {
     /// The node responds to the hit test of a touch event, but its child node and sibling node are blocked from the hit
     /// test.
     pub const HTM_BLOCK: HitTestMode = HitTestMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HitTestMode {
     /// Both the node and its child node respond to the hit test of a touch event, and its sibling node is also
     /// considered during the hit test.
     pub const HTM_TRANSPARENT: HitTestMode = HitTestMode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HitTestMode {
     /// The node does not respond to the hit test of a touch event, but its child node and sibling node are considered
     /// during the hit test.
     pub const HTM_NONE: HitTestMode = HitTestMode(3);
@@ -76,30 +52,6 @@ impl HitTestMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct HitTestMode(pub ::core::ffi::c_uint);
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ModifierKeyName {
-    /// Ctrl.
-    pub const ARKUI_MODIFIER_KEY_CTRL: ArkUI_ModifierKeyName = ArkUI_ModifierKeyName(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ModifierKeyName {
-    /// Shift.
-    pub const ARKUI_MODIFIER_KEY_SHIFT: ArkUI_ModifierKeyName = ArkUI_ModifierKeyName(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ModifierKeyName {
-    /// Alt.
-    pub const ARKUI_MODIFIER_KEY_ALT: ArkUI_ModifierKeyName = ArkUI_ModifierKeyName(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_ModifierKeyName {
-    /// Fn.
-    pub const ARKUI_MODIFIER_KEY_FN: ArkUI_ModifierKeyName = ArkUI_ModifierKeyName(8);
-}
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ::core::ops::BitOr<ArkUI_ModifierKeyName> for ArkUI_ModifierKeyName {
@@ -133,6 +85,18 @@ impl ::core::ops::BitAndAssign for ArkUI_ModifierKeyName {
     fn bitand_assign(&mut self, rhs: ArkUI_ModifierKeyName) {
         self.0 &= rhs.0;
     }
+}
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl ArkUI_ModifierKeyName {
+    /// Ctrl.
+    pub const ARKUI_MODIFIER_KEY_CTRL: ArkUI_ModifierKeyName = ArkUI_ModifierKeyName(1);
+    /// Shift.
+    pub const ARKUI_MODIFIER_KEY_SHIFT: ArkUI_ModifierKeyName = ArkUI_ModifierKeyName(2);
+    /// Alt.
+    pub const ARKUI_MODIFIER_KEY_ALT: ArkUI_ModifierKeyName = ArkUI_ModifierKeyName(4);
+    /// Fn.
+    pub const ARKUI_MODIFIER_KEY_FN: ArkUI_ModifierKeyName = ArkUI_ModifierKeyName(8);
 }
 #[repr(transparent)]
 /// Defines an enum for modifier keys.

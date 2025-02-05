@@ -154,10 +154,6 @@ impl HiTraceId_Valid {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_ID_INVALID: HiTraceId_Valid = HiTraceId_Valid(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTraceId_Valid {
     /// Valid <b>HiTraceId</b> instance.
     ///
     ///
@@ -209,120 +205,6 @@ impl HiTrace_Version {
 pub struct HiTrace_Version(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Flag {
-    /// Default flag.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const HITRACE_FLAG_DEFAULT: HiTrace_Flag = HiTrace_Flag(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Flag {
-    /// Both synchronous and asynchronous calls are traced. By default, only synchronous calls are traced.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const HITRACE_FLAG_INCLUDE_ASYNC: HiTrace_Flag = HiTrace_Flag(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Flag {
-    /// No spans are created. By default, spans are created.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const HITRACE_FLAG_DONOT_CREATE_SPAN: HiTrace_Flag = HiTrace_Flag(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Flag {
-    /// Trace points are automatically added to spans. By default, no trace point is added.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const HITRACE_FLAG_TP_INFO: HiTrace_Flag = HiTrace_Flag(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Flag {
-    /// Information about the start and end of the trace task is not printed. By default, information about the
-    /// start and end of the trace task is printed.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const HITRACE_FLAG_NO_BE_INFO: HiTrace_Flag = HiTrace_Flag(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Flag {
-    /// The ID is not added to the log. By default, the ID is added to the log.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const HITRACE_FLAG_DONOT_ENABLE_LOG: HiTrace_Flag = HiTrace_Flag(16);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Flag {
-    /// Tracing is triggered by faults.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const HITRACE_FLAG_FAULT_TRIGGER: HiTrace_Flag = HiTrace_Flag(32);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Flag {
-    /// Trace points are added only for call chain trace between devices.
-    /// By default, device-to-device trace points are not added.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const HITRACE_FLAG_D2D_TP_INFO: HiTrace_Flag = HiTrace_Flag(64);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ::core::ops::BitOr<HiTrace_Flag> for HiTrace_Flag {
     type Output = Self;
     #[inline]
@@ -355,6 +237,92 @@ impl ::core::ops::BitAndAssign for HiTrace_Flag {
         self.0 &= rhs.0;
     }
 }
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+impl HiTrace_Flag {
+    /// Default flag.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub const HITRACE_FLAG_DEFAULT: HiTrace_Flag = HiTrace_Flag(0);
+    /// Both synchronous and asynchronous calls are traced. By default, only synchronous calls are traced.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub const HITRACE_FLAG_INCLUDE_ASYNC: HiTrace_Flag = HiTrace_Flag(1);
+    /// No spans are created. By default, spans are created.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub const HITRACE_FLAG_DONOT_CREATE_SPAN: HiTrace_Flag = HiTrace_Flag(2);
+    /// Trace points are automatically added to spans. By default, no trace point is added.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub const HITRACE_FLAG_TP_INFO: HiTrace_Flag = HiTrace_Flag(4);
+    /// Information about the start and end of the trace task is not printed. By default, information about the
+    /// start and end of the trace task is printed.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub const HITRACE_FLAG_NO_BE_INFO: HiTrace_Flag = HiTrace_Flag(8);
+    /// The ID is not added to the log. By default, the ID is added to the log.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub const HITRACE_FLAG_DONOT_ENABLE_LOG: HiTrace_Flag = HiTrace_Flag(16);
+    /// Tracing is triggered by faults.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub const HITRACE_FLAG_FAULT_TRIGGER: HiTrace_Flag = HiTrace_Flag(32);
+    /// Trace points are added only for call chain trace between devices.
+    /// By default, device-to-device trace points are not added.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub const HITRACE_FLAG_D2D_TP_INFO: HiTrace_Flag = HiTrace_Flag(64);
+}
 #[repr(transparent)]
 /// Enumerates the HiTrace flags.
 ///
@@ -367,8 +335,6 @@ impl ::core::ops::BitAndAssign for HiTrace_Flag {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct HiTrace_Flag(pub ::core::ffi::c_uint);
-#[repr(u32)]
-#[non_exhaustive]
 /// Enumerates the HiTrace trace point types.
 ///
 ///
@@ -379,6 +345,8 @@ pub struct HiTrace_Flag(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+#[repr(u32)]
+#[non_exhaustive]
 pub enum HiTrace_Tracepoint_Type {
     /// CS trace point.
     ///
@@ -444,10 +412,6 @@ impl HiTrace_Communication_Mode {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_CM_DEFAULT: HiTrace_Communication_Mode = HiTrace_Communication_Mode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Communication_Mode {
     /// Inter-thread communication.
     ///
     ///
@@ -458,10 +422,6 @@ impl HiTrace_Communication_Mode {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_CM_THREAD: HiTrace_Communication_Mode = HiTrace_Communication_Mode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Communication_Mode {
     /// Inter-process communication.
     ///
     ///
@@ -472,10 +432,6 @@ impl HiTrace_Communication_Mode {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_CM_PROCESS: HiTrace_Communication_Mode = HiTrace_Communication_Mode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl HiTrace_Communication_Mode {
     /// Inter-device communication.
     ///
     ///

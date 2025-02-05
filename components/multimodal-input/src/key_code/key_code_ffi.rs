@@ -4,7 +4,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-#[repr(i32)]
 /// Enumerated values of OpenHarmony key code.
 ///
 ///
@@ -12,6 +11,7 @@
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+#[repr(i32)]
 pub enum Input_KeyCode {
     /// Unknown key
     KEYCODE_UNKNOWN = -1,

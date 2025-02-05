@@ -161,27 +161,17 @@ pub struct OH_Drawing_Surface {
 impl OH_Drawing_ColorFormat {
     /// Unknown format.
     pub const COLOR_FORMAT_UNKNOWN: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(0);
-}
-impl OH_Drawing_ColorFormat {
     /// Each pixel is represented by 8 bits, which together indicate alpha.
     pub const COLOR_FORMAT_ALPHA_8: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(1);
-}
-impl OH_Drawing_ColorFormat {
     /// Each pixel is represented by 16 bits. From the most significant bit to the least significant bit,
     /// the first 5 bits indicate red, the subsequent 6 bits indicate green, and the last 5 bits indicate blue.
     pub const COLOR_FORMAT_RGB_565: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(2);
-}
-impl OH_Drawing_ColorFormat {
     /// Each pixel is represented by 16 bits. From the most significant bit to the least significant bit,
     /// every 4 bits indicate alpha, red, green, and blue, respectively.
     pub const COLOR_FORMAT_ARGB_4444: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(3);
-}
-impl OH_Drawing_ColorFormat {
     /// Each pixel is represented by 32 bits. From the most significant bit to the least significant bit,
     /// every 8 bits indicate alpha, red, green, and blue, respectively.
     pub const COLOR_FORMAT_RGBA_8888: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(4);
-}
-impl OH_Drawing_ColorFormat {
     /// Each pixel is represented by 32 bits. From the most significant bit to the least significant bit,
     /// every 8 bits indicate blue, green, red, and alpha, respectively.
     pub const COLOR_FORMAT_BGRA_8888: OH_Drawing_ColorFormat = OH_Drawing_ColorFormat(5);
@@ -198,16 +188,10 @@ pub struct OH_Drawing_ColorFormat(pub ::core::ffi::c_uint);
 impl OH_Drawing_AlphaFormat {
     /// Unknown format.
     pub const ALPHA_FORMAT_UNKNOWN: OH_Drawing_AlphaFormat = OH_Drawing_AlphaFormat(0);
-}
-impl OH_Drawing_AlphaFormat {
     /// The bitmap does not have the alpha component.
     pub const ALPHA_FORMAT_OPAQUE: OH_Drawing_AlphaFormat = OH_Drawing_AlphaFormat(1);
-}
-impl OH_Drawing_AlphaFormat {
     /// The color component of each pixel is premultiplied by the alpha component.
     pub const ALPHA_FORMAT_PREMUL: OH_Drawing_AlphaFormat = OH_Drawing_AlphaFormat(2);
-}
-impl OH_Drawing_AlphaFormat {
     /// The color component of each pixel is not premultiplied by the alpha component.
     pub const ALPHA_FORMAT_UNPREMUL: OH_Drawing_AlphaFormat = OH_Drawing_AlphaFormat(3);
 }
@@ -225,172 +209,60 @@ pub struct OH_Drawing_AlphaFormat(pub ::core::ffi::c_uint);
 impl OH_Drawing_BlendMode {
     /// r = 0.
     pub const BLEND_MODE_CLEAR: OH_Drawing_BlendMode = OH_Drawing_BlendMode(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = s.
     pub const BLEND_MODE_SRC: OH_Drawing_BlendMode = OH_Drawing_BlendMode(1);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = d.
     pub const BLEND_MODE_DST: OH_Drawing_BlendMode = OH_Drawing_BlendMode(2);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = s + (1-sa)*d.
     pub const BLEND_MODE_SRC_OVER: OH_Drawing_BlendMode = OH_Drawing_BlendMode(3);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = d + (1-da)*s.
     pub const BLEND_MODE_DST_OVER: OH_Drawing_BlendMode = OH_Drawing_BlendMode(4);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = s * da.
     pub const BLEND_MODE_SRC_IN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(5);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = d * sa.
     pub const BLEND_MODE_DST_IN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(6);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = s * (1-da).
     pub const BLEND_MODE_SRC_OUT: OH_Drawing_BlendMode = OH_Drawing_BlendMode(7);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = d * (1-sa).
     pub const BLEND_MODE_DST_OUT: OH_Drawing_BlendMode = OH_Drawing_BlendMode(8);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = s*da + d*(1-sa).
     pub const BLEND_MODE_SRC_ATOP: OH_Drawing_BlendMode = OH_Drawing_BlendMode(9);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = d*sa + s*(1-da).
     pub const BLEND_MODE_DST_ATOP: OH_Drawing_BlendMode = OH_Drawing_BlendMode(10);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = s*(1-da) + d*(1-sa).
     pub const BLEND_MODE_XOR: OH_Drawing_BlendMode = OH_Drawing_BlendMode(11);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = min(s + d, 1).
     pub const BLEND_MODE_PLUS: OH_Drawing_BlendMode = OH_Drawing_BlendMode(12);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = s*d.
     pub const BLEND_MODE_MODULATE: OH_Drawing_BlendMode = OH_Drawing_BlendMode(13);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = s + d - s*d.
     pub const BLEND_MODE_SCREEN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(14);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// multiply or screen, depending on destination.
     pub const BLEND_MODE_OVERLAY: OH_Drawing_BlendMode = OH_Drawing_BlendMode(15);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// rc = s + d - max(s*da, d*sa), ra = s + (1-sa)*d.
     pub const BLEND_MODE_DARKEN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(16);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// rc = s + d - min(s*da, d*sa), ra = s + (1-sa)*d.
     pub const BLEND_MODE_LIGHTEN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(17);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// brighten destination to reflect source.
     pub const BLEND_MODE_COLOR_DODGE: OH_Drawing_BlendMode = OH_Drawing_BlendMode(18);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// darken destination to reflect source.
     pub const BLEND_MODE_COLOR_BURN: OH_Drawing_BlendMode = OH_Drawing_BlendMode(19);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// multiply or screen, depending on source.
     pub const BLEND_MODE_HARD_LIGHT: OH_Drawing_BlendMode = OH_Drawing_BlendMode(20);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// lighten or darken, depending on source.
     pub const BLEND_MODE_SOFT_LIGHT: OH_Drawing_BlendMode = OH_Drawing_BlendMode(21);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// rc = s + d - 2*(min(s*da, d*sa)), ra = s + (1-sa)*d.
     pub const BLEND_MODE_DIFFERENCE: OH_Drawing_BlendMode = OH_Drawing_BlendMode(22);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// rc = s + d - two(s*d), ra = s + (1-sa)*d.
     pub const BLEND_MODE_EXCLUSION: OH_Drawing_BlendMode = OH_Drawing_BlendMode(23);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// r = s*(1-da) + d*(1-sa) + s*d.
     pub const BLEND_MODE_MULTIPLY: OH_Drawing_BlendMode = OH_Drawing_BlendMode(24);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// hue of source with saturation and luminosity of destination.
     pub const BLEND_MODE_HUE: OH_Drawing_BlendMode = OH_Drawing_BlendMode(25);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// saturation of source with hue and luminosity of destination.
     pub const BLEND_MODE_SATURATION: OH_Drawing_BlendMode = OH_Drawing_BlendMode(26);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// hue and saturation of source with luminosity of destination.
     pub const BLEND_MODE_COLOR: OH_Drawing_BlendMode = OH_Drawing_BlendMode(27);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BlendMode {
     /// luminosity of source with hue and saturation of destination.
     pub const BLEND_MODE_LUMINOSITY: OH_Drawing_BlendMode = OH_Drawing_BlendMode(28);
 }
@@ -481,22 +353,10 @@ pub struct OH_Drawing_String {
 impl OH_Drawing_TextEncoding {
     /// uses bytes to represent UTF-8 or ASCII
     pub const TEXT_ENCODING_UTF8: OH_Drawing_TextEncoding = OH_Drawing_TextEncoding(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextEncoding {
     /// uses two byte words to represent most of Unicode
     pub const TEXT_ENCODING_UTF16: OH_Drawing_TextEncoding = OH_Drawing_TextEncoding(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextEncoding {
     /// uses four byte words to represent all of Unicode
     pub const TEXT_ENCODING_UTF32: OH_Drawing_TextEncoding = OH_Drawing_TextEncoding(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextEncoding {
     /// uses two byte words to represent glyph indices
     pub const TEXT_ENCODING_GLYPH_ID: OH_Drawing_TextEncoding = OH_Drawing_TextEncoding(3);
 }

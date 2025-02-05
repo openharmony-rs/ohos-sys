@@ -10,10 +10,6 @@ use crate::types::*;
 impl OH_Drawing_FilterMode {
     /// single sample point (nearest neighbor)
     pub const FILTER_MODE_NEAREST: OH_Drawing_FilterMode = OH_Drawing_FilterMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FilterMode {
     /// interporate between 2x2 sample points (bilinear interpolation)
     pub const FILTER_MODE_LINEAR: OH_Drawing_FilterMode = OH_Drawing_FilterMode(1);
 }
@@ -33,16 +29,8 @@ pub struct OH_Drawing_FilterMode(pub ::core::ffi::c_uint);
 impl OH_Drawing_MipmapMode {
     /// ignore mipmap levels, sample from the "base"
     pub const MIPMAP_MODE_NONE: OH_Drawing_MipmapMode = OH_Drawing_MipmapMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_MipmapMode {
     /// sample from the nearest level
     pub const MIPMAP_MODE_NEAREST: OH_Drawing_MipmapMode = OH_Drawing_MipmapMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_MipmapMode {
     /// interpolate between the two nearest levels
     pub const MIPMAP_MODE_LINEAR: OH_Drawing_MipmapMode = OH_Drawing_MipmapMode(2);
 }

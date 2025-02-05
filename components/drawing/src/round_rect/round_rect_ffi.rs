@@ -10,22 +10,10 @@ use crate::types::*;
 impl OH_Drawing_CornerPos {
     /// Index of top-left corner radii.
     pub const CORNER_POS_TOP_LEFT: OH_Drawing_CornerPos = OH_Drawing_CornerPos(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_CornerPos {
     /// Index of top-right corner radii.
     pub const CORNER_POS_TOP_RIGHT: OH_Drawing_CornerPos = OH_Drawing_CornerPos(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_CornerPos {
     /// Index of bottom-right corner radii.
     pub const CORNER_POS_BOTTOM_RIGHT: OH_Drawing_CornerPos = OH_Drawing_CornerPos(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_CornerPos {
     /// Index of bottom-left corner radii.
     pub const CORNER_POS_BOTTOM_LEFT: OH_Drawing_CornerPos = OH_Drawing_CornerPos(3);
 }

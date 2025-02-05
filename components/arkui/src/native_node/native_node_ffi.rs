@@ -11,214 +11,74 @@ use crate::ui_input_event::ArkUI_UIInputEvent;
 impl ArkUI_NodeType {
     /// Custom node.
     pub const ARKUI_NODE_CUSTOM: ArkUI_NodeType = ArkUI_NodeType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Text.
     pub const ARKUI_NODE_TEXT: ArkUI_NodeType = ArkUI_NodeType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Text span.
     pub const ARKUI_NODE_SPAN: ArkUI_NodeType = ArkUI_NodeType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Image span.
     pub const ARKUI_NODE_IMAGE_SPAN: ArkUI_NodeType = ArkUI_NodeType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Image.
     pub const ARKUI_NODE_IMAGE: ArkUI_NodeType = ArkUI_NodeType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Toggle.
     pub const ARKUI_NODE_TOGGLE: ArkUI_NodeType = ArkUI_NodeType(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Loading icon.
     pub const ARKUI_NODE_LOADING_PROGRESS: ArkUI_NodeType = ArkUI_NodeType(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Single-line text input.
     pub const ARKUI_NODE_TEXT_INPUT: ArkUI_NodeType = ArkUI_NodeType(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Multi-line text input.
     pub const ARKUI_NODE_TEXT_AREA: ArkUI_NodeType = ArkUI_NodeType(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Button.
     pub const ARKUI_NODE_BUTTON: ArkUI_NodeType = ArkUI_NodeType(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Progress indicator.
     pub const ARKUI_NODE_PROGRESS: ArkUI_NodeType = ArkUI_NodeType(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Check box.
     pub const ARKUI_NODE_CHECKBOX: ArkUI_NodeType = ArkUI_NodeType(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// XComponent.
     pub const ARKUI_NODE_XCOMPONENT: ArkUI_NodeType = ArkUI_NodeType(12);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Date picker.
     pub const ARKUI_NODE_DATE_PICKER: ArkUI_NodeType = ArkUI_NodeType(13);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Time picker.
     pub const ARKUI_NODE_TIME_PICKER: ArkUI_NodeType = ArkUI_NodeType(14);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Text picker.
     pub const ARKUI_NODE_TEXT_PICKER: ArkUI_NodeType = ArkUI_NodeType(15);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Calendar picker.
     pub const ARKUI_NODE_CALENDAR_PICKER: ArkUI_NodeType = ArkUI_NodeType(16);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Slider.
     pub const ARKUI_NODE_SLIDER: ArkUI_NodeType = ArkUI_NodeType(17);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Radio
     pub const ARKUI_NODE_RADIO: ArkUI_NodeType = ArkUI_NodeType(18);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Image animator.
     pub const ARKUI_NODE_IMAGE_ANIMATOR: ArkUI_NodeType = ArkUI_NodeType(19);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Stack container.
     pub const ARKUI_NODE_STACK: ArkUI_NodeType = ArkUI_NodeType(1000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Swiper.
     pub const ARKUI_NODE_SWIPER: ArkUI_NodeType = ArkUI_NodeType(1001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Scrolling container.
     pub const ARKUI_NODE_SCROLL: ArkUI_NodeType = ArkUI_NodeType(1002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// List.
     pub const ARKUI_NODE_LIST: ArkUI_NodeType = ArkUI_NodeType(1003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// List item.
     pub const ARKUI_NODE_LIST_ITEM: ArkUI_NodeType = ArkUI_NodeType(1004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// List item group.
     pub const ARKUI_NODE_LIST_ITEM_GROUP: ArkUI_NodeType = ArkUI_NodeType(1005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Column container.
     pub const ARKUI_NODE_COLUMN: ArkUI_NodeType = ArkUI_NodeType(1006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Row container.
     pub const ARKUI_NODE_ROW: ArkUI_NodeType = ArkUI_NodeType(1007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Flex container.
     pub const ARKUI_NODE_FLEX: ArkUI_NodeType = ArkUI_NodeType(1008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Refresh component.
     pub const ARKUI_NODE_REFRESH: ArkUI_NodeType = ArkUI_NodeType(1009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Water flow container.
     pub const ARKUI_NODE_WATER_FLOW: ArkUI_NodeType = ArkUI_NodeType(1010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Water flow item.
     pub const ARKUI_NODE_FLOW_ITEM: ArkUI_NodeType = ArkUI_NodeType(1011);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Relative layout component.
     pub const ARKUI_NODE_RELATIVE_CONTAINER: ArkUI_NodeType = ArkUI_NodeType(1012);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Grid.
     pub const ARKUI_NODE_GRID: ArkUI_NodeType = ArkUI_NodeType(1013);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Grid item.
     pub const ARKUI_NODE_GRID_ITEM: ArkUI_NodeType = ArkUI_NodeType(1014);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeType {
     /// Custom span.
     pub const ARKUI_NODE_CUSTOM_SPAN: ArkUI_NodeType = ArkUI_NodeType(1015);
 }
@@ -264,10 +124,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: width, in vp.
     pub const NODE_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the height attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -280,10 +136,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: height, in vp.
     pub const NODE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the background color attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -296,10 +148,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: background color. The value is in 0xARGB format. For example, 0xFFFF0000 indicates red.
     pub const NODE_BACKGROUND_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the background image attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -321,10 +169,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
     pub const NODE_BACKGROUND_IMAGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the padding attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// There are two formats of [`ArkUI_AttributeItem`] for setting the attribute value:
@@ -355,10 +199,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: left padding, in vp.
     pub const NODE_PADDING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the component ID attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -371,10 +211,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: component ID.
     pub const NODE_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the interactivity attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -387,10 +223,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The value <b>1</b> means that the component can interact with users, and <b>0</b> means the opposite.
     pub const NODE_ENABLED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the margin attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// There are two formats of [`ArkUI_AttributeItem`] for setting the attribute value:
@@ -421,10 +253,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: left margin, in vp.
     pub const NODE_MARGIN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the translate attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -445,10 +273,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: distance to translate along the z-axis, in vp.
     pub const NODE_TRANSLATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the scale attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -465,10 +289,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].f32: scale factor along the y-axis.
     pub const NODE_SCALE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the rotate attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -498,10 +318,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[4].f32: line of sight, that is, the distance from the viewpoint to the z=0 plane, in vp.
     pub const NODE_ROTATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the brightness attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -514,10 +330,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: brightness value.
     pub const NODE_BRIGHTNESS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the saturation attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -530,10 +342,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: saturation value.
     pub const NODE_SATURATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the blur attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -548,10 +356,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32: blur radius. The larger the fuzzy radius, the more blurred the image. If the value is <b>0</b>,
     /// the image is not blurred. The unit is vp.
     pub const NODE_BLUR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the gradient attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -593,10 +397,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// size: number of colors.
     pub const NODE_LINEAR_GRADIENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(14);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the alignment attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -610,10 +410,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`].
     pub const NODE_ALIGNMENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(15);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the opacity attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -626,10 +422,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: opacity value. The value ranges from 0 to 1.
     pub const NODE_OPACITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(16);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the border width attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -656,10 +448,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: width of the left border.
     pub const NODE_BORDER_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the border corner radius attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -686,10 +474,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: radius of the lower right corner.
     pub const NODE_BORDER_RADIUS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the border color attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -716,10 +500,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].u32: color of the left border, in 0xARGB format, for example, <b>0xFFFF11FF</b>.
     pub const NODE_BORDER_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the border line style attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -751,10 +531,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].i32: line style of the left border.
     pub const NODE_BORDER_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(20);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the z-index attribute for the stack sequence.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -768,10 +544,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: z-index value.
     pub const NODE_Z_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(21);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the visibility attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -786,10 +558,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to show or hide the component. The parameter type is [`ArkUI_Visibility`].
     /// The default value is <b>ARKUI_VISIBILITY_VISIBLE</b>.
     pub const NODE_VISIBILITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(22);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the clipping and masking attribute, which can be set, reset, and obtained as required through
     /// APIs.
     ///
@@ -805,10 +573,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to clip the component based on the parent container bounds.
     /// The value <b>1</b> means to clip the component, and <b>0</b> means the opposite.
     pub const NODE_CLIP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(23);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the clipping region on the component.
     /// This attribute can be set and obtained as required through APIs.
     ///
@@ -917,10 +681,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: command for drawing the path.
     pub const NODE_CLIP_SHAPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(24);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the transform attribute, which can be used to translate, rotate, and scale images.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -934,10 +694,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0...15].f32: 16 floating-point numbers.
     pub const NODE_TRANSFORM: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(25);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the hit test behavior attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -952,10 +708,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: hit test mode. The parameter type is [`ArkUI_HitTestMode`].
     /// The default value is <b>ARKUI_HIT_TEST_MODE_DEFAULT</b>.
     pub const NODE_HIT_TEST_BEHAVIOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(26);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the offset attribute, which specifies the offset of the component's upper left corner relative
     /// to the parent container's. This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -973,10 +725,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].f32: Y coordinate.
     pub const NODE_POSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(27);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the shadow attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -989,10 +737,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: shadow effect. The parameter type is [`ArkUI_ShadowStyle`].
     pub const NODE_SHADOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(28);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the custom shadow effect. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1033,10 +777,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[6].u32: whether to fill the shadow. The value <b>1</b> means to fill the shadow, and <b>0</b>
     /// means the opposite.
     pub const NODE_CUSTOM_SHADOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(29);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the background image width and height.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1054,10 +794,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].f32: height of the image, in vp.
     pub const NODE_BACKGROUND_IMAGE_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(30);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the background image size.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1072,10 +808,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: size of the background image. The value is an enum of [`ArkUI_ImageSize`].
     pub const NODE_BACKGROUND_IMAGE_SIZE_WITH_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(31);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the background blur attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1108,10 +840,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[5].f32: end boundary of grayscale blur.
     pub const NODE_BACKGROUND_BLUR_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(32);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the transform center attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1144,10 +872,6 @@ impl ArkUI_NodeAttributeType {
     /// Note: If the coordinate is expressed in a number that represents a percentage, the attribute obtaining API
     /// returns the calculated value in vp.
     pub const NODE_TRANSFORM_CENTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(33);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the transition opacity attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1184,10 +908,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[6].f32: animation playback speed.
     pub const NODE_OPACITY_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(34);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the transition rotation attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1242,10 +962,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[10].f32: animation playback speed.
     pub const NODE_ROTATE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(35);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the transition scaling attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1292,10 +1008,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[8].f32: animation playback speed.
     pub const NODE_SCALE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(36);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the transition translation attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1343,10 +1055,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// value[8].f32: animation playback speed.
     pub const NODE_TRANSLATE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(37);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the slide-in and slide-out of the component from the screen edge during transition.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1384,10 +1092,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[6].f32: animation playback speed.
     pub const NODE_MOVE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(38);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the focus attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1399,10 +1103,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     pub const NODE_FOCUSABLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(39);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the default focus attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1414,10 +1114,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// value[0].i32: The parameter type is 1 or 0.
     pub const NODE_DEFAULT_FOCUS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(40);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the touch target attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1445,10 +1141,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .data[4...].f32: Multiple touch targets can be set. The sequence of the parameters is the same as the preceding.
     pub const NODE_RESPONSE_REGION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(41);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the overlay attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1476,10 +1168,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: offset of the overlay relative to the upper left corner of itself on the y-axis, in vp.
     pub const NODE_OVERLAY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(42);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the sweep gradient effect.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1533,10 +1221,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// size: number of colors.
     pub const NODE_SWEEP_GRADIENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(43);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the radial gradient effect.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1582,10 +1266,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// size: number of colors.
     pub const NODE_RADIAL_GRADIENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(44);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Adds a mask of the specified shape to the component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1761,10 +1441,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].u32: color of the progress indicator.
     pub const NODE_MASK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(45);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Blends the component's background with the content of the component's child node.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1786,10 +1462,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].i32: how the specified blend mode is applied. The parameter type is [`ArkUI_BlendApplyType`].
     /// The default value is <b>ARKUI_BLEND_APPLY_TYPE_FAST</b>.
     pub const NODE_BLEND_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(46);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the direction of the main axis.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1807,10 +1479,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// The parameter type is [`ArkUI_Direction`]. The default value is <b>ARKUI_DIRECTION_AUTO</b>.
     pub const NODE_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(47);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the size constraints.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1836,10 +1504,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: maximum height, in vp.
     pub const NODE_CONSTRAINT_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(48);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the grayscale effect.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1854,10 +1518,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: grayscale conversion ratio. The value ranges from 0 to 1.
     pub const NODE_GRAY_SCALE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(49);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Inverts the image.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1872,10 +1532,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: image inversion ratio. The value ranges from 0 to 1.
     pub const NODE_INVERT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(50);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the sepia conversion ratio.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1890,10 +1546,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: sepia conversion ratio. The value ranges from 0 to 1.
     pub const NODE_SEPIA: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(51);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the contrast attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -1907,10 +1559,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: contrast. Value range: [0, 10).
     pub const NODE_CONTRAST: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(52);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the foreground color attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// There are two formats of [`ArkUI_AttributeItem`] for setting the attribute value:
@@ -1925,10 +1573,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_FOREGROUND_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(53);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the offset of the component's child relative to the component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1946,10 +1590,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].f32 : offset along the y-axis, in vp.
     pub const NODE_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(54);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the anchor for locating the component's child.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1967,10 +1607,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].f32: Y coordinate of the anchor, in vp.
     pub const NODE_MARK_ANCHOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(55);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the position of the background image in the component, that is, the coordinates relative to
     /// the upper left corner of the component. This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -1988,10 +1624,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].f32: position along the y-axis, in px.
     pub const NODE_BACKGROUND_IMAGE_POSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(56);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the alignment rules in the relative container.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -2005,10 +1637,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: Use the [`ArkUI_AlignmentRuleOption`] object as the component’s alignment rule.
     pub const NODE_ALIGN_RULES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(57);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the alignment mode of the child components along the cross axis of the parent container.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -2026,10 +1654,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// The parameter type is [`ArkUI_ItemAlignment`]. The default value is <b>ARKUI_ITEM_ALIGNMENT_AUTO</b>.
     pub const NODE_ALIGN_SELF: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(58);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the percentage of the parent container's remaining space that is allocated to the component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -2043,10 +1667,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: percentage of the parent container's remaining space that is allocated to the component.
     pub const NODE_FLEX_GROW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(59);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the percentage of the parent container's shrink size that is allocated to the component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -2060,10 +1680,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: percentage of the parent container's shrink size that is allocated to the component.
     pub const NODE_FLEX_SHRINK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(60);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the base size of the component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -2077,10 +1693,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: percentage of the parent container's remaining space that is allocated to the component.
     pub const NODE_FLEX_BASIS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(61);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the accessibility group. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2098,10 +1710,6 @@ impl ArkUI_NodeAttributeType {
     /// In this case, the accessibility service will no longer be available for the content of its child components.
     /// The value is <b>1</b> or <b>0</b>.
     pub const NODE_ACCESSIBILITY_GROUP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(62);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the accessibility text. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2113,10 +1721,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: accessibility text.
     pub const NODE_ACCESSIBILITY_TEXT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(63);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the accessibility service model. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2128,10 +1732,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: accessibility service model. The parameter type is [`ArkUI_AccessibilityMode`].
     pub const NODE_ACCESSIBILITY_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(64);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the accessibility description.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -2144,10 +1744,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: accessibility description.
     pub const NODE_ACCESSIBILITY_DESCRIPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(65);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the focused state. This attribute can be set and obtained as required through APIs.
     ///
     /// **Note:** Setting the parameter to <b>0</b> shifts focus from the currently focused component on the current level
@@ -2162,10 +1758,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     pub const NODE_FOCUS_STATUS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(66);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the aspect ratio attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2178,10 +1770,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: aspect ratio of the component, in width/height format.
     pub const NODE_ASPECT_RATIO: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(67);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the weight of the component within its row, column, or flex container for proportional
     /// distribution of available space within the container.
     /// This attribute can be set, reset, and obtained as required through APIs.
@@ -2196,10 +1784,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: weight of the component along the main axis.
     pub const NODE_LAYOUT_WEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(68);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the display priority for the component in the row, column, or flex (single-line) container.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -2213,10 +1797,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: display priority of the component in the container.
     pub const NODE_DISPLAY_PRIORITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(69);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the thickness of an element's outline.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2241,10 +1821,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: thickness of the bottom outline.
     pub const NODE_OUTLINE_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(70);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the width attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2257,10 +1833,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: width, in percentage.
     pub const NODE_WIDTH_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(71);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the height attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2273,10 +1845,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: height, in percentage.
     pub const NODE_HEIGHT_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(72);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the padding attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// There are two formats of [`ArkUI_AttributeItem`] for setting the attribute value:
@@ -2307,10 +1875,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: left padding, in percentage.
     pub const NODE_PADDING_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(73);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the margin attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// There are two formats of [`ArkUI_AttributeItem`] for setting the attribute value:
@@ -2341,10 +1905,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: left margin, in percentage.
     pub const NODE_MARGIN_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(74);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// The implicit shared element transition within the component supports attribute setting,
     /// attribute reset, and attribute acquisition interfaces.
     ///
@@ -2376,10 +1936,6 @@ impl ArkUI_NodeAttributeType {
     /// The same ID can only be bound to two components and they are in/out roles of different types.
     /// Multiple components cannot be bound to the same id.
     pub const NODE_GEOMETRY_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(75);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// specifies the parameters of the chain formed by this component as the chain head,
     /// and supports attribute setting, attribute reset and attribute acquisition interfaces.
     ///
@@ -2398,10 +1954,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].i32: Chain style. Enum [`ArkUI_RelativeLayoutChainStyle`].
     pub const NODE_RELATIVE_LAYOUT_CHAIN_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(76);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the component content filling method in the process of width and height animation,
     /// support property setting, property reset, property acquisition interface.
     ///
@@ -2415,10 +1967,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32 Content filling mode [`ArkUI_RenderFit`].
     pub const NODE_RENDER_FIT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(77);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// External stroke color properties, support property setting,
     /// property reset and property acquisition interface.
     ///
@@ -2446,10 +1994,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].u32: Set the left border color, denoted by 0xargb, such as 0xFFFF11FF.
     pub const NODE_OUTLINE_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(78);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the height and width dimensions, support property setting,
     /// property reset and property acquisition interface.
     ///
@@ -2467,10 +2011,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].f32: Height value, unit is vp;
     pub const NODE_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(79);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set whether the current component and child component are
     /// rendered off the screen first and then fused with the parent control,
     /// supporting property setting, property reset and property acquisition.
@@ -2484,10 +2024,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     pub const NODE_RENDER_GROUP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(80);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Add color overlay effect to components, support property setting,
     /// property reset and property acquisition interface.
     ///
@@ -2501,10 +2037,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: The color of the overlay is represented by 0xargb, such as 0xFFFF11FF.
     pub const NODE_COLOR_BLEND: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(81);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Provide content ambiguity capability for the current component,
     /// support property setting, property reset, property acquisition interface.
     ///
@@ -2546,10 +2078,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[5].f32 It is a gray-level fuzzy parameter. The value range is [0,127].
     pub const NODE_FOREGROUND_BLUR_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(82);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines layout rect attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2567,10 +2095,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].i32: width of the component.
     /// .value[3].i32: height of the component.
     pub const NODE_LAYOUT_RECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(83);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Whether the current component supports click-to-focus capability,
     /// which can be set, reset, and obtained as required through APIs.
     ///
@@ -2583,10 +2107,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     pub const NODE_FOCUS_ON_TOUCH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(84);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the border width attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2613,10 +2133,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: width of the left border, in percentage.
     pub const NODE_BORDER_WIDTH_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(85);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the border corner radius attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2643,20 +2159,12 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: radius of the lower right corner, in percentage.
     pub const NODE_BORDER_RADIUS_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(86);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Accessible ID, which can be obtained as required through APIs.
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32：Accessible ID。
     pub const NODE_ACCESSIBILITY_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(87);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Define accessible actions, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2669,10 +2177,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32：accessible action types，and uses the [`ArkUI_AccessibilityActionType`] enumeration value.
     pub const NODE_ACCESSIBILITY_ACTIONS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(88);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Define accessible role, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2685,10 +2189,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32：accessible role type，and uses the [`ArkUI_NodeType`] enumeration value.
     pub const NODE_ACCESSIBILITY_ROLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(89);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Define accessible state, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2701,10 +2201,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object：the parameter type is [`ArkUI_AccessibilityState`].
     pub const NODE_ACCESSIBILITY_STATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(90);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Define accessible value, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2717,10 +2213,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object：the parameter type is [`ArkUI_AccessibilityValue`].
     pub const NODE_ACCESSIBILITY_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(91);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// defines control components to extend their security zones,
     /// supporting property setting, property reset, and property fetching.
     ///
@@ -2743,10 +2235,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].u32: indicates the direction to extend the security zone.
     /// .
     pub const NODE_EXPAND_SAFE_AREA: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(92);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the visible area ratio (visible area/total area of the component) threshold for invoking the
     /// visible area change event of the component.
     ///
@@ -2759,10 +2247,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[...].f32: threshold array.
     pub const NODE_VISIBLE_AREA_CHANGE_RATIO: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(93);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the transition effect when the component is inserted or deleted.
     /// This attribute can be set, and obtained as required through APIs.
     ///
@@ -2776,10 +2260,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: transition effect. The parameter type is [`ArkUI_TransitionEffect`].
     pub const NODE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(94);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the component ID.
     /// This attribute can be obtained through APIs.
     ///
@@ -2787,10 +2267,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: component ID.
     pub const NODE_UNIQUE_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(95);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the current component system focus box style.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2807,10 +2283,6 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     pub const NODE_FOCUS_BOX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(96);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the moving distance limit for the component-bound tap gesture.
     /// This attribute can be set as required through APIs.
     ///
@@ -2818,10 +2290,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: allowed moving distance of a finger, in vp.
     pub const NODE_CLICK_DISTANCE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(97);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether the focus can be placed on this component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -2839,10 +2307,6 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const NODE_TAB_STOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(98);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2855,10 +2319,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: text content.
     pub const NODE_TEXT_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2871,10 +2331,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: font color value, in 0xARGB format.
     pub const NODE_FONT_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font size attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2887,10 +2343,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: font size, in fp.
     pub const NODE_FONT_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font style attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2903,10 +2355,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: font style [`ArkUI_FontStyle`].
     pub const NODE_FONT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font weight attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2919,10 +2367,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: font weight [`ArkUI_FontWeight`].
     pub const NODE_FONT_WEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text line height attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2935,10 +2379,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: line height, in fp.
     pub const NODE_TEXT_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text decoration style and color.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -2961,10 +2401,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].i32: text decoration style [`ArkUI_TextDecorationStyle`].
     pub const NODE_TEXT_DECORATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text case attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2977,10 +2413,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: text case.
     pub const NODE_TEXT_CASE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the letter spacing attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2993,10 +2425,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: letter spacing, in fp.
     pub const NODE_TEXT_LETTER_SPACING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the maximum number of lines in the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3010,10 +2438,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: maximum number of lines in the text.
     pub const NODE_TEXT_MAX_LINES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Horizontal alignment mode of the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3027,10 +2451,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: horizontal alignment mode of the text. The value is an enum of [`ArkUI_TextAlignment`].
     pub const NODE_TEXT_ALIGN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text overflow attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3043,10 +2463,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: display mode when the text is too long. [`ArkUI_TextOverflow`]
     pub const NODE_TEXT_OVERFLOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1011);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font family attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3058,10 +2474,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: fonts, separated by commas (,).
     pub const NODE_FONT_FAMILY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1012);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the copy option attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3074,10 +2486,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: copy option [`ArkUI_CopyOptions.`]
     pub const NODE_TEXT_COPY_OPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text baseline offset attribute
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3091,10 +2499,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: baseline offset, in fp.
     pub const NODE_TEXT_BASELINE_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1014);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text shadow attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3123,10 +2527,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[4].f32: offset of the shadow along the y-axis, in vp.
     pub const NODE_TEXT_TEXT_SHADOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1015);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the minimum font size attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3138,10 +2538,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: minimum font size, in fp.
     pub const NODE_TEXT_MIN_FONT_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1016);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the maximum font size attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3153,10 +2549,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: maximum font size, in fp.
     pub const NODE_TEXT_MAX_FONT_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1017);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text style attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3184,10 +2576,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].i32: font style. The parameter type is [`ArkUI_FontStyle`].
     /// The default value is <b>ARKUI_FONT_STYLE_NORMAL</b>.
     pub const NODE_TEXT_FONT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1018);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines how the adaptive height is determined for the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3203,10 +2591,6 @@ impl ArkUI_NodeAttributeType {
     /// The parameter type is [`ArkUI_TextHeightAdaptivePolicy`]
     pub const NODE_TEXT_HEIGHT_ADAPTIVE_POLICY: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1019);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the indentation of the first line.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3220,10 +2604,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: indentation of the first line.
     pub const NODE_TEXT_INDENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1020);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the line break rule. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3236,10 +2616,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`].
     pub const NODE_TEXT_WORD_BREAK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1021);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the ellipsis position. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3252,10 +2628,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The parameter type is [`ArkUI_EllipsisMode`].
     pub const NODE_TEXT_ELLIPSIS_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1022);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text line spacing attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3268,10 +2640,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: line spacing, in fp.
     pub const NODE_TEXT_LINE_SPACING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1023);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     ///  Set the text feature effect and the NODE_FONT_FEATURE attribute,
     /// NODE_FONT_FEATURE is the advanced typesetting capability of OpenType
     /// Features such as ligatures and equal-width digits are generally used in customized fonts.
@@ -3296,10 +2664,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string indicates the content of the text feature. Multiple text features are separated by commas (,).
     pub const NODE_FONT_FEATURE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1024);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Setting Enable Text Recognition.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3313,10 +2677,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32：Enable Text Recognition
     pub const NODE_TEXT_ENABLE_DATA_DETECTOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1025);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the text recognition configuration.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3330,10 +2690,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0...].i32：Array of entity types, parameter types[`ArkUI_TextDataDetectorType`]。
     pub const NODE_TEXT_ENABLE_DATA_DETECTOR_CONFIG: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1026);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the background color of the selected text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3348,10 +2704,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_TEXT_SELECTED_BACKGROUND_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1027);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// The text component uses a formatted string object to set text content properties,
     /// and supports property setting, property reset, and property acquisition interfaces.
     ///
@@ -3366,10 +2718,6 @@ impl ArkUI_NodeAttributeType {
     /// .object indicates ArkUI_StyledString formatted string data. The parameter type is [`ArkUI_StyledString`].
     pub const NODE_TEXT_CONTENT_WITH_STYLED_STRING: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1028);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether to center text vertically in the text component.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3382,10 +2730,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to center text vertically.
     pub const NODE_TEXT_HALF_LEADING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1029);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3398,10 +2742,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: content of the text span.
     pub const NODE_SPAN_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(2000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text background style.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3436,10 +2776,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[4].f32: radius of the lower right corner, in vp.
     pub const NODE_SPAN_TEXT_BACKGROUND_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(2001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text baseline offset attribute
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3453,10 +2789,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: baseline offset, in fp.
     pub const NODE_SPAN_BASELINE_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(2002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the image source of the image span.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3474,10 +2806,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
     pub const NODE_IMAGE_SPAN_SRC: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the alignment mode of the image with the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3494,10 +2822,6 @@ impl ArkUI_NodeAttributeType {
     /// The value is an enum of [`ArkUI_ImageSpanAlignment`].
     pub const NODE_IMAGE_SPAN_VERTICAL_ALIGNMENT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(3001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the placeholder image source.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3515,10 +2839,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
     pub const NODE_IMAGE_SPAN_ALT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the baseline offset attribute of the <b>ImageSpan</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     /// A positive value means an upward offset, while a negative value means a downward offset.
@@ -3542,10 +2862,6 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const NODE_IMAGE_SPAN_BASELINE_OFFSET: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(3003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the image source of the <Image> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3563,10 +2879,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
     pub const NODE_IMAGE_SRC: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines how the image is resized to fit its container.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3580,10 +2892,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: how the image is resized to fit its container. The value is an enum of [`ArkUI_ObjectFit`].
     pub const NODE_IMAGE_OBJECT_FIT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the interpolation effect of the image.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3597,10 +2905,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: interpolation effect of the image. The value is an enum of [`ArkUI_ImageInterpolation`].
     pub const NODE_IMAGE_INTERPOLATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines how the image is repeated.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3614,10 +2918,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: how the image is repeated. The value is an enum of [`ArkUI_ImageRepeat`].
     pub const NODE_IMAGE_OBJECT_REPEAT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the color filter of the image.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3639,10 +2939,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: the pointer to OH_Drawing_ColorFilter.
     pub const NODE_IMAGE_COLOR_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the auto resize attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3655,10 +2951,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32 : whether to resize the image source.
     pub const NODE_IMAGE_AUTO_RESIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the placeholder image source.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3676,10 +2968,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
     pub const NODE_IMAGE_ALT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether the image is draggable.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3693,10 +2981,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether the image is draggable.
     pub const NODE_IMAGE_DRAGGABLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the image rendering mode. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3709,10 +2993,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The parameter type is [`ArkUI_ImageRenderMode`].
     pub const NODE_IMAGE_RENDER_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether the image display size follows the image source size.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3726,10 +3006,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: wheter to follow, true means to follow.
     pub const NODE_IMAGE_FIT_ORIGINAL_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the fill color of the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3743,10 +3019,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: fill color, in 0xARGB format.
     pub const NODE_IMAGE_FILL_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the resizable image options.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3771,10 +3043,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: width of the bottom edge. The unit is vp.
     pub const NODE_IMAGE_RESIZABLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4011);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the color of the component when it is selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3788,10 +3056,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: background color, in 0xARGB format.
     pub const NODE_TOGGLE_SELECTED_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the color of the circular slider for the component of the switch type.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3806,10 +3070,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].u32: color of the circular slider, in 0xARGB format.
     pub const NODE_TOGGLE_SWITCH_POINT_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(5001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the toggle switch value. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3822,10 +3082,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to enable the toggle.
     pub const NODE_TOGGLE_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the color of the component when it is deselected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3839,10 +3095,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: background color, in 0xARGB format.
     pub const NODE_TOGGLE_UNSELECTED_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the foreground color of the loading progress bar.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3856,10 +3108,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: foreground color, in 0xARGB format.
     pub const NODE_LOADING_PROGRESS_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(6000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to show the loading animation for the <LoadingProgress> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3875,10 +3123,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: The value <b>1</b> means to show the loading animation, and <b>0</b> means the opposite.
     pub const NODE_LOADING_PROGRESS_ENABLE_LOADING: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(6001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the default placeholder text of the single-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3892,10 +3136,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: default placeholder text.
     pub const NODE_TEXT_INPUT_PLACEHOLDER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the default text content of the single-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3909,10 +3149,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: default text content.
     pub const NODE_TEXT_INPUT_TEXT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the caret color attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3926,10 +3162,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: caret color, in 0xARGB format.
     pub const NODE_TEXT_INPUT_CARET_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the caret style attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3943,10 +3175,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: caret width, in vp.
     pub const NODE_TEXT_INPUT_CARET_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the underline attribute of the single-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3962,10 +3190,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: The value <b>1</b> means to show an underline, and <b>0</b> means the opposite.
     pub const NODE_TEXT_INPUT_SHOW_UNDERLINE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the maximum number of characters in the text input.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3979,10 +3203,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: maximum number of characters in the text input.
     pub const NODE_TEXT_INPUT_MAX_LENGTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the type of the Enter key.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3997,10 +3217,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`].
     pub const NODE_TEXT_INPUT_ENTER_KEY_TYPE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the placeholder text color.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4015,10 +3231,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_TEXT_INPUT_PLACEHOLDER_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the placeholder text font.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4048,10 +3260,6 @@ impl ArkUI_NodeAttributeType {
     /// .string: font family. Multiple font families are separated by commas (,).
     pub const NODE_TEXT_INPUT_PLACEHOLDER_FONT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to enable the input method when the component obtains focus.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4069,10 +3277,6 @@ impl ArkUI_NodeAttributeType {
     /// and <b>0</b> means the opposite.
     pub const NODE_TEXT_INPUT_ENABLE_KEYBOARD_ON_FOCUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text box type. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4086,10 +3290,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: text box type [`ArkUI_TextInputType`].
     pub const NODE_TEXT_INPUT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the background color of the selected text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4104,10 +3304,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_TEXT_INPUT_SELECTED_BACKGROUND_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7011);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to display the password icon at the end of the password text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4124,10 +3320,6 @@ impl ArkUI_NodeAttributeType {
     /// and <b>0</b> means the opposite.
     pub const NODE_TEXT_INPUT_SHOW_PASSWORD_ICON: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7012);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the editable state for the single-line text box.
     /// This attribute can be set as required through APIs.
     ///
@@ -4142,10 +3334,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to remain in the editable state. The value <b>true</b> means to remain in the editable
     /// state, and <b>false</b> means to exit the editable state.
     pub const NODE_TEXT_INPUT_EDITING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7013);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the style of the cancel button on the right of the single-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4173,10 +3361,6 @@ impl ArkUI_NodeAttributeType {
     /// .string: button icon image source.
     pub const NODE_TEXT_INPUT_CANCEL_BUTTON: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7014);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the text selection area, which will be highlighted.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4195,10 +3379,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].i32: end position of the text selection.
     pub const NODE_TEXT_INPUT_TEXT_SELECTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7015);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the color of the text underline when it is enabled.
     ///
     /// The default underline color configured for the theme is <b>'0x33182431'</b>.
@@ -4231,10 +3411,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[3].u32: color of the underline applied to the text when it is disabled. The value is in 0xARGB format.
     pub const NODE_TEXT_INPUT_UNDERLINE_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7016);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether to enable autofill.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4248,10 +3424,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to enable autofill.
     pub const NODE_TEXT_INPUT_ENABLE_AUTO_FILL: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7017);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the autofill type.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4264,10 +3436,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`].
     pub const NODE_TEXT_INPUT_CONTENT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7018);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the rules for generating passwords. When autofill is used, these rules are transparently
     /// transmitted to Password Vault for generating a new password.
     ///
@@ -4282,10 +3450,6 @@ impl ArkUI_NodeAttributeType {
     /// .string: rules for generating passwords.
     pub const NODE_TEXT_INPUT_PASSWORD_RULES: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7019);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether to select all text in the initial state. The inline mode is not supported.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4298,10 +3462,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to select all text in the initial state.
     pub const NODE_TEXT_INPUT_SELECT_ALL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7020);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the regular expression for input filtering.
     /// Only inputs that comply with the regular expression can be displayed.
     /// Other inputs are filtered out. The specified regular expression can match single characters,
@@ -4317,10 +3477,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: regular expression.
     pub const NODE_TEXT_INPUT_INPUT_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7021);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the text box to the default style or inline input style.
     ///
     /// For the inline input style, only <b>InputType.Normal</b> is supported.
@@ -4335,10 +3491,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: text input style. The parameter type is [`ArkUI_TextInputStyle`].
     pub const NODE_TEXT_INPUT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7022);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets or obtains the caret position.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4357,10 +3509,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: Y coordinate of the caret relative to the text box.
     pub const NODE_TEXT_INPUT_CARET_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7023);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Obtains the position of the edited text area relative to the component and its size.
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
@@ -4373,10 +3521,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: content height.
     pub const NODE_TEXT_INPUT_CONTENT_RECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7024);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Obtains the number of lines of the edited text.
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
@@ -4384,10 +3528,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: number of lines of the edited text.
     pub const NODE_TEXT_INPUT_CONTENT_LINE_COUNT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7025);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether to hide the text selection menu when the text box is long-pressed, double-click, or
     /// right-clicked. This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4404,10 +3544,6 @@ impl ArkUI_NodeAttributeType {
     /// right-clicked.
     pub const NODE_TEXT_INPUT_SELECTION_MENU_HIDDEN: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7026);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether the text box loses focus after the Enter key is pressed to submit information.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4421,10 +3557,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether the text box loses focus.
     pub const NODE_TEXT_INPUT_BLUR_ON_SUBMIT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7027);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set up a custom keyboard.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4442,10 +3574,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32：Set whether the custom keyboard supports the avoidance function.
     pub const NODE_TEXT_INPUT_CUSTOM_KEYBOARD: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7028);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the line break rule. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4458,10 +3586,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`].
     pub const NODE_TEXT_INPUT_WORD_BREAK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7029);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether the keyboard pops up when the input box gains focus.
     /// It supports property setting, property reset and property acquisition interfaces.
     ///
@@ -4476,10 +3600,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: Whether to pop up the keyboard.
     pub const NODE_TEXT_INPUT_SHOW_KEYBOARD_ON_FOCUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7030);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// When this property is set, the height of the textInput component is calculated using this property.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4493,10 +3613,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: the value of numberOfLines.
     pub const NODE_TEXT_INPUT_NUMBER_OF_LINES: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7031);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the default placeholder text for the multi-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4510,10 +3626,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: default placeholder text.
     pub const NODE_TEXT_AREA_PLACEHOLDER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the default text content for the multi-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4527,10 +3639,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: default text content.
     pub const NODE_TEXT_AREA_TEXT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the maximum number of characters in the text input.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4544,10 +3652,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: maximum number of characters in the text input.
     pub const NODE_TEXT_AREA_MAX_LENGTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the placeholder text color.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4562,10 +3666,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_TEXT_AREA_PLACEHOLDER_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the placeholder text font.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4592,10 +3692,6 @@ impl ArkUI_NodeAttributeType {
     /// .string: font family. Multiple font families are separated by commas (,).
     pub const NODE_TEXT_AREA_PLACEHOLDER_FONT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the caret color attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4609,10 +3705,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: background color, in 0xARGB format.
     pub const NODE_TEXT_AREA_CARET_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the editable state for the multi-line text box.
     /// This attribute can be set as required through APIs.
     ///
@@ -4629,10 +3721,6 @@ impl ArkUI_NodeAttributeType {
     /// state, and <b>false</b> means to exit the editable state.
     ///
     pub const NODE_TEXT_AREA_EDITING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the text box type. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4646,10 +3734,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: text box type [`ArkUI_TextAreaType`].
     pub const NODE_TEXT_AREA_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the counter settings. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4675,10 +3759,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].i32: whether to highlight the border when the number of entered characters reaches the maximum.
     /// The default value is <b>true</b>.
     pub const NODE_TEXT_AREA_SHOW_COUNTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether to hide the text selection menu when the text box is long-pressed, double-click,
     /// or right-clicked. This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4695,10 +3775,6 @@ impl ArkUI_NodeAttributeType {
     /// or right-clicked.
     pub const NODE_TEXT_AREA_SELECTION_MENU_HIDDEN: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether the multi-line text box loses focus after the Enter key is pressed to submit information.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4712,10 +3788,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether the text box loses focus.
     pub const NODE_TEXT_AREA_BLUR_ON_SUBMIT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the regular expression for input filtering.
     /// Only inputs that comply with the regular expression can be displayed.
     /// Other inputs are filtered out. The specified regular expression can match single characters,
@@ -4731,10 +3803,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: regular expression.
     pub const NODE_TEXT_AREA_INPUT_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8011);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the background color of the selected text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4749,10 +3817,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_TEXT_AREA_SELECTED_BACKGROUND_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8012);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the type of the Enter key.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4767,10 +3831,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`].
     pub const NODE_TEXT_AREA_ENTER_KEY_TYPE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8013);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to enable the input method when the component obtains focus.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4788,10 +3848,6 @@ impl ArkUI_NodeAttributeType {
     /// and <b>0</b> means the opposite.
     pub const NODE_TEXT_AREA_ENABLE_KEYBOARD_ON_FOCUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8014);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to enable the input method when the component obtains focus.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4808,10 +3864,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: The value <b>1</b> means to enable the input method when the component obtains focus,
     /// and <b>0</b> means the opposite.
     pub const NODE_TEXT_AREA_CARET_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8015);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Obtains the position of the edited text area relative to the component and its size.
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
@@ -4824,10 +3876,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: content height.
     pub const NODE_TEXT_AREA_CONTENT_RECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8016);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Obtains the number of lines of the edited text.
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
@@ -4835,10 +3883,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: number of lines of the edited text.
     pub const NODE_TEXT_AREA_CONTENT_LINE_COUNT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8017);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the text selection area, which will be highlighted.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4857,10 +3901,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].i32: end position of the text selection.
     pub const NODE_TEXT_AREA_TEXT_SELECTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8018);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether to enable autofill.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4874,10 +3914,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to enable autofill.
     pub const NODE_TEXT_AREA_ENABLE_AUTO_FILL: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8019);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the autofill type.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4890,10 +3926,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`].
     pub const NODE_TEXT_AREA_CONTENT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8020);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether the keyboard pops up when the input box gains focus.
     /// It supports property setting, property reset and property acquisition interfaces.
     ///
@@ -4908,10 +3940,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: Whether to pop up the keyboard.
     pub const NODE_TEXT_AREA_SHOW_KEYBOARD_ON_FOCUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8021);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// When this property is set, the height of the textArea component is calculated using this property.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4925,10 +3953,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: Set the value of numberOfLines
     pub const NODE_TEXT_AREA_NUMBER_OF_LINES: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8022);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the button text content. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4941,10 +3965,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: default text content.
     pub const NODE_BUTTON_LABEL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(9000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the button type. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4959,10 +3979,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: button type. The parameter type is [`ArkUI_ButtonType`].
     /// The default value is <b>ARKUI_BUTTON_TYPE_CAPSULE</b>.
     pub const NODE_BUTTON_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(9001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the current value of the progress indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4976,10 +3992,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: current value of the progress indicator.
     pub const NODE_PROGRESS_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the total value of the progress indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4993,10 +4005,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: total value of the progress indicator.
     pub const NODE_PROGRESS_TOTAL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the color for the progress value on the progress indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5010,10 +4018,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_PROGRESS_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the type of the progress indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5028,10 +4032,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: type of the progress indicator [`ArkUI_ProgressType`].
     pub const NODE_PROGRESS_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether the check box is selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5046,10 +4046,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The value <b>1</b> means that the check box is selected, and <b>0</b> means the opposite.
     pub const NODE_CHECKBOX_SELECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the color of the check box when it is selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5063,10 +4059,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: color of the check box when it is selected, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     pub const NODE_CHECKBOX_SELECT_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the border color of the check box when it is not selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5081,10 +4073,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].u32: border color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     pub const NODE_CHECKBOX_UNSELECT_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(11002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the internal icon style of the check box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5106,10 +4094,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: stroke width of the internal mark, in vp. The default value is <b>2</b>.
     pub const NODE_CHECKBOX_MARK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the shape of the check box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5123,10 +4107,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: component shape. The parameter type is [`ArkUI_CheckboxShape`].
     pub const NODE_CHECKBOX_SHAPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the ID of the <b><XComponent></b> component.
     /// This attribute can be set and obtained as required through APIs.
     ///
@@ -5140,10 +4120,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: component ID.
     pub const NODE_XCOMPONENT_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the type of the <b><XComponent></b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5157,10 +4133,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: type [`ArkUI_XComponentType`].
     pub const NODE_XCOMPONENT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the width and height of the <b><XComponent></b> component.
     /// This attribute can be set and obtained as required through APIs.
     ///
@@ -5179,10 +4151,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].u32: height, in px.
     pub const NODE_XCOMPONENT_SURFACE_SIZE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(12002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to display the lunar calendar in the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5196,10 +4164,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to display the lunar calendar in the date picker.
     pub const NODE_DATE_PICKER_LUNAR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the start date of the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5213,10 +4177,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: date.
     pub const NODE_DATE_PICKER_START: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the end date of the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5230,10 +4190,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: date.
     pub const NODE_DATE_PICKER_END: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the selected date of the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5247,10 +4203,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: date.
     pub const NODE_DATE_PICKER_SELECTED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight for the top and bottom items in the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5289,10 +4241,6 @@ impl ArkUI_NodeAttributeType {
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
     pub const NODE_DATE_PICKER_DISAPPEAR_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(13004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight of all items except the top, bottom, and selected
     /// items in the date picker. This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5330,10 +4278,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
     pub const NODE_DATE_PICKER_TEXT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight of the selected item in the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5372,10 +4316,6 @@ impl ArkUI_NodeAttributeType {
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
     pub const NODE_DATE_PICKER_SELECTED_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(13006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the time of the selected item. in the timer picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5389,10 +4329,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: time.
     pub const NODE_TIME_PICKER_SELECTED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(14000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether the display time is in 24-hour format.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5407,10 +4343,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether the display time is in 24-hour format.
     pub const NODE_TIME_PICKER_USE_MILITARY_TIME: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(14001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight for the top and bottom items in the time picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5449,10 +4381,6 @@ impl ArkUI_NodeAttributeType {
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
     pub const NODE_TIME_PICKER_DISAPPEAR_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(14002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight of all items except the top, bottom, and selected items
     /// in the time picker. This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5490,10 +4418,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
     pub const NODE_TIME_PICKER_TEXT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(14003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight of the selected item in the time picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5532,10 +4456,6 @@ impl ArkUI_NodeAttributeType {
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
     pub const NODE_TIME_PICKER_SELECTED_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(14004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the data selection range of the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5577,10 +4497,6 @@ impl ArkUI_NodeAttributeType {
     /// 2: multi-column interconnected picker. The output structure is [`ARKUI_TextPickerCascadeRangeContent`].
     pub const NODE_TEXT_PICKER_OPTION_RANGE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the index of the default selected item in the data selection range of the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5595,10 +4511,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].u32: index. If there are multiple index values, add them one by one.
     pub const NODE_TEXT_PICKER_OPTION_SELECTED: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the value of the default selected item in the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5615,10 +4527,6 @@ impl ArkUI_NodeAttributeType {
     /// separate them with semicolons (;).
     pub const NODE_TEXT_PICKER_OPTION_VALUE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight for the top and bottom items in the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5657,10 +4565,6 @@ impl ArkUI_NodeAttributeType {
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
     pub const NODE_TEXT_PICKER_DISAPPEAR_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight for all items except the top, bottom, and selected
     /// items in the text picker. This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5698,10 +4602,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
     pub const NODE_TEXT_PICKER_TEXT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(15004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight for the selected item in the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5740,10 +4640,6 @@ impl ArkUI_NodeAttributeType {
     /// Example: "#ff182431;14;normal;Arial,HarmonyOS Sans;normal".
     pub const NODE_TEXT_PICKER_SELECTED_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the index of the default selected item in the data selection range of the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5752,10 +4648,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0...].i32: index of the default item in the data selection range.
     pub const NODE_TEXT_PICKER_SELECTED_INDEX: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to support scroll looping for the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5771,10 +4663,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// value[0].i32: The value <b>1</b> means to support scroll looping, and <b>0</b> means the opposite.
     pub const NODE_TEXT_PICKER_CAN_LOOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(15007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the height of each item in the picker. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -5789,10 +4677,6 @@ impl ArkUI_NodeAttributeType {
     /// value[0].f32: item height, in vp.
     pub const NODE_TEXT_PICKER_DEFAULT_PICKER_ITEM_HEIGHT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the style of the background in the selected state of the calendar picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5813,10 +4697,6 @@ impl ArkUI_NodeAttributeType {
     /// greater than 16, the background is a circle.
     pub const NODE_CALENDAR_PICKER_HINT_RADIUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(16000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the date of the selected item in the calendar picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5839,10 +4719,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].u32: day of the selected date.
     pub const NODE_CALENDAR_PICKER_SELECTED_DATE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(16001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines how the calendar picker is aligned with the entry component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5869,10 +4745,6 @@ impl ArkUI_NodeAttributeType {
     /// the specified alignment mode.
     pub const NODE_CALENDAR_PICKER_EDGE_ALIGNMENT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(16002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight in the entry area of the calendar picker.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -5894,10 +4766,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].i32: font weight of the entry area. The parameter type is [`ArkUI_FontWeight`].
     pub const NODE_CALENDAR_PICKER_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(16003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the color of the slider. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -5909,10 +4777,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: color of the slider, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     pub const NODE_SLIDER_BLOCK_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the background color of the slider. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -5926,10 +4790,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: background color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     pub const NODE_SLIDER_TRACK_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the color of the selected part of the slider track. This attribute can be set, reset, and obtained
     /// as required through APIs.
     ///
@@ -5943,10 +4803,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].u32: color of the selected part of the slider track, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     pub const NODE_SLIDER_SELECTED_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether to display the stepping value. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -5962,10 +4818,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to display the stepping value. The value <b>1</b> means to display the stepping value,
     /// and <b>0</b> (default value) means the opposite.
     pub const NODE_SLIDER_SHOW_STEPS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the slider shape, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6078,10 +4930,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: command for drawing the path.
     pub const NODE_SLIDER_BLOCK_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the current value of the slider. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -6095,10 +4943,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: current value.
     pub const NODE_SLIDER_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the minimum value of the slider. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -6112,10 +4956,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: minimum value.
     pub const NODE_SLIDER_MIN_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the maximum value of the slider. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -6129,10 +4969,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: maximum value.
     pub const NODE_SLIDER_MAX_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the step of the slider. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6145,10 +4981,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: step. The value range is [0.01, 100].
     pub const NODE_SLIDER_STEP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether the slider moves horizontally or vertically. This attribute can be set, reset, and
     /// obtained as required through APIs.
     ///
@@ -6163,10 +4995,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether the slider moves horizontally or vertically.
     pub const NODE_SLIDER_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether the slider values are reversed. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -6182,10 +5010,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether the slider values are reversed. The value <b>1</b> means that the slider values are
     /// reversed, and <b>0</b> means the opposite.
     pub const NODE_SLIDER_REVERSE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the style of the slider thumb and track. This attribute can be set, reset, and obtained
     /// as required through APIs.
     ///
@@ -6199,10 +5023,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: style of the slider thumb and track. The parameter type is [`ArkUI_SliderStyle`].
     pub const NODE_SLIDER_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17011);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the track thickness of the slider.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6218,10 +5038,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: track thickness of the slider, in vp.
     pub const NODE_SLIDER_TRACK_THICKNESS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17012);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the selection status of an option button. Attribute setting,
     /// attribute resetting, and attribute obtaining are supported.
     /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
@@ -6231,10 +5047,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: selection status of an option button.
     pub const NODE_RADIO_CHECKED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the styles of the selected and deselected states of the option button.
     /// The attribute setting, attribute resetting, and attribute obtaining are supported.
     /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
@@ -6265,10 +5077,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// The type is 0xARGB, and the default value is 0xFFFFFFF.
     pub const NODE_RADIO_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the value of the current radio.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6282,10 +5090,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: radio value.
     pub const NODE_RADIO_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the group name of the current Radio group, only one radio of the same group can be selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6299,10 +5103,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: name of the group to which the current option box belongs.
     pub const NODE_RADIO_GROUP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the image frames for the image animator. Dynamic updates is not supported.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6320,10 +5120,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: array of the images, the type is [`ArkUI_ImageAnimatorFrameInfo`] array.
     pub const NODE_IMAGE_ANIMATOR_IMAGES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the playback status of the animation for the image animator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6336,10 +5132,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: the playback status of the animation, the type is [`ArkUI_AnimationStatus`].
     pub const NODE_IMAGE_ANIMATOR_STATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the playback duration for the image animator. When the duration is 0, no image is played.
     /// The value change takes effect only at the beginning of the next cycle.
     /// When a separate duration is set in images, the setting of this attribute is invalid.
@@ -6355,10 +5147,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: the playback duration, the unit is ms.
     pub const NODE_IMAGE_ANIMATOR_DURATION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(19002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the playback direction for the image animator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6373,10 +5161,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: the playback direction. 0 indicates that images are played from the first one to the last one,
     /// and 1 indicates that images are played from the last one to the first one.
     pub const NODE_IMAGE_ANIMATOR_REVERSE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set whether the image size is the same as the component size.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6395,10 +5179,6 @@ impl ArkUI_NodeAttributeType {
     /// 0 indicates the image size is customized.
     pub const NODE_IMAGE_ANIMATOR_FIXED_SIZE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(19004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the status before and after execution of the animation in the current playback direction.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6414,10 +5194,6 @@ impl ArkUI_NodeAttributeType {
     /// the type is {ArkUI_AnimationFillMode}.
     pub const NODE_IMAGE_ANIMATOR_FILL_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(19005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the number of times that the animation is played.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6431,10 +5207,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: the number of times that the animation is played.
     pub const NODE_IMAGE_ANIMATOR_ITERATION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(19006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the alignment mode of the child components in the container. This attribute can be set, reset,
     /// and obtained as required through APIs.
     ///
@@ -6449,10 +5221,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`].
     pub const NODE_STACK_ALIGN_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1000000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the scrollbar status. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6467,10 +5235,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: scrollbar status. The parameter type is [`ArkUI_ScrollBarDisplayMode`].
     pub const NODE_SCROLL_BAR_DISPLAY_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1002000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the width of the scrollbar. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -6484,10 +5248,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: width of the scrollbar, in vp.
     pub const NODE_SCROLL_BAR_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the color of the scrollbar. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -6501,10 +5261,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .data[0].u32: color of the scrollbar, in 0xARGB format.
     pub const NODE_SCROLL_BAR_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the scroll direction. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6519,10 +5275,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: scroll direction. The parameter type is [`ArkUI_ScrollDirection`].
     pub const NODE_SCROLL_SCROLL_DIRECTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1002003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the effect used at the edges of the component when the boundary of the scrollable content is
     /// reached. This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6545,10 +5297,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].i32: whether to enable the scroll effect when the component content size is smaller than the component
     /// itself. Optional. The value <b>1</b> means to enable the scroll effect, and <b>0</b> means the opposite.
     pub const NODE_SCROLL_EDGE_EFFECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to support scroll gestures. When this attribute is set to <b>false</b>, scrolling by
     /// finger or mouse is not supported, but the scroll controller API is not affected.
     ///
@@ -6563,10 +5311,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to support scroll gestures.
     pub const NODE_SCROLL_ENABLE_SCROLL_INTERACTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1002005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the friction coefficient. It applies only to gestures in the scrolling area, and it affects only
     /// indirectly the scroll chaining during the inertial scrolling process.
     ///
@@ -6581,10 +5325,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: friction coefficient.
     pub const NODE_SCROLL_FRICTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the scroll snapping mode. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6622,10 +5362,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[3...].f32: snap points for the <b><Scroll></b> component. Each snap point defines the offset from an edge
     /// to which the <b><Scroll></b> component can scroll.
     pub const NODE_SCROLL_SNAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the nested scrolling options. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -6647,10 +5383,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].i32: nested scrolling option when the component scrolls backward.
     /// The parameter type is [`ArkUI_ScrollNestedMode`].
     pub const NODE_SCROLL_NESTED_SCROLL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the specified position to scroll to. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -6678,10 +5410,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].f32: vertical scrolling offset, in vp.
     pub const NODE_SCROLL_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the edge position to scroll to. This attribute can be set and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6695,10 +5423,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether the container at the edge position. The value <b>-1</b> means that the container is not
     /// at the edge position. If the container is at the edge position, the parameter type is [`ArkUI_ScrollEdge`].
     pub const NODE_SCROLL_EDGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to enable the swipe-to-turn-pages feature. This attribute can be set, reset, and obtained
     /// as required through APIs.
     ///
@@ -6717,10 +5441,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: whether to enable the swipe-to-turn-pages feature.
     pub const NODE_SCROLL_ENABLE_PAGING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002011);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Scroll to the next or previous page.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6730,10 +5450,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1]?.i32 Indicates whether to enable animation. Value 1 indicates enable and 0 indicates disable.
     pub const NODE_SCROLL_PAGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002012);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Scroll a specified distance.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6742,10 +5458,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].f32: Vertical scrolling distance in vp;
     pub const NODE_SCROLL_BY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002013);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Performs inertial scrolling based on the initial velocity passed in.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6760,10 +5472,6 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const NODE_SCROLL_FLING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002014);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the fading effect for the edges of scrollable components.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6781,10 +5489,6 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const NODE_SCROLL_FADING_EDGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002015);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Obtains the total size of all child components when fully expanded in the scrollable component.
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
@@ -6805,10 +5509,6 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const NODE_SCROLL_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002016);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the direction in which the list items are arranged. This attribute can be set, reset, and
     /// obtained as required through APIs.
     ///
@@ -6823,10 +5523,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: direction in which the list items are arranged. The parameter type is [`ArkUI_Axis`].
     pub const NODE_LIST_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to pin the header to the top or the footer to the bottom in the <b><ListItemGroup></b>
     /// component. This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6844,10 +5540,6 @@ impl ArkUI_NodeAttributeType {
     /// component. It is used together with the <b><ListItemGroup></b> component. The parameter type is
     /// [`ArkUI_StickyStyle`].
     pub const NODE_LIST_STICKY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the spacing between list items. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -6861,20 +5553,12 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: spacing between list items along the main axis.
     pub const NODE_LIST_SPACE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the list adapter. The attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
     /// .object: [`ArkUI_NodeAdapter`] object as the adapter.
     pub const NODE_LIST_NODE_ADAPTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the number of cached items in the list adapter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6882,10 +5566,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: number of cached items in the list adapter.
     pub const NODE_LIST_CACHED_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Scroll to the specified index.
     ///
     /// When activating the smooth animation, all items passed through will be loaded and layout calculated, which can
@@ -6903,10 +5583,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2]?.i32：Specify the alignment of the sliding element with the current container,The parameter type is
     /// [`ArkUI_ScrollAlignment`], default value is ARKUI_SCROLL_ALIGNMENT_START.
     pub const NODE_LIST_SCROLL_TO_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the alignment mode of list items along the cross axis when the cross-axis width of the list is
     /// greater than the cross-axis width of list items multiplied by the value of lanes.
     /// This attribute can be set, reset, and obtained as required through APIs.
@@ -6923,10 +5599,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: alignment mode of list items along the cross axis.
     /// The parameter type is [`ArkUI_ListItemAlignment`].
     pub const NODE_LIST_ALIGN_LIST_ITEM: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the default spindle size for the List subcomponent.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -6940,10 +5612,6 @@ impl ArkUI_NodeAttributeType {
     /// .object: The parameter format is [`ArkUI-ListChildrenMainSize`]
     pub const NODE_LIST_CHILDREN_MAIN_SIZE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1003007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the index value of the item displayed at the start of the viewport
     /// when the current List is first loaded.This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6959,10 +5627,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: index value of the item displayed at
     /// the start of the viewport when the current List is loaded for the first time. Default value: 0.
     pub const NODE_LIST_INITIAL_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// sets the ListItem splitter style. By default, there is no splitter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6988,10 +5652,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: the distance between the divider and the end of the side of the list (unit: vp).
     pub const NODE_LIST_DIVIDER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to enable loop playback for the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7007,10 +5667,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to enable loop playback. The value <b>1</b> means to enable loop playback, and <b>0</b>
     /// means the opposite. The default value is <b>1</b>.
     pub const NODE_SWIPER_LOOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to enable automatic playback for child component switching in the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7026,10 +5682,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to enable automatic playback for child component switching. The value <b>1</b> means
     /// to enable automatic playback, and <b>0</b> means the opposite. The default value is <b>0</b>.
     pub const NODE_SWIPER_AUTO_PLAY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to enable the navigation point indicator for the swiper. This attribute can be set,
     /// reset, and obtained as required through APIs.
     ///
@@ -7046,10 +5698,6 @@ impl ArkUI_NodeAttributeType {
     /// navigation point indicator, and <b>0</b> means the opposite. The default value is <b>1</b>.
     pub const NODE_SWIPER_SHOW_INDICATOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the interval for automatic playback. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -7063,10 +5711,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: interval for automatic playback, in milliseconds.
     pub const NODE_SWIPER_INTERVAL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether vertical swiping is used for the swiper. This attribute can be set, reset, and obtained
     /// as required through APIs.
     ///
@@ -7082,10 +5726,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether vertical swiping is used. The value <b>1</b> means that vertical swiping is used, and
     /// <b>0</b> means the opposite. The default value is <b>0</b>.
     pub const NODE_SWIPER_VERTICAL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the duration of the animation for switching child components. This attribute can be set, reset,
     /// and obtained as required through APIs.
     ///
@@ -7101,10 +5741,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32: duration of the animation for switching child components, in milliseconds. The default value is
     /// <b>400</b>.
     pub const NODE_SWIPER_DURATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the animation curve for the swiper. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
@@ -7120,10 +5756,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: animation curve. The parameter type is [`ArkUI_AnimationCurve`].
     /// The default value is <b>ARKUI_CURVE_LINEAR</b>.
     pub const NODE_SWIPER_CURVE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the spacing between child components in the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7137,10 +5769,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: spacing between child components.
     pub const NODE_SWIPER_ITEM_SPACE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the index of the child component currently displayed in the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7154,10 +5782,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: index value of the child component.
     pub const NODE_SWIPER_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the number of elements to display per page.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7171,10 +5795,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: index value of the child component.
     pub const NODE_SWIPER_DISPLAY_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to disable the swipe feature.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7190,10 +5810,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: whether to disable the swipe feature. The value <b>1</b> means to disable the swipe
     /// feature, and <b>0</b> means the opposite. The default value is <b>0</b>.
     pub const NODE_SWIPER_DISABLE_SWIPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines whether to show the arrow when the mouse pointer hovers over the navigation point indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7214,10 +5830,6 @@ impl ArkUI_NodeAttributeType {
     /// The default value is <b>ARKUI_SWIPER_ARROW_HIDE</b>.
     pub const NODE_SWIPER_SHOW_DISPLAY_ARROW: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001011);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the effect used at the edges of the swiper when the boundary of the scrollable content is reached.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7236,20 +5848,12 @@ impl ArkUI_NodeAttributeType {
     /// The parameter type is [`ArkUI_EdgeEffect`].
     pub const NODE_SWIPER_EDGE_EFFECT_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001012);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the swiper adapter. The attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
     /// .object: [`ArkUI_NodeAdapter`] object as the adapter.
     pub const NODE_SWIPER_NODE_ADAPTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001013);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the number of cached items in the swiper adapter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7257,10 +5861,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: number of cached items in the swiper adapter.
     pub const NODE_SWIPER_CACHED_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001014);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the front margin of the wiper.
     /// The attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7278,10 +5878,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].i32: whether to ignore blank areas. The value <b>1</b> means to ignore blank areas, and <b>0</b> means
     /// the opposite.
     pub const NODE_SWIPER_PREV_MARGIN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001015);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the back margin of the wiper.
     /// The attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7299,10 +5895,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].i32: whether to ignore blank areas. The value <b>1</b> means to ignore blank areas, and <b>0</b> means
     /// the opposite.
     pub const NODE_SWIPER_NEXT_MARGIN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001016);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the navigation indicator type of the swiper.
     /// The attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7318,10 +5910,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: The parameter type is [`ArkUI_SwiperIndicator`].
     pub const NODE_SWIPER_INDICATOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001017);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the nested scrolling mode for the Swiper component and parent component.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -7338,10 +5926,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32：Nested scrolling patterns for Swiper components and parent components. The parameter type is
     /// [`ArkUI_SwiperNestedScrollMode`]
     pub const NODE_SWIPER_NESTED_SCROLL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001018);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the switcher component to flip to the specified page.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -7352,10 +5936,6 @@ impl ArkUI_NodeAttributeType {
     /// effect, 0 indicates no active effect, default value is 0。
     pub const NODE_SWIPER_SWIPE_TO_INDEX: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001019);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set to disable component navigation point interaction function。
     ///
     /// Property setting method parameter [`ArkUI-AttributeItem`] format:
@@ -7368,10 +5948,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32：Set to disable component navigation point interaction.
     pub const NODE_SWIPER_INDICATOR_INTERACTIVE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001020);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the delineation component of the ListItem, supporting property settings, property resets, and
     /// property acquisition interfaces.
     ///
@@ -7386,10 +5962,6 @@ impl ArkUI_NodeAttributeType {
     /// .object: Construct using the [`ArkUI_ListitemSwipeActionOption`] object.
     pub const NODE_LIST_ITEM_SWIPE_ACTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1004000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the header of the list item group.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7404,10 +5976,6 @@ impl ArkUI_NodeAttributeType {
     /// .object: [`ArkUI_NodeHandle`] object to be used as the header of the list item group.
     pub const NODE_LIST_ITEM_GROUP_SET_HEADER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the footer of the list item group. This attribute can be set, reset, and obtained as
     /// required through APIs.
     ///
@@ -7422,10 +5990,6 @@ impl ArkUI_NodeAttributeType {
     /// .object: [`ArkUI_NodeHandle`] object to be used as the footer of the list item group.
     pub const NODE_LIST_ITEM_GROUP_SET_FOOTER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the style of the divider for the list items. This attribute can be set, reset, and obtained
     /// as required through APIs.
     ///
@@ -7454,10 +6018,6 @@ impl ArkUI_NodeAttributeType {
     ///
     pub const NODE_LIST_ITEM_GROUP_SET_DIVIDER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the default spindle size for the ListItem Group subcomponent.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -7471,10 +6031,6 @@ impl ArkUI_NodeAttributeType {
     /// .object: The parameter format is [`ArkUI-ListChildrenMainSize`]
     pub const NODE_LIST_ITEM_GROUP_CHILDREN_MAIN_SIZE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the horizontal alignment mode of child components in the column.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7492,10 +6048,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: horizontal alignment mode of child components.
     /// The parameter type is [`ArkUI_HorizontalAlignment`].
     pub const NODE_COLUMN_ALIGN_ITEMS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1006000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the vertical alignment mode of child components in the column.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7512,10 +6064,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: vertical alignment mode of child components. The parameter type is [`ArkUI_FlexAlignment`].
     pub const NODE_COLUMN_JUSTIFY_CONTENT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1006001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the vertical alignment mode of child components in the row.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7533,10 +6081,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: vertical alignment mode of child components.
     /// The parameter type is [`ArkUI_VerticalAlignment`].
     pub const NODE_ROW_ALIGN_ITEMS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1007000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the horizontal alignment mode of child components in the row.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7554,10 +6098,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: horizontal alignment mode of child components.
     /// The parameter type is [`ArkUI_FlexAlignment`].
     pub const NODE_ROW_JUSTIFY_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1007001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the flex attribute. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -7591,10 +6131,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[4].i32: alignment mode along the cross axis for multi-line content.
     pub const NODE_FLEX_OPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1008000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether the component is being refreshed.
     /// This attribute can be set and obtained as required through APIs.
     ///
@@ -7607,10 +6143,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     pub const NODE_REFRESH_REFRESHING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1009000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the custom content in the pull-down area.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7618,10 +6150,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .object: The parameter type is [`ArkUI_NodeHandle`].
     pub const NODE_REFRESH_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1009001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the pull-down hand coefficient.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7635,10 +6163,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32：Pull-down hand coefficient, valid value between 0 and 1.
     pub const NODE_REFRESH_PULL_DOWN_RATIO: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1009002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the pull-down offset that initiates a refresh.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7651,10 +6175,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: pull-down offset, in vp. The default value is <b>64vp</b>.
     pub const NODE_REFRESH_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1009003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets whether to initiate a refresh when the pull-down distance exceeds the value of <b>refreshOffset</b>.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7670,10 +6190,6 @@ impl ArkUI_NodeAttributeType {
     /// <b>0</b> means the opposite.
     pub const NODE_REFRESH_PULL_TO_REFRESH: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1009004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the main axis direction of the <b><WaterFlow></b> component layout.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7687,10 +6203,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: main axis direction. The parameter type is [`ArkUI_FlexDirection`].
     pub const NODE_WATER_FLOW_LAYOUT_DIRECTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the number of columns in the water flow layout. If this parameter is not set, one column is used
     /// by default. This attribute can be set, reset, and obtained as required through APIs.
     /// For example, <b>'1fr 1fr 2fr'</b> indicates three columns, with the first column taking up 1/4 of the parent
@@ -7711,10 +6223,6 @@ impl ArkUI_NodeAttributeType {
     /// .string: number of columns in the layout.
     pub const NODE_WATER_FLOW_COLUMN_TEMPLATE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the number of rows in the water flow layout. If this parameter is not set, one row is used
     /// by default. This attribute can be set, reset, and obtained as required through APIs.
     /// For example, <b>'1fr 1fr 2fr'</b> indicates three rows, with the first row taking up 1/4 of the parent
@@ -7735,10 +6243,6 @@ impl ArkUI_NodeAttributeType {
     /// .string: number of rows in the layout.
     pub const NODE_WATER_FLOW_ROW_TEMPLATE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the gap between columns.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7753,10 +6257,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].f32: gap between columns, in vp.
     pub const NODE_WATER_FLOW_COLUMN_GAP: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the gap between rows.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7770,10 +6270,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: gap between lines, in vp.
     pub const NODE_WATER_FLOW_ROW_GAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1010004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the water flow section configuration.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7790,10 +6286,6 @@ impl ArkUI_NodeAttributeType {
     /// .object: [`ArkUI_WaterFlowSectionOption`] object.
     pub const NODE_WATER_FLOW_SECTION_OPTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the water flow adapter. The attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -7801,10 +6293,6 @@ impl ArkUI_NodeAttributeType {
     /// .object: [`ArkUI_NodeAdapter`] object as the adapter.
     pub const NODE_WATER_FLOW_NODE_ADAPTER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the number of cached items in the water flow adapter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7813,20 +6301,12 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: number of cached items in the water flowadapter.
     pub const NODE_WATER_FLOW_CACHED_COUNT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the custom display component at the end of the waterfall flow component.
     ///
     /// Attribute setting method [`ArkUI_AttributeItem`] parameter format:
     ///
     /// .object: Parameter type [`ArkUI_NodeHandle`].
     pub const NODE_WATER_FLOW_FOOTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1010008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Scroll to the specified index.
     ///
     /// When activating the smooth animation, all items passed through will be loaded and layout calculated, which can
@@ -7845,10 +6325,6 @@ impl ArkUI_NodeAttributeType {
     /// [`ArkUI_ScrollAlignment`]. Default value is </b>ARKUI_SCROLL_ALIGNMENT_START</b>。
     pub const NODE_WATER_FLOW_SCROLL_TO_INDEX: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the size constraints to apply to water flow items.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7875,10 +6351,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[3].f32: maximum height, in vp.
     pub const NODE_WATER_FLOW_ITEM_CONSTRAINT_SIZE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Set the auxiliary line in the RelativeContaine container, supporting property setting,
     /// property reset and property acquisition interfaces.
     ///
@@ -7893,10 +6365,6 @@ impl ArkUI_NodeAttributeType {
     /// .object: Auxiliary lines within the RelativeContaine container:
     pub const NODE_RELATIVE_CONTAINER_GUIDE_LINE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1012000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the barrier within the RelativeContaine container and supports property setting,
     /// property reset and property acquisition interfaces.
     ///
@@ -7911,10 +6379,6 @@ impl ArkUI_NodeAttributeType {
     /// .object: Barrier within the RelativeContaine container:
     pub const NODE_RELATIVE_CONTAINER_BARRIER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1012001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the number of columns in the grid layout. If this parameter is not set, one column is used
     /// by default. This attribute can be set, reset, and obtained as required through APIs.
     /// For example, <b>'1fr 1fr 2fr'</b> indicates three columns, with the first column taking up 1/4 of the parent
@@ -7934,10 +6398,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: number of columns in the layout.
     pub const NODE_GRID_COLUMN_TEMPLATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the number of rows in the grid layout. If this parameter is not set, one row is used
     /// by default. This attribute can be set, reset, and obtained as required through APIs.
     /// For example, <b>'1fr 1fr 2fr'</b> indicates three rows, with the first row taking up 1/4 of the parent
@@ -7957,10 +6417,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: number of rows in the layout.
     pub const NODE_GRID_ROW_TEMPLATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the gap between columns. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -7973,10 +6429,6 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: gap between columns, in vp.
     pub const NODE_GRID_COLUMN_GAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the gap between rows. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -7989,20 +6441,12 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].f32: gap between lines, in vp.
     pub const NODE_GRID_ROW_GAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Defines the grid adapter. The attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
     /// .object: [`ArkUI_NodeAdapter`] object as the adapter.
     pub const NODE_GRID_NODE_ADAPTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAttributeType {
     /// Sets the number of cached items in the grid adapter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -8051,10 +6495,6 @@ impl ArkUI_NodeEventType {
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
     /// [`ArkUI_UIInputEvent`].
     pub const NODE_TOUCH_EVENT: ArkUI_NodeEventType = ArkUI_NodeEventType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the mount event.
     ///
     /// This event is triggered when the component is mounted and displayed.
@@ -8064,10 +6504,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
     pub const NODE_EVENT_ON_APPEAR: ArkUI_NodeEventType = ArkUI_NodeEventType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the unmount event.
     ///
     /// This event is triggered when the component is unmounted and hidden.
@@ -8077,10 +6513,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
     pub const NODE_EVENT_ON_DISAPPEAR: ArkUI_NodeEventType = ArkUI_NodeEventType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the area change event.
     ///
     /// This event is triggered when the component's size, position, or any other attribute that may
@@ -8125,10 +6557,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[11].f32</b>: new Y coordinate of the target element's upper left corner relative
     /// to the page's, in vp. The value type is number.
     pub const NODE_EVENT_ON_AREA_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the focus event.
     ///
     /// This event is triggered when the component obtains the focus.
@@ -8138,10 +6566,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
     pub const NODE_ON_FOCUS: ArkUI_NodeEventType = ArkUI_NodeEventType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the blur event.
     ///
     /// This event is triggered when the component loses the focus.
@@ -8151,10 +6575,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
     pub const NODE_ON_BLUR: ArkUI_NodeEventType = ArkUI_NodeEventType(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the click event.
     ///
     /// This event is triggered when the component is clicked.
@@ -8188,10 +6608,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[7].f32</b>: Y coordinate of the click relative to the upper left corner of the
     /// application screen, in vp.
     pub const NODE_ON_CLICK: ArkUI_NodeEventType = ArkUI_NodeEventType(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines event interception.
     ///
     /// This event is triggered when the component is touched.
@@ -8199,10 +6615,6 @@ impl ArkUI_NodeEventType {
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
     /// [`ArkUI_UIInputEvent`].
     pub const NODE_ON_TOUCH_INTERCEPT: ArkUI_NodeEventType = ArkUI_NodeEventType(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the visible area change event.
     ///
     /// This event is triggered when the ratio of the component's visible area to its total area is greater than or less
@@ -8221,10 +6633,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: ratio of the component's visible area to its total area when this
     /// callback is invoked.
     pub const NODE_EVENT_ON_VISIBLE_AREA_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the mouse pointer is moved over or away from the component.
     ///
     ///
@@ -8238,10 +6646,6 @@ impl ArkUI_NodeEventType {
     /// The value <b>1</b> indicates that the mouse pointer is hovered over the component, and <b>0</b> indicates that
     /// the mouse pointer is moved away from the component.
     pub const NODE_ON_HOVER: ArkUI_NodeEventType = ArkUI_NodeEventType(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the click event.
     ///
     /// This event is triggered when the component is clicked by a mouse device button or when the mouse pointer moves
@@ -8250,10 +6654,6 @@ impl ArkUI_NodeEventType {
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
     /// [`ArkUI_UIInputEvent`].
     pub const NODE_ON_MOUSE: ArkUI_NodeEventType = ArkUI_NodeEventType(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the attach event.
     ///
     /// This event is triggered when the component is attached.
@@ -8263,10 +6663,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
     pub const NODE_EVENT_ON_ATTACH: ArkUI_NodeEventType = ArkUI_NodeEventType(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the detach event.
     ///
     /// This event is triggered when the component is detached.
@@ -8276,10 +6672,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
     pub const NODE_EVENT_ON_DETACH: ArkUI_NodeEventType = ArkUI_NodeEventType(12);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the accessibility action event.
     ///
     /// This event is triggered when The accessibility operation type has been set and
@@ -8293,10 +6685,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[0].u32</b>: accessibility action type，the union type is
     /// [`ArkUI_AccessibilityActionType`]
     pub const NODE_ON_ACCESSIBILITY_ACTIONS: ArkUI_NodeEventType = ArkUI_NodeEventType(13);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Notifies the listener of the interaction state prior to a drop and drop operation.
     ///
     /// This event is triggered when a drag operation is about to start on a draggable item.
@@ -8308,10 +6696,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: corresponds to [`ArkUI_PreDragStatus`].
     pub const NODE_ON_PRE_DRAG: ArkUI_NodeEventType = ArkUI_NodeEventType(14);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Called when the user starts to drag an ite
     ///
     /// A drag operation is recognized only when the dragged item is moved far enough.
@@ -8319,10 +6703,6 @@ impl ArkUI_NodeEventType {
     /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
     /// [`ArkUI_NodeEvent`] object.
     pub const NODE_ON_DRAG_START: ArkUI_NodeEventType = ArkUI_NodeEventType(15);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Called when a dragged item enters the boundaries of the current component.
     ///
     /// The current component refers to the component that listens for this event.
@@ -8330,10 +6710,6 @@ impl ArkUI_NodeEventType {
     /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
     /// [`ArkUI_NodeEvent`] object.
     pub const NODE_ON_DRAG_ENTER: ArkUI_NodeEventType = ArkUI_NodeEventType(16);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Called when a dragged item moves in the current component.
     ///
     /// The current component refers to the component that listens for this event.
@@ -8341,10 +6717,6 @@ impl ArkUI_NodeEventType {
     /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
     /// [`ArkUI_NodeEvent`] object.
     pub const NODE_ON_DRAG_MOVE: ArkUI_NodeEventType = ArkUI_NodeEventType(17);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Called when a dragged item leaves the boundaries of the current component.
     ///
     /// The current component refers to the component that listens for this event.
@@ -8352,10 +6724,6 @@ impl ArkUI_NodeEventType {
     /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
     /// [`ArkUI_NodeEvent`] object.
     pub const NODE_ON_DRAG_LEAVE: ArkUI_NodeEventType = ArkUI_NodeEventType(18);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Called when a dragged item is dropped on the current component.
     /// The component can obtain the drag data for processing through the callback.
     ///
@@ -8364,10 +6732,6 @@ impl ArkUI_NodeEventType {
     /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
     /// [`ArkUI_NodeEvent`] object.
     pub const NODE_ON_DROP: ArkUI_NodeEventType = ArkUI_NodeEventType(19);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Called when a drag operation ends.
     /// The drag source can obtain the drag result by registering this callback.
     ///
@@ -8375,10 +6739,6 @@ impl ArkUI_NodeEventType {
     /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
     /// [`ArkUI_NodeEvent`] object.
     pub const NODE_ON_DRAG_END: ArkUI_NodeEventType = ArkUI_NodeEventType(20);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when a key event occurs.
     ///
     /// The callback can be triggered during interactions with a focused window using an external keyboard or other input
@@ -8393,10 +6753,6 @@ impl ArkUI_NodeEventType {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const NODE_ON_KEY_EVENT: ArkUI_NodeEventType = ArkUI_NodeEventType(21);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered before the input method responds to the key action.
     ///
     /// If the return value of this callback is <b>true</b>, it is considered that the key event has been consumed, and
@@ -8414,10 +6770,6 @@ impl ArkUI_NodeEventType {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const NODE_ON_KEY_PRE_IME: ArkUI_NodeEventType = ArkUI_NodeEventType(22);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Triggers onDetectResultUpdate callback
     /// when the text is set to TextDataDetectorConfig and recognized successfully.
     ///
@@ -8430,10 +6782,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>：Indicates the result of text recognition, in Json format.
     pub const NODE_TEXT_ON_DETECT_RESULT_UPDATE: ArkUI_NodeEventType = ArkUI_NodeEventType(1000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the image loading success event.
     ///
     /// This event is triggered when an image is successfully loaded or decoded.
@@ -8464,10 +6812,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[8].f32</b>: actual rendered height of the image, in px.
     pub const NODE_IMAGE_ON_COMPLETE: ArkUI_NodeEventType = ArkUI_NodeEventType(4000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the image loading failure event.
     ///
     /// This event is triggered when an error occurs during image loading.
@@ -8483,10 +6827,6 @@ impl ArkUI_NodeEventType {
     ///
     /// 103101: The image format is not supported.
     pub const NODE_IMAGE_ON_ERROR: ArkUI_NodeEventType = ArkUI_NodeEventType(4001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the SVG animation playback completion event.
     ///
     /// This event is triggered when the animation playback in the loaded SVG image is complete.
@@ -8496,10 +6836,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
     pub const NODE_IMAGE_ON_SVG_PLAY_FINISH: ArkUI_NodeEventType = ArkUI_NodeEventType(4002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines image download process event.
     ///
     /// This event is triggered when downloading webpage images from page components.
@@ -8513,10 +6849,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].u32</b>: the total number of bytes to download.
     pub const NODE_IMAGE_ON_DOWNLOAD_PROGRESS: ArkUI_NodeEventType = ArkUI_NodeEventType(4003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the toggle status changes.
     ///
     ///
@@ -8528,10 +6860,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: toggle status. <b>1</b>: on; <b>0</b>: off.
     pub const NODE_TOGGLE_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(5000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the text input content changes.
     ///
     ///
@@ -8543,10 +6871,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: text input.
     pub const NODE_TEXT_INPUT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(7000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the Enter key of the text input method is pressed.
     ///
     ///
@@ -8558,10 +6882,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: Enter key type of the input method.
     pub const NODE_TEXT_INPUT_ON_SUBMIT: ArkUI_NodeEventType = ArkUI_NodeEventType(7001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the cut button on the pasteboard, which displays when the text box
     /// is long pressed, is clicked.
     ///
@@ -8574,10 +6894,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: text that is cut.
     pub const NODE_TEXT_INPUT_ON_CUT: ArkUI_NodeEventType = ArkUI_NodeEventType(7002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the paste button on the pasteboard, which displays when the text box
     /// is long pressed, is clicked.
     ///
@@ -8590,10 +6906,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: text that is pasted
     pub const NODE_TEXT_INPUT_ON_PASTE: ArkUI_NodeEventType = ArkUI_NodeEventType(7003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the text selection position changes.
     ///
     ///
@@ -8608,10 +6920,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: end position of the text selection area.
     pub const NODE_TEXT_INPUT_ON_TEXT_SELECTION_CHANGE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(7004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the input status changes.
     ///
     ///
@@ -8623,10 +6931,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: <b>true</b> indicates that text input is in progress.
     pub const NODE_TEXT_INPUT_ON_EDIT_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(7005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// textInput This event is triggered when the input content changes.
     ///
     /// Conditions for triggering this event: When the input content changes.
@@ -8641,10 +6945,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: Indicates the height of the text.
     pub const NODE_TEXT_INPUT_ON_CONTENT_SIZE_CHANGE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(7006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when matching with the regular expression specified by
     /// <b>NODE_TEXT_INPUT_INPUT_FILTER</b> fails.
     ///
@@ -8658,10 +6958,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: content that is filtered out when regular expression matching fails.
     pub const NODE_TEXT_INPUT_ON_INPUT_FILTER_ERROR: ArkUI_NodeEventType =
         ArkUI_NodeEventType(7007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// This callback is triggered when the text content is scrolled.
     ///
     ///
@@ -8677,10 +6973,6 @@ impl ArkUI_NodeEventType {
     ///
     /// the text in the content area.
     pub const NODE_TEXT_INPUT_ON_CONTENT_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(7008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when text is about to be entered.
     ///
     /// The event parameter is [`ArkUI_NodeEvent`].
@@ -8696,10 +6988,6 @@ impl ArkUI_NodeEventType {
     /// * Returns <b>true</b> if the text is entered; returns <b>false</b> otherwise.
     /// You can set the return value using <b>OH_ArkUI_NodeEvent_SetReturnNumberValue</b>.
     pub const NODE_TEXT_INPUT_ON_WILL_INSERT: ArkUI_NodeEventType = ArkUI_NodeEventType(7009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when text is entered.
     ///
     /// The event parameter is [`ArkUI_NodeEvent`].
@@ -8710,10 +6998,6 @@ impl ArkUI_NodeEventType {
     /// buffer: string value of the text, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetStringValue</b>.
     pub const NODE_TEXT_INPUT_ON_DID_INSERT: ArkUI_NodeEventType = ArkUI_NodeEventType(7010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when text is about to be deleted.
     ///
     /// The event parameter is [`ArkUI_NodeEvent`].
@@ -8734,10 +7018,6 @@ impl ArkUI_NodeEventType {
     ///
     /// You can set the return value using <b>OH_ArkUI_NodeEvent_SetReturnNumberValue</b>.
     pub const NODE_TEXT_INPUT_ON_WILL_DELETE: ArkUI_NodeEventType = ArkUI_NodeEventType(7011);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when text is deleted.
     ///
     /// The event parameter is [`ArkUI_NodeEvent`].
@@ -8752,10 +7032,6 @@ impl ArkUI_NodeEventType {
     /// buffer: string value of the text, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetStringValue</b>.
     pub const NODE_TEXT_INPUT_ON_DID_DELETE: ArkUI_NodeEventType = ArkUI_NodeEventType(7012);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the input in the text box changes.
     ///
     ///
@@ -8767,10 +7043,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: text entered.
     pub const NODE_TEXT_AREA_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(8000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the paste button on the pasteboard, which displays when the text box is
     /// long pressed, is clicked.
     ///
@@ -8783,10 +7055,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: text that is pasted
     pub const NODE_TEXT_AREA_ON_PASTE: ArkUI_NodeEventType = ArkUI_NodeEventType(8001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the text selection position changes.
     ///
     ///
@@ -8801,10 +7069,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: end position of the text selection area.
     pub const NODE_TEXT_AREA_ON_TEXT_SELECTION_CHANGE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(8002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when matching with the regular expression specified by
     /// <b>NODE_TEXT_AREA_INPUT_FILTER</b> fails.
     ///
@@ -8817,10 +7081,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: content that is filtered out when regular expression matching fails.
     pub const NODE_TEXT_AREA_ON_INPUT_FILTER_ERROR: ArkUI_NodeEventType = ArkUI_NodeEventType(8003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// This callback is triggered when the text content is scrolled.
     ///
     ///
@@ -8836,10 +7096,6 @@ impl ArkUI_NodeEventType {
     ///
     /// the text in the content area.
     pub const NODE_TEXT_AREA_ON_CONTENT_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(8004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the input status changes.
     ///
     ///
@@ -8852,10 +7108,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: <b>true</b> indicates that text input is in progress.
     pub const NODE_TEXT_AREA_ON_EDIT_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(8005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the Enter key on the keyboard is pressed for the multi-line text box.
     ///
     /// This event is not triggered when <b>keyType</b> is <b>ARKUI_ENTER_KEY_TYPE_NEW_LINE</b>.
@@ -8868,10 +7120,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: type of the Enter key.
     pub const NODE_TEXT_AREA_ON_SUBMIT: ArkUI_NodeEventType = ArkUI_NodeEventType(8006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// textArea This event is triggered when the input content changes.
     ///
     /// Conditions for triggering this event: When the input content changes.
@@ -8887,10 +7135,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: Indicates the height of the text.
     pub const NODE_TEXT_AREA_ON_CONTENT_SIZE_CHANGE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(8007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when text is about to be entered.
     ///
     /// The event parameter is [`ArkUI_NodeEvent`].
@@ -8906,10 +7150,6 @@ impl ArkUI_NodeEventType {
     /// * Returns <b>true</b> if the text is entered; returns <b>false</b> otherwise.
     /// You can set the return value using <b>OH_ArkUI_NodeEvent_SetReturnNumberValue</b>.
     pub const NODE_TEXT_AREA_ON_WILL_INSERT: ArkUI_NodeEventType = ArkUI_NodeEventType(8008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when text is entered.
     ///
     /// The event parameter is [`ArkUI_NodeEvent`].
@@ -8920,10 +7160,6 @@ impl ArkUI_NodeEventType {
     /// buffer: string value of the text, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetStringValue</b>.
     pub const NODE_TEXT_AREA_ON_DID_INSERT: ArkUI_NodeEventType = ArkUI_NodeEventType(8009);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when text is about to be deleted.
     ///
     /// The event parameter is [`ArkUI_NodeEvent`].
@@ -8944,10 +7180,6 @@ impl ArkUI_NodeEventType {
     ///
     /// You can set the return value using <b>OH_ArkUI_NodeEvent_SetReturnNumberValue</b>.
     pub const NODE_TEXT_AREA_ON_WILL_DELETE: ArkUI_NodeEventType = ArkUI_NodeEventType(8010);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when text is deleted.
     ///
     /// The event parameter is [`ArkUI_NodeEvent`].
@@ -8962,10 +7194,6 @@ impl ArkUI_NodeEventType {
     /// buffer: string value of the text, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetStringValue</b>.
     pub const NODE_TEXT_AREA_ON_DID_DELETE: ArkUI_NodeEventType = ArkUI_NodeEventType(8011);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the selected status of the <b>ARKUI_NODE_CHECKBOX</b> component changes.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -8973,10 +7201,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b><b>1</b>: selected; <b>0</b>: not selected.
     pub const NODE_CHECKBOX_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(11000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when a date is selected in the <b>ARKUI_NODE_DATE_PICKER</b> component.
     ///
     ///
@@ -8993,10 +7217,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: day of the selected date.
     pub const NODE_DATE_PICKER_EVENT_ON_DATE_CHANGE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(13000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when a time is selected in the <b>ARKUI_NODE_TIME_PICKER</b> component.
     ///
     ///
@@ -9010,10 +7230,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: minute of the selected time. Value range: [0-59].
     pub const NODE_TIME_PICKER_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(14000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when an item is selected in the <b>ARKUI_NODE_TEXT_PICKER</b> component.
     ///
     ///
@@ -9025,10 +7241,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0...11].i32</b>: value of the selected item.
     pub const NODE_TEXT_PICKER_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(15000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when an item is selected and scrolling has stopped in the
     /// <b>ARKUI_NODE_TEXT_PICKER</b> component.
     ///
@@ -9046,10 +7258,6 @@ impl ArkUI_NodeEventType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const NODE_TEXT_PICKER_EVENT_ON_SCROLL_STOP: ArkUI_NodeEventType =
         ArkUI_NodeEventType(15001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when a date is selected in the <b>NODE_CALENDAR_PICKER</b>.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9062,10 +7270,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponent.data[2].u32</b>: day of the selected date.
     pub const NODE_CALENDAR_PICKER_EVENT_ON_CHANGE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(16000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the <b>ARKUI_NODE_SLIDER</b> component is dragged or clicked.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9077,10 +7281,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: state triggered by the event.
     pub const NODE_SLIDER_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(17000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event callback function triggered when an object is dragged or clicked by ARKUI_NODE_RADIO.
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
     ///
@@ -9090,10 +7290,6 @@ impl ArkUI_NodeEventType {
     ///
     /// ArkUI_NodeComponentEvent.data[0].i32: option button status.
     pub const NODE_RADIO_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(18000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event callback function triggered when the animation starts to play.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9102,10 +7298,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameter:
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_START: ArkUI_NodeEventType = ArkUI_NodeEventType(19000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event callback function triggered when the animation playback is paused.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9114,10 +7306,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameter:
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_PAUSE: ArkUI_NodeEventType = ArkUI_NodeEventType(19001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event callback function triggered when the animation playback is repeated.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9126,10 +7314,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameter:
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_REPEAT: ArkUI_NodeEventType = ArkUI_NodeEventType(19002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event callback function when the animation playback returns to the initial state.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9138,10 +7322,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameter:
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_CANCEL: ArkUI_NodeEventType = ArkUI_NodeEventType(19003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event callback function triggered when the animation playback is complete or stopped.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9150,10 +7330,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameter:
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_FINISH: ArkUI_NodeEventType = ArkUI_NodeEventType(19004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the index of the currently displayed element of this
     /// <b>ARKUI_NODE_SWIPER</b> instance changes.
     ///
@@ -9164,10 +7340,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the currently displayed element.
     pub const NODE_SWIPER_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(1001000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the switching animation of this <b>ARKUI_NODE_SWIPER</b> instance starts.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9188,10 +7360,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[4].f32</b>: hands-off velocity.
     pub const NODE_SWIPER_EVENT_ON_ANIMATION_START: ArkUI_NodeEventType =
         ArkUI_NodeEventType(1001001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the switching animation of this <b>ARKUI_NODE_SWIPER</b> instance ends.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9205,10 +7373,6 @@ impl ArkUI_NodeEventType {
     /// start position of the swiper along the main axis.
     pub const NODE_SWIPER_EVENT_ON_ANIMATION_END: ArkUI_NodeEventType =
         ArkUI_NodeEventType(1001002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered on a frame-by-frame basis when the page is turned by a swipe in this
     /// <b>ARKUI_NODE_SWIPER</b> instance.
     ///
@@ -9223,10 +7387,6 @@ impl ArkUI_NodeEventType {
     /// start position of the swiper along the main axis.
     pub const NODE_SWIPER_EVENT_ON_GESTURE_SWIPE: ArkUI_NodeEventType =
         ArkUI_NodeEventType(1001003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Define the <b>ARKUI_NODE_SWIPER</b> to listen for Swiper page slide events.
     /// Instruction:
     ///
@@ -9270,10 +7430,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[3].f32</b> : The length of the page in the axis direction.
     pub const NODE_SWIPER_EVENT_ON_CONTENT_DID_SCROLL: ArkUI_NodeEventType =
         ArkUI_NodeEventType(1001004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the <b>ARKUI_NODE_SCROLL</b> component scrolls.
     ///
     /// Notes for triggering the event:
@@ -9294,10 +7450,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: vertical scrolling offset.
     pub const NODE_SCROLL_EVENT_ON_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1002000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when each frame scrolling starts in the <b>ARKUI_NODE_SCROLL</b> component.
     ///
     /// Notes for triggering the event:
@@ -9324,10 +7476,6 @@ impl ArkUI_NodeEventType {
     /// needs to scroll based on the real-world situation and return the result in this parameter.
     pub const NODE_SCROLL_EVENT_ON_SCROLL_FRAME_BEGIN: ArkUI_NodeEventType =
         ArkUI_NodeEventType(1002001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Define the enumeration value of the pre sliding trigger event for the scrolling container component.
     ///
     /// The conditions that trigger this event:
@@ -9363,10 +7511,6 @@ impl ArkUI_NodeEventType {
     ///
     /// * Does not return or returns a number that sets the actual scroll distance of the scroll component.
     pub const NODE_SCROLL_EVENT_ON_WILL_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1002002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Define the event enumeration value triggered when sliding a scrolling container component.
     ///
     /// The conditions that trigger this event:
@@ -9393,10 +7537,6 @@ impl ArkUI_NodeEventType {
     ///
     /// parameter type is [`ArkUI_ScrollState`].
     pub const NODE_SCROLL_EVENT_ON_DID_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1002003);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when scrolling starts in the <b>ARKUI_NODE_SCROLL</b> component.
     ///
     /// Notes for triggering the event:
@@ -9411,10 +7551,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
     pub const NODE_SCROLL_EVENT_ON_SCROLL_START: ArkUI_NodeEventType = ArkUI_NodeEventType(1002004);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when scrolling of the <b>ARKUI_NODE_SCROLL</b> component stops.
     ///
     /// Notes for triggering the event:
@@ -9429,10 +7565,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
     pub const NODE_SCROLL_EVENT_ON_SCROLL_STOP: ArkUI_NodeEventType = ArkUI_NodeEventType(1002005);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when scrolling of the <b>ARKUI_NODE_SCROLL</b> component reaches
     /// one of the edges.
     ///
@@ -9452,10 +7584,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: edge (top, bottom, left, or right) that the scrolling reaches.
     pub const NODE_SCROLL_EVENT_ON_SCROLL_EDGE: ArkUI_NodeEventType = ArkUI_NodeEventType(1002006);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Define that a callback is triggered when the scrolling container component reaches the start position.
     /// Condition for triggering the event:
     ///
@@ -9466,10 +7594,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameters.
     pub const NODE_SCROLL_EVENT_ON_REACH_START: ArkUI_NodeEventType = ArkUI_NodeEventType(1002007);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Define that a callback is triggered when the scrolling container component ends.
     ///
     /// Condition for triggering the event:
@@ -9481,10 +7605,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameters.
     pub const NODE_SCROLL_EVENT_ON_REACH_END: ArkUI_NodeEventType = ArkUI_NodeEventType(1002008);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the enumerated values of the event triggered,
     ///
     /// when a subcomponent of ARKUI_NODE_LIST is moved into or out of the list display area.
@@ -9512,10 +7632,6 @@ impl ArkUI_NodeEventType {
     ///
     /// the subcomponent in the middle of the area.
     pub const NODE_LIST_ON_SCROLL_INDEX: ArkUI_NodeEventType = ArkUI_NodeEventType(1003000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the enumerated values of the event triggered
     /// before the sliding of the ARKUI_NODE_LIST component.
     ///
@@ -9554,10 +7670,6 @@ impl ArkUI_NodeEventType {
     ///
     /// * Does not return or returns a number that sets the actual scroll distance of the scroll component.
     pub const NODE_LIST_ON_WILL_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1003001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Define the enumerated values of the event triggered when the ARKUI_NODE_LIST component is flicked.
     /// Condition for triggering the event:
     ///
@@ -9583,10 +7695,6 @@ impl ArkUI_NodeEventType {
     ///
     /// ArkUI_NodeComponentEvent.data[1].i32: Current sliding state.
     pub const NODE_LIST_ON_DID_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1003002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the refresh state of the <b>ARKUI_NODE_REFRESH</b> object changes.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9596,10 +7704,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: refresh state.
     pub const NODE_REFRESH_STATE_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(1009000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the <b>ARKUI_NODE_REFRESH</b> object enters the refresh state.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9607,10 +7711,6 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] does not contain parameters:
     pub const NODE_REFRESH_ON_REFRESH: ArkUI_NodeEventType = ArkUI_NodeEventType(1009001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event that is triggered when the <b>ARKUI_NODE_REFRESH</b> drop-down distance changes.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -9620,10 +7720,6 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: Pull-down distance.
     pub const NODE_REFRESH_ON_OFFSET_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(1009002);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the event triggered when the <b>ARKUI_NODE_SCROLL</b> component is about to scroll.
     ///
     /// Notes for triggering the event:
@@ -9659,10 +7755,6 @@ impl ArkUI_NodeEventType {
     ///
     /// * Does not return or returns a number that sets the actual scroll distance of the scroll component.
     pub const NODE_ON_WILL_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1010000);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Define the enumerated values of the event triggered when the ARKUI_NODE_WATER_FLOW component slides.
     /// Condition for triggering the event:
     ///
@@ -9685,10 +7777,6 @@ impl ArkUI_NodeEventType {
     ///
     /// ArkUI_NodeComponentEvent.data[1].i32: Current sliding state.
     pub const NODE_WATER_FLOW_ON_DID_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1010001);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeEventType {
     /// Defines the enumerated values of the event triggered,
     /// when the subcomponent of the start position or end position displayed in the current waterfall changes.
     /// Condition for triggering the event:
@@ -9732,16 +7820,8 @@ impl ArkUI_NodeDirtyFlag {
     ///
     /// When this type of flag is specified, re-layout is triggered by default.
     pub const NODE_NEED_MEASURE: ArkUI_NodeDirtyFlag = ArkUI_NodeDirtyFlag(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeDirtyFlag {
     /// Re-layout.
     pub const NODE_NEED_LAYOUT: ArkUI_NodeDirtyFlag = ArkUI_NodeDirtyFlag(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeDirtyFlag {
     /// Re-rendering.
     pub const NODE_NEED_RENDER: ArkUI_NodeDirtyFlag = ArkUI_NodeDirtyFlag(3);
 }
@@ -9760,31 +7840,15 @@ impl ArkUI_NodeCustomEventType {
     /// Measure type.
     pub const ARKUI_NODE_CUSTOM_EVENT_ON_MEASURE: ArkUI_NodeCustomEventType =
         ArkUI_NodeCustomEventType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeCustomEventType {
     /// Layout type.
     pub const ARKUI_NODE_CUSTOM_EVENT_ON_LAYOUT: ArkUI_NodeCustomEventType =
         ArkUI_NodeCustomEventType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeCustomEventType {
     /// Draw type.
     pub const ARKUI_NODE_CUSTOM_EVENT_ON_DRAW: ArkUI_NodeCustomEventType =
         ArkUI_NodeCustomEventType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeCustomEventType {
     /// Foreground type.
     pub const ARKUI_NODE_CUSTOM_EVENT_ON_FOREGROUND_DRAW: ArkUI_NodeCustomEventType =
         ArkUI_NodeCustomEventType(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeCustomEventType {
     /// Overlay type.
     pub const ARKUI_NODE_CUSTOM_EVENT_ON_OVERLAY_DRAW: ArkUI_NodeCustomEventType =
         ArkUI_NodeCustomEventType(16);
@@ -9823,31 +7887,15 @@ impl ArkUI_NodeAdapterEventType {
     /// This event occurs when the component is attached to the adapter.
     pub const NODE_ADAPTER_EVENT_WILL_ATTACH_TO_NODE: ArkUI_NodeAdapterEventType =
         ArkUI_NodeAdapterEventType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAdapterEventType {
     /// This event occurs when the component is detached from the adapter.
     pub const NODE_ADAPTER_EVENT_WILL_DETACH_FROM_NODE: ArkUI_NodeAdapterEventType =
         ArkUI_NodeAdapterEventType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAdapterEventType {
     /// This event occurs when the adapter obtains the unique ID of the new element to add.
     pub const NODE_ADAPTER_EVENT_ON_GET_NODE_ID: ArkUI_NodeAdapterEventType =
         ArkUI_NodeAdapterEventType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAdapterEventType {
     /// This event occurs when the adapter obtains the content of the new element to add.
     pub const NODE_ADAPTER_EVENT_ON_ADD_NODE_TO_ADAPTER: ArkUI_NodeAdapterEventType =
         ArkUI_NodeAdapterEventType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeAdapterEventType {
     /// This event occurs when the adapter removes an element.
     pub const NODE_ADAPTER_EVENT_ON_REMOVE_NODE_FROM_ADAPTER: ArkUI_NodeAdapterEventType =
         ArkUI_NodeAdapterEventType(5);
@@ -10567,10 +8615,6 @@ impl ArkUI_NodeContentEventType {
     /// Defines the attach event.
     pub const NODE_CONTENT_EVENT_ON_ATTACH_TO_WINDOW: ArkUI_NodeContentEventType =
         ArkUI_NodeContentEventType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_NodeContentEventType {
     /// Defines the detach event.
     pub const NODE_CONTENT_EVENT_ON_DETACH_FROM_WINDOW: ArkUI_NodeContentEventType =
         ArkUI_NodeContentEventType(1);

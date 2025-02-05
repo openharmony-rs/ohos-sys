@@ -24,88 +24,40 @@ impl ArkUI_Accessibility_ActionType {
     /// Invalid action.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_INVALID: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(0);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Response to a click.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_CLICK: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(16);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Response to a long click.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_LONG_CLICK: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(32);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Accessibility focus acquisition.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_GAIN_ACCESSIBILITY_FOCUS:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(64);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Accessibility focus clearance.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_CLEAR_ACCESSIBILITY_FOCUS:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(128);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Forward scroll action.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SCROLL_FORWARD:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(256);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Backward scroll action.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SCROLL_BACKWARD:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(512);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Copy action for text content.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_COPY: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(1024);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Paste action for text content.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_PASTE: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(2048);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Cut action for text content.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_CUT: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(4096);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Text selection action, requiring the setting of <b>selectTextBegin</b>, <b>TextEnd</b>, and <b>TextInForward</b>
     /// parameters to select a text segment in the text box.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SELECT_TEXT: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(8192);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Text content setting action.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SET_TEXT: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(16384);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_Accessibility_ActionType {
     /// Cursor position setting action.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SET_CURSOR_POSITION:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(1048576);
@@ -125,101 +77,45 @@ impl ArkUI_AccessibilityEventType {
     /// Invalid event.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_INVALID: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(0);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Click event, sent after the UI component responds.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_CLICKED: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(1);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Long click event, sent after the UI component responds.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_LONG_CLICKED: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(2);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Selection event, sent after the UI component responds.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_SELECTED: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(4);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Text update event, sent when text is updated.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_TEXT_UPDATE: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(16);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Page state update event, sent when the page transitions, switches, resizes, or moves.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_PAGE_STATE_UPDATE:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(32);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Page content update event, sent when the page content changes.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_PAGE_CONTENT_UPDATE:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(2048);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Scrolled event, sent when a scrollable component experiences a scroll event.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_SCROLLED: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(4096);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Accessibility focus event, sent after the UI component responds.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_ACCESSIBILITY_FOCUSED:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(32768);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Accessibility focus cleared event, sent after the UI component responds.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_ACCESSIBILITY_FOCUS_CLEARED:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(65536);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// FOcus request for a specific node.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_REQUEST_ACCESSIBILITY_FOCUS:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(33554432);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Page open event reported by the UI component.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_PAGE_OPEN: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(536870912);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Page close event reported by the UI component.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_PAGE_CLOSE: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(134217728);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Announcement event, indicating a request to proactively announce specified content.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_ANNOUNCE_FOR_ACCESSIBILITY:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(268435456);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityEventType {
     /// Focus update event, used for focus update scenarios.
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_FOCUS_NODE_UPDATE:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(268435457);
@@ -325,24 +221,12 @@ impl ArkUI_AcessbilityErrorCode {
     /// Success.
     pub const ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL: ArkUI_AcessbilityErrorCode =
         ArkUI_AcessbilityErrorCode(0);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AcessbilityErrorCode {
     /// Failure.
     pub const ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED: ArkUI_AcessbilityErrorCode =
         ArkUI_AcessbilityErrorCode(-1);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AcessbilityErrorCode {
     /// Invalid parameter.
     pub const ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER: ArkUI_AcessbilityErrorCode =
         ArkUI_AcessbilityErrorCode(-2);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AcessbilityErrorCode {
     /// Out of memory.
     pub const ARKUI_ACCESSIBILITY_NATIVE_RESULT_OUT_OF_MEMORY: ArkUI_AcessbilityErrorCode =
         ArkUI_AcessbilityErrorCode(-3);
@@ -362,31 +246,15 @@ impl ArkUI_AccessibilitySearchMode {
     /// Search for current nodes.
     pub const ARKUI_ACCESSIBILITY_NATIVE_SEARCH_MODE_PREFETCH_CURRENT:
         ArkUI_AccessibilitySearchMode = ArkUI_AccessibilitySearchMode(0);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilitySearchMode {
     /// Search for parent nodes.
     pub const ARKUI_ACCESSIBILITY_NATIVE_SEARCH_MODE_PREFETCH_PREDECESSORS:
         ArkUI_AccessibilitySearchMode = ArkUI_AccessibilitySearchMode(1);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilitySearchMode {
     /// Search for sibling nodes.
     pub const ARKUI_ACCESSIBILITY_NATIVE_SEARCH_MODE_PREFETCH_SIBLINGS:
         ArkUI_AccessibilitySearchMode = ArkUI_AccessibilitySearchMode(2);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilitySearchMode {
     /// Search for child nodes at the next level.
     pub const ARKUI_ACCESSIBILITY_NATIVE_SEARCH_MODE_PREFETCH_CHILDREN:
         ArkUI_AccessibilitySearchMode = ArkUI_AccessibilitySearchMode(4);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilitySearchMode {
     /// Search for all child nodes.
     pub const ARKUI_ACCESSIBILITY_NATIVE_SEARCH_MODE_PREFETCH_RECURSIVE_CHILDREN:
         ArkUI_AccessibilitySearchMode = ArkUI_AccessibilitySearchMode(8);
@@ -406,17 +274,9 @@ impl ArkUI_AccessibilityFocusType {
     /// Invalid type.
     pub const ARKUI_ACCESSIBILITY_NATIVE_FOCUS_TYPE_INVALID: ArkUI_AccessibilityFocusType =
         ArkUI_AccessibilityFocusType(-1);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityFocusType {
     /// Input focus type.
     pub const ARKUI_ACCESSIBILITY_NATIVE_FOCUS_TYPE_INPUT: ArkUI_AccessibilityFocusType =
         ArkUI_AccessibilityFocusType(1);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityFocusType {
     /// Accessibility focus type.
     pub const ARKUI_ACCESSIBILITY_NATIVE_FOCUS_TYPE_ACCESSIBILITY: ArkUI_AccessibilityFocusType =
         ArkUI_AccessibilityFocusType(2);
@@ -436,45 +296,21 @@ impl ArkUI_AccessibilityFocusMoveDirection {
     /// Invalid direction.
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_INVALID: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(0);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityFocusMoveDirection {
     /// Up.
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_UP: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(1);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityFocusMoveDirection {
     /// Down.
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_DOWN: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(2);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityFocusMoveDirection {
     /// Left.
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_LEFT: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(4);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityFocusMoveDirection {
     /// Right.
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_RIGHT: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(8);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityFocusMoveDirection {
     /// Forward.
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_FORWARD: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(16);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl ArkUI_AccessibilityFocusMoveDirection {
     /// Backward.
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_BACKWARD: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(32);

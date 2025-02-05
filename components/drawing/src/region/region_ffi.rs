@@ -10,35 +10,15 @@ use crate::types::*;
 impl OH_Drawing_RegionOpMode {
     /// Difference operation.
     pub const REGION_OP_MODE_DIFFERENCE: OH_Drawing_RegionOpMode = OH_Drawing_RegionOpMode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_RegionOpMode {
     /// Intersect operation.
     pub const REGION_OP_MODE_INTERSECT: OH_Drawing_RegionOpMode = OH_Drawing_RegionOpMode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_RegionOpMode {
     /// Union operation.
     pub const REGION_OP_MODE_UNION: OH_Drawing_RegionOpMode = OH_Drawing_RegionOpMode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_RegionOpMode {
     /// Xor operation.
     pub const REGION_OP_MODE_XOR: OH_Drawing_RegionOpMode = OH_Drawing_RegionOpMode(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_RegionOpMode {
     /// Reverse difference operation.
     pub const REGION_OP_MODE_REVERSE_DIFFERENCE: OH_Drawing_RegionOpMode =
         OH_Drawing_RegionOpMode(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_RegionOpMode {
     /// Replace operation.
     pub const REGION_OP_MODE_REPLACE: OH_Drawing_RegionOpMode = OH_Drawing_RegionOpMode(5);
 }

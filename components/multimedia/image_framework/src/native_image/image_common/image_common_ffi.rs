@@ -71,110 +71,42 @@ pub type Image_MimeType = Image_String;
 impl ImageResult {
     /// operation success
     pub const SUCCESS: ImageResult = ImageResult(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// invalid parameter
     pub const BAD_PARAMETER: ImageResult = ImageResult(401);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// unsupported mime type
     pub const UNSUPPORTED_MIME_TYPE: ImageResult = ImageResult(7600101);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// unknown mime type
     pub const UNKNOWN_MIME_TYPE: ImageResult = ImageResult(7600102);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// too large data or image
     pub const TOO_LARGE: ImageResult = ImageResult(7600103);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// DMA memory does not exist
     pub const DMA_NOT_EXIST: ImageResult = ImageResult(7600173);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// DMA operation failed
     pub const DMA_OPERATION_FAILED: ImageResult = ImageResult(7600174);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// unsupported operations
     pub const UNSUPPORTED_OPERATION: ImageResult = ImageResult(7600201);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// unsupported metadata
     pub const UNSUPPORTED_METADATA: ImageResult = ImageResult(7600202);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// unsupported conversion
     pub const UNSUPPORTED_CONVERSION: ImageResult = ImageResult(7600203);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// invalid region
     pub const INVALID_REGION: ImageResult = ImageResult(7600204);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// unsupported memory format
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const UNSUPPORTED_MEMORY_FORMAT: ImageResult = ImageResult(7600205);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// failed to allocate memory
     pub const ALLOC_FAILED: ImageResult = ImageResult(7600301);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// memory copy failed
     pub const COPY_FAILED: ImageResult = ImageResult(7600302);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// unknown error
     pub const UNKNOWN_ERROR: ImageResult = ImageResult(7600901);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// decode data source exception
     pub const BAD_SOURCE: ImageResult = ImageResult(7700101);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// decode failed
     pub const DECODE_FAILED: ImageResult = ImageResult(7700301);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ImageResult {
     /// encode failed
     pub const ENCODE_FAILED: ImageResult = ImageResult(7800301);
 }
@@ -191,10 +123,6 @@ pub struct ImageResult(pub ::core::ffi::c_uint);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl Image_MetadataType {
     pub const EXIF_METADATA: Image_MetadataType = Image_MetadataType(1);
-}
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl Image_MetadataType {
     pub const FRAGMENT_METADATA: Image_MetadataType = Image_MetadataType(2);
 }
 #[repr(transparent)]

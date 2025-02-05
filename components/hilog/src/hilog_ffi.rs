@@ -21,20 +21,12 @@ pub struct LogType(pub ::core::ffi::c_uint);
 impl LogLevel {
     /// Debug level to be used by [`OH_LOG_DEBUG`]
     pub const LOG_DEBUG: LogLevel = LogLevel(3);
-}
-impl LogLevel {
     /// Informational level to be used by [`OH_LOG_INFO`]
     pub const LOG_INFO: LogLevel = LogLevel(4);
-}
-impl LogLevel {
     /// Warning level to be used by [`OH_LOG_WARN`]
     pub const LOG_WARN: LogLevel = LogLevel(5);
-}
-impl LogLevel {
     /// Error level to be used by [`OH_LOG_ERROR`]
     pub const LOG_ERROR: LogLevel = LogLevel(6);
-}
-impl LogLevel {
     /// Fatal level to be used by [`OH_LOG_FATAL`]
     pub const LOG_FATAL: LogLevel = LogLevel(7);
 }

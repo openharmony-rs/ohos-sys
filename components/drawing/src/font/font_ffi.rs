@@ -10,22 +10,10 @@ use crate::types::*;
 impl OH_Drawing_FontHinting {
     /// glyph outlines unchanged
     pub const FONT_HINTING_NONE: OH_Drawing_FontHinting = OH_Drawing_FontHinting(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontHinting {
     /// minimal modification to improve contrast
     pub const FONT_HINTING_SLIGHT: OH_Drawing_FontHinting = OH_Drawing_FontHinting(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontHinting {
     /// glyph outlines modified to improve contrast
     pub const FONT_HINTING_NORMAL: OH_Drawing_FontHinting = OH_Drawing_FontHinting(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontHinting {
     /// modifies glyph outlines for maximum contrast
     pub const FONT_HINTING_FULL: OH_Drawing_FontHinting = OH_Drawing_FontHinting(3);
 }
@@ -45,16 +33,8 @@ pub struct OH_Drawing_FontHinting(pub ::core::ffi::c_uint);
 impl OH_Drawing_FontEdging {
     /// no transparent pixels on glyph edges
     pub const FONT_EDGING_ALIAS: OH_Drawing_FontEdging = OH_Drawing_FontEdging(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontEdging {
     /// may have transparent pixels on glyph edges
     pub const FONT_EDGING_ANTI_ALIAS: OH_Drawing_FontEdging = OH_Drawing_FontEdging(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontEdging {
     /// glyph positioned in pixel using transparency
     pub const FONT_EDGING_SUBPIXEL_ANTI_ALIAS: OH_Drawing_FontEdging = OH_Drawing_FontEdging(2);
 }

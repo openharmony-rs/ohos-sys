@@ -9,16 +9,8 @@
 impl InputMethod_KeyboardStatus {
     /// The keyboard status is none.
     pub const IME_KEYBOARD_STATUS_NONE: InputMethod_KeyboardStatus = InputMethod_KeyboardStatus(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_KeyboardStatus {
     /// The keyboard status is hide.
     pub const IME_KEYBOARD_STATUS_HIDE: InputMethod_KeyboardStatus = InputMethod_KeyboardStatus(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_KeyboardStatus {
     /// The keyboard status is show.
     pub const IME_KEYBOARD_STATUS_SHOW: InputMethod_KeyboardStatus = InputMethod_KeyboardStatus(2);
 }
@@ -36,52 +28,20 @@ pub struct InputMethod_KeyboardStatus(pub ::core::ffi::c_uint);
 impl InputMethod_EnterKeyType {
     /// The enter key type is UNSPECIFIED.
     pub const IME_ENTER_KEY_UNSPECIFIED: InputMethod_EnterKeyType = InputMethod_EnterKeyType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_EnterKeyType {
     /// The enter key type is NONE.
     pub const IME_ENTER_KEY_NONE: InputMethod_EnterKeyType = InputMethod_EnterKeyType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_EnterKeyType {
     /// The enter key type is GO.
     pub const IME_ENTER_KEY_GO: InputMethod_EnterKeyType = InputMethod_EnterKeyType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_EnterKeyType {
     /// The enter key type is SEARCH.
     pub const IME_ENTER_KEY_SEARCH: InputMethod_EnterKeyType = InputMethod_EnterKeyType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_EnterKeyType {
     /// The enter key type is SEND.
     pub const IME_ENTER_KEY_SEND: InputMethod_EnterKeyType = InputMethod_EnterKeyType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_EnterKeyType {
     /// The enter key type is NEXT.
     pub const IME_ENTER_KEY_NEXT: InputMethod_EnterKeyType = InputMethod_EnterKeyType(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_EnterKeyType {
     /// The enter key type is DONE.
     pub const IME_ENTER_KEY_DONE: InputMethod_EnterKeyType = InputMethod_EnterKeyType(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_EnterKeyType {
     /// The enter key type is PREVIOUS.
     pub const IME_ENTER_KEY_PREVIOUS: InputMethod_EnterKeyType = InputMethod_EnterKeyType(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_EnterKeyType {
     /// The enter key type is NEWLINE.
     pub const IME_ENTER_KEY_NEWLINE: InputMethod_EnterKeyType = InputMethod_EnterKeyType(8);
 }
@@ -99,28 +59,12 @@ pub struct InputMethod_EnterKeyType(pub ::core::ffi::c_uint);
 impl InputMethod_Direction {
     /// The direction is NONE.
     pub const IME_DIRECTION_NONE: InputMethod_Direction = InputMethod_Direction(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_Direction {
     /// The direction is UP.
     pub const IME_DIRECTION_UP: InputMethod_Direction = InputMethod_Direction(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_Direction {
     /// The direction is DOWN.
     pub const IME_DIRECTION_DOWN: InputMethod_Direction = InputMethod_Direction(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_Direction {
     /// The direction is LEFT.
     pub const IME_DIRECTION_LEFT: InputMethod_Direction = InputMethod_Direction(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_Direction {
     /// The direction is RIGHT.
     pub const IME_DIRECTION_RIGHT: InputMethod_Direction = InputMethod_Direction(4);
 }
@@ -138,22 +82,10 @@ pub struct InputMethod_Direction(pub ::core::ffi::c_uint);
 impl InputMethod_ExtendAction {
     /// Select all text.
     pub const IME_EXTEND_ACTION_SELECT_ALL: InputMethod_ExtendAction = InputMethod_ExtendAction(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ExtendAction {
     /// Cut selected text.
     pub const IME_EXTEND_ACTION_CUT: InputMethod_ExtendAction = InputMethod_ExtendAction(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ExtendAction {
     /// Copy selected text.
     pub const IME_EXTEND_ACTION_COPY: InputMethod_ExtendAction = InputMethod_ExtendAction(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_ExtendAction {
     /// Paste from paste board.
     pub const IME_EXTEND_ACTION_PASTE: InputMethod_ExtendAction = InputMethod_ExtendAction(5);
 }
@@ -171,90 +103,38 @@ pub struct InputMethod_ExtendAction(pub ::core::ffi::c_uint);
 impl InputMethod_TextInputType {
     /// The text input type is NONE.
     pub const IME_TEXT_INPUT_TYPE_NONE: InputMethod_TextInputType = InputMethod_TextInputType(-1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is TEXT.
     pub const IME_TEXT_INPUT_TYPE_TEXT: InputMethod_TextInputType = InputMethod_TextInputType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is MULTILINE.
     pub const IME_TEXT_INPUT_TYPE_MULTILINE: InputMethod_TextInputType =
         InputMethod_TextInputType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is NUMBER.
     pub const IME_TEXT_INPUT_TYPE_NUMBER: InputMethod_TextInputType = InputMethod_TextInputType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is PHONE.
     pub const IME_TEXT_INPUT_TYPE_PHONE: InputMethod_TextInputType = InputMethod_TextInputType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is DATETIME.
     pub const IME_TEXT_INPUT_TYPE_DATETIME: InputMethod_TextInputType =
         InputMethod_TextInputType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is EMAIL ADDRESS.
     pub const IME_TEXT_INPUT_TYPE_EMAIL_ADDRESS: InputMethod_TextInputType =
         InputMethod_TextInputType(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is URL.
     pub const IME_TEXT_INPUT_TYPE_URL: InputMethod_TextInputType = InputMethod_TextInputType(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is VISIBLE PASSWORD.
     pub const IME_TEXT_INPUT_TYPE_VISIBLE_PASSWORD: InputMethod_TextInputType =
         InputMethod_TextInputType(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is NUMBER PASSWORD.
     pub const IME_TEXT_INPUT_TYPE_NUMBER_PASSWORD: InputMethod_TextInputType =
         InputMethod_TextInputType(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is SCREEN LOCK PASSWORD.
     pub const IME_TEXT_INPUT_TYPE_SCREEN_LOCK_PASSWORD: InputMethod_TextInputType =
         InputMethod_TextInputType(9);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is USER NAME.
     pub const IME_TEXT_INPUT_TYPE_USER_NAME: InputMethod_TextInputType =
         InputMethod_TextInputType(10);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is NEW PASSWORD.
     pub const IME_TEXT_INPUT_TYPE_NEW_PASSWORD: InputMethod_TextInputType =
         InputMethod_TextInputType(11);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_TextInputType {
     /// The text input type is NUMBER DECIMAL.
     pub const IME_TEXT_INPUT_TYPE_NUMBER_DECIMAL: InputMethod_TextInputType =
         InputMethod_TextInputType(12);
@@ -274,24 +154,12 @@ impl InputMethod_CommandValueType {
     /// Value type is NONE.
     pub const IME_COMMAND_VALUE_TYPE_NONE: InputMethod_CommandValueType =
         InputMethod_CommandValueType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_CommandValueType {
     /// Value type is STRING.
     pub const IME_COMMAND_VALUE_TYPE_STRING: InputMethod_CommandValueType =
         InputMethod_CommandValueType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_CommandValueType {
     /// Value type is BOOL.
     pub const IME_COMMAND_VALUE_TYPE_BOOL: InputMethod_CommandValueType =
         InputMethod_CommandValueType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethod_CommandValueType {
     /// Value type is INT32.
     pub const IME_COMMAND_VALUE_TYPE_INT32: InputMethod_CommandValueType =
         InputMethod_CommandValueType(3);
@@ -305,91 +173,47 @@ impl InputMethod_CommandValueType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct InputMethod_CommandValueType(pub ::core::ffi::c_uint);
+pub type InputMethodResult = Result<(), InputMethodErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl InputMethodErrorCode {
     /// The error code when error is undefined.
     pub const UNDEFINED: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(1).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when parameter check failed.
     pub const PARAMCHECK: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(401).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when the bundle manager error.
     pub const PACKAGEMANAGER: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(12800001).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when input method engine error.
     pub const IMENGINE: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(12800002).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when input method client error.
     pub const IMCLIENT: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(12800003).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when configuration persistence error.
     pub const CONFIG_PERSIST: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(12800005).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when input method controller error.
     pub const CONTROLLER: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(12800006).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when input method setting error.
     pub const SETTINGS: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(12800007).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when input method manager service error.
     pub const IMMS: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(12800008).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when input method client detached.
     pub const DETACHED: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(12800009).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when unexpected null pointer.
     pub const NULL_POINTER: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(12802000).unwrap() });
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl InputMethodErrorCode {
     /// The error code when query failed.
     pub const QUERY_FAILED: InputMethodErrorCode =
         InputMethodErrorCode(const { core::num::NonZero::new(12802001).unwrap() });
 }
-pub type InputMethodResult = Result<(), InputMethodErrorCode>;
 #[repr(transparent)]
 /// The value type of command data.
 ///

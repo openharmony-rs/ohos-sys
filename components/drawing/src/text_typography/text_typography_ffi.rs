@@ -11,8 +11,6 @@ use crate::types::*;
 impl OH_Drawing_TextDirection {
     /// Right to left (RTL)
     pub const TEXT_DIRECTION_RTL: OH_Drawing_TextDirection = OH_Drawing_TextDirection(0);
-}
-impl OH_Drawing_TextDirection {
     /// Left to right (LTR)
     pub const TEXT_DIRECTION_LTR: OH_Drawing_TextDirection = OH_Drawing_TextDirection(1);
 }
@@ -28,28 +26,18 @@ pub struct OH_Drawing_TextDirection(pub ::core::ffi::c_uint);
 impl OH_Drawing_TextAlign {
     /// Left-aligned
     pub const TEXT_ALIGN_LEFT: OH_Drawing_TextAlign = OH_Drawing_TextAlign(0);
-}
-impl OH_Drawing_TextAlign {
     /// Right-aligned
     pub const TEXT_ALIGN_RIGHT: OH_Drawing_TextAlign = OH_Drawing_TextAlign(1);
-}
-impl OH_Drawing_TextAlign {
     /// Center-aligned
     pub const TEXT_ALIGN_CENTER: OH_Drawing_TextAlign = OH_Drawing_TextAlign(2);
-}
-impl OH_Drawing_TextAlign {
     /// Justified, which means that each line (except the last line) is stretched so that every line has equal width,
     /// and the left and right margins are straight.
     pub const TEXT_ALIGN_JUSTIFY: OH_Drawing_TextAlign = OH_Drawing_TextAlign(3);
-}
-impl OH_Drawing_TextAlign {
     /// <b>TEXT_ALIGN_START</b> achieves the same effect as <b>TEXT_ALIGN_LEFT</b>
     /// when <b>OH_Drawing_TextDirection</b> is <b>TEXT_DIRECTION_LTR</b>;
     /// it achieves the same effect as <b>TEXT_ALIGN_RIGHT</b>
     /// when <b>OH_Drawing_TextDirection</b> is <b>TEXT_DIRECTION_RTL</b>.
     pub const TEXT_ALIGN_START: OH_Drawing_TextAlign = OH_Drawing_TextAlign(4);
-}
-impl OH_Drawing_TextAlign {
     /// <b>TEXT_ALIGN_END</b> achieves the same effect as <b>TEXT_ALIGN_RIGHT</b>
     /// when <b>OH_Drawing_TextDirection</b> is <b>TEXT_DIRECTION_LTR</b>;
     /// it achieves the same effect as <b>TEXT_ALIGN_LEFT</b>
@@ -68,36 +56,20 @@ pub struct OH_Drawing_TextAlign(pub ::core::ffi::c_uint);
 impl OH_Drawing_FontWeight {
     /// Thin
     pub const FONT_WEIGHT_100: OH_Drawing_FontWeight = OH_Drawing_FontWeight(0);
-}
-impl OH_Drawing_FontWeight {
     /// Extra-light
     pub const FONT_WEIGHT_200: OH_Drawing_FontWeight = OH_Drawing_FontWeight(1);
-}
-impl OH_Drawing_FontWeight {
     /// Light
     pub const FONT_WEIGHT_300: OH_Drawing_FontWeight = OH_Drawing_FontWeight(2);
-}
-impl OH_Drawing_FontWeight {
     /// Normal/Regular
     pub const FONT_WEIGHT_400: OH_Drawing_FontWeight = OH_Drawing_FontWeight(3);
-}
-impl OH_Drawing_FontWeight {
     /// Medium
     pub const FONT_WEIGHT_500: OH_Drawing_FontWeight = OH_Drawing_FontWeight(4);
-}
-impl OH_Drawing_FontWeight {
     /// Semi-bold
     pub const FONT_WEIGHT_600: OH_Drawing_FontWeight = OH_Drawing_FontWeight(5);
-}
-impl OH_Drawing_FontWeight {
     /// Bold
     pub const FONT_WEIGHT_700: OH_Drawing_FontWeight = OH_Drawing_FontWeight(6);
-}
-impl OH_Drawing_FontWeight {
     /// Extra-bold
     pub const FONT_WEIGHT_800: OH_Drawing_FontWeight = OH_Drawing_FontWeight(7);
-}
-impl OH_Drawing_FontWeight {
     /// Black
     pub const FONT_WEIGHT_900: OH_Drawing_FontWeight = OH_Drawing_FontWeight(8);
 }
@@ -113,8 +85,6 @@ pub struct OH_Drawing_FontWeight(pub ::core::ffi::c_uint);
 impl OH_Drawing_TextBaseline {
     /// Alphabetic, where the letters in alphabets like English sit on.
     pub const TEXT_BASELINE_ALPHABETIC: OH_Drawing_TextBaseline = OH_Drawing_TextBaseline(0);
-}
-impl OH_Drawing_TextBaseline {
     /// Ideographic. The baseline is at the bottom of the text area.
     pub const TEXT_BASELINE_IDEOGRAPHIC: OH_Drawing_TextBaseline = OH_Drawing_TextBaseline(1);
 }
@@ -130,16 +100,10 @@ pub struct OH_Drawing_TextBaseline(pub ::core::ffi::c_uint);
 impl OH_Drawing_TextDecoration {
     /// No decoration.
     pub const TEXT_DECORATION_NONE: OH_Drawing_TextDecoration = OH_Drawing_TextDecoration(0);
-}
-impl OH_Drawing_TextDecoration {
     /// A underline is used for decoration.
     pub const TEXT_DECORATION_UNDERLINE: OH_Drawing_TextDecoration = OH_Drawing_TextDecoration(1);
-}
-impl OH_Drawing_TextDecoration {
     /// An overline is used for decoration.
     pub const TEXT_DECORATION_OVERLINE: OH_Drawing_TextDecoration = OH_Drawing_TextDecoration(2);
-}
-impl OH_Drawing_TextDecoration {
     /// A strikethrough is used for decoration.
     pub const TEXT_DECORATION_LINE_THROUGH: OH_Drawing_TextDecoration =
         OH_Drawing_TextDecoration(4);
@@ -156,12 +120,8 @@ pub struct OH_Drawing_TextDecoration(pub ::core::ffi::c_uint);
 impl OH_Drawing_FontStyle {
     /// Normal style
     pub const FONT_STYLE_NORMAL: OH_Drawing_FontStyle = OH_Drawing_FontStyle(0);
-}
-impl OH_Drawing_FontStyle {
     /// Italic style
     pub const FONT_STYLE_ITALIC: OH_Drawing_FontStyle = OH_Drawing_FontStyle(1);
-}
-impl OH_Drawing_FontStyle {
     /// Oblique style
     pub const FONT_STYLE_OBLIQUE: OH_Drawing_FontStyle = OH_Drawing_FontStyle(2);
 }
@@ -180,38 +140,18 @@ impl OH_Drawing_PlaceholderVerticalAlignment {
     /// Offset At Baseline
     pub const ALIGNMENT_OFFSET_AT_BASELINE: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_PlaceholderVerticalAlignment {
     /// Above Baseline
     pub const ALIGNMENT_ABOVE_BASELINE: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(1);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_PlaceholderVerticalAlignment {
     /// Below Baseline
     pub const ALIGNMENT_BELOW_BASELINE: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(2);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_PlaceholderVerticalAlignment {
     /// Top of Row Box
     pub const ALIGNMENT_TOP_OF_ROW_BOX: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(3);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_PlaceholderVerticalAlignment {
     /// Bottom of Row Box
     pub const ALIGNMENT_BOTTOM_OF_ROW_BOX: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(4);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_PlaceholderVerticalAlignment {
     /// Center of Row Box
     pub const ALIGNMENT_CENTER_OF_ROW_BOX: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(5);
@@ -255,31 +195,15 @@ impl OH_Drawing_TextDecorationStyle {
     /// Solid style
     pub const TEXT_DECORATION_STYLE_SOLID: OH_Drawing_TextDecorationStyle =
         OH_Drawing_TextDecorationStyle(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_TextDecorationStyle {
     /// Double style
     pub const TEXT_DECORATION_STYLE_DOUBLE: OH_Drawing_TextDecorationStyle =
         OH_Drawing_TextDecorationStyle(1);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_TextDecorationStyle {
     /// Dotted style
     pub const TEXT_DECORATION_STYLE_DOTTED: OH_Drawing_TextDecorationStyle =
         OH_Drawing_TextDecorationStyle(2);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_TextDecorationStyle {
     /// Dashed style
     pub const TEXT_DECORATION_STYLE_DASHED: OH_Drawing_TextDecorationStyle =
         OH_Drawing_TextDecorationStyle(3);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_TextDecorationStyle {
     /// Wavy style
     pub const TEXT_DECORATION_STYLE_WAVY: OH_Drawing_TextDecorationStyle =
         OH_Drawing_TextDecorationStyle(4);
@@ -300,16 +224,8 @@ pub struct OH_Drawing_TextDecorationStyle(pub ::core::ffi::c_uint);
 impl OH_Drawing_EllipsisModal {
     /// Head modal
     pub const ELLIPSIS_MODAL_HEAD: OH_Drawing_EllipsisModal = OH_Drawing_EllipsisModal(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_EllipsisModal {
     /// Middle modal
     pub const ELLIPSIS_MODAL_MIDDLE: OH_Drawing_EllipsisModal = OH_Drawing_EllipsisModal(1);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_EllipsisModal {
     /// Tail modal
     pub const ELLIPSIS_MODAL_TAIL: OH_Drawing_EllipsisModal = OH_Drawing_EllipsisModal(2);
 }
@@ -329,16 +245,8 @@ pub struct OH_Drawing_EllipsisModal(pub ::core::ffi::c_uint);
 impl OH_Drawing_BreakStrategy {
     /// Greedy strategy
     pub const BREAK_STRATEGY_GREEDY: OH_Drawing_BreakStrategy = OH_Drawing_BreakStrategy(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BreakStrategy {
     /// Quality strategy
     pub const BREAK_STRATEGY_HIGH_QUALITY: OH_Drawing_BreakStrategy = OH_Drawing_BreakStrategy(1);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_BreakStrategy {
     /// Balanced strategy
     pub const BREAK_STRATEGY_BALANCED: OH_Drawing_BreakStrategy = OH_Drawing_BreakStrategy(2);
 }
@@ -358,16 +266,8 @@ pub struct OH_Drawing_BreakStrategy(pub ::core::ffi::c_uint);
 impl OH_Drawing_WordBreakType {
     /// Normal type
     pub const WORD_BREAK_TYPE_NORMAL: OH_Drawing_WordBreakType = OH_Drawing_WordBreakType(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_WordBreakType {
     /// Break All type
     pub const WORD_BREAK_TYPE_BREAK_ALL: OH_Drawing_WordBreakType = OH_Drawing_WordBreakType(1);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_WordBreakType {
     /// Break Word type
     pub const WORD_BREAK_TYPE_BREAK_WORD: OH_Drawing_WordBreakType = OH_Drawing_WordBreakType(2);
 }
@@ -387,37 +287,17 @@ pub struct OH_Drawing_WordBreakType(pub ::core::ffi::c_uint);
 impl OH_Drawing_RectHeightStyle {
     /// Tight style
     pub const RECT_HEIGHT_STYLE_TIGHT: OH_Drawing_RectHeightStyle = OH_Drawing_RectHeightStyle(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_RectHeightStyle {
     /// Max style
     pub const RECT_HEIGHT_STYLE_MAX: OH_Drawing_RectHeightStyle = OH_Drawing_RectHeightStyle(1);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_RectHeightStyle {
     /// Includelinespacemiddle style
     pub const RECT_HEIGHT_STYLE_INCLUDELINESPACEMIDDLE: OH_Drawing_RectHeightStyle =
         OH_Drawing_RectHeightStyle(2);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_RectHeightStyle {
     /// Includelinespacetop style
     pub const RECT_HEIGHT_STYLE_INCLUDELINESPACETOP: OH_Drawing_RectHeightStyle =
         OH_Drawing_RectHeightStyle(3);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_RectHeightStyle {
     /// Includelinespacebottom style
     pub const RECT_HEIGHT_STYLE_INCLUDELINESPACEBOTTOM: OH_Drawing_RectHeightStyle =
         OH_Drawing_RectHeightStyle(4);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_RectHeightStyle {
     /// Struct style
     pub const RECT_HEIGHT_STYLE_STRUCT: OH_Drawing_RectHeightStyle = OH_Drawing_RectHeightStyle(5);
 }
@@ -437,10 +317,6 @@ pub struct OH_Drawing_RectHeightStyle(pub ::core::ffi::c_uint);
 impl OH_Drawing_RectWidthStyle {
     /// Tight style
     pub const RECT_WIDTH_STYLE_TIGHT: OH_Drawing_RectWidthStyle = OH_Drawing_RectWidthStyle(0);
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_Drawing_RectWidthStyle {
     /// Max style
     pub const RECT_WIDTH_STYLE_MAX: OH_Drawing_RectWidthStyle = OH_Drawing_RectWidthStyle(1);
 }
@@ -461,30 +337,14 @@ impl OH_Drawing_FontConfigInfoErrorCode {
     /// The list of system font configuration information was successfully obtained
     pub const SUCCESS_FONT_CONFIG_INFO: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontConfigInfoErrorCode {
     /// Unknown error
     pub const UNKNOWN: OH_Drawing_FontConfigInfoErrorCode = OH_Drawing_FontConfigInfoErrorCode(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontConfigInfoErrorCode {
     /// Parse system config file error
     pub const PARSE_FILE: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontConfigInfoErrorCode {
     /// Alloc memory error
     pub const ALLOC_MEMORY: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontConfigInfoErrorCode {
     /// Copy string data error
     pub const COPY_STRING_DATA: OH_Drawing_FontConfigInfoErrorCode =
         OH_Drawing_FontConfigInfoErrorCode(4);
@@ -684,24 +544,12 @@ pub struct OH_Drawing_LineMetrics {
 impl OH_Drawing_TextHeightBehavior {
     /// both ascend of first row and last row style
     pub const TEXT_HEIGHT_ALL: OH_Drawing_TextHeightBehavior = OH_Drawing_TextHeightBehavior(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextHeightBehavior {
     /// forbidding ascend of first row style
     pub const TEXT_HEIGHT_DISABLE_FIRST_ASCENT: OH_Drawing_TextHeightBehavior =
         OH_Drawing_TextHeightBehavior(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextHeightBehavior {
     /// forbidding ascend of last row style
     pub const TEXT_HEIGHT_DISABLE_LAST_ASCENT: OH_Drawing_TextHeightBehavior =
         OH_Drawing_TextHeightBehavior(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextHeightBehavior {
     /// neither ascend of first row nor last row style
     pub const TEXT_HEIGHT_DISABLE_ALL: OH_Drawing_TextHeightBehavior =
         OH_Drawing_TextHeightBehavior(3);
@@ -722,52 +570,20 @@ pub struct OH_Drawing_TextHeightBehavior(pub ::core::ffi::c_uint);
 impl OH_Drawing_TextStyleType {
     /// None style
     pub const TEXT_STYLE_NONE: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextStyleType {
     /// All attributes style
     pub const TEXT_STYLE_ALL_ATTRIBUTES: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextStyleType {
     /// Font style
     pub const TEXT_STYLE_FONT: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextStyleType {
     /// Foreground style
     pub const TEXT_STYLE_FOREGROUND: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextStyleType {
     /// Background style
     pub const TEXT_STYLE_BACKGROUND: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextStyleType {
     /// Shadow style
     pub const TEXT_STYLE_SHADOW: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextStyleType {
     /// Decorations style
     pub const TEXT_STYLE_DECORATIONS: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextStyleType {
     /// Letter spacing style
     pub const TEXT_STYLE_LETTER_SPACING: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_TextStyleType {
     /// Word spacing style
     pub const TEXT_STYLE_WORD_SPACING: OH_Drawing_TextStyleType = OH_Drawing_TextStyleType(8);
 }
@@ -786,45 +602,13 @@ pub struct OH_Drawing_TextStyleType(pub ::core::ffi::c_uint);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FontWidth {
     pub const FONT_WIDTH_ULTRA_CONDENSED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontWidth {
     pub const FONT_WIDTH_EXTRA_CONDENSED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontWidth {
     pub const FONT_WIDTH_CONDENSED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(3);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontWidth {
     pub const FONT_WIDTH_SEMI_CONDENSED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(4);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontWidth {
     pub const FONT_WIDTH_NORMAL: OH_Drawing_FontWidth = OH_Drawing_FontWidth(5);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontWidth {
     pub const FONT_WIDTH_SEMI_EXPANDED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(6);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontWidth {
     pub const FONT_WIDTH_EXPANDED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(7);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontWidth {
     pub const FONT_WIDTH_EXTRA_EXPANDED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(8);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_Drawing_FontWidth {
     pub const FONT_WIDTH_ULTRA_EXPANDED: OH_Drawing_FontWidth = OH_Drawing_FontWidth(9);
 }
 #[repr(transparent)]

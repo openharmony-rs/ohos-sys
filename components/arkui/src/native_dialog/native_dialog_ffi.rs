@@ -10,22 +10,10 @@ use crate::native_type::*;
 impl ArkUI_DismissReason {
     /// Touching the system-defined Back button or pressing the Esc key.
     pub const DIALOG_DISMISS_BACK_PRESS: ArkUI_DismissReason = ArkUI_DismissReason(0);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_DismissReason {
     /// Touching the mask.
     pub const DIALOG_DISMISS_TOUCH_OUTSIDE: ArkUI_DismissReason = ArkUI_DismissReason(1);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_DismissReason {
     /// Touching the Close button.
     pub const DIALOG_DISMISS_CLOSE_BUTTON: ArkUI_DismissReason = ArkUI_DismissReason(2);
-}
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl ArkUI_DismissReason {
     /// Sliding down.
     pub const DIALOG_DISMISS_SLIDE_DOWN: ArkUI_DismissReason = ArkUI_DismissReason(3);
 }
