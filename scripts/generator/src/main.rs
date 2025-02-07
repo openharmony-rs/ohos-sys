@@ -147,8 +147,7 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
         }
         // Replace manual linebreaks in doxygen with double linebreaks for markdown.
         let comment = comment.replace("\\n", "\n");
-        Some(doxygen_rs::transform(&comment))
-        // None
+        Some(doxygen_rs::transform(&comment.trim_end_matches("\n")))
     }
 
     fn parse_comments_for_attributes(&self, comment: &str) -> Vec<CodeGenAttributes> {

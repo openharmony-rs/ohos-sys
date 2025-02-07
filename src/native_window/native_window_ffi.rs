@@ -164,6 +164,7 @@ impl OH_NativeBuffer_ColorSpace {
 /// Available since API-level: 11
 ///
 /// Version: 1.0
+////
 ////**
 /// Indicates the color space of a native buffer.
 /// Move from native_buffer.h to native_common.h
