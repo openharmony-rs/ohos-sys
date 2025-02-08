@@ -131,7 +131,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-sys-opaque-types"
-version = "0.1.4"
+version = "0.1.5"
 
 [[package]]
 name = "ohos-vsync-sys"
@@ -187,6 +187,14 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
+]
+
+[[package]]
+name = "udmf-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+ "ohos-sys-opaque-types",
 ]
 
 [[package]]

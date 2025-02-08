@@ -45,6 +45,58 @@ pub struct OH_ImageSourceNative {
     _unused: [u8; 0],
 }
 #[repr(C)]
+pub struct OH_UdsPlainText {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdsHyperlink {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdsHtml {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdsAppItem {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdsFileUri {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdsPixelMap {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdsContentForm {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdsArrayBuffer {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdmfData {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdmfRecord {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdmfRecordProvider {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_UdmfProperty {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_Utd {
+    _unused: [u8; 0],
+}
+#[repr(C)]
 pub struct ArkUI_AccessibilityProvider {
     _unused: [u8; 0],
 }
