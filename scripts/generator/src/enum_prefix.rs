@@ -11,6 +11,11 @@ pub(crate) static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>>
         ("ArkUI_ErrorCode", "ARKUI_ERROR_CODE_"),
         ("InputMethod_ErrorCode", "IME_ERR_"),
         ("Input_Result", "INPUT_"),
-        ("OH_Drawing_FontConfigInfoErrorCode", "ERROR_FONT_CONFIG_INFO_")
+        ("OH_Drawing_FontConfigInfoErrorCode", "ERROR_FONT_CONFIG_INFO_"),
+        ("Udmf_Intention", "UDMF_INTENTION_"),
+        ("Udmf_ShareOption", "SHARE_OPTIONS_"),
+        ("Udmf_ErrCode", "UDMF_"),
+        ("PASTEBOARD_ErrCode", "ERR_"),
+        ("Pasteboard_NotifyType", "NOTIFY_"),
     ])
 });

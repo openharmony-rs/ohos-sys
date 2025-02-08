@@ -8,11 +8,11 @@
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Udmf_ErrCode {
     /// The error code in the correct case.
-    pub const UDMF_E_OK: Udmf_ErrCode = Udmf_ErrCode(0);
+    pub const E_OK: Udmf_ErrCode = Udmf_ErrCode(0);
     /// The error code for common exceptions.
-    pub const UDMF_ERR: Udmf_ErrCode = Udmf_ErrCode(20400000);
+    pub const ERR: Udmf_ErrCode = Udmf_ErrCode(20400000);
     /// The error code for common invalid args.
-    pub const UDMF_E_INVALID_PARAM: Udmf_ErrCode = Udmf_ErrCode(20400001);
+    pub const E_INVALID_PARAM: Udmf_ErrCode = Udmf_ErrCode(20400001);
 }
 #[repr(transparent)]
 /// Indicates the error code information.

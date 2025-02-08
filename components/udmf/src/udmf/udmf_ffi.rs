@@ -10,9 +10,9 @@ pub const UDMF_KEY_BUFFER_LEN: u32 = 512;
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Udmf_Intention {
     /// The intention is drag.
-    pub const UDMF_INTENTION_DRAG: Udmf_Intention = Udmf_Intention(0);
+    pub const DRAG: Udmf_Intention = Udmf_Intention(0);
     /// The intention is pasteboard.
-    pub const UDMF_INTENTION_PASTEBOARD: Udmf_Intention = Udmf_Intention(1);
+    pub const PASTEBOARD: Udmf_Intention = Udmf_Intention(1);
 }
 #[repr(transparent)]
 /// Describe the intention type of the udmf.
@@ -27,11 +27,11 @@ pub struct Udmf_Intention(pub ::core::ffi::c_uint);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Udmf_ShareOption {
     /// Invalid share option.
-    pub const SHARE_OPTIONS_INVALID: Udmf_ShareOption = Udmf_ShareOption(0);
+    pub const INVALID: Udmf_ShareOption = Udmf_ShareOption(0);
     /// Allowed to be used in the same application on this device.
-    pub const SHARE_OPTIONS_IN_APP: Udmf_ShareOption = Udmf_ShareOption(1);
+    pub const IN_APP: Udmf_ShareOption = Udmf_ShareOption(1);
     /// Allowed to be used in the cross application on this device.
-    pub const SHARE_OPTIONS_CROSS_APP: Udmf_ShareOption = Udmf_ShareOption(2);
+    pub const CROSS_APP: Udmf_ShareOption = Udmf_ShareOption(2);
 }
 #[repr(transparent)]
 /// Describe intra-device usage range type enumeration.
