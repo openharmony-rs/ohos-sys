@@ -103,6 +103,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-pasteboard-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+ "ohos-sys-opaque-types",
+]
+
+[[package]]
 name = "ohos-rawfile-sys"
 version = "0.1.0"
 dependencies = [
