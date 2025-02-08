@@ -1,0 +1,30 @@
+[package]
+name = "ohos-pasteboard-sys"
+version = "0.1.0"
+edition = "2021"
+description = "Raw Bindings to the clipboard / pasteboard on OpenHarmony"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "ffi", "pasteboard", "clipboard"]
+readme = "README.md"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+ohos-sys-opaque-types = { workspace = true }
+
+[features]
+default = []
+
+api-10 = []
+api-11 = ["api-10"]
+api-12 = ["api-11"]
+## This is the minimum API-level required for the pasteboard.
+api-13 = ["api-12" ]
+api-14 = ["api-13"]
+## Document available features when building the documentation
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true

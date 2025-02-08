@@ -54,6 +54,7 @@ already been generated.
 | neural_network_runtime                  |        |           |
 | ohaudio                                 |        |           |
 | ohcamera                                |        |           |
+| Pasteboard                              | ✅      | 14        |
 | purgeable_memory                        |        |           |
 | qos                                     |        |           |
 | rawfile                                 | ✅      | 14        |
