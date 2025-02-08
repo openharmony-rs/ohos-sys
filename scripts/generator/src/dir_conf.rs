@@ -65,14 +65,18 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/pasteboard/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
-                builder
+                let builder = builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
                     .allowlist_recursively(false)
                     .default_enum_style(EnumVariation::NewType {
                         is_bitfield: false,
                         is_global: false,
                         is_result_type: false,
-                    })
+                    });
+                match file_stem {
+                    "pasteboard" => builder.raw_line("use ohos_sys_opaque_types::OH_UdmfData;"),
+                    _ => builder,
+                }
             }
             ),
         },
