@@ -61,6 +61,51 @@ impl bindgen::callbacks::ParseCallbacks for ResultEnumParseCallbacks {
 pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
     vec![
         DirBindingsConf {
+            directory: "database/pasteboard".to_string(),
+            output_dir: "components/pasteboard/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                builder
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_recursively(false)
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                        is_result_type: false,
+                    })
+            }
+            ),
+        },
+        DirBindingsConf {
+            directory: "database/udmf".to_string(),
+            output_dir: "components/udmf/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_recursively(false)
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                        is_result_type: false,
+                    });
+
+                match file_stem {
+                    "udmf" => builder.raw_line("use ohos_sys_opaque_types::*;"),
+                    "uds" => builder
+                        .raw_line("pub use ohos_sys_opaque_types::{OH_UdsAppItem, OH_UdsHtml, OH_UdsHyperlink, OH_UdsPlainText};")
+                        .raw_line("#[cfg(feature = \"api-13\")]use ohos_sys_opaque_types::OH_PixelmapNative;")
+                        .raw_line("#[cfg(feature = \"api-13\")]pub use ohos_sys_opaque_types::{OH_UdsPixelMap, OH_UdsArrayBuffer, OH_UdsFileUri};")
+                        .raw_line("#[cfg(feature = \"api-14\")]pub use ohos_sys_opaque_types::OH_UdsContentForm;")
+                    ,
+                    "utd" => builder.raw_line("pub use ohos_sys_opaque_types::OH_Utd;"),
+                    _ => builder,
+                }
+
+            }
+            ),
+        },
+        DirBindingsConf {
             directory: "multimedia/image_framework/image".to_string(),
             output_dir: "components/multimedia/image_framework/src/native_image".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_suffix(stem, "_native"))),

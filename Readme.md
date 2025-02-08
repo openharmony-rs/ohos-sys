@@ -9,61 +9,62 @@ Here is an overview of the available C header directories in the OpenHarmony sys
 this crate already provides bindings. The API-level column denotes up to which api level the bindings have
 already been generated.
 
-| API name                   | status | API-level | 
-|----------------------------|--------|-----------|
-| AbilityKit                 |        |           |
-| BasicServicesKit           |        |           |
-| ConnectivityKit            |        |           |
-| CryptoArchitectureKit      |        |           |
-| DataProtectionKit          |        |           |
-| IPCKit                     |        |           |
-| LocationKit                |        |           |
-| NotificationKit            |        |           |
-| accesstoken                |        |           |
-| ace/xcomponent             | ✅      | 14        |
-| ark_runtime                |        |           |
-| arkui                      | ✅      | 14        |
-| asset                      |        |           |
-| bundle                     |        |           |
-| database                   |        |           |
-| ddk                        |        |           |
-| ffrt                       |        |           |
-| filemanagement             |        |           |
-| hiappevent                 |        |           |
-| hicollie                   |        |           |
-| hid                        |        |           |
-| hidebug                    |        |           |
-| hilog                      | ✅      | 14        |
-| hitrace                    | ✅      | 14        |
-| huks                       |        |           |
-| info                       |        |           |
-| inputmethod                | ✅      | 14        |
-| mindspore                  |        |           |
-| multimedia                 |        |           |
-| multimodalinput            | ✅      | 14        |
-| napi                       | ✅      | 13        |
-| native_buffer              | ✅      | 14        |
-| native_color_space_manager |        |           |
-| native_display_soloist     |        |           |
-| native_drawing             | ✅      | 14        |
-| native_effect              |        |           |
-| native_image               | ✅      | 14        |
-| native_vsync               | ✅      | 14        |
-| native_window              | ✅      | 14        |
-| network                    |        |           |
-| neural_network_runtime     |        |           |
-| ohaudio                    |        |           |
-| ohcamera                   |        |           |
-| purgeable_memory           |        |           |
-| qos                        |        |           |
-| rawfile                    | ✅      | 14        |
-| resourcemanager            |        |           |
-| sensors                    |        |           |
-| telephony                  |        |           |
-| transient_task             |        |           |
-| usb                        |        |           |
-| web                        |        |           |
-| window_manager             |        |           |
+| API name                                | status | API-level | 
+|-----------------------------------------|--------|-----------|
+| AbilityKit                              |        |           |
+| BasicServicesKit                        |        |           |
+| ConnectivityKit                         |        |           |
+| CryptoArchitectureKit                   |        |           |
+| DataProtectionKit                       |        |           |
+| IPCKit                                  |        |           |
+| LocationKit                             |        |           |
+| NotificationKit                         |        |           |
+| accesstoken                             |        |           |
+| ace/xcomponent                          | ✅      | 14        |
+| ark_runtime                             |        |           |
+| arkui                                   | ✅      | 14        |
+| asset                                   |        |           |
+| bundle                                  |        |           |
+| database                                |        |           |
+| ddk                                     |        |           |
+| ffrt                                    |        |           |
+| filemanagement                          |        |           |
+| hiappevent                              |        |           |
+| hicollie                                |        |           |
+| hid                                     |        |           |
+| hidebug                                 |        |           |
+| hilog                                   | ✅      | 14        |
+| hitrace                                 | ✅      | 14        |
+| huks                                    |        |           |
+| info                                    |        |           |
+| inputmethod                             | ✅      | 14        |
+| mindspore                               |        |           |
+| multimedia                              |        |           |
+| multimodalinput                         | ✅      | 14        |
+| napi                                    | ✅      | 13        |
+| native_buffer                           | ✅      | 14        |
+| native_color_space_manager              |        |           |
+| native_display_soloist                  |        |           |
+| native_drawing                          | ✅      | 14        |
+| native_effect                           |        |           |
+| native_image                            | ✅      | 14        |
+| native_vsync                            | ✅      | 14        |
+| native_window                           | ✅      | 14        |
+| network                                 |        |           |
+| neural_network_runtime                  |        |           |
+| ohaudio                                 |        |           |
+| ohcamera                                |        |           |
+| purgeable_memory                        |        |           |
+| qos                                     |        |           |
+| rawfile                                 | ✅      | 14        |
+| resourcemanager                         |        |           |
+| sensors                                 |        |           |
+| telephony                               |        |           |
+| transient_task                          |        |           |
+| Unified Data Management Framework(UDMF) | ✅      | 14        |
+| usb                                     |        |           |
+| web                                     |        |           |
+| window_manager                          |        |           |
 
 ## Development
 
