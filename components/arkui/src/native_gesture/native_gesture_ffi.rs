@@ -6,14 +6,32 @@
 use crate::native_type::*;
 use crate::ui_input_event::ArkUI_UIInputEvent;
 
+/// Defines a gesture recognizer.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_GestureRecognizer {
     _unused: [u8; 0],
 }
+/// Defines the gesture interruption information.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_GestureInterruptInfo {
     _unused: [u8; 0],
 }
+/// Defines the gesture event.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_GestureEvent {
     _unused: [u8; 0],
@@ -239,10 +257,22 @@ pub type ArkUI_GestureRecognizerHandle = *mut ArkUI_GestureRecognizer;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type ArkUI_GestureRecognizerHandleArray = *mut ArkUI_GestureRecognizerHandle;
+/// Defines a <b>GestureEventTargetInfo</b> object that provides information about a gesture event target.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_GestureEventTargetInfo {
     _unused: [u8; 0],
 }
+/// Defines a parallel internal gesture event.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_ParallelInnerGestureEvent {
     _unused: [u8; 0],

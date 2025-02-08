@@ -117,22 +117,52 @@ impl ArkUI_DragStatus {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_DragStatus(pub ::core::ffi::c_int);
+/// Defines a struct for a component event.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_NodeEvent {
     _unused: [u8; 0],
 }
+/// Defines a struct for a drag event.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_DragEvent {
     _unused: [u8; 0],
 }
+/// Defines a struct for custom drag preview options.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_DragPreviewOption {
     _unused: [u8; 0],
 }
+/// Defines a struct for a drag action.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_DragAction {
     _unused: [u8; 0],
 }
+/// Defines a struct for drag and drop information returned through a drag status listener.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_DragAndDropInfo {
     _unused: [u8; 0],

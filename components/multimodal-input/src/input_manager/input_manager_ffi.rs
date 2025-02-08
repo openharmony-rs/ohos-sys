@@ -197,26 +197,62 @@ impl InputEvent_SourceType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct InputEvent_SourceType(pub ::core::ffi::c_uint);
+/// Defines key information, which identifies a key pressing behavior. For example, the Ctrl key information contains the key value and key type.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct Input_KeyState {
     _unused: [u8; 0],
 }
+/// The key event to be injected.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct Input_KeyEvent {
     _unused: [u8; 0],
 }
+/// The mouse event to be injected.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct Input_MouseEvent {
     _unused: [u8; 0],
 }
+/// The touch event to be injected.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct Input_TouchEvent {
     _unused: [u8; 0],
 }
+/// Enumerates axis events.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct Input_AxisEvent {
     _unused: [u8; 0],
 }
+/// Defines the hot key structure.
+///
+///
+/// Available since API-level: 14
+#[cfg(feature = "api-14")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 #[repr(C)]
 pub struct Input_Hotkey {
     _unused: [u8; 0],
@@ -274,6 +310,12 @@ pub struct InputErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 pub type Input_HotkeyCallback =
     ::core::option::Option<unsafe extern "C" fn(hotkey: *mut Input_Hotkey)>;
+/// Represents information about the input device.
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
 pub struct Input_DeviceInfo {
     _unused: [u8; 0],
@@ -369,6 +411,11 @@ pub struct Input_DeviceListener {
     /// Callback for device removal events
     pub deviceRemovedCallback: Input_DeviceRemovedCallback,
 }
+/// Defines event interceptor options.
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct Input_InterceptorOptions {
     _unused: [u8; 0],

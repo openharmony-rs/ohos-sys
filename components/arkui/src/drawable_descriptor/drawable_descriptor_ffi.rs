@@ -6,6 +6,12 @@
 use crate::native_type::*;
 pub use ohos_sys_opaque_types::OH_PixelmapNative;
 
+/// Defines the drawable descriptor.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_DrawableDescriptor {
     _unused: [u8; 0],

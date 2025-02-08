@@ -7,6 +7,17 @@ use crate::private_command::InputMethod_PrivateCommand;
 use crate::text_config::InputMethod_TextConfig;
 use crate::types::*;
 
+/// Define the InputMethod_TextEditorProxy structure type.
+///
+/// Provides methods for getting requests and notifications from input method.
+///
+/// When input method sends request or notification to editor, the methods will be called.
+///
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct InputMethod_TextEditorProxy {
     _unused: [u8; 0],

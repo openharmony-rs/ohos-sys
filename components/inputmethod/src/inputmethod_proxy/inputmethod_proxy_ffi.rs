@@ -7,6 +7,14 @@ use crate::cursor_info::InputMethod_CursorInfo;
 use crate::private_command::InputMethod_PrivateCommand;
 use crate::types::*;
 
+/// Define the InputMethod_InputMethodProxy structure type.
+///
+/// Provides methods for controlling input method.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct InputMethod_InputMethodProxy {
     _unused: [u8; 0],

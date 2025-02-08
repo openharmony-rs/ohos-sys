@@ -5,6 +5,14 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
+/// Define the InputMethod_TextAvoidInfo structure type.
+///
+/// Information for text editor to avoid the keyboard.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct InputMethod_TextAvoidInfo {
     _unused: [u8; 0],

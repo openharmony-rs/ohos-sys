@@ -11,6 +11,14 @@ use crate::{
     raw_file_manager::OH_ResourceManager_OpenRawFile,
 };
 
+/// Provides access to a raw file.
+///
+///
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct RawFile {
     _unused: [u8; 0],

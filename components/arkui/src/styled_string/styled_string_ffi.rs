@@ -5,6 +5,12 @@
 #![allow(non_snake_case)]
 use crate::native_type::*;
 
+/// Defines formatted string data objects supported by the text component.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_StyledString {
     _unused: [u8; 0],
