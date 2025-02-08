@@ -6,6 +6,14 @@
 #[cfg(doc)]
 use crate::raw_file_manager::{OH_ResourceManager_OpenRawDir, OH_ResourceManager_OpenRawFile};
 
+/// Provides access to a raw file directory.
+///
+///
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct RawDir {
     _unused: [u8; 0],

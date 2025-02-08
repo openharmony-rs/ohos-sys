@@ -34,6 +34,12 @@ pub struct ArkUI_DismissReason(pub ::core::ffi::c_uint);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type ArkUI_OnWillDismissEvent =
     ::core::option::Option<unsafe extern "C" fn(reason: i32) -> bool>;
+/// Defines a struct for a dialog box dismiss event.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_DialogDismissEvent {
     _unused: [u8; 0],

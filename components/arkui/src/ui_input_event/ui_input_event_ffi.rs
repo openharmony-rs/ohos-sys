@@ -5,6 +5,12 @@
 #![allow(non_snake_case)]
 use crate::native_type::*;
 
+/// Defines the UI input event.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_UIInputEvent {
     _unused: [u8; 0],

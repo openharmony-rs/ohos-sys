@@ -36,10 +36,22 @@ pub type ArkUI_NodeContentHandle = *mut ArkUI_NodeContent;
 pub struct ArkUI_NativeDialog {
     _unused: [u8; 0],
 }
+/// Sets the size constraints of a component during component layout.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_LayoutConstraint {
     _unused: [u8; 0],
 }
+/// Defines the structure of the component drawing context.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_DrawContext {
     _unused: [u8; 0],
@@ -58,14 +70,32 @@ pub type ArkUI_NodeHandle = *mut ArkUI_Node;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type ArkUI_NativeDialogHandle = *mut ArkUI_NativeDialog;
+/// Defines the water flow section configuration.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_WaterFlowSectionOption {
     _unused: [u8; 0],
 }
+/// Define the configuration information of the Item within the ListitemSwipeActionOption method.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_ListItemSwipeActionItem {
     _unused: [u8; 0],
 }
+/// Define the configuration information for the ListitemSwipeActionOption method.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_ListItemSwipeActionOption {
     _unused: [u8; 0],
@@ -87,46 +117,113 @@ pub struct ArkUI_Context {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type ArkUI_ContextHandle = *mut ArkUI_Context;
+/// Defines the navigation indicator style for the swiper.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_SwiperIndicator {
     _unused: [u8; 0],
 }
+/// Define the data objects of styled string supported by text components.
+///
+///
+/// Available since API-level: 14
+#[cfg(feature = "api-14")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 #[repr(C)]
 pub struct ArkUI_StyledString_Descriptor {
     _unused: [u8; 0],
 }
+/// specifies the alignment rules for subcomponents set in relative containers.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_AlignmentRuleOption {
     _unused: [u8; 0],
 }
+/// guideLine parameters, used to define the id, direction and position of the guideline.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_GuidelineOption {
     _unused: [u8; 0],
 }
+/// barrier parameter, used to define the id,
+/// direction and components of the barrier that it depends on when generating it.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_BarrierOption {
     _unused: [u8; 0],
 }
+/// Define the ChildrenMainSize class information for a List.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_ListChildrenMainSize {
     _unused: [u8; 0],
 }
+/// Defines the image frame.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_ImageAnimatorFrameInfo {
     _unused: [u8; 0],
 }
+/// Defines the accessibility state for the component.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_AccessibilityState {
     _unused: [u8; 0],
 }
+/// Defines the accessibility value for the component.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_AccessibilityValue {
     _unused: [u8; 0],
 }
+/// Define the information of the Custom Property class for custom properties.
+///
+///
+/// Available since API-level: 14
+#[cfg(feature = "api-14")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 #[repr(C)]
 pub struct ArkUI_CustomProperty {
     _unused: [u8; 0],
 }
+/// Define ActiveChildenInfo class information.
+///
+///
+/// Available since API-level: 14
+#[cfg(feature = "api-14")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 #[repr(C)]
 pub struct ArkUI_ActiveChildrenInfo {
     _unused: [u8; 0],
@@ -2620,14 +2717,32 @@ pub struct ArkUI_RotationOptions {
     /// Distance from the user to the z=0 plane.
     pub perspective: f32,
 }
+/// Defines a struct for the measurement information of a custom span.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_CustomSpanMeasureInfo {
     _unused: [u8; 0],
 }
+/// Defines a struct for the measurement metrics of a custom span.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_CustomSpanMetrics {
     _unused: [u8; 0],
 }
+/// Defines a struct for the drawing information of a custom span.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_CustomSpanDrawInfo {
     _unused: [u8; 0],
@@ -2738,6 +2853,12 @@ impl ArkUI_SafeAreaEdge {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_SafeAreaEdge(pub ::core::ffi::c_uint);
+/// Defines parameter used by the system font style callback event.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_SystemFontStyleEvent {
     _unused: [u8; 0],

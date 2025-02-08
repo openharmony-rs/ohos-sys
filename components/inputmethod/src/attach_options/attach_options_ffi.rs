@@ -5,6 +5,14 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
+/// Define the InputMethod_AttachOptions structure type.
+///
+/// The options when attaching input method.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct InputMethod_AttachOptions {
     _unused: [u8; 0],

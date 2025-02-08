@@ -649,6 +649,12 @@ pub struct OH_NativeXComponent_MouseEvent {
     /// Mouse event button.
     pub button: OH_NativeXComponent_MouseEventButton,
 }
+/// Provides an encapsulated <b>OH_NativeXComponent</b> instance.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_NativeXComponent {
     _unused: [u8; 0],
@@ -697,6 +703,12 @@ pub struct OH_NativeXComponent_MouseEvent_Callback {
         unsafe extern "C" fn(component: *mut OH_NativeXComponent, isHover: bool),
     >,
 }
+/// Provides an encapsulated <b>OH_NativeXComponent_KeyEvent</b> instance.
+///
+///
+/// Available since API-level: 10
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_NativeXComponent_KeyEvent {
     _unused: [u8; 0],

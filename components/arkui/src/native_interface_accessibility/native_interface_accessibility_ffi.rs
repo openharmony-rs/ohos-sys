@@ -6,14 +6,32 @@
 use crate::native_type::*;
 use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;
 
+/// Defines a struct for accessibility element information.
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
 pub struct ArkUI_AccessibilityElementInfo {
     _unused: [u8; 0],
 }
+/// Defines a struct for accessibility event information.
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
 pub struct ArkUI_AccessibilityEventInfo {
     _unused: [u8; 0],
 }
+/// Defines a struct for accessibility action arguments.
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
 pub struct ArkUI_AccessibilityActionArguments {
     _unused: [u8; 0],
@@ -324,6 +342,12 @@ impl ArkUI_AccessibilityFocusMoveDirection {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_AccessibilityFocusMoveDirection(pub ::core::ffi::c_uint);
+/// Defines a struct for the accessibility element information list.
+///
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
 pub struct ArkUI_AccessibilityElementInfoList {
     _unused: [u8; 0],

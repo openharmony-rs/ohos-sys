@@ -13,6 +13,15 @@ use crate::RawFile;
 use crate::RawFile64;
 use ohos_sys_opaque_types::{napi_env, napi_value};
 
+/// Presents the resource manager.
+///
+/// This class encapsulates the native implementation of the JavaScript resource manager. The pointer to a
+/// <b>ResourceManager</b> object can be obtained by calling [`OH_ResourceManager_InitNativeResourceManager`].
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct NativeResourceManager {
     _unused: [u8; 0],

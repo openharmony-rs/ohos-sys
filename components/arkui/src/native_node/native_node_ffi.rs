@@ -7809,6 +7809,12 @@ impl ArkUI_NodeEventType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeEventType(pub ::core::ffi::c_uint);
+/// Defines the common structure type of a component event.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_NodeEvent {
     _unused: [u8; 0],
@@ -7862,6 +7868,12 @@ impl ArkUI_NodeCustomEventType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeCustomEventType(pub ::core::ffi::c_uint);
+/// Defines the general structure of a custom component event.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_NodeCustomEvent {
     _unused: [u8; 0],
@@ -7877,6 +7889,12 @@ pub struct ArkUI_NodeAdapter {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type ArkUI_NodeAdapterHandle = *mut ArkUI_NodeAdapter;
+/// Defines the component adapter event.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_NodeAdapterEvent {
     _unused: [u8; 0],
@@ -8628,6 +8646,11 @@ impl ArkUI_NodeContentEventType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeContentEventType(pub ::core::ffi::c_uint);
+/// Defines the general structure of a node content event.
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_NodeContentEvent {
     _unused: [u8; 0],

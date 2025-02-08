@@ -4,38 +4,101 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
+/// Defines a rectangular canvas on which various shapes, images,
+/// and texts can be drawn by using the brush and pen.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_Canvas {
     _unused: [u8; 0],
 }
+/// Defines a pen, which is used to describe the style and color to outline a shape.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_Pen {
     _unused: [u8; 0],
 }
+/// Defines a region, which is used to represent an enclosed area on the canvas layer.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_Region {
     _unused: [u8; 0],
 }
+/// Defines as a brush, which is used to describe the style and color to fill in a shape.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_Brush {
     _unused: [u8; 0],
 }
+/// Defines a path, which is used to customize various shapes.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_Path {
     _unused: [u8; 0],
 }
+/// Defines a bitmap, which is a memory that contains the pixel data of a shape.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_Bitmap {
     _unused: [u8; 0],
 }
+/// Defines a point, which is used to describe the coordinate point.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_Point {
     _unused: [u8; 0],
 }
+/// Defines a pixelmap, which is used to wrap real pixelmap supported by image framework.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_PixelMap {
     _unused: [u8; 0],
 }
+/// Define color space to determine color information.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_ColorSpace {
     _unused: [u8; 0],
@@ -78,82 +141,243 @@ pub struct OH_Drawing_Point3D {
     pub y: f32,
     pub z: f32,
 }
+/// Defines a pathEffect, which is used to affects stroked paths.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_PathEffect {
     _unused: [u8; 0],
 }
+/// Defines a rect, which is used to describe the rectangle.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_Rect {
     _unused: [u8; 0],
 }
+/// Defines a roundRect, which is used to describe the round rectangle.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_RoundRect {
     _unused: [u8; 0],
 }
+/// Defines a matrix, which is used to describe the transforming coordinates.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_Matrix {
     _unused: [u8; 0],
 }
+/// Defines a shaderEffect, which is used to describe the source color(s) for what is being drawn.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_ShaderEffect {
     _unused: [u8; 0],
 }
+/// Defines a shadowLayer, which is used to draw shaded parts.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_ShadowLayer {
     _unused: [u8; 0],
 }
+/// Defines a filter, which is used to store maskFilter, colorFilter and imageFilter.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_Filter {
     _unused: [u8; 0],
 }
+/// Defines a maskFilter, which is used to perform transformations on the mask before drawing it.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_MaskFilter {
     _unused: [u8; 0],
 }
+/// Defines a colorFilter, which is called a color and returns a new color.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_ColorFilter {
     _unused: [u8; 0],
 }
+/// Defines a font, which is used to describe the font.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_Font {
     _unused: [u8; 0],
 }
+/// Defines a memoryStream, which is used to describe the memory stream.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_MemoryStream {
     _unused: [u8; 0],
 }
+/// Defines fontArguments, which is used to describe the arguments for a font.
+///
+///
+/// Available since API-level: 13
+///
+/// Version: 1.0
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
 pub struct OH_Drawing_FontArguments {
     _unused: [u8; 0],
 }
+/// Defines a typeface, which is used to describe the typeface.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_Typeface {
     _unused: [u8; 0],
 }
+/// Defines a textBlob, which combines multiple text runs into an immutable container.
+/// Each text run consists of glyphs and positions.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_TextBlob {
     _unused: [u8; 0],
 }
+/// Defines a image, which is used to describe a two dimensional array of pixels to draw.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_Image {
     _unused: [u8; 0],
 }
+/// Defines a image filter, which is used to operate on all the color bits of pixels that make up an image.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_ImageFilter {
     _unused: [u8; 0],
 }
+/// Defines a sampling options, which is used to describe the sampling mode.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_SamplingOptions {
     _unused: [u8; 0],
 }
+/// Defines a textBlobBuilder, which is used to build the textBlob.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_TextBlobBuilder {
     _unused: [u8; 0],
 }
+/// Defines a GPU context, which is used to describe the GPU backend context.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_GpuContext {
     _unused: [u8; 0],
 }
+/// Defines a surface, which is used to manage the pixels that a canvas draws into.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_Surface {
     _unused: [u8; 0],
@@ -370,22 +594,62 @@ impl OH_Drawing_TextEncoding {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_TextEncoding(pub ::core::ffi::c_uint);
+/// Defines a OH_Drawing_FontMgr, which is used to manage font family.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_FontMgr {
     _unused: [u8; 0],
 }
+/// Defines a OH_Drawing_FontStyleSet, which is used to manage font style.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_FontStyleSet {
     _unused: [u8; 0],
 }
+/// Define OH_Drawing_RecordCmdUtils, which is used to generate drawing commands tool.
+///
+///
+/// Available since API-level: 13
+///
+/// Version: 1.0
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
 pub struct OH_Drawing_RecordCmdUtils {
     _unused: [u8; 0],
 }
+/// Define OH_Drawing_RecordCmd, which is used to replay drawing commands.
+///
+///
+/// Available since API-level: 13
+///
+/// Version: 1.0
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
 pub struct OH_Drawing_RecordCmd {
     _unused: [u8; 0],
 }
+/// Defines an array object, which is used to store multiple NDK object.
+///
+///
+/// Available since API-level: 14
+///
+/// Version: 1.0
+#[cfg(feature = "api-14")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 #[repr(C)]
 pub struct OH_Drawing_Array {
     _unused: [u8; 0],

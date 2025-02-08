@@ -5,42 +5,113 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
+/// Defines an <b>OH_Drawing_FontCollection</b>, which is used to load fonts.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_FontCollection {
     _unused: [u8; 0],
 }
+/// Defines an <b>OH_Drawing_Typography</b>, which is used to manage the typography layout and display.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_Typography {
     _unused: [u8; 0],
 }
+/// Defines an <b>OH_Drawing_TextStyle</b>, which is used to manage text colors and decorations.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_TextStyle {
     _unused: [u8; 0],
 }
+/// Defines an <b>OH_Drawing_TypographyStyle</b>, which is used to manage the typography style,
+/// such as the text direction.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_TypographyStyle {
     _unused: [u8; 0],
 }
+/// Defines an <b>OH_Drawing_TypographyCreate</b>, which is used to create an <b>OH_Drawing_Typography</b> object.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_TypographyCreate {
     _unused: [u8; 0],
 }
+/// Defines an <b>OH_Drawing_TextBox</b>, which is used to create an <b>OH_Drawing_TextBox</b> object.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_TextBox {
     _unused: [u8; 0],
 }
+/// Defines an <b>OH_Drawing_PositionAndAffinity</b>,
+/// which is used to create an <b>OH_Drawing_PositionAndAffinity</b> object.
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_PositionAndAffinity {
     _unused: [u8; 0],
 }
+/// Defines an <b>OH_Drawing_Range</b>, which is used to create an <b>OH_Drawing_Range</b> object.
+///
+///
+/// Available since API-level: 11
+///
+/// Version: 1.0
+#[cfg(feature = "api-11")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[repr(C)]
 pub struct OH_Drawing_Range {
     _unused: [u8; 0],
 }
+/// Defines an <b>OH_Drawing_FontParser</b>, which is used to parse system font files.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_FontParser {
     _unused: [u8; 0],
 }
+/// Defines an <b>OH_Drawing_TextShadow</b>, which is used to manage text shadow.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_TextShadow {
     _unused: [u8; 0],

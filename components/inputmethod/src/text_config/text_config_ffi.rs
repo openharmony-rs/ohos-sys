@@ -7,6 +7,14 @@ use crate::cursor_info::InputMethod_CursorInfo;
 use crate::text_avoid_info::InputMethod_TextAvoidInfo;
 use crate::types::*;
 
+/// Define the InputMethod_TextConfig structure type.
+///
+/// The configuration of the text editor.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct InputMethod_TextConfig {
     _unused: [u8; 0],

@@ -202,6 +202,14 @@ impl OH_NativeBuffer_MetadataKey {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeBuffer_MetadataKey(pub ::core::ffi::c_uint);
+/// Defines the ipc parcel.
+///
+///
+/// Available since API-level: 12
+///
+/// Version: 1.0
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OHIPCParcel {
     _unused: [u8; 0],

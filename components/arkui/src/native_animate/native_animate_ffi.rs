@@ -36,10 +36,22 @@ pub struct ArkUI_AnimateCompleteCallback {
     /// Custom type.
     pub userData: *mut ::core::ffi::c_void,
 }
+/// Defines the animation configuration.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_AnimateOption {
     _unused: [u8; 0],
 }
+/// Defines an interpolation curve.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_Curve {
     _unused: [u8; 0],
@@ -51,10 +63,22 @@ pub struct ArkUI_Curve {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type ArkUI_CurveHandle = *mut ArkUI_Curve;
+/// Defines the keyframe animation parameter object.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_KeyframeAnimateOption {
     _unused: [u8; 0],
 }
+/// Defines the animator parameter object.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_AnimatorOption {
     _unused: [u8; 0],
@@ -70,14 +94,32 @@ pub struct ArkUI_Animator {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type ArkUI_AnimatorHandle = *mut ArkUI_Animator;
+/// Defines the animator callback event object.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_AnimatorEvent {
     _unused: [u8; 0],
 }
+/// Defines the callback object when the animator receives a frame.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_AnimatorOnFrameEvent {
     _unused: [u8; 0],
 }
+/// Defines the transition effect.
+///
+///
+/// Available since API-level: 12
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_TransitionEffect {
     _unused: [u8; 0],
