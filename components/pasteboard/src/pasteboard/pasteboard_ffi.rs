@@ -9,9 +9,9 @@ use ohos_sys_opaque_types::OH_UdmfData;
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl Pasteboard_NotifyType {
     /// Change of the Pasteboard data in the local device.
-    pub const NOTIFY_LOCAL_DATA_CHANGE: Pasteboard_NotifyType = Pasteboard_NotifyType(1);
+    pub const LOCAL_DATA_CHANGE: Pasteboard_NotifyType = Pasteboard_NotifyType(1);
     /// Change of the Pasteboard data in the remote devices.
-    pub const NOTIFY_REMOTE_DATA_CHANGE: Pasteboard_NotifyType = Pasteboard_NotifyType(2);
+    pub const REMOTE_DATA_CHANGE: Pasteboard_NotifyType = Pasteboard_NotifyType(2);
 }
 #[repr(transparent)]
 /// Enumerates the types of data changes that can be observed.
