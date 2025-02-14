@@ -11,7 +11,7 @@ resolver = "2"
 rust-version = "1.78.0"
 
 [workspace]
-members = ["components/*", "components/multimedia/image_framework"]
+members = ["components/*", "components/multimedia/image_framework", "components/multimedia/player_framework"]
 exclude = ["components/multimedia", "scripts"]
 
 [workspace.dependencies]

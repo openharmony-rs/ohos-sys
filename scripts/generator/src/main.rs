@@ -6,13 +6,13 @@ mod opaque_types;
 use crate::dir_conf::get_module_bindings_config;
 use crate::header_conf::get_bindings_config;
 use anyhow::{anyhow, bail, Context};
+use bindgen::callbacks::EnumVariantValue;
 use bindgen::{CodeGenAttributes, EnumVariation, Formatter};
 use log::{debug, error, info, warn};
 use std::fs;
 use std::num::ParseIntError;
 use std::path::{Path, PathBuf};
 use std::str::FromStr;
-use bindgen::callbacks::EnumVariantValue;
 use thiserror::Error;
 
 /// Parse the api version
@@ -130,11 +130,10 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
         _variant_value: EnumVariantValue,
     ) -> Option<String> {
         let enum_name = enum_name?.trim_start_matches("enum ");
-            enum_prefix::ENUM_PREFIX_MAP
-                .get(enum_name)
-                .and_then(|prefix| original_variant_name.strip_prefix(prefix))
-                .map(|stripped| stripped.to_string())
-
+        enum_prefix::ENUM_PREFIX_MAP
+            .get(enum_name)
+            .and_then(|prefix| original_variant_name.strip_prefix(prefix))
+            .map(|stripped| stripped.to_string())
     }
 
     fn process_comment(&self, comment: &str) -> Option<String> {
