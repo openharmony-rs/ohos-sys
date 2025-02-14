@@ -61,6 +61,65 @@ impl bindgen::callbacks::ParseCallbacks for ResultEnumParseCallbacks {
 pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
     vec![
         DirBindingsConf {
+            directory: "multimedia/player_framework".to_string(),
+            output_dir: "components/multimedia/player_framework/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "native_"))),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_recursively(false)
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                        is_result_type: false,
+                    });
+                let builder = if file_stem != "averrors" {
+                    builder.raw_line("#[allow(unused_imports)]use crate::averrors::OH_AVErrCode;")
+                } else {
+                    builder
+                };
+                match file_stem {
+                    "avplayer" => builder.raw_line("use ohos_sys_opaque_types::OHNativeWindow;")
+                        .raw_line("use crate::avplayer_base::{AVPlaybackSpeed, AVPlayerCallback, AVPlayerSeekMode, AVPlayerState, OH_AVPlayer};")
+                        .raw_line("#[cfg(feature = \"api-12\")]use crate::avplayer_base::{OH_AVPlayerOnErrorCallback, OH_AVPlayerOnInfoCallback};")
+                        // require bindings to OH audio.
+                        .blocklist_function("OH_AVPlayer_SetAudioRendererInfo")
+                        .blocklist_function("OH_AVPlayer_SetAudioInterruptMode")
+                        .blocklist_function("OH_AVPlayer_SetAudioEffectMode")
+                    ,
+                    "avplayer_base" => builder.raw_line("#[cfg(feature = \"api-12\")]use crate::avformat::OH_AVFormat;"),
+                    "avcapability" => builder
+                        .raw_line("#[cfg(feature = \"api-12\")]use crate::avformat::OH_AVFormat;")
+                        .raw_line("use crate::avcodec_base::OH_BitrateMode;"),
+
+                    "avcodec_base" => builder
+                        .raw_line("use crate::avbuffer_info::OH_AVCodecBufferAttr;")
+                        .raw_line("use crate::avmemory::OH_AVMemory;")
+                        .raw_line("use crate::avformat::OH_AVFormat;")
+                        .raw_line("#[cfg(feature = \"api-11\")]use crate::avbuffer::OH_AVBuffer;")
+                    ,
+                    "avsource" => builder
+                        .raw_line("#[cfg(feature = \"api-12\")]use crate::avcodec_base::OH_AVDataSource;")
+                        .raw_line("use crate::avformat::OH_AVFormat;")
+                    ,
+                    "avbuffer" => builder.raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")
+                        .raw_line("use crate::avbuffer_info::OH_AVCodecBufferAttr;")
+                        .raw_line("use crate::avformat::OH_AVFormat;"),
+                    "avbuffer_info" => builder
+                        .bitfield_enum("OH_AVCodecBufferFlags")
+                    ,
+                    "avdemuxer" => builder
+                        .raw_line("#[cfg(feature = \"api-11\")]use crate::avbuffer::OH_AVBuffer;")
+                        .raw_line("use crate::avbuffer_info::OH_AVCodecBufferAttr;")
+                        .raw_line("use crate::avcodec_base::OH_AVSeekMode;")
+                        .raw_line("use crate::avsource::OH_AVSource;")
+                        .raw_line("use crate::avmemory::OH_AVMemory;")
+                    ,
+                    _ => builder,
+                }
+            }),
+        },
+        DirBindingsConf {
             directory: "database/pasteboard".to_string(),
             output_dir: "components/pasteboard/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
@@ -77,8 +136,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "pasteboard" => builder.raw_line("use ohos_sys_opaque_types::OH_UdmfData;"),
                     _ => builder,
                 }
-            }
-            ),
+            }),
         },
         DirBindingsConf {
             directory: "database/udmf".to_string(),
@@ -105,9 +163,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "utd" => builder.raw_line("pub use ohos_sys_opaque_types::OH_Utd;"),
                     _ => builder,
                 }
-
-            }
-            ),
+            }),
         },
         DirBindingsConf {
             directory: "multimedia/image_framework/image".to_string(),
@@ -189,14 +245,12 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 let builder = if file_stem != "types" {
                     builder.raw_line("use crate::types::*;")
                 } else {
-                    builder
-                        .result_error_enum("InputMethod_ErrorCode")
-                }.parse_callbacks(Box::new(ResultEnumParseCallbacks {
-                    rename_item: Box::new(|enum_name| {
-                        match enum_name {
-                            "InputMethod_ErrorCode" => Some("InputMethodResult".to_string()),
-                            _ => None,
-                        }
+                    builder.result_error_enum("InputMethod_ErrorCode")
+                }
+                .parse_callbacks(Box::new(ResultEnumParseCallbacks {
+                    rename_item: Box::new(|enum_name| match enum_name {
+                        "InputMethod_ErrorCode" => Some("InputMethodResult".to_string()),
+                        _ => None,
                     }),
                     ..Default::default()
                 }));
@@ -333,24 +387,19 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     }
                     "drawable_descriptor" => {
                         builder.raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
-                    },
-                    "native_animate" => {
-                        builder
-                            .no_debug("ArkUI_NativeAnimateAPI_.*")
-                            .no_copy("ArkUI_NativeAnimateAPI_.*")
                     }
-                    "native_dialog" => {
-                        builder
-                            .no_debug("ArkUI_NativeDialogAPI_.*")
-                            .no_copy("ArkUI_NativeDialogAPI_.*")
-                    }
+                    "native_animate" => builder
+                        .no_debug("ArkUI_NativeAnimateAPI_.*")
+                        .no_copy("ArkUI_NativeAnimateAPI_.*"),
+                    "native_dialog" => builder
+                        .no_debug("ArkUI_NativeDialogAPI_.*")
+                        .no_copy("ArkUI_NativeDialogAPI_.*"),
                     "native_gesture" => builder
                         .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
                         .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
                         .blocklist_function("^OH_ArkUI_GestureEvent_SetNode")
                         .no_debug("ArkUI_NativeGestureAPI_1")
-                        .no_copy("ArkUI_NativeGestureAPI_1")
-                    ,
+                        .no_copy("ArkUI_NativeGestureAPI_1"),
                     "native_interface_accessibility" => {
                         builder.raw_line("use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;")
                     }
