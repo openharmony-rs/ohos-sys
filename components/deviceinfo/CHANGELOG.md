@@ -1,3 +1,7 @@
+# 0.1.3 (2025-03-06)
+
+- Fix: Link against deviceinfo_ndk.z
+
 # 0.1.2 (2025-01-09)
 
 - Added API-13 feature (no changes)
