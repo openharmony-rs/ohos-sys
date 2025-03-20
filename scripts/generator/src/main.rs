@@ -46,11 +46,15 @@ enum OpenHarmonyApiLevel {
     Twelve = 12,
     Thirteen = 13,
     Fourteen = 14,
+    Fifteen = 15,
+    Sixteen = 16,
+    Seventeen = 17,
+    Eighteen = 18,
 }
 
 #[derive(Error, Debug)]
 enum ApiLevelParseError {
-    #[error("Could not parse API level from interger: {0:?}")]
+    #[error("Could not parse API level from integer: {0:?}")]
     ParseIntError(#[from] ParseIntError),
     #[error("Unknown API level {0}! Perhaps we need an update")]
     UnknownApiVersion(u32),
@@ -69,6 +73,10 @@ impl TryFrom<&str> for OpenHarmonyApiLevel {
             12 => OpenHarmonyApiLevel::Twelve,
             13 => OpenHarmonyApiLevel::Thirteen,
             14 => OpenHarmonyApiLevel::Fourteen,
+            15 => OpenHarmonyApiLevel::Fifteen,
+            16 => OpenHarmonyApiLevel::Sixteen,
+            17 => OpenHarmonyApiLevel::Seventeen,
+            18 => OpenHarmonyApiLevel::Eighteen,
             other => {
                 return Err(ApiLevelParseError::UnknownApiVersion(other));
             }
