@@ -25,5 +25,5 @@ pub(crate) static OPAQUE_TYPES: [&str; 27] = [
     "OH_UdsPixelMap",
     "OH_UdsContentForm",
     "OH_UdsArrayBuffer",
-    "OH_Utd"
+    "OH_Utd",
 ];
