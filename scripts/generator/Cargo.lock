@@ -70,6 +70,7 @@ checksum = "4c95c10ba0b00a02636238b814946408b1322d5ac4760326e6fb8ec956d85775"
 [[package]]
 name = "bindgen"
 version = "0.71.1"
+source = "git+https://github.com/openharmony-rs/rust-bindgen.git?branch=jschwender%2Fdoc_cfg#3d12dd75e510814951a7232fd3a3a4c1131770b1"
 dependencies = [
  "bitflags",
  "cexpr",
