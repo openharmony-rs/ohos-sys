@@ -15,6 +15,25 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo fmt --check
       - run: cargo clippy
+
+  integrity:
+    name: Integrity Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rustfmt
+      - name: Setup OpenHarmony SDK
+        uses: openharmony-rs/setup-ohos-sdk@v0.2
+        with:
+          version: 5.0.2
+      - name: Generate bindings
+        run: ./scripts/generate_bindings.sh
+      - name: Check integrity
+        run: git diff --exit-code
+
   build-toolchains:
     strategy:
       matrix:
