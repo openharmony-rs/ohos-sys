@@ -19,6 +19,10 @@ pub struct OH_NativeBuffer {
     _unused: [u8; 0],
 }
 #[repr(C)]
+pub struct OHIPCParcel {
+    _unused: [u8; 0],
+}
+#[repr(C)]
 pub struct NativeWindow {
     _unused: [u8; 0],
 }

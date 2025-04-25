@@ -3,7 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-use ohos_sys_opaque_types::{OHNativeWindow, OHNativeWindowBuffer, OH_NativeBuffer};
+use ohos_sys_opaque_types::{OHIPCParcel, OHNativeWindow, OHNativeWindowBuffer, OH_NativeBuffer};
 
 #[repr(C)]
 #[derive(Default)]
@@ -202,18 +202,6 @@ impl OH_NativeBuffer_MetadataKey {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeBuffer_MetadataKey(pub ::core::ffi::c_uint);
-/// Defines the ipc parcel.
-///
-///
-/// Available since API-level: 12
-///
-/// Version: 1.0
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct OHIPCParcel {
-    _unused: [u8; 0],
-}
 /// indicates a dirty region where content is updated.
 ///
 /// Available since API-level: 8
