@@ -172,7 +172,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     })
                     .constified_enum_module("^NativeWindowOperation$")
                     .allowlist_file(".*native_window/external_window.h")
-                    .raw_line("use ohos_sys_opaque_types::{OH_NativeBuffer, OHNativeWindow, OHNativeWindowBuffer};")
+                    .raw_line("use ohos_sys_opaque_types::{OHIPCParcel, OH_NativeBuffer, OHNativeWindow, OHNativeWindowBuffer};")
                     .derive_copy(false)
             }),
         },
