@@ -16,5 +16,11 @@
 #[link(name = "native_window")]
 extern "C" {}
 
-mod native_window_ffi;
-pub use native_window_ffi::*;
+mod buffer_handle;
+mod external_window;
+// the graphic_error_code header file is duplicated across the different graphics modules
+// native_image, native_buffer, native_window and native_vsync. We just generate one version.
+pub(crate) mod graphic_error_code;
+
+pub use buffer_handle::BufferHandle;
+pub use external_window::*;

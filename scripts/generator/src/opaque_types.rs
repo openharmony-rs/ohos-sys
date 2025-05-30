@@ -1,9 +1,10 @@
-pub(crate) static OPAQUE_TYPES: [&str; 28] = [
+pub(crate) static OPAQUE_TYPES: [&str; 29] = [
     "OH_PixelmapNative",
     "NativePixelMap_",
     "OH_NativeBuffer",
     "NativeWindow",
     "NativeWindowBuffer",
+    "OH_NativeImage",
     "OHNativeWindow",
     "OHNativeWindowBuffer",
     "ArkUI_AccessibilityProvider",

@@ -14,7 +14,5 @@
 #[link(name = "native_buffer")]
 extern "C" {}
 
-mod native_buffer_ffi;
-pub use native_buffer_ffi::*;
-
-pub use ohos_sys_opaque_types::OH_NativeBuffer;
+pub mod buffer_common;
+pub mod native_buffer;

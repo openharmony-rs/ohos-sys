@@ -33,6 +33,10 @@ pub struct NativeWindowBuffer {
 pub type OHNativeWindow = NativeWindow;
 pub type OHNativeWindowBuffer = NativeWindowBuffer;
 #[repr(C)]
+pub struct OH_NativeImage {
+    _unused: [u8; 0],
+}
+#[repr(C)]
 pub struct OH_PixelmapNative {
     _unused: [u8; 0],
 }

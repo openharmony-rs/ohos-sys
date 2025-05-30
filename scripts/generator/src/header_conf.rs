@@ -127,56 +127,6 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
             }),
         },
         BindingConf {
-            include_filename: "native_buffer/native_buffer.h".to_string(),
-            output_prefix: "src/native_buffer/native_buffer".to_string(),
-            set_builder_opts: Box::new(|builder| {
-                builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
-                    .allowlist_file(r".*/native_buffer/.*\.h")
-                    .bitfield_enum("OH_NativeBuffer_Usage")
-                    .blocklist_item("^(OH)?NativeWindow(Buffer)?")
-                    .raw_line("use ohos_sys_opaque_types::{OH_NativeBuffer, OHNativeWindowBuffer};")
-            }),
-        },
-        BindingConf {
-            include_filename: "native_image/native_image.h".to_string(),
-            output_prefix: "src/native_image/native_image".to_string(),
-            set_builder_opts: Box::new(|builder| {
-                builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
-                    .allowlist_file(r".*/native_image/.*\.h")
-                    .blocklist_item("^(OH)?NativeWindow(Buffer)?")
-                    .raw_line("use ohos_sys_opaque_types::OHNativeWindow;")
-                    .raw_line("#[cfg(feature = \"api-12\")]")
-                    .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
-                    .no_copy("^OH_OnFrameAvailableListener")
-            }),
-        },
-        BindingConf {
-            include_filename: "native_window/external_window.h".to_string(),
-            output_prefix: "src/native_window/native_window".to_string(),
-            set_builder_opts: Box::new(|builder| {
-                builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
-                    .constified_enum_module("^NativeWindowOperation$")
-                    .allowlist_file(".*native_window/external_window.h")
-                    .raw_line("use ohos_sys_opaque_types::{OHIPCParcel, OH_NativeBuffer, OHNativeWindow, OHNativeWindowBuffer};")
-                    .derive_copy(false)
-            }),
-        },
-        BindingConf {
             include_filename: "native_vsync/native_vsync.h".to_string(),
             output_prefix: "components/vsync/src/vsync".to_string(),
             set_builder_opts: Box::new(move |builder| {

@@ -3,113 +3,14 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-use ohos_sys_opaque_types::{OHNativeWindowBuffer, OH_NativeBuffer};
+#[cfg(feature = "api-11")]
+use crate::native_buffer::buffer_common::{
+    OH_NativeBuffer_ColorSpace, OH_NativeBuffer_MetadataKey,
+};
+#[cfg(feature = "api-12")]
+use ohos_sys_opaque_types::OHNativeWindowBuffer;
+use ohos_sys_opaque_types::OH_NativeBuffer;
 
-impl OH_NativeBuffer_ColorSpace {
-    pub const OH_COLORSPACE_NONE: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(0);
-    pub const OH_COLORSPACE_BT601_EBU_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(1);
-    pub const OH_COLORSPACE_BT601_SMPTE_C_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(2);
-    pub const OH_COLORSPACE_BT709_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(3);
-    pub const OH_COLORSPACE_BT2020_HLG_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(4);
-    pub const OH_COLORSPACE_BT2020_PQ_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(5);
-    pub const OH_COLORSPACE_BT601_EBU_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(6);
-    pub const OH_COLORSPACE_BT601_SMPTE_C_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(7);
-    pub const OH_COLORSPACE_BT709_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(8);
-    pub const OH_COLORSPACE_BT2020_HLG_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(9);
-    pub const OH_COLORSPACE_BT2020_PQ_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(10);
-    pub const OH_COLORSPACE_SRGB_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(11);
-    pub const OH_COLORSPACE_P3_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(12);
-    pub const OH_COLORSPACE_P3_HLG_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(13);
-    pub const OH_COLORSPACE_P3_PQ_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(14);
-    pub const OH_COLORSPACE_ADOBERGB_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(15);
-    pub const OH_COLORSPACE_SRGB_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(16);
-    pub const OH_COLORSPACE_P3_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(17);
-    pub const OH_COLORSPACE_P3_HLG_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(18);
-    pub const OH_COLORSPACE_P3_PQ_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(19);
-    pub const OH_COLORSPACE_ADOBERGB_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(20);
-    pub const OH_COLORSPACE_LINEAR_SRGB: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(21);
-    pub const OH_COLORSPACE_LINEAR_BT709: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(22);
-    pub const OH_COLORSPACE_LINEAR_P3: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(23);
-    pub const OH_COLORSPACE_LINEAR_BT2020: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(24);
-    pub const OH_COLORSPACE_DISPLAY_SRGB: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(25);
-    pub const OH_COLORSPACE_DISPLAY_P3_SRGB: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(26);
-    pub const OH_COLORSPACE_DISPLAY_P3_HLG: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(27);
-    pub const OH_COLORSPACE_DISPLAY_P3_PQ: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(28);
-    pub const OH_COLORSPACE_DISPLAY_BT2020_SRGB: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(29);
-    pub const OH_COLORSPACE_DISPLAY_BT2020_HLG: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(30);
-    pub const OH_COLORSPACE_DISPLAY_BT2020_PQ: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(31);
-}
-#[repr(transparent)]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_NativeBuffer_ColorSpace(pub ::core::ffi::c_uint);
-impl OH_NativeBuffer_MetadataType {
-    pub const OH_VIDEO_HDR_HLG: OH_NativeBuffer_MetadataType = OH_NativeBuffer_MetadataType(0);
-    pub const OH_VIDEO_HDR_HDR10: OH_NativeBuffer_MetadataType = OH_NativeBuffer_MetadataType(1);
-    pub const OH_VIDEO_HDR_VIVID: OH_NativeBuffer_MetadataType = OH_NativeBuffer_MetadataType(2);
-    pub const OH_VIDEO_NONE: OH_NativeBuffer_MetadataType = OH_NativeBuffer_MetadataType(-1);
-}
-#[repr(transparent)]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_NativeBuffer_MetadataType(pub ::core::ffi::c_int);
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct OH_NativeBuffer_ColorXY {
-    pub x: f32,
-    pub y: f32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct OH_NativeBuffer_Smpte2086 {
-    pub displayPrimaryRed: OH_NativeBuffer_ColorXY,
-    pub displayPrimaryGreen: OH_NativeBuffer_ColorXY,
-    pub displayPrimaryBlue: OH_NativeBuffer_ColorXY,
-    pub whitePoint: OH_NativeBuffer_ColorXY,
-    pub maxLuminance: f32,
-    pub minLuminance: f32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct OH_NativeBuffer_Cta861 {
-    pub maxContentLightLevel: f32,
-    pub maxFrameAverageLightLevel: f32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct OH_NativeBuffer_StaticMetadata {
-    pub smpte2086: OH_NativeBuffer_Smpte2086,
-    pub cta861: OH_NativeBuffer_Cta861,
-}
-impl OH_NativeBuffer_MetadataKey {
-    pub const OH_HDR_METADATA_TYPE: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(0);
-    pub const OH_HDR_STATIC_METADATA: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(1);
-    pub const OH_HDR_DYNAMIC_METADATA: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(2);
-}
-#[repr(transparent)]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_NativeBuffer_MetadataKey(pub ::core::ffi::c_uint);
 impl ::core::ops::BitOr<OH_NativeBuffer_Usage> for OH_NativeBuffer_Usage {
     type Output = Self;
     #[inline]

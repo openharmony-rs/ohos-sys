@@ -3,7 +3,16 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-use ohos_sys_opaque_types::{OHIPCParcel, OHNativeWindow, OHNativeWindowBuffer, OH_NativeBuffer};
+#[cfg(feature = "api-12")]
+use crate::native_buffer::buffer_common::{
+    OH_NativeBuffer_ColorSpace, OH_NativeBuffer_MetadataKey,
+};
+use crate::native_window::BufferHandle;
+#[cfg(feature = "api-12")]
+use ohos_sys_opaque_types::OHIPCParcel;
+#[cfg(feature = "api-11")]
+use ohos_sys_opaque_types::OH_NativeBuffer;
+use ohos_sys_opaque_types::{OHNativeWindow, OHNativeWindowBuffer};
 
 #[repr(C)]
 #[derive(Default)]
@@ -35,178 +44,11 @@ impl<T> ::core::fmt::Debug for __IncompleteArrayField<T> {
         fmt.write_str("__IncompleteArrayField")
     }
 }
-#[repr(C)]
-#[derive(Debug)]
-pub struct BufferHandle {
-    /// < buffer fd, -1 if not supported
-    pub fd: i32,
-    /// < the width of memory
-    pub width: i32,
-    /// < the stride of memory
-    pub stride: i32,
-    /// < the height of memory
-    pub height: i32,
-    pub size: i32,
-    /// < the format of memory
-    pub format: i32,
-    /// < the usage of memory
-    pub usage: u64,
-    /// < Virtual address of memory
-    pub virAddr: *mut ::core::ffi::c_void,
-    /// < Shared memory key
-    pub key: i32,
-    /// < Physical address
-    pub phyAddr: u64,
-    /// < the number of reserved fd value
-    pub reserveFds: u32,
-    /// < the number of reserved integer value
-    pub reserveInts: u32,
-    /// < the data
-    pub reserve: __IncompleteArrayField<i32>,
-}
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-impl OH_NativeBuffer_ColorSpace {
-    /// None color space
-    pub const OH_COLORSPACE_NONE: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(0);
-    /// COLORPRIMARIES_BT601_P | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_P << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_BT601_EBU_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(1);
-    /// COLORPRIMARIES_BT601_N | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_N << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_BT601_SMPTE_C_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(2);
-    /// COLORPRIMARIES_BT709 | (TRANSFUNC_BT709 << 8) | (MATRIX_BT709 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_BT709_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(3);
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_HLG << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_BT2020_HLG_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(4);
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_PQ << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_BT2020_PQ_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(5);
-    /// COLORPRIMARIES_BT601_P | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_P << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_BT601_EBU_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(6);
-    /// COLORPRIMARIES_BT601_N | (TRANSFUNC_BT709 << 8) | (MATRIX_BT601_N << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_BT601_SMPTE_C_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(7);
-    /// COLORPRIMARIES_BT709 | (TRANSFUNC_BT709 << 8) | (MATRIX_BT709 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_BT709_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(8);
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_HLG << 8) | (MATRIX_BT2020 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_BT2020_HLG_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(9);
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_PQ << 8) | (MATRIX_BT2020 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_BT2020_PQ_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(10);
-    /// COLORPRIMARIES_SRGB | (TRANSFUNC_SRGB << 8) | (MATRIX_BT601_N << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_SRGB_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(11);
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_SRGB << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_P3_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(12);
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_HLG << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_P3_HLG_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(13);
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_PQ << 8) | (MATRIX_P3 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_P3_PQ_FULL: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(14);
-    /// COLORPRIMARIES_ADOBERGB | (TRANSFUNC_ADOBERGB << 8) | (MATRIX_ADOBERGB << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_ADOBERGB_FULL: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(15);
-    /// COLORPRIMARIES_SRGB | (TRANSFUNC_SRGB << 8) | (MATRIX_BT601_N << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_SRGB_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(16);
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_SRGB << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_P3_LIMIT: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(17);
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_HLG << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_P3_HLG_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(18);
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_PQ << 8) | (MATRIX_P3 << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_P3_PQ_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(19);
-    /// COLORPRIMARIES_ADOBERGB | (TRANSFUNC_ADOBERGB << 8) | (MATRIX_ADOBERGB << 16) | (RANGE_LIMITED << 21)
-    pub const OH_COLORSPACE_ADOBERGB_LIMIT: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(20);
-    /// COLORPRIMARIES_SRGB | (TRANSFUNC_LINEAR << 8)
-    pub const OH_COLORSPACE_LINEAR_SRGB: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(21);
-    /// equal to OH_COLORSPACE_LINEAR_SRGB
-    pub const OH_COLORSPACE_LINEAR_BT709: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(22);
-    /// COLORPRIMARIES_P3_D65 | (TRANSFUNC_LINEAR << 8)
-    pub const OH_COLORSPACE_LINEAR_P3: OH_NativeBuffer_ColorSpace = OH_NativeBuffer_ColorSpace(23);
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_LINEAR << 8)
-    pub const OH_COLORSPACE_LINEAR_BT2020: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(24);
-    /// equal to OH_COLORSPACE_SRGB_FULL
-    pub const OH_COLORSPACE_DISPLAY_SRGB: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(25);
-    /// equal to OH_COLORSPACE_P3_FULL
-    pub const OH_COLORSPACE_DISPLAY_P3_SRGB: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(26);
-    /// equal to OH_COLORSPACE_P3_HLG_FULL
-    pub const OH_COLORSPACE_DISPLAY_P3_HLG: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(27);
-    /// equal to OH_COLORSPACE_P3_PQ_FULL
-    pub const OH_COLORSPACE_DISPLAY_P3_PQ: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(28);
-    /// COLORPRIMARIES_BT2020 | (TRANSFUNC_SRGB << 8) | (MATRIX_BT2020 << 16) | (RANGE_FULL << 21)
-    pub const OH_COLORSPACE_DISPLAY_BT2020_SRGB: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(29);
-    /// equal to OH_COLORSPACE_BT2020_HLG_FULL
-    pub const OH_COLORSPACE_DISPLAY_BT2020_HLG: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(30);
-    /// equal to OH_COLORSPACE_BT2020_PQ_FULL
-    pub const OH_COLORSPACE_DISPLAY_BT2020_PQ: OH_NativeBuffer_ColorSpace =
-        OH_NativeBuffer_ColorSpace(31);
-}
-#[repr(transparent)]
-/// Indicates the color space of a native buffer.
-///
-///
-/// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
-///
-/// Available since API-level: 11
-///
-/// Version: 1.0
-////
-////**
-/// Indicates the color space of a native buffer.
-/// Move from native_buffer.h to native_common.h
-///
-///
-/// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
-///
-/// Available since API-level: 12
-///
-/// Version: 1.0
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-#[derive(Debug, Clone, Hash, PartialEq, Eq)]
-pub struct OH_NativeBuffer_ColorSpace(pub ::core::ffi::c_uint);
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_NativeBuffer_MetadataKey {
-    /// value: OH_NativeBuffer_MetadataType
-    pub const OH_HDR_METADATA_TYPE: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(0);
-    /// value: OH_NativeBuffer_StaticMetadata
-    pub const OH_HDR_STATIC_METADATA: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(1);
-    /// byte stream of SEI in video stream
-    pub const OH_HDR_DYNAMIC_METADATA: OH_NativeBuffer_MetadataKey = OH_NativeBuffer_MetadataKey(2);
-}
-#[repr(transparent)]
-/// Indicates the HDR metadata key of a native buffer.
-///
-///
-/// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
-///
-/// Available since API-level: 12
-///
-/// Version: 1.0
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Debug, Clone, Hash, PartialEq, Eq)]
-pub struct OH_NativeBuffer_MetadataKey(pub ::core::ffi::c_uint);
 /// indicates a dirty region where content is updated.
 ///
 /// Available since API-level: 8
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 pub struct Region {
     pub rects: *mut Region_Rect,
     /// if rectNumber is 0, fill the Buffer dirty size by default
@@ -214,7 +56,7 @@ pub struct Region {
 }
 /// if rects is nullptr, fill the Buffer dirty size by default
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 pub struct Region_Rect {
     pub x: i32,
     pub y: i32,
@@ -393,7 +235,7 @@ impl OHScalingMode {
 ///
 /// Available since API-level: 9
 /// = "10")
-#[derive(Debug, Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OHScalingMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -419,7 +261,7 @@ impl OHScalingModeV2 {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Debug, Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OHScalingModeV2(pub ::core::ffi::c_uint);
 impl OHHDRMetadataKey {
     pub const OH_METAKEY_RED_PRIMARY_X: OHHDRMetadataKey = OHHDRMetadataKey(0);
@@ -442,14 +284,14 @@ impl OHHDRMetadataKey {
 ///
 /// Available since API-level: 9
 /// = "10")
-#[derive(Debug, Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OHHDRMetadataKey(pub ::core::ffi::c_uint);
 /// Defines the HDR metadata.
 ///
 /// Available since API-level: 9
 /// = "10")
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Debug, Copy, Clone)]
 pub struct OHHDRMetaData {
     pub key: OHHDRMetadataKey,
     pub value: f32,
@@ -480,7 +322,7 @@ impl OHSurfaceSource {
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Debug, Clone, Hash, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OHSurfaceSource(pub ::core::ffi::c_uint);
 extern "C" {
     /// Creates a <b>OHNativeWindow</b> instance. A new <b>OHNativeWindow</b> instance is created each time this function is called.
