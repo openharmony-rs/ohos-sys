@@ -16,5 +16,6 @@
 #[link(name = "native_image")]
 extern "C" {}
 
-mod native_image_ffi;
-pub use native_image_ffi::*;
+mod native_image;
+
+pub use native_image::*;

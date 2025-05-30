@@ -8,7 +8,7 @@ use bindgen::EnumVariation;
 use log::{debug, info, trace};
 use std::cell::{LazyCell, OnceCell};
 use std::collections::HashMap;
-use std::default;
+use std::default::Default;
 use std::fmt::{Debug, Formatter};
 use std::sync::LazyLock;
 
@@ -118,6 +118,92 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     _ => builder,
                 }
             }),
+            ..Default::default()
+        },
+        DirBindingsConf {
+            directory: "native_window/".to_string(),
+            output_dir: "components/window/src/native_window".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_recursively(false)
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                        is_result_type: false,
+                    })
+                    .constified_enum_module("^NativeWindowOperation$");
+                match file_stem {
+                    "external_window" => builder
+                        .raw_line("use crate::native_window::BufferHandle;")
+                        .raw_line("use ohos_sys_opaque_types::{OHNativeWindow, OHNativeWindowBuffer};")
+                        .raw_line("#[cfg(feature = \"api-12\")]")
+                        .raw_line("use crate::native_buffer::buffer_common::{OH_NativeBuffer_ColorSpace, OH_NativeBuffer_MetadataKey};")
+                        .raw_line("#[cfg(feature = \"api-12\")]")
+                        .raw_line("use ohos_sys_opaque_types::OHIPCParcel;")
+                        .raw_line("#[cfg(feature = \"api-11\")]")
+                        .raw_line("use ohos_sys_opaque_types::{OH_NativeBuffer};")
+                        .blocklist_type("OHIPCParcel")
+                    ,
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
+            directory: "native_buffer/".to_string(),
+            output_dir: "components/window/src/native_buffer".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .blocklist_file(".*graphic_error_code.h")
+                    .allowlist_recursively(false)
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                        is_result_type: false,
+                    });
+                match file_stem {
+                    "native_buffer" => builder
+                        .raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")
+                        .raw_line("#[cfg(feature = \"api-11\")]")
+                        .raw_line("use crate::native_buffer::buffer_common::{OH_NativeBuffer_ColorSpace, OH_NativeBuffer_MetadataKey};")
+                        .raw_line("#[cfg(feature = \"api-12\")]")
+                        .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
+                        .bitfield_enum("OH_NativeBuffer_Usage")
+                    ,
+                    _ => builder,
+                }
+            }),
+            skip_files: vec!["graphic_error_code.h".to_string()]
+        },
+        DirBindingsConf {
+            directory: "native_image/".to_string(),
+            output_dir: "components/window/src/native_image".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .blocklist_file(".*graphic_error_code.h")
+                    .allowlist_recursively(false)
+                    .default_enum_style(EnumVariation::NewType {
+                        is_bitfield: false,
+                        is_global: false,
+                        is_result_type: false,
+                    });
+                match file_stem {
+                    "native_image" => builder
+                        .raw_line("use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeImage};")
+                        .raw_line("#[cfg(feature = \"api-12\")]")
+                        .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
+                        .no_copy("^OH_OnFrameAvailableListener")
+                    ,
+                    _ => builder,
+                }
+            }),
+            skip_files: vec!["graphic_error_code.h".to_string()]
         },
         DirBindingsConf {
             directory: "database/pasteboard".to_string(),
@@ -137,11 +223,11 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     _ => builder,
                 }
             }),
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "database/udmf".to_string(),
             output_dir: "components/udmf/src".to_string(),
-            rename_output_file: None,
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
@@ -164,6 +250,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     _ => builder,
                 }
             }),
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "multimedia/image_framework/image".to_string(),
@@ -232,6 +319,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
             }),
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "inputmethod".to_string(),
@@ -281,6 +369,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
             }),
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "native_drawing".to_string(),
@@ -347,6 +436,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
             }),
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "arkui".to_string(),
@@ -439,6 +529,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     _ => builder,
                 }
             }),
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "rawfile".to_string(),
@@ -489,6 +580,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                          _ => builder,
                      }
             }),
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "multimodalinput".to_string(),
@@ -518,11 +610,11 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                                  // raw integer is used there. Hence, we can use a rust enum here
                                  // which is much nicer to use.
                                  .rustified_enum("Input_KeyCode")
-
                          }
                          _ => builder,
                      }
             }),
+            ..Default::default()
         },
     ]
 }

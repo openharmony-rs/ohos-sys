@@ -3,14 +3,10 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-use ohos_sys_opaque_types::OHNativeWindow;
 #[cfg(feature = "api-12")]
 use ohos_sys_opaque_types::OHNativeWindowBuffer;
+use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeImage};
 
-#[repr(C)]
-pub struct OH_NativeImage {
-    _unused: [u8; 0],
-}
 /// The callback function of frame available.
 ///
 ///

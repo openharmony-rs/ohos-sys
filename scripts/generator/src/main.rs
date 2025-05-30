@@ -248,6 +248,20 @@ struct DirBindingsConf {
     rename_output_file: Option<Box<dyn Fn(&str) -> String>>,
     /// Options which apply to all or most files
     set_builder_opts: Box<dyn Fn(&str, &Path, bindgen::Builder) -> bindgen::Builder>,
+    /// Optionally skip the following headers
+    skip_files: Vec<String>,
+}
+
+impl Default for DirBindingsConf {
+    fn default() -> Self {
+        DirBindingsConf {
+            directory: "".to_string(),
+            output_dir: "".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|_, _, builder| builder),
+            skip_files: vec![],
+        }
+    }
 }
 
 struct BindingConf {
@@ -332,7 +346,7 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
             );
         }
         let paths = fs::read_dir(module_dir)?;
-        for file in paths {
+        'outer: for file in paths {
             let file = file.context("Failed to enumerate dir")?;
             if file.file_type()?.is_dir() {
                 bail!("Subdirectories are not supported yet by this script");
@@ -347,6 +361,12 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
                 .ok_or(anyhow!("Failed to get filestem"))?
                 .to_str()
                 .context("Unicode")?;
+            for skip_header in &binding.skip_files {
+                if header_filename_str.contains(skip_header) {
+                    eprintln!("Skipping {header_filename_str}");
+                    continue 'outer;
+                }
+            }
             let file_stem = binding
                 .rename_output_file
                 .as_ref()
