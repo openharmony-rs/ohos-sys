@@ -1,4 +1,4 @@
-pub(crate) static OPAQUE_TYPES: [&str; 29] = [
+pub(crate) static OPAQUE_TYPES: [&str; 30] = [
     "OH_PixelmapNative",
     "NativePixelMap_",
     "OH_NativeBuffer",
@@ -28,4 +28,5 @@ pub(crate) static OPAQUE_TYPES: [&str; 29] = [
     "OH_UdsArrayBuffer",
     "OH_Utd",
     "OHIPCParcel",
+    "OHIPCRemoteProxy",
 ];

@@ -48,6 +48,10 @@ pub mod multimedia;
 #[cfg_attr(docsrs, doc(cfg(feature = "napi")))]
 pub mod napi;
 
+#[cfg(feature = "abilitykit")]
+#[cfg_attr(docsrs, doc(cfg(feature = "abilitykit")))]
+pub use ohos_abilitykit_sys as abilitykit;
+
 #[cfg(feature = "native_buffer")]
 #[cfg_attr(docsrs, doc(cfg(feature = "native_buffer")))]
 pub use ohos_window_sys::native_buffer;

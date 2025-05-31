@@ -1,5 +1,6 @@
 use crate::BindingConf;
 use bindgen::EnumVariation;
+use crate::dir_conf::ResultEnumParseCallbacks;
 
 pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
     vec![
@@ -148,6 +149,26 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                     .raw_line("#[cfg(doc)]")
                     .raw_line("use crate::{raw_file::{OH_ResourceManager_GetRawFileDescriptor,OH_ResourceManager_GetRawFileDescriptor64},\
                         raw_file_manager::OH_ResourceManager_OpenRawFile};")
+            }),
+        },
+        BindingConf {
+            include_filename: "AbilityKit/native_child_process.h".to_string(),
+            output_prefix: "components/abilitykit/src/childprocess/childprocess".to_string(),
+            set_builder_opts: Box::new(|builder| {
+                builder
+                    .result_error_enum("Ability_NativeChildProcess_ErrCode")
+                    .allowlist_file(".*AbilityKit/native_child_process.h")
+                    .parse_callbacks(Box::new(ResultEnumParseCallbacks {
+                        rename_item: Box::new(|name| { // Ability_NativeChildProcess_ErrCode
+                            name.strip_suffix("_ErrCode").map(|name | {
+                                let mut s = name.to_string();
+                                s.push_str("Result");
+                                s
+                            })
+                        }),
+                        rename_enum_variant: None,
+                    }))
+                    .raw_line("use ohos_sys_opaque_types::OHIPCRemoteProxy;")
             }),
         },
     ]

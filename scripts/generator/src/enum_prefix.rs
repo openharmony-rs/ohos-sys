@@ -7,6 +7,8 @@ pub(crate) static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>>
         HashMap::from([
             ("Image_ErrorCode", "IMAGE_"),
             ("OH_Drawing_ErrorCode", "OH_DRAWING_ERROR_"),
+            ("AbilityRuntime_ErrorCode", "ABILITY_RUNTIME_ERROR_CODE_"),
+            ("AbilityBase_ErrorCode", "ABILITY_BASE_ERROR_CODE_"),
             ("ArkUI_DragResult", "ARKUI_DRAG_RESULT_"),
             ("ArkUI_GestureInterruptResult", "GESTURE_INTERRUPT_RESULT_"),
             ("ArkUI_ErrorCode", "ARKUI_ERROR_CODE_"),
@@ -16,6 +18,7 @@ pub(crate) static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>>
                 "OH_Drawing_FontConfigInfoErrorCode",
                 "ERROR_FONT_CONFIG_INFO_",
             ),
+            ("Ability_NativeChildProcess_ErrCode", "NCP_ERR_"),
             ("Udmf_Intention", "UDMF_INTENTION_"),
             ("Udmf_ShareOption", "SHARE_OPTIONS_"),
             ("Udmf_ErrCode", "UDMF_"),

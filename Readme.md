@@ -11,7 +11,7 @@ already been generated.
 
 | API name                                | status | API-level | 
 |-----------------------------------------|--------|-----------|
-| AbilityKit                              |        |           |
+| AbilityKit                              | ✅      | 15        |
 | BasicServicesKit                        |        |           |
 | ConnectivityKit                         |        |           |
 | CryptoArchitectureKit                   |        |           |
