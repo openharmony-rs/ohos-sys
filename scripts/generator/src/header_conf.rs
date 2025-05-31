@@ -7,22 +7,14 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
             include_filename: "deviceinfo.h".to_string(),
             output_prefix: "components/deviceinfo/src/deviceinfo".to_string(),
             set_builder_opts: Box::new(|builder| {
-                builder.default_enum_style(EnumVariation::NewType {
-                    is_bitfield: false,
-                    is_global: false,
-                    is_result_type: false,
-                })
+                builder
             }),
         },
         BindingConf {
             include_filename: "syscap_ndk.h".to_string(),
             output_prefix: "src/syscap/syscap".to_string(),
             set_builder_opts: Box::new(|builder| {
-                builder.default_enum_style(EnumVariation::NewType {
-                    is_bitfield: false,
-                    is_global: false,
-                    is_result_type: false,
-                })
+                builder
             }),
         },
         BindingConf {
@@ -30,11 +22,6 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
             output_prefix: "components/hilog/src/hilog".to_string(),
             set_builder_opts: Box::new(|builder| {
                 builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .blocklist_var("LOG_DOMAIN")
             }),
         },
@@ -43,11 +30,6 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
             output_prefix: "src/napi/napi".to_string(),
             set_builder_opts: Box::new(|builder| {
                 builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .prepend_enum_name(false)
                     .no_copy("napi_property_descriptor")
                     .no_copy("napi_extended_error_info")
@@ -61,11 +43,6 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
             output_prefix: "components/hitrace/src/hitrace".to_string(),
             set_builder_opts: Box::new(|builder| {
                 builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .bitfield_enum("^HiTrace_Flag$")
                     .rustified_non_exhaustive_enum("HiTrace_Tracepoint_Type")
                     .blocklist_var("LOG_DOMAIN")
@@ -78,13 +55,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
             output_prefix: "components/xcomponent/src/xcomponent".to_string(),
             set_builder_opts: Box::new(|builder| {
                 builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .allowlist_file(r".*/xcomponent/native_.*xcomponent.*\.h")
-                    .allowlist_recursively(false)
                     .no_copy("^OH_NativeXComponent$")
                     .no_copy("^OH_NativeXComponent_KeyEvent$")
                     .no_debug("^OH_NativeXComponent$")
@@ -108,6 +79,7 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                 builder
                     .raw_line("#![allow(unused)]")
                     .allowlist_var("OH_NATIVEXCOMPONENT_RESULT_.*")
+                    .default_enum_style(EnumVariation::Consts)
                     .clang_args(&["-x", "c++"])
             }),
         },
@@ -131,11 +103,6 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
             output_prefix: "components/vsync/src/vsync".to_string(),
             set_builder_opts: Box::new(move |builder| {
                 builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .clang_args(["-include", "stdbool.h", "-include", "stdint.h"])
             }),
         },
@@ -145,11 +112,6 @@ pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
                 .to_string(),
             set_builder_opts: Box::new(move |builder| {
                 builder
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .allowlist_var("UI_TOUCH_EVENT_ACTION_.*")
                     .allowlist_var("UI_INPUT_EVENT_TOOL_TYPE_.*")
                     .allowlist_var("UI_INPUT_EVENT_SOURCE_TYPE_.*")

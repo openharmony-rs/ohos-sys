@@ -66,13 +66,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "native_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    });
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()));
                 let builder = if file_stem != "averrors" {
                     builder.raw_line("#[allow(unused_imports)]use crate::averrors::OH_AVErrCode;")
                 } else {
@@ -127,12 +121,6 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .constified_enum_module("^NativeWindowOperation$");
                 match file_stem {
                     "external_window" => builder
@@ -158,13 +146,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .blocklist_file(".*graphic_error_code.h")
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    });
+                    .blocklist_file(".*graphic_error_code.h");
                 match file_stem {
                     "native_buffer" => builder
                         .raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")
@@ -186,13 +168,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .blocklist_file(".*graphic_error_code.h")
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    });
+                    .blocklist_file(".*graphic_error_code.h");
                 match file_stem {
                     "native_image" => builder
                         .raw_line("use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeImage};")
@@ -211,13 +187,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    });
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()));
                 match file_stem {
                     "pasteboard" => builder.raw_line("use ohos_sys_opaque_types::OH_UdmfData;"),
                     _ => builder,
@@ -230,13 +200,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/udmf/src".to_string(),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    });
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()));
 
                 match file_stem {
                     "udmf" => builder.raw_line("use ohos_sys_opaque_types::*;"),
@@ -309,12 +273,6 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 };
                 builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .derive_copy(false)
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
@@ -360,12 +318,6 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 };
                 builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
             }),
@@ -427,12 +379,6 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 };
                 builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
             }),
@@ -450,12 +396,6 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 };
                 let builder = builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .prepend_enum_name(false)
                     .parse_callbacks(Box::new(ResultEnumParseCallbacks {
                         rename_item: Box::new(|original_item_name| match original_item_name {
@@ -538,12 +478,6 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"]);
                 match file_stem {
@@ -589,12 +523,6 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
                     .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-                    .allowlist_recursively(false)
-                    .default_enum_style(EnumVariation::NewType {
-                        is_bitfield: false,
-                        is_global: false,
-                        is_result_type: false,
-                    })
                     .prepend_enum_name(false)
                     .clang_args(["-include", "stdbool.h"]);
                 match file_stem {
