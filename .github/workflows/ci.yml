@@ -64,6 +64,7 @@ jobs:
     strategy:
       matrix:
         component:
+          - abilitykit
           - arkui
           - deviceinfo
           - drawing

@@ -105,6 +105,10 @@ pub struct OH_Utd {
     _unused: [u8; 0],
 }
 #[repr(C)]
+pub struct OHIPCRemoteProxy {
+    _unused: [u8; 0],
+}
+#[repr(C)]
 pub struct ArkUI_AccessibilityProvider {
     _unused: [u8; 0],
 }

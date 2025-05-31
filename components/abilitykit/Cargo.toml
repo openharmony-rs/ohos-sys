@@ -1,0 +1,35 @@
+[package]
+name = "ohos-abilitykit-sys"
+version = "0.1.0"
+edition = "2021"
+description = "Bindings to the Abilitykit of OpenHarmony"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "AbilityKit", "Ability"]
+readme = "README.md"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+ohos-sys-opaque-types = { workspace = true }
+
+
+[features]
+default = []
+#! ### OpenHarmony API level
+#! This module was added in API-level 12.
+#! Defaults to no bindings at all, to maintain feature composability in `ohos-sys`.
+#! Optionally enable one of the `api-*` features to get access to bindings for newer
+#! OpenHarmony versions.
+
+
+## Enables bindings for OpenHarmony API-level 12.
+api-12 = []
+## Enables bindings for OpenHarmony API-level 13.
+api-13 = ["api-12"]
+## Enables bindings for OpenHarmony API-level 14.
+api-14 = ["api-13"]
+## Enables bindings for OpenHarmony API-level 15.
+api-15 = ["api-14"]
+
+## Document available features when building the documentation
+document-features = ["dep:document-features"]

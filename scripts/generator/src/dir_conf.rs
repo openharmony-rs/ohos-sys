@@ -28,13 +28,13 @@ fn strip_prefix(input: &str, prefix: &str) -> String {
     }
 }
 
-struct ResultEnumParseCallbacks {
+pub struct ResultEnumParseCallbacks {
     /// fn item_name(&self, original_item_name: &str) -> Option<String> {
-    rename_item: Box<dyn Fn(&str) -> Option<String>>,
+    pub(crate) rename_item: Box<dyn Fn(&str) -> Option<String>>,
     /// Custom renaming logic for enum variants.
     ///
     /// By default, we just try to lookup the prefix in `ENUM_PREFIX_MAP` and remove that.
-    rename_enum_variant: Option<Box<dyn Fn(&str, &str) -> Option<String>>>,
+    pub(crate) rename_enum_variant: Option<Box<dyn Fn(&str, &str) -> Option<String>>>,
 }
 
 impl Default for ResultEnumParseCallbacks {
@@ -541,6 +541,59 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                          }
                          _ => builder,
                      }
+            }),
+            ..Default::default()
+        },
+        // DirBindingsConf {
+        //     directory: "AbilityKit/ability_base".to_string(),
+        //     output_dir: "components/abilitykit/src/base".to_string(),
+        //     set_builder_opts: Box::new(|file_stem, header_path, builder| {
+        //         let builder = builder
+        //             .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+        //             .result_error_enum("AbilityBase_ErrorCode")
+        //             .parse_callbacks(Box::new(ResultEnumParseCallbacks {
+        //                 rename_item: Box::new(|name| {
+        //                     name.strip_suffix("_ErrorCode").map(|name | {
+        //                         let mut s = name.to_string();
+        //                         s.push_str("Result");
+        //                         s
+        //                     })
+        //                 }),
+        //                 rename_enum_variant: None,
+        //             }));
+        //         match file_stem {
+        //             "want" => builder.raw_line("use crate::base::common::AbilityBaseResult;"),
+        //             _ => builder,
+        //         }
+        //     }),
+        //     ..Default::default()
+        // },
+        DirBindingsConf {
+            directory: "AbilityKit/ability_runtime".to_string(),
+            output_dir: "components/abilitykit/src/runtime".to_string(),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .result_error_enum("AbilityRuntime_ErrorCode")
+                    .parse_callbacks(Box::new(ResultEnumParseCallbacks {
+                    rename_item: Box::new(|name| {
+                        name.strip_suffix("_ErrorCode").map(|name | {
+                            let mut s = name.to_string();
+                            s.push_str("Result");
+                            s
+                        })
+                    }),
+                    rename_enum_variant: None,
+                }));
+                match file_stem {
+                    "application_context" => builder
+                        .raw_line("use crate::runtime::{AbilityRuntimeResult, AbilityRuntime_AreaMode};")
+                        .raw_line("#[cfg(feature = \"api-15\")]")
+                        .raw_line("use crate::base::want::AbilityBase_Want;")
+                    
+                    ,
+                    _ => builder,
+                }
             }),
             ..Default::default()
         },
