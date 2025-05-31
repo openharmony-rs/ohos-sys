@@ -326,11 +326,16 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
     for ty_name in opaque_types::OPAQUE_TYPES {
         base_builder = base_builder.blocklist_type(ty_name)
     }
+    
+    let only_gen_module = std::env::var("ONLY_MODULE").ok();
 
     for binding in get_bindings_config(api_version) {
-        debug!("Generating binding: {}", binding.include_filename);
-        let header_filename = sysroot_include_dir.join(binding.include_filename);
+        let header_filename = sysroot_include_dir.join(&binding.include_filename);
         let header_filename_str = header_filename.to_str().context("Unicode")?;
+        if only_gen_module.as_ref().and_then(|name| header_filename_str.contains(name).then_some(())).is_none() {
+            continue
+        }
+        debug!("Generating binding: {}", binding.include_filename);
         let builder = base_builder.clone().header(header_filename_str);
         let builder = (binding.set_builder_opts)(builder);
         let bindings = builder.generate().context("Bindgen failed")?;
@@ -341,8 +346,13 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
     }
 
     for binding in &get_module_bindings_config() {
-        debug!("Generating binding: {}", binding.directory);
         let module_dir = sysroot_include_dir.join(&binding.directory);
+        if let Some(pattern) = &only_gen_module {
+            if !module_dir.to_str().unwrap().contains(pattern) {
+                continue
+            }
+        }
+        debug!("Generating binding: {}", binding.directory);
         if !module_dir.exists() {
             bail!(
                 "Could not find directory {} at {}",
