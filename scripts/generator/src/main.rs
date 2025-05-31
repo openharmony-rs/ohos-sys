@@ -211,6 +211,7 @@ fn base_bindgen_builder(sysroot_dir: &Path) -> anyhow::Result<bindgen::Builder> 
         .layout_tests(false)
         .formatter(Formatter::None)
         .merge_extern_blocks(true)
+        .allowlist_recursively(false)
         .rust_target(bindgen::RustTarget::from_str("1.78").expect("invalid rust target"))
         .generate_cstr(true)
         .blocklist_file(r".*stdint\.h")
@@ -229,9 +230,13 @@ fn base_bindgen_builder(sysroot_dir: &Path) -> anyhow::Result<bindgen::Builder> 
         .clang_arg(format!("--sysroot={}",
                            sysroot_dir.to_str().context("The OpenHarmony SDK directory must be encodable as utf-8")?)
         )
+        .default_enum_style(EnumVariation::NewType {
+            is_bitfield: false,
+            is_global: false,
+            is_result_type: false,
+        })
         // TODO: How to detect / deal with target specific bindings - Could this be a problem?
         .clang_arg("--target=aarch64-linux-ohos")
-        // .generate_cstr(true)
         // dynamic_library_name()
         // .prepend_enum_name()
         ;
