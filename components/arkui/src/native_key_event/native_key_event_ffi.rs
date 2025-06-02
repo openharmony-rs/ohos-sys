@@ -275,6 +275,84 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_NUMPAD_LEFT_PAREN: ArkUI_KeyCode = ArkUI_KeyCode(2121);
     /// Key ) on numeric keypad
     pub const ARKUI_KEYCODE_NUMPAD_RIGHT_PAREN: ArkUI_KeyCode = ArkUI_KeyCode(2122);
+    /// Joystick key A
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_A: ArkUI_KeyCode = ArkUI_KeyCode(2301);
+    /// Joystick key B
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_B: ArkUI_KeyCode = ArkUI_KeyCode(2302);
+    /// Joystick key X
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_X: ArkUI_KeyCode = ArkUI_KeyCode(2304);
+    /// Joystick key Y
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_Y: ArkUI_KeyCode = ArkUI_KeyCode(2305);
+    /// Joystick key L1
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_L1: ArkUI_KeyCode = ArkUI_KeyCode(2307);
+    /// Joystick key R1
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_R1: ArkUI_KeyCode = ArkUI_KeyCode(2308);
+    /// Joystick key L2
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_L2: ArkUI_KeyCode = ArkUI_KeyCode(2309);
+    /// Joystick key R2
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_R2: ArkUI_KeyCode = ArkUI_KeyCode(2310);
+    /// Joystick key Select
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_SELECT: ArkUI_KeyCode = ArkUI_KeyCode(2311);
+    /// Joystick key Start
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_START: ArkUI_KeyCode = ArkUI_KeyCode(2312);
+    /// Joystick key Mode
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_MODE: ArkUI_KeyCode = ArkUI_KeyCode(2313);
+    /// Joystick key THUMBL
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_THUMBL: ArkUI_KeyCode = ArkUI_KeyCode(2314);
+    /// Joystick key THUMBR
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYCODE_BUTTON_THUMBR: ArkUI_KeyCode = ArkUI_KeyCode(2315);
 }
 #[repr(transparent)]
 /// Defines an enum for the key codes in key events.
@@ -317,6 +395,13 @@ impl ArkUI_KeySourceType {
     pub const ARKUI_KEY_SOURCE_TYPE_MOUSE: ArkUI_KeySourceType = ArkUI_KeySourceType(1);
     /// Keyboard
     pub const ARKUI_KEY_SOURCE_TYPE_KEYBOARD: ArkUI_KeySourceType = ArkUI_KeySourceType(4);
+    /// Joystick.
+    ///
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEY_SOURCE_TYPE_JOYSTICK: ArkUI_KeySourceType = ArkUI_KeySourceType(5);
 }
 #[repr(transparent)]
 /// Defines an enum for the types of devices that trigger a key event.
@@ -509,4 +594,16 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_ArkUI_KeyEvent_SetConsumed(event: *const ArkUI_UIInputEvent, isConsumed: bool);
+    /// Dispatch key event to a specific component node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to a component node.
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_KeyEvent_Dispatch(node: ArkUI_NodeHandle, event: *const ArkUI_UIInputEvent);
 }

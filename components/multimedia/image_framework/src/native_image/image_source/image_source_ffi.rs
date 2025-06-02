@@ -48,6 +48,22 @@ impl IMAGE_DYNAMIC_RANGE {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct IMAGE_DYNAMIC_RANGE(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl IMAGE_ALLOCATOR_TYPE {
+    pub const IMAGE_ALLOCATOR_TYPE_AUTO: IMAGE_ALLOCATOR_TYPE = IMAGE_ALLOCATOR_TYPE(0);
+    pub const IMAGE_ALLOCATOR_TYPE_DMA: IMAGE_ALLOCATOR_TYPE = IMAGE_ALLOCATOR_TYPE(1);
+    pub const IMAGE_ALLOCATOR_TYPE_SHARE_MEMORY: IMAGE_ALLOCATOR_TYPE = IMAGE_ALLOCATOR_TYPE(2);
+}
+#[repr(transparent)]
+/// Type of allocator used to allocate memory of a PixelMap..
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
+pub struct IMAGE_ALLOCATOR_TYPE(pub ::core::ffi::c_uint);
 /// Defines the options for decoding the image source.
 /// It is used in [`OH_ImageSourceNative_CreatePixelmap`].
 ///
@@ -506,6 +522,46 @@ extern "C" {
     pub fn OH_ImageSourceNative_CreatePixelmap(
         source: *mut OH_ImageSourceNative,
         options: *mut OH_DecodingOptions,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ImageResult;
+    /// Creates a PixelMap based on decoding parameters [`OH_DecodingOptions`], the memory type used by the
+    /// PixelMap can be specified by allocatorType [`IMAGE_ALLOCATOR_TYPE`]. By default, the system selects the memory
+    /// type based on the image type, image size, platform capability, etc. When processing the PixelMap returned by this
+    /// interface, please always consider the impact of stride.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - Image Source.
+    ///
+    /// * `options` - Decoding parameters, such as the size, pixel format, and color space of the pixelMap.
+    /// For details, see [`OH_DecodingOptions`].
+    ///
+    /// * `allocator` - Indicate which memory type will be used by the returned PixelMap.
+    ///
+    /// * `pixelmap` - Decoded <b>Pixelmap</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] source is nullptr, or picture is nullptr.
+    /// [`IMAGE_BAD_SOURCE`] data source exception.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIMETYPE`] unsupported mime type.
+    /// [`IMAGE_SOURCE_TOO_LARGE`] image to large.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_ALLOCATOR_TYPE`] unsupported allocator type,
+    /// e.g., use share memory to decode a HDR image as only DMA supported hdr metadata.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_OPTIONS`] unsupported options,
+    /// e.g, cannot convert image into desired pixel format.
+    /// [`IMAGE_DECODE_FAILED`] decode failed.
+    /// [`IMAGE_SOURCE_ALLOC_FAILED`] memory allocation failed.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ImageSourceNative_CreatePixelmapUsingAllocator(
+        source: *mut OH_ImageSourceNative,
+        options: *mut OH_DecodingOptions,
+        allocator: IMAGE_ALLOCATOR_TYPE,
         pixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
     /// Decodes an void pointer

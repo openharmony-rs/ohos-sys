@@ -1,3 +1,7 @@
+# 0.1.4
+
+- Add API-15 feature flag (no additions)
+
 # 0.1.3 (2025-03-06)
 
 - Fix: Link against deviceinfo_ndk.z

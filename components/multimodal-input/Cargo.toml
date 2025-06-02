@@ -1,6 +1,6 @@
 [package]
 name = "ohos-input-sys"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2021"
 description = "Bindings to the multi-modal Input-kit on OpenHarmony"
 license = "Apache-2.0"
@@ -27,6 +27,8 @@ api-12 = []
 api-13 = ["api-12"]
 ## Enables bindings for OpenHarmony API-level 14
 api-14 = ["api-13"]
+## Enables bindings for OpenHarmony API-level 15
+api-15 = ["api-14"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 

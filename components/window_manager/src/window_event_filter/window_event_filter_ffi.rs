@@ -6,6 +6,8 @@
 use crate::window_comm::WindowManagerResult;
 #[cfg(feature = "api-12")]
 use ohos_sys_opaque_types::Input_KeyEvent;
+#[cfg(feature = "api-15")]
+use ohos_sys_opaque_types::{Input_MouseEvent, Input_TouchEvent};
 
 /// the callback funcation type when keyEvent was filter
 /// # Arguments
@@ -17,6 +19,26 @@ use ohos_sys_opaque_types::Input_KeyEvent;
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NativeWindowManager_KeyEventFilter =
     ::core::option::Option<unsafe extern "C" fn(keyEvent: *mut Input_KeyEvent) -> bool>;
+/// the callback function type when mouseEvent was filter
+/// # Arguments
+///
+/// * `mouseEvent` - multimodal mouseEvent
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub type OH_NativeWindowManager_MouseEventFilter =
+    ::core::option::Option<unsafe extern "C" fn(mouseEvent: *mut Input_MouseEvent) -> bool>;
+/// the callback function type when touchEvent was filter
+/// # Arguments
+///
+/// * `touchEvent` - multimodal touchEvent
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub type OH_NativeWindowManager_TouchEventFilter =
+    ::core::option::Option<unsafe extern "C" fn(touchEvent: *mut Input_TouchEvent) -> bool>;
 extern "C" {
     /// Registers a filter callback for the window ,the callback is called when the
     /// window is dispatched to the event
@@ -53,4 +75,86 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_NativeWindowManager_UnregisterKeyEventFilter(windowId: i32) -> WindowManagerResult;
+    /// Registers a filter callback for the window, the callback is called when the
+    /// window is dispatched to the event
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - windowId when window is created
+    ///
+    /// * `mouseEventFilter` - mouse event callback, called when the window is dispatched
+    /// to the event
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// Returns [`OK`] if the operation is successful.
+    /// Returns [`INVAILD_WINDOW_ID`] if the window id is invalid.
+    /// Returns [`SERVICE_ERROR`] if the window manager service error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_NativeWindowManager_RegisterMouseEventFilter(
+        windowId: i32,
+        mouseEventFilter: OH_NativeWindowManager_MouseEventFilter,
+    ) -> WindowManagerResult;
+    /// clear callback for the window
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - windowId when window is created
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// Returns [`OK`] if the operation is successful.
+    /// Returns [`INVAILD_WINDOW_ID`] if the window id is invalid.
+    /// Returns [`SERVICE_ERROR`] if the window manager service error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_NativeWindowManager_UnregisterMouseEventFilter(windowId: i32) -> WindowManagerResult;
+    /// Registers a filter callback for the window, the callback is called when the
+    /// window is dispatched to the event
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - windowId when window is created
+    ///
+    /// * `touchEventFilter` - touch event callback, called when the window is dispatched
+    /// to the event
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// Returns [`OK`] if the operation is successful.
+    /// Returns [`INVAILD_WINDOW_ID`] if the window id is invalid.
+    /// Returns [`SERVICE_ERROR`] if the window manager service error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_NativeWindowManager_RegisterTouchEventFilter(
+        windowId: i32,
+        touchEventFilter: OH_NativeWindowManager_TouchEventFilter,
+    ) -> WindowManagerResult;
+    /// clear callback for the window
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - windowId when window is created
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// Returns [`OK`] if the operation is successful.
+    /// Returns [`INVAILD_WINDOW_ID`] if the window id is invalid.
+    /// Returns [`SERVICE_ERROR`] if the window manager service error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_NativeWindowManager_UnregisterTouchEventFilter(windowId: i32) -> WindowManagerResult;
 }

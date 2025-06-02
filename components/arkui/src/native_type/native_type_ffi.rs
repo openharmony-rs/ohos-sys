@@ -218,6 +218,16 @@ pub struct ArkUI_AccessibilityValue {
 pub struct ArkUI_CustomProperty {
     _unused: [u8; 0],
 }
+/// Define the information of the HostWindowInfo class for window properties.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+pub struct ArkUI_HostWindowInfo {
+    _unused: [u8; 0],
+}
 /// Define ActiveChildenInfo class information.
 ///
 ///
@@ -226,6 +236,26 @@ pub struct ArkUI_CustomProperty {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 #[repr(C)]
 pub struct ArkUI_ActiveChildrenInfo {
+    _unused: [u8; 0],
+}
+/// Set the linear progress indicator style.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+pub struct ArkUI_ProgressLinearStyleOption {
+    _unused: [u8; 0],
+}
+/// The cross-language option.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+pub struct ArkUI_CrossLanguageOption {
     _unused: [u8; 0],
 }
 /// Defines the event callback type.
@@ -968,6 +998,44 @@ impl ArkUI_SwiperNestedScrollMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_SwiperNestedScrollMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_PageFlipMode {
+    /// When the mouse wheel is scrolled continuously, multiple pages are flipped, which is determined by the number of
+    /// times that mouse events are reported.
+    pub const ARKUI_PAGE_FLIP_MODE_CONTINUOUS: ArkUI_PageFlipMode = ArkUI_PageFlipMode(0);
+    /// The system does not respond to other mouse wheel events until the page flipping animation ends.
+    pub const ARKUI_PAGE_FLIP_MODE_SINGLE: ArkUI_PageFlipMode = ArkUI_PageFlipMode(1);
+}
+#[repr(transparent)]
+/// Enumerates the page flipping modes using the mouse wheel for the <b>Swiper</b> component.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_PageFlipMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_SwiperAnimationMode {
+    /// Jump to target index without animation.
+    pub const ARKUI_SWIPER_NO_ANIMATION: ArkUI_SwiperAnimationMode = ArkUI_SwiperAnimationMode(0);
+    /// Scroll to target index with animation.
+    pub const ARKUI_SWIPER_DEFAULT_ANIMATION: ArkUI_SwiperAnimationMode =
+        ArkUI_SwiperAnimationMode(1);
+    /// Jump to some index near the target index without animation, then scroll to target index with animation.
+    pub const ARKUI_SWIPER_FAST_ANIMATION: ArkUI_SwiperAnimationMode = ArkUI_SwiperAnimationMode(2);
+}
+#[repr(transparent)]
+/// Enumerates the animation modes for [`NODE_SWIPER_INDEX`].
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_SwiperAnimationMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_AccessibilityMode {
@@ -2352,6 +2420,47 @@ impl ArkUI_TextInputStyle {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_TextInputStyle(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_KeyboardAppearance {
+    /// Default appearance mode, won't adopt immersive styles.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYBOARD_APPEARANCE_NONE_IMMERSIVE: ArkUI_KeyboardAppearance =
+        ArkUI_KeyboardAppearance(0);
+    /// Immersive mode.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYBOARD_APPEARANCE_IMMERSIVE: ArkUI_KeyboardAppearance =
+        ArkUI_KeyboardAppearance(1);
+    /// Light immersive style.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYBOARD_APPEARANCE_LIGHT_IMMERSIVE: ArkUI_KeyboardAppearance =
+        ArkUI_KeyboardAppearance(2);
+    /// Dark immersive style.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_KEYBOARD_APPEARANCE_DARK_IMMERSIVE: ArkUI_KeyboardAppearance =
+        ArkUI_KeyboardAppearance(3);
+}
+#[repr(transparent)]
+/// Defines the keyboard style of input box
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_KeyboardAppearance(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_TextDataDetectorType {
@@ -2446,6 +2555,14 @@ impl ArkUiErrorCode {
     /// Parameter error.
     pub const PARAM_INVALID: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(401).unwrap() });
+    /// Internal error occurs, such as failure occurs because of the internal environment error,
+    /// or operation failed because of the internal execution failed.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const INTERNAL_ERROR: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(100001).unwrap() });
     /// The component does not support specific properties or events.
     pub const ATTRIBUTE_OR_EVENT_NOT_SUPPORTED: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106102).unwrap() });
@@ -2479,12 +2596,68 @@ impl ArkUiErrorCode {
     /// The buffer size is not large enough.
     pub const BUFFER_SIZE_ERROR: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106202).unwrap() });
+    /// The node is not on main tree.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const NODE_NOT_ON_MAIN_TREE: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106203).unwrap() });
+    /// The node requesting focus is not focusable.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const FOCUS_NON_FOCUSABLE: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(150001).unwrap() });
+    /// The node requesting focus has unfocusable ancestor.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const FOCUS_NON_FOCUSABLE_ANCESTOR: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(150002).unwrap() });
+    /// The node requesting focus does not exists.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const FOCUS_NON_EXISTENT: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(150003).unwrap() });
+    /// The snapshot taking is timeout.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const COMPONENT_SNAPSHOT_TIMEOUT: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(160002).unwrap() });
     /// The component is not a scroll container.
     pub const NON_SCROLLABLE_CONTAINER: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(180001).unwrap() });
     /// The buffer is not large enough.
     pub const BUFFER_SIZE_NOT_ENOUGH: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(180002).unwrap() });
+    /// The event is not a clone event.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const NOT_CLONED_POINTER_EVENT: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(180003).unwrap() });
+    /// The component status is abnormal.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const POST_CLONED_COMPONENT_STATUS_ABNORMAL: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(180004).unwrap() });
+    /// No component hit to respond to the event.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const POST_CLONED_NO_COMPONENT_HIT_TO_RESPOND_TO_THE_EVENT: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(180005).unwrap() });
     /// invalid styled string.
     ///
     /// Available since API-level: 14
@@ -2832,6 +3005,29 @@ impl ArkUI_SafeAreaType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_SafeAreaType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_ListItemGroupArea {
+    /// Outside the area of the <b>ListItemGroup</b> component.
+    pub const GROUP_AREA_OUTSIDE: ArkUI_ListItemGroupArea = ArkUI_ListItemGroupArea(0);
+    /// Area when the <b>ListItemGroup</b> component does not have the header, footer, or list item.
+    pub const SWIPE_AREA_NONE: ArkUI_ListItemGroupArea = ArkUI_ListItemGroupArea(1);
+    /// List item area of the <b>ListItemGroup</b> component.
+    pub const SWIPE_AREA_ITEM: ArkUI_ListItemGroupArea = ArkUI_ListItemGroupArea(2);
+    /// Header area of the <b>ListItemGroup</b> component.
+    pub const SWIPE_AREA_HEADER: ArkUI_ListItemGroupArea = ArkUI_ListItemGroupArea(3);
+    /// Footer area of the <b>ListItemGroup</b> component.
+    pub const SWIPE_AREA_FOOTER: ArkUI_ListItemGroupArea = ArkUI_ListItemGroupArea(4);
+}
+#[repr(transparent)]
+/// Define an enum for the areas of the <b>ListItemGroup</b> component.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_ListItemGroupArea(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_SafeAreaEdge {
@@ -2853,6 +3049,61 @@ impl ArkUI_SafeAreaEdge {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_SafeAreaEdge(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_KeyboardAvoidMode {
+    /// Defines avoid keyboard when keyboard shows.
+    pub const ARKUI_KEYBOARD_AVOID_MODE_DEFAULT: ArkUI_KeyboardAvoidMode =
+        ArkUI_KeyboardAvoidMode(0);
+    /// Defines not avoid keyboard when keyboard shows.
+    pub const ARKUI_KEYBOARD_AVOID_MODE_NONE: ArkUI_KeyboardAvoidMode = ArkUI_KeyboardAvoidMode(1);
+}
+#[repr(transparent)]
+/// defines the enumerated value of the customDialog's keyboard avoid mode.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_KeyboardAvoidMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_HoverModeAreaType {
+    /// Layout top half screen when the phone in hover mode.
+    pub const ARKUI_HOVER_MODE_AREA_TYPE_TOP: ArkUI_HoverModeAreaType = ArkUI_HoverModeAreaType(0);
+    /// Layout bottom half screen when the phone in hover mode.
+    pub const ARKUI_HOVER_MODE_AREA_TYPE_BOTTOM: ArkUI_HoverModeAreaType =
+        ArkUI_HoverModeAreaType(1);
+}
+#[repr(transparent)]
+/// defines the enumerated value of area in hover mode.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_HoverModeAreaType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_ExpandMode {
+    /// Not expand.
+    pub const ARKUI_NOT_EXPAND: ArkUI_ExpandMode = ArkUI_ExpandMode(0);
+    /// Expand.
+    pub const ARKUI_EXPAND: ArkUI_ExpandMode = ArkUI_ExpandMode(1);
+    /// Lazy expand. Expand the children of node if needed.
+    pub const ARKUI_LAZY_EXPAND: ArkUI_ExpandMode = ArkUI_ExpandMode(2);
+}
+#[repr(transparent)]
+/// Enumerates the expand modes.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_ExpandMode(pub ::core::ffi::c_uint);
 /// Defines parameter used by the system font style callback event.
 ///
 ///
@@ -2861,6 +3112,16 @@ pub struct ArkUI_SafeAreaEdge(pub ::core::ffi::c_uint);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_SystemFontStyleEvent {
+    _unused: [u8; 0],
+}
+/// Defines the options for taking snapshot.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+pub struct ArkUI_SnapshotOptions {
     _unused: [u8; 0],
 }
 extern "C" {
@@ -5637,6 +5898,32 @@ extern "C" {
     pub fn OH_ArkUI_CustomProperty_GetStringValue(
         handle: *mut ArkUI_CustomProperty,
     ) -> *const ::core::ffi::c_char;
+    /// Get window name from HostWindowInfo.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - HostWindowInfo object pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Window name in HostWindowInfo.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_HostWindowInfo_GetName(
+        info: *mut ArkUI_HostWindowInfo,
+    ) -> *const ::core::ffi::c_char;
+    /// Destroy the instance of HostWindowInfo.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Instance of HostWindowInfo to be destroyed.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_HostWindowInfo_Destroy(info: *mut ArkUI_HostWindowInfo);
     /// Destroy ActiveChildenInfo instance.
     ///
     /// # Arguments
@@ -5680,4 +5967,249 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_ArkUI_ActiveChildrenInfo_GetCount(handle: *mut ArkUI_ActiveChildrenInfo) -> i32;
+    /// Create linear progress indicator style information.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a <b>ProgressLinearStyleOption</b> instance.
+    /// <br> If the result returns nullptr, there may be out of memory.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_ProgressLinearStyleOption_Create() -> *mut ArkUI_ProgressLinearStyleOption;
+    /// Destroy linear progress indicator style information.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Linear progress indicator style information.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_ProgressLinearStyleOption_Destroy(option: *mut ArkUI_ProgressLinearStyleOption);
+    /// Set whether the scan effect is enabled.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Linear progress indicator style information.
+    ///
+    /// * `enabled` - Whether to enable the scan effect. Default value: false.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_ProgressLinearStyleOption_SetScanEffectEnabled(
+        option: *mut ArkUI_ProgressLinearStyleOption,
+        enabled: bool,
+    );
+    /// Set whether smoothing effect is enabled.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Linear progress indicator style information.
+    ///
+    /// * `enabled` - Whether to enable the smooth effect. When this effect is enabled, the progress change to
+    /// the set value takes place gradually. Otherwise, it takes place immediately. Default value: true.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_ProgressLinearStyleOption_SetSmoothEffectEnabled(
+        option: *mut ArkUI_ProgressLinearStyleOption,
+        enabled: bool,
+    );
+    /// Set linear progress indicator stroke width.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Linear progress indicator style information.
+    ///
+    /// * `strokeWidth` - Stroke width of the progress indicator. It cannot be set in percentage.
+    /// Default value: 4.0vp.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_ProgressLinearStyleOption_SetStrokeWidth(
+        option: *mut ArkUI_ProgressLinearStyleOption,
+        strokeWidth: f32,
+    );
+    /// Set linear progress indicator stroke radius.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Linear progress indicator style information.
+    ///
+    /// * `strokeRadius` - Rounded corner radius of the progress indicator. Value range: [0, strokeWidth/2].
+    /// Default value: strokeWidth/2.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_ProgressLinearStyleOption_SetStrokeRadius(
+        option: *mut ArkUI_ProgressLinearStyleOption,
+        strokeRadius: f32,
+    );
+    /// Get whether scan effect is enable.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Linear progress indicator style information.
+    ///
+    /// # Returns
+    ///
+    /// * Whether to enable the scan effect.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_ProgressLinearStyleOption_GetScanEffectEnabled(
+        option: *mut ArkUI_ProgressLinearStyleOption,
+    ) -> bool;
+    /// Get whether smoothing effect is enabled.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Linear progress indicator style information.
+    ///
+    /// # Returns
+    ///
+    /// * Whether to enable the smooth effect.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_ProgressLinearStyleOption_GetSmoothEffectEnabled(
+        option: *mut ArkUI_ProgressLinearStyleOption,
+    ) -> bool;
+    /// Get linear progress indicator stroke width.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Linear progress indicator style information.
+    ///
+    /// # Returns
+    ///
+    /// * Stroke width of the progress indicator.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_ProgressLinearStyleOption_GetStrokeWidth(
+        option: *mut ArkUI_ProgressLinearStyleOption,
+    ) -> f32;
+    /// Get linear progress indicator stroke radius.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Linear progress indicator style information.
+    ///
+    /// # Returns
+    ///
+    /// * Rounded corner radius of the progress indicator.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_ProgressLinearStyleOption_GetStrokeRadius(
+        option: *mut ArkUI_ProgressLinearStyleOption,
+    ) -> f32;
+    /// Creates an option for taking snapshot, the returned value must be released through
+    /// [`OH_ArkUI_DestroySnapshotOptions`] when it's not used anymore.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the created snapshot options object.If the object returns a null pointer,
+    /// it indicates a creation failure, and the reason for the failure may be that the address space is full.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_CreateSnapshotOptions() -> *mut ArkUI_SnapshotOptions;
+    /// Dispose a snapshot option object.
+    ///
+    /// # Arguments
+    ///
+    /// * `snapshotOptions` - Indicates the pointer to the snapshot option.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_DestroySnapshotOptions(snapshotOptions: *mut ArkUI_SnapshotOptions);
+    /// Config the snapshot option with scale.
+    ///
+    /// # Arguments
+    ///
+    /// * `snapshotOptions` - Indicates the pointer to the snapshot option.
+    ///
+    /// * `scale` - Indicates the scale property to take the snapshot.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_SnapshotOptions_SetScale(
+        snapshotOptions: *mut ArkUI_SnapshotOptions,
+        scale: f32,
+    ) -> i32;
+    /// Create a cross-language option instance.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a cross-language option instance. If the result is a null pointer, it may be out of memory.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_CrossLanguageOption_Create() -> *mut ArkUI_CrossLanguageOption;
+    /// Destroy the cross-language option instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - The cross-language option instance.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_CrossLanguageOption_Destroy(option: *mut ArkUI_CrossLanguageOption);
+    /// Enable the attribute setting in the cross-language option.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - The cross-language option.
+    ///
+    /// * `enabled` - The attribute setting in the cross-language option.
+    /// Default value: false.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_CrossLanguageOption_SetAttributeSettingStatus(
+        option: *mut ArkUI_CrossLanguageOption,
+        enabled: bool,
+    );
+    /// Get the attribute setting enable of the cross-language option.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - The cross-language option.
+    ///
+    /// # Returns
+    ///
+    /// * The attribute setting enable of the cross-language option.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_CrossLanguageOption_GetAttributeSettingStatus(
+        option: *mut ArkUI_CrossLanguageOption,
+    ) -> bool;
 }

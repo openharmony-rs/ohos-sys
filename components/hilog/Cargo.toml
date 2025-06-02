@@ -1,6 +1,6 @@
 [package]
 name = "hilog-sys"
-version = "0.1.4"
+version = "0.1.5"
 edition = "2021"
 keywords = ["OpenHarmony", "HarmonyOS", "hilog", "log"]
 description = "Rust bindings to the HiLog logging system of OpenHarmony"
@@ -31,6 +31,10 @@ api-11 = ["api-10"]
 api-12 = ["api-11"]
 ## Enables bindings for OpenHarmony API-level 13 (No changes)
 api-13 = ["api-12"]
+## Enables bindings for OpenHarmony API-level 14 (No changes)
+api-14 = ["api-13"]
+## Enables bindings for OpenHarmony API-level 15 (No changes)
+api-15 = ["api-14"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 

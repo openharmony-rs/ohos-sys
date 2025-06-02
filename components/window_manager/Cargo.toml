@@ -1,6 +1,6 @@
 [package]
 name = "ohos-window-manager-sys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Raw Bindings to the `window_manager` API of OpenHarmony"
 license = "Apache-2.0"
@@ -19,6 +19,7 @@ default = []
 api-12 = []
 api-13 = ["api-12"]
 api-14 = ["api-13"]
+api-15 = ["api-14"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 

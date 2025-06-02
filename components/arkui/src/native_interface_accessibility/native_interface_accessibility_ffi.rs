@@ -79,6 +79,20 @@ impl ArkUI_Accessibility_ActionType {
     /// Cursor position setting action.
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SET_CURSOR_POSITION:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(1048576);
+    /// Support action for find next item in focus move operation
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_NEXT_HTML_ITEM:
+        ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(33554432);
+    /// Support action for find previous item in focus move operation
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_PREVIOUS_HTML_ITEM:
+        ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(67108864);
 }
 #[repr(transparent)]
 /// Defines an enum for accessibility action types.
@@ -507,6 +521,179 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
         unsafe extern "C" fn(elementId: i64, requestId: i32, index: *mut i32) -> i32,
     >,
 }
+/// Registers callbacks with instance for the accessibility provider.
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
+    /// Called to obtain element information based on a specified node.
+    /// # Arguments
+    ///
+    /// * `instanceId` - Indicates ID of third-party framework instance.
+    ///
+    /// * `elementId` - The unique id of the component ID.
+    ///
+    /// * `mode` - Indicates accessibility search mode.
+    ///
+    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    ///
+    /// * `elementList` - The all obtained accessibility elements list information.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
+    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    pub findAccessibilityNodeInfosById: ::core::option::Option<
+        unsafe extern "C" fn(
+            instanceId: *const ::core::ffi::c_char,
+            elementId: i64,
+            mode: ArkUI_AccessibilitySearchMode,
+            requestId: i32,
+            elementList: *mut ArkUI_AccessibilityElementInfoList,
+        ) -> i32,
+    >,
+    /// Called to obtain element information based on a specified node and text content.
+    /// # Arguments
+    ///
+    /// * `instanceId` - Indicates ID of third-party framework instance.
+    ///
+    /// * `elementId` - The unique id of the component ID.
+    ///
+    /// * `text` - Filter for the child components to matched with the text.
+    ///
+    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    ///
+    /// * `elementList` - The all obtained accessibility elements list information.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
+    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    pub findAccessibilityNodeInfosByText: ::core::option::Option<
+        unsafe extern "C" fn(
+            instanceId: *const ::core::ffi::c_char,
+            elementId: i64,
+            text: *const ::core::ffi::c_char,
+            requestId: i32,
+            elementList: *mut ArkUI_AccessibilityElementInfoList,
+        ) -> i32,
+    >,
+    /// Called to obtain focused element information based on a specified node.
+    /// # Arguments
+    ///
+    /// * `instanceId` - Indicates ID of third-party framework instance.
+    ///
+    /// * `elementId` - The unique id of the component ID.
+    ///
+    /// * `focusType` - Indicates focus type.
+    ///
+    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    ///
+    /// * `elementInfo` - The all obtained accessibility elements list information.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
+    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    pub findFocusedAccessibilityNode: ::core::option::Option<
+        unsafe extern "C" fn(
+            instanceId: *const ::core::ffi::c_char,
+            elementId: i64,
+            focusType: ArkUI_AccessibilityFocusType,
+            requestId: i32,
+            elementInfo: *mut ArkUI_AccessibilityElementInfo,
+        ) -> i32,
+    >,
+    /// Called to find the next focusable node based on the reference node.
+    /// # Arguments
+    ///
+    /// * `instanceId` - Indicates ID of third-party framework instance.
+    ///
+    /// * `elementId` - The unique id of the component ID.
+    ///
+    /// * `direction` - Indicates direction.
+    ///
+    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    ///
+    /// * `elementInfo` - The all obtained accessibility elements list information.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
+    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    pub findNextFocusAccessibilityNode: ::core::option::Option<
+        unsafe extern "C" fn(
+            instanceId: *const ::core::ffi::c_char,
+            elementId: i64,
+            direction: ArkUI_AccessibilityFocusMoveDirection,
+            requestId: i32,
+            elementInfo: *mut ArkUI_AccessibilityElementInfo,
+        ) -> i32,
+    >,
+    /// Called to execute a specified action on a specified node.
+    /// # Arguments
+    ///
+    /// * `instanceId` - Indicates ID of third-party framework instance.
+    ///
+    /// * `elementId` - The unique id of the component ID.
+    ///
+    /// * `action` - Indicates action.
+    ///
+    /// * `actionArguments` - Indicates action arguments.
+    ///
+    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
+    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    pub executeAccessibilityAction: ::core::option::Option<
+        unsafe extern "C" fn(
+            instanceId: *const ::core::ffi::c_char,
+            elementId: i64,
+            action: ArkUI_Accessibility_ActionType,
+            actionArguments: *mut ArkUI_AccessibilityActionArguments,
+            requestId: i32,
+        ) -> i32,
+    >,
+    /// Called to clear the focus state of the current focused node.
+    /// # Arguments
+    ///
+    /// * `instanceId` - Indicates ID of third-party framework instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
+    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED`] if the operation is failed.
+    pub clearFocusedFocusAccessibilityNode:
+        ::core::option::Option<unsafe extern "C" fn(instanceId: *const ::core::ffi::c_char) -> i32>,
+    /// Called to query the current cursor position of the specified node.
+    /// # Arguments
+    ///
+    /// * `instanceId` - Indicates ID of third-party framework instance.
+    ///
+    /// * `elementId` - The unique id of the component ID.
+    ///
+    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    ///
+    /// * `index` - Indicates index.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
+    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    pub getAccessibilityNodeCursorPosition: ::core::option::Option<
+        unsafe extern "C" fn(
+            instanceId: *const ::core::ffi::c_char,
+            elementId: i64,
+            requestId: i32,
+            index: *mut i32,
+        ) -> i32,
+    >,
+}
 extern "C" {
     /// Registers a callback for this <b>ArkUI_AccessibilityProvider</b> instance.
     ///
@@ -527,6 +714,28 @@ extern "C" {
     pub fn OH_ArkUI_AccessibilityProviderRegisterCallback(
         provider: *mut ArkUI_AccessibilityProvider,
         callbacks: *mut ArkUI_AccessibilityProviderCallbacks,
+    ) -> i32;
+    /// Registers a callback with instance for this <b>ArkUI_AccessibilityProvider</b> instance.
+    /// # Arguments
+    ///
+    /// * `instanceId` - Indicates ID of third-party framework instance.
+    ///
+    /// * `provider` - Indicates the pointer to the <b>ArkUI_AccessibilityProvider</b> instance.
+    ///
+    /// * `callbacks` - Indicates the pointer to the <b>ArkUI_AccessibilityProviderCallbacksWithInstance</b> callback.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
+    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance(
+        instanceId: *const ::core::ffi::c_char,
+        provider: *mut ArkUI_AccessibilityProvider,
+        callbacks: *mut ArkUI_AccessibilityProviderCallbacksWithInstance,
     ) -> i32;
     /// Sends accessibility event information.
     ///

@@ -1,3 +1,7 @@
+# 0.3.2
+
+- Add bindings for API-15
+
 # 0.3.1 
 
 - Updated bindings for API-14

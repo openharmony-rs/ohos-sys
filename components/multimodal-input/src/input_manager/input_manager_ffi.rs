@@ -238,6 +238,13 @@ impl InputErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const OCCUPIED_BY_OTHER: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(4200003).unwrap() });
+    /// No keyboard device connected
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const KEYBOARD_DEVICE_NOT_EXIST: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(3900002).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates error codes.
@@ -640,6 +647,66 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetKeyEventActionTime(keyEvent: *const Input_KeyEvent) -> i64;
+    /// Sets the windowId for a key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyEvent` - Key event object.
+    ///
+    /// * `windowId` - The windowId for a key event.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_SetKeyEventWindowId(keyEvent: *mut Input_KeyEvent, windowId: i32);
+    /// Obtains the windowId of a key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyEvent` - Key event object.
+    ///
+    /// # Returns
+    ///
+    /// * windowId.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_GetKeyEventWindowId(keyEvent: *const Input_KeyEvent) -> i32;
+    /// Sets the displayId for a key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyEvent` - Key event object.
+    ///
+    /// * `displayId` - The displayId for a key event.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_SetKeyEventDisplayId(keyEvent: *mut Input_KeyEvent, displayId: i32);
+    /// Obtains the displayId of a key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyEvent` - Key event object.
+    ///
+    /// # Returns
+    ///
+    /// * displayId.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_GetKeyEventDisplayId(keyEvent: *const Input_KeyEvent) -> i32;
     /// Inject mouse event.
     ///
     /// # Arguments
@@ -899,6 +966,66 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetMouseEventActionTime(mouseEvent: *const Input_MouseEvent) -> i64;
+    /// Sets the windowId for a mouse event.
+    ///
+    /// # Arguments
+    ///
+    /// * `mouseEvent` - Mouse event object.
+    ///
+    /// * `windowId` - The windowId for a mouse event.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_SetMouseEventWindowId(mouseEvent: *mut Input_MouseEvent, windowId: i32);
+    /// Obtains the windowId of a mouse event.
+    ///
+    /// # Arguments
+    ///
+    /// * `mouseEvent` - Mouse event object.
+    ///
+    /// # Returns
+    ///
+    /// * windowId.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_GetMouseEventWindowId(mouseEvent: *const Input_MouseEvent) -> i32;
+    /// Sets the displayId for a mouse event.
+    ///
+    /// # Arguments
+    ///
+    /// * `mouseEvent` - Mouse event object.
+    ///
+    /// * `displayId` - The displayId for a mouse event.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_SetMouseEventDisplayId(mouseEvent: *mut Input_MouseEvent, displayId: i32);
+    /// Obtains the displayId of a mouse event.
+    ///
+    /// # Arguments
+    ///
+    /// * `mouseEvent` - Mouse event object.
+    ///
+    /// # Returns
+    ///
+    /// * displayId.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_GetMouseEventDisplayId(mouseEvent: *const Input_MouseEvent) -> i32;
     /// Inject touch event.
     ///
     /// # Arguments
@@ -1095,6 +1222,66 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetTouchEventActionTime(touchEvent: *const Input_TouchEvent) -> i64;
+    /// Sets the windowId for a touch event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - Touch event object.
+    ///
+    /// * `windowId` - The windowId for a touch event.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_SetTouchEventWindowId(touchEvent: *mut Input_TouchEvent, windowId: i32);
+    /// Obtains the windowId of a touch event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - Touch event object.
+    ///
+    /// # Returns
+    ///
+    /// * windowId.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_GetTouchEventWindowId(touchEvent: *const Input_TouchEvent) -> i32;
+    /// Sets the displayId for a touch event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - Touch event object.
+    ///
+    /// * `displayId` - The displayId for a touch event.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_SetTouchEventDisplayId(touchEvent: *mut Input_TouchEvent, displayId: i32);
+    /// Obtains the displayId of a touch event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - Touch event object.
+    ///
+    /// # Returns
+    ///
+    /// * displayId.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_GetTouchEventDisplayId(touchEvent: *const Input_TouchEvent) -> i32;
     /// Cancels event injection and revokes authorization.
     ///
     ///
@@ -1494,6 +1681,106 @@ extern "C" {
     pub fn OH_Input_GetAxisEventSourceType(
         axisEvent: *const Input_AxisEvent,
         sourceType: *mut InputEvent_SourceType,
+    ) -> Input_Result;
+    /// Sets the windowId of an axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    ///
+    /// * `windowId` - The windowId for the axis event.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_SetAxisEventDisplayY function result code.
+    /// [`INPUT_SUCCESS`] Sets the Y coordinate of the axis event success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_SetAxisEventWindowId(
+        axisEvent: *mut Input_AxisEvent,
+        windowId: i32,
+    ) -> Input_Result;
+    /// Obtains the windowId of an axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    ///
+    /// * `windowId` - The windowId for the axis event.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetAxisEventDisplayY function result code.
+    /// [`INPUT_SUCCESS`] Obtains the Y coordinate of the axis event success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the displayY is NULL.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_GetAxisEventWindowId(
+        axisEvent: *const Input_AxisEvent,
+        windowId: *mut i32,
+    ) -> Input_Result;
+    /// Sets the displayId of an axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    ///
+    /// * `displayId` - The displayId for the axis event.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_SetAxisEventDisplayY function result code.
+    /// [`INPUT_SUCCESS`] Sets the Y coordinate of the axis event success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_SetAxisEventDisplayId(
+        axisEvent: *mut Input_AxisEvent,
+        displayId: i32,
+    ) -> Input_Result;
+    /// Obtains the displayId of an axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    ///
+    /// * `displayId` - The displayId for the axis event.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetAxisEventDisplayY function result code.
+    /// [`INPUT_SUCCESS`] Obtains the Y coordinate of the axis event success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the displayY is NULL.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_GetAxisEventDisplayId(
+        axisEvent: *const Input_AxisEvent,
+        displayId: *mut i32,
     ) -> Input_Result;
     /// Adds a listener of key events.
     ///
@@ -2470,4 +2757,26 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Input_UnregisterDeviceListeners() -> Input_Result;
+    /// Obtains the function key status.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyCode` - Function key value. Supported function keys include capsLock, NumLock, and ScrollLock.
+    ///
+    /// * `state` - Function key status. The value 0 indicates that the function key is disabled,
+    /// and the value 1 indicates the opposite.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetFunctionKeyState function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if keyCode is invalid or state is a null pointer.
+    /// [`INPUT_KEYBOARD_DEVICE_NOT_EXIST`] no keyboard device connected.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Input_GetFunctionKeyState(keyCode: i32, state: *mut i32) -> Input_Result;
 }

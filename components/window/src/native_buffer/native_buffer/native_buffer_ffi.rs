@@ -243,6 +243,19 @@ impl OH_NativeBuffer_Format {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_RAW10: OH_NativeBuffer_Format = OH_NativeBuffer_Format(37);
+    /// BLOB format
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const NATIVEBUFFER_PIXEL_FMT_BLOB: OH_NativeBuffer_Format = OH_NativeBuffer_Format(38);
+    /// RGBA16 float format
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA16_FLOAT: OH_NativeBuffer_Format =
+        OH_NativeBuffer_Format(39);
     /// vender mask format
     ///
     /// Available since API-level: 12

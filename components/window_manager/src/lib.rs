@@ -18,6 +18,10 @@ pub mod display_info;
 
 pub mod display_manager;
 
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub mod window;
+
 pub mod window_comm;
 
 pub mod window_event_filter;

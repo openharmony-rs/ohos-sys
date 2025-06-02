@@ -9,6 +9,12 @@
 impl OHNativeErrorCode {
     /// succeed
     pub const NATIVE_ERROR_OK: OHNativeErrorCode = OHNativeErrorCode(0);
+    /// memory operation error
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const NATIVE_ERROR_MEM_OPERATION_ERROR: OHNativeErrorCode = OHNativeErrorCode(30001000);
     /// input invalid parameter
     pub const NATIVE_ERROR_INVALID_ARGUMENTS: OHNativeErrorCode = OHNativeErrorCode(40001000);
     /// unauthorized operation

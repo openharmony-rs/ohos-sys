@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+- Update to API-15
+
 ## 0.3.0 
 
 - Replace `Image_ErrorCode` with `ImageResult` (an alias to `Result<(), NonZero<ImageErrorCode>>`)

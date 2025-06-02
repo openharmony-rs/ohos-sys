@@ -101,12 +101,44 @@ impl ImageResult {
     pub const ALLOC_FAILED: ImageResult = ImageResult(7600301);
     /// memory copy failed
     pub const COPY_FAILED: ImageResult = ImageResult(7600302);
+    /// memory lock or unlock failed
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const LOCK_UNLOCK_FAILED: ImageResult = ImageResult(7600303);
     /// unknown error
     pub const UNKNOWN_ERROR: ImageResult = ImageResult(7600901);
     /// decode data source exception
     pub const BAD_SOURCE: ImageResult = ImageResult(7700101);
+    /// unsupported mime type
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const SOURCE_UNSUPPORTED_MIME_TYPE: ImageResult = ImageResult(7700102);
+    /// image to large
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const SOURCE_TOO_LARGE: ImageResult = ImageResult(7700103);
+    /// unsupported allocator type, e.g., use share memory to decode a HDR image as only
+    /// DMA supported hdr metadata.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const SOURCE_UNSUPPORTED_ALLOCATOR_TYPE: ImageResult = ImageResult(7700201);
+    pub const SOURCE_UNSUPPORTED_OPTIONS: ImageResult = ImageResult(7700203);
     /// decode failed
     pub const DECODE_FAILED: ImageResult = ImageResult(7700301);
+    /// memory allocation failed
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const SOURCE_ALLOC_FAILED: ImageResult = ImageResult(7700302);
     /// encode failed
     pub const ENCODE_FAILED: ImageResult = ImageResult(7800301);
 }
