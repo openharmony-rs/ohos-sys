@@ -81,4 +81,35 @@ extern "C" {
         bufferSize: i32,
         writeLength: *mut i32,
     ) -> AbilityRuntimeResult;
+    /// Starts self UIAbility.
+    ///
+    /// `ohos.permission.NDK_START_SELF_UI_ABILITY`
+    /// # Arguments
+    ///
+    /// * `want` - The arguments passed to start self UIAbility.
+    /// For details, see [`AbilityBase_Want`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the call is successful.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`] if the caller has no correct permission.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the arguments provided is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`] if the device does not support starting self uiability.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`] if the target ability does not exist.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`] if the ability type is incorrect.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`] if the crowdtesting application expires.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`] if the ability cannot be started in Wukong mode.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`] if the app is controlled.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`] if the app is controlled by EDM.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`] if the caller tries to start a different application.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`] if internal error occurs.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`] if the caller is not top ability.
+    /// For details, see [`AbilityRuntime_ErrorCode`].
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_AbilityRuntime_StartSelfUIAbility(
+        want: *mut AbilityBase_Want,
+    ) -> AbilityRuntimeResult;
 }

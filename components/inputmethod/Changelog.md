@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Add API-15 bindings
+
 ## 0.2.0 
 
 ### Breaking 

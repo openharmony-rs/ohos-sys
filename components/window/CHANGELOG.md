@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Add API-15 bindings
+
 ## 0.1.1
 
 - Fix build with API-level 11

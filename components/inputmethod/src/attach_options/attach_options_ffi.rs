@@ -33,6 +33,26 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AttachOptions_Create(showKeyboard: bool) -> *mut InputMethod_AttachOptions;
+    /// Create a new [`InputMethod_AttachOptions`] instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `showKeyboard` - Represents whether to show the keyboard.
+    ///
+    /// * `requestKeyboardReason` - the reason for showKeyboard.
+    ///
+    /// # Returns
+    ///
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_AttachOptions`]
+    /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_AttachOptions_CreateWithRequestKeyboardReason(
+        showKeyboard: bool,
+        requestKeyboardReason: InputMethod_RequestKeyboardReason,
+    ) -> *mut InputMethod_AttachOptions;
     /// Delete a [`InputMethod_AttachOptions`] instance.
     ///
     /// # Arguments
@@ -66,5 +86,28 @@ extern "C" {
     pub fn OH_AttachOptions_IsShowKeyboard(
         options: *mut InputMethod_AttachOptions,
         showKeyboard: *mut bool,
+    ) -> InputMethodResult;
+    /// Get showKeyboard value from [`InputMethod_AttachOptions`].
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`] instance which will be get value from.
+    ///
+    /// * `requestKeyboardReason` - Represents a pointer to an [`InputMethodRequestKeyboardReason`] instance which will
+    /// be get value from.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`IME_ERR_OK`] - success.
+    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer. If options is NULL, or requestKeyboardReason is NULL.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_AttachOptions_GetRequestKeyboardReason(
+        options: *mut InputMethod_AttachOptions,
+        requestKeyboardReason: *mut ::core::ffi::c_int,
     ) -> InputMethodResult;
 }

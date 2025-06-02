@@ -5,6 +5,8 @@
 #![allow(non_snake_case)]
 use crate::native_type::*;
 pub use ohos_sys_opaque_types::OH_PixelmapNative;
+#[cfg(feature = "api-15")]
+use ohos_sys_opaque_types::OH_UdmfGetDataParams;
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -543,6 +545,81 @@ extern "C" {
         event: *mut ArkUI_DragEvent,
         keys: *mut u64,
     ) -> i32;
+    /// Request to start the data sync process with the sync option.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// * `options` - Indicates the pointer to an <b>OH_UdmfGetDataParams</b> object.
+    ///
+    /// * `key` - Represents return value after set data to database successfully, it should be not
+    /// less than [`UDMF_KEY_BUFFER_LEN`].
+    ///
+    /// * `keyLen` - Represents the length of key string.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_DRAG_DATA_SYNC_FAILED`] if the data sync is not allowed or failed.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_DragEvent_StartDataLoading(
+        event: *mut ArkUI_DragEvent,
+        options: *mut OH_UdmfGetDataParams,
+        key: *mut ::core::ffi::c_char,
+        keyLen: ::core::ffi::c_uint,
+    ) -> i32;
+    /// Cancel the data sync process.
+    ///
+    /// # Arguments
+    ///
+    /// * `uiContext` - Indicates the pointer to a UI instance.
+    ///
+    /// * `key` - Represents the data key returned by [`OH_ArkUI_DragEvent_StartDataLoading`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_OPERATION_FAILED`] if no any data sync is in progress.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_CancelDataLoading(
+        uiContext: ArkUI_ContextHandle,
+        key: *const ::core::ffi::c_char,
+    ) -> i32;
+    /// Sets whether to disable data prefetch process before the onDrop callback executing.
+    /// The system will retry to getting data until the max time limit (2.4s for now) reaches,
+    /// this's useful for the cross device draging operation, as the system helps to eliminate
+    /// the communication instability, but it's redundant for [`OH_ArkUI_DragEvent_StartDataLoading`]
+    /// method, as it will take care the data fetching with asynchronous mechanism, so must set this
+    /// field to true if using [`OH_ArkUI_DragEvent_StartDataLoading`] in onDrop to avoid the data is
+    /// fetched before onDrop executing unexpectedly.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to a component node.
+    ///
+    /// * `disabled` - Indicates whether to disable the data pre-fetch process, true for disable, false for not.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_DisableDropDataPrefetchOnNode(node: ArkUI_NodeHandle, disabled: bool) -> i32;
     /// Sets whether to enable strict reporting on drag events.
     /// This feature is disabled by default, and you are advised to enable it.
     /// If this feature is disabled, the parent component is not notified when an item in it is dragged over its child

@@ -1,6 +1,6 @@
 [package]
 name = "ohos-ime-sys"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "Bindings to the `inputmethod` API of OpenHarmony"
 license = "Apache-2.0"
@@ -24,8 +24,10 @@ default = []
 api-12 = []
 ## Enables bindings for OpenHarmony API-level 13 (No changes)
 api-13 = ["api-12"]
-## Enables bindings for OpenHarmony API-level 13 (No changes)
+## Enables bindings for OpenHarmony API-level 14 (No changes)
 api-14 = ["api-13"]
+## Bindings for OpenHarmony API-level 15.
+api-15 = ["api-14"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 

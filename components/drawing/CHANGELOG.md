@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.1
+
+- Add API-15 bindings
+
 ## v0.3.0 
 
 - Replace `OH_Drawing_ErrorCode` with `DrawingResult` (an alias to `Result<(), NonZero<DrawingErrorCode>>`)

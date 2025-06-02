@@ -307,6 +307,34 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_NativeImage_GetTransformMatrixV2(image: *mut OH_NativeImage, matrix: *mut f32)
         -> i32;
+    /// Obtains the transform matrix that combines with crop rect.
+    ///
+    /// This API returns a transform matrix that combines the crop rect.
+    /// Note that the matrix will not be updated until <b>OH_NativeImage_UpdateSurfaceImage</b> is called.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// * `matrix` - Indicates the retrieved 4*4 transform matrix .
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
+    /// [`NATIVE_ERROR_MEM_OPERATION_ERROR`] 30001000 - Memory operation error, failed to get transform matrix.
+    ///
+    /// Available since API-level: 15
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_NativeImage_GetBufferMatrix(image: *mut OH_NativeImage, matrix: *mut f32) -> i32;
     /// Acquire an <b>OHNativeWindowBuffer</b> through an <b>OH_NativeImage</b> instance for content consumer.
     ///
     /// This method can not be used at the same time with <b>OH_NativeImage_UpdateSurfaceImage</b>.

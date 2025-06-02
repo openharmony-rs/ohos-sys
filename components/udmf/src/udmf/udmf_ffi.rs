@@ -42,6 +42,64 @@ impl Udmf_ShareOption {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Udmf_ShareOption(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl Udmf_FileConflictOptions {
+    /// Overwrite when dest uri has file with same name.
+    pub const UDMF_OVERWRITE: Udmf_FileConflictOptions = Udmf_FileConflictOptions(0);
+    /// Skip when dest uri has file with same name.
+    pub const UDMF_SKIP: Udmf_FileConflictOptions = Udmf_FileConflictOptions(1);
+}
+#[repr(transparent)]
+/// Describe the types of file conflict options when getting data from the udmf.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct Udmf_FileConflictOptions(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl Udmf_ProgressIndicator {
+    /// Getting data without system default progress indicator.
+    pub const UDMF_NONE: Udmf_ProgressIndicator = Udmf_ProgressIndicator(0);
+    /// Getting data with system default progress indicator.
+    pub const UDMF_DEFAULT: Udmf_ProgressIndicator = Udmf_ProgressIndicator(1);
+}
+#[repr(transparent)]
+/// Describe the types of progress indicator when getting data from the udmf.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct Udmf_ProgressIndicator(pub ::core::ffi::c_uint);
+/// Represents the udmf progress information.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+pub struct OH_Udmf_ProgressInfo {
+    _unused: [u8; 0],
+}
+/// Defines the callback function used to return the progress information and data.
+///
+/// # Arguments
+///
+/// * `progressInfo` - The progress information notified to Application.
+///
+/// * `data` - Represents the unified data.
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub type OH_Udmf_DataProgressListener = ::core::option::Option<
+    unsafe extern "C" fn(progressInfo: *mut OH_Udmf_ProgressInfo, data: *mut OH_UdmfData),
+>;
 /// Defines the callback function used free the context.
 /// # Arguments
 ///
@@ -1079,4 +1137,122 @@ extern "C" {
         key: *mut ::core::ffi::c_char,
         keyLen: ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
+    /// Gets the progress from the [`OH_Udmf_ProgressInfo`].
+    ///
+    /// # Arguments
+    ///
+    /// * `progressInfo` - Represents a pointer to an instance of [`OH_Udmf_ProgressInfo`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the progress.
+    /// [`OH_Udmf_ProgressInfo`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_UdmfProgressInfo_GetProgress(
+        progressInfo: *mut OH_Udmf_ProgressInfo,
+    ) -> ::core::ffi::c_int;
+    /// Gets the status from the [`OH_Udmf_ProgressInfo`].
+    ///
+    /// # Arguments
+    ///
+    /// * `progressInfo` - Represents a pointer to an instance of [`OH_Udmf_ProgressInfo`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code. See [`Udmf_ListenerStatus`].
+    /// [`OH_Udmf_ProgressInfo`] Udmf_ListenerStatus
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_UdmfProgressInfo_GetStatus(
+        progressInfo: *mut OH_Udmf_ProgressInfo,
+    ) -> ::core::ffi::c_int;
+    /// Creation a pointer to the instance of the [`OH_UdmfGetDataParams`].
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfGetDataParams`]
+    /// structure is returned. If the operation is failed, nullptr is returned.
+    /// [`OH_UdmfGetDataParams`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_UdmfGetDataParams_Create() -> *mut OH_UdmfGetDataParams;
+    /// Destroy a pointer that points to an instance of [`OH_UdmfGetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    /// [`OH_UdmfGetDataParams`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_UdmfGetDataParams_Destroy(pThis: *mut OH_UdmfGetDataParams);
+    /// Sets the destination uri to the [`OH_UdmfGetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    ///
+    /// * `destUri` - Pointer to a destination uri.
+    /// [`OH_UdmfGetDataParams`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_UdmfGetDataParams_SetDestUri(
+        params: *mut OH_UdmfGetDataParams,
+        destUri: *const ::core::ffi::c_char,
+    );
+    /// Sets the file conflict options to the [`OH_UdmfGetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    ///
+    /// * `options` - Represents to the file conflict options.
+    /// [`OH_UdmfGetDataParams`] Udmf_FileConflictOptions
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_UdmfGetDataParams_SetFileConflictOptions(
+        params: *mut OH_UdmfGetDataParams,
+        options: Udmf_FileConflictOptions,
+    );
+    /// Sets the progress indicator to the [`OH_UdmfGetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    ///
+    /// * `progressIndicator` - Represents to the progress indicator.
+    /// [`OH_UdmfGetDataParams`] Udmf_ProgressIndicator
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_UdmfGetDataParams_SetProgressIndicator(
+        params: *mut OH_UdmfGetDataParams,
+        progressIndicator: Udmf_ProgressIndicator,
+    );
+    /// Sets the progress indicator to the [`OH_UdmfGetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    ///
+    /// * `dataProgressListener` - Represents to the data progress listener.
+    /// [`OH_UdmfGetDataParams`] OH_Udmf_DataProgressListener
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_UdmfGetDataParams_SetDataProgressListener(
+        params: *mut OH_UdmfGetDataParams,
+        dataProgressListener: OH_Udmf_DataProgressListener,
+    );
 }

@@ -125,6 +125,10 @@ pub struct OH_UdmfProperty {
     _unused: [u8; 0],
 }
 #[repr(C)]
+pub struct OH_UdmfGetDataParams {
+    _unused: [u8; 0],
+}
+#[repr(C)]
 pub struct OH_Utd {
     _unused: [u8; 0],
 }

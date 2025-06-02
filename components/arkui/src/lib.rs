@@ -50,6 +50,10 @@ pub mod native_interface;
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub mod native_interface_accessibility;
 
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub mod native_interface_focus;
+
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub mod native_node;

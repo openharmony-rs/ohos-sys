@@ -712,4 +712,51 @@ extern "C" {
         font: *mut OH_Drawing_Font,
         fontMetrics: *mut OH_Drawing_Font_Metrics,
     ) -> f32;
+    /// Sets whether to follow the theme font. If the value is true, the theme font is used when typeface is not set.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    ///
+    /// * `followed` - Indicates whether to follow the theme font.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    ///
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if font is nullptr.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Drawing_FontSetThemeFontFollowed(
+        font: *mut OH_Drawing_Font,
+        followed: bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Gets whether to follow the theme font.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    ///
+    /// * `followed` - Indicates whether to follow the theme font.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if font or followed is nullptr.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Drawing_FontIsThemeFontFollowed(
+        font: *const OH_Drawing_Font,
+        followed: *mut bool,
+    ) -> crate::error_code::DrawingResult;
 }

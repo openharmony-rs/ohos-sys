@@ -343,6 +343,51 @@ impl OH_HEVCProfile {
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_HEVCProfile(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl OH_VVCProfile {
+    /// Main 10 profile
+    pub const VVC_PROFILE_MAIN_10: OH_VVCProfile = OH_VVCProfile(1);
+    /// Main 12 profile
+    pub const VVC_PROFILE_MAIN_12: OH_VVCProfile = OH_VVCProfile(2);
+    /// Main 12 Intra profile
+    pub const VVC_PROFILE_MAIN_12_INTRA: OH_VVCProfile = OH_VVCProfile(10);
+    /// Multilayer Main 10 profile
+    pub const VVC_PROFILE_MULTI_MAIN_10: OH_VVCProfile = OH_VVCProfile(17);
+    /// Main 10 4:4:4 profile
+    pub const VVC_PROFILE_MAIN_10_444: OH_VVCProfile = OH_VVCProfile(33);
+    /// Main 12 4:4:4 profile
+    pub const VVC_PROFILE_MAIN_12_444: OH_VVCProfile = OH_VVCProfile(34);
+    /// Main 16 4:4:4 profile
+    pub const VVC_PROFILE_MAIN_16_444: OH_VVCProfile = OH_VVCProfile(36);
+    /// Main 12 4:4:4 Intra profile
+    pub const VVC_PROFILE_MAIN_12_444_INTRA: OH_VVCProfile = OH_VVCProfile(42);
+    /// Main 16 4:4:4 Intra profile
+    pub const VVC_PROFILE_MAIN_16_444_INTRA: OH_VVCProfile = OH_VVCProfile(44);
+    /// Multilayer Main 10 4:4:4 profile
+    pub const VVC_PROFILE_MULTI_MAIN_10_444: OH_VVCProfile = OH_VVCProfile(49);
+    /// Main 10 Still Picture profile
+    pub const VVC_PROFILE_MAIN_10_STILL: OH_VVCProfile = OH_VVCProfile(65);
+    /// Main 12 Still Picture profile
+    pub const VVC_PROFILE_MAIN_12_STILL: OH_VVCProfile = OH_VVCProfile(66);
+    /// Main 10 4:4:4 Still Picture profile
+    pub const VVC_PROFILE_MAIN_10_444_STILL: OH_VVCProfile = OH_VVCProfile(97);
+    /// Main 12 4:4:4 Still Picture profile
+    pub const VVC_PROFILE_MAIN_12_444_STILL: OH_VVCProfile = OH_VVCProfile(98);
+    /// Main 16 4:4:4 Still Picture profile
+    pub const VVC_PROFILE_MAIN_16_444_STILL: OH_VVCProfile = OH_VVCProfile(100);
+}
+#[repr(transparent)]
+/// Profile: A specified subset of the syntax of VVC.
+///
+///
+/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_VVCProfile(pub ::core::ffi::c_uint);
 impl OH_AVOutputFormat {
     pub const AV_OUTPUT_FORMAT_DEFAULT: OH_AVOutputFormat = OH_AVOutputFormat(0);
     pub const AV_OUTPUT_FORMAT_MPEG_4: OH_AVOutputFormat = OH_AVOutputFormat(2);
@@ -588,6 +633,52 @@ impl OH_HEVCLevel {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_HEVCLevel(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl OH_VVCLevel {
+    /// VVC level 1.0
+    pub const VVC_LEVEL_1: OH_VVCLevel = OH_VVCLevel(16);
+    /// VVC level 2.0
+    pub const VVC_LEVEL_2: OH_VVCLevel = OH_VVCLevel(32);
+    /// VVC level 2.1
+    pub const VVC_LEVEL_21: OH_VVCLevel = OH_VVCLevel(35);
+    /// VVC level 3.0
+    pub const VVC_LEVEL_3: OH_VVCLevel = OH_VVCLevel(48);
+    /// VVC level 3.1
+    pub const VVC_LEVEL_31: OH_VVCLevel = OH_VVCLevel(51);
+    /// VVC level 4.0
+    pub const VVC_LEVEL_4: OH_VVCLevel = OH_VVCLevel(64);
+    /// VVC level 4.1
+    pub const VVC_LEVEL_41: OH_VVCLevel = OH_VVCLevel(67);
+    /// VVC level 5.0
+    pub const VVC_LEVEL_5: OH_VVCLevel = OH_VVCLevel(80);
+    /// VVC level 5.1
+    pub const VVC_LEVEL_51: OH_VVCLevel = OH_VVCLevel(83);
+    /// VVC level 5.2
+    pub const VVC_LEVEL_52: OH_VVCLevel = OH_VVCLevel(86);
+    /// VVC level 6.0
+    pub const VVC_LEVEL_6: OH_VVCLevel = OH_VVCLevel(96);
+    /// VVC level 6.1
+    pub const VVC_LEVEL_61: OH_VVCLevel = OH_VVCLevel(99);
+    /// VVC level 6.2
+    pub const VVC_LEVEL_62: OH_VVCLevel = OH_VVCLevel(102);
+    /// VVC level 6.3
+    pub const VVC_LEVEL_63: OH_VVCLevel = OH_VVCLevel(105);
+    /// VVC level 15.5
+    pub const VVC_LEVEL_155: OH_VVCLevel = OH_VVCLevel(255);
+}
+#[repr(transparent)]
+/// VVC Level: A defined set of constraints on the values that may be taken by the syntax elements and variables
+/// of VVC, or the value of a transform coefficient prior to scaling.
+///
+///
+/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_VVCLevel(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_TemporalGopReferenceMode {
@@ -1461,6 +1552,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_DECODER_OUTPUT_COLOR_SPACE: *const ::core::ffi::c_char;
+    /// Key for describing if enable VRR or not, value type is int32_t (0 or 1): 1 is enabled, 0 otherwise.
+    /// This is an optional key that applies only to video decoder. It is used in configure.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub static mut OH_MD_KEY_VIDEO_DECODER_OUTPUT_ENABLE_VRR: *const ::core::ffi::c_char;
     /// Key for creation timestamp of a media file, value type is string.
     ///
     ///

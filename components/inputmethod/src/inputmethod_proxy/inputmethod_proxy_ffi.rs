@@ -3,6 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-15")]
+use crate::attach_options::InputMethod_AttachOptions;
 use crate::cursor_info::InputMethod_CursorInfo;
 use crate::private_command::InputMethod_PrivateCommand;
 use crate::types::*;
@@ -42,6 +44,34 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_InputMethodProxy_ShowKeyboard(
         inputMethodProxy: *mut InputMethod_InputMethodProxy,
+    ) -> InputMethodResult;
+    /// ShowTextInput.
+    ///
+    /// # Arguments
+    ///
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
+    /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`].
+    ///
+    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`] instance which will be get value from.
+    /// [`ShowKeyboard`] - property is always true,can not be changed,so no need to focus on
+    /// [`InputMethod_RequestKeyboardReason`] - property is the requestKeyboardReason for show keyboard
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`IME_ERR_OK`] - success.
+    /// [`IME_ERR_IMCLIENT`] - input method client error.
+    /// [`IME_ERR_IMMS`] - input method manager service error.
+    /// [`IME_ERR_DETACHED`] - input method client detached.
+    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer. If inputMethodProxy is NULL, or options is NULL.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_InputMethodProxy_ShowTextInput(
+        inputMethodProxy: *mut InputMethod_InputMethodProxy,
+        options: *mut InputMethod_AttachOptions,
     ) -> InputMethodResult;
     /// Hide keyboard.
     ///

@@ -113,6 +113,95 @@ impl ArkUI_ModifierKeyName {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_ModifierKeyName(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_InteractionHand {
+    /// Unknown.
+    pub const ARKUI_EVENT_HAND_NONE: ArkUI_InteractionHand = ArkUI_InteractionHand(0);
+    /// Left hand.
+    pub const ARKUI_EVENT_HAND_LEFT: ArkUI_InteractionHand = ArkUI_InteractionHand(1);
+    /// Right hand.
+    pub const ARKUI_EVENT_HAND_RIGHT: ArkUI_InteractionHand = ArkUI_InteractionHand(2);
+}
+#[repr(transparent)]
+/// Defines whether the touch event is from the left or right hand.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_InteractionHand(pub ::core::ffi::c_uint);
+/// ABS_X.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_X: _bindgen_ty_6 = _bindgen_ty_6(0);
+/// ABS_Y.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_Y: _bindgen_ty_6 = _bindgen_ty_6(1);
+/// ABS_Z.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_Z: _bindgen_ty_6 = _bindgen_ty_6(2);
+/// ABS_RZ.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_RZ: _bindgen_ty_6 = _bindgen_ty_6(3);
+/// ABS_GAS.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_GAS: _bindgen_ty_6 = _bindgen_ty_6(4);
+/// ABS_BRAKE.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_BRAKE: _bindgen_ty_6 = _bindgen_ty_6(5);
+/// ABS_HAT0X.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT0X: _bindgen_ty_6 = _bindgen_ty_6(6);
+/// ABS_HAT0Y.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT0Y: _bindgen_ty_6 = _bindgen_ty_6(7);
+#[repr(transparent)]
+/// Defines an enum for the axis types for focus axis events.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct _bindgen_ty_6(pub ::core::ffi::c_uint);
+/// The axis event is abnormal.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_AXIS_EVENT_ACTION_NONE: _bindgen_ty_7 = _bindgen_ty_7(0);
+/// The axis event begins.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_AXIS_EVENT_ACTION_BEGIN: _bindgen_ty_7 = _bindgen_ty_7(1);
+/// The axis event is updated.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_AXIS_EVENT_ACTION_UPDATE: _bindgen_ty_7 = _bindgen_ty_7(2);
+/// The axis event ends.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_AXIS_EVENT_ACTION_END: _bindgen_ty_7 = _bindgen_ty_7(3);
+/// The axis event is canceled.
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_AXIS_EVENT_ACTION_CANCEL: _bindgen_ty_7 = _bindgen_ty_7(4);
+#[repr(transparent)]
+/// Enumerates the action types for axis events.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct _bindgen_ty_7(pub ::core::ffi::c_uint);
 extern "C" {
     /// Obtains the type of this UI input event.
     ///
@@ -218,6 +307,27 @@ extern "C" {
     pub fn OH_ArkUI_PointerEvent_GetPointerId(
         event: *const ArkUI_UIInputEvent,
         pointerIndex: u32,
+    ) -> i32;
+    /// Obtains the ID of the touch pointer that triggers the current touch event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to the current UI input event.
+    ///
+    /// * `pointerIndex` - Indicates the index of the target touch point in the multi-touch data list.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_GetChangedPointerId(
+        event: *const ArkUI_UIInputEvent,
+        pointerIndex: *mut u32,
     ) -> i32;
     /// Obtains the X coordinate relative to the upper left corner of the current component from a directional
     /// input event (such as a touch event, mouse event, or axis event).
@@ -538,6 +648,51 @@ extern "C" {
         event: *const ArkUI_UIInputEvent,
         pointerIndex: u32,
     ) -> f32;
+    /// Obtains whether the current touch event is from the left or right hand.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the current UI input event.
+    ///
+    /// * `hand` - Whether the touch point is from the left or right hand.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_GetInteractionHand(
+        event: *const ArkUI_UIInputEvent,
+        hand: *mut ArkUI_InteractionHand,
+    ) -> i32;
+    /// Obtains whether the current touch event is from the left or right hand.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the current UI input event.
+    ///
+    /// * `pointerIndex` - Index of the target touch point in the multi-touch data list.
+    ///
+    /// * `hand` - Whether the touch point is from the left or right hand.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_GetInteractionHandByIndex(
+        event: *const ArkUI_UIInputEvent,
+        pointerIndex: i32,
+        hand: *mut ArkUI_InteractionHand,
+    ) -> i32;
     /// Obtains the number of historical events from a directional input event (such as a touch event, mouse event,
     /// or axis event).
     ///
@@ -920,6 +1075,20 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AxisEvent_GetPinchAxisScaleValue(event: *const ArkUI_UIInputEvent) -> f64;
+    /// Obtains the action type of the current axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to the current UI input event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the action type of the current axis event.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_AxisEvent_GetAxisAction(event: *const ArkUI_UIInputEvent) -> i32;
     /// Sets how the component behaves during hit testing.
     ///
     /// # Arguments
@@ -1031,5 +1200,328 @@ extern "C" {
         event: *const ArkUI_UIInputEvent,
         pressedKeyCodes: *mut i32,
         length: *mut i32,
+    ) -> i32;
+    /// Obtains the axis value of a focus axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `axis` - Axis type of the focus axis event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the axis value of the focus axis event; returns <b>0.0</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_FocusAxisEvent_GetAxisValue(event: *const ArkUI_UIInputEvent, axis: i32)
+        -> f64;
+    /// Sets whether to prevent a focus axis event from bubbling up.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to the current UI input event.
+    ///
+    /// * `stopPropagation` - Indicates whether to stop event propagation.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_FocusAxisEvent_SetStopPropagation(
+        event: *const ArkUI_UIInputEvent,
+        stopPropagation: bool,
+    ) -> i32;
+    /// Obtains the press time of a specific touch point.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `pointerIndex` - Index of the target touch point in the multi-touch data list.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the press time of the specific touch point; returns <b>0</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_GetPressedTimeByIndex(
+        event: *const ArkUI_UIInputEvent,
+        pointerIndex: u32,
+    ) -> i64;
+    /// Obtains the x-axis offset of the mouse pointer position relative to the position in the previously reported
+    /// mouse event. This value may be less than the difference between the two reported X coordinates when the mouse pointer
+    /// is near the screen edge.
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the x-axis offset of the mouse pointer position relative to the position in the previously reported
+    /// mouse event; returns <b>0.0f</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_MouseEvent_GetRawDeltaX(event: *const ArkUI_UIInputEvent) -> f32;
+    /// Obtains the y-axis offset of the mouse pointer position relative to the position in the previously reported
+    /// mouse event. This value may be less than the difference between the two reported Y coordinates when the mouse pointer
+    /// is near the screen edge.
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the y-axis offset of the mouse pointer position relative to the position in the previously reported
+    /// mouse event; returns <b>0.0f</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_MouseEvent_GetRawDeltaY(event: *const ArkUI_UIInputEvent) -> f32;
+    /// Obtains the pressed buttons from a mouse event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `pressedButtons` - Array of the pressed buttons. An int array must be created beforehand to store the pressed
+    /// buttons.
+    ///
+    /// * `length` - Length of the passed pressedButtons array (when used as an input parameter);
+    /// number of the buttons pressed (when used as an output parameter).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] if the given buffer size is insufficient.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_MouseEvent_GetPressedButtons(
+        event: *const ArkUI_UIInputEvent,
+        pressedButtons: *mut i32,
+        length: *mut i32,
+    ) -> i32;
+    /// Obtains the ID of the screen where the UI input event occurs.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the screen ID; returns <b>0</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_UIInputEvent_GetTargetDisplayId(event: *const ArkUI_UIInputEvent) -> i32;
+    /// Creates a cloned event pointer based on an event pointer.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `clonedEvent` - Pointer to the cloned <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_CreateClonedEvent(
+        event: *const ArkUI_UIInputEvent,
+        clonedEvent: *mut *mut ArkUI_UIInputEvent,
+    ) -> i32;
+    /// Destroys a cloned event pointer.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// cloned event pointer.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_DestroyClonedEvent(event: *const ArkUI_UIInputEvent) -> i32;
+    /// Sets the X and Y coordinates of a cloned event relative to the upper left corner of the current component.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `x` - X coordinate of the event relative to the upper left corner of the current component.
+    ///
+    /// * `y` - Y coordinate of the event relative to the upper left corner of the current component.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// cloned event pointer.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_SetClonedEventLocalPosition(
+        event: *const ArkUI_UIInputEvent,
+        x: f32,
+        y: f32,
+    ) -> i32;
+    /// Sets the X and Y coordinates of a specific contact point of a cloned event relative to the upper left corner
+    /// of the current component.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `x` - X coordinate of the event relative to the upper left corner of the current component.
+    ///
+    /// * `y` - Y coordinate of the event relative to the upper left corner of the current component.
+    ///
+    /// * `pointerIndex` - Index of the target touch point in the multi-touch data list.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// cloned event pointer.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_SetClonedEventLocalPositionByIndex(
+        event: *const ArkUI_UIInputEvent,
+        x: f32,
+        y: f32,
+        pointerIndex: i32,
+    ) -> i32;
+    /// Sets the action type of a cloned event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `actionType` - Action type of the cloned event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// cloned event pointer.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_SetClonedEventActionType(
+        event: *const ArkUI_UIInputEvent,
+        actionType: i32,
+    ) -> i32;
+    /// Sets the touch point ID of a cloned pointer event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `fingerId` - ID of the touch point that triggers the event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// cloned event pointer.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_SetClonedEventChangedFingerId(
+        event: *const ArkUI_UIInputEvent,
+        fingerId: i32,
+    ) -> i32;
+    /// Sets the touch point ID of a specific contact point of a cloned event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `fingerId` - Touch point ID of the specific contact point.
+    ///
+    /// * `pointerIndex` - Index of the target touch point in the multi-touch data list.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// cloned event pointer.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_SetClonedEventFingerIdByIndex(
+        event: *const ArkUI_UIInputEvent,
+        fingerId: i32,
+        pointerIndex: i32,
+    ) -> i32;
+    /// Posts a cloned event to a specific node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Target node.
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// cloned event pointer.
+    /// Returns [`ARKUI_ERROR_CODE_POST_CLONED_COMPONENT_STATUS_ABNORMAL`]
+    /// if the component status abnormal.
+    /// Returns [`ARKUI_ERROR_CODE_POST_CLONED_NO_COMPONENT_HIT_TO_RESPOND_TO_THE_EVENT`]
+    /// if no component hit to response to the event.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_PointerEvent_PostClonedEvent(
+        node: ArkUI_NodeHandle,
+        event: *const ArkUI_UIInputEvent,
     ) -> i32;
 }

@@ -301,7 +301,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use crate::cursor_info::InputMethod_CursorInfo;"),
                     "inputmethod_proxy" => builder
                         .raw_line("use crate::private_command::InputMethod_PrivateCommand;")
-                        .raw_line("use crate::cursor_info::InputMethod_CursorInfo;"),
+                        .raw_line("use crate::cursor_info::InputMethod_CursorInfo;")
+                        .raw_line("#[cfg(feature = \"api-15\")]")
+                        .raw_line("use crate::attach_options::InputMethod_AttachOptions;"),
                     "controller" => builder
                         .raw_line("use crate::inputmethod_proxy::InputMethod_InputMethodProxy;")
                         .raw_line("use crate::text_editor_proxy::InputMethod_TextEditorProxy;")
@@ -403,6 +405,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                             .blocklist_function("OH_ArkUI_DragAction_SetData")
                             // Pixelmap is from image-kit
                             .raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
+                            .raw_line("#[cfg(feature =\"api-15\")]")
+                            .raw_line("use ohos_sys_opaque_types::OH_UdmfGetDataParams;")
                     }
                     "drawable_descriptor" => {
                         builder.raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
@@ -428,6 +432,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "native_node" => builder
                         .blocklist_var("MAX_NODE_SCOPE_NUM")
                         .blocklist_var("MAX_COMPONENT_EVENT_ARG_NUM")
+                        .raw_line("#[cfg(feature =\"api-15\")]")
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
                         .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;"),
                     "native_node_napi" => builder
                         .raw_line("use ohos_sys_opaque_types::{napi_env, napi_value};")
@@ -599,6 +605,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .allowlist_file(header_path.to_str().unwrap())
                     .blocklist_file(".*graphic_error_code.h")
                     .clang_args(["-include", "stdbool.h"])
+                    // oh_window_comm has a typedef without a name.
+                    .clang_args(["-x", "c++"])
                     .result_error_enum("NativeDisplayManager_ErrorCode")
                     .result_error_enum("WindowManager_ErrorCode")
                     .parse_callbacks(Box::new(ResultEnumParseCallbacks {
@@ -634,8 +642,14 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "window_event_filter" => builder
                         .raw_line("use crate::window_comm::WindowManagerResult;")
                         .raw_line("#[cfg(feature = \"api-12\")]")
-                        .raw_line("use ohos_sys_opaque_types::Input_KeyEvent;"),
+                        .raw_line("use ohos_sys_opaque_types::Input_KeyEvent;")
+                        .raw_line("#[cfg(feature=\"api-15\")]")
+                        .raw_line("use ohos_sys_opaque_types::{Input_MouseEvent, Input_TouchEvent};"),
                     "display_info" => builder.no_copy("^NativeDisplayManager_DisplayInfo"),
+                    "window" => builder
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")  
+                        .raw_line("use crate::window_comm::{WindowManager_AvoidArea, WindowManager_AvoidAreaType, WindowManager_WindowProperties};")
+                    ,
                     _ => builder,
                 }
             }),

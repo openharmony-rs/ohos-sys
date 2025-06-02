@@ -26,6 +26,40 @@ impl ArkUI_DismissReason {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_DismissReason(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_LevelMode {
+    /// overlay mode.
+    pub const ARKUI_LEVEL_MODE_OVERLAY: ArkUI_LevelMode = ArkUI_LevelMode(0);
+    /// embedded mode.
+    pub const ARKUI_LEVEL_MODE_EMBEDDED: ArkUI_LevelMode = ArkUI_LevelMode(1);
+}
+#[repr(transparent)]
+/// Enumerates the level mode.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_LevelMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_ImmersiveMode {
+    /// Mask covering the parent node area.
+    pub const ARKUI_IMMERSIVE_MODE_DEFAULT: ArkUI_ImmersiveMode = ArkUI_ImmersiveMode(0);
+    /// Mask extend safe area includes status bar and navigation bar.
+    pub const ARKUI_IMMERSIVE_MODE_EXTEND: ArkUI_ImmersiveMode = ArkUI_ImmersiveMode(1);
+}
+#[repr(transparent)]
+/// Enumerates the immersive mode.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_ImmersiveMode(pub ::core::ffi::c_uint);
 /// Invoked when the dialog box is closed.
 ///
 ///
@@ -388,6 +422,112 @@ pub struct ArkUI_NativeDialogAPI_1 {
             callback: ::core::option::Option<
                 unsafe extern "C" fn(event: *mut ArkUI_DialogDismissEvent),
             >,
+        ) -> i32,
+    >,
+}
+/// Provides the custom dialog box APIs for the native side.
+///
+///
+/// Version: 2
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+pub struct ArkUI_NativeDialogAPI_2 {
+    /// Provides the custom dialog box APIs for the native side. The API scope is [`ArkUI_NativeDialogAPI_1`]
+    ///
+    ///
+    /// Available since API-level: 15
+    pub nativeDialogAPI1: ArkUI_NativeDialogAPI_1,
+    /// Defines the distance between the customDialog and system keyboard.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `distance` - distance, in vp.
+    ///
+    /// * `unit` - Indicates the unit, which is an enumerated value of [`ArkUI_LengthMetricUnit`]
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    pub setKeyboardAvoidDistance: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            distance: f32,
+            unit: ArkUI_LengthMetricUnit,
+        ) -> i32,
+    >,
+    /// Sets the level mode for a custom dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `levelMode` - Indicates the level mode. The parameter type is [`ArkUI_LevelMode`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    pub setLevelMode: ::core::option::Option<
+        unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, levelMode: ArkUI_LevelMode) -> i32,
+    >,
+    /// Sets the level uniqueId for a custom dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>setLevelMode</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `uniqueId` - Indicates the uniquedId of any nodes in router or navigation pages.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    pub setLevelUniqueId: ::core::option::Option<
+        unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, uniqueId: i32) -> i32,
+    >,
+    /// Sets the immersive mode for a custom dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `immersiveMode` - Indicates the immersive mode. The parameter type is [`ArkUI_ImmersiveMode`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    pub setImmersiveMode: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            immersiveMode: ArkUI_ImmersiveMode,
         ) -> i32,
     >,
 }

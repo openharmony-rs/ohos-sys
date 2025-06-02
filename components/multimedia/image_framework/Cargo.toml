@@ -1,12 +1,11 @@
 [package]
 name = "ohos-image-kit-sys"
-version = "0.3.0"
+version = "0.3.1"
 edition = "2021"
 description = "Bindings to the multimedia Image Kit API of OpenHarmony"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
 keywords = ["OpenHarmony", "HarmonyOS", "multimedia", "image"]
-exclude = ["src/**/*_nopublish.rs"]
 readme = "README.md"
 
 [dependencies]
@@ -30,6 +29,8 @@ api-12 = ["ohos-rawfile-sys?/api-12"]
 api-13 = ["api-12"]
 ## Enables bindings for OpenHarmony API-level 14.
 api-14 = ["api-13"]
+## Enables bindings for OpenHarmony API-level 15.
+api-15 = ["api-14"]
 
 #! ### Image Kit Modules
 #!

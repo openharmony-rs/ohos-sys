@@ -277,6 +277,30 @@ pub struct ArkUI_GestureEventTargetInfo {
 pub struct ArkUI_ParallelInnerGestureEvent {
     _unused: [u8; 0],
 }
+/// Defines a touch recognizer.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+pub struct ArkUI_TouchRecognizer {
+    _unused: [u8; 0],
+}
+/// Defines a touch recognizer handle.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub type ArkUI_TouchRecognizerHandle = *mut ArkUI_TouchRecognizer;
+/// Defines an array of touch recognizer handle.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub type ArkUI_TouchRecognizerHandleArray = *mut ArkUI_TouchRecognizerHandle;
 /// Defines a callback function for notifying gesture recognizer destruction.
 ///
 /// Available since API-level: 12
@@ -775,6 +799,65 @@ extern "C" {
     pub fn OH_ArkUI_GestureInterruptInfo_GetSystemRecognizerType(
         event: *const ArkUI_GestureInterruptInfo,
     ) -> i32;
+    /// Get the touch recognizer handles from the gesture interrupt info.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Indicates the pointer to a gesture interrupt info.
+    ///
+    /// * `recognizers` - Indicates the pointer to an array of touch recognizer handles.
+    ///
+    /// * `size` - Indicates the size of recognizers.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_GestureInterruptInfo_GetTouchRecognizers(
+        info: *const ArkUI_GestureInterruptInfo,
+        recognizers: *mut ArkUI_TouchRecognizerHandleArray,
+        size: *mut i32,
+    ) -> i32;
+    /// Get component object of the specific touch recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Indicates the pointer to the TouchRecognizer.
+    ///
+    /// # Returns
+    ///
+    /// * Get component object of the specific touch recognizer.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_TouchRecognizer_GetNodeHandle(
+        recognizer: ArkUI_TouchRecognizerHandle,
+    ) -> ArkUI_NodeHandle;
+    /// Send touch-cancel event to the touch recognizer in a gesture interruption callback.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Indicates the touch recognizer handle.
+    ///
+    /// * `info` - Indicates the pointer to a gesture interrupt info.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_TouchRecognizer_CancelTouch(
+        recognizer: ArkUI_TouchRecognizerHandle,
+        info: *mut ArkUI_GestureInterruptInfo,
+    ) -> i32;
     /// Obtains the gesture event type.
     ///
     /// # Arguments
@@ -1034,6 +1117,27 @@ extern "C" {
     pub fn OH_ArkUI_SetGestureRecognizerEnabled(
         recognizer: *mut ArkUI_GestureRecognizer,
         enabled: bool,
+    ) -> i32;
+    /// Sets whether to enable strict finger count checking. If this feature is enabled and the actual number of touch
+    /// fingers does not match the set number, the gesture recognition fails.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
+    ///
+    /// * `limitFingerCount` - Indicates whether to enable strict finger count checking.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_SetGestureRecognizerLimitFingerCount(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        limitFingerCount: bool,
     ) -> i32;
     /// Obtains the enabled state of a gesture recognizer.
     ///

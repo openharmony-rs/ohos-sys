@@ -19,6 +19,30 @@ impl PASTEBOARD_ErrCode {
     pub const INNER_ERROR: PASTEBOARD_ErrCode = PASTEBOARD_ErrCode(12900000);
     /// Another copy is in progress.
     pub const BUSY: PASTEBOARD_ErrCode = PASTEBOARD_ErrCode(12900003);
+    /// Copy file failed.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const PASTEBOARD_COPY_FILE_ERROR: PASTEBOARD_ErrCode = PASTEBOARD_ErrCode(12900007);
+    /// Failed to start progress.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const PASTEBOARD_PROGRESS_START_ERROR: PASTEBOARD_ErrCode = PASTEBOARD_ErrCode(12900008);
+    /// Progress exits abnormally.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const PASTEBOARD_PROGRESS_ABNORMAL: PASTEBOARD_ErrCode = PASTEBOARD_ErrCode(12900009);
+    /// Get Data failed.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const PASTEBOARD_GET_DATA_FAILED: PASTEBOARD_ErrCode = PASTEBOARD_ErrCode(12900010);
 }
 #[repr(transparent)]
 /// Enumerates the error codes.

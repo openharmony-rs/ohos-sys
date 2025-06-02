@@ -1149,4 +1149,46 @@ extern "C" {
         name: *mut ::core::ffi::c_char,
         size: *mut usize,
     ) -> ImageResult;
+    /// Obtains the memory address of a PixelMap and locks the memory.
+    /// When the memory is locked, any operation that modifies or releases the PixelMap will fail and return
+    /// [`IMAGE_BAD_PARAMETER`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - The PixelMap pointer to be operated.
+    ///
+    /// * `addr` - The double pointer to the memory address of the PixelMap.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap or addr are invalid.
+    /// [`IMAGE_LOCK_UNLOCK_FAILED`] If memory failed to be locked.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_PixelmapNative_AccessPixels(
+        pixelmap: *mut OH_PixelmapNative,
+        addr: *mut *mut ::core::ffi::c_void,
+    ) -> ImageResult;
+    /// Unlocks the memory of the PixelMap data.
+    /// This function is used with [`OH_PixelmapNative_AccessPixels`] in pairs.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - The PixelMap pointer to be operated.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap is invalid.
+    /// [`IMAGE_LOCK_UNLOCK_FAILED`] If memory failed to be unlocked.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_PixelmapNative_UnaccessPixels(pixelmap: *mut OH_PixelmapNative) -> ImageResult;
 }

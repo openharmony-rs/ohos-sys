@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "arkui-sys"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "document-features",
  "ohos-drawing-sys",
@@ -31,7 +31,7 @@ dependencies = [
 
 [[package]]
 name = "hilog-sys"
-version = "0.1.4"
+version = "0.1.5"
 dependencies = [
  "document-features",
  "log",
@@ -39,7 +39,7 @@ dependencies = [
 
 [[package]]
 name = "hitrace-sys"
-version = "0.1.4"
+version = "0.1.5"
 
 [[package]]
 name = "keyboard-types"
@@ -66,7 +66,7 @@ checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
 
 [[package]]
 name = "ohos-abilitykit-sys"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -74,14 +74,14 @@ dependencies = [
 
 [[package]]
 name = "ohos-deviceinfo-sys"
-version = "0.1.3"
+version = "0.1.4"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-drawing-sys"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -89,7 +89,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-image-kit-sys"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "document-features",
  "ohos-rawfile-sys",
@@ -98,14 +98,14 @@ dependencies = [
 
 [[package]]
 name = "ohos-ime-sys"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-input-sys"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -113,7 +113,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-media-sys"
-version = "0.0.1"
+version = "0.0.2"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -121,7 +121,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-pasteboard-sys"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -129,7 +129,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-rawfile-sys"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -137,7 +137,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-sys"
-version = "0.8.0"
+version = "0.8.1"
 dependencies = [
  "arkui-sys",
  "document-features",
@@ -160,18 +160,18 @@ dependencies = [
 
 [[package]]
 name = "ohos-sys-opaque-types"
-version = "0.1.6"
+version = "0.1.7"
 
 [[package]]
 name = "ohos-vsync-sys"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "document-features",
 ]
 
 [[package]]
 name = "ohos-window-manager-sys"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -179,7 +179,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-window-sys"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -236,7 +236,7 @@ dependencies = [
 
 [[package]]
 name = "udmf-sys"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -256,7 +256,7 @@ checksum = "f6ccf251212114b54433ec949fd6a7841275f9ada20dddd2f29e9ceea4501493"
 
 [[package]]
 name = "xcomponent-sys"
-version = "0.3.1"
+version = "0.3.2"
 dependencies = [
  "arkui-sys",
  "document-features",

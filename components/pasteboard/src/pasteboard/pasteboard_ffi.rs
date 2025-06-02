@@ -22,6 +22,72 @@ impl Pasteboard_NotifyType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Pasteboard_NotifyType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl Pasteboard_FileConflictOptions {
+    /// Overwrite when destUir has file with same name.
+    pub const PASTEBOARD_OVERWRITE: Pasteboard_FileConflictOptions =
+        Pasteboard_FileConflictOptions(0);
+    /// Skip when destUir has file with same name.
+    pub const PASTEBOARD_SKIP: Pasteboard_FileConflictOptions = Pasteboard_FileConflictOptions(1);
+}
+#[repr(transparent)]
+/// Enumerates the types of file confilct options when getting data from the Pastedboard.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct Pasteboard_FileConflictOptions(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl Pasteboard_ProgressIndicator {
+    /// Getting data without system default progress indicator.
+    pub const PASTEBOARD_NONE: Pasteboard_ProgressIndicator = Pasteboard_ProgressIndicator(0);
+    /// Getting data with system default progress indicator.
+    pub const PASTEBOARD_DEFAULT: Pasteboard_ProgressIndicator = Pasteboard_ProgressIndicator(1);
+}
+#[repr(transparent)]
+/// Enumerates the types of progress indicator when getting data from the Pastedboard.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct Pasteboard_ProgressIndicator(pub ::core::ffi::c_uint);
+/// Represents the Pasteboard progress information.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+pub struct Pasteboard_ProgressInfo {
+    _unused: [u8; 0],
+}
+/// Defines the callback function used to return the progress information when getting PasteData.
+///
+/// # Arguments
+///
+/// * `progressInfo` - The progress information notified to Application.
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub type OH_Pasteboard_ProgressListener =
+    ::core::option::Option<unsafe extern "C" fn(progressInfo: *mut Pasteboard_ProgressInfo)>;
+/// Represents the pasteboard get data parameters when getting data from Pasteboard.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+pub struct Pasteboard_GetDataParams {
+    _unused: [u8; 0],
+}
 /// Defines the callback function used to return the Pasteboard data changed.
 ///
 /// # Arguments
@@ -358,4 +424,142 @@ extern "C" {
         pasteboard: *mut OH_Pasteboard,
         count: *mut ::core::ffi::c_uint,
     ) -> *mut *mut ::core::ffi::c_char;
+    /// Create a pointer to the instance of the [`Pasteboard_GetDataParams`].
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * If the operation is successful, a pointer to the instance of the [`Pasteboard_GetDataParams`]
+    /// structure is returned. If the operation is failed, nullptr is returned.
+    /// [`Pasteboard_GetDataParams`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Pasteboard_GetDataParams_Create() -> *mut Pasteboard_GetDataParams;
+    /// Destroy a pointer that points to an instance of [`Pasteboard_GetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
+    /// [`Pasteboard_GetDataParams`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Pasteboard_GetDataParams_Destroy(params: *mut Pasteboard_GetDataParams);
+    /// Set the progress indicator to the [`Pasteboard_GetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
+    ///
+    /// * `progressIndicator` - Represents to the progress indicator.
+    /// [`Pasteboard_GetDataParams`] Pasteboard_ProgressIndicator
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Pasteboard_GetDataParams_SetProgressIndicator(
+        params: *mut Pasteboard_GetDataParams,
+        progressIndicator: Pasteboard_ProgressIndicator,
+    );
+    /// Set the destination uri to the [`Pasteboard_GetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
+    ///
+    /// * `destUri` - Pointer to a destination uri.
+    ///
+    /// * `destUriLen` - Indicates the length of destination uri.
+    /// [`Pasteboard_GetDataParams`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Pasteboard_GetDataParams_SetDestUri(
+        params: *mut Pasteboard_GetDataParams,
+        destUri: *const ::core::ffi::c_char,
+        destUriLen: u32,
+    );
+    /// Set the file conflict options to the [`Pasteboard_GetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
+    ///
+    /// * `option` - Represents to the file conflict options.
+    /// [`Pasteboard_GetDataParams`] Pasteboard_FileConflictOptions
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Pasteboard_GetDataParams_SetFileConflictOptions(
+        params: *mut Pasteboard_GetDataParams,
+        option: Pasteboard_FileConflictOptions,
+    );
+    /// Set the progress indicator to the [`Pasteboard_GetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
+    ///
+    /// * `listener` - Represents to the data progress listener.
+    /// [`Pasteboard_GetDataParams`] OH_Pasteboard_ProgressListener
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Pasteboard_GetDataParams_SetProgressListener(
+        params: *mut Pasteboard_GetDataParams,
+        listener: OH_Pasteboard_ProgressListener,
+    );
+    /// Get the progress from the [`Pasteboard_ProgressInfo`].
+    ///
+    /// # Arguments
+    ///
+    /// * `progressInfo` - Represents a pointer to an instance of [`Pasteboard_ProgressInfo`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the progress.
+    /// [`Pasteboard_ProgressInfo`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Pasteboard_ProgressInfo_GetProgress(
+        progressInfo: *mut Pasteboard_ProgressInfo,
+    ) -> ::core::ffi::c_int;
+    /// Defines the cancel function used to cancel the progress when getting PasteData.
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Pointer to indicates the [`Pasteboard_GetDataParams`].
+    /// [`Pasteboard_GetDataParams.`]
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Pasteboard_ProgressCancel(params: *mut Pasteboard_GetDataParams);
+    /// Obtains data from the Pasteboard with system progress indicator.
+    ///
+    /// ohos.permission.READ_PASTEBOARD
+    /// # Arguments
+    ///
+    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`] instance.
+    ///
+    /// * `params` - Pointer to indicates the [`OH_Pasteboard_GetDataParams`].
+    ///
+    /// * `status` - The status code of the execution. For details, see [`PASTEBOARD_Errcode`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the [`OH_PasteData`] instance.
+    /// [`OH_Pasteboard`] OH_PasteData PASTEBOARD_ErrCode.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_Pasteboard_GetDataWithProgress(
+        pasteboard: *mut OH_Pasteboard,
+        params: *mut Pasteboard_GetDataParams,
+        status: *mut ::core::ffi::c_int,
+    ) -> *mut OH_UdmfData;
 }

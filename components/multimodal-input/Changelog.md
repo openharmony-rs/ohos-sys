@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+- Add API-15 bindings
+
 ## 0.3.0 (2025-06-06)
 
 - Move some opaque types to ohos-sys-opaque-types. This is not a breaking change, but 

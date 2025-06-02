@@ -223,3 +223,28 @@ impl InputMethodErrorCode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct InputMethodErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl InputMethod_RequestKeyboardReason {
+    /// The request keyboard reason is NONE.
+    pub const IME_REQUEST_REASON_NONE: InputMethod_RequestKeyboardReason =
+        InputMethod_RequestKeyboardReason(0);
+    /// The request keyboard reason is MOUSE.
+    pub const IME_REQUEST_REASON_MOUSE: InputMethod_RequestKeyboardReason =
+        InputMethod_RequestKeyboardReason(1);
+    /// The request keyboard reason is TOUCH.
+    pub const IME_REQUEST_REASON_TOUCH: InputMethod_RequestKeyboardReason =
+        InputMethod_RequestKeyboardReason(2);
+    /// The request keyboard reason is OTHER.
+    pub const IME_REQUEST_REASON_OTHER: InputMethod_RequestKeyboardReason =
+        InputMethod_RequestKeyboardReason(20);
+}
+#[repr(transparent)]
+/// The value type of request keyboard.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct InputMethod_RequestKeyboardReason(pub ::core::ffi::c_uint);
