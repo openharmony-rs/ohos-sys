@@ -1,30 +1,23 @@
+use crate::dir_conf::ResultEnumParseCallbacks;
 use crate::BindingConf;
 use bindgen::EnumVariation;
-use crate::dir_conf::ResultEnumParseCallbacks;
 
-pub(crate) fn get_bindings_config(api_version: u32) -> Vec<BindingConf> {
+pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
     vec![
         BindingConf {
             include_filename: "deviceinfo.h".to_string(),
             output_prefix: "components/deviceinfo/src/deviceinfo".to_string(),
-            set_builder_opts: Box::new(|builder| {
-                builder
-            }),
+            set_builder_opts: Box::new(|builder| builder),
         },
         BindingConf {
             include_filename: "syscap_ndk.h".to_string(),
             output_prefix: "src/syscap/syscap".to_string(),
-            set_builder_opts: Box::new(|builder| {
-                builder
-            }),
+            set_builder_opts: Box::new(|builder| builder),
         },
         BindingConf {
             include_filename: "hilog/log.h".to_string(),
             output_prefix: "components/hilog/src/hilog".to_string(),
-            set_builder_opts: Box::new(|builder| {
-                builder
-                    .blocklist_var("LOG_DOMAIN")
-            }),
+            set_builder_opts: Box::new(|builder| builder.blocklist_var("LOG_DOMAIN")),
         },
         BindingConf {
             include_filename: "napi/native_api.h".to_string(),

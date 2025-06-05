@@ -3,14 +3,8 @@
 //! Add new bindings to `get_module_bindings_config()` by appending a new `DirBindingsConf`.
 
 use crate::DirBindingsConf;
-use bindgen::callbacks::EnumVariantValue;
-use bindgen::EnumVariation;
-use log::{debug, info, trace};
-use std::cell::{LazyCell, OnceCell};
-use std::collections::HashMap;
 use std::default::Default;
 use std::fmt::{Debug, Formatter};
-use std::sync::LazyLock;
 
 /// Convenience method for stripping am optional suffix and returning an owned String
 fn strip_suffix(input: &str, suffix: &str) -> String {
@@ -66,7 +60,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "native_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()));
+                    .allowlist_file(header_path.to_str().unwrap());
                 let builder = if file_stem != "averrors" {
                     builder.raw_line("#[allow(unused_imports)]use crate::averrors::OH_AVErrCode;")
                 } else {
@@ -120,7 +114,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             rename_output_file: None,
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_file(header_path.to_str().unwrap())
                     .constified_enum_module("^NativeWindowOperation$");
                 match file_stem {
                     "external_window" => builder
@@ -145,7 +139,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             rename_output_file: None,
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_file(header_path.to_str().unwrap())
                     .blocklist_file(".*graphic_error_code.h");
                 match file_stem {
                     "native_buffer" => builder
@@ -167,7 +161,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             rename_output_file: None,
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_file(header_path.to_str().unwrap())
                     .blocklist_file(".*graphic_error_code.h");
                 match file_stem {
                     "native_image" => builder
@@ -187,7 +181,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()));
+                    .allowlist_file(header_path.to_str().unwrap());
                 match file_stem {
                     "pasteboard" => builder.raw_line("use ohos_sys_opaque_types::OH_UdmfData;"),
                     _ => builder,
@@ -200,7 +194,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/udmf/src".to_string(),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()));
+                    .allowlist_file(header_path.to_str().unwrap());
 
                 match file_stem {
                     "udmf" => builder.raw_line("use ohos_sys_opaque_types::*;"),
@@ -272,7 +266,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     _ => builder,
                 };
                 builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_file(header_path.to_str().unwrap())
                     .derive_copy(false)
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
@@ -284,8 +278,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/inputmethod/src".to_string(),
             rename_output_file: Some(Box::new(|stem| {
                 let stem = strip_suffix(stem, "_capi");
-                let stem = strip_prefix(&stem, "inputmethod_");
-                stem
+                
+                strip_prefix(&stem, "inputmethod_")
             })),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = if file_stem != "types" {
@@ -317,7 +311,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     _ => builder,
                 };
                 builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_file(header_path.to_str().unwrap())
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
             }),
@@ -327,8 +321,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             directory: "native_drawing".to_string(),
             output_dir: "components/drawing/src".to_string(),
             rename_output_file: Some(Box::new(|stem| {
-                let stem = strip_prefix(&stem, "drawing_");
-                stem
+                
+                strip_prefix(stem, "drawing_")
             })),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = if file_stem != "types" {
@@ -378,7 +372,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     _ => builder,
                 };
                 builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_file(header_path.to_str().unwrap())
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
             }),
@@ -395,7 +389,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     builder
                 };
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_file(header_path.to_str().unwrap())
                     .prepend_enum_name(false)
                     .parse_callbacks(Box::new(ResultEnumParseCallbacks {
                         rename_item: Box::new(|original_item_name| match original_item_name {
@@ -477,7 +471,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             rename_output_file: None,
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_file(header_path.to_str().unwrap())
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"]);
                 match file_stem {
@@ -522,7 +516,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             rename_output_file: Some(Box::new(|name| name.trim_start_matches("oh_").to_string())),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_file(header_path.to_str().unwrap())
                     .prepend_enum_name(false)
                     .clang_args(["-include", "stdbool.h"]);
                 match file_stem {
@@ -573,7 +567,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/abilitykit/src/runtime".to_string(),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
-                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .allowlist_file(header_path.to_str().unwrap())
                     .result_error_enum("AbilityRuntime_ErrorCode")
                     .parse_callbacks(Box::new(ResultEnumParseCallbacks {
                     rename_item: Box::new(|name| {
