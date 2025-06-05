@@ -13,7 +13,7 @@
 #![cfg(feature = "api-12")]
 #![cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 
-#[link(name = "oh_input")]
+#[link(name = "ohinput")]
 extern "C" {}
 
 pub mod axis_type;
