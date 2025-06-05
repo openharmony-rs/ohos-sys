@@ -93,6 +93,8 @@ jobs:
         run: cargo build --features api-12 --features ${{ matrix.component }}
       - name: Build minimal features API-13
         run: cargo build --features api-13 --features ${{ matrix.component }}
+      - name: Build minimal features API-14
+        run: cargo build --features api-14 --features ${{ matrix.component }}
 
   semver_checks:
     runs-on: ubuntu-latest
