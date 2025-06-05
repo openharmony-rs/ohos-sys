@@ -2,6 +2,8 @@ use std::collections::HashMap;
 use std::sync::LazyLock;
 
 /// Defines the prefixes that each enum has (which we probably want to remove)
+/// This essentially finds the enum given by .0 in the C code and strips the prefix .1 of
+/// all elements in it
 pub(crate) static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>> =
     LazyLock::new(|| {
         HashMap::from([
@@ -25,5 +27,6 @@ pub(crate) static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>>
             ("PASTEBOARD_ErrCode", "ERR_"),
             ("Pasteboard_NotifyType", "NOTIFY_"),
             ("OH_AVCodecBufferFlags", "AVCODEC_BUFFER_FLAGS_"),
+            ("NativeDisplayManager_ErrorCode", "DISPLAY_MANAGER_ERROR_"),
         ])
     });

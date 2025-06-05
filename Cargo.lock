@@ -152,6 +152,7 @@ dependencies = [
  "ohos-rawfile-sys",
  "ohos-sys-opaque-types",
  "ohos-vsync-sys",
+ "ohos-window-manager-sys",
  "ohos-window-sys",
  "xcomponent-sys",
 ]
@@ -165,6 +166,15 @@ name = "ohos-vsync-sys"
 version = "0.1.2"
 dependencies = [
  "document-features",
+]
+
+[[package]]
+name = "ohos-window-manager-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+ "ohos-input-sys",
+ "ohos-sys-opaque-types",
 ]
 
 [[package]]
