@@ -19,7 +19,7 @@ use thiserror::Error;
 ///
 /// Manually parse the API version to avoid pulling in any heavy dependencies.
 fn parse_api_version(sdk_native_dir: &Path) -> anyhow::Result<u32> {
-    let metadata = std::fs::read_to_string(&sdk_native_dir.join("oh-uni-package.json"))
+    let metadata = std::fs::read_to_string(sdk_native_dir.join("oh-uni-package.json"))
         .context("Failed to read oh-uni-package.json")?;
     let api_version = metadata
         .lines()
@@ -154,7 +154,7 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
         }
         // Replace manual linebreaks in doxygen with double linebreaks for markdown.
         let comment = comment.replace("\\n", "\n");
-        Some(doxygen_rs::transform(&comment.trim_end_matches("\n")))
+        Some(doxygen_rs::transform(comment.trim_end_matches("\n")))
     }
 
     fn parse_comments_for_attributes(&self, comment: &str) -> Vec<CodeGenAttributes> {
@@ -280,7 +280,7 @@ struct BindingConf {
 fn generate_opaque_types_bindings(
     root_dir: &Path,
     builder: bindgen::Builder,
-    sysroot_include_dir: &Path,
+    _sysroot_include_dir: &Path,
 ) -> anyhow::Result<()> {
     let mut builder = builder
         .header(
@@ -326,14 +326,18 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
     for ty_name in opaque_types::OPAQUE_TYPES {
         base_builder = base_builder.blocklist_type(ty_name)
     }
-    
+
     let only_gen_module = std::env::var("ONLY_MODULE").ok();
 
     for binding in get_bindings_config(api_version) {
         let header_filename = sysroot_include_dir.join(&binding.include_filename);
         let header_filename_str = header_filename.to_str().context("Unicode")?;
-        if only_gen_module.as_ref().and_then(|name| header_filename_str.contains(name).then_some(())).is_none() {
-            continue
+        if only_gen_module
+            .as_ref()
+            .and_then(|name| header_filename_str.contains(name).then_some(()))
+            .is_none()
+        {
+            continue;
         }
         debug!("Generating binding: {}", binding.include_filename);
         let builder = base_builder.clone().header(header_filename_str);
@@ -349,7 +353,7 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
         let module_dir = sysroot_include_dir.join(&binding.directory);
         if let Some(pattern) = &only_gen_module {
             if !module_dir.to_str().unwrap().contains(pattern) {
-                continue
+                continue;
             }
         }
         debug!("Generating binding: {}", binding.directory);
