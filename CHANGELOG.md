@@ -1,3 +1,21 @@
+# v0.7.0 (2025-06-06)
+
+## Breaking 
+
+- Update the signature of functions returning Error codes with zero representing the `Ok` value to 
+  an equivalent `Result<(), NonZeroErrcode>` type. See the changelogs of the individual crates.
+
+## Add
+
+- Abilitykit (`ohos-abilitykit-sys`)
+- Multimodal Input Kit (`ohos-input-sys`)
+- Rawfile (`ohos-rawfile-sys`)
+- Window Manager (`ohos-window-manager-sys`)
+
+## Update
+
+- Update bindings for OpenHarmony 5.0.2 (API-14)
+
 # v0.6.0 (2025-01-09)
 
 ## Breaking 
