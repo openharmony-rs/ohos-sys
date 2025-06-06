@@ -6,7 +6,7 @@
 use crate::display_manager_info::NativeDisplayManagerResult;
 use crate::window_comm::WindowManagerResult;
 #[cfg(feature = "api-12")]
-use ohos_input_sys::input_manager::Input_KeyEvent;
+use ohos_sys_opaque_types::Input_KeyEvent;
 
 /// the callback funcation type when keyEvent was filter
 /// # Arguments

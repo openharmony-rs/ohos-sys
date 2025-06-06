@@ -11,14 +11,13 @@ readme = "README.md"
 [dependencies]
 document-features = { version = "0.2", optional = true }
 ohos-sys-opaque-types = { workspace = true }
-ohos-input-sys = { version = "0.2.0" }
 
 
 [features]
 default = []
 ## This is the minimum API-level required for the window_manager.
-api-12 = ["ohos-input-sys/api-12"]
-api-14 = ["api-12", "ohos-input-sys/api-14"]
+api-12 = []
+api-14 = ["api-12"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 

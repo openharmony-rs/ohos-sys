@@ -173,7 +173,6 @@ name = "ohos-window-manager-sys"
 version = "0.1.0"
 dependencies = [
  "document-features",
- "ohos-input-sys",
  "ohos-sys-opaque-types",
 ]
 

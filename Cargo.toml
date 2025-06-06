@@ -78,7 +78,7 @@ vsync = ["dep:ohos-vsync-sys"]
 ## Enables bindings to `native_xcomponent`
 xcomponent = ["dep:xcomponent-sys"]
 ## Enables bindings to `window_manager`
-window_manager = ["dep:ohos-window-manager-sys", "dep:ohos-input-sys"]
+window_manager = ["dep:ohos-window-manager-sys"]
 
 ## Enables all components listed above. Orthogonal to `api-XX` features.
 all-components = [

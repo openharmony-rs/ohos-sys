@@ -59,8 +59,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/multimedia/player_framework/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "native_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
-                let builder = builder
-                    .allowlist_file(header_path.to_str().unwrap());
+                let builder = builder.allowlist_file(header_path.to_str().unwrap());
                 let builder = if file_stem != "averrors" {
                     builder.raw_line("#[allow(unused_imports)]use crate::averrors::OH_AVErrCode;")
                 } else {
@@ -153,7 +152,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     _ => builder,
                 }
             }),
-            skip_files: vec!["graphic_error_code.h".to_string()]
+            skip_files: vec!["graphic_error_code.h".to_string()],
         },
         DirBindingsConf {
             directory: "native_image/".to_string(),
@@ -168,20 +167,18 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeImage};")
                         .raw_line("#[cfg(feature = \"api-12\")]")
                         .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
-                        .no_copy("^OH_OnFrameAvailableListener")
-                    ,
+                        .no_copy("^OH_OnFrameAvailableListener"),
                     _ => builder,
                 }
             }),
-            skip_files: vec!["graphic_error_code.h".to_string()]
+            skip_files: vec!["graphic_error_code.h".to_string()],
         },
         DirBindingsConf {
             directory: "database/pasteboard".to_string(),
             output_dir: "components/pasteboard/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
-                let builder = builder
-                    .allowlist_file(header_path.to_str().unwrap());
+                let builder = builder.allowlist_file(header_path.to_str().unwrap());
                 match file_stem {
                     "pasteboard" => builder.raw_line("use ohos_sys_opaque_types::OH_UdmfData;"),
                     _ => builder,
@@ -193,8 +190,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             directory: "database/udmf".to_string(),
             output_dir: "components/udmf/src".to_string(),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
-                let builder = builder
-                    .allowlist_file(header_path.to_str().unwrap());
+                let builder = builder.allowlist_file(header_path.to_str().unwrap());
 
                 match file_stem {
                     "udmf" => builder.raw_line("use ohos_sys_opaque_types::*;"),
@@ -278,7 +274,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/inputmethod/src".to_string(),
             rename_output_file: Some(Box::new(|stem| {
                 let stem = strip_suffix(stem, "_capi");
-                
+
                 strip_prefix(&stem, "inputmethod_")
             })),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
@@ -320,10 +316,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
         DirBindingsConf {
             directory: "native_drawing".to_string(),
             output_dir: "components/drawing/src".to_string(),
-            rename_output_file: Some(Box::new(|stem| {
-                
-                strip_prefix(stem, "drawing_")
-            })),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "drawing_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = if file_stem != "types" {
                     let builder = builder.raw_line("use crate::types::*;");
@@ -645,7 +638,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         )
                         .raw_line("use crate::window_comm::WindowManagerResult;")
                         .raw_line("#[cfg(feature = \"api-12\")]")
-                        .raw_line("use ohos_input_sys::input_manager::Input_KeyEvent;"),
+                        .raw_line("use ohos_sys_opaque_types::Input_KeyEvent;"),
                     "display_info" => builder.no_copy("^NativeDisplayManager_DisplayInfo"),
                     _ => builder,
                 }
