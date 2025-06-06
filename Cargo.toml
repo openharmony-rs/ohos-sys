@@ -56,8 +56,6 @@ hilog = ["dep:hilog-sys"]
 ## Enables bindings to `hitrace`
 hitrace = ["dep:hitrace-sys"]
 ## Enables bindings to `inputmethod` from the IME-Kit. Empty if API-level < 12.
-keyboard-types = ["dep:xcomponent-sys", "xcomponent-sys/keyboard-types"]
-
 inputmethod = ["dep:ohos-ime-sys"]
 ## Bindings to the [Image Kit](https://docs.openharmony.cn/pages/v5.0/en/application-dev/media/image/image-overview.md)
 image-kit = ["dep:ohos-image-kit-sys"]
@@ -183,6 +181,7 @@ image-kit-image-packer = ["ohos-image-kit-sys/image-packer"]
 image-kit-image-receiver = ["ohos-image-kit-sys/image-receiver"]
 image-kit-image-source = ["ohos-image-kit-sys/image-source"]
 image-kit-pixelmap = ["ohos-image-kit-sys/pixelmap"]
+xcomponent-keyboard-types = ["xcomponent-sys/keyboard-types"]
 
 #! ### Internal features
 ## Document available features when building the documentation
