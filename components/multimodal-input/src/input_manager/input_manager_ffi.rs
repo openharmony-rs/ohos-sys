@@ -4,6 +4,11 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::axis_type::{InputEvent_AxisAction, InputEvent_AxisEventType, InputEvent_AxisType};
+#[cfg(feature = "api-14")]
+use ohos_sys_opaque_types::Input_Hotkey;
+use ohos_sys_opaque_types::{
+    Input_AxisEvent, Input_KeyEvent, Input_KeyState, Input_MouseEvent, Input_TouchEvent,
+};
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -197,66 +202,6 @@ impl InputEvent_SourceType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct InputEvent_SourceType(pub ::core::ffi::c_uint);
-/// Defines key information, which identifies a key pressing behavior. For example, the Ctrl key information contains the key value and key type.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct Input_KeyState {
-    _unused: [u8; 0],
-}
-/// The key event to be injected.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct Input_KeyEvent {
-    _unused: [u8; 0],
-}
-/// The mouse event to be injected.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct Input_MouseEvent {
-    _unused: [u8; 0],
-}
-/// The touch event to be injected.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct Input_TouchEvent {
-    _unused: [u8; 0],
-}
-/// Enumerates axis events.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct Input_AxisEvent {
-    _unused: [u8; 0],
-}
-/// Defines the hot key structure.
-///
-///
-/// Available since API-level: 14
-#[cfg(feature = "api-14")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
-#[repr(C)]
-pub struct Input_Hotkey {
-    _unused: [u8; 0],
-}
 pub type Input_Result = Result<(), InputErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]

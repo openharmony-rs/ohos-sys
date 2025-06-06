@@ -3,6 +3,7 @@
 #include "native_image/native_image.h"
 #include "multimedia/image_framework/image/pixelmap_native.h"
 #include "multimedia/image_framework/image_pixel_map_mdk.h"
+#include "multimodalinput/oh_input_manager.h"
 #include "native_window/external_window.h"
 #include "multimedia/image_framework/image/image_source_native.h"
 #include "database/udmf/udmf.h"

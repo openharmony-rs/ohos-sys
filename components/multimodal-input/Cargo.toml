@@ -1,6 +1,6 @@
 [package]
 name = "ohos-input-sys"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 description = "Bindings to the multi-modal Input-kit on OpenHarmony"
 license = "Apache-2.0"
@@ -10,6 +10,7 @@ readme = "README.md"
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
+ohos-sys-opaque-types = { workspace = true}
 
 [features]
 default = []

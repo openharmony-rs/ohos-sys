@@ -49,6 +49,30 @@ pub struct NativePixelMap_ {
     _unused: [u8; 0],
 }
 #[repr(C)]
+pub struct Input_KeyState {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct Input_KeyEvent {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct Input_MouseEvent {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct Input_TouchEvent {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct Input_AxisEvent {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct Input_Hotkey {
+    _unused: [u8; 0],
+}
+#[repr(C)]
 pub struct OH_ImageSourceNative {
     _unused: [u8; 0],
 }
