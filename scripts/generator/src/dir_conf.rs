@@ -59,8 +59,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/multimedia/player_framework/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "native_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
-                let builder = builder
-                    .allowlist_file(header_path.to_str().unwrap());
+                let builder = builder.allowlist_file(header_path.to_str().unwrap());
                 let builder = if file_stem != "averrors" {
                     builder.raw_line("#[allow(unused_imports)]use crate::averrors::OH_AVErrCode;")
                 } else {
@@ -153,7 +152,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     _ => builder,
                 }
             }),
-            skip_files: vec!["graphic_error_code.h".to_string()]
+            skip_files: vec!["graphic_error_code.h".to_string()],
         },
         DirBindingsConf {
             directory: "native_image/".to_string(),
@@ -168,20 +167,18 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeImage};")
                         .raw_line("#[cfg(feature = \"api-12\")]")
                         .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
-                        .no_copy("^OH_OnFrameAvailableListener")
-                    ,
+                        .no_copy("^OH_OnFrameAvailableListener"),
                     _ => builder,
                 }
             }),
-            skip_files: vec!["graphic_error_code.h".to_string()]
+            skip_files: vec!["graphic_error_code.h".to_string()],
         },
         DirBindingsConf {
             directory: "database/pasteboard".to_string(),
             output_dir: "components/pasteboard/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
-                let builder = builder
-                    .allowlist_file(header_path.to_str().unwrap());
+                let builder = builder.allowlist_file(header_path.to_str().unwrap());
                 match file_stem {
                     "pasteboard" => builder.raw_line("use ohos_sys_opaque_types::OH_UdmfData;"),
                     _ => builder,
@@ -193,8 +190,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             directory: "database/udmf".to_string(),
             output_dir: "components/udmf/src".to_string(),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
-                let builder = builder
-                    .allowlist_file(header_path.to_str().unwrap());
+                let builder = builder.allowlist_file(header_path.to_str().unwrap());
 
                 match file_stem {
                     "udmf" => builder.raw_line("use ohos_sys_opaque_types::*;"),
@@ -278,7 +274,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/inputmethod/src".to_string(),
             rename_output_file: Some(Box::new(|stem| {
                 let stem = strip_suffix(stem, "_capi");
-                
+
                 strip_prefix(&stem, "inputmethod_")
             })),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
@@ -320,10 +316,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
         DirBindingsConf {
             directory: "native_drawing".to_string(),
             output_dir: "components/drawing/src".to_string(),
-            rename_output_file: Some(Box::new(|stem| {
-                
-                strip_prefix(stem, "drawing_")
-            })),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "drawing_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = if file_stem != "types" {
                     let builder = builder.raw_line("use crate::types::*;");
@@ -573,26 +566,79 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .allowlist_file(header_path.to_str().unwrap())
                     .result_error_enum("AbilityRuntime_ErrorCode")
                     .parse_callbacks(Box::new(ResultEnumParseCallbacks {
-                    rename_item: Box::new(|name| {
-                        name.strip_suffix("_ErrorCode").map(|name | {
-                            let mut s = name.to_string();
-                            s.push_str("Result");
-                            s
-                        })
-                    }),
-                    rename_enum_variant: None,
-                }));
+                        rename_item: Box::new(|name| {
+                            name.strip_suffix("_ErrorCode").map(|name| {
+                                let mut s = name.to_string();
+                                s.push_str("Result");
+                                s
+                            })
+                        }),
+                        rename_enum_variant: None,
+                    }));
                 match file_stem {
                     "application_context" => builder
-                        .raw_line("use crate::runtime::{AbilityRuntimeResult, AbilityRuntime_AreaMode};")
+                        .raw_line(
+                            "use crate::runtime::{AbilityRuntimeResult, AbilityRuntime_AreaMode};",
+                        )
                         .raw_line("#[cfg(feature = \"api-15\")]")
-                        .raw_line("use crate::base::want::AbilityBase_Want;")
-                    
-                    ,
+                        .raw_line("use crate::base::want::AbilityBase_Want;"),
+
                     _ => builder,
                 }
             }),
             ..Default::default()
+        },
+        DirBindingsConf {
+            directory: "window_manager/".to_string(),
+            output_dir: "components/window_manager/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .blocklist_file(".*graphic_error_code.h")
+                    .clang_args(["-include", "stdbool.h"])
+                    .result_error_enum("NativeDisplayManager_ErrorCode")
+                    .result_error_enum("WindowManager_ErrorCode")
+                    .parse_callbacks(Box::new(ResultEnumParseCallbacks {
+                        rename_item: Box::new(|original_item_name| match original_item_name {
+                            "NativeDisplayManager_ErrorCode" => {
+                                Some("NativeDisplayManagerResult".to_string())
+                            }
+                            "WindowManager_ErrorCode" => Some("WindowManagerResult".to_string()),
+                            _ => None,
+                        }),
+                        ..Default::default()
+                    }));
+                match file_stem {
+                    "display_manager" => builder
+                        .raw_line(
+                            "use crate::display_info::NativeDisplayManagerResult;",
+                        )
+                        .raw_line(
+                            "use crate::display_info::NativeDisplayManager_CutoutInfo;",
+                        )
+                        .raw_line("use crate::display_info::NativeDisplayManager_FoldDisplayMode;")
+                        .raw_line("use crate::display_info::NativeDisplayManager_Orientation;")
+                        .raw_line("use crate::display_info::NativeDisplayManager_Rotation;")
+                        .raw_line("#[cfg(feature=\"api-14\")]")
+                        .raw_line("use crate::display_info::NativeDisplayManager_DisplayInfo;")
+                        .raw_line("#[cfg(feature=\"api-14\")]")
+                        .raw_line("use crate::display_info::NativeDisplayManager_DisplaysInfo;"),
+                    "display_capture" => builder
+                        .raw_line("#[cfg(feature=\"api-12\")]")
+                        .raw_line("use crate::display_info::NativeDisplayManagerResult;")
+                        .raw_line("#[cfg(feature=\"api-14\")]")
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;"),
+                    "window_event_filter" => builder
+                        .raw_line("use crate::window_comm::WindowManagerResult;")
+                        .raw_line("#[cfg(feature = \"api-12\")]")
+                        .raw_line("use ohos_sys_opaque_types::Input_KeyEvent;"),
+                    "display_info" => builder.no_copy("^NativeDisplayManager_DisplayInfo"),
+                    _ => builder,
+                }
+            }),
+
+            skip_files: vec!["graphic_error_code.h".to_string()],
         },
     ]
 }

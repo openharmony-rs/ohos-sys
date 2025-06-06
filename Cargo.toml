@@ -11,7 +11,11 @@ resolver = "2"
 rust-version = "1.78.0"
 
 [workspace]
-members = ["components/*", "components/multimedia/image_framework", "components/multimedia/player_framework"]
+members = [
+    "components/*",
+    "components/multimedia/image_framework",
+    "components/multimedia/player_framework",
+]
 exclude = ["components/multimedia", "scripts"]
 
 [workspace.dependencies]
@@ -21,19 +25,20 @@ ohos-sys-opaque-types = { version = "0.1.6", path = "components/opaque-types" }
 [dependencies]
 arkui-sys = { version = "0.3.0", optional = true, path = "components/arkui" }
 document-features = { version = "0.2", optional = true }
-hilog-sys = { version = "0.1.4", optional = true, path = "components/hilog"}
-hitrace-sys = { version = "0.1.4", optional = true, path = "components/hitrace"}
-ohos-abilitykit-sys = { version = "0.1.0", optional = true, path = "components/abilitykit"}
-ohos-deviceinfo-sys = { version = "0.1.2", optional = true, path = "components/deviceinfo"}
-ohos-drawing-sys = { path = "components/drawing", version = "0.3.0", optional = true}
-ohos-image-kit-sys = {version = "0.2", optional = true, path = "components/multimedia/image_framework"}
-ohos-ime-sys = { version = "0.2.0", optional = true, path = "components/inputmethod"}
-ohos-input-sys = { version = "0.3.0", optional = true, path  = "components/multimodal-input"}
-ohos-rawfile-sys = { version = "0.1.0", optional = true, path = "components/rawfile"}
-ohos-sys-opaque-types = { workspace = true}
-ohos-window-sys = { version = "0.1", optional = true, path = "components/window"}
-ohos-vsync-sys = { version = "0.1.2", optional = true, path = "components/vsync"}
-xcomponent-sys = {version = "0.3.1", optional = true, path = "components/xcomponent"}
+hilog-sys = { version = "0.1.4", optional = true, path = "components/hilog" }
+hitrace-sys = { version = "0.1.4", optional = true, path = "components/hitrace" }
+ohos-abilitykit-sys = { version = "0.1.0", optional = true, path = "components/abilitykit" }
+ohos-deviceinfo-sys = { version = "0.1.2", optional = true, path = "components/deviceinfo" }
+ohos-drawing-sys = { path = "components/drawing", version = "0.3.0", optional = true }
+ohos-image-kit-sys = { version = "0.2", optional = true, path = "components/multimedia/image_framework" }
+ohos-ime-sys = { version = "0.2.0", optional = true, path = "components/inputmethod" }
+ohos-input-sys = { version = "0.3.0", optional = true, path = "components/multimodal-input" }
+ohos-rawfile-sys = { version = "0.1.0", optional = true, path = "components/rawfile" }
+ohos-sys-opaque-types = { workspace = true }
+ohos-window-sys = { version = "0.1", optional = true, path = "components/window" }
+ohos-vsync-sys = { version = "0.1.2", optional = true, path = "components/vsync" }
+xcomponent-sys = { version = "0.3.1", optional = true, path = "components/xcomponent" }
+ohos-window-manager-sys = { version = "0.1.0", optional = true, path = "components/window_manager" }
 
 
 [features]
@@ -70,6 +75,9 @@ rawfile = ['ohos-rawfile-sys']
 vsync = ["dep:ohos-vsync-sys"]
 ## Enables bindings to `native_xcomponent`
 xcomponent = ["dep:xcomponent-sys"]
+## Enables bindings to `window_manager`
+window_manager = ["dep:ohos-window-manager-sys"]
+
 ## Enables all components listed above. Orthogonal to `api-XX` features.
 all-components = [
     "abilitykit",
@@ -91,7 +99,9 @@ all-components = [
     "native_window",
     "rawfile",
     "xcomponent",
-    "vsync"]
+    "vsync",
+    "window_manager",
+]
 
 #! ### OpenHarmony API level
 #! This crate by default exposes bindings for API-level 10.
@@ -101,7 +111,8 @@ all-components = [
 ## No effect. API-10 bindings can't be deselected. The feature exists for internal purposes.
 api-10 = []
 ## Enables bindings for OpenHarmony API-level 11
-api-11 = ["api-10",
+api-11 = [
+    "api-10",
     "hilog-sys?/api-11",
     "hitrace-sys?/api-11",
     "ohos-deviceinfo-sys?/api-11",
@@ -109,9 +120,10 @@ api-11 = ["api-10",
     "ohos-vsync-sys?/api-11",
     "ohos-rawfile-sys?/api-11",
     "xcomponent-sys?/api-11",
-    ]
+]
 ## Enables bindings for OpenHarmony API-level 12
-api-12 = ["api-11",
+api-12 = [
+    "api-11",
     "arkui-sys?/api-12",
     "hilog-sys?/api-12",
     "hitrace-sys?/api-12",
@@ -127,7 +139,8 @@ api-12 = ["api-11",
 ]
 
 ## Enables bindings for OpenHarmony API-level 13
-api-13 = ["api-12",
+api-13 = [
+    "api-12",
     "arkui-sys?/api-13",
     "hilog-sys?/api-13",
     "hitrace-sys?/api-13",
@@ -142,8 +155,9 @@ api-13 = ["api-12",
     "xcomponent-sys?/api-13",
 ]
 
-## Enables bindings for OpenHarmony API-level 13
-api-14 = ["api-13",
+## Enables bindings for OpenHarmony API-level 14
+api-14 = [
+    "api-13",
     "arkui-sys?/api-14",
     "ohos-abilitykit-sys?/api-14",
     "ohos-drawing-sys?/api-14",
@@ -151,6 +165,7 @@ api-14 = ["api-13",
     "ohos-ime-sys?/api-14",
     "ohos-input-sys?/api-14",
     "ohos-vsync-sys?/api-14",
+    "ohos-window-manager-sys?/api-14",
     "xcomponent-sys?/api-14",
     # "hilog-sys?/api-14",
     # "hitrace-sys?/api-14",
@@ -166,6 +181,7 @@ image-kit-image-packer = ["ohos-image-kit-sys/image-packer"]
 image-kit-image-receiver = ["ohos-image-kit-sys/image-receiver"]
 image-kit-image-source = ["ohos-image-kit-sys/image-source"]
 image-kit-pixelmap = ["ohos-image-kit-sys/pixelmap"]
+xcomponent-keyboard-types = ["xcomponent-sys/keyboard-types"]
 
 #! ### Internal features
 ## Document available features when building the documentation
@@ -173,5 +189,9 @@ document-features = ["dep:document-features"]
 
 [package.metadata.docs.rs]
 features = ["document-features"]
-targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+targets = [
+    "aarch64-unknown-linux-ohos",
+    "armv7-unknown-linux-ohos",
+    "x86_64-unknown-linux-ohos",
+]
 all-features = true

@@ -74,3 +74,7 @@ pub use ohos_vsync_sys as vsync;
 #[cfg(feature = "xcomponent")]
 #[cfg_attr(docsrs, doc(cfg(feature = "xcomponent")))]
 pub use xcomponent_sys as xcomponent;
+
+#[cfg(feature = "window_manager")]
+#[cfg_attr(docsrs, doc(cfg(feature = "window_manager")))]
+pub use ohos_window_manager_sys as window_manager;

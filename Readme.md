@@ -9,7 +9,7 @@ Here is an overview of the available C header directories in the OpenHarmony sys
 this crate already provides bindings. The API-level column denotes up to which api level the bindings have
 already been generated.
 
-| API name                                | status | API-level | 
+| API name                                | status | API-level |
 |-----------------------------------------|--------|-----------|
 | AbilityKit                              | ✅      | 15        |
 | BasicServicesKit                        |        |           |
@@ -65,7 +65,7 @@ already been generated.
 | Unified Data Management Framework(UDMF) | ✅      | 14        |
 | usb                                     |        |           |
 | web                                     |        |           |
-| window_manager                          |        |           |
+| window_manager                          | ✅     |  14       |
 
 ## Development
 
@@ -77,16 +77,16 @@ automatically by the tool based on the documentation comments in the C header fi
 # Contributing
 
 There are still quite a few OpenHarmony APIs missing. Feel free to contribute missing APIs, but be sure to adapt
-the script, so your bindings are reproducible! 
+the script, so your bindings are reproducible!
 The OpenHarmony SDK can be downloaded from the release notes of the respective release, e.g. the
 [5.0.0 release notes](https://docs.openharmony.cn/pages/v5.0/en/release-notes/OpenHarmony-v5.0.0-release.md).
 Navigate to the `Acquiring Source Code from Mirrors` section, select the `Public SDK package for the standard system`
-for your host Operating System (Windows / Linux / Mac) click download and optionally verify the SHA-256 checksum 
-of the downloaded archive. 
+for your host Operating System (Windows / Linux / Mac) click download and optionally verify the SHA-256 checksum
+of the downloaded archive.
 Extract the archive to a suitable location. Please note that the <os_name> subfolder contains more archives.
 For the purpose of generating the bindings extracting the `native` archive is sufficient.
 
-Once you have setup your local SDK, you should set the environment variable `OHOS_SDK_NATIVE` to 
+Once you have setup your local SDK, you should set the environment variable `OHOS_SDK_NATIVE` to
 `/path/to/ohos-sdk/<your_host_os>/native`. Afterwards you can run the script to generate the bindings
 and adapt it to incorporate new modules.
 

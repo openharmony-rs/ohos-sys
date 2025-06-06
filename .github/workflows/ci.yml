@@ -80,6 +80,7 @@ jobs:
           - rawfile
           - vsync
           - xcomponent
+          - window_manager
     name: Build with minimal features
     runs-on: ubuntu-latest
     steps:
