@@ -3,16 +3,15 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-use crate::display_manager_info::NativeDisplayManagerResult;
-use crate::display_manager_info::NativeDisplayManager_CutoutInfo;
+use crate::display_info::NativeDisplayManagerResult;
+use crate::display_info::NativeDisplayManager_CutoutInfo;
 #[cfg(feature = "api-14")]
-use crate::display_manager_info::NativeDisplayManager_DisplayInfo;
+use crate::display_info::NativeDisplayManager_DisplayInfo;
 #[cfg(feature = "api-14")]
-use crate::display_manager_info::NativeDisplayManager_DisplaysInfo;
-use crate::display_manager_info::NativeDisplayManager_FoldDisplayMode;
-use crate::display_manager_info::NativeDisplayManager_Orientation;
-use crate::display_manager_info::NativeDisplayManager_Rotation;
-use crate::window_comm::WindowManagerResult;
+use crate::display_info::NativeDisplayManager_DisplaysInfo;
+use crate::display_info::NativeDisplayManager_FoldDisplayMode;
+use crate::display_info::NativeDisplayManager_Orientation;
+use crate::display_info::NativeDisplayManager_Rotation;
 
 /// the callback function type when display change.
 ///

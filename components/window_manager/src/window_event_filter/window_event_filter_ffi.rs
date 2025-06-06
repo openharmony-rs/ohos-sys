@@ -3,7 +3,6 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-use crate::display_manager_info::NativeDisplayManagerResult;
 use crate::window_comm::WindowManagerResult;
 #[cfg(feature = "api-12")]
 use ohos_sys_opaque_types::Input_KeyEvent;

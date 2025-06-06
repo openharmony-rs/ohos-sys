@@ -4,9 +4,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #[cfg(feature = "api-12")]
-use crate::display_manager_info::NativeDisplayManagerResult;
-#[cfg(feature = "api-14")]
-use crate::display_manager_info::NativeDisplayManager_DisplaysInfo;
+use crate::display_info::NativeDisplayManagerResult;
 #[cfg(feature = "api-14")]
 use ohos_sys_opaque_types::OH_PixelmapNative;
 

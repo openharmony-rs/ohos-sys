@@ -612,30 +612,24 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 match file_stem {
                     "display_manager" => builder
                         .raw_line(
-                            "use crate::display_manager_info::NativeDisplayManagerResult;",
+                            "use crate::display_info::NativeDisplayManagerResult;",
                         )
                         .raw_line(
-                            "use crate::display_manager_info::NativeDisplayManager_CutoutInfo;",
+                            "use crate::display_info::NativeDisplayManager_CutoutInfo;",
                         )
-                        .raw_line("use crate::display_manager_info::NativeDisplayManager_FoldDisplayMode;")
-                        .raw_line("use crate::display_manager_info::NativeDisplayManager_Orientation;")
-                        .raw_line("use crate::display_manager_info::NativeDisplayManager_Rotation;")
-                        .raw_line("use crate::window_comm::WindowManagerResult;")
+                        .raw_line("use crate::display_info::NativeDisplayManager_FoldDisplayMode;")
+                        .raw_line("use crate::display_info::NativeDisplayManager_Orientation;")
+                        .raw_line("use crate::display_info::NativeDisplayManager_Rotation;")
                         .raw_line("#[cfg(feature=\"api-14\")]")
-                        .raw_line("use crate::display_manager_info::NativeDisplayManager_DisplayInfo;")
+                        .raw_line("use crate::display_info::NativeDisplayManager_DisplayInfo;")
                         .raw_line("#[cfg(feature=\"api-14\")]")
-                        .raw_line("use crate::display_manager_info::NativeDisplayManager_DisplaysInfo;"),
+                        .raw_line("use crate::display_info::NativeDisplayManager_DisplaysInfo;"),
                     "display_capture" => builder
                         .raw_line("#[cfg(feature=\"api-12\")]")
-                        .raw_line("use crate::display_manager_info::NativeDisplayManagerResult;")
-                        .raw_line("#[cfg(feature=\"api-14\")]")
-                        .raw_line("use crate::display_manager_info::NativeDisplayManager_DisplaysInfo;")
+                        .raw_line("use crate::display_info::NativeDisplayManagerResult;")
                         .raw_line("#[cfg(feature=\"api-14\")]")
                         .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;"),
                     "window_event_filter" => builder
-                        .raw_line(
-                            "use crate::display_manager_info::NativeDisplayManagerResult;"
-                        )
                         .raw_line("use crate::window_comm::WindowManagerResult;")
                         .raw_line("#[cfg(feature = \"api-12\")]")
                         .raw_line("use ohos_sys_opaque_types::Input_KeyEvent;"),

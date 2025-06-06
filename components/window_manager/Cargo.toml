@@ -17,7 +17,8 @@ ohos-sys-opaque-types = { workspace = true }
 default = []
 ## This is the minimum API-level required for the window_manager.
 api-12 = []
-api-14 = ["api-12"]
+api-13 = ["api-12"]
+api-14 = ["api-13"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 
