@@ -525,6 +525,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                                  .result_error_enum("Input_Result")
                                  .parse_callbacks(Box::new(ResultEnumParseCallbacks::default()))
                                  .raw_line("use crate::axis_type::{InputEvent_AxisAction, InputEvent_AxisEventType, InputEvent_AxisType};")
+                                 .raw_line("use ohos_sys_opaque_types::{Input_AxisEvent, Input_KeyEvent, Input_KeyState, Input_MouseEvent, Input_TouchEvent};")
+                                 .raw_line("#[cfg(feature = \"api-14\")]")
+                                 .raw_line("use ohos_sys_opaque_types::Input_Hotkey;")
                          },
                          "key_code" => {
                              builder

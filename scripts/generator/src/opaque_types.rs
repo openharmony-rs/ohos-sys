@@ -1,4 +1,4 @@
-pub(crate) static OPAQUE_TYPES: [&str; 30] = [
+pub(crate) static OPAQUE_TYPES: [&str; 36] = [
     "OH_PixelmapNative",
     "NativePixelMap_",
     "OH_NativeBuffer",
@@ -13,6 +13,12 @@ pub(crate) static OPAQUE_TYPES: [&str; 30] = [
     "napi_env__",
     "napi_value",
     "napi_value__",
+    "Input_KeyEvent",
+    "Input_KeyState",
+    "Input_MouseEvent",
+    "Input_TouchEvent",
+    "Input_AxisEvent",
+    "Input_Hotkey",
     "OH_ImageSourceNative",
     "OH_UdmfData",
     "OH_UdmfRecord",
