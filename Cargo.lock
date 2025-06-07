@@ -89,7 +89,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-image-kit-sys"
-version = "0.2.2"
+version = "0.3.0"
 dependencies = [
  "document-features",
  "ohos-rawfile-sys",
@@ -137,7 +137,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-sys"
-version = "0.7.1"
+version = "0.8.0"
 dependencies = [
  "arkui-sys",
  "document-features",

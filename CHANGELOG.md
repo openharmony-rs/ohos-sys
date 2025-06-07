@@ -1,3 +1,7 @@
+# v0.8.0
+
+- Bump `ohos-image-kit-sys` to 0.3.0 (Result signature change, see 0.7.0 release notes.)
+
 # v0.7.1 
 
 - Fix API level propagation for native window, native image and native buffer.
