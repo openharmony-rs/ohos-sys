@@ -144,9 +144,11 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "native_buffer" => builder
                         .raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")
                         .raw_line("#[cfg(feature = \"api-11\")]")
-                        .raw_line("use crate::native_buffer::buffer_common::{OH_NativeBuffer_ColorSpace, OH_NativeBuffer_MetadataKey};")
+                        .raw_line("use crate::native_buffer::buffer_common::OH_NativeBuffer_ColorSpace;")
                         .raw_line("#[cfg(feature = \"api-12\")]")
                         .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
+                        .raw_line("#[cfg(feature = \"api-12\")]")
+                        .raw_line("use crate::native_buffer::buffer_common::OH_NativeBuffer_MetadataKey;")
                         .bitfield_enum("OH_NativeBuffer_Usage")
                     ,
                     _ => builder,
