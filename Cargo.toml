@@ -141,6 +141,7 @@ api-12 = [
     "ohos-rawfile-sys?/api-12",
     "ohos-vsync-sys?/api-12",
     "ohos-window-sys?/api-12",
+    "ohos-window-manager-sys?/api-12",
     "xcomponent-sys?/api-12",
 ]
 
@@ -160,6 +161,7 @@ api-13 = [
     "ohos-rawfile-sys?/api-13",
     "ohos-vsync-sys?/api-13",
     "ohos-window-sys?/api-13",
+    "ohos-window-manager-sys?/api-13",
     "xcomponent-sys?/api-13",
 ]
 
