@@ -149,6 +149,7 @@ dependencies = [
  "ohos-image-kit-sys",
  "ohos-ime-sys",
  "ohos-input-sys",
+ "ohos-pasteboard-sys",
  "ohos-rawfile-sys",
  "ohos-sys-opaque-types",
  "ohos-vsync-sys",
