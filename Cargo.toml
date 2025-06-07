@@ -1,6 +1,6 @@
 [package]
 name = "ohos-sys"
-version = "0.7.0"
+version = "0.7.1"
 edition = "2021"
 description = "Bindings to the native API of OpenHarmony OS"
 license = "Apache-2.0"
@@ -117,6 +117,7 @@ api-11 = [
     "ohos-deviceinfo-sys?/api-11",
     "ohos-drawing-sys?/api-11",
     "ohos-vsync-sys?/api-11",
+    "ohos-window-sys?/api-11",
     "ohos-rawfile-sys?/api-11",
     "xcomponent-sys?/api-11",
 ]
@@ -134,6 +135,7 @@ api-12 = [
     "ohos-input-sys?/api-12",
     "ohos-rawfile-sys?/api-12",
     "ohos-vsync-sys?/api-12",
+    "ohos-window-sys?/api-12",
     "xcomponent-sys?/api-12",
 ]
 
@@ -151,6 +153,7 @@ api-13 = [
     "ohos-input-sys?/api-13",
     "ohos-rawfile-sys?/api-13",
     "ohos-vsync-sys?/api-13",
+    "ohos-window-sys?/api-13",
     "xcomponent-sys?/api-13",
 ]
 
@@ -164,6 +167,7 @@ api-14 = [
     "ohos-ime-sys?/api-14",
     "ohos-input-sys?/api-14",
     "ohos-vsync-sys?/api-14",
+    "ohos-window-sys?/api-14",
     "ohos-window-manager-sys?/api-14",
     "xcomponent-sys?/api-14",
     # "hilog-sys?/api-14",

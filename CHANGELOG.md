@@ -1,3 +1,7 @@
+# v0.7.1 
+
+- Fix API level propagation for native window, native image and native buffer.
+
 # v0.7.0 (2025-06-06)
 
 ## Breaking 
