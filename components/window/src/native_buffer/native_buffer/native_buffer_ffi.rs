@@ -4,9 +4,9 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #[cfg(feature = "api-11")]
-use crate::native_buffer::buffer_common::{
-    OH_NativeBuffer_ColorSpace, OH_NativeBuffer_MetadataKey,
-};
+use crate::native_buffer::buffer_common::OH_NativeBuffer_ColorSpace;
+#[cfg(feature = "api-12")]
+use crate::native_buffer::buffer_common::OH_NativeBuffer_MetadataKey;
 #[cfg(feature = "api-12")]
 use ohos_sys_opaque_types::OHNativeWindowBuffer;
 use ohos_sys_opaque_types::OH_NativeBuffer;
