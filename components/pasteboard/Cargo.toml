@@ -17,8 +17,8 @@ default = []
 
 api-10 = []
 api-11 = ["api-10"]
+## API-12 is the minimum API-level required for the pasteboard.
 api-12 = ["api-11"]
-## This is the minimum API-level required for the pasteboard.
 api-13 = ["api-12" ]
 api-14 = ["api-13"]
 ## Document available features when building the documentation

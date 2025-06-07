@@ -52,6 +52,10 @@ pub mod napi;
 #[cfg_attr(docsrs, doc(cfg(feature = "abilitykit")))]
 pub use ohos_abilitykit_sys as abilitykit;
 
+#[cfg(feature = "pasteboard")]
+#[cfg_attr(docsrs, doc(cfg(feature = "pasteboard")))]
+pub use ohos_pasteboard_sys as pasteboard;
+
 #[cfg(feature = "native_buffer")]
 #[cfg_attr(docsrs, doc(cfg(feature = "native_buffer")))]
 pub use ohos_window_sys::native_buffer;
