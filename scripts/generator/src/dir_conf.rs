@@ -59,7 +59,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/multimedia/player_framework/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "native_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
-                let builder = builder.allowlist_file(header_path.to_str().unwrap());
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-x", "c++"]);
                 let builder = if file_stem != "averrors" {
                     builder.raw_line("#[allow(unused_imports)]use crate::averrors::OH_AVErrCode;")
                 } else {
@@ -169,6 +171,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeImage};")
                         .raw_line("#[cfg(feature = \"api-12\")]")
                         .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
+                        .clang_args(["-include", "stdbool.h"])
                         .no_copy("^OH_OnFrameAvailableListener"),
                     _ => builder,
                 }
@@ -372,6 +375,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .allowlist_file(header_path.to_str().unwrap())
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
+                    .clang_args(["-include", "stddef.h"])
             }),
             ..Default::default()
         },
@@ -560,7 +564,10 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         rename_enum_variant: None,
                     }));
                 match file_stem {
-                    "want" => builder.raw_line("use crate::base::common::AbilityBaseResult;"),
+                    "want" => builder
+                        .raw_line("use crate::base::common::AbilityBaseResult;")
+                        .clang_args(["-include", "stdbool.h"])
+                    ,
                     _ => builder,
                 }
             }),
@@ -573,6 +580,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 let builder = builder
                     .allowlist_file(header_path.to_str().unwrap())
                     .result_error_enum("AbilityRuntime_ErrorCode")
+                    .clang_args(["-include", "stdbool.h", "-x", "c++"])
                     .parse_callbacks(Box::new(ResultEnumParseCallbacks {
                         rename_item: Box::new(|name| {
                             name.strip_suffix("_ErrorCode").map(|name| {
@@ -590,7 +598,6 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         )
                         .raw_line("#[cfg(feature = \"api-15\")]")
                         .raw_line("use crate::base::want::AbilityBase_Want;"),
-
                     _ => builder,
                 }
             }),
@@ -604,7 +611,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 let builder = builder
                     .allowlist_file(header_path.to_str().unwrap())
                     .blocklist_file(".*graphic_error_code.h")
-                    .clang_args(["-include", "stdbool.h"])
+                    .clang_args(["-include", "stdbool.h", "-include", "stddef.h"])
                     // oh_window_comm has a typedef without a name.
                     .clang_args(["-x", "c++"])
                     .result_error_enum("NativeDisplayManager_ErrorCode")
