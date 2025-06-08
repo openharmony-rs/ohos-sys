@@ -28,7 +28,7 @@ jobs:
       - name: Setup OpenHarmony SDK
         uses: openharmony-rs/setup-ohos-sdk@v0.2
         with:
-          version: 5.0.3
+          version: 5.1.0
       - name: Generate bindings
         run: ./scripts/generate_bindings.sh
       - name: Check integrity
@@ -52,7 +52,8 @@ jobs:
   api_feature_levels:
     strategy:
       matrix:
-        api_level: ["api-10", "api-11", "api-12", "api-13", "api-14", "api-15"]
+        # Note: We don't test API 16+17 in CI, since they were never officially releases separately.
+        api_level: ["api-10", "api-11", "api-12", "api-13", "api-14", "api-15", "api-18"]
     name: Build with API feature levels
     runs-on: ubuntu-latest
     steps:
