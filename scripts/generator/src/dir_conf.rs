@@ -542,30 +542,30 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             }),
             ..Default::default()
         },
-        // DirBindingsConf {
-        //     directory: "AbilityKit/ability_base".to_string(),
-        //     output_dir: "components/abilitykit/src/base".to_string(),
-        //     set_builder_opts: Box::new(|file_stem, header_path, builder| {
-        //         let builder = builder
-        //             .allowlist_file(format!("{}", header_path.to_str().unwrap()))
-        //             .result_error_enum("AbilityBase_ErrorCode")
-        //             .parse_callbacks(Box::new(ResultEnumParseCallbacks {
-        //                 rename_item: Box::new(|name| {
-        //                     name.strip_suffix("_ErrorCode").map(|name | {
-        //                         let mut s = name.to_string();
-        //                         s.push_str("Result");
-        //                         s
-        //                     })
-        //                 }),
-        //                 rename_enum_variant: None,
-        //             }));
-        //         match file_stem {
-        //             "want" => builder.raw_line("use crate::base::common::AbilityBaseResult;"),
-        //             _ => builder,
-        //         }
-        //     }),
-        //     ..Default::default()
-        // },
+        DirBindingsConf {
+            directory: "AbilityKit/ability_base".to_string(),
+            output_dir: "components/abilitykit/src/base".to_string(),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(format!("{}", header_path.to_str().unwrap()))
+                    .result_error_enum("AbilityBase_ErrorCode")
+                    .parse_callbacks(Box::new(ResultEnumParseCallbacks {
+                        rename_item: Box::new(|name| {
+                            name.strip_suffix("_ErrorCode").map(|name | {
+                                let mut s = name.to_string();
+                                s.push_str("Result");
+                                s
+                            })
+                        }),
+                        rename_enum_variant: None,
+                    }));
+                match file_stem {
+                    "want" => builder.raw_line("use crate::base::common::AbilityBaseResult;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
         DirBindingsConf {
             directory: "AbilityKit/ability_runtime".to_string(),
             output_dir: "components/abilitykit/src/runtime".to_string(),
