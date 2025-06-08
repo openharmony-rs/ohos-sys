@@ -20,9 +20,9 @@ already been generated.
 | LocationKit                             |        |           |
 | NotificationKit                         |        |           |
 | accesstoken                             |        |           |
-| ace/xcomponent                          | ✅      | 14        |
+| ace/xcomponent                          | ✅      | 15        |
 | ark_runtime                             |        |           |
-| arkui                                   | ✅      | 14        |
+| arkui                                   | ✅      | 15        |
 | asset                                   |        |           |
 | bundle                                  |        |           |
 | database                                |        |           |
@@ -33,39 +33,39 @@ already been generated.
 | hicollie                                |        |           |
 | hid                                     |        |           |
 | hidebug                                 |        |           |
-| hilog                                   | ✅      | 14        |
-| hitrace                                 | ✅      | 14        |
+| hilog                                   | ✅      | 15        |
+| hitrace                                 | ✅      | 15        |
 | huks                                    |        |           |
 | info                                    |        |           |
-| inputmethod                             | ✅      | 14        |
+| inputmethod                             | ✅      | 15        |
 | mindspore                               |        |           |
 | multimedia                              |        |           |
-| multimodalinput                         | ✅      | 14        |
+| multimodalinput                         | ✅      | 15        |
 | napi                                    | ✅      | 13        |
-| native_buffer                           | ✅      | 14        |
+| native_buffer                           | ✅      | 15        |
 | native_color_space_manager              |        |           |
 | native_display_soloist                  |        |           |
-| native_drawing                          | ✅      | 14        |
+| native_drawing                          | ✅      | 15        |
 | native_effect                           |        |           |
-| native_image                            | ✅      | 14        |
-| native_vsync                            | ✅      | 14        |
-| native_window                           | ✅      | 14        |
+| native_image                            | ✅      | 15        |
+| native_vsync                            | ✅      | 15        |
+| native_window                           | ✅      | 15        |
 | network                                 |        |           |
 | neural_network_runtime                  |        |           |
 | ohaudio                                 |        |           |
 | ohcamera                                |        |           |
-| Pasteboard                              | ✅      | 14        |
+| Pasteboard                              | ✅      | 15        |
 | purgeable_memory                        |        |           |
 | qos                                     |        |           |
-| rawfile                                 | ✅      | 14        |
+| rawfile                                 | ✅      | 15        |
 | resourcemanager                         |        |           |
 | sensors                                 |        |           |
 | telephony                               |        |           |
 | transient_task                          |        |           |
-| Unified Data Management Framework(UDMF) | ✅      | 14        |
+| Unified Data Management Framework(UDMF) | ✅      | 15        |
 | usb                                     |        |           |
 | web                                     |        |           |
-| window_manager                          | ✅     |  14       |
+| window_manager                          | ✅      | 15        |
 
 ## Development
 
