@@ -59,7 +59,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/multimedia/player_framework/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "native_"))),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
-                let builder = builder.allowlist_file(header_path.to_str().unwrap());
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-x", "c++"]);
                 let builder = if file_stem != "averrors" {
                     builder.raw_line("#[allow(unused_imports)]use crate::averrors::OH_AVErrCode;")
                 } else {
@@ -169,6 +171,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeImage};")
                         .raw_line("#[cfg(feature = \"api-12\")]")
                         .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
+                        .clang_args(["-include", "stdbool.h"])
                         .no_copy("^OH_OnFrameAvailableListener"),
                     _ => builder,
                 }
@@ -372,6 +375,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .allowlist_file(header_path.to_str().unwrap())
                     .prepend_enum_name(false)
                     .clang_args(&["-x", "c++"])
+                    .clang_args(["-include", "stddef.h"])
             }),
             ..Default::default()
         },
