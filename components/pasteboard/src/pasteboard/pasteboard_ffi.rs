@@ -424,6 +424,21 @@ extern "C" {
         pasteboard: *mut OH_Pasteboard,
         count: *mut ::core::ffi::c_uint,
     ) -> *mut *mut ::core::ffi::c_char;
+    /// Gets the number of Pasteboard data changes.
+    ///
+    /// # Arguments
+    ///
+    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`] instance.
+    ///
+    /// # Returns
+    ///
+    /// * the number of Pasteboard data changes.
+    /// Returns 0 means initial value or invalid value.In this case, no action is required.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Pasteboard_GetChangeCount(pasteboard: *mut OH_Pasteboard) -> u32;
     /// Create a pointer to the instance of the [`Pasteboard_GetDataParams`].
     ///
     ///
