@@ -65,6 +65,8 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
                     .blocklist_function("OH_NativeXComponent_RegisterUIInputEventCallback")
                     .blocklist_function("OH_NativeXComponent_RegisterOnTouchInterceptCallback")
                     .blocklist_function("OH_NativeXComponent_GetNativeXComponent")
+                    .blocklist_function("OH_ArkUI_XComponent_StartImageAnalyzer")
+                    .blocklist_function("OH_ArkUI_XComponent_StopImageAnalyzer")
                     .raw_line("#[cfg(feature = \"api-13\")]")
                     .raw_line("use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;")
                     .clang_args(&["-x", "c++"])
@@ -92,7 +94,11 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
                     .allowlist_function("OH_NativeXComponent_.*NativeRootNode")
                     .allowlist_function("OH_NativeXComponent_RegisterUIInputEventCallback")
                     .allowlist_function("OH_NativeXComponent_RegisterOnTouchInterceptCallback")
-                    .blocklist_type(".*")
+                    .allowlist_function("OH_ArkUI_XComponent_StartImageAnalyzer")
+                    .allowlist_function("OH_ArkUI_XComponent_StopImageAnalyzer")
+                    // block all types except this one.
+                    .blocklist_type("?!(ArkUI_XComponent_ImageAnalyzerState)")
+                    .allowlist_type("ArkUI_XComponent_ImageAnalyzerState")
                     .clang_args(&["-x", "c++"])
             }),
         },

@@ -481,6 +481,13 @@ impl OH_NativeXComponent_MouseEventAction {
         OH_NativeXComponent_MouseEventAction(2);
     pub const OH_NATIVEXCOMPONENT_MOUSE_MOVE: OH_NativeXComponent_MouseEventAction =
         OH_NativeXComponent_MouseEventAction(3);
+    /// Triggered when the mouse event is canceled.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const OH_NATIVEXCOMPONENT_MOUSE_CANCEL: OH_NativeXComponent_MouseEventAction =
+        OH_NativeXComponent_MouseEventAction(4);
 }
 #[repr(transparent)]
 /// Represents the mouse event action.
