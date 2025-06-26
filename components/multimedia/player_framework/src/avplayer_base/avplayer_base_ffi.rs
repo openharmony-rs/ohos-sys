@@ -203,6 +203,7 @@ pub struct AVPlayerBufferingType(pub ::core::ffi::c_uint);
 /// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+#[deprecated(since = "12")]
 pub type OH_AVPlayerOnInfo = ::core::option::Option<
     unsafe extern "C" fn(player: *mut OH_AVPlayer, type_: AVPlayerOnInfoType, extra: i32),
 >;
@@ -249,6 +250,7 @@ pub type OH_AVPlayerOnInfoCallback = ::core::option::Option<
 /// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+#[deprecated(since = "12")]
 pub type OH_AVPlayerOnError = ::core::option::Option<
     unsafe extern "C" fn(
         player: *mut OH_AVPlayer,
@@ -299,6 +301,7 @@ pub type OH_AVPlayerOnErrorCallback = ::core::option::Option<
 /// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+#[deprecated(since = "12")]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVPlayerCallback {

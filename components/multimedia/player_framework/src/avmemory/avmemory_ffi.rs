@@ -32,6 +32,7 @@ extern "C" {
     /// OH_AVBuffer_Create
     ///
     /// Available since API-level: 10
+    #[deprecated(since = "11")]
     pub fn OH_AVMemory_Create(size: i32) -> *mut OH_AVMemory;
     /// Get the memory's virtual address
     ///
@@ -51,6 +52,7 @@ extern "C" {
     /// Available since API-level: 9
     ///
     /// Version: 1.0
+    #[deprecated(since = "11")]
     pub fn OH_AVMemory_GetAddr(mem: *mut OH_AVMemory) -> *mut u8;
     /// Get the memory's size
     ///
@@ -70,6 +72,7 @@ extern "C" {
     /// Available since API-level: 9
     ///
     /// Version: 1.0
+    #[deprecated(since = "11")]
     pub fn OH_AVMemory_GetSize(mem: *mut OH_AVMemory) -> i32;
     /// Clear the internal resources of the memory and destroy the memory
     /// instance
@@ -89,5 +92,6 @@ extern "C" {
     /// OH_AVBuffer_Destroy
     ///
     /// Available since API-level: 10
+    #[deprecated(since = "11")]
     pub fn OH_AVMemory_Destroy(mem: *mut OH_AVMemory) -> OH_AVErrCode;
 }

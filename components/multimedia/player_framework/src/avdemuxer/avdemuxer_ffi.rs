@@ -38,6 +38,7 @@ pub struct DRM_MediaKeySystemInfo {
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+#[deprecated(since = "14")]
 pub type DRM_MediaKeySystemInfoCallback =
     ::core::option::Option<unsafe extern "C" fn(mediaKeySystemInfo: *mut DRM_MediaKeySystemInfo)>;
 /// Call back will be invoked when updating DRM information.
@@ -173,6 +174,7 @@ extern "C" {
     /// OH_AVDemuxer_ReadSampleBuffer
     ///
     /// Available since API-level: 10
+    #[deprecated(since = "11")]
     pub fn OH_AVDemuxer_ReadSample(
         demuxer: *mut OH_AVDemuxer,
         trackIndex: u32,
@@ -258,6 +260,7 @@ extern "C" {
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    #[deprecated(since = "14")]
     pub fn OH_AVDemuxer_SetMediaKeySystemInfoCallback(
         demuxer: *mut OH_AVDemuxer,
         callback: DRM_MediaKeySystemInfoCallback,

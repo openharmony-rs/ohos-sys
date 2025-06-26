@@ -342,6 +342,7 @@ extern "C" {
     /// Version: 1.0
     ///
     /// **Deprecated** since 12
+    #[deprecated(since = "12")]
     pub fn OH_NativeWindow_CreateNativeWindow(
         pSurface: *mut ::core::ffi::c_void,
     ) -> *mut OHNativeWindow;
@@ -379,6 +380,7 @@ extern "C" {
     ///
     /// **Deprecated** since 12
     /// OH_NativeWindow_CreateNativeWindowBufferFromNativeBuffer
+    #[deprecated(since = "12")]
     pub fn OH_NativeWindow_CreateNativeWindowBufferFromSurfaceBuffer(
         pSurfaceBuffer: *mut ::core::ffi::c_void,
     ) -> *mut OHNativeWindowBuffer;
@@ -518,6 +520,7 @@ extern "C" {
     /// OH_NativeWindow_GetLastFlushedBufferV2
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    #[deprecated(since = "12")]
     pub fn OH_NativeWindow_GetLastFlushedBuffer(
         window: *mut OHNativeWindow,
         buffer: *mut *mut OHNativeWindowBuffer,

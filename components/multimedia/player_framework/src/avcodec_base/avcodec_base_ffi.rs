@@ -81,6 +81,7 @@ pub type OH_AVCodecOnStreamChanged = ::core::option::Option<
 /// OH_AVCodecOnNeedInputBuffer
 ///
 /// Available since API-level: 9
+#[deprecated(since = "11")]
 pub type OH_AVCodecOnNeedInputData = ::core::option::Option<
     unsafe extern "C" fn(
         codec: *mut OH_AVCodec,
@@ -112,6 +113,7 @@ pub type OH_AVCodecOnNeedInputData = ::core::option::Option<
 /// OH_AVCodecOnNewOutputBuffer
 ///
 /// Available since API-level: 9
+#[deprecated(since = "11")]
 pub type OH_AVCodecOnNewOutputData = ::core::option::Option<
     unsafe extern "C" fn(
         codec: *mut OH_AVCodec,
@@ -193,6 +195,7 @@ pub type OH_AVCodecOnNewOutputBuffer = ::core::option::Option<
 /// OH_AVCodecCallback
 ///
 /// Available since API-level: 9
+#[deprecated(since = "11")]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AVCodecAsyncCallback {
@@ -456,6 +459,7 @@ impl OH_ScalingMode {
 /// OHScalingModeV2
 ///
 /// Available since API-level: 10
+#[deprecated(since = "14")]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_ScalingMode(pub ::core::ffi::c_uint);
 impl OH_BitsPerSample {
@@ -772,6 +776,7 @@ extern "C" {
     /// **Deprecated** since 11
     ///
     /// Available since API-level: 10
+    #[deprecated(since = "11")]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MPEG4: *const ::core::ffi::c_char;
     /// Enumerates the mime types of cover jpg muxer.
     ///
@@ -883,6 +888,7 @@ extern "C" {
     /// **Deprecated** since 14
     ///
     /// Available since API-level: 9
+    #[deprecated(since = "14")]
     pub static mut OH_ED_KEY_TIME_STAMP: *const ::core::ffi::c_char;
     /// Key for endOfStream in surface's extraData, value type is bool.
     ///
@@ -892,6 +898,7 @@ extern "C" {
     /// **Deprecated** since 14
     ///
     /// Available since API-level: 9
+    #[deprecated(since = "14")]
     pub static mut OH_ED_KEY_EOS: *const ::core::ffi::c_char;
     /// Key for track type, value type is int32_t, see [`OH_MediaType`].
     ///
@@ -1200,6 +1207,7 @@ extern "C" {
     /// OH_NativeWindow_NativeWindowSetScalingModeV2
     ///
     /// Available since API-level: 10
+    #[deprecated(since = "14")]
     pub static mut OH_MD_KEY_SCALING_MODE: *const ::core::ffi::c_char;
     /// Key for max input buffer count, value type is int32_t.
     ///
