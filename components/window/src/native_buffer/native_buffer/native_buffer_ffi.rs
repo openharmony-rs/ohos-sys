@@ -132,56 +132,56 @@ impl OH_NativeBuffer_Format {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_YUV_422_I: OH_NativeBuffer_Format = OH_NativeBuffer_Format(21);
-    /// YCBCR422 semi-plannar format
+    /// YCBCR422 semi-planar format
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_YCBCR_422_SP: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(22);
-    /// YCRCB422 semi-plannar format
+    /// YCRCB422 semi-planar format
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_YCRCB_422_SP: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(23);
-    /// YCBCR420 semi-plannar format
+    /// YCBCR420 semi-planar format
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_YCBCR_420_SP: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(24);
-    /// YCRCB420 semi-plannar format
+    /// YCRCB420 semi-planar format
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_YCRCB_420_SP: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(25);
-    /// YCBCR422 plannar format
+    /// YCBCR422 planar format
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_YCBCR_422_P: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(26);
-    /// YCRCB422 plannar format
+    /// YCRCB422 planar format
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_YCRCB_422_P: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(27);
-    /// YCBCR420 plannar format
+    /// YCBCR420 planar format
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_YCBCR_420_P: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(28);
-    /// YCRCB420 plannar format
+    /// YCRCB420 planar format
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -256,14 +256,14 @@ impl OH_NativeBuffer_Format {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NATIVEBUFFER_PIXEL_FMT_RGBA16_FLOAT: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(39);
-    /// vender mask format
+    /// vendor mask format
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_VENDER_MASK: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(2147418112);
-    /// vender mask format
+    /// vendor mask format
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -385,7 +385,7 @@ impl OH_NativeBuffer_ColorGamut {
 pub struct OH_NativeBuffer_ColorGamut(pub ::core::ffi::c_uint);
 /// <b>OH_NativeBuffer</b> config.
 ///
-/// Used to allocating new <b>OH_NativeBuffer</b> andquery parameters if existing ones.
+/// Used to allocating new <b>OH_NativeBuffer</b> and query parameters if existing ones.
 ///
 ///
 /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -452,7 +452,8 @@ extern "C" {
     ///
     /// A new <b>OH_NativeBuffer</b> instance is created each time this function is called.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unreference<otherwise memory leaks will occur.
+    /// This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unreference</b>,
+    /// otherwise memory leaks will occur.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -475,7 +476,8 @@ extern "C" {
     pub fn OH_NativeBuffer_Alloc(config: *const OH_NativeBuffer_Config) -> *mut OH_NativeBuffer;
     /// Adds the reference count of a OH_NativeBuffer.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unreference<otherwise memory leaks will occur.
+    /// This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unreference</b>,
+    /// otherwise memory leaks will occur.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -540,7 +542,9 @@ extern "C" {
     );
     /// Provide direct cpu access to the OH_NativeBuffer in the process's address space.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unmap<This interface is a non-thread-safe type interface.
+    /// This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unmap</b>.
+    ///
+    /// This interface is a non-thread-safe type interface.
     ///
     ///
     ///
@@ -581,7 +585,7 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_NativeBuffer_Unmap(buffer: *mut OH_NativeBuffer) -> i32;
-    /// Get the systen wide unique sequence number of the OH_NativeBuffer.
+    /// Get the system wide unique sequence number of the OH_NativeBuffer.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -600,7 +604,7 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_NativeBuffer_GetSeqNum(buffer: *mut OH_NativeBuffer) -> u32;
-    /// Provide direct cpu access to the potentially multi-plannar OH_NativeBuffer in the process's address space.
+    /// Provide direct cpu access to the potentially multi-planar OH_NativeBuffer in the process's address space.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -617,7 +621,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns an error code, 0 is sucess, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 12
     ///
@@ -644,7 +648,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns an error code, 0 is sucess, otherwise, failed.
+    /// * Returns an error code, 0 is success, otherwise, failed.
     ///
     /// Available since API-level: 12
     ///

@@ -43,7 +43,8 @@ pub struct OH_OnFrameAvailableListener {
 extern "C" {
     /// Create a <b>OH_NativeImage</b> related to an Opengl ES texture and target.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeImage_Destroy<otherwise memory leaks will occur.
+    /// This interface needs to be used in conjunction with <b>OH_NativeImage_Destroy</b>,
+    /// otherwise memory leaks will occur.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -131,7 +132,7 @@ extern "C" {
     ///
     /// This interface needs to be called in the Opengl ES context thread.
     ///
-    /// This interface needs to be called after receiving the <b>OH_OnFrameAvailableListener<callback.
+    /// This interface needs to be called after receiving the <b>OH_OnFrameAvailableListener</b> callback.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -283,7 +284,7 @@ extern "C" {
     pub fn OH_NativeImage_Destroy(image: *mut *mut OH_NativeImage);
     /// Obtains the transform matrix of the texture image by producer transform type.
     ///
-    /// The matrix will not be update until <b>OH_NativeImage_UpdateSurfaceImage<is called.
+    /// The matrix will not be update until <b>OH_NativeImage_UpdateSurfaceImage</b> is called.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -348,7 +349,8 @@ extern "C" {
     /// When the <b>OHNativeWindowBuffer</b> is used up, its reference count needs to be decremented
     /// by <b>OH_NativeWindow_NativeObjectUnreference</b>.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeImage_ReleaseNativeWindowBuffer<otherwise memory leaks will occur.
+    /// This interface needs to be used in conjunction with <b>OH_NativeImage_ReleaseNativeWindowBuffer</b>,
+    /// otherwise memory leaks will occur.
     ///
     /// When the fenceFd is used up, you need to close it.
     ///
@@ -384,7 +386,7 @@ extern "C" {
     /// Release the <b>OHNativeWindowBuffer</b> to the buffer queue through an
     /// <b>OH_NativeImage</b> instance for reuse.
     ///
-    /// The fenceFd will be close by system.
+    /// The fenceFd will be closed by system.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -423,8 +425,11 @@ extern "C" {
     ///
     /// This method can not be used at the same time with <b>OH_NativeImage_UpdateSurfaceImage</b>.
     ///
-    /// This interface is used in conjunction with <b>OH_NativeImage_AcquireNativeWindowBuffer<and
-    /// <b>OH_NativeImage_ReleaseNativeWindowBuffer<This interface needs to be used in conjunction with <b>OH_NativeImage_Destroy<otherwise memory leaks will occur.
+    /// This interface is used in conjunction with <b>OH_NativeImage_AcquireNativeWindowBuffer</b> and
+    /// <b>OH_NativeImage_ReleaseNativeWindowBuffer</b>.
+    ///
+    /// This interface needs to be used in conjunction with <b>OH_NativeImage_Destroy</b>,
+    /// otherwise memory leaks will occur.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -498,4 +503,37 @@ extern "C" {
         width: i32,
         height: i32,
     ) -> i32;
+    /// Set the rendering in drop buffer mode of the <b>OH_NativeImage</b>.
+    ///
+    /// In this mode, most of the buffers produced by the producer will be discarded,
+    /// and the latest buffer will be selected for rending.
+    ///
+    /// This mode can not simultaneously guarantee high frame rate requirements.
+    ///
+    /// This interface suggest be called after the <b>OH_NativeImage_Create</b> call immediately.
+    ///
+    /// This interface will only take effect when used together with the <b>OH_NativeImage_UpdateSurfaceImage</b>.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// * `isOpen` - Indicates the switch of drop buffer mode.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
+    ///
+    /// Available since API-level: 17
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_NativeImage_SetDropBufferMode(image: *mut OH_NativeImage, isOpen: bool) -> i32;
 }

@@ -34,6 +34,9 @@ impl<T> ::core::fmt::Debug for __IncompleteArrayField<T> {
         fmt.write_str("__IncompleteArrayField")
     }
 }
+/// Buffer handle used to transfer and obtain information about the buffer.
+///
+/// Available since API-level: 8
 #[repr(C)]
 #[derive(Debug)]
 pub struct BufferHandle {
