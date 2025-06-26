@@ -69,5 +69,11 @@ mod anon_enums {
         pub const PRESS: Self = Self(bindgen_enums::UI_MOUSE_EVENT_ACTION_PRESS.0);
         pub const RELEASE: Self = Self(bindgen_enums::UI_MOUSE_EVENT_ACTION_RELEASE.0);
         pub const MOVE: Self = Self(bindgen_enums::UI_MOUSE_EVENT_ACTION_MOVE.0);
+        /// Cancel.
+        ///
+        /// Available since API-level: 18
+        #[cfg(feature = "api-18")]
+        #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+        pub const CANCEL: Self = Self(bindgen_enums::UI_MOUSE_EVENT_ACTION_CANCEL.0);
     }
 }

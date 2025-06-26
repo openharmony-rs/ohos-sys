@@ -154,7 +154,7 @@ extern "C" {
     ///
     /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
     ///
-    /// * `iterations` - Indicates the number of playback times.
+    /// * `iteration` - Indicates the number of playback times.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

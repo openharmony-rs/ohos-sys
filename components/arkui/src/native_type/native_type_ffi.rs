@@ -675,6 +675,25 @@ impl ArkUI_ShadowType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_ShadowType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+impl ArkUI_DatePickerMode {
+    /// A mode that displays the date in months, days of month, and years.
+    pub const ARKUI_DATEPICKER_MODE_DATE: ArkUI_DatePickerMode = ArkUI_DatePickerMode(0);
+    /// A mode that displays the date in months and years.
+    pub const ARKUI_DATEPICKER_YEAR_AND_MONTH: ArkUI_DatePickerMode = ArkUI_DatePickerMode(1);
+    /// A mode that displays the date in months and days of the month.
+    pub const ARKUI_DATEPICKER_MONTH_AND_DAY: ArkUI_DatePickerMode = ArkUI_DatePickerMode(2);
+}
+#[repr(transparent)]
+/// Enumerates the modes of the date picker.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_DatePickerMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_TextPickerRangeType {
@@ -751,6 +770,23 @@ impl ArkUI_EdgeEffect {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_EdgeEffect(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+impl ArkUI_EffectEdge {
+    /// Start edge.
+    pub const ARKUI_EFFECT_EDGE_START: ArkUI_EffectEdge = ArkUI_EffectEdge(1);
+    /// End edge.
+    pub const ARKUI_EFFECT_EDGE_END: ArkUI_EffectEdge = ArkUI_EffectEdge(2);
+}
+#[repr(transparent)]
+/// Enumerates the edges for which the effect takes effect when the boundary of the scrollable content is reached.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_EffectEdge(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_ScrollDirection {
@@ -851,6 +887,45 @@ impl ArkUI_StickyStyle {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_StickyStyle(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+impl ArkUI_ContentClipMode {
+    /// clip by content
+    pub const ARKUI_CONTENT_CLIP_MODE_CONTENT_ONLY: ArkUI_ContentClipMode =
+        ArkUI_ContentClipMode(0);
+    /// clip by boundary
+    pub const ARKUI_CONTENT_CLIP_MODE_BOUNDARY: ArkUI_ContentClipMode = ArkUI_ContentClipMode(1);
+    /// clip by safe area padding
+    pub const ARKUI_CONTENT_CLIP_MODE_SAFE_AREA: ArkUI_ContentClipMode = ArkUI_ContentClipMode(2);
+}
+#[repr(transparent)]
+/// Enumerates the content clipping modes of scrollable components.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_ContentClipMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+impl ArkUI_WaterFlowLayoutMode {
+    /// Layout items from top to viewport.
+    pub const ARKUI_WATER_FLOW_LAYOUT_MODE_ALWAYS_TOP_DOWN: ArkUI_WaterFlowLayoutMode =
+        ArkUI_WaterFlowLayoutMode(0);
+    /// Layout items in viewport.
+    pub const ARKUI_WATER_FLOW_LAYOUT_MODE_SLIDING_WINDOW: ArkUI_WaterFlowLayoutMode =
+        ArkUI_WaterFlowLayoutMode(1);
+}
+#[repr(transparent)]
+/// Enumerates the layout modes of the WaterFlow component.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_WaterFlowLayoutMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_BorderStyle {
@@ -1965,6 +2040,13 @@ impl ArkUI_WordBreak {
     /// lines at appropriate characters (for example, spaces) whenever possible.
     /// CJK text behavior is the same as for <b>NORMAL</b>.
     pub const ARKUI_WORD_BREAK_BREAK_WORD: ArkUI_WordBreak = ArkUI_WordBreak(2);
+    /// Line breaks can occur between any two syllabic units for non-CJK text.
+    /// CJK text behavior is the same as for <b>NORMAL</b>.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_WORD_BREAK_HYPHENATION: ArkUI_WordBreak = ArkUI_WordBreak(3);
 }
 #[repr(transparent)]
 /// Enumerates the word break rules.
@@ -2392,6 +2474,101 @@ impl ArkUI_TextInputContentType {
     /// addresses.
     pub const ARKUI_TEXTINPUT_CONTENT_TYPE_FORMAT_ADDRESS: ArkUI_TextInputContentType =
         ArkUI_TextInputContentType(20);
+    /// Passport number. The scenario-based autofill feature, when enabled, can automatically save and fill in passport
+    /// numbers.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_PASSPORT_NUMBER: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(21);
+    /// Passport validity. The scenario-based autofill feature, when enabled, can automatically save and fill in
+    /// passport validities.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_VALIDITY: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(22);
+    /// Place of issue. The scenario-based autofill feature, when enabled, can automatically save and fill in
+    /// place of issues.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_ISSUE_AT: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(23);
+    /// Tax organization. The scenario-based autofill feature, when enabled, can automatically save and fill in tax
+    /// organizations.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_ORGANIZATION: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(24);
+    /// Tax id. The scenario-based autofill feature, when enabled, can automatically save and fill in standard Tax ids.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_TAX_ID: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(25);
+    /// City name and state name or state code. The scenario-based autofill feature, when enabled, can automatically
+    /// save and fill in city names and state names or state codes.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_ADDRESS_CITY_AND_STATE: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(26);
+    /// Flight number. The scenario-based autofill feature, when enabled, can automatically save and fill in flight
+    /// numbers.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_FLIGHT_NUMBER: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(27);
+    /// License number. The scenario-based autofill feature, when enabled, can automatically save and fill in license
+    /// numbers.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_LICENSE_NUMBER: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(28);
+    /// License file number. The scenario-based autofill feature, when enabled, can automatically save and fill in
+    /// license file numbers.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_LICENSE_FILE_NUMBER: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(29);
+    /// License plate number. The scenario-based autofill feature, when enabled, can automatically save and fill in
+    /// license plate numbers.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_LICENSE_PLATE: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(30);
+    /// Engine number. The scenario-based autofill feature, when enabled, can automatically save and fill in engine
+    /// numbers.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_ENGINE_NUMBER: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(31);
+    /// License chassis number. The scenario-based autofill feature, when enabled, can automatically save and fill in
+    /// license chassis numbers.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const ARKUI_TEXTINPUT_CONTENT_TYPE_LICENSE_CHASSIS_NUMBER: ArkUI_TextInputContentType =
+        ArkUI_TextInputContentType(32);
 }
 #[repr(transparent)]
 /// Enumerates the autofill types.
@@ -2555,6 +2732,13 @@ impl ArkUiErrorCode {
     /// Parameter error.
     pub const PARAM_INVALID: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(401).unwrap() });
+    /// CAPI init error.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const CAPI_INIT_ERROR: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(500).unwrap() });
     /// Internal error occurs, such as failure occurs because of the internal environment error,
     /// or operation failed because of the internal execution failed.
     ///
@@ -2665,6 +2849,27 @@ impl ArkUiErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const INVALID_STYLED_STRING: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(180101).unwrap() });
+    /// The uiContext is invalid.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const UI_CONTEXT_INVALID: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(190001).unwrap() });
+    /// The callback function is invalid.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const CALLBACK_INVALID: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(190002).unwrap() });
+    /// The gesture recognizer type is not supported.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const RECOGNIZER_TYPE_NOT_SUPPORTED: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(180102).unwrap() });
 }
 #[repr(transparent)]
 /// Define error code enumeration values.
@@ -3049,6 +3254,31 @@ impl ArkUI_SafeAreaEdge {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_SafeAreaEdge(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+impl ArkUI_FocusMove {
+    /// Move focus forward.
+    pub const ARKUI_FOCUS_MOVE_FORWARD: ArkUI_FocusMove = ArkUI_FocusMove(0);
+    /// Move focus backward.
+    pub const ARKUI_FOCUS_MOVE_BACKWARD: ArkUI_FocusMove = ArkUI_FocusMove(1);
+    /// Move focus up.
+    pub const ARKUI_FOCUS_MOVE_UP: ArkUI_FocusMove = ArkUI_FocusMove(2);
+    /// Move focus down.
+    pub const ARKUI_FOCUS_MOVE_DOWN: ArkUI_FocusMove = ArkUI_FocusMove(3);
+    /// Move focus left.
+    pub const ARKUI_FOCUS_MOVE_LEFT: ArkUI_FocusMove = ArkUI_FocusMove(4);
+    /// Move focus right.
+    pub const ARKUI_FOCUS_MOVE_RIGHT: ArkUI_FocusMove = ArkUI_FocusMove(5);
+}
+#[repr(transparent)]
+/// Define an enum for the focus movement directions.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_FocusMove(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl ArkUI_KeyboardAvoidMode {
@@ -3122,6 +3352,16 @@ pub struct ArkUI_SystemFontStyleEvent {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[repr(C)]
 pub struct ArkUI_SnapshotOptions {
+    _unused: [u8; 0],
+}
+/// Defines the parameters for visible area change events.
+///
+///
+/// Available since API-level: 17
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+#[repr(C)]
+pub struct ArkUI_VisibleAreaEventOptions {
     _unused: [u8; 0],
 }
 extern "C" {
@@ -3980,7 +4220,7 @@ extern "C" {
     ///
     /// * `indicator` - Indicates the pointer to the indicator.
     ///
-    /// * `color` - the color of the selected dot, in 0xARGB format.
+    /// * `selectedColor` - the color of the selected dot, in 0xARGB format.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4399,7 +4639,7 @@ extern "C" {
     ///
     /// * `id` - The id value of the anchor component.
     ///
-    /// * `value` - Alignment relative to the anchor component.
+    /// * `alignment` - Alignment relative to the anchor component.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4417,7 +4657,7 @@ extern "C" {
     ///
     /// * `id` - The id value of the anchor component.
     ///
-    /// * `value` - Alignment relative to the anchor component.
+    /// * `alignment` - Alignment relative to the anchor component.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4435,7 +4675,7 @@ extern "C" {
     ///
     /// * `id` - The id value of the anchor component.
     ///
-    /// * `value` - Alignment relative to anchor component
+    /// * `alignment` - Alignment relative to anchor component
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4453,7 +4693,7 @@ extern "C" {
     ///
     /// * `id` - The id value of the anchor component.
     ///
-    /// * `value` - Alignment relative to anchor component
+    /// * `alignment` - Alignment relative to anchor component
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4471,7 +4711,7 @@ extern "C" {
     ///
     /// * `id` - The id value of the anchor component.
     ///
-    /// * `value` - Alignment relative to anchor component
+    /// * `alignment` - Alignment relative to anchor component
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4489,7 +4729,7 @@ extern "C" {
     ///
     /// * `id` - The id value of the anchor component.
     ///
-    /// * `value` - Alignment relative to the anchor component.
+    /// * `alignment` - Alignment relative to the anchor component.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4520,7 +4760,7 @@ extern "C" {
     ///
     /// * `option` - Alignment rule information of subcomponents in the relative container.
     ///
-    /// * `horizontal` - bias value in the vertical direction.
+    /// * `vertical` - bias value in the vertical direction.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4769,7 +5009,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance to be destroyed.
+    /// * `item` - List Item SwipeActionItem instance to be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4779,9 +5019,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
-    /// * `builder` - Layout information.
+    /// * `node` - Layout information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -4794,7 +5034,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
     /// * `distance` - Component long-distance sliding deletion distance threshold.
     ///
@@ -4809,7 +5049,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
     /// # Returns
     ///
@@ -4826,7 +5066,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
     /// * `callback` - Callback Events.
     ///
@@ -4841,7 +5081,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
     /// * `userData` - User defined data.
     ///
@@ -4859,7 +5099,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
     /// * `callback` - Callback Events.
     ///
@@ -4874,7 +5114,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
     /// * `userData` - User defined data.
     ///
@@ -4892,7 +5132,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
     /// * `callback` - Callback Events.
     ///
@@ -4907,7 +5147,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
     /// * `userData` - User defined data.
     ///
@@ -4925,7 +5165,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
     /// * `callback` - Callback Events.
     /// swipeActionState The changed state.
@@ -4943,7 +5183,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - List Item SwipeActionItem instance.
+    /// * `item` - List Item SwipeActionItem instance.
     ///
     /// * `userData` - User defined data.
     ///
@@ -4992,7 +5232,7 @@ extern "C" {
     ///
     /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// * `builder` - Layout information.
+    /// * `item` - Layout information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5008,7 +5248,7 @@ extern "C" {
     ///
     /// * `option` - List Item SwipeActionItem instance.
     ///
-    /// * `builder` - Layout information.
+    /// * `item` - Layout information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5280,7 +5520,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `info` - The CustomSpanMetrics instance to be destroyed.
+    /// * `metrics` - The CustomSpanMetrics instance to be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -5840,6 +6080,97 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AccessibilityValue_GetCurrent(value: *mut ArkUI_AccessibilityValue) -> i32;
+    /// Set accessibility minimum value.
+    ///
+    /// # Arguments
+    ///
+    /// * `value` - accessibility value object.
+    ///
+    /// * `rangeMin` - minimum value based on range components, The default value is -1.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_AccessibilityValue_SetRangeMin(
+        value: *mut ArkUI_AccessibilityValue,
+        rangeMin: i32,
+    );
+    /// Get accessibility minimum value.
+    ///
+    /// # Arguments
+    ///
+    /// * `value` - accessibility value object.
+    ///
+    /// # Returns
+    ///
+    /// * minimum value based on range components, The default value is -1.
+    /// If the function parameter is abnormal, return -1.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_AccessibilityValue_GetRangeMin(value: *mut ArkUI_AccessibilityValue) -> i32;
+    /// Set accessibility maximum value.
+    ///
+    /// # Arguments
+    ///
+    /// * `value` - accessibility value object.
+    ///
+    /// * `rangeMax` - maximum value based on range components, The default value is -1.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_AccessibilityValue_SetRangeMax(
+        value: *mut ArkUI_AccessibilityValue,
+        rangeMax: i32,
+    );
+    /// Get accessibility maximum value.
+    ///
+    /// # Arguments
+    ///
+    /// * `value` - accessibility value object.
+    ///
+    /// # Returns
+    ///
+    /// * maximum value based on range components, The default value is -1.
+    /// If the function parameter is abnormal, return -1.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_AccessibilityValue_GetRangeMax(value: *mut ArkUI_AccessibilityValue) -> i32;
+    /// Set accessibility current value.
+    ///
+    /// # Arguments
+    ///
+    /// * `value` - accessibility value object.
+    ///
+    /// * `rangeCurrent` - value based on range components, The default value is -1.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_AccessibilityValue_SetRangeCurrent(
+        value: *mut ArkUI_AccessibilityValue,
+        rangeCurrent: i32,
+    );
+    /// Get accessibility current value.
+    ///
+    /// # Arguments
+    ///
+    /// * `value` - accessibility value object.
+    ///
+    /// # Returns
+    ///
+    /// * current value based on range components, The default value is -1.
+    /// If the function parameter is abnormal, return -1.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_AccessibilityValue_GetRangeCurrent(value: *mut ArkUI_AccessibilityValue)
+        -> i32;
     /// Set accessibility text value.
     ///
     /// # Arguments
@@ -6116,49 +6447,6 @@ extern "C" {
     pub fn OH_ArkUI_ProgressLinearStyleOption_GetStrokeRadius(
         option: *mut ArkUI_ProgressLinearStyleOption,
     ) -> f32;
-    /// Creates an option for taking snapshot, the returned value must be released through
-    /// [`OH_ArkUI_DestroySnapshotOptions`] when it's not used anymore.
-    ///
-    ///
-    /// # Returns
-    ///
-    /// * Returns the pointer to the created snapshot options object.If the object returns a null pointer,
-    /// it indicates a creation failure, and the reason for the failure may be that the address space is full.
-    ///
-    /// Available since API-level: 15
-    #[cfg(feature = "api-15")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-    pub fn OH_ArkUI_CreateSnapshotOptions() -> *mut ArkUI_SnapshotOptions;
-    /// Dispose a snapshot option object.
-    ///
-    /// # Arguments
-    ///
-    /// * `snapshotOptions` - Indicates the pointer to the snapshot option.
-    ///
-    /// Available since API-level: 15
-    #[cfg(feature = "api-15")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-    pub fn OH_ArkUI_DestroySnapshotOptions(snapshotOptions: *mut ArkUI_SnapshotOptions);
-    /// Config the snapshot option with scale.
-    ///
-    /// # Arguments
-    ///
-    /// * `snapshotOptions` - Indicates the pointer to the snapshot option.
-    ///
-    /// * `scale` - Indicates the scale property to take the snapshot.
-    ///
-    /// # Returns
-    ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    ///
-    /// Available since API-level: 15
-    #[cfg(feature = "api-15")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-    pub fn OH_ArkUI_SnapshotOptions_SetScale(
-        snapshotOptions: *mut ArkUI_SnapshotOptions,
-        scale: f32,
-    ) -> i32;
     /// Create a cross-language option instance.
     ///
     ///
@@ -6212,4 +6500,163 @@ extern "C" {
     pub fn OH_ArkUI_CrossLanguageOption_GetAttributeSettingStatus(
         option: *mut ArkUI_CrossLanguageOption,
     ) -> bool;
+    /// Creates an option for taking snapshot, the returned value must be released through
+    /// [`OH_ArkUI_DestroySnapshotOptions`] when it's not used anymore.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the created snapshot options object.If the object returns a null pointer,
+    /// it indicates a creation failure, and the reason for the failure may be that the address space is full.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_CreateSnapshotOptions() -> *mut ArkUI_SnapshotOptions;
+    /// Dispose a snapshot option object.
+    ///
+    /// # Arguments
+    ///
+    /// * `snapshotOptions` - Indicates the pointer to the snapshot option.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_DestroySnapshotOptions(snapshotOptions: *mut ArkUI_SnapshotOptions);
+    /// Config the snapshot option with scale.
+    ///
+    /// # Arguments
+    ///
+    /// * `snapshotOptions` - Indicates the pointer to the snapshot option.
+    ///
+    /// * `scale` - Indicates the scale property to take the snapshot.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_SnapshotOptions_SetScale(
+        snapshotOptions: *mut ArkUI_SnapshotOptions,
+        scale: f32,
+    ) -> i32;
+    /// Creates an instance of visible area change event parameters
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the created instance of visible area change event parameters.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_VisibleAreaEventOptions_Create() -> *mut ArkUI_VisibleAreaEventOptions;
+    /// Disposes of an instance of visible area change event parameters.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Instance to be destroyed.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_VisibleAreaEventOptions_Dispose(option: *mut ArkUI_VisibleAreaEventOptions);
+    /// Sets the threshold ratios for visible area changes.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Instance of visible area change event parameters.
+    ///
+    /// * `value` - Array of threshold ratios. Each element represents the ratio of the visible area of a component to
+    /// its total area. The visible area is calculated within the parent component's bounds; any area outside the parent
+    /// component is not considered. Each value must be within the [0.0, 1.0] range.
+    /// Values outside this range will be handled as 0.0 or 1.0.
+    ///
+    /// * `size` - Size of the threshold array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// If an error code is returned, it may be due to a failure in parameter validation;
+    /// the parameter must not be null.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_VisibleAreaEventOptions_SetRatios(
+        option: *mut ArkUI_VisibleAreaEventOptions,
+        value: *mut f32,
+        size: i32,
+    ) -> i32;
+    /// Sets the expected update interval for visible area changes.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Instance of visible area change event parameters.
+    ///
+    /// * `value` - Expected update interval, in ms. Default value: <b>1000</b>.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// If an error code is returned, it may be due to a failure in parameter validation;
+    /// the parameter must not be null.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_VisibleAreaEventOptions_SetExpectedUpdateInterval(
+        option: *mut ArkUI_VisibleAreaEventOptions,
+        value: i32,
+    ) -> i32;
+    /// Obtains the threshold ratios for visible area changes.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Instance of visible area change event parameters.
+    ///
+    /// * `value` - Array of threshold ratios.
+    ///
+    /// * `size` - Size of the threshold array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] if the provided buffer size is insufficient.
+    /// If an error code is returned, it may be due to a failure in parameter validation;
+    /// the parameter must not be null.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_VisibleAreaEventOptions_GetRatios(
+        option: *mut ArkUI_VisibleAreaEventOptions,
+        value: *mut f32,
+        size: *mut i32,
+    ) -> i32;
+    /// Obtains the expected update interval for visible area changes.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Instance of visible area change event parameters.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the expected update interval, in ms. Default value: <b>1000</b>.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_VisibleAreaEventOptions_GetExpectedUpdateInterval(
+        option: *mut ArkUI_VisibleAreaEventOptions,
+    ) -> i32;
 }
