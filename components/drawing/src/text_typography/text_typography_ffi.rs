@@ -270,6 +270,12 @@ impl OH_Drawing_WordBreakType {
     pub const WORD_BREAK_TYPE_BREAK_ALL: OH_Drawing_WordBreakType = OH_Drawing_WordBreakType(1);
     /// Break Word type
     pub const WORD_BREAK_TYPE_BREAK_WORD: OH_Drawing_WordBreakType = OH_Drawing_WordBreakType(2);
+    /// Break word with hyphens
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const WORD_BREAK_TYPE_BREAK_HYPHEN: OH_Drawing_WordBreakType = OH_Drawing_WordBreakType(3);
 }
 #[repr(transparent)]
 /// Enumerates word break type.
@@ -865,6 +871,45 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_SetTextStyleDecoration(
+        style: *mut OH_Drawing_TextStyle,
+        decoration: ::core::ffi::c_int,
+    );
+    /// Add the text decoration.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    ///
+    /// * `decoration` - Indicates the text decoration to add. For details, see the enum <b>OH_Drawing_TextDecoration</b>.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_AddTextStyleDecoration(
+        style: *mut OH_Drawing_TextStyle,
+        decoration: ::core::ffi::c_int,
+    );
+    /// Remove the text decoration.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    ///
+    /// * `decoration` - Indicates the text decoration to remove, shoud be match existing text decorations.
+    /// For details, see the enum <b>OH_Drawing_TextDecoration</b>.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_RemoveTextStyleDecoration(
         style: *mut OH_Drawing_TextStyle,
         decoration: ::core::ffi::c_int,
     );
@@ -1663,8 +1708,12 @@ extern "C" {
     /// Available since API-level: 11
     ///
     /// Version: 1.0
+    ///
+    /// **Deprecated** since 18
+    /// OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    #[deprecated(since = "18")]
     pub fn OH_Drawing_TypographyGetGlyphPositionAtCoordinate(
         typography: *mut OH_Drawing_Typography,
         dx: f64,
@@ -1916,8 +1965,12 @@ extern "C" {
     /// Available since API-level: 11
     ///
     /// Version: 1.0
+    ///
+    /// **Deprecated** since 18
+    /// OH_Drawing_SetTypographyTextEllipsis
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    #[deprecated(since = "18")]
     pub fn OH_Drawing_SetTextStyleEllipsis(
         style: *mut OH_Drawing_TextStyle,
         ellipsis: *const ::core::ffi::c_char,
@@ -1935,8 +1988,12 @@ extern "C" {
     /// Available since API-level: 11
     ///
     /// Version: 1.0
+    ///
+    /// **Deprecated** since 18
+    /// OH_Drawing_SetTypographyTextEllipsisModal
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    #[deprecated(since = "18")]
     pub fn OH_Drawing_SetTextStyleEllipsisModal(
         style: *mut OH_Drawing_TextStyle,
         ellipsisModal: ::core::ffi::c_int,
@@ -2364,8 +2421,12 @@ extern "C" {
     /// Available since API-level: 12
     ///
     /// Version: 1.0
+    ///
+    /// **Deprecated** since 18
+    /// OH_Drawing_TypographyStyleGetEffectiveAlignment
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    #[deprecated(since = "18")]
     pub fn OH_Drawing_TypographyGetEffectiveAlignment(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> ::core::ffi::c_int;
@@ -4304,6 +4365,104 @@ extern "C" {
         color: u32,
         offset: *mut OH_Drawing_Point,
         blurRadius: f64,
+    );
+    /// Creates an <b>OH_Drawing_TextTab</b> object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `alignment` - Indicates enumerates text tab alignment modes. TAB alignment, Support left alignment
+    /// right alignment center alignment, other enumeration values are left alignment effect.
+    ///
+    /// * `location` - Indicates location of text tab.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_TextTab</b> object created. If the object returns NULL,
+    /// the creation failed. The possible cause of the failure is that the application address space is used up.
+    /// As a result, space cannot be allocated.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CreateTextTab(
+        alignment: OH_Drawing_TextAlign,
+        location: f32,
+    ) -> *mut OH_Drawing_TextTab;
+    /// Releases the memory occupied by an <b>OH_Drawing_TextTab</b> object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `tab` - Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_DestroyTextTab(tab: *mut OH_Drawing_TextTab);
+    /// Get alignment of an <b>OH_Drawing_TextTab</b> object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `tab` - Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns align of an <b>OH_Drawing_TextTab</b> object.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_GetTextTabAlignment(tab: *mut OH_Drawing_TextTab) -> OH_Drawing_TextAlign;
+    /// Get location of an <b>OH_Drawing_TextTab</b> object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `tab` - Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns location of an <b>OH_Drawing_TextTab</b> object.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_GetTextTabLocation(tab: *mut OH_Drawing_TextTab) -> f32;
+    /// Sets the text tab of <b>OH_Drawing_TypographyStyle</b> object.
+    /// Tab alignment does not take effect when text alignment is also set, Or when the ellipsis style is configured.
+    /// When the tab is not set or the tab's location property is less than or equal to 0, it is the default space effect.
+    /// And all tabs in the paragraph after the setting are aligned according to this tab effect.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// * `tab` - Indicates the pointer to an <b>OH_Drawing_TextTab</b> object.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_SetTypographyTextTab(
+        style: *mut OH_Drawing_TypographyStyle,
+        tab: *mut OH_Drawing_TextTab,
     );
     /// Get DrawingArray size.
     ///

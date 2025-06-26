@@ -998,6 +998,47 @@ extern "C" {
         position: *mut OH_Drawing_Point2D,
         tangent: *mut OH_Drawing_Point2D,
     ) -> bool;
+    /// Gets the path between the start and end points.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `forceClosed` - Whether to close the path.
+    ///
+    /// * `start` - The distance from the starting point of the segment to the starting point of the path.
+    ///
+    /// * `stop` - The distance from the end point of the segment to the starting point of the path.
+    ///
+    /// * `startWithMoveTo` - Whether the path obtained moveTo to the starting segment.
+    ///
+    /// * `dst` - The path obtained.
+    ///
+    /// * `result` - Indicates the result of getting the path segment.
+    /// The value is false if the segment is zero-length or start >= stop, and true otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of path, dst and result is nullptr.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_PathGetSegment(
+        path: *mut OH_Drawing_Path,
+        forceClosed: bool,
+        start: f32,
+        stop: f32,
+        startWithMoveTo: bool,
+        dst: *mut OH_Drawing_Path,
+        result: *mut bool,
+    ) -> crate::error_code::DrawingResult;
     /// Combines two paths.
     ///
     ///

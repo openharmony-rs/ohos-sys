@@ -3,6 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-18")]
+use crate::sampling_options::OH_Drawing_FilterMode;
 use crate::types::*;
 
 #[cfg(feature = "api-12")]
@@ -332,6 +334,43 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasDrawPath(canvas: *mut OH_Drawing_Canvas, path: *const OH_Drawing_Path);
+    /// Divides the pixelmap into a grid with nine sections: four sides, four corners, and the center.
+    /// Draws the specified section of the pixelmap onto the canvas, corners are unmodified or scaled down if they exceed
+    /// the destination rectangle, center and four sides are scaled to fit remaining space.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// * `pixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    ///
+    /// * `center` - Divides the pixelmap into nine sections: four sides, four corners, and the center.
+    ///
+    /// * `dst` - The area of destination canvas.
+    ///
+    /// * `mode` - Filter mode.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of canvas, pixelMap
+    /// and dst is nullptr.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CanvasDrawPixelMapNine(
+        canvas: *mut OH_Drawing_Canvas,
+        pixelMap: *mut OH_Drawing_PixelMap,
+        center: *const OH_Drawing_Rect,
+        dst: *const OH_Drawing_Rect,
+        mode: OH_Drawing_FilterMode,
+    ) -> crate::error_code::DrawingResult;
     /// Draw the specified area of the Media::PixelMap to the specified area of the canvas.
     ///
     ///
@@ -608,6 +647,40 @@ extern "C" {
         startAngle: f32,
         sweepAngle: f32,
     );
+    /// Draws an arc with use center.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `startAngle` - Indicates the startAngle of the arc.
+    ///
+    /// * `sweepAngle` - Indicates the sweepAngle of the arc.
+    ///
+    /// * `useCenter` - If true, include the center of the oval in the arc, and close it if it is being stroked.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas or rect is nullptr.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CanvasDrawArcWithCenter(
+        canvas: *mut OH_Drawing_Canvas,
+        rect: *const OH_Drawing_Rect,
+        startAngle: f32,
+        sweepAngle: f32,
+        useCenter: bool,
+    ) -> crate::error_code::DrawingResult;
     /// Draws a roundrect.
     ///
     ///
@@ -627,6 +700,35 @@ extern "C" {
         canvas: *mut OH_Drawing_Canvas,
         roundRect: *const OH_Drawing_RoundRect,
     );
+    /// Draw two nested rounded rectangles.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// * `outer` - Rounded rectangle object, representing the outer rounded rectangle boundary.
+    ///
+    /// * `inner` - Rounded rectangle object, representing the internal rounded rectangle boundary.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of canvas, outer
+    /// and inner is nullptr.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CanvasDrawNestedRoundRect(
+        canvas: *mut OH_Drawing_Canvas,
+        outer: *const OH_Drawing_RoundRect,
+        inner: *const OH_Drawing_RoundRect,
+    ) -> crate::error_code::DrawingResult;
     /// Draws a single character.
     ///
     ///
@@ -1271,5 +1373,63 @@ extern "C" {
     pub fn OH_Drawing_CanvasDrawRecordCmd(
         canvas: *mut OH_Drawing_Canvas,
         recordCmd: *mut OH_Drawing_RecordCmd,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if the path has been cut off.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Paht</b> object.
+    ///
+    /// * `quickReject` - Indicates if the path has been cut off.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas or path is nullptr,
+    /// or quickReject is nullptr.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CanvasQuickRejectPath(
+        canvas: *mut OH_Drawing_Canvas,
+        path: *const OH_Drawing_Path,
+        quickReject: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if the rect has been cut off.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `quickReject` - Indicates if the rect has been cut off.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas or rect is nullptr,
+    /// or quickReject is nullptr.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CanvasQuickRejectRect(
+        canvas: *mut OH_Drawing_Canvas,
+        rect: *const OH_Drawing_Rect,
+        quickReject: *mut bool,
     ) -> crate::error_code::DrawingResult;
 }

@@ -43,8 +43,12 @@ extern "C" {
     /// Available since API-level: 12
     ///
     /// Version: 1.0
+    ///
+    /// **Deprecated** since 18
+    /// OH_Drawing_DisableFontCollectionSystemFont
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    #[deprecated(since = "18")]
     pub fn OH_Drawing_DisableFontCollectionFallback(fontCollection: *mut OH_Drawing_FontCollection);
     /// Disable the font collection systemfont.
     ///

@@ -277,4 +277,101 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_RectDestroy(rect: *mut OH_Drawing_Rect);
+    /// Creates an <b>OH_Drawing_Array</b> object, which is used to store multiple <b>OH_Drawing_Rect</b> object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `size` - Indicates the size of the array object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_Array</b> object created.
+    /// If nullptr is returned, the creation fails.
+    /// The possible cause of the failure is that the available memory is empty,
+    /// or size is invalid.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_RectCreateArray(size: usize) -> *mut OH_Drawing_Array;
+    /// Gets the size of an <b>OH_Drawing_Array</b> object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `rectArray` - Indicates the array object.
+    ///
+    /// * `pSize` - Indicates the size pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if rectArray or pSize is nullptr.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_RectGetArraySize(
+        rectArray: *mut OH_Drawing_Array,
+        pSize: *mut usize,
+    ) -> crate::error_code::DrawingResult;
+    /// Gets the specified <b>OH_Drawing_Rect</b> object from <b>OH_Drawing_Array</b> object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `rectArray` - Indicates the array object.
+    ///
+    /// * `index` - Indicates the index of array, caller must make sure the index is valid.
+    ///
+    /// * `rect` - Pointers to Pointer of <b>OH_Drawing_Rect</b> object, returned to the caller.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if rectArray or rect is nullptr,
+    /// or index is valid.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_RectGetArrayElement(
+        rectArray: *mut OH_Drawing_Array,
+        index: usize,
+        rect: *mut *mut OH_Drawing_Rect,
+    ) -> crate::error_code::DrawingResult;
+    /// Destroys an array <b>OH_Drawing_Rect</b> object and reclaims the memory occupied by the object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `rectArray` - Indicates the pointer to an <b>OH_Drawing_Array</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if rectArray is nullptr.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_RectDestroyArray(
+        rectArray: *mut OH_Drawing_Array,
+    ) -> crate::error_code::DrawingResult;
 }

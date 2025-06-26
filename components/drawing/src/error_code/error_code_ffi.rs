@@ -50,4 +50,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ErrorCodeGet() -> DrawingResult;
+    /// Resets the error code of the drawing module to OH_DRAWING_SUCCESS.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_ErrorCodeReset();
 }

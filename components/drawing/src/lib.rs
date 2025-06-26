@@ -114,3 +114,15 @@ pub mod record_cmd;
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 pub mod text_font_descriptor;
+
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub mod text_line;
+
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub mod text_line_typography;
+
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub mod text_run;

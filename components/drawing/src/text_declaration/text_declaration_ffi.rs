@@ -25,6 +25,18 @@ pub struct OH_Drawing_FontCollection {
 pub struct OH_Drawing_Typography {
     _unused: [u8; 0],
 }
+/// Defines an <b>OH_Drawing_LineTypography</b>, which is used to perform line layout.
+///
+///
+/// Available since API-level: 18
+///
+/// Version: 1.0
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[repr(C)]
+pub struct OH_Drawing_LineTypography {
+    _unused: [u8; 0],
+}
 /// Defines an <b>OH_Drawing_TextStyle</b>, which is used to manage text colors and decorations.
 ///
 ///
@@ -114,5 +126,41 @@ pub struct OH_Drawing_FontParser {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct OH_Drawing_TextShadow {
+    _unused: [u8; 0],
+}
+/// Defines an <b>OH_Drawing_TextTab</b>, which is used to to store the tab alignment type and position.
+///
+///
+/// Available since API-level: 18
+///
+/// Version: 1.0
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[repr(C)]
+pub struct OH_Drawing_TextTab {
+    _unused: [u8; 0],
+}
+/// Defines an <b>OH_Drawing_TextLine</b>, which is used to manage text line.
+///
+///
+/// Available since API-level: 18
+///
+/// Version: 1.0
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[repr(C)]
+pub struct OH_Drawing_TextLine {
+    _unused: [u8; 0],
+}
+/// Defines an <b>OH_Drawing_Run</b>, which is used to manage run.
+///
+///
+/// Available since API-level: 18
+///
+/// Version: 1.0
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[repr(C)]
+pub struct OH_Drawing_Run {
     _unused: [u8; 0],
 }

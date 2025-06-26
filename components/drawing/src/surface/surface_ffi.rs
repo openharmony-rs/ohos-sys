@@ -32,6 +32,32 @@ extern "C" {
         flag: bool,
         imageInfo: OH_Drawing_Image_Info,
     ) -> *mut OH_Drawing_Surface;
+    /// Creates an <b>OH_Drawing_Surface</b> object on GPU indicated by context which is on-screen.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `gpuContext` - Indicates the pointer to an <b>OH_Drawing_GpuContext</b> object.
+    ///
+    /// * `imageInfo` - Indicates the image info.
+    ///
+    /// * `window` - Indicates the pointer of the screen window.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_Surface</b> object created.
+    ///
+    /// Available since API-level: 16
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-16")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
+    pub fn OH_Drawing_SurfaceCreateOnScreen(
+        gpuContext: *mut OH_Drawing_GpuContext,
+        imageInfo: OH_Drawing_Image_Info,
+        window: *mut ::core::ffi::c_void,
+    ) -> *mut OH_Drawing_Surface;
     /// Gets the canvas that draws into surface.
     ///
     ///
@@ -51,6 +77,28 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_SurfaceGetCanvas(surface: *mut OH_Drawing_Surface) -> *mut OH_Drawing_Canvas;
+    /// Resolves all pending GPU operations on the surface.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `surface` - Indicates the pointer to an <b>OH_Drawing_Surface</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if surface is nullptr.
+    ///
+    /// Available since API-level: 16
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-16")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
+    pub fn OH_Drawing_SurfaceFlush(
+        surface: *mut OH_Drawing_Surface,
+    ) -> crate::error_code::DrawingResult;
     /// Destroys an <b>OH_Drawing_Surface</b> object and reclaims the memory occupied by the object.
     ///
     ///
