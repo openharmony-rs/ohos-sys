@@ -95,10 +95,18 @@ pub mod NativeWindowOperation {
     /// set native window buffer stride,
     /// variable parameter in function is
     /// [in] int32_t stride.
+    ///
+    /// **Deprecated** since 16
+    #[deprecated(since = "16")]
     pub const SET_STRIDE: Type = 6;
     /// get native window buffer stride,
     /// variable parameter in function is
     /// [out] int32_t *stride.
+    ///
+    /// **Deprecated** since 16
+    /// Use [`OH_NativeWindow_GetBufferHandleFromNative`] to get a [`BufferHandleand`] from a buffer
+    /// and then retrieve the stride from the [`BufferHandle`].
+    #[deprecated(since = "16")]
     pub const GET_STRIDE: Type = 7;
     /// set native window buffer swap interval,
     /// variable parameter in function is
@@ -124,7 +132,7 @@ pub mod NativeWindowOperation {
     pub const SET_COLOR_GAMUT: Type = 12;
     /// get native window buffer colorGamut,
     /// variable parameter in function is
-    /// [out int32_t *colorGamut], the enumeration value refers to [`OH_NativeBuffer_ColorGamut`].
+    /// [out] int32_t *colorGamut, the enumeration value refers to [`OH_NativeBuffer_ColorGamut`].
     pub const GET_COLOR_GAMUT: Type = 13;
     /// set native window buffer transform,
     /// variable parameter in function is
@@ -235,6 +243,7 @@ impl OHScalingMode {
 ///
 /// Available since API-level: 9
 /// = "10")
+/// OHScalingModeV2
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OHScalingMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
@@ -388,7 +397,8 @@ extern "C" {
     ///
     /// A new <b>OHNativeWindowBuffer</b> instance is created each time this function is called.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_DestroyNativeWindowBuffer<otherwise memory leaks will occur.
+    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_DestroyNativeWindowBuffer</b>,
+    /// otherwise memory leaks will occur.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -432,7 +442,8 @@ extern "C" {
     /// Before calling this interface, you need to set the width and height of
     /// <b>OHNativeWindow</b> through <b>SET_BUFFER_GEOMETRY</b>.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_NativeWindowFlushBuffer<otherwise buffer will be exhausted.
+    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_NativeWindowFlushBuffer</b>,
+    /// otherwise buffer will be exhausted.
     ///
     /// When the fenceFd is used up, you need to close it.
     ///
@@ -602,7 +613,8 @@ extern "C" {
     ) -> *mut BufferHandle;
     /// Adds the reference count of a native object.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_NativeObjectUnreference<otherwise memory leaks will occur.
+    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_NativeObjectUnreference</b>,
+    /// otherwise memory leaks will occur.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -680,6 +692,7 @@ extern "C" {
     ///
     /// Version: 1.0
     /// = "10")
+    /// OH_NativeWindow_NativeWindowSetScalingModeV2
     pub fn OH_NativeWindow_NativeWindowSetScalingMode(
         window: *mut OHNativeWindow,
         sequence: u32,
@@ -768,7 +781,8 @@ extern "C" {
     ) -> i32;
     /// Attach a buffer to an <b>OHNativeWindow</b> instance.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_NativeWindowDetachBuffer<otherwise buffer management will be chaotic.
+    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_NativeWindowDetachBuffer</b>,
+    /// otherwise buffer management will be chaotic.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
@@ -845,11 +859,14 @@ extern "C" {
     pub fn OH_NativeWindow_GetSurfaceId(window: *mut OHNativeWindow, surfaceId: *mut u64) -> i32;
     /// Creates an <b>OHNativeWindow</b> instance.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_DestroyNativeWindow<otherwise memory leaks will occur.
+    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_DestroyNativeWindow</b>,
+    /// otherwise memory leaks will occur.
     ///
     /// If there is a concurrent destroy OHNativeWindow, you need to add once and decrement once to the
-    /// OHNativeWindow reference count through <b>OH_NativeWindow_NativeObjectReference<and
-    /// <b>OH_NativeWindow_NativeObjectUnreference<If the surface obtained through surfaceId is created in this process, the surface cannot be obtained
+    /// OHNativeWindow reference count through <b>OH_NativeWindow_NativeObjectReference</b> and
+    /// <b>OH_NativeWindow_NativeObjectUnreference</b>.
+    ///
+    /// If the surface obtained through surfaceId is created in this process, the surface cannot be obtained
     /// across processes.
     ///
     /// This interface is a non-thread-safe type interface.
@@ -977,7 +994,8 @@ extern "C" {
     ///
     /// When the fenceFd is used up, you need to close it.
     ///
-    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_NativeObjectUnreference<otherwise memory leaks will occur.
+    /// This interface needs to be used in conjunction with <b>OH_NativeWindow_NativeObjectUnreference</b>,
+    /// otherwise memory leaks will occur.
     ///
     /// This interface is a non-thread-safe type interface.
     ///
