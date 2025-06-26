@@ -1,3 +1,9 @@
+# Changelog
+
+## 0.1.6
+
+- Add API-16, 17 and 18 bindings
+
 ## 0.1.5
 
 - Add API-14 and API-15 (no changes)
