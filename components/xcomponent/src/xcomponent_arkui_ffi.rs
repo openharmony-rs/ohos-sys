@@ -7,6 +7,34 @@ use super::xcomponent_ffi::*;
 use arkui_sys::native_type::ArkUI_NodeHandle;
 use arkui_sys::ui_input_event::{ArkUI_UIInputEvent, ArkUI_UIInputEvent_Type, HitTestMode};
 
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+impl ArkUI_XComponent_ImageAnalyzerState {
+    /// AI analyzer execution is finished.
+    pub const ARKUI_XCOMPONENT_AI_ANALYSIS_FINISHED: ArkUI_XComponent_ImageAnalyzerState =
+        ArkUI_XComponent_ImageAnalyzerState(0);
+    /// AI analyzer is disabled.
+    pub const ARKUI_XCOMPONENT_AI_ANALYSIS_DISABLED: ArkUI_XComponent_ImageAnalyzerState =
+        ArkUI_XComponent_ImageAnalyzerState(110000);
+    /// AI analyzer is unsupported.
+    pub const ARKUI_XCOMPONENT_AI_ANALYSIS_UNSUPPORTED: ArkUI_XComponent_ImageAnalyzerState =
+        ArkUI_XComponent_ImageAnalyzerState(110001);
+    /// AI analyzer is ongoing.
+    pub const ARKUI_XCOMPONENT_AI_ANALYSIS_ONGOING: ArkUI_XComponent_ImageAnalyzerState =
+        ArkUI_XComponent_ImageAnalyzerState(110002);
+    /// AI analyzer is stopped.
+    pub const ARKUI_XCOMPONENT_AI_ANALYSIS_STOPPED: ArkUI_XComponent_ImageAnalyzerState =
+        ArkUI_XComponent_ImageAnalyzerState(110003);
+}
+#[repr(transparent)]
+/// Status code for AI analyzer.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_XComponent_ImageAnalyzerState(pub ::core::ffi::c_uint);
 extern "C" {
     /// Attaches the UI component created through the native API of ArkUI to this <b>OH_NativeXComponent</b> instance.
     ///
@@ -110,4 +138,57 @@ extern "C" {
             ) -> HitTestMode,
         >,
     ) -> i32;
+    /// Start image analyzer for the specified XComponent
+    /// instance created by the native API.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent instance created by the native API.
+    ///
+    /// * `userData` - Indicates the pointer to a user defined data.
+    ///
+    /// * `callback` - Indicates the pointer to a image analyzer status callback function.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    ///
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] component is nullptr or callback is nullptr,
+    /// or the type of node is not XComponent.
+    ///
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_XComponent_StartImageAnalyzer(
+        node: ArkUI_NodeHandle,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<
+            unsafe extern "C" fn(
+                node: ArkUI_NodeHandle,
+                statusCode: ArkUI_XComponent_ImageAnalyzerState,
+                userData: *mut ::core::ffi::c_void,
+            ),
+        >,
+    ) -> i32;
+    /// Stop image analyzer for the specified XComponent
+    /// instance created by the native API.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent instance created by the native API.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    ///
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] component is nullptr or the type of node is not XComponent.
+    ///
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_XComponent_StopImageAnalyzer(node: ArkUI_NodeHandle) -> i32;
 }
