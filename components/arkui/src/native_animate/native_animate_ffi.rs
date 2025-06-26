@@ -1422,6 +1422,10 @@ extern "C" {
     ///
     /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Curve_CreateCurveByType(curve: ArkUI_AnimationCurve) -> ArkUI_CurveHandle;
     /// Creates a step curve.
     ///
@@ -1436,6 +1440,10 @@ extern "C" {
     ///
     /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Curve_CreateStepsCurve(count: i32, end: bool) -> ArkUI_CurveHandle;
     /// Creates a cubic Bezier curve.
     ///
@@ -1456,6 +1464,10 @@ extern "C" {
     ///
     /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Curve_CreateCubicBezierCurve(
         x1: f32,
         y1: f32,
@@ -1487,6 +1499,10 @@ extern "C" {
     ///
     /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Curve_CreateSpringCurve(
         velocity: f32,
         mass: f32,
@@ -1516,6 +1532,10 @@ extern "C" {
     ///
     /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Curve_CreateSpringMotion(
         response: f32,
         dampingFraction: f32,
@@ -1544,6 +1564,10 @@ extern "C" {
     ///
     /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Curve_CreateResponsiveSpringMotion(
         response: f32,
         dampingFraction: f32,
@@ -1579,6 +1603,10 @@ extern "C" {
     ///
     /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Curve_CreateInterpolatingSpring(
         velocity: f32,
         mass: f32,
@@ -1604,6 +1632,10 @@ extern "C" {
     ///
     /// * Returns the pointer to the interpolation object of the curve.
     /// Returns <b>NULL</b> if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Curve_CreateCustomCurve(
         userData: *mut ::core::ffi::c_void,
         interpolate: ::core::option::Option<
@@ -1614,7 +1646,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `curve` - Indicates the pointer to the interpolation object of the curve.
+    /// * `curveHandle` - Indicates the pointer to the interpolation object of the curve.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Curve_DisposeCurve(curveHandle: ArkUI_CurveHandle);
     /// Creates an opacity object for component transition.
     ///

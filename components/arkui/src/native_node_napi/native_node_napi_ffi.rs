@@ -498,4 +498,41 @@ extern "C" {
         bufferSize: i32,
         writeLength: *mut i32,
     ) -> ArkUiResult;
+    /// Register a callback to be executed when rendering in the next frame. Cannot be called on
+    /// the non-UI thread. Checking for non-UI thread calls will abort.
+    ///
+    /// # Arguments
+    ///
+    /// * `uiContext` - ArkUI_ContextHandle.
+    ///
+    /// * `userData` - Indicates the custom data to be saved.
+    ///
+    /// * `callback` - Custom callback function.
+    ///
+    /// * `nanoTimestamp` - Timestamp of frame signal.
+    ///
+    /// * `frameCount` - Frame count.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`] if the uiContext is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_CALLBACK_INVALID`] if the callback function is invalid.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_PostFrameCallback(
+        uiContext: ArkUI_ContextHandle,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<
+            unsafe extern "C" fn(
+                nanoTimestamp: u64,
+                frameCount: u32,
+                userData: *mut ::core::ffi::c_void,
+            ),
+        >,
+    ) -> i32;
 }

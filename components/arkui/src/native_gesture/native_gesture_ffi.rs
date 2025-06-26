@@ -732,6 +732,45 @@ pub struct ArkUI_NativeGestureAPI_1 {
         ) -> *mut ArkUI_GestureRecognizer,
     >,
 }
+/// Defines the gesture APIs.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ArkUI_NativeGestureAPI_2 {
+    /// Pointer to the <b>ArkUI_NativeGestureAPI_1</b> struct.
+    pub gestureApi1: *mut ArkUI_NativeGestureAPI_1,
+    /// Sets the callback for gesture interruption events.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Node for which you want to set a gesture interruption callback.
+    ///
+    /// * `userData` - Custom data.
+    ///
+    /// * `interrupter` - Gesture interruption callback to set. <b>info</b> indicates the gesture interruption data.
+    /// If <b>interrupter</b> returns <b>GESTURE_INTERRUPT_RESULT_CONTINUE</b>, the gesture recognition process proceeds
+    /// properly. If it returns <b>GESTURE_INTERRUPT_RESULT_REJECT</b>, the gesture recognition process is paused.
+    ///
+    /// # Returns
+    ///
+    /// * Returns <b>0</b> if success.
+    /// Returns <b>401</b> if a parameter error occurs.
+    pub setGestureInterrupterToNode: ::core::option::Option<
+        unsafe extern "C" fn(
+            node: ArkUI_NodeHandle,
+            userData: *mut ::core::ffi::c_void,
+            interrupter: ::core::option::Option<
+                unsafe extern "C" fn(
+                    info: *mut ArkUI_GestureInterruptInfo,
+                ) -> ArkUI_GestureInterruptResult,
+            >,
+        ) -> i32,
+    >,
+}
 extern "C" {
     /// Checks whether a gesture is a built-in gesture of the component.
     ///
@@ -1417,4 +1456,215 @@ extern "C" {
         callback: ArkUI_GestureRecognizerDisposeNotifyCallback,
         userData: *mut ::core::ffi::c_void,
     ) -> i32;
+    /// Obtains the swipe direction of a gesture recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// * `directMask` - Swipe direction of the gesture recognizer.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_GetGestureParam_DirectMask(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        directMask: *mut ArkUI_GestureDirectionMask,
+    ) -> i32;
+    /// Obtains the number of fingers used by a gesture recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// * `finger` - Number of fingers used by the gesture recognizer.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_GetGestureParam_FingerCount(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        finger: *mut ::core::ffi::c_int,
+    ) -> i32;
+    /// Checks whether a gesture recognizer has a finger count limit.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// * `isLimited` - Whether the gesture recognizer has a finger count limit.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_GetGestureParam_limitFingerCount(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        isLimited: *mut bool,
+    ) -> i32;
+    /// Checks whether a gesture recognizer supports repeated event callbacks.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// * `isRepeat` - Whether the gesture recognizer supports repeated event callbacks.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// supported.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_GetGestureParam_repeat(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        isRepeat: *mut bool,
+    ) -> i32;
+    /// Obtains the allowed movement distance range for a gesture recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// * `distance` - Allowed movement distance range of the gesture recognizer.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// supported.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_GetGestureParam_distance(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        distance: *mut f64,
+    ) -> i32;
+    /// Obtains the minimum swipe speed recognized by a gesture recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// * `speed` - Minimum swipe speed recognized by a gesture recognizer.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// supported.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_GetGestureParam_speed(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        speed: *mut f64,
+    ) -> i32;
+    /// Obtains the minimum duration required to trigger a long press by a gesture recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// * `duration` - Minimum duration for a long press.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// supported.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_GetGestureParam_duration(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        duration: *mut ::core::ffi::c_int,
+    ) -> i32;
+    /// Obtains the minimum angle change required for a rotation gesture to be recognized by a gesture recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// * `angle` - Minimum angle change.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// supported.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_GetGestureParam_angle(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        angle: *mut f64,
+    ) -> i32;
+    /// Obtains the movement threshold for gestures to be recognized by a gesture recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// * `distanceThresHold` - Movement threshold.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// supported.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_GetGestureParam_distanceThreshold(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        distanceThreshold: *mut f64,
+    ) -> i32;
+    /// Obtains the custom data from a gesture interruption event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the gesture interruption information.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the custom data.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ArkUI_GestureInterrupter_GetUserData(
+        event: *mut ArkUI_GestureInterruptInfo,
+    ) -> *mut ::core::ffi::c_void;
 }

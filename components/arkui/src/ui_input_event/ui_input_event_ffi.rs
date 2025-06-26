@@ -113,25 +113,6 @@ impl ArkUI_ModifierKeyName {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_ModifierKeyName(pub ::core::ffi::c_uint);
-#[cfg(feature = "api-15")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-impl ArkUI_InteractionHand {
-    /// Unknown.
-    pub const ARKUI_EVENT_HAND_NONE: ArkUI_InteractionHand = ArkUI_InteractionHand(0);
-    /// Left hand.
-    pub const ARKUI_EVENT_HAND_LEFT: ArkUI_InteractionHand = ArkUI_InteractionHand(1);
-    /// Right hand.
-    pub const ARKUI_EVENT_HAND_RIGHT: ArkUI_InteractionHand = ArkUI_InteractionHand(2);
-}
-#[repr(transparent)]
-/// Defines whether the touch event is from the left or right hand.
-///
-///
-/// Available since API-level: 15
-#[cfg(feature = "api-15")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct ArkUI_InteractionHand(pub ::core::ffi::c_uint);
 /// ABS_X.
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -173,6 +154,25 @@ pub const UI_FOCUS_AXIS_EVENT_ABS_HAT0Y: _bindgen_ty_6 = _bindgen_ty_6(7);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct _bindgen_ty_6(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+impl ArkUI_InteractionHand {
+    /// Unknown.
+    pub const ARKUI_EVENT_HAND_NONE: ArkUI_InteractionHand = ArkUI_InteractionHand(0);
+    /// Left hand.
+    pub const ARKUI_EVENT_HAND_LEFT: ArkUI_InteractionHand = ArkUI_InteractionHand(1);
+    /// Right hand.
+    pub const ARKUI_EVENT_HAND_RIGHT: ArkUI_InteractionHand = ArkUI_InteractionHand(2);
+}
+#[repr(transparent)]
+/// Defines whether the touch event is from the left or right hand.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_InteractionHand(pub ::core::ffi::c_uint);
 /// The axis event is abnormal.
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -610,6 +610,27 @@ extern "C" {
         event: *const ArkUI_UIInputEvent,
         pointerIndex: u32,
     ) -> f32;
+    /// Obtains the rotation angle of the stylus around the z-axis from a UI input event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the UI input event.
+    ///
+    /// * `rollAngle` - Rotation angle of the stylus around the z-axis.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_PointerEvent_GetRollAngle(
+        event: *const ArkUI_UIInputEvent,
+        rollAngle: *mut f64,
+    ) -> i32;
     /// Obtains the width of the touch area from a directional input event (for example, a touch event).
     ///
     /// # Arguments
@@ -1173,9 +1194,7 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_ArkUI_UIInputEvent_GetDeviceId(event: *const ArkUI_UIInputEvent) -> i32;
-    /// Obtains the pressed status of modifier keys from UI input event.
-    /// The following modifier keys are supported: Ctrl, Alt, Shift, Fn. However, the <b>Fn</b> key on external keyboards
-    /// is not supported.
+    /// Obtains all keys that are pressed from UI input event. Only supports key events currently.
     ///
     /// # Arguments
     ///
@@ -1190,7 +1209,7 @@ extern "C" {
     ///
     /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] if the giving buffer is not enough.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`] if the giving buffer is not enough.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     ///
     /// Available since API-level: 14
@@ -1238,6 +1257,134 @@ extern "C" {
     pub fn OH_ArkUI_FocusAxisEvent_SetStopPropagation(
         event: *const ArkUI_UIInputEvent,
         stopPropagation: bool,
+    ) -> i32;
+    /// Obtains the width of the component hit by an event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the width of the component hit by the event; returns <b>0.0f</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_UIInputEvent_GetEventTargetWidth(event: *const ArkUI_UIInputEvent) -> f32;
+    /// Obtains the height of the component hit by an event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the height of the component hit by the event; returns <b>0.0f</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_UIInputEvent_GetEventTargetHeight(event: *const ArkUI_UIInputEvent) -> f32;
+    /// Obtains the X coordinate of the component hit by an event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the X coordinate of the component hit by the event; returns <b>0.0f</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_UIInputEvent_GetEventTargetPositionX(event: *const ArkUI_UIInputEvent) -> f32;
+    /// Obtains the Y coordinate of the component hit by an event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the Y coordinate of the component hit by the event;
+    /// returns <b>0.0f</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_UIInputEvent_GetEventTargetPositionY(event: *const ArkUI_UIInputEvent) -> f32;
+    /// Obtains the global X coordinate of the component hit by an event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the global X coordinate of the component hit by the event;
+    /// returns <b>0.0f</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_UIInputEvent_GetEventTargetGlobalPositionX(
+        event: *const ArkUI_UIInputEvent,
+    ) -> f32;
+    /// Obtains the global Y coordinate of the component hit by an event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the global Y coordinate of the component hit by the event;
+    /// returns <b>0.0f</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_UIInputEvent_GetEventTargetGlobalPositionY(
+        event: *const ArkUI_UIInputEvent,
+    ) -> f32;
+    /// Checks whether the cursor is hovering over this component.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns <b>true</b> if the cursor is hovering over the current component.
+    /// Returns <b>false</b> if the cursor is not hovering over the current component.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_HoverEvent_IsHovered(event: *const ArkUI_UIInputEvent) -> bool;
+    /// Obtains the state of the modifier keys in a UI input event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `keys` - Pointer to a variable where the current combination of pressed modifier keys will be returned.
+    /// The application can use bitwise operations to determine the state of each modifier key.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_UIInputEvent_GetModifierKeyStates(
+        event: *const ArkUI_UIInputEvent,
+        keys: *mut u64,
     ) -> i32;
     /// Obtains the press time of a specific touch point.
     ///
@@ -1330,6 +1477,41 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_UIInputEvent_GetTargetDisplayId(event: *const ArkUI_UIInputEvent) -> i32;
+    /// Sets whether to enable axis event propagation.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the UI input event.
+    ///
+    /// * `propagation` - Whether to enable event propagation.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_AxisEvent_SetPropagation(
+        event: *const ArkUI_UIInputEvent,
+        propagation: bool,
+    ) -> i32;
+    /// Obtains the scroll step configuration of the mouse wheel axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the UI input event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the scroll step configuration of the mouse wheel axis event.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_ArkUI_AxisEvent_GetScrollStep(event: *const ArkUI_UIInputEvent) -> i32;
     /// Creates a cloned event pointer based on an event pointer.
     ///
     /// # Arguments

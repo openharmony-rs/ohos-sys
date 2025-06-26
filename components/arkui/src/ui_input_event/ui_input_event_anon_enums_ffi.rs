@@ -99,6 +99,14 @@ pub const UI_MOUSE_EVENT_ACTION_RELEASE: _bindgen_ty_4 = _bindgen_ty_4(2);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_MOUSE_EVENT_ACTION_MOVE: _bindgen_ty_4 = _bindgen_ty_4(3);
+/// Cancel.
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+pub const UI_MOUSE_EVENT_ACTION_CANCEL: _bindgen_ty_4 = _bindgen_ty_4(13);
 #[repr(transparent)]
 /// Define the Action Code for mouse events.
 ///
