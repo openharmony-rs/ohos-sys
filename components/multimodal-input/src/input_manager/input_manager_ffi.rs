@@ -2446,6 +2446,63 @@ extern "C" {
         hotkey: *const Input_Hotkey,
         callback: Input_HotkeyCallback,
     ) -> Input_Result;
+    /// Registers a listener for device hot swap events.
+    ///
+    /// # Arguments
+    ///
+    /// * `listener` - Pointer to an [`Input_DeviceListener`] object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_RegisterDeviceListener status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] if listener is NULL;
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Input_RegisterDeviceListener(listener: *mut Input_DeviceListener) -> Input_Result;
+    /// Unregisters the listener for device hot swap events.
+    ///
+    /// # Arguments
+    ///
+    /// * `listener` - Pointer to the listener for device hot swap events. For details, see [`Input_DeviceListener`].
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_UnregisterDeviceListener status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] if listener is NULL or no listener is registered;
+    /// [`INPUT_SERVICE_EXCEPTION`] if the service is abnormal.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Input_UnregisterDeviceListener(listener: *mut Input_DeviceListener) -> Input_Result;
+    /// Unregisters the listener for all device hot swap events.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_UnregisterDeviceListener status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_SERVICE_EXCEPTION`] if the service is abnormal.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Input_UnregisterDeviceListeners() -> Input_Result;
     /// Obtains the IDs of all input devices.
     ///
     /// # Arguments
@@ -2700,63 +2757,6 @@ extern "C" {
         deviceInfo: *mut Input_DeviceInfo,
         address: *mut *mut ::core::ffi::c_char,
     ) -> Input_Result;
-    /// Registers a listener for device hot swap events.
-    ///
-    /// # Arguments
-    ///
-    /// * `listener` - Pointer to an [`Input_DeviceListener`] object.
-    ///
-    ///
-    /// # Returns
-    ///
-    /// * OH_Input_RegisterDeviceListener status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`] if listener is NULL;
-    ///
-    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
-    ///
-    /// Available since API-level: 13
-    #[cfg(feature = "api-13")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_Input_RegisterDeviceListener(listener: *mut Input_DeviceListener) -> Input_Result;
-    /// Unregisters the listener for device hot swap events.
-    ///
-    /// # Arguments
-    ///
-    /// * `listener` - Pointer to the listener for device hot swap events. For details, see [`Input_DeviceListener`].
-    ///
-    ///
-    /// # Returns
-    ///
-    /// * OH_Input_UnregisterDeviceListener status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`] if listener is NULL or no listener is registered;
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is abnormal.
-    ///
-    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
-    ///
-    /// Available since API-level: 13
-    #[cfg(feature = "api-13")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_Input_UnregisterDeviceListener(listener: *mut Input_DeviceListener) -> Input_Result;
-    /// Unregisters the listener for all device hot swap events.
-    ///
-    ///
-    /// # Returns
-    ///
-    /// * OH_Input_UnregisterDeviceListener status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is abnormal.
-    ///
-    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
-    ///
-    /// Available since API-level: 13
-    #[cfg(feature = "api-13")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_Input_UnregisterDeviceListeners() -> Input_Result;
     /// Obtains the function key status.
     ///
     /// # Arguments
