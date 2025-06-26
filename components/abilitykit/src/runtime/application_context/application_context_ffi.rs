@@ -5,6 +5,8 @@
 #![allow(non_snake_case)]
 #[cfg(feature = "api-15")]
 use crate::base::want::AbilityBase_Want;
+#[cfg(feature = "api-17")]
+use crate::runtime::start_options::AbilityRuntime_StartOptions;
 use crate::runtime::{AbilityRuntimeResult, AbilityRuntime_AreaMode};
 
 extern "C" {
@@ -81,6 +83,195 @@ extern "C" {
         bufferSize: i32,
         writeLength: *mut i32,
     ) -> AbilityRuntimeResult;
+    /// Obtain the temp directory of the application.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - A pointer to a buffer that receives the temp directory of the application.
+    ///
+    /// * `bufferSize` - The length of the buffer.
+    ///
+    /// * `writeLength` - The string length actually written to the buffer,
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// or the buffer size is less than the minimum buffer size.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    ///
+    /// Available since API-level: 16
+    #[cfg(feature = "api-16")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetTempDir(
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Obtain the files directory of the application.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - A pointer to a buffer that receives the files directory of the application.
+    ///
+    /// * `bufferSize` - The length of the buffer.
+    ///
+    /// * `writeLength` - The string length actually written to the buffer,
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// or the buffer size is less than the minimum buffer size.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    ///
+    /// Available since API-level: 16
+    #[cfg(feature = "api-16")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetFilesDir(
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Obtain the database directory of the application.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - A pointer to a buffer that receives the database directory of the application.
+    ///
+    /// * `bufferSize` - The length of the buffer.
+    ///
+    /// * `writeLength` - The string length actually written to the buffer,
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// or the buffer size is less than the minimum buffer size.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    ///
+    /// Available since API-level: 16
+    #[cfg(feature = "api-16")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetDatabaseDir(
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Obtain the preferences directory of the application.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - A pointer to a buffer that receives the preferences directory of the application.
+    ///
+    /// * `bufferSize` - The length of the buffer.
+    ///
+    /// * `writeLength` - The string length actually written to the buffer,
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// or the buffer size is less than the minimum buffer size.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    ///
+    /// Available since API-level: 16
+    #[cfg(feature = "api-16")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetPreferencesDir(
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Obtain the bundle code directory of the application.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - A pointer to a buffer that receives the bundle code directory of the application.
+    ///
+    /// * `bufferSize` - The length of the buffer.
+    ///
+    /// * `writeLength` - The string length actually written to the buffer,
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// or the buffer size is less than the minimum buffer size.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    ///
+    /// Available since API-level: 16
+    #[cfg(feature = "api-16")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetBundleCodeDir(
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Obtain the distributed files directory of the application.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - A pointer to a buffer that receives the distributed files directory of the application.
+    ///
+    /// * `bufferSize` - The length of the buffer.
+    ///
+    /// * `writeLength` - The string length actually written to the buffer,
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// or the buffer size is less than the minimum buffer size.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    ///
+    /// Available since API-level: 16
+    #[cfg(feature = "api-16")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetDistributedFilesDir(
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Obtain the cloud file directory of the application.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - A pointer to a buffer that receives the cloud file directory of the application.
+    ///
+    /// * `bufferSize` - The length of the buffer.
+    ///
+    /// * `writeLength` - The string length actually written to the buffer,
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// or the buffer size is less than the minimum buffer size.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    ///
+    /// Available since API-level: 16
+    #[cfg(feature = "api-16")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetCloudFileDir(
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> AbilityRuntimeResult;
     /// Starts self UIAbility.
     ///
     /// `ohos.permission.NDK_START_SELF_UI_ABILITY`
@@ -104,6 +295,10 @@ extern "C" {
     /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`] if the caller tries to start a different application.
     /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`] if internal error occurs.
     /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`] if the caller is not top ability.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`]
+    /// if the number of app instances reached the limit (since 17).
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`]
+    /// if the APP_INSTANCE_KEY cannot be specified (since 17).
     /// For details, see [`AbilityRuntime_ErrorCode`].
     ///
     /// Available since API-level: 15
@@ -111,5 +306,48 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_AbilityRuntime_StartSelfUIAbility(
         want: *mut AbilityBase_Want,
+    ) -> AbilityRuntimeResult;
+    /// Starts self UIAbility with start options.
+    ///
+    /// `ohos.permission.NDK_START_SELF_UI_ABILITY`
+    /// # Arguments
+    ///
+    /// * `want` - The arguments passed to start self UIAbility.
+    /// For details, see [`AbilityBase_Want`].
+    ///
+    /// * `options` - The start options passed to start self UIAbility.
+    /// For details, see [`AbilityRuntime_StartOptions`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the call is successful.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`] if the caller has no correct permission.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the arguments provided is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`] if the device does not support starting self uiability.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`] if the target ability does not exist.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`] if the ability type is incorrect.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`] if the crowdtesting application expires.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`] if the ability cannot be started in Wukong mode.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`] if the app is controlled.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`] if the app is controlled by EDM.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`] if the caller tries to start a different application.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`] if internal error occurs.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`] if the caller is not foreground process.
+    /// Returns [`ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED`] if setting visibility is disabled.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_MULTI_APP_NOT_SUPPORTED`]
+    /// if the app clone or multi-instance is not supported.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INVALID_APP_INSTANCE_KEY`] if the app instance key is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`] if the number of app instances reached the limit.
+    /// Returns [`ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED`] if the multi-instance is not supported.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`]
+    /// if the APP_INSTANCE_KEY cannot be specified.
+    /// For details, see [`AbilityRuntime_ErrorCode`].
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_AbilityRuntime_StartSelfUIAbilityWithStartOptions(
+        want: *mut AbilityBase_Want,
+        options: *mut AbilityRuntime_StartOptions,
     ) -> AbilityRuntimeResult;
 }

@@ -282,4 +282,17 @@ extern "C" {
         options: NativeChildProcess_Options,
         pid: *mut i32,
     ) -> Ability_NativeChildProcessResult;
+    /// Child process get self NativeChildProcess_Args.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to the arguments passed to current child process.
+    ///
+    /// For details, see [`NativeChildProcess_Args`].
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_Ability_GetCurrentChildProcessArgs() -> *mut NativeChildProcess_Args;
 }

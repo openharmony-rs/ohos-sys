@@ -198,4 +198,193 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         fd: *mut i32,
     ) -> AbilityBaseResult;
+    /// Set uri to want.
+    ///
+    /// # Arguments
+    ///
+    /// * `want` - The want needs to set uri.
+    ///
+    /// * `uri` - The uri of the want.
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_AbilityBase_SetWantUri(
+        want: *mut AbilityBase_Want,
+        uri: *const ::core::ffi::c_char,
+    ) -> AbilityBaseResult;
+    /// Get uri from want.
+    ///
+    /// # Arguments
+    ///
+    /// * `want` - The want that includes uri.
+    ///
+    /// * `uri` - The uri of the want.
+    ///
+    /// * `uriSize` - Size of the uri.
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_AbilityBase_GetWantUri(
+        want: *mut AbilityBase_Want,
+        uri: *mut ::core::ffi::c_char,
+        uriSize: usize,
+    ) -> AbilityBaseResult;
+    /// Set int32_t to want.
+    ///
+    /// # Arguments
+    ///
+    /// * `want` - The want needs to set int32_t value.
+    ///
+    /// * `key` - The key of int32_t param.
+    ///
+    /// * `value` - The value of int32_t param.
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_AbilityBase_SetWantInt32Param(
+        want: *mut AbilityBase_Want,
+        key: *const ::core::ffi::c_char,
+        value: i32,
+    ) -> AbilityBaseResult;
+    /// Get int32_t from want.
+    ///
+    /// # Arguments
+    ///
+    /// * `want` - The want includes int32_t value.
+    ///
+    /// * `key` - The key of int32_t param.
+    ///
+    /// * `value` - The value of int32_t param.
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_AbilityBase_GetWantInt32Param(
+        want: *mut AbilityBase_Want,
+        key: *const ::core::ffi::c_char,
+        value: *mut i32,
+    ) -> AbilityBaseResult;
+    /// Set bool to want.
+    ///
+    /// # Arguments
+    ///
+    /// * `want` - The want needs to set bool value.
+    ///
+    /// * `key` - The key of bool param.
+    ///
+    /// * `value` - The value of bool param.
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_AbilityBase_SetWantBoolParam(
+        want: *mut AbilityBase_Want,
+        key: *const ::core::ffi::c_char,
+        value: bool,
+    ) -> AbilityBaseResult;
+    /// Get bool from want.
+    ///
+    /// # Arguments
+    ///
+    /// * `want` - The want needs to set bool value.
+    ///
+    /// * `key` - The key of bool param.
+    ///
+    /// * `value` - The value of bool param.
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_AbilityBase_GetWantBoolParam(
+        want: *mut AbilityBase_Want,
+        key: *const ::core::ffi::c_char,
+        value: *mut bool,
+    ) -> AbilityBaseResult;
+    /// Set double to want.
+    ///
+    /// # Arguments
+    ///
+    /// * `want` - The want needs to set double value.
+    ///
+    /// * `key` - The key of double param.
+    ///
+    /// * `value` - The value of double param.
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_AbilityBase_SetWantDoubleParam(
+        want: *mut AbilityBase_Want,
+        key: *const ::core::ffi::c_char,
+        value: f64,
+    ) -> AbilityBaseResult;
+    /// Get double from want.
+    ///
+    /// # Arguments
+    ///
+    /// * `want` - The want needs to set double value.
+    ///
+    /// * `key` - The key of double param.
+    ///
+    /// * `value` - The value of double param.
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_BASE_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_BASE_ERROR_CODE_PARAM_INVALID`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_AbilityBase_GetWantDoubleParam(
+        want: *mut AbilityBase_Want,
+        key: *const ::core::ffi::c_char,
+        value: *mut f64,
+    ) -> AbilityBaseResult;
 }
