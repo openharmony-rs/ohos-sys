@@ -32,3 +32,63 @@ impl AbilityRuntime_AreaMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct AbilityRuntime_AreaMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+impl AbilityRuntime_StartVisibility {
+    /// Indicates that the ability will hide after process startup.
+    pub const ABILITY_RUNTIME_HIDE_UPON_START: AbilityRuntime_StartVisibility =
+        AbilityRuntime_StartVisibility(0);
+    /// Indicates that the ability will show after process startup.
+    pub const ABILITY_RUNTIME_SHOW_UPON_START: AbilityRuntime_StartVisibility =
+        AbilityRuntime_StartVisibility(1);
+}
+#[repr(transparent)]
+/// Start Visibility.
+///
+///
+/// Available since API-level: 17
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct AbilityRuntime_StartVisibility(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+impl AbilityRuntime_WindowMode {
+    /// The window mode is not defined.
+    pub const ABILITY_RUNTIME_WINDOW_MODE_UNDEFINED: AbilityRuntime_WindowMode =
+        AbilityRuntime_WindowMode(0);
+    /// Full screen mode.
+    pub const ABILITY_RUNTIME_WINDOW_MODE_FULL_SCREEN: AbilityRuntime_WindowMode =
+        AbilityRuntime_WindowMode(1);
+}
+#[repr(transparent)]
+/// Window mode.
+///
+///
+/// Available since API-level: 17
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct AbilityRuntime_WindowMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+impl AbilityRuntime_SupportedWindowMode {
+    /// Indicates supported window mode of full screen mode
+    pub const ABILITY_RUNTIME_SUPPORTED_WINDOW_MODE_FULL_SCREEN:
+        AbilityRuntime_SupportedWindowMode = AbilityRuntime_SupportedWindowMode(0);
+    /// Indicates supported window mode of split mode
+    pub const ABILITY_RUNTIME_SUPPORTED_WINDOW_MODE_SPLIT: AbilityRuntime_SupportedWindowMode =
+        AbilityRuntime_SupportedWindowMode(1);
+    /// Indicates supported window mode of floating mode
+    pub const ABILITY_RUNTIME_SUPPORTED_WINDOW_MODE_FLOATING: AbilityRuntime_SupportedWindowMode =
+        AbilityRuntime_SupportedWindowMode(2);
+}
+#[repr(transparent)]
+/// Support window mode
+///
+///
+/// Available since API-level: 17
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct AbilityRuntime_SupportedWindowMode(pub ::core::ffi::c_uint);

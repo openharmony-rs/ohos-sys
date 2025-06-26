@@ -597,7 +597,14 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                             "use crate::runtime::{AbilityRuntimeResult, AbilityRuntime_AreaMode};",
                         )
                         .raw_line("#[cfg(feature = \"api-15\")]")
-                        .raw_line("use crate::base::want::AbilityBase_Want;"),
+                        .raw_line("use crate::base::want::AbilityBase_Want;")
+                        .raw_line("#[cfg(feature = \"api-17\")]")
+                        .raw_line("use crate::runtime::start_options::AbilityRuntime_StartOptions;")
+                    ,
+                    "start_options" => builder
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                        .raw_line("use crate::runtime::{AbilityRuntimeResult, AbilityRuntime_StartVisibility, AbilityRuntime_SupportedWindowMode, AbilityRuntime_WindowMode};")
+                    ,
                     _ => builder,
                 }
             }),
