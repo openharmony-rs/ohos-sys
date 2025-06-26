@@ -54,7 +54,7 @@ impl XcomponentResult {
 // may change.
 #[allow(dead_code)]
 const ASSERT_SIZE_OK: () =
-    assert!(size_of::<XcomponentResult>() == size_of::<xcomponent_result_ffi::_bindgen_ty_11>());
+    assert!(size_of::<XcomponentResult>() == size_of::<xcomponent_result_ffi::_bindgen_ty_13>());
 
 #[cfg(feature = "keyboard-types")]
 #[cfg_attr(docsrs, doc(cfg(feature = "keyboard-types")))]
