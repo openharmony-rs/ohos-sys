@@ -639,6 +639,7 @@ extern "C" {
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
+    #[deprecated(since = "12")]
     pub fn OH_AVPlayer_SetPlayerCallback(
         player: *mut OH_AVPlayer,
         callback: AVPlayerCallback,

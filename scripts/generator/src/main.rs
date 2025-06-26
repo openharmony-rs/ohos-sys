@@ -100,6 +100,10 @@ fn parse_deprecated_since(line: &str) -> Result<Option<OpenHarmonyApiLevel>, Par
     if line.trim() == "@deprecated" {
         return Ok(None);
     }
+    if let Some((_, rhs)) = line.trim().split_once("**Deprecated** since") {
+        return Ok(Some(OpenHarmonyApiLevel::try_from(rhs.trim())?));
+    }
+    
     let (_, rhs) = line
         .split_once("@deprecated")
         .ok_or_else(|| ParseDeprecatedError::InvalidLine(line.to_string()))?;
@@ -185,7 +189,7 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
             }
         }
 
-        if let Some(deprecated_line) = comment.lines().find(|line| line.contains("@deprecated")) {
+        if let Some(deprecated_line) = comment.lines().find(|line| line.contains("@deprecated") || line.contains("**Deprecated**")) {
             let deprecated_since = parse_deprecated_since(deprecated_line).expect("Parse failed");
             let deprecated_opt =
                 deprecated_since.map(|since| format!("since = \"{}\"", since as u32));

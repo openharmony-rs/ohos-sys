@@ -191,6 +191,7 @@ extern "C" {
     ///
     /// **Deprecated** since 12
     /// OH_NativeImage_GetTransformMatrixV2
+    #[deprecated(since = "12")]
     pub fn OH_NativeImage_GetTransformMatrix(image: *mut OH_NativeImage, matrix: *mut f32) -> i32;
     /// Return the native image's surface id.
     ///

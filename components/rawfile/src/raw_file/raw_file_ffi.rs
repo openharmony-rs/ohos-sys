@@ -144,6 +144,7 @@ extern "C" {
     ///
     /// **Deprecated** since 12
     /// OH_ResourceManager_GetRawFileDescriptorData
+    #[deprecated(since = "12")]
     pub fn OH_ResourceManager_GetRawFileDescriptor(
         rawFile: *const RawFile,
         descriptor: *mut RawFileDescriptor,
@@ -189,6 +190,7 @@ extern "C" {
     ///
     /// **Deprecated** since 12
     /// OH_ResourceManager_ReleaseRawFileDescriptorData
+    #[deprecated(since = "12")]
     pub fn OH_ResourceManager_ReleaseRawFileDescriptor(
         descriptor: *const RawFileDescriptor,
     ) -> bool;
