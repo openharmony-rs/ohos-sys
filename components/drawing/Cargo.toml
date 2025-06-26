@@ -1,6 +1,6 @@
 [package]
 name = "ohos-drawing-sys"
-version = "0.3.1"
+version = "0.3.2"
 edition = "2021"
 description = "Bindings to the `native_drawing` API of OpenHarmony OS"
 license = "Apache-2.0"
@@ -31,6 +31,12 @@ api-13 = ["api-12"]
 api-14 = ["api-13"]
 ## Bindings for OpenHarmony API-level 15.
 api-15 = ["api-14"]
+## Enables bindings for OpenHarmony API-level 16.
+api-16 = ["api-15"]
+## Enables bindings for OpenHarmony API-level 17.
+api-17 = ["api-16"]
+## Enables bindings for OpenHarmony API-level 18 (5.1.0).
+api-18 = ["api-17"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 

@@ -712,6 +712,106 @@ extern "C" {
         font: *mut OH_Drawing_Font,
         fontMetrics: *mut OH_Drawing_Font_Metrics,
     ) -> f32;
+    /// Retrieves the bound rect for each glyph in glyph array.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    ///
+    /// * `glyphs` - Indicates the array of glyph indices to be measured.
+    ///
+    /// * `count` - Indicates the number of glyphs.
+    ///
+    /// * `bounds` - The bound rect array for each glyph, returned to the caller.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of font, glyphs
+    /// and bounds is nullptr or count is 0.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_FontGetBounds(
+        font: *const OH_Drawing_Font,
+        glyphs: *const u16,
+        count: u32,
+        bounds: *mut OH_Drawing_Array,
+    ) -> crate::error_code::DrawingResult;
+    /// Retrieves the path for specified Glyph.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    ///
+    /// * `glyph` - glyph index to be obtained.
+    ///
+    /// * `path` - The path object, returned to the caller.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of font, path
+    /// is nullptr or glyph not exist.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_FontGetPathForGlyph(
+        font: *const OH_Drawing_Font,
+        glyph: u16,
+        path: *mut OH_Drawing_Path,
+    ) -> crate::error_code::DrawingResult;
+    /// Get the text outline path.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    ///
+    /// * `text` - Indicates the character storage encoded with text encoding.
+    ///
+    /// * `byteLength` - Indicates to get the byte length of the corresponding text path. If this byte length is greater
+    /// than the byte length of the text string, undefined behavior will occur.
+    ///
+    /// * `encoding` - <b>OH_Drawing_TextEncoding</b> Indicates the text encoding.
+    ///
+    /// * `x` - Indicates x coordinates of the text.
+    ///
+    /// * `y` - Indicates y coordinates of the text.
+    ///
+    /// * `path` - <b>OH_Drawing_Path</b> The path object, returned to the caller.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of font, text or path is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_FontGetTextPath(
+        font: *const OH_Drawing_Font,
+        text: *const ::core::ffi::c_void,
+        byteLength: usize,
+        encoding: OH_Drawing_TextEncoding,
+        x: f32,
+        y: f32,
+        path: *mut OH_Drawing_Path,
+    ) -> crate::error_code::DrawingResult;
     /// Sets whether to follow the theme font. If the value is true, the theme font is used when typeface is not set.
     ///
     ///
@@ -726,7 +826,6 @@ extern "C" {
     ///
     /// * Returns the error code.
     /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    ///
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if font is nullptr.
     ///
     /// Available since API-level: 15

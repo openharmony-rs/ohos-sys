@@ -11,8 +11,11 @@ use crate::types::*;
 /// Available since API-level: 12
 ///
 /// Version: 1.0
+///
+/// **Deprecated** since 18
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+#[deprecated(since = "18")]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_GpuContextOptions {
@@ -35,11 +38,30 @@ extern "C" {
     /// Available since API-level: 12
     ///
     /// Version: 1.0
+    ///
+    /// **Deprecated** since 18
+    /// OH_Drawing_GpuContextCreate
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    #[deprecated(since = "18")]
     pub fn OH_Drawing_GpuContextCreateFromGL(
         gpuContextOptions: OH_Drawing_GpuContextOptions,
     ) -> *mut OH_Drawing_GpuContext;
+    /// Creates an <b>OH_Drawing_GpuContext</b> object, whose GPU backend context depends on device.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_GpuContext</b> object created.
+    ///
+    /// Available since API-level: 16
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-16")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
+    pub fn OH_Drawing_GpuContextCreate() -> *mut OH_Drawing_GpuContext;
     /// Destroys an <b>OH_Drawing_GpuContext</b> object and reclaims the memory occupied by the object.
     ///
     ///

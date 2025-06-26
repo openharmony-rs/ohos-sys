@@ -17,6 +17,12 @@ impl OH_Drawing_SystemFontType {
     pub const STYLISH: OH_Drawing_SystemFontType = OH_Drawing_SystemFontType(4);
     /// Installed font types
     pub const INSTALLED: OH_Drawing_SystemFontType = OH_Drawing_SystemFontType(8);
+    /// Customized font types
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const CUSTOMIZED: OH_Drawing_SystemFontType = OH_Drawing_SystemFontType(16);
 }
 #[repr(transparent)]
 /// An enumeration of system font types.
@@ -28,6 +34,51 @@ impl OH_Drawing_SystemFontType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_SystemFontType(pub ::core::ffi::c_uint);
 extern "C" {
+    /// Obtain all system font descriptive symbols that match the specified font descriptor. Where the 'path'
+    /// fields are not considered as valid matching values, It takes effect when the remaining fields are not
+    /// default values, If all the fields of the parameters <b>OH_Drawing_FontDescriptor</b> are default, obtain all system
+    /// font descriptors. If the match fails, return nullptr.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `desc` - The pointer to the <b>OH_Drawing_FontDescriptor</b> object. It is recommended to
+    /// use <b>OH_Drawing_CreateFontDescriptor</b> to obtain a valid <b>OH_Drawing_FontDescriptor</b> instance.
+    /// If you create your own <b>OH_Drawing_FontDescriptor</b> object, ensure that fields not intended for matching are
+    /// set to their default values.
+    ///
+    /// * `num` - Indicates the count of obtained <b>OH_Drawing_FontDescriptor</b>.
+    ///
+    /// # Returns
+    ///
+    /// * Returns an array of <b>OH_Drawing_FontDescriptor</b>. Released through the
+    /// <b>OH_Drawing_DestroyFontDescriptors</b> interface after use.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_MatchFontDescriptors(
+        desc: *mut OH_Drawing_FontDescriptor,
+        num: *mut usize,
+    ) -> *mut OH_Drawing_FontDescriptor;
+    /// Releases the <b>OH_Drawing_FontDescriptor</b> array.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `descriptors` - <b>OH_Drawing_FontDescriptor</b> object array.
+    ///
+    /// * `num` - Represents the number of members of the <b>OH_Drawing_FontDescriptor</b> array.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_DestroyFontDescriptors(
+        descriptors: *mut OH_Drawing_FontDescriptor,
+        num: usize,
+    );
     /// Get the <b>OH_Drawing_FontDescriptor</b> object by the font full name and the font type, supporting generic
     /// fonts, stylish fonts, and installed fonts.
     ///

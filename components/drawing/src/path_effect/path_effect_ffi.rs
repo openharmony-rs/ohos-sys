@@ -5,7 +5,75 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+impl OH_Drawing_PathDashStyle {
+    /// Indicates translation effect.
+    pub const DRAWING_PATH_DASH_STYLE_TRANSLATE: OH_Drawing_PathDashStyle =
+        OH_Drawing_PathDashStyle(0);
+    /// Indicates rotation effect.
+    pub const DRAWING_PATH_DASH_STYLE_ROTATE: OH_Drawing_PathDashStyle =
+        OH_Drawing_PathDashStyle(1);
+    /// Indicates morph effect.
+    pub const DRAWING_PATH_DASH_STYLE_MORPH: OH_Drawing_PathDashStyle = OH_Drawing_PathDashStyle(2);
+}
+#[repr(transparent)]
+/// Enumerate path dash style.
+///
+///
+/// Available since API-level: 18
+///
+/// Version: 1.0
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Drawing_PathDashStyle(pub ::core::ffi::c_uint);
 extern "C" {
+    /// Creates an <b>OH_Drawing_PathEffect</b> object that is a combination of paths,
+    /// applying the inner path effect first and then the outer path effect.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `outer` - Indicates an <b>OH_Drawing_PathEffect</b> object
+    ///
+    /// * `inner` - Indicates an <b>OH_Drawing_PathEffect</b> object
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CreateComposePathEffect(
+        outer: *mut OH_Drawing_PathEffect,
+        inner: *mut OH_Drawing_PathEffect,
+    ) -> *mut OH_Drawing_PathEffect;
+    /// Creates an <b>OH_Drawing_PathEffect</b> object
+    /// that turns the included angle of the path into a fillet of a specified radius.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `radius` - Indicates the degree of curvature of the arc, the radius must be greater than zero.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
+    /// If nullptr is returned, the creation fails.
+    /// The possible cause of the failure is radius is zero or less.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CreateCornerPathEffect(radius: f32) -> *mut OH_Drawing_PathEffect;
     /// Creates an <b>OH_Drawing_PathEffect</b> object.
     ///
     ///
@@ -31,6 +99,84 @@ extern "C" {
         intervals: *mut f32,
         count: ::core::ffi::c_int,
         phase: f32,
+    ) -> *mut OH_Drawing_PathEffect;
+    /// Creates an <b>OH_Drawing_PathEffect</b> object
+    /// that breaks the path and creates an irregular distribution on the path.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `segLength` - Indicates the maximum segment length of the path.
+    ///
+    /// * `deviation` - Indicates the deviation during drawing.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CreateDiscretePathEffect(
+        segLength: f32,
+        deviation: f32,
+    ) -> *mut OH_Drawing_PathEffect;
+    /// Creates an <b>OH_Drawing_PathEffect</b> object and sets the path effect to a dash effect.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `advance` - Indicates the distance between the dashed segments.
+    ///
+    /// * `phase` - Indicates the offset into intervals array.
+    ///
+    /// * `type` - Indicates the type of the path dash effect.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
+    /// If nullptr is returned, the creation fails.
+    /// The possible cause of the failure is advance and phase are zero or less.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CreatePathDashEffect(
+        path: *const OH_Drawing_Path,
+        advance: f32,
+        phase: f32,
+        type_: OH_Drawing_PathDashStyle,
+    ) -> *mut OH_Drawing_PathEffect;
+    /// Creates an <b>OH_Drawing_PathEffect</b> object by overlaying two path effects.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `firstPathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
+    ///
+    /// * `secondPathEffect` - Indicates the pointer to an <b>OH_Drawing_PathEffect</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_PathEffect</b> object created.
+    ///
+    /// Available since API-level: 18
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_Drawing_CreateSumPathEffect(
+        firstPathEffect: *mut OH_Drawing_PathEffect,
+        secondPathEffect: *mut OH_Drawing_PathEffect,
     ) -> *mut OH_Drawing_PathEffect;
     /// Destroys an <b>OH_Drawing_PathEffect</b> object and reclaims the memory occupied by the object.
     ///

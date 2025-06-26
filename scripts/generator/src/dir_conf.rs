@@ -354,6 +354,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     builder
                 };
                 let builder = match file_stem {
+                    "canvas" => builder
+                        .raw_line("#[cfg(feature = \"api-18\")]")
+                        .raw_line("use crate::sampling_options::OH_Drawing_FilterMode;"),
                     "font_collection" => builder.raw_line("use crate::text_declaration::*;"),
                     "text_typography" => builder
                         .raw_line("use crate::text_declaration::*;")
@@ -369,6 +372,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         "use ohos_sys_opaque_types::{OH_PixelmapNative, NativePixelMap_};",
                     ),
                     "text_blob" => builder.no_copy("OH_Drawing_RunBuffer"),
+                    "text_line" => builder.raw_line("use crate::text_declaration::{OH_Drawing_Run, OH_Drawing_TextLine, OH_Drawing_Typography};"),
+                    "text_lineTypography" => builder.raw_line("use crate::text_declaration::{OH_Drawing_LineTypography, OH_Drawing_TextLine, OH_Drawing_TypographyCreate};"),
+                    "text_run" => builder.raw_line("use crate::text_declaration::OH_Drawing_Run;"),
                     _ => builder,
                 };
                 builder
