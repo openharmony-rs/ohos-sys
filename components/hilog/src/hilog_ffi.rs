@@ -120,6 +120,78 @@ extern "C" {
         fmt: *const ::core::ffi::c_char,
         ...
     ) -> ::core::ffi::c_int;
+    /// Outputs logs.
+    ///
+    /// You can use this function to output logs based on the specified log type, log level, service domain, log tag,
+    /// and message text.
+    ///
+    /// # Arguments
+    ///
+    /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`].
+    ///
+    /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
+    /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
+    ///
+    /// * `domain` - Indicates the service domain of logs. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFF.
+    ///
+    /// * `tag` - Indicates the log tag, which is a string used to identify the class, file, or service behavior.
+    ///
+    /// * `message` - Indicates the log string.
+    ///
+    /// # Returns
+    ///
+    /// * Returns <b>0</b> or a larger value if the operation is successful; returns a value smaller
+    /// than <b>0</b> otherwise.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_LOG_PrintMsg(
+        type_: LogType,
+        level: LogLevel,
+        domain: ::core::ffi::c_uint,
+        tag: *const ::core::ffi::c_char,
+        message: *const ::core::ffi::c_char,
+    ) -> ::core::ffi::c_int;
+    /// Outputs logs.
+    ///
+    /// You can use this function to output logs based on the specified log type, log level, service domain, log tag,
+    /// message text and message length.
+    ///
+    /// # Arguments
+    ///
+    /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`].
+    ///
+    /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
+    /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
+    ///
+    /// * `domain` - Indicates the service domain of logs. Its value is a hexadecimal integer ranging from 0x0 to 0xFFFF.
+    ///
+    /// * `tag` - Indicates the log tag, which is a string used to identify the class, file, or service behavior.
+    ///
+    /// * `tagLen` - Indicates the length of tag.
+    ///
+    /// * `message` - Indicates the log string.
+    ///
+    /// * `messageLen` - Indicates the length of message.
+    ///
+    /// # Returns
+    ///
+    /// * Returns <b>0</b> or a larger value if the operation is successful; returns a value smaller
+    /// than <b>0</b> otherwise.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_LOG_PrintMsgByLen(
+        type_: LogType,
+        level: LogLevel,
+        domain: ::core::ffi::c_uint,
+        tag: *const ::core::ffi::c_char,
+        tagLen: usize,
+        message: *const ::core::ffi::c_char,
+        messageLen: usize,
+    ) -> ::core::ffi::c_int;
     /// Checks whether logs of the specified service domain, log tag, and log level can be output.
     ///
     /// # Arguments

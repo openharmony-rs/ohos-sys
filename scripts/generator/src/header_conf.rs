@@ -17,8 +17,12 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
         BindingConf {
             include_filename: "hilog/log.h".to_string(),
             output_prefix: "components/hilog/src/hilog".to_string(),
-            set_builder_opts: Box::new(|builder| builder.blocklist_var("LOG_DOMAIN")),
-        },
+            set_builder_opts: Box::new(|builder| 
+                builder
+                    .blocklist_var("LOG_DOMAIN")
+                    // blocklist because of va_list.
+                    .blocklist_function("OH_LOG_VPrint")
+            )},
         BindingConf {
             include_filename: "napi/native_api.h".to_string(),
             output_prefix: "src/napi/napi".to_string(),
