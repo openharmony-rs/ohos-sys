@@ -663,6 +663,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "window" => builder
                         .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")  
                         .raw_line("use crate::window_comm::{WindowManager_AvoidArea, WindowManager_AvoidAreaType, WindowManager_WindowProperties};")
+                        .raw_line("#[cfg(feature=\"api-17\")]")
+                        .raw_line("use crate::window_comm::WindowManager_Rect;")
                     ,
                     _ => builder,
                 }

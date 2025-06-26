@@ -3,6 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-17")]
+use crate::window_comm::WindowManager_Rect;
 use crate::window_comm::{
     WindowManager_AvoidArea, WindowManager_AvoidAreaType, WindowManager_WindowProperties,
 };
@@ -315,4 +317,43 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_WindowManager_Snapshot(windowId: i32, pixelMap: *mut OH_PixelmapNative) -> i32;
+    /// Get layout info of all windows on the selected display.
+    ///
+    /// # Arguments
+    ///
+    /// * `displayId` - Indicate the id of display.
+    ///
+    /// * `windowLayoutInfoList` - Pointer to the layout information of the visible windows on the specified screen.
+    ///
+    /// * `windowLayoutInfoSize` - Pointer to the size of the array of layout information of the visible windows on the
+    /// specified screen.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// [`OK`] the function call is successful, return Window layout info list.
+    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`] parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_WindowManager_GetAllWindowLayoutInfoList(
+        displayId: i64,
+        windowLayoutInfoList: *mut *mut WindowManager_Rect,
+        windowLayoutInfoSize: *mut usize,
+    ) -> i32;
+    /// Release the memory of window layout info list.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowLayoutInfoList` - Pointer to the layout information of the visible windows on the specified screen.
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub fn OH_WindowManager_ReleaseAllWindowLayoutInfoList(
+        windowLayoutInfoList: *mut WindowManager_Rect,
+    );
 }
