@@ -157,4 +157,14 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_LOG_SetCallback(callback: LogCallback);
+    /// Sets the lowest log level of the current application process.
+    ///
+    /// # Arguments
+    ///
+    /// * `level` - log level
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_LOG_SetMinLogLevel(level: LogLevel);
 }

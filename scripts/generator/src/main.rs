@@ -339,7 +339,7 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
         if only_gen_module
             .as_ref()
             .and_then(|name| header_filename_str.contains(name).then_some(()))
-            .is_none()
+            .is_some()
         {
             continue;
         }
