@@ -35,13 +35,15 @@ extern "C" {
         name: *const ::core::ffi::c_char,
         length: ::core::ffi::c_uint,
     ) -> *mut OH_NativeVSync;
-    /// Delete the NativeVsync instance.
+    /// Destroys an <b>OH_NativeVSync</b> instance.
+    /// Once the <b>OH_NativeVSync</b> pointer is destroyed, it must not be used to prevent dangling pointer problems.
+    /// Pay special attention to the management of the <b>OH_NativeVSync</b> pointer in concurrent multithreaded scenarios.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
     /// # Arguments
     ///
-    /// * `nativeVsync` - Indicates the pointer to a <b>NativeVsync</b> instance.
+    /// * `nativeVsync` - Pointer to an <b>OH_NativeVSync</b> instance.
     ///
     /// Available since API-level: 9
     ///
@@ -131,7 +133,12 @@ extern "C" {
         callback: OH_NativeVSync_FrameCallback,
         data: *mut ::core::ffi::c_void,
     ) -> ::core::ffi::c_int;
-    /// Get vsync period.
+    /// Obtains the VSync period.
+    /// The VSync period is refreshed only when the <b>OH_NativeVSync_FrameCallback</b> callback is received
+    /// following a request for a VSync signal via <b>OH_NativeVSync_RequestFrame</b>.
+    /// To obtain the VSync period for the first time using this function,
+    /// you need to call <b>OH_NativeVSync_RequestFrame</b> to request a VSync signal.
+    /// Once the <b>OH_NativeVSync_FrameCallback</b> callback is received, the vsync period can be obtained.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
