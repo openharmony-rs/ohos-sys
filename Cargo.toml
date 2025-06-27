@@ -23,22 +23,22 @@ ohos-sys-opaque-types = { version = "0.1.7", path = "components/opaque-types" }
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
-arkui-sys = { version = "0.3.1", optional = true, path = "components/arkui" }
-hilog-sys = { version = "0.1.5", optional = true, path = "components/hilog" }
-hitrace-sys = { version = "0.1.5", optional = true, path = "components/hitrace" }
-ohos-abilitykit-sys = { version = "0.1.1", optional = true, path = "components/abilitykit" }
-ohos-deviceinfo-sys = { version = "0.1.4", optional = true, path = "components/deviceinfo" }
-ohos-drawing-sys = { path = "components/drawing", version = "0.3.1", optional = true }
-ohos-image-kit-sys = { version = "0.3.1", optional = true, path = "components/multimedia/image_framework" }
-ohos-ime-sys = { version = "0.2.1", optional = true, path = "components/inputmethod" }
-ohos-input-sys = { version = "0.3.1", optional = true, path = "components/multimodal-input" }
-ohos-pasteboard-sys = { version = "0.1.1", optional = true, path = "components/pasteboard" }
-ohos-rawfile-sys = { version = "0.1.1", optional = true, path = "components/rawfile" }
+arkui-sys = { version = "0.3.2", optional = true, path = "components/arkui" }
+hilog-sys = { version = "0.1.6", optional = true, path = "components/hilog" }
+hitrace-sys = { version = "0.1.6", optional = true, path = "components/hitrace" }
+ohos-abilitykit-sys = { version = "0.1.2", optional = true, path = "components/abilitykit" }
+ohos-deviceinfo-sys = { version = "0.1.5", optional = true, path = "components/deviceinfo" }
+ohos-drawing-sys = { path = "components/drawing", version = "0.3.2", optional = true }
+ohos-image-kit-sys = { version = "0.3.2", optional = true, path = "components/multimedia/image_framework" }
+ohos-ime-sys = { version = "0.2.2", optional = true, path = "components/inputmethod" }
+ohos-input-sys = { version = "0.3.2", optional = true, path = "components/multimodal-input" }
+ohos-pasteboard-sys = { version = "0.1.2", optional = true, path = "components/pasteboard" }
+ohos-rawfile-sys = { version = "0.1.2", optional = true, path = "components/rawfile" }
 ohos-sys-opaque-types = { workspace = true }
-ohos-window-sys = { version = "0.1.2", optional = true, path = "components/window" }
-ohos-vsync-sys = { version = "0.1.3", optional = true, path = "components/vsync" }
-xcomponent-sys = { version = "0.3.2", optional = true, path = "components/xcomponent" }
-ohos-window-manager-sys = { version = "0.1.1", optional = true, path = "components/window_manager" }
+ohos-window-sys = { version = "0.1.3", optional = true, path = "components/window" }
+ohos-vsync-sys = { version = "0.1.4", optional = true, path = "components/vsync" }
+xcomponent-sys = { version = "0.3.3", optional = true, path = "components/xcomponent" }
+ohos-window-manager-sys = { version = "0.1.2", optional = true, path = "components/window_manager" }
 
 
 [features]
@@ -204,6 +204,62 @@ api-15 = [
     "ohos-window-sys?/api-15",
     "xcomponent-sys?/api-15",
 ]
+
+## Enables bindings for OpenHarmony API-level 16.
+api-16 = ["api-15",
+    "arkui-sys?/api-16",
+    "hilog-sys?/api-16",
+    "hitrace-sys?/api-16",
+    "ohos-abilitykit-sys?/api-16",
+    "ohos-deviceinfo-sys?/api-16",
+    "ohos-drawing-sys?/api-16",
+    "ohos-image-kit-sys?/api-16",
+    "ohos-ime-sys?/api-16",
+    "ohos-input-sys?/api-16",
+    "ohos-pasteboard-sys?/api-16",
+    "ohos-rawfile-sys?/api-16",
+    "ohos-vsync-sys?/api-16",
+    "ohos-window-manager-sys?/api-16",
+    "ohos-window-sys?/api-16",
+    "xcomponent-sys?/api-16",
+]
+## Enables bindings for OpenHarmony API-level 17.
+api-17 = ["api-16",
+    "arkui-sys?/api-17",
+    "hilog-sys?/api-17",
+    "hitrace-sys?/api-17",
+    "ohos-abilitykit-sys?/api-17",
+    "ohos-deviceinfo-sys?/api-17",
+    "ohos-drawing-sys?/api-17",
+    "ohos-image-kit-sys?/api-17",
+    "ohos-ime-sys?/api-17",
+    "ohos-input-sys?/api-17",
+    "ohos-pasteboard-sys?/api-17",
+    "ohos-rawfile-sys?/api-17",
+    "ohos-vsync-sys?/api-17",
+    "ohos-window-manager-sys?/api-17",
+    "ohos-window-sys?/api-17",
+    "xcomponent-sys?/api-17",
+]
+## Enables bindings for OpenHarmony API-level 18 (5.1.0).
+api-18 = ["api-17",
+    "arkui-sys?/api-18",
+    "hilog-sys?/api-18",
+    "hitrace-sys?/api-18",
+    "ohos-abilitykit-sys?/api-18",
+    "ohos-deviceinfo-sys?/api-18",
+    "ohos-drawing-sys?/api-18",
+    "ohos-image-kit-sys?/api-18",
+    "ohos-ime-sys?/api-18",
+    "ohos-input-sys?/api-18",
+    "ohos-pasteboard-sys?/api-18",
+    "ohos-rawfile-sys?/api-18",
+    "ohos-vsync-sys?/api-18",
+    "ohos-window-manager-sys?/api-18",
+    "ohos-window-sys?/api-18",
+    "xcomponent-sys?/api-18",
+]
+
 #! ### Features of dependencies
 #!
 #! Re-exports features of individual component crates of `ohos-sys`.
