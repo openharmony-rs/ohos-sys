@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2
+
+- Update to API-16, 17 and 18
+
 ## 0.3.1
 
 - Update to API-15

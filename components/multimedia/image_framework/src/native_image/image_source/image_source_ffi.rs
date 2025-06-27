@@ -64,6 +64,24 @@ impl IMAGE_ALLOCATOR_TYPE {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct IMAGE_ALLOCATOR_TYPE(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+impl Image_CropAndScaleStrategy {
+    /// Scale first, then crop.
+    pub const SCALE_FIRST: Image_CropAndScaleStrategy = Image_CropAndScaleStrategy(1);
+    /// Crop first, then scale.
+    pub const CROP_FIRST: Image_CropAndScaleStrategy = Image_CropAndScaleStrategy(2);
+}
+#[repr(transparent)]
+/// The strategy for executing the two operations when both desiredSize and desiredRegion
+/// are specified.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
+pub struct Image_CropAndScaleStrategy(pub ::core::ffi::c_uint);
 /// Defines the options for decoding the image source.
 /// It is used in [`OH_ImageSourceNative_CreatePixelmap`].
 ///
@@ -384,6 +402,51 @@ extern "C" {
         options: *mut OH_DecodingOptions,
         desiredDynamicRange: *mut i32,
     ) -> ImageResult;
+    /// Sets a cropping and scaling strategy for decoding options.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Pointer to the decoding options.
+    ///
+    /// * `cropAndScaleStrategy` - Strategy for executing the cropping and scaling operations when both desiredSize and
+    /// desiredRegion are specified.
+    ///
+    /// # Returns
+    ///
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`]: The execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`]: options is a null pointer or cropAndScaleStrategy is not in the range of
+    /// Image_CropAndScaleStrategy.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_DecodingOptions_SetCropAndScaleStrategy(
+        options: *mut OH_DecodingOptions,
+        cropAndScaleStrategy: i32,
+    ) -> ImageResult;
+    /// Obtains the cropping and scaling strategy of decoding options.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Pointer to the decoding options.
+    ///
+    /// * `cropAndScaleStrategy` - Pointer to the strategy for executing the cropping and scaling operations when both
+    /// desiredSize and desiredRegion are specified.
+    ///
+    /// # Returns
+    ///
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`]: The execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`]: options or cropAndScaleStrategy is a null pointer.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_DecodingOptions_GetCropAndScaleStrategy(
+        options: *mut OH_DecodingOptions,
+        cropAndScaleStrategy: *mut i32,
+    ) -> ImageResult;
     /// Set desiredDynamicRange number for OH_DecodingOptions struct.
     ///
     /// # Arguments
@@ -510,7 +573,7 @@ extern "C" {
     /// * `options` - Indicates a pointer to the options for decoding the image source.
     /// For details, see [`OH_DecodingOptions`].
     ///
-    /// * `resPixMap` - Indicates a void pointer to the <b>Pixelmap</b> object obtained at the C++ native layer.
+    /// * `pixelmap` - Indicates a void pointer to the <b>Pixelmap</b> object obtained at the C++ native layer.
     ///
     /// # Returns
     ///
@@ -717,7 +780,7 @@ extern "C" {
     ///
     /// * `source` - Indicates a pointer to the [`OH_ImageSource`] object at the C++ native layer.
     ///
-    /// * `res` - Indicates a pointer to the number of frames obtained.
+    /// * `frameCount` - The number of image frameCount.
     ///
     /// # Returns
     ///
