@@ -31,6 +31,12 @@ impl OH_AVErrCode {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AV_ERR_INPUT_DATA_ERROR: OH_AVErrCode = OH_AVErrCode(10);
+    /// unsupported format.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const AV_ERR_UNSUPPORTED_FORMAT: OH_AVErrCode = OH_AVErrCode(11);
     /// extend err start.
     pub const AV_ERR_EXTEND_START: OH_AVErrCode = OH_AVErrCode(100);
     /// drm error base.
