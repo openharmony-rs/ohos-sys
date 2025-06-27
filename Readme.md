@@ -11,7 +11,7 @@ already been generated.
 
 | API name                                | status | API-level |
 |-----------------------------------------|--------|-----------|
-| AbilityKit                              | ✅      | 15        |
+| AbilityKit                              | ✅      | 18        |
 | BasicServicesKit                        |        |           |
 | ConnectivityKit                         |        |           |
 | CryptoArchitectureKit                   |        |           |
@@ -20,9 +20,9 @@ already been generated.
 | LocationKit                             |        |           |
 | NotificationKit                         |        |           |
 | accesstoken                             |        |           |
-| ace/xcomponent                          | ✅      | 15        |
+| ace/xcomponent                          | ✅      | 18        |
 | ark_runtime                             |        |           |
-| arkui                                   | ✅      | 15        |
+| arkui                                   | ✅      | 18        |
 | asset                                   |        |           |
 | bundle                                  |        |           |
 | database                                |        |           |
@@ -33,44 +33,44 @@ already been generated.
 | hicollie                                |        |           |
 | hid                                     |        |           |
 | hidebug                                 |        |           |
-| hilog                                   | ✅      | 15        |
-| hitrace                                 | ✅      | 15        |
+| hilog                                   | ✅      | 18        |
+| hitrace                                 | ✅      | 18        |
 | huks                                    |        |           |
 | info                                    |        |           |
-| inputmethod                             | ✅      | 15        |
+| inputmethod                             | ✅      | 18        |
 | mindspore                               |        |           |
 | multimedia                              |        |           |
-| multimodalinput                         | ✅      | 15        |
-| napi                                    | ✅      | 13        |
-| native_buffer                           | ✅      | 15        |
+| multimodalinput                         | ✅      | 18        |
+| napi                                    | ✅      | 18        |
+| native_buffer                           | ✅      | 18        |
 | native_color_space_manager              |        |           |
 | native_display_soloist                  |        |           |
-| native_drawing                          | ✅      | 15        |
+| native_drawing                          | ✅      | 18        |
 | native_effect                           |        |           |
-| native_image                            | ✅      | 15        |
-| native_vsync                            | ✅      | 15        |
-| native_window                           | ✅      | 15        |
+| native_image                            | ✅      | 18        |
+| native_vsync                            | ✅      | 18        |
+| native_window                           | ✅      | 18        |
 | network                                 |        |           |
 | neural_network_runtime                  |        |           |
 | ohaudio                                 |        |           |
 | ohcamera                                |        |           |
-| Pasteboard                              | ✅      | 15        |
+| Pasteboard                              | ✅      | 18        |
 | purgeable_memory                        |        |           |
 | qos                                     |        |           |
-| rawfile                                 | ✅      | 15        |
+| rawfile                                 | ✅      | 18        |
 | resourcemanager                         |        |           |
 | sensors                                 |        |           |
 | telephony                               |        |           |
 | transient_task                          |        |           |
-| Unified Data Management Framework(UDMF) | ✅      | 15        |
+| Unified Data Management Framework(UDMF) | ✅      | 18        |
 | usb                                     |        |           |
 | web                                     |        |           |
-| window_manager                          | ✅      | 15        |
+| window_manager                          | ✅      | 18        |
 
 ## Development
 
 The current bindings are generated with `bindgen` using `scripts/generate_bindings.sh`.
-Bindings are currently generated with the OpenHarmony SDK API level 13, but with items
+Bindings are currently generated with the OpenHarmony SDK API level 18, but with items
 added after API level 10 feature guarded behind `api-XX` features. this is handled
 automatically by the tool based on the documentation comments in the C header files.
 
