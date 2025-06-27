@@ -13,6 +13,7 @@ already been generated.
 |-----------------------------------------|--------|-----------|
 | AbilityKit                              | ✅      | 18        |
 | BasicServicesKit                        |        |           |
+| Background Process Manager              |        |           |
 | ConnectivityKit                         |        |           |
 | CryptoArchitectureKit                   |        |           |
 | DataProtectionKit                       |        |           |
@@ -60,10 +61,12 @@ already been generated.
 | rawfile                                 | ✅      | 18        |
 | resourcemanager                         |        |           |
 | sensors                                 |        |           |
+| SCSI Peripherals                        |        |           |
 | telephony                               |        |           |
 | transient_task                          |        |           |
 | Unified Data Management Framework(UDMF) | ✅      | 18        |
 | usb                                     |        |           |
+| usb serial                              |        |           |
 | web                                     |        |           |
 | window_manager                          | ✅      | 18        |
 
