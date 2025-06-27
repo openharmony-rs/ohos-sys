@@ -303,7 +303,7 @@ pub struct napi_module {
     pub reserved: [*mut ::core::ffi::c_void; 4usize],
 }
 /// Native detach callback of napi_coerce_to_native_binding_object that can be used to
-/// detach the js object and the native object.
+/// detach the ArkTS object and the native object.
 ///
 ///
 /// Available since API-level: 11
@@ -317,7 +317,7 @@ pub type napi_native_binding_detach_callback = ::core::option::Option<
     ) -> *mut ::core::ffi::c_void,
 >;
 /// Native attach callback of napi_coerce_to_native_binding_object that can be used to
-/// bind the js object and the native object.
+/// bind the ArkTS object and the native object.
 ///
 ///
 /// Available since API-level: 11
@@ -331,6 +331,24 @@ pub type napi_native_binding_attach_callback = ::core::option::Option<
     ) -> napi_value,
 >;
 extern "C" {
+    /// Obtains the napi_extended_error_info struct, which contains the latest error information.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `result` - The error info about the error.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_last_error_info(
         env: napi_env,
         result: *mut *const napi_extended_error_info,
@@ -381,18 +399,84 @@ extern "C" {
         data: *mut ::core::ffi::c_void,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Creates a ArkTS Error with text information.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `code` - Optional error code to set on the error.
+    ///
+    /// * `msg` - napi_value representing the EcmaScript string to be associated with the error.
+    ///
+    /// * `result` - napi_value representing the error created.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, msg or result is nullptr, code is not string and number type or msg is
+    /// not a string type.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_error(
         env: napi_env,
         code: napi_value,
         msg: napi_value,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Creates a ArkTS TypeError with text information.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `code` - Optional error code to set on the error.
+    ///
+    /// * `msg` - napi_value representing the EcmaScript string to be associated with the error.
+    ///
+    /// * `result` - napi_value representing the error created.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, msg or result is nullptr, code is not string and number type or msg is
+    /// not a string type.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_type_error(
         env: napi_env,
         code: napi_value,
         msg: napi_value,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Creates a ArkTS RangeError with text information.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `code` - Optional error code to set on the error.
+    ///
+    /// * `msg` - napi_value representing the EcmaScript string to be associated with the error.
+    ///
+    /// * `result` - napi_value representing the error created.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, msg or result is nullptr, code is not string and number type or msg is
+    /// not a string type.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_range_error(
         env: napi_env,
         code: napi_value,
@@ -486,6 +570,31 @@ extern "C" {
         key: napi_value,
         result: *mut bool,
     ) -> napi_status;
+    /// Check if the given ArkTS Object has the named own property or not.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `object` - The ArkTS object.
+    ///
+    /// * `key` - The name of the property to check.
+    ///
+    /// * `result` - Whether the own property exists on the object or not.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If the param env, object, key and(or) result is nullptr.
+    ///
+    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    ///
+    /// [`napi_pending_exception`] If have uncaught exception, or exception occurs in execution.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_has_own_property(
         env: napi_env,
         object: napi_value,
@@ -583,6 +692,41 @@ extern "C" {
         cbinfo: napi_callback_info,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Defines an ArkTS class, including constructor function and properties.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `utf8name` - Name of the ArkTS constructor function.
+    ///
+    /// * `length` - The length of the utf8name in bytes, or NAPI_AUTO_LENGTH if it is null-terminated.
+    ///
+    /// * `constructor` - Callback function that handles constructing instances of the class.
+    ///
+    /// * `data` - Optional data to be passed to the constructor callback as the data property of the callback info.
+    ///
+    /// * `property_count` - Number of items in the properties array argument.
+    ///
+    /// * `properties` - Array of property descriptors.
+    ///
+    /// * `result` - A napi_value representing the constructor function for the class.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    /// execution.
+    ///
+    /// [`napi_invalid_arg`] If the param env, utf8name and(or) result is nullptr. If napi_property_descriptor
+    /// is nullptr but property_count greater than 0.
+    ///
+    /// [`napi_function_expected`] If the param func is not an ArkTS Function.
+    ///
+    /// [`napi_pending_exception`] If have uncaught exception, or exception occurs in execution.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_define_class(
         env: napi_env,
         utf8name: *const ::core::ffi::c_char,
@@ -623,54 +767,369 @@ extern "C" {
         value: napi_value,
         result: *mut *mut ::core::ffi::c_void,
     ) -> napi_status;
+    /// Creates a reference for an object to extend its lifespan. The caller needs to manage the reference lifespan.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - The napi_value that is being referenced.
+    ///
+    /// * `initial_refcount` - The initial count for the new reference.
+    ///
+    /// * `result` - napi_ref pointing to the new reference.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_reference(
         env: napi_env,
         value: napi_value,
         initial_refcount: u32,
         result: *mut napi_ref,
     ) -> napi_status;
+    /// Deletes the reference passed in.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `ref` - The napi_ref to be deleted.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or ref is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_delete_reference(env: napi_env, ref_: napi_ref) -> napi_status;
+    /// Increments the reference count for the reference passed in and returns the count.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `ref` - The napi_ref whose reference count will be incremented.
+    ///
+    /// * `result` - The new reference count.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or ref is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_reference_ref(env: napi_env, ref_: napi_ref, result: *mut u32) -> napi_status;
+    /// Decrements the reference count for the reference passed in and returns the count.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `ref` - The napi_ref whose reference count will be decremented.
+    ///
+    /// * `result` - The new reference count.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or ref is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_reference_unref(env: napi_env, ref_: napi_ref, result: *mut u32) -> napi_status;
+    /// Obtains the ArkTS Object associated with the reference.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `ref` - The napi_ref of the value being requested.
+    ///
+    /// * `result` - The napi_value referenced by the napi_ref.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, ref or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_reference_value(
         env: napi_env,
         ref_: napi_ref,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Opens a scope.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `result` - napi_value representing the new scope.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_open_handle_scope(env: napi_env, result: *mut napi_handle_scope) -> napi_status;
+    /// Closes the scope passed in. After the scope is closed, all references declared in it are closed.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `scope` - The scope to close.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or scope is nullptr.
+    ///
+    /// [`napi_handle_scope_mismatch`] If there is no scope still existed.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_close_handle_scope(env: napi_env, scope: napi_handle_scope) -> napi_status;
+    /// Opens an escapable handle scope from which the declared values can be returned to the outer scope.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `result` - The new scope.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_open_escapable_handle_scope(
         env: napi_env,
         result: *mut napi_escapable_handle_scope,
     ) -> napi_status;
+    /// Closes the escapable handle scope passed in.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `scope` - The scope to close.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or scope is nullptr.
+    ///
+    /// [`napi_handle_scope_mismatch`] If there is no scope still existed.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_close_escapable_handle_scope(
         env: napi_env,
         scope: napi_escapable_handle_scope,
     ) -> napi_status;
+    /// Promotes the handle to the input ArkTS object so that it is valid for the lifespan of its outer scope.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `scope` - Current scope.
+    ///
+    /// * `escapee` - The ArkTS object to be escaped.
+    ///
+    /// * `result` - The handle to the escaped object in the outer scope.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, scope, escapee or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_escape_handle(
         env: napi_env,
         scope: napi_escapable_handle_scope,
         escapee: napi_value,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Throws a ArkTS error.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `error` - The ArkTS error to be thrown.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or error is nullptr, or error is not an error object.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_throw(env: napi_env, error: napi_value) -> napi_status;
+    /// Throws a ArkTS Error with text information.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `code` - Optional error code to set on the error.
+    ///
+    /// * `msg` - C string representing the text to be associated with the error.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or msg is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_throw_error(
         env: napi_env,
         code: *const ::core::ffi::c_char,
         msg: *const ::core::ffi::c_char,
     ) -> napi_status;
+    /// Throws a ArkTS TypeError with text information.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `code` - Optional error code to set on the error.
+    ///
+    /// * `msg` - C string representing the text to be associated with the error.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or msg is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_throw_type_error(
         env: napi_env,
         code: *const ::core::ffi::c_char,
         msg: *const ::core::ffi::c_char,
     ) -> napi_status;
+    /// Throws a ArkTS RangeError with text information.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `code` - Optional error code to set on the error.
+    ///
+    /// * `msg` - C string representing the text to be associated with the error.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or msg is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_throw_range_error(
         env: napi_env,
         code: *const ::core::ffi::c_char,
         msg: *const ::core::ffi::c_char,
     ) -> napi_status;
+    /// Checks whether a 'napi_value' is an error object.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - The value to check
+    ///
+    /// * `result` - Boolean value that is set to true if the value represents an error object, false otherwise.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_is_error(env: napi_env, value: napi_value, result: *mut bool) -> napi_status;
+    /// Checks whether an exception occurs.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `result` - Boolean value that is true if there is a pending exception.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_is_exception_pending(env: napi_env, result: *mut bool) -> napi_status;
+    /// Obtains and clears the latest exception.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `result` - The exception if there is a pending exception; otherwise return a null value.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_and_clear_last_exception(env: napi_env, result: *mut napi_value)
         -> napi_status;
     pub fn napi_is_arraybuffer(env: napi_env, value: napi_value, result: *mut bool) -> napi_status;
@@ -729,21 +1188,102 @@ extern "C" {
         byte_offset: *mut usize,
     ) -> napi_status;
     pub fn napi_get_version(env: napi_env, result: *mut u32) -> napi_status;
+    /// Creates a deferred object and an ArkTS promise.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `deferred` - The created deferred object which will be passed to 'napi_resolve_deferred()' or
+    /// 'napi_reject_deferred()' to resolve or reject the promise.
+    ///
+    /// * `promise` - The ArkTS promise which is associated with the deferred object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, deferred or resolution is nullptr.
+    ///
+    /// [`napi_pending_exception`] If a ArkTS exception existed when the function was called.
+    ///
+    /// [`napi_generic_failure`] If create promise failed.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_promise(
         env: napi_env,
         deferred: *mut napi_deferred,
         promise: *mut napi_value,
     ) -> napi_status;
+    /// Resolves a promise by way of the deferred object associated.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `deferred` - The deferred object which is utilized to resolve the promise.
+    ///
+    /// * `resolution` - The resolution value used to resolve the promise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, deferred or resolution is nullptr.
+    ///
+    /// [`napi_pending_exception`] If a ArkTS exception existed when the function was called.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_resolve_deferred(
         env: napi_env,
         deferred: napi_deferred,
         resolution: napi_value,
     ) -> napi_status;
+    /// Rejects a promise by way of the deferred object associated.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `deferred` - The deferred object which is utilized to reject the promise.
+    ///
+    /// * `rejection` - The rejection value used to reject the promise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, deferred or rejection is nullptr.
+    ///
+    /// [`napi_pending_exception`] If a ArkTS exception existed when the function was called.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_reject_deferred(
         env: napi_env,
         deferred: napi_deferred,
         rejection: napi_value,
     ) -> napi_status;
+    /// Checks whether the given 'napi_value' is a promise object.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - The 'napi_value' to be checked.
+    ///
+    /// * `is_promise` - Boolean value that is set to true if the 'value' is a promise object, false otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value or is_promise is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_is_promise(env: napi_env, value: napi_value, is_promise: *mut bool) -> napi_status;
     pub fn napi_run_script(
         env: napi_env,
@@ -755,8 +1295,70 @@ extern "C" {
         change_in_bytes: i64,
         adjusted_value: *mut i64,
     ) -> napi_status;
+    /// Creates an ArkTS 'Date' object from C double data
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `time` - ArkTS time value in milliseconds format since 01 January, 1970 UTC.
+    ///
+    /// * `result` - Created ArkTS data object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or result is nullptr.
+    ///
+    /// [`napi_pending_exception`] If a ArkTS exception existed when the function was called.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_date(env: napi_env, time: f64, result: *mut napi_value) -> napi_status;
+    /// Checks whether the given ArkTS value is a 'Date' object. You can use this API to check the type
+    /// of the parameter passed from ArkTS.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - ArkTS data object.
+    ///
+    /// * `is_date` - Boolean value that is set to true if the 'value' is a 'Date' object, false otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value or is_date is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_is_date(env: napi_env, value: napi_value, is_date: *mut bool) -> napi_status;
+    /// Obtains the C equivalent of the given ArkTS 'Date' object.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - ArkTS data object.
+    ///
+    /// * `result` - C time value in milliseconds format since 01 January, 1970 UTC.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    ///
+    /// [`napi_pending_exception`] If a ArkTS exception existed when the function was called.
+    ///
+    /// [`napi_date_expected`] If the 'value' is not a 'Date' object.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_date_value(env: napi_env, value: napi_value, result: *mut f64) -> napi_status;
     /// Adds a 'napi_finalize' callback, which will be called when the ArkTS object is garbage-collected.
     ///
@@ -791,16 +1393,79 @@ extern "C" {
         finalize_hint: *mut ::core::ffi::c_void,
         result: *mut napi_ref,
     ) -> napi_status;
+    /// Creates a ArkTS BigInt from C int64 data.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - C int64 data.
+    ///
+    /// * `result` - Created ArkTS BigInt object from C int64 data.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_bigint_int64(
         env: napi_env,
         value: i64,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Creates a ArkTS BigInt from C int64 data.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - C int64 data.
+    ///
+    /// * `result` - Created ArkTS BigInt object from C int64 data.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_bigint_uint64(
         env: napi_env,
         value: u64,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Creates a single ArkTS BigInt from a C uint64 array.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `sign_bit` - Sign bit of the BigInt. If sign_bit is 0, the BigInt is positive, otherwise it is negative.
+    ///
+    /// * `word_count` - The size of the words array.
+    ///
+    /// * `words` - C uint64 array in little-endian 64-bit format.
+    ///
+    /// * `result` - Created ArkTS BigInt object from C int64 array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, words or result is nullptr or word_count is larger than 2147483647.
+    ///
+    /// [`napi_pending_exception`] If a ArkTS exception existed when the function was called.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_bigint_words(
         env: napi_env,
         sign_bit: ::core::ffi::c_int,
@@ -808,18 +1473,95 @@ extern "C" {
         words: *const u64,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Obtains a signed 64-bit integer from an ArkTS BigInt object.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - ArkTS BigInt object.
+    ///
+    /// * `result` - Pointer points to the location where store the C signed 64-bit integer value.
+    ///
+    /// * `lossless` - Indicates whether the conversion is lossless. If lossless is true, the conversion is lossless,
+    /// false otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value, result or lossless is nullptr or word_count is larger than
+    ///
+    /// 2147483647.
+    ///
+    /// [`napi_bigint_expected`] If the 'value' is not an ArkTS bigint object.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_value_bigint_int64(
         env: napi_env,
         value: napi_value,
         result: *mut i64,
         lossless: *mut bool,
     ) -> napi_status;
+    /// Obtains an unsigned 64-bit integer from an ArkTS BigInt object.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - ArkTS BigInt object.
+    ///
+    /// * `result` - Pointer points to the location where store the C unsigned 64-bit integer value.
+    ///
+    /// * `lossless` - Indicates whether the conversion is lossless. If lossless is true, the conversion is lossless,
+    /// false otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value, result or lossless is nullptr or word_count is larger than
+    ///
+    /// 2147483647.
+    ///
+    /// [`napi_bigint_expected`] If the 'value' is not an ArkTS bigint object.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_value_bigint_uint64(
         env: napi_env,
         value: napi_value,
         result: *mut u64,
         lossless: *mut bool,
     ) -> napi_status;
+    /// Obtains the underlying 64-bit unsigned (uint64) byte data from an ArkTS BigInt object.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - ArkTS BigInt object.
+    ///
+    /// * `sign_bit` - Sign bit of the BigInt. If sign_bit is 0, the BigInt is positive, otherwise it is negative.
+    ///
+    /// * `word_count` - The size of the words array.
+    ///
+    /// * `words` - C uint64 array in little-endian 64-bit format.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value or word_count is nullptr or word_count is larger than 2147483647.
+    ///
+    /// [`napi_bigint_expected`] If the 'value' is not an ArkTS bigint object.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_value_bigint_words(
         env: napi_env,
         value: napi_value,
@@ -827,6 +1569,43 @@ extern "C" {
         word_count: *mut usize,
         words: *mut u64,
     ) -> napi_status;
+    /// Obtains the names of all properties of an ArkTS object.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `object` - ArkTS object.
+    ///
+    /// * `key_mode` - Key collection mode. If key_mode is napi_key_include_prototypes, the result includes properties on
+    /// prototypes. If key_mode is napi_key_own_only, the result includes only properties directly on own
+    /// object.
+    ///
+    /// * `key_filter` - Which properties to be collected.
+    ///
+    /// * `key_conversion` - Key conversion mode. If key_conversion is napi_key_keep_numbers, the numbered property keys
+    /// will keep number type. If key_conversion is napi_key_numbers_to_strings, the numbered property
+    /// keys will be convert to string type.
+    ///
+    /// * `result` - An array of ArkTS object that represent the property names of the object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, object or result is nullptr;
+    ///
+    /// key_mode is not enumeration value of napi_key_collection_mode;
+    ///
+    /// key_conversion is not enumeration value of napi_key_conversion.
+    ///
+    /// [`napi_pending_exception`] If a ArkTS exception existed when the function was called.
+    ///
+    /// [`napi_object_expected`] If object is not object type and function type.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_all_property_names(
         env: napi_env,
         object: napi_value,
@@ -882,7 +1661,46 @@ extern "C" {
         env: napi_env,
         data: *mut *mut ::core::ffi::c_void,
     ) -> napi_status;
+    /// Detaches the underlying data from an 'ArrayBuffer' object. After the data is detached, you
+    /// can operate the data in C/C++.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `arraybuffer` - ArkTS ArrayBuffer object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or arraybuffer is nullptr, if 'arraybuffer' is not an ArrayBuffer object.
+    ///
+    /// [`napi_object_expected`] If the 'arraybuffer' is not an ArkTS object.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_detach_arraybuffer(env: napi_env, arraybuffer: napi_value) -> napi_status;
+    /// Checks whether the given 'ArrayBuffer' has been detached.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - ArkTS ArrayBuffer object.
+    ///
+    /// * `result` - Boolean value that is set to true if the 'value' has been detached, false otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_is_detached_arraybuffer(
         env: napi_env,
         value: napi_value,
@@ -899,9 +1717,68 @@ extern "C" {
         type_tag: *const napi_type_tag,
         result: *mut bool,
     ) -> napi_status;
+    /// Freezes an ArkTS object. Once an object is frozen, its properties are immutable.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `object` - The given ArkTS object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or object is nullptr.
+    ///
+    /// [`napi_pending_exception`] If a ArkTS exception existed when the function was called.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_object_freeze(env: napi_env, object: napi_value) -> napi_status;
+    /// Seals an ArkTS object. Once an object is sealed, its properties cannot be added or deleted, but property
+    /// values can be modified.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `object` - The given ArkTS object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or object is nullptr.
+    ///
+    /// [`napi_pending_exception`] If a ArkTS exception existed when the function was called.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_object_seal(env: napi_env, object: napi_value) -> napi_status;
+    /// Registers a native module.
+    ///
+    /// # Arguments
+    ///
+    /// * `mod` - Native module of type 'napi_module' to be registered.
+    ///
+    /// Available since API-level: 10
     pub fn napi_module_register(mod_: *mut napi_module);
+    /// Raises a fatal error to terminate the process immediately.
+    /// # Arguments
+    ///
+    /// * `location` - Optional location for the error occurrence.
+    ///
+    /// * `location_len` - The byte length of the location, or NAPI_AUTO_LENGTH if it is terminated by a null character.
+    ///
+    /// * `message` - The message associated with the error.
+    ///
+    /// * `message_len` - The byte length of the message, or NAPI_AUTO_LENGTH if it is terminated by a null character.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_fatal_error(
         location: *const ::core::ffi::c_char,
         location_len: usize,
@@ -953,8 +1830,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_async_destroy(env: napi_env, async_context: napi_async_context) -> napi_status;
-    /// Allows a JS function to be called in the asynchronous context. The capabilities related to **async_hook** are
-    /// not supported currently.
+    /// Allows a ArkTS function to be called in the asynchronous context. The capabilities related to 'async_hook'
+    /// are not supported currently.
     /// # Arguments
     ///
     /// * `env` - Current running virtual machine context.
@@ -988,21 +1865,26 @@ extern "C" {
         argv: *const napi_value,
         result: *mut napi_value,
     ) -> napi_status;
-    /// Creates a ArkTS buffer of the specified size.
+    /// Creates an ArkTS ArrayBuffer object of the specified size.
+    ///
     /// # Arguments
     ///
     /// * `env` - Current running virtual machine context.
     ///
-    /// * `length` - The size of the buffer to be created.
+    /// * `length` - Bytes size of the underlying arraybuffer.
     ///
-    /// * `data` - Raw pointer of the ArkTS buffer.
+    /// * `data` - Raw pointer to the underlying arraybuffer.
     ///
-    /// * `result` - Result returned by the ArkTS function.
-    ///
+    /// * `result` - Created ArkTS ArrayBuffer object.
     ///
     /// # Returns
     ///
     /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, data or result is nullptr, or length is larger than 2097152,
+    /// or length is less than zero.
+    ///
     ///
     /// Available since API-level: 10
     pub fn napi_create_buffer(
@@ -1011,6 +1893,35 @@ extern "C" {
         data: *mut *mut ::core::ffi::c_void,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Creates an ArkTS ArrayBuffer object of the specified size and initializes it with the given data.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.n
+    ///
+    /// * `length` - Bytes size of the given data.
+    ///
+    /// * `data` - Given data.
+    ///
+    /// * `finalize_cb` - Optional native callback that can be used to free the given data when the ArkTS ArrayBuffer
+    /// object has been garbage-collected.
+    ///
+    /// * `finalize_hint` - Optional contextual hint that is passed to the finalize callback.
+    ///
+    /// * `result` - Created ArkTS ArrayBuffer object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, data or result is nullptr, or length is larger than 2097152,
+    /// or length is less than or equal to zero.
+    ///
+    /// [`napi_pending_exception`] If a ArkTS exception existed when the function was called.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_external_buffer(
         env: napi_env,
         length: usize,
@@ -1019,6 +1930,30 @@ extern "C" {
         finalize_hint: *mut ::core::ffi::c_void,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Creates an ArkTS ArrayBuffer object of the specified size and initializes it with the given data.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `length` - Bytes size of the given data.
+    ///
+    /// * `data` - Given data.
+    ///
+    /// * `result_data` - Raw pointer to the underlying arraybuffer.
+    ///
+    /// * `result` - Created ArkTS ArrayBuffer object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, data or result is nullptr, or length is larger than 2097152,
+    /// or length is less than or equal to zero.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_buffer_copy(
         env: napi_env,
         length: usize,
@@ -1026,7 +1961,49 @@ extern "C" {
         result_data: *mut *mut ::core::ffi::c_void,
         result: *mut napi_value,
     ) -> napi_status;
+    /// Checks whether the given ArkTS value is a 'ArrayBuffer' object.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - ArkTS ArrayBuffer object.
+    ///
+    /// * `result` - Boolean value that is set to true if the 'value' is a 'ArrayBuffer' object, false otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_is_buffer(env: napi_env, value: napi_value, result: *mut bool) -> napi_status;
+    /// Obtains the underlying data of 'ArrayBuffer' and its length.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - ArkTS ArrayBuffer object.
+    ///
+    /// * `data` - Raw pointer to the underlying arraybuffer.
+    ///
+    /// * `length` - Bytes size of the underlying arraybuffer.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    ///
+    /// [`napi_arraybuffer_expected`] If the 'value' is not an ArkTS array buffer object.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_buffer_info(
         env: napi_env,
         value: napi_value,
@@ -1049,6 +2026,24 @@ extern "C" {
         env: napi_env,
         version: *mut *const napi_node_version,
     ) -> napi_status;
+    /// Obtains the current libuv loop instance.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `loop` - Libuv event loop.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or loop is nullptr.
+    ///
+    /// [`napi_generic_failure`] If env is invalid.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_uv_event_loop(env: napi_env, loop_: *mut *mut uv_loop_s) -> napi_status;
     /// Throws UncaughtException to ArkTS.
     /// # Arguments
@@ -1154,6 +2149,49 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn napi_close_callback_scope(env: napi_env, scope: napi_callback_scope) -> napi_status;
+    /// Creates a thread-safe function.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `func` - ArkTS function to be called.
+    ///
+    /// * `async_resource` - An optional Object associated with the async work that will be passed to possible
+    /// 'async_hooks'.
+    ///
+    /// * `async_resource_name` - An ArkTS string to provide an identifier for the kind of resource that is being
+    /// provided for diagnostic information exposed by the `async_hooks` interface.
+    ///
+    /// * `max_queue_size` - Maximum size of the event queue in the thread-safe function.
+    ///
+    /// * `initial_thread_count` - Initial thread count of the thread-safe function.
+    ///
+    /// * `thread_finalize_data` - Data passed to the finalize callback.
+    ///
+    /// * `thread_finalize_cb` - Finalize callback function which will be triggered when the thread-safe function is
+    /// released.
+    ///
+    /// * `context` - Optional data is passed to 'call_js_cb'.
+    ///
+    /// * `call_js_cb` - Callback function which will be triggered after 'napi_call_threadsafe_function()' is called.
+    ///
+    /// * `result` - The created thread-safe function.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, async_resource_name or result is nullptr; max_queue_size is less than 0;
+    ///
+    /// initial_thread_count is greater than 128 or less than 0; func and call_js_cb are
+    ///
+    /// nullptr at same time.
+    ///
+    /// [`napi_generic_failure`] If create thread-safe function failed.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_create_threadsafe_function(
         env: napi_env,
         func: napi_value,
@@ -1167,24 +2205,140 @@ extern "C" {
         call_js_cb: napi_threadsafe_function_call_js,
         result: *mut napi_threadsafe_function,
     ) -> napi_status;
+    /// Obtains the context of a thread-safe function.
+    /// # Arguments
+    ///
+    /// * `func` - The created thread-safe function.
+    ///
+    /// * `result` - Pointer pointer to the context of the thread-safe function.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If func or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_get_threadsafe_function_context(
         func: napi_threadsafe_function,
         result: *mut *mut ::core::ffi::c_void,
     ) -> napi_status;
+    /// Calls a thread-safe function.
+    /// # Arguments
+    ///
+    /// * `func` - The created thread-safe function.
+    ///
+    /// * `data` - Data passed to the callback function 'call_js_cb' which is registered by calling
+    /// 'napi_create_threadsafe_function()'.
+    ///
+    /// * `is_blocking` - If true, this function blocks until the event queue is not full. If false, return directly.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If func is nullptr.
+    ///
+    /// [`napi_queue_full`] If event queue is full.
+    ///
+    /// [`napi_closing`] If the thread-safe function is closing.
+    ///
+    /// [`napi_generic_failure`] If call thread-safe function failed.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_call_threadsafe_function(
         func: napi_threadsafe_function,
         data: *mut ::core::ffi::c_void,
         is_blocking: napi_threadsafe_function_call_mode,
     ) -> napi_status;
+    /// Acquires a thread-safe function.
+    /// # Arguments
+    ///
+    /// * `func` - The created thread-safe function.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If func is nullptr.
+    ///
+    /// [`napi_generic_failure`] If acquire thread-safe function failed.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_acquire_threadsafe_function(func: napi_threadsafe_function) -> napi_status;
+    /// Releases a thread-safe function.
+    /// # Arguments
+    ///
+    /// * `func` - The created thread-safe function.
+    ///
+    /// * `mode` - Value of mode can be either 'napi_tsfn_release' to indicate that no more calls should be made
+    /// to the thread-safe function from current thread or 'napi_tsfn_abort' to indicate that the queue
+    /// of the thread-safe function will be closed and 'napi_closing' will be return when calling
+    /// 'napi_call_threadsafe_function()' under the circumstance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If func is nullptr.
+    ///
+    /// [`napi_generic_failure`] If release thread-safe function failed.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_release_threadsafe_function(
         func: napi_threadsafe_function,
         mode: napi_threadsafe_function_release_mode,
     ) -> napi_status;
+    /// Indicates that the event loop running on the main thread may exit before the thread-safe function
+    /// is destroyed.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `func` - The created thread-safe function.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or func is nullptr.
+    ///
+    /// [`napi_generic_failure`] If unref thread-safe function failed.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_unref_threadsafe_function(
         env: napi_env,
         func: napi_threadsafe_function,
     ) -> napi_status;
+    /// Indicates that the event loop running on the main thread should not exit until the thread-safe
+    /// function is destroyed.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `func` - The created thread-safe function.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or func is nullptr.
+    ///
+    /// [`napi_generic_failure`] If ref thread-safe function failed.
+    ///
+    ///
+    /// Available since API-level: 10
     pub fn napi_ref_threadsafe_function(
         env: napi_env,
         func: napi_threadsafe_function,
@@ -1284,7 +2438,7 @@ extern "C" {
         path: *const ::core::ffi::c_char,
         result: *mut napi_value,
     ) -> napi_status;
-    /// Create JSObject with initial properties given by descriptors, note that property key must be String, and
+    /// Create ArkTS Object with initial properties given by descriptors, note that property key must be String, and
     /// must can not convert to element_index, also all keys must not duplicate.
     ///
     /// # Arguments
@@ -1311,8 +2465,8 @@ extern "C" {
         property_count: usize,
         properties: *const napi_property_descriptor,
     ) -> napi_status;
-    /// Create JSObject with initial properties given by keys and values, note that property key must be String, and
-    /// must can not convert to element_index, also all keys must not duplicate.
+    /// Create ArkTS Object with initial properties given by keys and values, note that property key must be String,
+    /// and must can not convert to element_index, also all keys must not duplicate.
     ///
     /// # Arguments
     ///
@@ -1341,7 +2495,7 @@ extern "C" {
         keys: *mut *const ::core::ffi::c_char,
         values: *const napi_value,
     ) -> napi_status;
-    /// This API sets native properties to a object and converts this js object to native binding object.
+    /// This API sets native properties to a object and converts this ArkTS object to native binding object.
     ///
     /// # Arguments
     ///
@@ -1349,9 +2503,9 @@ extern "C" {
     ///
     /// * `js_object` - The JavaScript value to coerce.
     ///
-    /// * `detach_cb` - Native callback that can be used to detach the js object and the native object.
+    /// * `detach_cb` - Native callback that can be used to detach the ArkTS object and the native object.
     ///
-    /// * `attach_cb` - Native callback that can be used to bind the js object and the native object.
+    /// * `attach_cb` - Native callback that can be used to bind the ArkTS object and the native object.
     ///
     /// * `native_object` - User-provided native instance to pass to thr detach callback and attach callback.
     ///
@@ -1514,6 +2668,52 @@ extern "C" {
         property_count: usize,
         properties: *const napi_property_descriptor,
         result: *mut napi_value,
+    ) -> napi_status;
+    /// Wraps a native instance in a ArkTS object.
+    /// # Arguments
+    ///
+    /// * `env` - The environment that the API is invoked under.
+    ///
+    /// * `js_object` - The ArkTS object that will be the wrapper for the native object.
+    ///
+    /// * `native_object` - The native instance that will be wrapped in the ArkTS object.
+    ///
+    /// * `finalize_cb` - Optional native callback that can be used to free the native instance when the ArkTS object
+    /// has been garbage-collected.
+    ///
+    /// * `async_finalizer` - A bool value to determine that finalize_cb execute async or not.
+    ///
+    /// * `finalize_hint` - Optional contextual hint that is passed to the finalize callback.
+    ///
+    /// * `native_binding_size` - The size of native binding.
+    ///
+    /// * `result` - Optional reference to the wrapped object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executedd successfully.
+    ///
+    /// [`napi_invalid_arg`] If the param env, js_object or native_object is nullptr.
+    ///
+    /// [`napi_object_expected`] If the param js_object is not an ArkTS Object or Function.
+    ///
+    /// [`napi_pending_exception`] If have uncaught exception, or exception occured in execution.
+    ///
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn napi_wrap_enhance(
+        env: napi_env,
+        js_object: napi_value,
+        native_object: *mut ::core::ffi::c_void,
+        finalize_cb: napi_finalize,
+        async_finalizer: bool,
+        finalize_hint: *mut ::core::ffi::c_void,
+        native_binding_size: usize,
+        result: *mut napi_ref,
     ) -> napi_status;
     /// Wraps a native instance in a ArkTS object.
     ///
@@ -1759,19 +2959,19 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn napi_stop_event_loop(env: napi_env) -> napi_status;
-    /// Serialize a JS object.
+    /// Serialize a ArkTS object.
     ///
     /// # Arguments
     ///
     /// * `env` - Current running virtual machine context.
     ///
-    /// * `object` - The JavaScript value to serialize.
+    /// * `object` - The ArkTS object to serialize.
     ///
     /// * `transfer_list` - List of data to transfer in transfer mode.
     ///
     /// * `clone_list` - List of Sendable data to transfer in clone mode.
     ///
-    /// * `result` - Serialization result of the JS object.
+    /// * `result` - Serialization result of the ArkTS object.
     ///
     ///
     /// # Returns
