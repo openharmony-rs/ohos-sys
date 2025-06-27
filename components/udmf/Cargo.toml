@@ -1,6 +1,6 @@
 [package]
 name = "udmf-sys"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Raw Bindings to the Unified Data Management Framework (UDMF) of OpenHarmony"
 license = "Apache-2.0"

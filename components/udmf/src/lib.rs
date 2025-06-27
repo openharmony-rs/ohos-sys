@@ -19,6 +19,9 @@ pub mod data_management_framework;
 mod udmf_err_code;
 
 pub use udmf_err_code::Udmf_ErrCode;
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub use udmf_err_code::Udmf_ListenerStatus;
 
 pub mod data_struct;
 pub mod meta;
