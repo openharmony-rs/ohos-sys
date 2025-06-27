@@ -150,7 +150,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Encoder capability pointer. Do not give a decoder capability pointer
+    /// * `capability` - Encoder capability pointer. If a decoder capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `bitrateRange` - Output parameter. Encoder bitrate range
     ///
@@ -170,7 +171,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Encoder capability pointer. Do not give a decoder capability pointer
+    /// * `capability` - Encoder capability pointer. If a decoder capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `bitrateMode` - Bitrate mode
     ///
@@ -188,7 +190,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Encoder capability pointer. Do not give a decoder capability pointer
+    /// * `capability` - Encoder capability pointer. If a decoder capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `qualityRange` - Output parameter. Encoder quality range
     ///
@@ -208,7 +211,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Encoder capability pointer. Do not give a decoder capability pointer
+    /// * `capability` - Encoder capability pointer. If a decoder capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `complexityRange` - Output parameter. Encoder complexity range
     ///
@@ -228,7 +232,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Audio codec capability pointer. Do not give a video codec capability pointer
+    /// * `capability` - Audio codec capability pointer. If a video codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `sampleRates` - Output parameter. A pointer to the sample rates array
     ///
@@ -253,7 +258,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Audio codec capability pointer. Do not give a video codec capability pointer
+    /// * `capability` - Audio codec capability pointer. If a video codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `channelCountRange` - Output parameter. Audio channel count range
     ///
@@ -273,7 +279,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Video codec capability pointer. Do not give an audio codec capability pointer
+    /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `widthAlignment` - Output parameter. Video width alignment
     ///
@@ -293,7 +300,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Video codec capability pointer. Do not give an audio codec capability pointer
+    /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `heightAlignment` - Output parameter. Video height alignment
     ///
@@ -313,7 +321,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - video codec capability pointer. Do not give an audio codec capability pointer
+    /// * `capability` - video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `height` - Vertical pixel number of the video
     ///
@@ -337,7 +346,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Video codec capability pointer. Do not give an audio codec capability pointer
+    /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `width` - Horizontal pixel number of the video
     ///
@@ -361,7 +371,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Video codec capability pointer. DO not give an audio codec capability pointer
+    /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `widthRange` - Output parameter. Video width range
     ///
@@ -381,7 +392,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Video codec capability pointer. Do not give an audio codec capability pointer
+    /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `heightRange` - Output parameter. Video height range
     ///
@@ -401,7 +413,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Video codec capability pointer. Do not give an audio codec capability pointer
+    /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `width` - Horizontal pixel number of the video
     ///
@@ -422,7 +435,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Video codec capability pointer. Do not give an audio codec capability pointer
+    /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `frameRateRange` - Output parameter. Video frame rate range
     ///
@@ -442,7 +456,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Video codec capability pointer. Do not give an audio codec capability pointer
+    /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `width` - Horizontal pixel number of the video
     ///
@@ -469,7 +484,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Video codec capability pointer. Do not give an audio codec capability pointer
+    /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `width` - Horizontal pixel number of the video
     ///
@@ -494,7 +510,8 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     /// # Arguments
     ///
-    /// * `capability` - Video codec capability pointer. Do not give an audio codec capability pointer
+    /// * `capability` - Video codec capability pointer. If an audio codec capability pointer is given,
+    /// undefined behavior occurs
     ///
     /// * `pixelFormats` - Output parameter. A pointer to the video pixel format array
     ///

@@ -391,6 +391,97 @@ impl OH_VVCProfile {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_VVCProfile(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+impl OH_MPEG2Profile {
+    /// Simple profile
+    pub const MPEG2_PROFILE_SIMPLE: OH_MPEG2Profile = OH_MPEG2Profile(0);
+    /// Main profile
+    pub const MPEG2_PROFILE_MAIN: OH_MPEG2Profile = OH_MPEG2Profile(1);
+    /// SNR scalable profile
+    pub const MPEG2_PROFILE_SNR_SCALABLE: OH_MPEG2Profile = OH_MPEG2Profile(2);
+    /// Spatially scalable profile
+    pub const MPEG2_PROFILE_SPATIALLY_SCALABLE: OH_MPEG2Profile = OH_MPEG2Profile(3);
+    /// High profile
+    pub const MPEG2_PROFILE_HIGH: OH_MPEG2Profile = OH_MPEG2Profile(4);
+    /// 4:2:2 profile
+    pub const MPEG2_PROFILE_422: OH_MPEG2Profile = OH_MPEG2Profile(5);
+}
+#[repr(transparent)]
+/// MPEG2 Profile
+///
+///
+/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+///
+/// Available since API-level: 17
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_MPEG2Profile(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+impl OH_MPEG4Profile {
+    /// Simple profile
+    pub const MPEG4_PROFILE_SIMPLE: OH_MPEG4Profile = OH_MPEG4Profile(0);
+    /// Simple scalable profile
+    pub const MPEG4_PROFILE_SIMPLE_SCALABLE: OH_MPEG4Profile = OH_MPEG4Profile(1);
+    /// Core profile
+    pub const MPEG4_PROFILE_CORE: OH_MPEG4Profile = OH_MPEG4Profile(2);
+    /// Main profile
+    pub const MPEG4_PROFILE_MAIN: OH_MPEG4Profile = OH_MPEG4Profile(3);
+    /// N-Bit profile
+    pub const MPEG4_PROFILE_N_BIT: OH_MPEG4Profile = OH_MPEG4Profile(4);
+    /// Hybrid profile
+    pub const MPEG4_PROFILE_HYBRID: OH_MPEG4Profile = OH_MPEG4Profile(5);
+    /// Basic animated texture profile
+    pub const MPEG4_PROFILE_BASIC_ANIMATED_TEXTURE: OH_MPEG4Profile = OH_MPEG4Profile(6);
+    /// Scalable texture profile
+    pub const MPEG4_PROFILE_SCALABLE_TEXTURE: OH_MPEG4Profile = OH_MPEG4Profile(7);
+    /// Simple FA profile
+    pub const MPEG4_PROFILE_SIMPLE_FA: OH_MPEG4Profile = OH_MPEG4Profile(8);
+    /// Advanced real time simple profile
+    pub const MPEG4_PROFILE_ADVANCED_REAL_TIME_SIMPLE: OH_MPEG4Profile = OH_MPEG4Profile(9);
+    /// Core scalable profile
+    pub const MPEG4_PROFILE_CORE_SCALABLE: OH_MPEG4Profile = OH_MPEG4Profile(10);
+    /// Advanced coding efficiency profile
+    pub const MPEG4_PROFILE_ADVANCED_CODING_EFFICIENCY: OH_MPEG4Profile = OH_MPEG4Profile(11);
+    /// Advanced core profile
+    pub const MPEG4_PROFILE_ADVANCED_CORE: OH_MPEG4Profile = OH_MPEG4Profile(12);
+    /// Advanced scalable texture profile
+    pub const MPEG4_PROFILE_ADVANCED_SCALABLE_TEXTURE: OH_MPEG4Profile = OH_MPEG4Profile(13);
+    /// Advanced simple profile
+    pub const MPEG4_PROFILE_ADVANCED_SIMPLE: OH_MPEG4Profile = OH_MPEG4Profile(17);
+}
+#[repr(transparent)]
+/// MPEG4 Profile
+///
+///
+/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+///
+/// Available since API-level: 17
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_MPEG4Profile(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+impl OH_H263Profile {
+    /// Baseline profile
+    pub const H263_PROFILE_BASELINE: OH_H263Profile = OH_H263Profile(0);
+    /// Version 1 backward compatibility profile
+    pub const H263_PROFILE_VERSION_1_BACKWARD_COMPATIBILITY: OH_H263Profile = OH_H263Profile(2);
+}
+#[repr(transparent)]
+/// H263 Profile
+///
+///
+/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+///
+/// Available since API-level: 17
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_H263Profile(pub ::core::ffi::c_uint);
 impl OH_AVOutputFormat {
     pub const AV_OUTPUT_FORMAT_DEFAULT: OH_AVOutputFormat = OH_AVOutputFormat(0);
     pub const AV_OUTPUT_FORMAT_MPEG_4: OH_AVOutputFormat = OH_AVOutputFormat(2);
@@ -413,6 +504,12 @@ impl OH_AVOutputFormat {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AV_OUTPUT_FORMAT_WAV: OH_AVOutputFormat = OH_AVOutputFormat(10);
+    /// The muxer output aac file format.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const AV_OUTPUT_FORMAT_AAC: OH_AVOutputFormat = OH_AVOutputFormat(11);
 }
 #[repr(transparent)]
 /// Enumerates the muxer output file format
@@ -683,6 +780,95 @@ impl OH_VVCLevel {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_VVCLevel(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+impl OH_MPEG2Level {
+    /// Low level
+    pub const MPEG2_LEVEL_LOW: OH_MPEG2Level = OH_MPEG2Level(0);
+    /// Main level
+    pub const MPEG2_LEVEL_MAIN: OH_MPEG2Level = OH_MPEG2Level(1);
+    /// High 1440 level
+    pub const MPEG2_LEVEL_HIGH_1440: OH_MPEG2Level = OH_MPEG2Level(2);
+    /// High level
+    pub const MPEG2_LEVEL_HIGH: OH_MPEG2Level = OH_MPEG2Level(3);
+}
+#[repr(transparent)]
+/// MPEG2 Level.
+///
+///
+/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+///
+/// Available since API-level: 17
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_MPEG2Level(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+impl OH_MPEG4Level {
+    /// 0 level
+    pub const MPEG4_LEVEL_0: OH_MPEG4Level = OH_MPEG4Level(0);
+    /// 0B level
+    pub const MPEG4_LEVEL_0B: OH_MPEG4Level = OH_MPEG4Level(1);
+    /// 1 level
+    pub const MPEG4_LEVEL_1: OH_MPEG4Level = OH_MPEG4Level(2);
+    /// 2 level
+    pub const MPEG4_LEVEL_2: OH_MPEG4Level = OH_MPEG4Level(3);
+    /// 3 level
+    pub const MPEG4_LEVEL_3: OH_MPEG4Level = OH_MPEG4Level(4);
+    /// 3B level
+    pub const MPEG4_LEVEL_3B: OH_MPEG4Level = OH_MPEG4Level(5);
+    /// 4 level
+    pub const MPEG4_LEVEL_4: OH_MPEG4Level = OH_MPEG4Level(6);
+    /// 4A level
+    pub const MPEG4_LEVEL_4A: OH_MPEG4Level = OH_MPEG4Level(7);
+    /// 5 level
+    pub const MPEG4_LEVEL_5: OH_MPEG4Level = OH_MPEG4Level(8);
+    /// 6 level
+    pub const MPEG4_LEVEL_6: OH_MPEG4Level = OH_MPEG4Level(9);
+}
+#[repr(transparent)]
+/// MPEG4 Level.
+///
+///
+/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+///
+/// Available since API-level: 17
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_MPEG4Level(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+impl OH_H263Level {
+    /// 10 level
+    pub const H263_LEVEL_10: OH_H263Level = OH_H263Level(0);
+    /// 20 level
+    pub const H263_LEVEL_20: OH_H263Level = OH_H263Level(1);
+    /// 30 level
+    pub const H263_LEVEL_30: OH_H263Level = OH_H263Level(2);
+    /// 40 level
+    pub const H263_LEVEL_40: OH_H263Level = OH_H263Level(3);
+    /// 45 level
+    pub const H263_LEVEL_45: OH_H263Level = OH_H263Level(4);
+    /// 50 level
+    pub const H263_LEVEL_50: OH_H263Level = OH_H263Level(5);
+    /// 60 level
+    pub const H263_LEVEL_60: OH_H263Level = OH_H263Level(6);
+    /// 70 level
+    pub const H263_LEVEL_70: OH_H263Level = OH_H263Level(7);
+}
+#[repr(transparent)]
+/// H263 Level.
+///
+///
+/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+///
+/// Available since API-level: 17
+#[cfg(feature = "api-17")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_H263Level(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_TemporalGopReferenceMode {
@@ -880,6 +1066,42 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_AVCODEC_MIMETYPE_SUBTITLE_WEBVTT: *const ::core::ffi::c_char;
+    /// Enumerates the mime type of audio raw stream.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_RAW: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video mpeg2 codec.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MPEG2: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video mpeg4 part2 codec.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MPEG4_PART2: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video h263 codec.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 17
+    #[cfg(feature = "api-17")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_H263: *const ::core::ffi::c_char;
     /// Key for timeStamp in surface's extraData, value type is int64_t.
     ///
     ///
@@ -1526,7 +1748,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_SAR: *const ::core::ffi::c_char;
-    /// Key for start time of file, value type is int64_t.
+    /// Key for start time of the first frame in the media file in microseconds, value type is int64_t.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -1535,7 +1757,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_START_TIME: *const ::core::ffi::c_char;
-    /// Key for start time of track, value type is int64_t.
+    /// Key for start time of track in microseconds, value type is int64_t.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -1579,4 +1801,26 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub static mut OH_MD_KEY_CREATION_TIME: *const ::core::ffi::c_char;
+    /// Key applies only when configuring a video encoder in surface mode, value type is int32_t.
+    /// If no new frame became available since the last frame submitted to the encoder,
+    /// it will sumbit the previous frame repeatly in milliseconds. It is used in configure.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER: *const ::core::ffi::c_char;
+    /// Key for describing the maximum count that the frame previously submitted to the encoder will be
+    /// repeated, in case no new frame has been available since, value type is int32_t. This key takes effect only when
+    /// [`VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER`] is vaild. It is used in configure.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_REPEAT_PREVIOUS_MAX_COUNT: *const ::core::ffi::c_char;
 }

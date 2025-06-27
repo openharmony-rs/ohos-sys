@@ -95,6 +95,8 @@ extern "C" {
     /// Available since API-level: 10
     pub fn OH_AVSource_Destroy(source: *mut OH_AVSource) -> OH_AVErrCode;
     /// Get the format info of source.
+    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
+    /// to be manually released by the caller.
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
@@ -110,6 +112,8 @@ extern "C" {
     /// Available since API-level: 10
     pub fn OH_AVSource_GetSourceFormat(source: *mut OH_AVSource) -> *mut OH_AVFormat;
     /// Get the format info of track.
+    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
+    /// to be manually released by the caller.
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
@@ -130,4 +134,25 @@ extern "C" {
         source: *mut OH_AVSource,
         trackIndex: u32,
     ) -> *mut OH_AVFormat;
+    /// Get the format info of custom metadata.
+    ///
+    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
+    /// to be manually released by the caller.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// # Arguments
+    ///
+    /// * `source` - Pointer to an OH_AVSource instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the metadata's format info if the execution is successful, otherwise returns nullptr.
+    /// Possible failure causes:
+    /// 1. source is invalid.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_AVSource_GetCustomMetadataFormat(source: *mut OH_AVSource) -> *mut OH_AVFormat;
 }
