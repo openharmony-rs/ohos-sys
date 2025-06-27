@@ -1,6 +1,6 @@
 [package]
 name = "hitrace-sys"
-version = "0.1.5"
+version = "0.1.6"
 edition = "2021"
 keywords = ["OpenHarmony", "HarmonyOS", "hitrace", "tracing"]
 license = "Apache-2.0"
@@ -29,3 +29,9 @@ api-13 = ["api-12"]
 api-14 = ["api-13"]
 ## Enables bindings for OpenHarmony API-level 15 (No changes)
 api-15 = ["api-14"]
+## Enables bindings for OpenHarmony API-level 16 (No changes).
+api-16 = ["api-15"]
+## Enables bindings for OpenHarmony API-level 17 (No changes).
+api-17 = ["api-16"]
+## Enables bindings for OpenHarmony API-level 18 (No changes).
+api-18 = ["api-17"]
