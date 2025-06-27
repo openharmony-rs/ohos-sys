@@ -30,6 +30,16 @@ pub struct OH_ImagePackerNative {
 pub struct OH_PackingOptions {
     _unused: [u8; 0],
 }
+/// Defines the image sequence packing options.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+#[repr(C)]
+pub struct OH_PackingOptionsForSequence {
+    _unused: [u8; 0],
+}
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl IMAGE_PACKER_DYNAMIC_RANGE {
@@ -231,11 +241,227 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PackingOptions_Release(options: *mut OH_PackingOptions) -> ImageResult;
+    /// Create a pointer for OH_PackingOptionsForSequence struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PackingOptionsForSequence_Create(
+        options: *mut *mut OH_PackingOptionsForSequence,
+    ) -> ImageResult;
+    /// Set FrameCount number for OH_PackingOptionsForSequence struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    ///
+    /// * `frameCount` - The number of image frameCount.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PackingOptionsForSequence_SetFrameCount(
+        options: *mut OH_PackingOptionsForSequence,
+        frameCount: u32,
+    ) -> ImageResult;
+    /// Get FrameCount number for OH_PackingOptionsForSequence struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    ///
+    /// * `frameCount` - The number of image frameCount.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options or frameCount is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PackingOptionsForSequence_GetFrameCount(
+        options: *mut OH_PackingOptionsForSequence,
+        frameCount: *mut u32,
+    ) -> ImageResult;
+    /// Set DelayTimeList number for OH_PackingOptionsForSequence struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    ///
+    /// * `delayTimeList` - The pointer of image delayTime list.
+    ///
+    /// * `delayTimeListLength` - The number of image delayTimeListLength.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options or delayTimeList is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PackingOptionsForSequence_SetDelayTimeList(
+        options: *mut OH_PackingOptionsForSequence,
+        delayTimeList: *mut i32,
+        delayTimeListLength: usize,
+    ) -> ImageResult;
+    /// Get DelayTimeList number for OH_PackingOptionsForSequence struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    ///
+    /// * `delayTimeList` - The pointer of image delayTime list.
+    ///
+    /// * `delayTimeListLength` - The number of image delayTimeListLength.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options or delayTimeList is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PackingOptionsForSequence_GetDelayTimeList(
+        options: *mut OH_PackingOptionsForSequence,
+        delayTimeList: *mut i32,
+        delayTimeListLength: usize,
+    ) -> ImageResult;
+    /// Set DisposalTypes number for OH_PackingOptionsForSequence struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    ///
+    /// * `disposalTypes` - The pointer of image disposalTypes.
+    ///
+    /// * `disposalTypesLength` - The number of image disposalTypesLength.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options or disposalTypes is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PackingOptionsForSequence_SetDisposalTypes(
+        options: *mut OH_PackingOptionsForSequence,
+        disposalTypes: *mut u32,
+        disposalTypesLength: usize,
+    ) -> ImageResult;
+    /// Get DisposalTypes number for OH_PackingOptionsForSequence struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    ///
+    /// * `disposalTypes` - The pointer of image disposalTypes.
+    ///
+    /// * `disposalTypesLength` - The number of image disposalTypesLength.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options or disposalTypes is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PackingOptionsForSequence_GetDisposalTypes(
+        options: *mut OH_PackingOptionsForSequence,
+        disposalTypes: *mut u32,
+        disposalTypesLength: usize,
+    ) -> ImageResult;
+    /// Set LoopCount number for OH_PackingOptionsForSequence struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    ///
+    /// * `loopCount` - The number of image loopCount.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PackingOptionsForSequence_SetLoopCount(
+        options: *mut OH_PackingOptionsForSequence,
+        loopCount: u32,
+    ) -> ImageResult;
+    /// Get LoopCount number for OH_PackingOptionsForSequence struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    ///
+    /// * `loopCount` - The number of image loopCount.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options or loopCount is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PackingOptionsForSequence_GetLoopCount(
+        options: *mut OH_PackingOptionsForSequence,
+        loopCount: *mut u32,
+    ) -> ImageResult;
+    /// delete OH_PackingOptionsForSequence pointer.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PackingOptionsForSequence_Release(
+        options: *mut OH_PackingOptionsForSequence,
+    ) -> ImageResult;
     /// Create a pointer for OH_ImagePackerNative struct.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_ImagePackerNative pointer will be operated.
+    /// * `imagePacker` - The imagePacker to be created.
     ///
     /// # Returns
     ///
@@ -333,6 +559,40 @@ extern "C" {
         outData: *mut u8,
         size: *mut usize,
     ) -> ImageResult;
+    /// Encoding a <b>PixelMap</b> sequence into the data
+    ///
+    /// # Arguments
+    ///
+    /// * `imagePacker` - The imagePacker to use for packing.
+    ///
+    /// * `options` - Indicates the encoding [`OH_PackingOptionsForSequence`].
+    ///
+    /// * `pixelmapSequence` - The pixelmap sequence to be packed.
+    ///
+    /// * `sequenceLength` - The pixelmap sequence size to be packed.
+    ///
+    /// * `outData` - The output data buffer to store the packed image.
+    ///
+    /// * `outDataSize` - A pointer to the size of the output data buffer.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] one of the pointer type parameters is nullptr, or size/length is invalid
+    /// [`IMAGE_ENCODE_FAILED`] encode failed.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ImagePackerNative_PackToDataFromPixelmapSequence(
+        imagePacker: *mut OH_ImagePackerNative,
+        options: *mut OH_PackingOptionsForSequence,
+        pixelmapSequence: *mut *mut OH_PixelmapNative,
+        sequenceLength: usize,
+        outData: *mut u8,
+        outDataSize: *mut usize,
+    ) -> ImageResult;
     /// Encoding an <b>ImageSource</b> into the a file with fd with required format.
     ///
     /// # Arguments
@@ -409,6 +669,37 @@ extern "C" {
         imagePacker: *mut OH_ImagePackerNative,
         options: *mut OH_PackingOptions,
         picture: *mut OH_PictureNative,
+        fd: i32,
+    ) -> ImageResult;
+    /// Encoding a <b>PixelMap</b> sequence into the a file with fd
+    ///
+    /// # Arguments
+    ///
+    /// * `imagePacker` - The image packer to use for packing.
+    ///
+    /// * `options` - Indicates the encoding [`OH_PackingOptionsForSequence`].
+    ///
+    /// * `pixelmapSequence` - The pixelmap sequence to be packed.
+    ///
+    /// * `sequenceLength` - The pixelmap sequence size to be packed.
+    ///
+    /// * `fd` - Indicates a writable file descriptor.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] one of the pointer type parameters is nullptr, or length is invalid
+    /// [`IMAGE_ENCODE_FAILED`] encode failed.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_ImagePackerNative_PackToFileFromPixelmapSequence(
+        imagePacker: *mut OH_ImagePackerNative,
+        options: *mut OH_PackingOptionsForSequence,
+        pixelmapSequence: *mut *mut OH_PixelmapNative,
+        sequenceLength: usize,
         fd: i32,
     ) -> ImageResult;
     /// Releases an imagePacker object.

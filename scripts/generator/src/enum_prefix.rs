@@ -15,6 +15,7 @@ pub(crate) static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>>
             ("ArkUI_GestureInterruptResult", "GESTURE_INTERRUPT_RESULT_"),
             ("ArkUI_ErrorCode", "ARKUI_ERROR_CODE_"),
             ("ArkUI_ListItemGroupArea", "ARKUI_LIST_ITEM_"),
+            ("Image_CropAndScaleStrategy", "IMAGE_CROP_AND_SCALE_STRATEGY_"),
             ("InputMethod_ErrorCode", "IME_ERR_"),
             ("Input_Result", "INPUT_"),
             (

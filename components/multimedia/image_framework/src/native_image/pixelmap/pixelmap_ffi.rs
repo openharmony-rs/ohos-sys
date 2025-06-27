@@ -470,6 +470,46 @@ extern "C" {
         options: *mut OH_Pixelmap_InitializationOptions,
         alphaType: i32,
     ) -> ImageResult;
+    /// Get editable for InitializationOptions struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The InitializationOptions pointer will be operated.
+    ///
+    /// * `editable` - The boolean value representing the editable status.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if options or editable is invalid.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PixelmapInitializationOptions_GetEditable(
+        options: *mut OH_Pixelmap_InitializationOptions,
+        editable: *mut bool,
+    ) -> ImageResult;
+    /// Set editable for InitializationOptions struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The InitializationOptions pointer will be operated.
+    ///
+    /// * `editable` - The boolean value representing the editable status.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if options is invalid.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PixelmapInitializationOptions_SetEditable(
+        options: *mut OH_Pixelmap_InitializationOptions,
+        editable: bool,
+    ) -> ImageResult;
     /// delete InitializationOtions pointer.
     ///
     /// # Arguments
@@ -876,6 +916,65 @@ extern "C" {
         scaleY: f32,
         level: OH_PixelmapNative_AntiAliasingLevel,
     ) -> ImageResult;
+    /// Create a scaled pixelmap based on the source pixelmap and the input width and height.
+    ///
+    /// # Arguments
+    ///
+    /// * `srcPixelmap` - The source native pixelmap.
+    ///
+    /// * `dstPixelmap` - The destination native pixelmap for create.
+    ///
+    /// * `scaleX` - Scaling ratio of the width.
+    ///
+    /// * `scaleY` - Scaling ratio of the height.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If the param is nullptr or invalid.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PixelmapNative_CreateScaledPixelMap(
+        srcPixelmap: *mut OH_PixelmapNative,
+        dstPixelmap: *mut *mut OH_PixelmapNative,
+        scaleX: f32,
+        scaleY: f32,
+    ) -> ImageResult;
+    /// Create a scaled pixelmap based on the source pixelmap and the input width and height with anti-aliasing.
+    ///
+    /// # Arguments
+    ///
+    /// * `srcPixelmap` - The source native pixelmap.
+    ///
+    /// * `dstPixelmap` - The destination native pixelmap for create.
+    ///
+    /// * `scaleX` - Scaling ratio of the width.
+    ///
+    /// * `scaleY` - Scaling ratio of the height.
+    ///
+    /// * `level` - The anti-aliasing algorithm to be used.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If the param is nullptr or invalid.
+    /// [`IMAGE_TOO_LARGE`] If image is too large.
+    /// [`IMAGE_ALLOC_FAILED`] If device has no memory.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing(
+        srcPixelmap: *mut OH_PixelmapNative,
+        dstPixelmap: *mut *mut OH_PixelmapNative,
+        scaleX: f32,
+        scaleY: f32,
+        level: OH_PixelmapNative_AntiAliasingLevel,
+    ) -> ImageResult;
     /// Translates this image based on the input coordinates.
     ///
     /// # Arguments
@@ -969,6 +1068,21 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PixelmapNative_Release(pixelmap: *mut OH_PixelmapNative) -> ImageResult;
+    /// Destroys an <b>OH_PixelmapNative</b> object and deallocates its resources.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - A pointer to the OH_PixelmapNative pointer to destroy.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if pixelmap is null or *pixelmap is null.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PixelmapNative_Destroy(pixelmap: *mut *mut OH_PixelmapNative) -> ImageResult;
     /// Converting images to alpha format
     ///
     /// # Arguments
@@ -1148,6 +1262,48 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         name: *mut ::core::ffi::c_char,
         size: *mut usize,
+    ) -> ImageResult;
+    /// Get the total number of bytes occupied by all pixels in the Pixelmap, without any padding.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - The Pixelmap pointer to be operated.
+    ///
+    /// * `byteCount` - The total number of bytes to be retrieved.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap or byteCount are invalid.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PixelmapNative_GetByteCount(
+        pixelmap: *mut OH_PixelmapNative,
+        byteCount: *mut u32,
+    ) -> ImageResult;
+    /// Get the size of the allocated memory used to store this pixelmap's pixels.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - The Pixelmap pointer to be operated.
+    ///
+    /// * `allocationByteCount` - The size of the allocated memory.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap or allocationByteCount are invalid.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub fn OH_PixelmapNative_GetAllocationByteCount(
+        pixelmap: *mut OH_PixelmapNative,
+        allocationByteCount: *mut u32,
     ) -> ImageResult;
     /// Obtains the memory address of a PixelMap and locks the memory.
     /// When the memory is locked, any operation that modifies or releases the PixelMap will fail and return
