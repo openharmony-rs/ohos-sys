@@ -15,6 +15,7 @@ ace
 ark_runtime
 arkui
 asset
+background_process_manager
 bundle
 database
 ddk
@@ -49,9 +50,11 @@ purgeable_memory
 qos
 rawfile
 resourcemanager
+scsi_peripheral
 sensors
 telephony
 transient_task
 usb
+usb_serial
 web
 window_manager
