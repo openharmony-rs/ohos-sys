@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.8.3 (2025-07-09)
+
+- Fix issue with linking libpixelmap in imagekit-sys.
+
 ## v0.8.2
 
 - Update bindings up to API-18.
