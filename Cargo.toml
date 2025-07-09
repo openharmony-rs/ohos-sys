@@ -1,6 +1,6 @@
 [package]
 name = "ohos-sys"
-version = "0.8.1"
+version = "0.8.2"
 edition = "2021"
 description = "Bindings to the native API of OpenHarmony OS"
 license = "Apache-2.0"
@@ -29,7 +29,7 @@ hitrace-sys = { version = "0.1.6", optional = true, path = "components/hitrace" 
 ohos-abilitykit-sys = { version = "0.1.2", optional = true, path = "components/abilitykit" }
 ohos-deviceinfo-sys = { version = "0.1.5", optional = true, path = "components/deviceinfo" }
 ohos-drawing-sys = { path = "components/drawing", version = "0.3.2", optional = true }
-ohos-image-kit-sys = { version = "0.3.2", optional = true, path = "components/multimedia/image_framework" }
+ohos-image-kit-sys = { version = "0.3.3", optional = true, path = "components/multimedia/image_framework" }
 ohos-ime-sys = { version = "0.2.2", optional = true, path = "components/inputmethod" }
 ohos-input-sys = { version = "0.3.2", optional = true, path = "components/multimodal-input" }
 ohos-pasteboard-sys = { version = "0.1.2", optional = true, path = "components/pasteboard" }
