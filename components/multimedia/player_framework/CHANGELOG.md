@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.4
+
+- Fix lacking libraries linking
+
 ## 0.0.3
 
 - Update to API-16, 17 and 18

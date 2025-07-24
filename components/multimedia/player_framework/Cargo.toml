@@ -1,6 +1,6 @@
 [package]
 name = "ohos-media-sys"
-version = "0.0.3"
+version = "0.0.4"
 edition = "2021"
 description = "Raw Bindings to the media framework on OpenHarmony"
 license = "Apache-2.0"
