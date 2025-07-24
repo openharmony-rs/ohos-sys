@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.8.4 (2025-07-24)
+
+- Fix issue with linking library in media-sys.
+
 ## v0.8.3 (2025-07-09)
 
 - Fix issue with linking libpixelmap in imagekit-sys.

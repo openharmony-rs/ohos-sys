@@ -113,7 +113,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-media-sys"
-version = "0.0.3"
+version = "0.0.4"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",
@@ -137,7 +137,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-sys"
-version = "0.8.2"
+version = "0.8.3"
 dependencies = [
  "arkui-sys",
  "document-features",
