@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.8.5 (2025-07-31)
+
+- Upgrade `keyboard_types` to `0.8.0` in xcomponent.
+
 ## v0.8.4 (2025-07-24)
 
 - Fix issue with linking library in media-sys.
