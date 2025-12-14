@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5
+
+- Update to API-21. Adds support for `OH_NativeVSync_SetExpectedFrameRateRange()`
+
 ## 0.1.4
 
 - Update to API-18 SDK (minor documentation updates only)
