@@ -17,9 +17,11 @@ already been generated.
 | ConnectivityKit                         |        |           |
 | CryptoArchitectureKit                   |        |           |
 | DataProtectionKit                       |        |           |
+| GameControllerKit                       |        |           |
 | IPCKit                                  |        |           |
 | LocationKit                             |        |           |
 | NotificationKit                         |        |           |
+| TEEKit                                  |        |           |
 | accesstoken                             |        |           |
 | ace/xcomponent                          | ✅      | 18        |
 | ark_runtime                             |        |           |
@@ -28,6 +30,7 @@ already been generated.
 | bundle                                  |        |           |
 | database                                |        |           |
 | ddk                                     |        |           |
+| distributedhardware                     |        |           |
 | ffrt                                    |        |           |
 | filemanagement                          |        |           |
 | hiappevent                              |        |           |
@@ -48,6 +51,7 @@ already been generated.
 | native_display_soloist                  |        |           |
 | native_drawing                          | ✅      | 18        |
 | native_effect                           |        |           |
+| native_fence                            |        |           |
 | native_image                            | ✅      | 18        |
 | native_vsync                            | ✅      | 18        |
 | native_window                           | ✅      | 18        |

@@ -5,7 +5,7 @@ from pathlib import Path
 # Folders in the /usr/include directory of the sysroot which are not relevant for OpenHarmony bindings,
 # since they contain just standard headers
 blocklisted = [
-    'EGL', 'GLES2', 'GLES3',
+    'EGL', 'GL', 'GLES2', 'GLES3',
     'KHR',
     'aarch64-linux-ohos',
     'arm-linux-ohos',
