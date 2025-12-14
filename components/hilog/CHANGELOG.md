@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.7
+
+- Update bindings to API-21. (Adds `OH_LOG_SetLogLevel`)
+
 ## 0.1.6
 
 - Add API-16, 17 and 18 bindings

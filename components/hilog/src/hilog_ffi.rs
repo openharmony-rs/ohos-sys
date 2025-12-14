@@ -54,6 +54,30 @@ impl LogLevel {
 /// Available since API-level: 8
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct LogLevel(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+impl PreferStrategy {
+    /// Used to unset SetLogLevel, then none is set
+    pub const UNSET_LOGLEVEL: PreferStrategy = PreferStrategy(0);
+    /// The actual lowest log level is determined by
+    /// the maximum level between the new level and the system-controlled level.
+    /// This is equivalent to calling OH_LOG_SetMinLogLevel.
+    pub const PREFER_CLOSE_LOG: PreferStrategy = PreferStrategy(1);
+    /// The actual lowest log level is determined by
+    /// the minimum level between the new level and the system-controlled level.
+    pub const PREFER_OPEN_LOG: PreferStrategy = PreferStrategy(2);
+}
+#[repr(transparent)]
+/// Enumerates preference strategy to be used in [`OH_LOG_SetLogLevel`].
+///
+/// You are advised to select preference strategy based on their respective usage scenarios.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct PreferStrategy(pub ::core::ffi::c_uint);
 /// Defines the function pointer type for the user-defined log processing function.
 ///
 /// # Arguments
@@ -239,4 +263,16 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_LOG_SetMinLogLevel(level: LogLevel);
+    /// Sets the lowest log level of the current application process. Different preference strategy can be set.
+    ///
+    /// # Arguments
+    ///
+    /// * `level` - log level.
+    ///
+    /// * `prefer` - preference strategy. See [`PreferStrategy`].
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_LOG_SetLogLevel(level: LogLevel, prefer: PreferStrategy);
 }
