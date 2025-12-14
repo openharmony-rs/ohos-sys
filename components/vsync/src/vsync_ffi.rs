@@ -11,6 +11,24 @@ pub struct OH_NativeVSync {
 pub type OH_NativeVSync_FrameCallback = ::core::option::Option<
     unsafe extern "C" fn(timestamp: ::core::ffi::c_longlong, data: *mut ::core::ffi::c_void),
 >;
+/// Defines the expected frame rate range struct.
+///
+///
+/// Available since API-level: 20
+///
+/// Version: 1.0
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_NativeVSync_ExpectedRateRange {
+    /// The minimum frame rate of dynamical callback rate range.
+    pub min: i32,
+    /// The maximum frame rate of dynamical callback rate range.
+    pub max: i32,
+    /// The expected frame rate of dynamical callback rate range.
+    pub expected: i32,
+}
 extern "C" {
     /// Creates a <b>NativeVsync</b> instance.
     ///
@@ -196,5 +214,29 @@ extern "C" {
     pub fn OH_NativeVSync_DVSyncSwitch(
         nativeVsync: *mut OH_NativeVSync,
         enable: bool,
+    ) -> ::core::ffi::c_int;
+    /// Set vsync expected frame rate range.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeVsync
+    /// # Arguments
+    ///
+    /// * `nativeVsync` - Indicates the pointer to a NativeVsync.
+    ///
+    /// * `range` - Indicates the pointer to an expected rate range.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - the parameter nativeVsync is NULL or range is NULL or Invalid.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeVSync_SetExpectedFrameRateRange(
+        nativeVsync: *mut OH_NativeVSync,
+        range: *mut OH_NativeVSync_ExpectedRateRange,
     ) -> ::core::ffi::c_int;
 }
