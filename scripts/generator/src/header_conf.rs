@@ -161,6 +161,7 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
                 builder
                     .result_error_enum("Ability_NativeChildProcess_ErrCode")
                     .allowlist_file(".*AbilityKit/native_child_process.h")
+                    .clang_args(["-x", "c++"])
                     .parse_callbacks(Box::new(ResultEnumParseCallbacks {
                         rename_item: Box::new(|name| { // Ability_NativeChildProcess_ErrCode
                             name.strip_suffix("_ErrCode").map(|name | {
