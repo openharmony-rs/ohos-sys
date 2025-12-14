@@ -1,3 +1,10 @@
+# Changelog
+
+## 0.1.6
+
+- Update bindings to API-21. This adds the new `OH_Hitrace_<variant>Ex` functions,
+  which allow specifying log levels and custom key-value arguments.
+
 ## 0.1.5
 
 - Add API-16, 17 and 18 (no changes)

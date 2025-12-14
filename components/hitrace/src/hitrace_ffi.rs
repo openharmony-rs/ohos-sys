@@ -455,6 +455,55 @@ impl HiTrace_Communication_Mode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct HiTrace_Communication_Mode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+impl HiTrace_Output_Level {
+    /// Output level only for debug usage.
+    ///
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const HITRACE_LEVEL_DEBUG: HiTrace_Output_Level = HiTrace_Output_Level(0);
+    /// Output level for log version usage.
+    ///
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const HITRACE_LEVEL_INFO: HiTrace_Output_Level = HiTrace_Output_Level(1);
+    /// Output level for log version usage, with higher priority than HITRACE_LEVEL_INFO.
+    ///
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const HITRACE_LEVEL_CRITICAL: HiTrace_Output_Level = HiTrace_Output_Level(2);
+    /// Output level for nolog version usage.
+    ///
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const HITRACE_LEVEL_COMMERCIAL: HiTrace_Output_Level = HiTrace_Output_Level(3);
+    /// Output level for range limit.
+    ///
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const HITRACE_LEVEL_MAX: HiTrace_Output_Level = HiTrace_Output_Level(3);
+}
+#[repr(transparent)]
+/// Enumerates the HiTrace output levels. The output level threshold system parameter determines
+/// the minimum output trace.
+///
+///
+/// Available since API-level: 19
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct HiTrace_Output_Level(pub ::core::ffi::c_uint);
 /// Defines a <b>HiTraceId</b> instance.
 ///
 /// HiTraceId
@@ -1178,4 +1227,130 @@ extern "C" {
     ///
     /// Available since API-level: 10
     pub fn OH_HiTrace_CountTrace(name: *const ::core::ffi::c_char, count: i64);
+    /// Marks the start of a synchronous trace task with output level control.
+    ///
+    /// The <b>OH_HiTrace_StartTraceEx</b> and <b>OH_HiTrace_FinishTraceEx</b> APIs must be used in pairs.
+    /// The two APIs can be used in nested mode. The stack data structure is used for matching during trace data parsing.
+    ///
+    /// # Arguments
+    ///
+    /// * `level` - Trace output priority level.
+    ///
+    /// * `name` - Name of the synchronous trace task.
+    ///
+    /// * `customArgs` - key=value pair, multiple pairs use comma as separator.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_HiTrace_StartTraceEx(
+        level: HiTrace_Output_Level,
+        name: *const ::core::ffi::c_char,
+        customArgs: *const ::core::ffi::c_char,
+    );
+    /// Marks the end of a synchronous trace task with output level control.
+    ///
+    /// This API must be used with <b>OH_HiTrace_StartTraceEx</b> in pairs. The two APIs, which have the same level,
+    /// form an synchronous timeslice trace task.
+    /// During trace data parsing, the system matches it with the most recent <b>OH_HiTrace_StartTraceEx</b> API
+    /// invocation in the service process.
+    ///
+    /// # Arguments
+    ///
+    /// * `level` - Trace output priority level.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_HiTrace_FinishTraceEx(level: HiTrace_Output_Level);
+    /// Marks the start of an asynchronous trace task with output level control.
+    ///
+    /// This API is called to implement performance trace in asynchronous manner. The start and end of an asynchronous
+    /// trace task do not occur in sequence. Therefore, a unique <b>taskId</b> is required to ensure proper data parsing.
+    /// It is passed as an input parameter for the asynchronous API.
+    /// This API is used with <b>OH_HiTrace_FinishAsyncTraceEx</b> in pairs. The two APIs, which have the same level,
+    /// name, and task ID, form an asynchronous timeslice trace task.
+    /// If customCategory is specified, the trace slice will be grouped and displayed together with other trace slices
+    /// with the same customCategory.
+    /// If multiple trace tasks with the same name need to be performed at the same time or a trace task needs to be
+    /// performed multiple times concurrently, different task IDs must be specified in <b>OH_HiTrace_StartAsyncTraceEx</b>.
+    /// If the trace tasks with the same name are not performed at the same time, the same taskId can be used.
+    /// Different processes's taskId do not interfere.
+    ///
+    /// # Arguments
+    ///
+    /// * `level` - Trace output priority level.
+    ///
+    /// * `name` - Name of the asynchronous trace task.
+    ///
+    /// * `taskId` - ID of the asynchronous trace task.
+    ///
+    /// * `customCategory` - Label used to aggregate the asynchronous trace.
+    ///
+    /// * `customArgs` - key=value pair, multiple pairs use comma as separator.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_HiTrace_StartAsyncTraceEx(
+        level: HiTrace_Output_Level,
+        name: *const ::core::ffi::c_char,
+        taskId: i32,
+        customCategory: *const ::core::ffi::c_char,
+        customArgs: *const ::core::ffi::c_char,
+    );
+    /// Marks the end of an asynchronous trace task with output level control.
+    ///
+    /// This API is called in the callback function after an asynchronous trace is complete.
+    /// It is used with <b>OH_HiTrace_StartAsyncTraceEx</b> in pairs. Its level, name, and task ID must be
+    /// the same as those of <b>OH_HiTrace_StartAsyncTraceEx</b>.
+    ///
+    /// # Arguments
+    ///
+    /// * `level` - Trace output priority level.
+    ///
+    /// * `name` - Name of the asynchronous trace task.
+    ///
+    /// * `taskId` - ID of the asynchronous trace task.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_HiTrace_FinishAsyncTraceEx(
+        level: HiTrace_Output_Level,
+        name: *const ::core::ffi::c_char,
+        taskId: i32,
+    );
+    /// Traces the value change of an integer variable based on its name with output level control.
+    ///
+    /// This API can be executed for multiple times to trace the value change of a given integer variable at different
+    /// time points.
+    ///
+    /// # Arguments
+    ///
+    /// * `level` - Trace output priority level.
+    ///
+    /// * `name` - Name of the integer variable. It does not need to be the same as the real variable name.
+    ///
+    /// * `count` - Integer value. Generally, an integer variable can be passed.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_HiTrace_CountTraceEx(
+        level: HiTrace_Output_Level,
+        name: *const ::core::ffi::c_char,
+        count: i64,
+    );
+    /// Get the trace output status of the calling process.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns whether the calling process is allowed to output trace.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_HiTrace_IsTraceEnabled() -> bool;
 }
