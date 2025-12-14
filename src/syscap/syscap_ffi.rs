@@ -5,5 +5,16 @@
 #![allow(non_snake_case)]
 
 extern "C" {
+    /// Queries whether a device supports a specified SystemCapability.
+    /// # Arguments
+    ///
+    /// * `cap` - SystemCapability whether supported
+    ///
+    /// # Returns
+    ///
+    /// * true - Supports the specified SystemCapability.
+    /// false - The specified SystemCapability is not supported.
+    ///
+    /// Available since API-level: 8
     pub fn canIUse(cap: *const ::core::ffi::c_char) -> bool;
 }
