@@ -7,9 +7,11 @@ BasicServicesKit
 ConnectivityKit
 CryptoArchitectureKit
 DataProtectionKit
+GameControllerKit
 IPCKit
 LocationKit
 NotificationKit
+TEEKit
 accesstoken
 ace
 ark_runtime
@@ -19,6 +21,7 @@ background_process_manager
 bundle
 database
 ddk
+distributedhardware
 ffrt
 filemanagement
 hiappevent
@@ -39,6 +42,7 @@ native_color_space_manager
 native_display_soloist
 native_drawing
 native_effect
+native_fence
 native_image
 native_vsync
 native_window
