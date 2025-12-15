@@ -93,6 +93,9 @@ pub struct ArkUI_GesturePriority(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_GroupGestureMode {
+    /// Sequential recognition. Gestures are recognized in the registration sequence until all gestures are recognized
+    /// successfully. Once one gesture fails to be recognized, all subsequent gestures fail to be recognized.
+    /// Only the last gesture in the gesture group can respond to the end event.
     pub const SEQUENTIAL_GROUP: ArkUI_GroupGestureMode = ArkUI_GroupGestureMode(0);
     /// Parallel recognition. Registered gestures are recognized concurrently until all gestures are recognized.
     /// The recognition result of each gesture does not affect each other.
@@ -185,6 +188,20 @@ impl ArkUI_GestureRecognizerType {
     pub const SWIPE_GESTURE: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(5);
     /// A group of gestures.
     pub const GROUP_GESTURE: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(6);
+    /// The click gesture registed through onClick.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const CLICK_GESTURE: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(7);
+    /// Drag gesture used for drag and drop.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const DRAG_DROP: ArkUI_GestureRecognizerType = ArkUI_GestureRecognizerType(8);
 }
 #[repr(transparent)]
 /// Enumerates gesture types.
@@ -302,6 +319,12 @@ pub type ArkUI_TouchRecognizerHandle = *mut ArkUI_TouchRecognizer;
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub type ArkUI_TouchRecognizerHandleArray = *mut ArkUI_TouchRecognizerHandle;
 /// Defines a callback function for notifying gesture recognizer destruction.
+///
+/// # Arguments
+///
+/// * `recognizer` - Indicates the pointer to a gesture recognizer.
+///
+/// * `userData` - Indicates the custom data.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -1651,6 +1674,98 @@ extern "C" {
         recognizer: *mut ArkUI_GestureRecognizer,
         distanceThreshold: *mut f64,
     ) -> i32;
+    /// Sets the minimum movement distance thresholds for gestures to be recognized by a gesture recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
+    ///
+    /// * `size` - Size of the array of minimum movement distance thresholds.
+    ///
+    /// * `toolTypeArray` - Pointer to the array of tool types for which thresholds are set.
+    ///
+    /// * `distanceArray` - Pointer to the array of minimum movement distances, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is
+    /// not supported.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_PanGesture_SetDistanceMap(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        size: ::core::ffi::c_int,
+        toolTypeArray: *mut ::core::ffi::c_int,
+        distanceArray: *mut f64,
+    ) -> ArkUiResult;
+    /// Obtains the movement threshold for gestures to be recognized by a gesture recognizer for a specific tool type.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
+    ///
+    /// * `toolType` - Tool type for which you want to obtain the threshold.
+    ///
+    /// * `distance` - Gesture movement threshold of the gesture recognizer, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is
+    /// not supported.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_PanGesture_GetDistanceByToolType(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        toolType: ::core::ffi::c_int,
+        distance: *mut f64,
+    ) -> ArkUiResult;
+    /// Registers a callback that is executed after all gesture recognizers are collected.
+    /// When the user begins touching the screen, the system performs hit testing and collects gesture recognizers
+    /// based on the touch location. Subsequently, before processing any move events, the component can use this API
+    /// to determine the gesture recognizers that will participate in and compete for recognition.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Handle to the node on which the callback is to be set.
+    ///
+    /// * `userData` - Custom data.
+    ///
+    /// * `touchTestDone` - Callback for completion of gesture recognizer collection.
+    /// - event: Basic information of the gesture.
+    /// - recognizers: Array of gesture recognizers.
+    /// - count: Number of gesture recognizers.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`]: The operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`]: A parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_SetTouchTestDoneCallback(
+        node: ArkUI_NodeHandle,
+        userData: *mut ::core::ffi::c_void,
+        touchTestDone: ::core::option::Option<
+            unsafe extern "C" fn(
+                event: *mut ArkUI_GestureEvent,
+                recognizers: ArkUI_GestureRecognizerHandleArray,
+                count: i32,
+                userData: *mut ::core::ffi::c_void,
+            ),
+        >,
+    ) -> ArkUiResult;
     /// Obtains the custom data from a gesture interruption event.
     ///
     /// # Arguments
@@ -1667,4 +1782,25 @@ extern "C" {
     pub fn OH_ArkUI_GestureInterrupter_GetUserData(
         event: *mut ArkUI_GestureInterruptInfo,
     ) -> *mut ::core::ffi::c_void;
+    /// Prevents a gesture recognizer from participating in the current gesture recognition before all fingers are
+    /// lifted.
+    /// If the system has already determined the result of the gesture recognizer (regardless of success or failure),
+    /// calling this API will be ineffective.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`]: The operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`]: A parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_PreventGestureRecognizerBegin(
+        recognizer: *mut ArkUI_GestureRecognizer,
+    ) -> ArkUiResult;
 }

@@ -5,6 +5,9 @@
 #![allow(non_snake_case)]
 use crate::native_type::*;
 pub use ohos_sys_opaque_types::OH_PixelmapNative;
+use ohos_sys_opaque_types::OH_UdmfData;
+#[cfg(feature = "api-20")]
+use ohos_sys_opaque_types::OH_UdmfDataLoadParams;
 #[cfg(feature = "api-15")]
 use ohos_sys_opaque_types::OH_UdmfGetDataParams;
 
@@ -267,6 +270,77 @@ extern "C" {
         event: *mut ArkUI_DragEvent,
         result: ArkUI_DragResult,
     ) -> i32;
+    /// Set drag data for a drag event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// * `data` - Indicates the drag data.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ArkUI_DragEvent_SetData(event: *mut ArkUI_DragEvent, data: *mut OH_UdmfData) -> i32;
+    /// Use this method to provide a data loading parameter to the system instead of providing
+    /// a complete data object directly. When the user drags and drops to the target application,
+    /// the system will use this parameter to request data from you. This can greatly improve the efficiency
+    /// of the dragging operation for large amounts of data and the effectiveness of the drop data handling
+    /// in the target application.
+    ///
+    /// This method should be always prioritized over using [`OH_ArkUI_DragEvent_SetData`].
+    /// See [`OH_UdmfDataLoadParams_Create`] in <b>udmf.h</b> for how to create and prepare the data loading parameter.
+    ///
+    /// [Note]: Please be awared this method is conflict with [`OH_ArkUI_DragEvent_SetData`], and the system always use
+    /// the last called method as the final result.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// * `dataLoadParams` - Indicates the data loading parameters which will be used when dropping.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_DragEvent_SetDataLoadParams(
+        event: *mut ArkUI_DragEvent,
+        dataLoadParams: *mut OH_UdmfDataLoadParams,
+    ) -> ArkUiResult;
+    /// Obtains the default drag data from a drag event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// * `data` - Indicates the pointer to an <b>OH_UdmfData</b> object. The application needs to create a pointer
+    /// for receiving data by using the [`OH_UdmfData_Create`] method.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ArkUI_DragEvent_GetUdmfData(
+        event: *mut ArkUI_DragEvent,
+        data: *mut OH_UdmfData,
+    ) -> i32;
     /// Obtains the number of drag data types from a drag event.
     ///
     /// # Arguments
@@ -478,6 +552,36 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragEvent_GetTouchPointYToDisplay(event: *mut ArkUI_DragEvent) -> f32;
+    /// Obtains the global display X coordinate of the touch point from an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * float Global display X coordinate of the touch point, in px.
+    /// If the input parameter is invalid, the default value <b>0</b> is returned.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay(event: *mut ArkUI_DragEvent) -> f32;
+    /// Obtains the global display Y coordinate of the touch point from an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * float Global display Y coordinate of the touch point, in px.
+    /// If the input parameter is invalid, the default value <b>0</b> is returned.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_DragEvent_GetTouchPointYToGlobalDisplay(event: *mut ArkUI_DragEvent) -> f32;
     /// Obtains the dragging velocity along the x-axis.
     ///
     /// # Arguments
@@ -529,8 +633,8 @@ extern "C" {
     ///
     /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
-    /// * `keys` - Indicates the returned combination of modifier keys that are currently pressed.
-    /// The application can determine the pressed modifier keys through bitwise operations.
+    /// * `keys` - [`ArkUI_ModifierKeyName`] Indicates the returned combination of modifier keys that are
+    /// currently pressed. The application can determine the pressed modifier keys through bitwise operations.
     ///
     /// # Returns
     ///
@@ -545,6 +649,27 @@ extern "C" {
         event: *mut ArkUI_DragEvent,
         keys: *mut u64,
     ) -> i32;
+    /// Obtains the display ID of the screen for the specified drag event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// * `displayId` - Display ID of the event occurs in.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_DragEvent_GetDisplayId(
+        event: *mut ArkUI_DragEvent,
+        displayId: *mut i32,
+    ) -> ArkUiResult;
     /// Request to start the data sync process with the sync option.
     ///
     /// # Arguments
@@ -563,7 +688,6 @@ extern "C" {
     /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_DRAG_DATA_SYNC_FAILED`] if the data sync is not allowed or failed.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -587,7 +711,6 @@ extern "C" {
     /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_OPERATION_FAILED`] if no any data sync is in progress.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -735,7 +858,7 @@ extern "C" {
     ///
     /// * `node` - Indicates the pointer to a component node.
     ///
-    /// * `bool` - Indicates whether the component is draggable.
+    /// * `enabled` - Indicates whether the component is draggable.
     ///
     /// # Returns
     ///
@@ -1061,6 +1184,58 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DragAction_SetTouchPointY(dragAction: *mut ArkUI_DragAction, y: f32) -> i32;
+    /// Sets the drag data.
+    ///
+    /// # Arguments
+    ///
+    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    ///
+    /// * `data` - Indicates the drag data.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub fn OH_ArkUI_DragAction_SetData(
+        dragAction: *mut ArkUI_DragAction,
+        data: *mut OH_UdmfData,
+    ) -> i32;
+    /// Use this method to provide a data loading parameter to the system instead of providing
+    /// a complete data object directly. When the user drags and drops to the target application,
+    /// the system will use this parameter to request data from you. This can greatly improve the efficiency
+    /// of the dragging operation for large amounts of data and the effectiveness of the drop data handling
+    /// in the target application.
+    ///
+    /// It's recommanded to use this method instead of using [`OH_ArkUI_DragAction_SetData`].
+    /// See [`OH_UdmfDataLoadParams_Create`] in <b>udmf.h</b> for how to create and prepare the data loading parameter.
+    ///
+    /// [Note]: Please be awared this method is conflict with [`OH_ArkUI_DragAction_SetData`], and the system always use
+    /// the last called method as the final result.
+    ///
+    /// # Arguments
+    ///
+    /// * `dragAction` - Indicates the pointer to the target drag action object.
+    ///
+    /// * `dataLoadParams` - Indicates the data loading parameters which will be used when dropping.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_DragAction_SetDataLoadParams(
+        dragAction: *mut ArkUI_DragAction,
+        dataLoadParams: *mut OH_UdmfDataLoadParams,
+    ) -> ArkUiResult;
     /// Sets an <b>ArkUI_DragPreviewOption</b> object for the specified drag action object.
     ///
     /// # Arguments
@@ -1173,4 +1348,151 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_StartDrag(dragAction: *mut ArkUI_DragAction) -> i32;
+    /// Request to delay the drop end handling for a while to wait until the process result
+    /// is really conformed by application, the result need to be notified back to system through
+    /// [`OH_ArkUI_NotifyDragResult`] interface. And when all the handling done, the
+    /// [`OH_ArkUI_NotifyDragEndPendingDone`] should be called.
+    /// Please be aware, the maximum pending time is 2 seconds;
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// * `requestIdentify` - Indicates the Identify for the request initiated by this method, it's a number generated
+    /// by system automatically, and it's an out parameter too, so one valid address needed.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`] if current is not during the drop handing.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_DragEvent_RequestDragEndPending(
+        event: *mut ArkUI_DragEvent,
+        requestIdentify: *mut i32,
+    ) -> i32;
+    /// Notify the system final drag result, the request identify will be checked, it should be the same
+    /// as the one returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`] interface, if it's not,
+    /// the calling will be ignored.
+    ///
+    /// # Arguments
+    ///
+    /// * `requestIdentify` - The identify returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`] interface.
+    ///
+    /// * `result` - Indicates the drag result.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`] if current is not during the drop handing.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_NotifyDragResult(requestIdentify: i32, result: ArkUI_DragResult) -> i32;
+    /// Notify the system all handling done, the drag end pending can be finished.
+    ///
+    /// # Arguments
+    ///
+    /// * `requestIdentify` - The identify returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`] interface.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`] if current is not during the drop handing.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_NotifyDragEndPendingDone(requestIdentify: i32) -> i32;
+    /// Use this method to obtain the application bundle name of the drag-and-drop initiator, you need
+    /// to pass a character array for receiving the string and explicitly specify the array length. It is
+    /// recommended that the array length be no less than 128 characters. If the length cannot accommodate
+    /// the actual bundle name length, the ERROR result will be returned.
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// * `bundleName` - A string array used to receive the source application's bundle name.
+    ///
+    /// * `length` - Use this to explicitly specify the length of the incoming string array.
+    /// It is recommended to be bigger than 128.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_DragEvent_GetDragSource(
+        event: *mut ArkUI_DragEvent,
+        bundleName: *mut ::core::ffi::c_char,
+        length: i32,
+    ) -> ArkUiResult;
+    /// Call this method to determine whether the current drag and drop operation is cross-device.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
+    ///
+    /// * `isRemote` - Boolean pointer to receive the result.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_DragEvent_IsRemote(
+        event: *mut ArkUI_DragEvent,
+        isRemote: *mut bool,
+    ) -> ArkUiResult;
+    /// Sets whether to enable the display of a disallow status icon.
+    ///
+    /// Typically, when a component can receive or process data dragged by the user, or when it declares to the
+    /// system that data should be processed in COPY way by setting ARKUI_DROP_OPERATION_COPY through
+    /// [`OH_ArkUI_DragEvent_SetSuggestedDropOperation`], the system will display
+    /// a plus sign together with the data number on the upper-left corner of the dragged object; if setting
+    /// ARKUI_DROP_OPERATION_MOVE to the system to declare that data should be processed in CUT way, the system will only
+    /// display the data number on the upper-left corner of the dragged object.
+    ///
+    /// In some cases, when the system determines or the component explicitly declares that it cannot handle the
+    /// data that the user is dragging, the system displays a badge icon in the same way as it does for DragBehavior.MOVE.
+    /// So if you want to show the more clearly status, you can call this method on the UI instance in advance to force
+    /// the system to display a clear prohibition icon on the upper left corner in such cases, and the user can clearly
+    /// know that data cannot be dropped here.
+    ///
+    /// # Arguments
+    ///
+    /// * `uiContext` - Pointer to a UI instance.
+    ///
+    /// * `enabled` - Whether to enable the display of the disallow badge icon.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_EnableDropDisallowedBadge(
+        uiContext: ArkUI_ContextHandle,
+        enabled: bool,
+    ) -> ArkUiResult;
 }

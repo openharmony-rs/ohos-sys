@@ -606,4 +606,67 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_KeyEvent_Dispatch(node: ArkUI_NodeHandle, event: *const ArkUI_UIInputEvent);
+    /// Get the Num Lock state of the key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `state` - Return whether the Num Lock is on.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_KeyEvent_IsNumLockOn(
+        event: *const ArkUI_UIInputEvent,
+        state: *mut bool,
+    ) -> ArkUiResult;
+    /// Get the Caps Lock state of the key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `state` - Return whether the Caps Lock is on.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_KeyEvent_IsCapsLockOn(
+        event: *const ArkUI_UIInputEvent,
+        state: *mut bool,
+    ) -> ArkUiResult;
+    /// Get the Scroll Lock state of the key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    ///
+    /// * `state` - Return whether the Scroll Lock is on.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_KeyEvent_IsScrollLockOn(
+        event: *const ArkUI_UIInputEvent,
+        state: *mut bool,
+    ) -> ArkUiResult;
 }

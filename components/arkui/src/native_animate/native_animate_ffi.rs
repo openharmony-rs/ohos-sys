@@ -204,7 +204,7 @@ pub struct ArkUI_NativeAnimateAPI_1 {
     ///
     /// # Arguments
     ///
-    /// * `animator` - Indicates the target animator object.
+    /// * `animatorHandle` - Indicates the target animator object.
     pub disposeAnimator:
         ::core::option::Option<unsafe extern "C" fn(animatorHandle: ArkUI_AnimatorHandle)>,
 }
@@ -222,6 +222,9 @@ extern "C" {
     pub fn OH_ArkUI_AnimateOption_Create() -> *mut ArkUI_AnimateOption;
     /// Disposes of an animation configuration.
     ///
+    /// # Arguments
+    ///
+    /// * `option` - Indicates the pointer to an animation configuration.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -551,6 +554,27 @@ extern "C" {
         userData: *mut ::core::ffi::c_void,
         onFinish: ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>,
     ) -> i32;
+    /// Sets the expected frame rate range of a keyframe animation.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Indicates the pointer to a keyframe animation configuration.
+    ///
+    /// * `frameRate` - Indicates the expected frame rate range.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_KeyframeAnimateOption_SetExpectedFrameRate(
+        option: *mut ArkUI_KeyframeAnimateOption,
+        frameRate: *mut ArkUI_ExpectedFrameRateRange,
+    ) -> i32;
     /// Sets the duration of a keyframe animation, in milliseconds.
     ///
     /// # Arguments
@@ -661,6 +685,22 @@ extern "C" {
     pub fn OH_ArkUI_KeyframeAnimateOption_GetIterations(
         option: *mut ArkUI_KeyframeAnimateOption,
     ) -> i32;
+    /// Obtains the expected frame rate range of a keyframe animation configuration.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Indicates the pointer to a keyframe animation configuration.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the expected frame rate range of the keyframe animation.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_KeyframeAnimateOption_GetExpectedFrameRate(
+        option: *mut ArkUI_KeyframeAnimateOption,
+    ) -> *mut ArkUI_ExpectedFrameRateRange;
     /// Obtains the duration of a specific state in a keyframe animation.
     ///
     /// # Arguments
@@ -720,6 +760,9 @@ extern "C" {
     pub fn OH_ArkUI_AnimatorOption_Create(keyframeSize: i32) -> *mut ArkUI_AnimatorOption;
     /// Disposes of an animator parameter object.
     ///
+    /// # Arguments
+    ///
+    /// * `option` - Indicates the target animator parameter object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
