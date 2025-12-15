@@ -87,6 +87,14 @@ impl NativeDisplayManagerErrorCode {
     /// Operation system abnormal
     pub const SYSTEM_ABNORMAL: NativeDisplayManagerErrorCode =
         NativeDisplayManagerErrorCode(const { core::num::NonZero::new(1400003).unwrap() });
+    /// Operation illegal param.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ILLEGAL_PARAM: NativeDisplayManagerErrorCode =
+        NativeDisplayManagerErrorCode(const { core::num::NonZero::new(1400004).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates the result types of the display manager interface.
@@ -212,6 +220,36 @@ impl NativeDisplayManager_DisplayState {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct NativeDisplayManager_DisplayState(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl NativeDisplayManager_SourceMode {
+    /// display is not in use
+    pub const DISPLAY_SOURCE_MODE_NONE: NativeDisplayManager_SourceMode =
+        NativeDisplayManager_SourceMode(0);
+    /// display is in main mode
+    pub const DISPLAY_SOURCE_MODE_MAIN: NativeDisplayManager_SourceMode =
+        NativeDisplayManager_SourceMode(1);
+    /// display is in mirror mode
+    pub const DISPLAY_SOURCE_MODE_MIRROR: NativeDisplayManager_SourceMode =
+        NativeDisplayManager_SourceMode(2);
+    /// display is in extend mode
+    pub const DISPLAY_SOURCE_MODE_EXTEND: NativeDisplayManager_SourceMode =
+        NativeDisplayManager_SourceMode(3);
+    /// display stands alone
+    pub const DISPLAY_SOURCE_MODE_ALONE: NativeDisplayManager_SourceMode =
+        NativeDisplayManager_SourceMode(4);
+}
+#[repr(transparent)]
+/// Enumerates of the display source mode.
+///
+///
+/// Available since API-level: 20
+///
+/// Version: 1.0
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct NativeDisplayManager_SourceMode(pub ::core::ffi::c_uint);
 /// Defines the display hdr structure.
 ///
 ///

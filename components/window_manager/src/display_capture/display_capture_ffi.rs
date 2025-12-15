@@ -26,8 +26,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED } If device not support.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.Window.SessionManager.Core
-    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]

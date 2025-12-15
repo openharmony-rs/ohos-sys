@@ -9,7 +9,7 @@ use ohos_sys_opaque_types::Input_KeyEvent;
 #[cfg(feature = "api-15")]
 use ohos_sys_opaque_types::{Input_MouseEvent, Input_TouchEvent};
 
-/// the callback funcation type when keyEvent was filter
+/// Defines a function for filtering multimodal key events
 /// # Arguments
 ///
 /// * `keyEvent` - multimodal keyEvent
@@ -19,7 +19,7 @@ use ohos_sys_opaque_types::{Input_MouseEvent, Input_TouchEvent};
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NativeWindowManager_KeyEventFilter =
     ::core::option::Option<unsafe extern "C" fn(keyEvent: *mut Input_KeyEvent) -> bool>;
-/// the callback function type when mouseEvent was filter
+/// Defines a function for filtering multimodal mouse events
 /// # Arguments
 ///
 /// * `mouseEvent` - multimodal mouseEvent
@@ -29,7 +29,7 @@ pub type OH_NativeWindowManager_KeyEventFilter =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub type OH_NativeWindowManager_MouseEventFilter =
     ::core::option::Option<unsafe extern "C" fn(mouseEvent: *mut Input_MouseEvent) -> bool>;
-/// the callback function type when touchEvent was filter
+/// Defines a function for filtering multimodal touch events
 /// # Arguments
 ///
 /// * `touchEvent` - multimodal touchEvent
@@ -40,8 +40,7 @@ pub type OH_NativeWindowManager_MouseEventFilter =
 pub type OH_NativeWindowManager_TouchEventFilter =
     ::core::option::Option<unsafe extern "C" fn(touchEvent: *mut Input_TouchEvent) -> bool>;
 extern "C" {
-    /// Registers a filter callback for the window ,the callback is called when the
-    /// window is dispatched to the event
+    /// Registers a function for filtering multimodal key events
     ///
     /// # Arguments
     ///
@@ -61,7 +60,7 @@ extern "C" {
         windowId: i32,
         keyEventFilter: OH_NativeWindowManager_KeyEventFilter,
     ) -> WindowManagerResult;
-    /// clear callback for the window
+    /// Unregisters a function for filtering multimodal key events
     ///
     /// # Arguments
     ///
@@ -75,8 +74,7 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_NativeWindowManager_UnregisterKeyEventFilter(windowId: i32) -> WindowManagerResult;
-    /// Registers a filter callback for the window, the callback is called when the
-    /// window is dispatched to the event
+    /// Registers a function for filtering multimodal mouse events
     ///
     /// # Arguments
     ///
@@ -99,7 +97,7 @@ extern "C" {
         windowId: i32,
         mouseEventFilter: OH_NativeWindowManager_MouseEventFilter,
     ) -> WindowManagerResult;
-    /// clear callback for the window
+    /// Unregisters a function for filtering multimodal mouse events
     ///
     /// # Arguments
     ///
@@ -116,8 +114,7 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_NativeWindowManager_UnregisterMouseEventFilter(windowId: i32) -> WindowManagerResult;
-    /// Registers a filter callback for the window, the callback is called when the
-    /// window is dispatched to the event
+    /// Registers a function for filtering multimodal touch events
     ///
     /// # Arguments
     ///
@@ -140,7 +137,7 @@ extern "C" {
         windowId: i32,
         touchEventFilter: OH_NativeWindowManager_TouchEventFilter,
     ) -> WindowManagerResult;
-    /// clear callback for the window
+    /// Unregisters a function for filtering multimodal touch events
     ///
     /// # Arguments
     ///

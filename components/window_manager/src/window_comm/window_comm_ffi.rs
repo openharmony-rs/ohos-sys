@@ -54,6 +54,53 @@ impl WindowManagerErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(1300003).unwrap() });
+    /// Picture-In-Picture failed to destroy.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const WINDOW_MANAGER_ERRORCODE_PIP_DESTROY_FAILED: WindowManagerErrorCode =
+        WindowManagerErrorCode(const { core::num::NonZero::new(1300011).unwrap() });
+    /// Picture-In-Picture state is abnormal.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const WINDOW_MANAGER_ERRORCODE_PIP_STATE_ABNORMAL: WindowManagerErrorCode =
+        WindowManagerErrorCode(const { core::num::NonZero::new(1300012).unwrap() });
+    /// Picture-In-Picture failed to create.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const WINDOW_MANAGER_ERRORCODE_PIP_CREATE_FAILED: WindowManagerErrorCode =
+        WindowManagerErrorCode(const { core::num::NonZero::new(1300013).unwrap() });
+    /// Picture-In-Picture internal error.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR: WindowManagerErrorCode =
+        WindowManagerErrorCode(const { core::num::NonZero::new(1300014).unwrap() });
+    /// Picture-In-Picture repeated operation.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const WINDOW_MANAGER_ERRORCODE_PIP_REPEATED_OPERATION: WindowManagerErrorCode =
+        WindowManagerErrorCode(const { core::num::NonZero::new(1300015).unwrap() });
+    /// Parameter is incorrect.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM: WindowManagerErrorCode =
+        WindowManagerErrorCode(const { core::num::NonZero::new(1300016).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates the result types of the wm interface
@@ -179,4 +226,34 @@ pub struct WindowManager_AvoidArea {
     pub rightRect: WindowManager_Rect,
     /// Bottom rect of the avoid area.
     pub bottomRect: WindowManager_Rect,
+}
+/// Main window info
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct WindowManager_MainWindowInfo {
+    /// Display id of the window.
+    pub displayId: u64,
+    /// Window id.
+    pub windowId: i32,
+    /// Showing state of the window.
+    pub showing: bool,
+    /// Label of the window.
+    pub label: *const ::core::ffi::c_char,
+}
+/// Window snapshot config info
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct WindowManager_WindowSnapshotConfig {
+    /// Use cached windows' snapshot.
+    pub useCache: bool,
 }
