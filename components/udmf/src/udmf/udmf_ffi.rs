@@ -13,6 +13,34 @@ impl Udmf_Intention {
     pub const DRAG: Udmf_Intention = Udmf_Intention(0);
     /// The intention is pasteboard.
     pub const PASTEBOARD: Udmf_Intention = Udmf_Intention(1);
+    /// The intention is data hub.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const DATA_HUB: Udmf_Intention = Udmf_Intention(2);
+    /// The intention is system share.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const SYSTEM_SHARE: Udmf_Intention = Udmf_Intention(3);
+    /// The intention is picker.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const PICKER: Udmf_Intention = Udmf_Intention(4);
+    /// The intention is menu.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const MENU: Udmf_Intention = Udmf_Intention(5);
 }
 #[repr(transparent)]
 /// Describe the intention type of the udmf.
@@ -76,6 +104,23 @@ impl Udmf_ProgressIndicator {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Udmf_ProgressIndicator(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl Udmf_Visibility {
+    /// The visibility level that specifies that any hap or native can be obtained.
+    pub const UDMF_ALL: Udmf_Visibility = Udmf_Visibility(0);
+    /// The visibility level that specifies that only data providers can be obtained.
+    pub const UDMF_OWN_PROCESS: Udmf_Visibility = Udmf_Visibility(1);
+}
+#[repr(transparent)]
+/// Describe the visibility range of data
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct Udmf_Visibility(pub ::core::ffi::c_uint);
 /// Represents the udmf progress information.
 ///
 ///
@@ -99,6 +144,42 @@ pub struct OH_Udmf_ProgressInfo {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub type OH_Udmf_DataProgressListener = ::core::option::Option<
     unsafe extern "C" fn(progressInfo: *mut OH_Udmf_ProgressInfo, data: *mut OH_UdmfData),
+>;
+/// Describes the optional arguments of data operation
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[repr(C)]
+pub struct OH_UdmfOptions {
+    _unused: [u8; 0],
+}
+/// Indicates data loading information.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[repr(C)]
+pub struct OH_UdmfDataLoadInfo {
+    _unused: [u8; 0],
+}
+/// Indicates the callback function for loading data.
+///
+/// # Arguments
+///
+/// * `acceptableInfo` - Indicates the type and number of data that can be accepted by the receiver.
+///
+/// # Returns
+///
+/// * Returns the data to be loaded.
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub type OH_Udmf_DataLoadHandler = ::core::option::Option<
+    unsafe extern "C" fn(acceptableInfo: *mut OH_UdmfDataLoadInfo) -> *mut OH_UdmfData,
 >;
 /// Defines the callback function used free the context.
 /// # Arguments
@@ -1081,6 +1162,156 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         param: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
+    /// Creation a pointer to the instance of the [`OH_UdmfOptions`].
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfOptions`]
+    /// structure is returned. If the operation is failed, nullptr is returned.
+    /// [`OH_UdmfOptions.`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfOptions_Create() -> *mut OH_UdmfOptions;
+    /// Destroy the heap memory pointed to by the pointer of [`OH_UdmfOptions`].
+    /// Note that this function cannot be called repeatedly for the same pointer.
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// [`OH_UdmfOptions.`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfOptions_Destroy(pThis: *mut OH_UdmfOptions);
+    /// Get key from the [`OH_UdmfOptions`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
+    /// [`OH_UdmfOptions`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfOptions_GetKey(pThis: *mut OH_UdmfOptions) -> *const ::core::ffi::c_char;
+    /// Set the key to the [`OH_UdmfOptions`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// * `key` - Represents a new string value of the key.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`OH_UdmfOptions`] Udmf_ErrCode
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfOptions_SetKey(
+        pThis: *mut OH_UdmfOptions,
+        key: *const ::core::ffi::c_char,
+    ) -> ::core::ffi::c_int;
+    /// Get intention from the [`OH_UdmfOptions`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`Udmf_Intention`] value.
+    /// [`OH_UdmfOptions`] Udmf_Intention
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfOptions_GetIntention(pThis: *mut OH_UdmfOptions) -> Udmf_Intention;
+    /// Set intention value to [`OH_UdmfOptions`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// * `intention` - Represents new [`Udmf_Intention`] param.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`OH_UdmfOptions`] Udmf_Intention Udmf_ErrCode.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfOptions_SetIntention(
+        pThis: *mut OH_UdmfOptions,
+        intention: Udmf_Intention,
+    ) -> ::core::ffi::c_int;
+    /// Reset [`OH_UdmfOptions`] to default.
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`OH_UdmfOptions`] Udmf_ErrCode.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfOptions_Reset(pThis: *mut OH_UdmfOptions) -> ::core::ffi::c_int;
+    /// Get visibility from the [`OH_UdmfOptions`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`Udmf_Visibility`] value.
+    /// [`OH_UdmfOptions`] Udmf_Visibility
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfOptions_GetVisibility(pThis: *mut OH_UdmfOptions) -> Udmf_Visibility;
+    /// Set visibility value to [`OH_UdmfOptions`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// * `visibility` - Represents new [`Udmf_Visibility`] param.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`OH_UdmfOptions`] Udmf_Visibility Udmf_ErrCode.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfOptions_SetVisibility(
+        pThis: *mut OH_UdmfOptions,
+        visibility: Udmf_Visibility,
+    ) -> ::core::ffi::c_int;
     /// Get [`OH_UdmfData`] data from udmf database.
     ///
     /// # Arguments
@@ -1106,6 +1337,33 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         intention: Udmf_Intention,
         unifiedData: *mut OH_UdmfData,
+    ) -> ::core::ffi::c_int;
+    /// Get [`OH_UdmfData`] data array from udmf database by intention.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// * `dataArray` - Represents output params of [`OH_UdmfData`].
+    /// This pointer needs to be released using the [`OH_Udmf_DestroyDataArray`] function.
+    ///
+    /// * `dataSize` - Represents the data count of output params.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`UDMF_ERR`] Internal data error.
+    /// [`OH_UdmfData`] Udmf_Intention Udmf_ErrCode.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Udmf_GetUnifiedDataByOptions(
+        options: *mut OH_UdmfOptions,
+        dataArray: *mut *mut OH_UdmfData,
+        dataSize: *mut ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
     /// Set [`OH_UdmfData`] data to database.
     ///
@@ -1137,6 +1395,101 @@ extern "C" {
         key: *mut ::core::ffi::c_char,
         keyLen: ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
+    /// Set [`OH_UdmfData`] data to database with options.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// * `unifiedData` - Represents a pointer to an instance of [`OH_UdmfData`].
+    ///
+    /// * `key` - Represents return value after set data to database successfully,
+    /// it's memory size not less than [`UDMF_KEY_BUFFER_LEN`].
+    ///
+    /// * `keyLen` - Represents size of key param.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`UDMF_ERR`] Internal data error.
+    /// [`OH_UdmfOptions`] OH_UdmfData Udmf_ErrCode.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Udmf_SetUnifiedDataByOptions(
+        options: *mut OH_UdmfOptions,
+        unifiedData: *mut OH_UdmfData,
+        key: *mut ::core::ffi::c_char,
+        keyLen: ::core::ffi::c_uint,
+    ) -> ::core::ffi::c_int;
+    /// Update [`OH_UdmfData`] data to database with options.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// * `unifiedData` - Represents a pointer to an instance of [`OH_UdmfData`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`UDMF_ERR`] Internal data error.
+    /// [`OH_UdmfOptions`] OH_UdmfData Udmf_ErrCode.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Udmf_UpdateUnifiedData(
+        options: *mut OH_UdmfOptions,
+        unifiedData: *mut OH_UdmfData,
+    ) -> ::core::ffi::c_int;
+    /// Delete [`OH_UdmfData`] data of database with options.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    ///
+    /// * `dataArray` - Represents output params of [`OH_UdmfData`].
+    /// This pointer needs to be released using the [`OH_Udmf_DestroyDataArray`] function.
+    ///
+    /// * `dataSize` - Represents the data count of output params.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`UDMF_ERR`] Internal data error.
+    /// [`OH_UdmfData`] Udmf_Intention Udmf_ErrCode.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Udmf_DeleteUnifiedData(
+        options: *mut OH_UdmfOptions,
+        dataArray: *mut *mut OH_UdmfData,
+        dataSize: *mut ::core::ffi::c_uint,
+    ) -> ::core::ffi::c_int;
+    /// Destroy data array memory.
+    ///
+    /// # Arguments
+    ///
+    /// * `dataArray` - Represents a point to [`OH_UdmfData`].
+    ///
+    /// * `dataSize` - Represents data size in list.
+    /// [`OH_UdmfData`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Udmf_DestroyDataArray(
+        dataArray: *mut *mut OH_UdmfData,
+        dataSize: ::core::ffi::c_uint,
+    );
     /// Gets the progress from the [`OH_Udmf_ProgressInfo`].
     ///
     /// # Arguments
@@ -1254,5 +1607,163 @@ extern "C" {
     pub fn OH_UdmfGetDataParams_SetDataProgressListener(
         params: *mut OH_UdmfGetDataParams,
         dataProgressListener: OH_Udmf_DataProgressListener,
+    );
+    /// Sets the acceptable info to the [`OH_UdmfGetDataParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    ///
+    /// * `acceptableInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    /// [`OH_UdmfGetDataParams`] OH_UdmfDataLoadInfo
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfGetDataParams_SetAcceptableInfo(
+        params: *mut OH_UdmfGetDataParams,
+        acceptableInfo: *mut OH_UdmfDataLoadInfo,
+    );
+    /// Creation a pointer to the instance of the [`OH_UdmfDataLoadParams`].
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfDataLoadParams`]
+    /// structure is returned. If the operation is failed, nullptr is returned.
+    /// [`OH_UdmfDataLoadParams`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfDataLoadParams_Create() -> *mut OH_UdmfDataLoadParams;
+    /// Destroy a pointer that points to an instance of [`OH_UdmfDataLoadParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfDataLoadParams`].
+    /// [`OH_UdmfDataLoadParams`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfDataLoadParams_Destroy(pThis: *mut OH_UdmfDataLoadParams);
+    /// Sets the data load handler to the [`OH_UdmfDataLoadParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfDataLoadParams`].
+    ///
+    /// * `dataLoadHandler` - Represents to the data load handler.
+    /// [`OH_UdmfDataLoadParams`] OH_Udmf_DataLoadHandler
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfDataLoadParams_SetLoadHandler(
+        params: *mut OH_UdmfDataLoadParams,
+        dataLoadHandler: OH_Udmf_DataLoadHandler,
+    );
+    /// Sets the data load info to the [`OH_UdmfDataLoadParams`].
+    ///
+    /// # Arguments
+    ///
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfDataLoadParams`].
+    ///
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    /// [`OH_UdmfDataLoadParams`] OH_UdmfDataLoadInfo
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfDataLoadParams_SetDataLoadInfo(
+        params: *mut OH_UdmfDataLoadParams,
+        dataLoadInfo: *mut OH_UdmfDataLoadInfo,
+    );
+    /// Creation a pointer to the instance of the [`OH_UdmfDataLoadInfo`].
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfDataLoadInfo`]
+    /// structure is returned. If the operation is failed, nullptr is returned.
+    /// [`OH_UdmfDataLoadInfo`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfDataLoadInfo_Create() -> *mut OH_UdmfDataLoadInfo;
+    /// Destroy the heap memory pointed to by the pointer of [`OH_UdmfDataLoadInfo`].
+    /// Note that this function cannot be called repeatedly for the same pointer.
+    ///
+    /// # Arguments
+    ///
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    /// [`OH_UdmfDataLoadInfo`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfDataLoadInfo_Destroy(dataLoadInfo: *mut OH_UdmfDataLoadInfo);
+    /// Gets the types from the [`OH_UdmfDataLoadInfo`].
+    ///
+    /// # Arguments
+    ///
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    ///
+    /// * `count` - the types count of data.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the types of data.
+    /// [`OH_UdmfDataLoadInfo`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfDataLoadInfo_GetTypes(
+        dataLoadInfo: *mut OH_UdmfDataLoadInfo,
+        count: *mut ::core::ffi::c_uint,
+    ) -> *mut *mut ::core::ffi::c_char;
+    /// Sets the data load info to the [`OH_UdmfDataLoadInfo`].
+    ///
+    /// # Arguments
+    ///
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    ///
+    /// * `type` - Represents the type of data.
+    /// [`OH_UdmfDataLoadInfo`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfDataLoadInfo_SetType(
+        dataLoadInfo: *mut OH_UdmfDataLoadInfo,
+        type_: *const ::core::ffi::c_char,
+    );
+    /// Gets the record count from the [`OH_UdmfDataLoadInfo`].
+    ///
+    /// # Arguments
+    ///
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the record count.
+    /// [`OH_UdmfDataLoadInfo`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfDataLoadInfo_GetRecordCount(
+        dataLoadInfo: *mut OH_UdmfDataLoadInfo,
+    ) -> ::core::ffi::c_int;
+    /// Sets the record count to the [`OH_UdmfDataLoadInfo`].
+    ///
+    /// # Arguments
+    ///
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    ///
+    /// * `recordCount` - Represents the types of data.
+    /// [`OH_UdmfDataLoadInfo`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_UdmfDataLoadInfo_SetRecordCount(
+        dataLoadInfo: *mut OH_UdmfDataLoadInfo,
+        recordCount: ::core::ffi::c_uint,
     );
 }

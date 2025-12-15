@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- Update to API-21 bindings
+
 ## 0.1.2
 
 - Fix missing export of `Udmf_ListenerStatus`
