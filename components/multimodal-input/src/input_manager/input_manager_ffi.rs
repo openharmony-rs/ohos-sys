@@ -167,6 +167,25 @@ impl Input_KeyboardType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Input_KeyboardType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl Input_InjectionStatus {
+    /// Unauthorized
+    pub const UNAUTHORIZED: Input_InjectionStatus = Input_InjectionStatus(0);
+    /// Authorizing
+    pub const AUTHORIZING: Input_InjectionStatus = Input_InjectionStatus(1);
+    /// Authorized
+    pub const AUTHORIZED: Input_InjectionStatus = Input_InjectionStatus(2);
+}
+#[repr(transparent)]
+/// Enumerates the injection authorization status.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct Input_InjectionStatus(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl InputEvent_SourceType {
@@ -245,6 +264,48 @@ impl InputErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const KEYBOARD_DEVICE_NOT_EXIST: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3900002).unwrap() });
+    /// Authorizing
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const INJECTION_AUTHORIZING: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(3900005).unwrap() });
+    /// Too many operations
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const INJECTION_OPERATION_FREQUENT: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(3900006).unwrap() });
+    /// Authorized
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const INJECTION_AUTHORIZED: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(3900007).unwrap() });
+    /// Authorized to other applications
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const INJECTION_AUTHORIZED_OTHERS: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(3900008).unwrap() });
+    /// App is not the focused app
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const APP_NOT_FOCUSED: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(3900009).unwrap() });
+    /// The device has no pointer
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const DEVICE_NO_POINTER: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(3900010).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates error codes.
@@ -334,6 +395,16 @@ pub type Input_DeviceAddedCallback = ::core::option::Option<unsafe extern "C" fn
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub type Input_DeviceRemovedCallback = ::core::option::Option<unsafe extern "C" fn(deviceId: i32)>;
+/// Defines the event injection callback.
+/// # Arguments
+///
+/// * `authorizedStatus` - Authorization status.
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub type Input_InjectAuthorizeCallback =
+    ::core::option::Option<unsafe extern "C" fn(authorizedStatus: Input_InjectionStatus)>;
 /// Defines the structure for the interceptor of event callbacks,
 /// including mouseCallback, touchCallback, and axisCallback.
 ///
@@ -510,6 +581,10 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_GetKeySwitch(keyState: *const Input_KeyState) -> i32;
     /// Inject system keys.
+    /// since API 20, it is recommended to use OH_Input_RequestInjection
+    /// to request authorization before using the interface,
+    /// and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
+    /// When the authorization status is AUTHORIZED, use the interface.
     ///
     /// # Arguments
     ///
@@ -707,7 +782,122 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetKeyEventDisplayId(keyEvent: *const Input_KeyEvent) -> i32;
+    /// Get the eventId of the keyEvent.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyEvent` - - Key event object.
+    ///
+    /// * `eventId` - - Get the keyEvent eventId.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetKeyEventId function result code.
+    /// [`INPUT_SUCCESS`] Get the eventId of the keyEvent success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] Parameter check failed.
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Input_GetKeyEventId(
+        keyEvent: *const Input_KeyEvent,
+        eventId: *mut i32,
+    ) -> Input_Result;
+    /// Add a keyEvent interception hook function. Before using this interface,
+    /// the user needs to authorize it in the settings.
+    ///
+    /// ohos.permission.HOOK_KEY_EVENT
+    /// # Arguments
+    ///
+    /// * `callback` - - Hook function, keyEvent will be sent to the hook function for priority processing.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_AddKeyEventHook function result code.
+    /// [`INPUT_SUCCESS`] Added hook function successfully.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] Failed to add the hook function. Reason: Parameter check failed.
+    ///
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    ///
+    /// [`INPUT_PERMISSION_DENIED`] Failed to add the hook function. Reason: Permission check failed.
+    ///
+    /// [`INPUT_REPEAT_INTERCEPTOR`] Failed to add the hook function.
+    ///
+    /// Reason: Repeatedly set the hook function. A process can only have one key hook function.
+    ///
+    /// [`INPUT_SERVICE_EXCEPTION`] Failed to add the hook function.
+    ///
+    /// Reason: Input service exception, please try again.
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Input_AddKeyEventHook(callback: Input_KeyEventCallback) -> Input_Result;
+    /// Remove keyEvent interception hook function.
+    ///
+    /// # Arguments
+    ///
+    /// * `callback` - - Hook function, Same as the parameters when calling OH_Input_AddKeyEventHook.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_RemoveKeyEventHook function result code.
+    /// [`INPUT_SUCCESS`] Hook function removed successfully.
+    ///
+    /// Even if the hook function has not been added before, it will return success when removed.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] Failed to remove the hook function. Reason: Parameter check failed.
+    ///
+    /// [`INPUT_SERVICE_EXCEPTION`] Failed to remove the hook function.
+    ///
+    /// Reason: Input service exception, please try again.
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Input_RemoveKeyEventHook(callback: Input_KeyEventCallback) -> Input_Result;
+    /// Redispatches keyEvent.
+    /// Only keyEvent intercepted by hook functions can be redispatched,
+    /// and the event order must be maintained during redispatching.
+    /// The hook function intercepts the input event and then redistributes it for 3 seconds.
+    /// If this time is exceeded, calling this function will return INPUT_PARAMETER_ERROR.
+    /// Re-dispatching requires event pairing, usually starting with one or more KEY_ACTION_DOWN and
+    /// ending with KEY_ACTION_UP or KEY_ACTION_CANCEL.
+    /// Only KEY_ACTION_UP or KEY_ACTION_CANCEL is redispatched, the function call succeeds,
+    /// but no actual dispatch is made.
+    /// If an event is dispatched that is not intercepted by the hook function,
+    /// the function call succeeds, but no actual dispatch action is taken.
+    ///
+    /// # Arguments
+    ///
+    /// * `eventId` - - keyEvent eventId.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_DispatchToNextHandler function result code.
+    /// [`INPUT_SUCCESS`] Redistribution successful.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] Redistribution failed. Reason: KeyEvent does not exist.
+    ///
+    /// [`INPUT_SERVICE_EXCEPTION`] Redistribution failed.
+    ///
+    /// Reason: Input service exception, it's recommended to reset the pending distribution status.
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Input_DispatchToNextHandler(eventId: i32) -> Input_Result;
     /// Inject mouse event.
+    /// since API 20, it is recommended to use OH_Input_RequestInjection
+    /// to request authorization before using the interface,
+    /// and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
+    /// When the authorization status is AUTHORIZED, use the interface.
     ///
     /// # Arguments
     ///
@@ -729,6 +919,30 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_InjectMouseEvent(mouseEvent: *const Input_MouseEvent) -> i32;
+    /// Inject mouse event using global coordinate.
+    /// since API 20, it is recommended to use OH_Input_RequestInjection
+    /// to request authorization before using the interface,
+    /// and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
+    /// When the authorization status is AUTHORIZED, use the interface.
+    ///
+    /// # Arguments
+    ///
+    /// * `mouseEvent` - - the mouse event to be injected, set up effective globalX globalY.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_InjectMouseEventGlobal function result code.
+    /// [`INPUT_SUCCESS`] inject mouseEvent success.
+    ///
+    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] Parameter check failed.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_InjectMouseEventGlobal(mouseEvent: *const Input_MouseEvent) -> i32;
     /// Creates a mouse event object.
     ///
     ///
@@ -1026,7 +1240,63 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetMouseEventDisplayId(mouseEvent: *const Input_MouseEvent) -> i32;
+    /// Set the global X coordinate of the mouse event.
+    ///
+    /// # Arguments
+    ///
+    /// * `mouseEvent` - Mouse event object.
+    ///
+    /// * `globalX` - Global X coordinate.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_SetMouseEventGlobalX(mouseEvent: *mut Input_MouseEvent, globalX: i32);
+    /// Queries the global X coordinate of the mouse event.
+    ///
+    /// # Arguments
+    ///
+    /// * `mouseEvent` - Mouse event object.
+    ///
+    /// # Returns
+    ///
+    /// * Global X coordinate.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_GetMouseEventGlobalX(mouseEvent: *const Input_MouseEvent) -> i32;
+    /// Set the global Y coordinate of the mouse event.
+    ///
+    /// # Arguments
+    ///
+    /// * `mouseEvent` - Mouse event object.
+    ///
+    /// * `globalY` - Global Y coordinate.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_SetMouseEventGlobalY(mouseEvent: *mut Input_MouseEvent, globalY: i32);
+    /// Queries the global Y coordinate of the mouse event.
+    ///
+    /// # Arguments
+    ///
+    /// * `mouseEvent` - Mouse event object.
+    ///
+    /// # Returns
+    ///
+    /// * Global Y coordinate.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_GetMouseEventGlobalY(mouseEvent: *const Input_MouseEvent) -> i32;
     /// Inject touch event.
+    /// since API 20, it is recommended to use OH_Input_RequestInjection
+    /// to request authorization before using the interface,
+    /// and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
+    /// When the authorization status is AUTHORIZED, use the interface.
     ///
     /// # Arguments
     ///
@@ -1046,6 +1316,30 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_InjectTouchEvent(touchEvent: *const Input_TouchEvent) -> i32;
+    /// Inject touch event using global coordinate.
+    /// since API 20, it is recommended to use OH_Input_RequestInjection
+    /// to request authorization before using the interface,
+    /// and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
+    /// When the authorization status is AUTHORIZED, use the interface.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - - the touch event to be injected, set up effective globalX globalY.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_InjectTouchEventGlobal function result code.
+    /// [`INPUT_SUCCESS`] inject touchEvent success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] Parameter check failed.
+    ///
+    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_InjectTouchEventGlobal(touchEvent: *const Input_TouchEvent) -> i32;
     /// Creates a touch event object.
     ///
     ///
@@ -1282,6 +1576,58 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetTouchEventDisplayId(touchEvent: *const Input_TouchEvent) -> i32;
+    /// Set the global X coordinate of the touch event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - Touch event object.
+    ///
+    /// * `globalX` - Global X coordinate.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_SetTouchEventGlobalX(touchEvent: *mut Input_TouchEvent, globalX: i32);
+    /// Queries the global X coordinate of the touch event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - Touch event object.
+    ///
+    /// # Returns
+    ///
+    /// * Global X coordinate.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_GetTouchEventGlobalX(touchEvent: *const Input_TouchEvent) -> i32;
+    /// Set the global Y coordinate of the touch event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - Touch event object.
+    ///
+    /// * `globalY` - Global Y coordinate.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_SetTouchEventGlobalY(touchEvent: *mut Input_TouchEvent, globalY: i32);
+    /// Queries the global Y coordinate of the touch event.
+    ///
+    /// # Arguments
+    ///
+    /// * `touchEvent` - Touch event object.
+    ///
+    /// # Returns
+    ///
+    /// * Global Y coordinate.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_GetTouchEventGlobalY(touchEvent: *const Input_TouchEvent) -> i32;
     /// Cancels event injection and revokes authorization.
     ///
     ///
@@ -1291,6 +1637,56 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_CancelInjection();
+    /// Requests for injection authorization.
+    ///
+    /// # Arguments
+    ///
+    /// * `callback` - - callback used to return the result.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_RequestInjection function result code.
+    /// [`INPUT_SUCCESS`] Success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL.
+    ///
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    ///
+    /// [`INPUT_SERVICE_EXCEPTION`] Service error.
+    ///
+    /// [`INPUT_INJECTION_AUTHORIZING`] Authorizing.
+    ///
+    /// [`INPUT_INJECTION_OPERATION_FREQUENT`] Too many operations.
+    ///
+    /// [`INPUT_INJECTION_AUTHORIZED`] Authorized.
+    ///
+    /// [`INPUT_INJECTION_AUTHORIZED_OTHERS`] Authorized to other applications.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_RequestInjection(callback: Input_InjectAuthorizeCallback) -> Input_Result;
+    /// Queries the injection authorization status.
+    ///
+    /// # Arguments
+    ///
+    /// * `status` - Injection authorization status. For details, see [`Input_InjectionStatus`].
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_QueryAuthorizedStatus function result code.
+    /// [`INPUT_SUCCESS`] Success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The status is NULL
+    ///
+    /// [`INPUT_SERVICE_EXCEPTION`] Service error.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_QueryAuthorizedStatus(status: *mut Input_InjectionStatus) -> Input_Result;
     /// Creates an axis event object.
     ///
     ///
@@ -1692,7 +2088,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventDisplayY function result code.
+    /// * OH_Input_SetAxisEventWindowId function result code.
     /// [`INPUT_SUCCESS`] Sets the Y coordinate of the axis event success.
     ///
     /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
@@ -1717,7 +2113,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventDisplayY function result code.
+    /// * OH_Input_GetAxisEventWindowId function result code.
     /// [`INPUT_SUCCESS`] Obtains the Y coordinate of the axis event success.
     ///
     /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the displayY is NULL.
@@ -1742,7 +2138,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * OH_Input_SetAxisEventDisplayY function result code.
+    /// * OH_Input_SetAxisEventDisplayId function result code.
     /// [`INPUT_SUCCESS`] Sets the Y coordinate of the axis event success.
     ///
     /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
@@ -1767,7 +2163,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetAxisEventDisplayY function result code.
+    /// * OH_Input_GetAxisEventDisplayId function result code.
     /// [`INPUT_SUCCESS`] Obtains the Y coordinate of the axis event success.
     ///
     /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the displayY is NULL.
@@ -1781,6 +2177,98 @@ extern "C" {
     pub fn OH_Input_GetAxisEventDisplayId(
         axisEvent: *const Input_AxisEvent,
         displayId: *mut i32,
+    ) -> Input_Result;
+    /// Set the global X coordinate of the axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    ///
+    /// * `globalX` - Global X coordinate.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_SetAxisEventGlobalX function result code.
+    /// [`INPUT_SUCCESS`] Success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_SetAxisEventGlobalX(
+        axisEvent: *mut Input_AxisEvent,
+        globalX: i32,
+    ) -> Input_Result;
+    /// Queries the global X coordinate of the axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    ///
+    /// * `globalX` - Global X coordinate.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetAxisEventGlobalX function result code.
+    /// [`INPUT_SUCCESS`] Success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the globalX is NULL.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_GetAxisEventGlobalX(
+        axisEvent: *const Input_AxisEvent,
+        globalX: *mut i32,
+    ) -> Input_Result;
+    /// Set the global Y coordinate of the axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    ///
+    /// * `globalY` - Global Y coordinate.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_SetAxisEventGlobalY function result code.
+    /// [`INPUT_SUCCESS`] Success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_SetAxisEventGlobalY(
+        axisEvent: *mut Input_AxisEvent,
+        globalY: i32,
+    ) -> Input_Result;
+    /// Queries the global Y coordinate of the axis event.
+    ///
+    /// # Arguments
+    ///
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    ///
+    /// * `globalY` - Global Y coordinate.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetAxisEventGlobalY function result code.
+    /// [`INPUT_SUCCESS`] Success.
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the globalY is NULL.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_GetAxisEventGlobalY(
+        axisEvent: *const Input_AxisEvent,
+        globalY: *mut i32,
     ) -> Input_Result;
     /// Adds a listener of key events.
     ///
@@ -2270,7 +2758,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetfinalKey status code, specifically,
+    /// * OH_Input_GetFinalKey status code, specifically,
     /// [`INPUT_SUCCESS`] if the operation is successful;
     ///
     /// [`INPUT_PARAMETER_ERROR`] The hotkey is NULL or the finalKeyCode is NULL;
@@ -2374,7 +2862,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * OH_Input_GetIsRepeat status code, specifically,
+    /// * OH_Input_GetRepeat status code, specifically,
     /// [`INPUT_SUCCESS`] if the operation is successful;
     ///
     /// [`INPUT_PARAMETER_ERROR`] otherwise;
@@ -2446,63 +2934,6 @@ extern "C" {
         hotkey: *const Input_Hotkey,
         callback: Input_HotkeyCallback,
     ) -> Input_Result;
-    /// Registers a listener for device hot swap events.
-    ///
-    /// # Arguments
-    ///
-    /// * `listener` - Pointer to an [`Input_DeviceListener`] object.
-    ///
-    ///
-    /// # Returns
-    ///
-    /// * OH_Input_RegisterDeviceListener status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`] if listener is NULL;
-    ///
-    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
-    ///
-    /// Available since API-level: 13
-    #[cfg(feature = "api-13")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_Input_RegisterDeviceListener(listener: *mut Input_DeviceListener) -> Input_Result;
-    /// Unregisters the listener for device hot swap events.
-    ///
-    /// # Arguments
-    ///
-    /// * `listener` - Pointer to the listener for device hot swap events. For details, see [`Input_DeviceListener`].
-    ///
-    ///
-    /// # Returns
-    ///
-    /// * OH_Input_UnregisterDeviceListener status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    ///
-    /// [`INPUT_PARAMETER_ERROR`] if listener is NULL or no listener is registered;
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is abnormal.
-    ///
-    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
-    ///
-    /// Available since API-level: 13
-    #[cfg(feature = "api-13")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_Input_UnregisterDeviceListener(listener: *mut Input_DeviceListener) -> Input_Result;
-    /// Unregisters the listener for all device hot swap events.
-    ///
-    ///
-    /// # Returns
-    ///
-    /// * OH_Input_UnregisterDeviceListener status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    ///
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is abnormal.
-    ///
-    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
-    ///
-    /// Available since API-level: 13
-    #[cfg(feature = "api-13")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-    pub fn OH_Input_UnregisterDeviceListeners() -> Input_Result;
     /// Obtains the IDs of all input devices.
     ///
     /// # Arguments
@@ -2757,6 +3188,63 @@ extern "C" {
         deviceInfo: *mut Input_DeviceInfo,
         address: *mut *mut ::core::ffi::c_char,
     ) -> Input_Result;
+    /// Registers a listener for device hot swap events.
+    ///
+    /// # Arguments
+    ///
+    /// * `listener` - Pointer to an [`Input_DeviceListener`] object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_RegisterDeviceListener status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] if listener is NULL;
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Input_RegisterDeviceListener(listener: *mut Input_DeviceListener) -> Input_Result;
+    /// Unregisters the listener for device hot swap events.
+    ///
+    /// # Arguments
+    ///
+    /// * `listener` - Pointer to the listener for device hot swap events. For details, see [`Input_DeviceListener`].
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_UnregisterDeviceListener status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_PARAMETER_ERROR`] if listener is NULL or no listener is registered;
+    /// [`INPUT_SERVICE_EXCEPTION`] if the service is abnormal.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Input_UnregisterDeviceListener(listener: *mut Input_DeviceListener) -> Input_Result;
+    /// Unregisters the listener for all device hot swap events.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_UnregisterDeviceListeners status code, specifically,
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    ///
+    /// [`INPUT_SERVICE_EXCEPTION`] if the service is abnormal.
+    ///
+    /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+    pub fn OH_Input_UnregisterDeviceListeners() -> Input_Result;
     /// Obtains the function key status.
     ///
     /// # Arguments
@@ -2779,4 +3267,48 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Input_GetFunctionKeyState(keyCode: i32, state: *mut i32) -> Input_Result;
+    /// Queries the maximum number of touch points supported by the current device.
+    /// If -1 is returned, the number is unknown.
+    ///
+    /// # Arguments
+    ///
+    /// * `count` - Maximum number of touch points supported.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_QueryMaxTouchPoints function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if count is a null pointer.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_QueryMaxTouchPoints(count: *mut i32) -> Input_Result;
+    /// Get pointer location.
+    ///
+    /// # Arguments
+    ///
+    /// * `displayId` - The displayId for the pointer location.
+    ///
+    /// * `displayX` - The displayX for the pointer location.
+    ///
+    /// * `displayY` - The displayY for the pointer location.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetPointerLocation function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null pointer;
+    /// [`INPUT_APP_NOT_FOCUSED`] if the app is not the focused app;
+    /// [`INPUT_DEVICE_NO_POINTER`] if the device has no pointer;
+    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Input_GetPointerLocation(
+        displayId: *mut i32,
+        displayX: *mut f64,
+        displayY: *mut f64,
+    ) -> Input_Result;
 }
