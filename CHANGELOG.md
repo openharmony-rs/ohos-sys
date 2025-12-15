@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.8.6 (2026-12-15)
+
+- Fix re-export of udmf and rawfile crates.
+
+## v0.8.5 (2025-12-15)
+
+- Update bindings to API-21
+
 ## v0.8.4 (2025-07-31)
 
 - Upgrade `keyboard_types` to `0.8.0` in xcomponent.

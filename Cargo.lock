@@ -133,7 +133,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-sys"
-version = "0.8.5"
+version = "0.8.6"
 dependencies = [
  "arkui-sys",
  "document-features",
