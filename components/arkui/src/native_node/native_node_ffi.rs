@@ -95,6 +95,18 @@ impl ArkUI_NodeType {
     pub const ARKUI_NODE_GRID_ITEM: ArkUI_NodeType = ArkUI_NodeType(1014);
     /// Custom span.
     pub const ARKUI_NODE_CUSTOM_SPAN: ArkUI_NodeType = ArkUI_NodeType(1015);
+    /// EmbeddedComponent.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_NODE_EMBEDDED_COMPONENT: ArkUI_NodeType = ArkUI_NodeType(1016);
+    /// Undefined.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_NODE_UNDEFINED: ArkUI_NodeType = ArkUI_NodeType(1017);
 }
 #[repr(transparent)]
 /// Enumerates ArkUI component types that can be created on the native side.
@@ -1181,6 +1193,64 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].f32: offset of the overlay relative to the upper left corner of itself on the x-axis, in vp.
     ///
     /// .value[2].f32: offset of the overlay relative to the upper left corner of itself on the y-axis, in vp.
+    ///
+    ///
+    /// Available since API-level: 12
+    ////
+    ////**
+    /// Defines the overlay attribute, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .string: mask text.
+    ///
+    /// .value[0]?.i32: position of the overlay relative to the component. Optional.
+    /// The parameter type is [`ArkUI_Alignment`].
+    /// The default value is <b>ARKUI_ALIGNMENT_TOP_START.</b>
+    ///
+    /// .value[1]?.f32: offset of the overlay relative to the upper left corner of itself on the x-axis, in vp. Optional.
+    ///
+    /// .value[2]?.f32: offset of the overlay relative to the upper left corner of itself on the y-axis, in vp. Optional.
+    ///
+    ///
+    /// .value[3]?.i32: the layout direction.
+    /// The parameter type is [`ArkUI_Direction`].
+    /// The default value is <b>ARKUI_DIRECTION_LTR.</b>
+    ///
+    /// In most cases, this parameter should be set to Auto, this allowing the system to handle
+    /// the layout direction automatically. If you need to keep a specific direction in any situation, set it to
+    /// either LTR (Left-to-Right) or RTL (Right-to-Left). Optional.
+    ///
+    ///
+    /// .object: the node tree used as the overlay.
+    /// The parameter type is [`ArkUI_NodeHandle`].
+    /// The default value is <b>nullptr.</b>
+    ///
+    /// this parameter is conflict with .string, and it has lower priority than .string. Optional.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .string: mask text.
+    ///
+    /// .value[0].i32: position of the overlay relative to the component.
+    /// The parameter type is [`ArkUI_Alignment`].
+    /// The default value is <b>ARKUI_ALIGNMENT_TOP_START.</b>
+    ///
+    /// .value[1].f32: offset of the overlay relative to the upper left corner of itself on the x-axis, in vp.
+    ///
+    /// .value[2].f32: offset of the overlay relative to the upper left corner of itself on the y-axis, in vp.
+    /// .value[3].i32: the layout direction.
+    /// The parameter type is [`ArkUI_Direction`].
+    /// The default value is <b>ARKUI_DIRECTION_LTR.</b>
+    ///
+    /// .object: the overlay node handle.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NODE_OVERLAY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(42);
     /// Defines the sweep gradient effect.
     /// This attribute can be set, reset, and obtained as required through APIs.
@@ -1464,7 +1534,7 @@ impl ArkUI_NodeAttributeType {
     /// <b>ARKUI_BLEND_MODE_NONE</b>.
     ///
     /// .value[1].?i32: how the specified blend mode is applied. The parameter type is [`ArkUI_BlendApplyType`].
-    /// The default value is <b>ARKUI_BLEND_APPLY_TYPE_FAST</b>.
+    /// The default value is <b>BLEND_APPLY_TYPE_FAST</b>.
     ///
     ///
     ///
@@ -1474,7 +1544,7 @@ impl ArkUI_NodeAttributeType {
     /// <b>ARKUI_BLEND_MODE_NONE</b>.
     ///
     /// .value[1].i32: how the specified blend mode is applied. The parameter type is [`ArkUI_BlendApplyType`].
-    /// The default value is <b>ARKUI_BLEND_APPLY_TYPE_FAST</b>.
+    /// The default value is <b>BLEND_APPLY_TYPE_FAST</b>.
     pub const NODE_BLEND_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(46);
     /// Sets the direction of the main axis.
     /// This attribute can be set, reset, and obtained as required through APIs.
@@ -1630,13 +1700,26 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].f32: position along the y-axis, in px.
     ///
+    /// .value[2].?i32: the alignment mode. The data type is [`ArkUI_Alignment`], and supported since API 21.
+    /// The default value is <b>ARKUI_ALIGNMENT_TOP_START</b>.
     ///
+    /// .value[3].?i32: the direction. The type is [`ArkUI_Direction`], and supported since API 21.
+    /// The default value is <b>ARKUI_DIRECTION_AUTO</b>.
     ///
+    /// In most cases, this parameter should be set to Auto, this allowing the system to handle
+    /// the layout direction automatically. If you need to keep a specific direction in any situation, set it to
+    /// either LTR (Left-to-Right) or RTL (Right-to-Left). Optional.
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].f32: position along the x-axis, in px.
     ///
     /// .value[1].f32: position along the y-axis, in px.
+    ///
+    /// .value[2].i32: the alignment mode. The data type is [`ArkUI_Alignment`], and supported since API 21.
+    /// The default value is <b>ARKUI_ALIGNMENT_TOP_START</b>.
+    ///
+    /// .value[3].i32: the direction. The type is [`ArkUI_Direction`], and supported since API 21.
+    /// The default value is <b>ARKUI_DIRECTION_AUTO</b>.
     pub const NODE_BACKGROUND_IMAGE_POSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(56);
     /// Sets the alignment rules in the relative container.
     /// This attribute can be set, reset, and obtained as required through APIs.
@@ -2288,6 +2371,12 @@ impl ArkUI_NodeAttributeType {
     /// Format of the [`ArkUI_AttributeItem`] parameter for obtaining the attribute:
     ///
     /// .value[0].i32: component ID.
+    ///
+    ///
+    ///
+    /// **Deprecated** since 20
+    /// OH_ArkUI_NodeUtils_GetNodeUniqueId
+    #[deprecated(since = "20")]
     pub const NODE_UNIQUE_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(95);
     /// Set the current component system focus box style.
     ///
@@ -2363,6 +2452,38 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_BACKDROP_BLUR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(99);
+    /// Defines the background image resizable attribute, which can be set, reset,
+    /// and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: width of the left edge. The unit is vp.
+    ///
+    /// .value[1].f32: width of the top edge. The unit is vp.
+    ///
+    /// .value[2].f32: width of the right edge. The unit is vp.
+    ///
+    /// .value[3].f32: width of the bottom edge. The unit is vp.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: width of the left edge. The unit is vp.
+    ///
+    /// .value[1].f32: width of the top edge. The unit is vp.
+    ///
+    /// .value[2].f32: width of the right edge. The unit is vp.
+    ///
+    /// .value[3].f32: width of the bottom edge. The unit is vp.
+    ///
+    ///
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const NODE_BACKGROUND_IMAGE_RESIZABLE_WITH_SLICE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(100);
     /// Sets the next focus node.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2407,6 +2528,181 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const NODE_VISIBLE_AREA_APPROXIMATE_CHANGE_RATIO: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(102);
+    /// Defines the translate attribute, which supports for percentile translation input, and can be set, reset,
+    /// and obtained as required through APIs.
+    ///
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: distance to translate along the x-axis. The default unit is percentage.
+    /// The unit is vp only if value[3] exists and value[3] is 0. The default value of value[0] is <b>0</b>.
+    ///
+    /// .value[1].f32: distance to translate along the y-axis. The default unit is percentage.
+    /// The unit is vp only if value[4] exists and value[4] is 0. The default value of value[1] is <b>0</b>.
+    ///
+    /// .value[2].f32: distance to translate along the z-axis, in vp. The default value is <b>0</b>.
+    ///
+    /// .value[3]?.i32: Whether the translation distance along the x-axis is specified as a percentage.
+    /// The value can be 0 or 1. When the value is 1, it is specified as a percentage.
+    /// For example, value[0].f32=0.1 and value[3].i32=1 indicates a 10% shift in the x direction.
+    /// The default value is <b>1</b>.
+    ///
+    /// .value[4]?.i32: Whether the translation distance along the y-axis is specified as a percentage.
+    /// The value can be 0 or 1. When the value is 1, it is specified as a percentage.
+    /// For example, value[1].f32=0.1 and value[4].i32=1 indicates a 10% shift in the y direction.
+    /// The default value is <b>1</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: distance to translate along the x-axis. The unit depends on value[3].
+    ///
+    /// .value[1].f32: distance to translate along the y-axis. The unit depends on value[4].
+    ///
+    /// .value[2].f32: distance to translate along the z-axis. The unit is vp.
+    ///
+    /// .value[3].i32: Whether the unit of the X-axis translation distance is in percentage. When value[3].i32 is 0,
+    /// the unit of the X-axis translation distance is vp; when value[3].i32 is 1, the unit of the X-axis translation
+    /// distance is percentage;
+    ///
+    /// .value[4].i32: Whether the unit of the Y-axis translation distance is in percentage. When value[4].i32 is 0,
+    /// the unit of the Y-axis translation distance is vp; when value[4].i32 is 1, the unit of the Y-axis translation
+    /// distance is percentage;
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TRANSLATE_WITH_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(103);
+    /// Sets component rotation with multi-axis angle control. This attribute can be set, reset,
+    /// and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: x-axis rotation angle. The default value is <b>0</b>.
+    ///
+    /// .value[1].f32: y-axis rotation angle. The default value is <b>0</b>.
+    ///
+    /// .value[2].f32: z-axis rotation angle. The default value is <b>0</b>.
+    ///
+    /// .value[3].f32: perspective distance from the viewpoint to the z=0 plane, in px. The default value is <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: x-axis rotation angle. The default value is <b>0</b>.
+    /// .value[1].f32: y-axis rotation angle. The default value is <b>0</b>.
+    ///
+    /// .value[2].f32: z-axis rotation angle. The default value is <b>0</b>.
+    ///
+    /// .value[3].f32: perspective distance from the viewpoint to the z=0 plane, in px. The default value is <b>0</b>.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_ROTATE_ANGLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(104);
+    /// Defines the width attribute with param type LayoutPolicy, which can be set, reset, and obtained
+    /// as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: the LayoutPolicy that the width of the component follows.
+    ///
+    /// The parameter type is [`ArkUI_LayoutPolicy`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: the LayoutPolicy that the width of the component follows.
+    ///
+    /// The parameter type is [`ArkUI_LayoutPolicy`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_WIDTH_LAYOUTPOLICY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(105);
+    /// Defines the height attribute with param type LayoutPolicy, which can be set, reset, and obtained
+    /// as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: the LayoutPolicy that the height of the component follows.
+    ///
+    /// The parameter type is [`ArkUI_LayoutPolicy`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: the LayoutPolicy that the height of the component follows.
+    ///
+    /// The parameter type is [`ArkUI_LayoutPolicy`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_HEIGHT_LAYOUTPOLICY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(106);
+    /// Defines the position attribute in param type Edges, which specifies the position of the component
+    /// by the distance relative to the parent container's four edges. This attribute can be set, reset, and obtained as
+    /// required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object indicates struct of edges for position. The parameter type is [`ArkUI_PositionEdges`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object indicates struct of edges for position. The parameter type is [`ArkUI_PositionEdges`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_POSITION_EDGES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(107);
+    /// Set whether the component enables the ability to invert colors.
+    /// This attribute can be set , and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: The parameter type is 1 or 0.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_ALLOW_FORCE_DARK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(108);
+    /// Defines the pixelRound attribute, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object indicates struct of policy for pixelRound. The parameter type is [`ArkUI_PixelRoundPolicy`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object indicates struct of policy for pixelRound. The parameter type is [`ArkUI_PixelRoundPolicy`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_PIXEL_ROUND: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(109);
     /// Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2849,6 +3145,184 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_IMMUTABLE_FONT_WEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1030);
+    /// Sets whether to optimize the trailing spaces at the end of each line during text layout.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// value[0].i32: whether to optimize trailing spaces at the end of each line during text layout.
+    /// The default value is <b>false</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// value[0].i32: whether to optimize trailing spaces at the end of each line during text layout.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_OPTIMIZE_TRAILING_SPACE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1032);
+    /// Defines the text line count attribute, which can only be obtained as required through APIs.
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: line count of the node.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_LINE_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1031);
+    /// Sets a linear gradient effect for text.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: start angle of the linear gradient.
+    /// The setting takes effect only when <b>direction</b> is set to <b>ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM</b>.
+    /// A positive value indicates a clockwise rotation from the origin, (0, 0). The default value is <b>180</b>.
+    ///
+    /// .value[1].i32: direction of the linear gradient. When a direction other than
+    /// <b>ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM</b> is set, the <b>angle</b> property is ignored.
+    /// The parameter type is [`ArkUI_LinearGradientDirection`].
+    ///
+    /// .value[2].i32: whether the colors are repeated. The default value is <b>false</b>.
+    /// .object: array of color stops, each of which consists of a color and its stop position.
+    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    ///
+    ///
+    /// colors: colors of the color stops.
+    ///
+    /// stops: stop positions of the color stops.
+    ///
+    /// size: number of colors.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: start angle of the linear gradient.
+    /// When <b>direction</b> is set to <b>ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM</b>, <b>angle</b> at the set value;
+    /// otherwise, it is at default value.
+    ///
+    /// .value[1].i32: direction of the linear gradient.
+    ///
+    /// .value[2].i32: whether the colors are repeated.
+    ///
+    /// .object: array of color stops, each of which consists of a color and its stop position.
+    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    ///
+    ///
+    /// colors: colors of the color stops.
+    ///
+    /// stops: stop positions of the color stops.
+    ///
+    /// size: number of colors.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_LINEAR_GRADIENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1033);
+    /// Sets a radial gradient effect for text.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0]?.f32: X-coordinate of the radial gradient center relative to the upper left corner of the text.
+    ///
+    /// .value[1]?.f32: Y-coordinate of the radial gradient center relative to the upper left corner of the text.
+    ///
+    /// .value[2]?.f32: radius of the radial gradient. The default value is <b>0</b>.
+    ///
+    /// .value[3]?.i32: whether the colors are repeated.
+    /// The value <b>1</b> means that the colors are repeated, and <b>0</b> means the opposite.
+    ///
+    ///
+    /// .object: array of color stops, each of which consists of a color and its stop position.
+    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    ///
+    /// colors: colors of the color stops.
+    ///
+    /// stops: stop positions of the color stops.
+    ///
+    /// size: number of colors.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: X-coordinate of the radial gradient center relative to the upper left corner of the text.
+    ///
+    /// .value[1].f32: Y-coordinate of the radial gradient center relative to the upper left corner of the text.
+    ///
+    /// .value[2].f32: radius of the radial gradient. The default value is <b>0</b>.
+    ///
+    /// .value[3].i32: whether the colors are repeated.
+    /// The value <b>1</b> means that the colors are repeated, and <b>0</b> means the opposite.
+    ///
+    /// .object: array of color stops, each of which consists of a color and its stop position.
+    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    ///
+    /// colors: colors of the color stops.
+    ///
+    /// stops: stop positions of the color stops.
+    ///
+    /// size: number of colors.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_RADIAL_GRADIENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1034);
+    /// Sets the vertical alignment of the text content.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: vertical alignment of the text content, specified using the [`ArkUI_TextVerticalAlignment`]
+    /// enum. The default value is <b>ARKUI_TEXT_VERTICAL_ALIGNMENT_BASELINE</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: vertical alignment of the text content, specified using the [`ArkUI_TextVerticalAlignment`]
+    /// enum.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_VERTICAL_ALIGN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1035);
+    /// Sets the content align of the text.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: content align of the text, specified using the [`ArkUI_TextContentAlign`]
+    /// enum. The default value is <b>ARKUI_TEXT_CONTENT_ALIGN_CENTER</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: content align of the text, specified using the [`ArkUI_TextContentAlign`]
+    /// enum.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_TEXT_CONTENT_ALIGN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1036);
     /// Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3162,6 +3636,211 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: width of the bottom edge. The unit is vp.
     pub const NODE_IMAGE_RESIZABLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4011);
+    /// Defines the synchronous image loading attribute.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to load the image synchronously.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether to load the image synchronously.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_IMAGE_SYNC_LOAD: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4012);
+    /// Defines the image decoding size attribute.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: width of the image decoding, in px.
+    ///
+    /// .value[1].i32: height of the image decoding, in px.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: width of the image decoding, in px.
+    ///
+    /// .value[1].i32: height of the image decoding, in px.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_IMAGE_SOURCE_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4013);
+    /// Defines the display tranformation matrix for an image.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0...15].f32: 16 floating-point numbers.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0...15].f32: 16 floating-point numbers.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_IMAGE_IMAGE_MATRIX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4014);
+    /// Defines the image follow text direction attribute.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to follows the text direction.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether to follows the text direction.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_IMAGE_MATCH_TEXT_DIRECTION: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(4015);
+    /// Defines the image copy attribute.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: copy option [`ArkUI_CopyOptions`]. The default value is <b>ARKUI_COPY_OPTIONS_NONE</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: copy option [`ArkUI_CopyOptions.`]
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_IMAGE_COPY_OPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4016);
+    /// Defines the image AI analysis enable attribute.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to enable AI analysis for the image.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether to enable AI analysis for the image.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_IMAGE_ENABLE_ANALYZER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4017);
+    /// Defines the image dynamic display range attribute.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: dynamic range mode [`ArkUI_DynamicRangeMode`].
+    /// The default value is <b>ARKUI_DYNAMIC_RANGE_MODE_STANDARD</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: dynamic range mode [`ArkUI_DynamicRangeMode.`]
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_IMAGE_DYNAMIC_RANGE_MODE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(4018);
+    /// Defines the image dynamic display brightness attribute.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: hdr brightness. value range [0, 1]
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: hdr brightness. value range [0, 1]
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_IMAGE_HDR_BRIGHTNESS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4019);
+    /// Defines the image display direction attribute.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: orientation [`ArkUI_Orientation`].
+    /// The default value is <b>ARKUI_ORIENTATION_UP</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: orientation [`ArkUI_Orientation.`]
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_IMAGE_ORIENTATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4020);
+    /// Set the range of SVG parsing capabilities supported through enable switch.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: enable switch.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: enable switch.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_IMAGE_SUPPORT_SVG2: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4021);
+    /// Set the animation effect for the image content transformation.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: The parameter type is [`ArkUI_ContentTransitionEffect`].
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object: The parameter type is [`ArkUI_ContentTransitionEffect`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_IMAGE_CONTENT_TRANSITION: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(4022);
     /// Defines the color of the component when it is selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3809,6 +4488,42 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_TEXT_INPUT_KEYBOARD_APPEARANCE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7035);
+    /// Set whether to enable the auto fill animation or not.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Whether to enable the auto fill animation.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Get the flag of whether the auto fill animation is enabled.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_INPUT_ENABLE_FILL_ANIMATION: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(7036);
+    /// Set the line height of the input node.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: line height value.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: line height value
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_INPUT_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7037);
     /// Defines the default placeholder text for the multi-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4226,6 +4941,93 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_TEXT_AREA_KEYBOARD_APPEARANCE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8026);
+    /// Set the max lines of the node. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: max lines count.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: max lines count.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_AREA_MAX_LINES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8027);
+    /// Set line spacing of the node. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: line spacing value.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: line spacing value.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_AREA_LINE_SPACING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8028);
+    /// Set the min lines of the node. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: min lines count.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: min line count.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_AREA_MIN_LINES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8029);
+    /// Set the max lines of the node with scroll.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: max lines count with scroll.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: max line count with scroll.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_AREA_MAX_LINES_WITH_SCROLL: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(8030);
+    /// Set the line height of the node. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: line height value.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: line height value
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_AREA_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8031);
     /// Defines the button text content. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -4483,29 +5285,19 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: component ID.
     pub const NODE_XCOMPONENT_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12000);
-    /// Defines the type of the <b><XComponent></b> component.
-    /// This attribute can be set, reset, and obtained as required through APIs.
+    /// Specifies the type of the <b>XComponent</b> component. This attribute is read-only.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// The type of the <b>XComponent</b> component must be explicitly set during creation using [`ARKUI_NODE_XCOMPONENT`] or [`ARKUI_NODE_XCOMPONENT_TEXTURE`], and cannot be modified afterward.
     ///
-    /// .value[0].i32: type [`ArkUI_XComponentType`]. The default value is <b>ARKUI_XCOMPONENT_TYPE_SURFACE</b>.
-    ///
-    ///
+    /// Attempting to change the type through [`setAttribute`] will cause rendering exceptions.
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: type [`ArkUI_XComponentType`].
     pub const NODE_XCOMPONENT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12001);
-    /// Defines the width and height of the <b><XComponent></b> component.
-    /// This attribute can be set and obtained as required through APIs.
+    /// Specifies the size of the <b>XComponent</b> component. This attribute is read-only.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
-    ///
-    /// .value[0].u32: width, in px.
-    ///
-    /// .value[1].u32: height, in px.
-    ///
-    ///
+    /// Attempting to modify the size through [`setAttribute`] will have no effect.
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
@@ -4769,6 +5561,26 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const NODE_DATE_PICKER_ENABLE_HAPTIC_FEEDBACK: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(13008);
+    /// Defines whether to support scroll looping for the date picker.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to support scroll looping. The value <b>true</b> means to support scroll looping, and
+    /// <b>false</b> means the opposite.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// value[0].i32: The value <b>1</b> means to support scroll looping, and <b>0</b> means the opposite.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_DATE_PICKER_CAN_LOOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13009);
     /// Defines the time of the selected item. in the timer picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5209,6 +6021,44 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const NODE_TEXT_PICKER_ENABLE_HAPTIC_FEEDBACK: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15010);
+    /// Defines the background color and border radius of the selected items.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].u32: background color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
+    ///
+    /// 1: .value[1].f32: radius of the four corners.
+    ///
+    /// 2: .value[1].f32: radius of the upper left corner.
+    ///
+    /// .value[2].f32: radius of the upper right corner.
+    ///
+    /// .value[3].f32: radius of the lower left corner.
+    ///
+    /// .value[4].f32: radius of the lower right corner.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].u32: background color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
+    /// *
+    /// .value[1].f32: radius of the upper left corner.
+    ///
+    /// .value[2].f32: radius of the upper right corner.
+    ///
+    /// .value[3].f32: radius of the lower left corner.
+    ///
+    /// .value[4].f32: radius of the lower right corner.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_PICKER_SELECTED_BACKGROUND_STYLE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(15011);
     /// Defines the style of the background in the selected state of the calendar picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -5632,6 +6482,141 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const NODE_SLIDER_ENABLE_HAPTIC_FEEDBACK: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(17013);
+    /// Sets a custom component on the leading side of the Slider component.
+    ///
+    /// Attribute setting method [`ArkUI_AttributeItem`] parameter format:
+    ///
+    /// .object: Parameter type [`ArkUI_NodeHandle`].
+    ///
+    /// The prefix component will be placed at the start position of the Slider，
+    /// typically on the left side in LTR layouts.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SLIDER_PREFIX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17014);
+    /// Sets a custom component on the trailing side of the Slider component.
+    ///
+    /// Attribute setting method [`link`] parameter format:
+    ///
+    /// .object: Parameter type [`ArkUI_NodeHandle`].
+    ///
+    /// The suffix component will be placed at the end position of the Slider,
+    /// typically on the right side in LTR layouts.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SLIDER_SUFFIX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17015);
+    /// Defines the color of the slider block. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: array of color stops, each of which consists of a color and its stop position.
+    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    ///
+    ///
+    /// colors: colors of the color stops.
+    ///
+    /// stops: stop positions of the color stops.
+    ///
+    /// size: number of colors.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object: array of color stops, each of which consists of a color and its stop position.
+    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    ///
+    ///
+    /// colors: colors of the color stops.
+    ///
+    /// stops: stop positions of the color stops.
+    ///
+    /// size: number of colors.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_SLIDER_BLOCK_LINEAR_GRADIENT_COLOR: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(17016);
+    /// Defines the background color of the slider. This attribute can be set, reset, and obtained as required
+    /// through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: array of color stops, each of which consists of a color and its stop position.
+    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    ///
+    ///
+    /// colors: colors of the color stops.
+    ///
+    /// stops: stop positions of the color stops.
+    ///
+    /// size: number of colors.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object: array of color stops, each of which consists of a color and its stop position.
+    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    ///
+    ///
+    /// colors: colors of the color stops.
+    ///
+    /// stops: stop positions of the color stops.
+    ///
+    /// size: number of colors.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_SLIDER_TRACK_LINEAR_GRADIENT_COLOR: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(17017);
+    /// Defines the color of the selected part of the slider track. This attribute can be set, reset, and obtained
+    /// as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: array of color stops, each of which consists of a color and its stop position.
+    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    ///
+    ///
+    /// colors: colors of the color stops.
+    ///
+    /// stops: stop positions of the color stops.
+    ///
+    /// size: number of colors.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object: array of color stops, each of which consists of a color and its stop position.
+    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    ///
+    ///
+    /// colors: colors of the color stops.
+    ///
+    /// stops: stop positions of the color stops.
+    ///
+    /// size: number of colors.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_SLIDER_SELECTED_LINEAR_GRADIENT_COLOR: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(17018);
     /// Set the selection status of an option button. Attribute setting,
     /// attribute resetting, and attribute obtaining are supported.
     /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
@@ -6003,7 +6988,8 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1]?.i32: whether to enable the scroll effect when the component content size is smaller than the
     /// component itself. Optional. The value <b>1</b> means to enable the scroll effect, and <b>0</b> means the
-    /// opposite. The default value is <b>1</b>.
+    /// opposite. The default value for the List/Grid/WaterFlow component is <b>0</b>, and the default value for the
+    /// Scroll component is <b>1</b>.
     ///
     /// .value[2]?.i32: direction in which the effect takes effect. The parameter type is [`ArkUI_EffectEdge`].
     /// The default value is <b>ARKUI_EFFECT_EDGE_START | ARKUI_EFFECT_EDGE_END</b>. This parameter is supported since
@@ -6122,10 +7108,14 @@ impl ArkUI_NodeAttributeType {
     /// .value[3]?.i32: scrolling curve. Optional. The parameter type is [`ArkUI_AnimationCurve`].
     /// The default value is <b>ARKUI_CURVE_EASE</b>.
     ///
-    /// .value[4]?.i32: whether to enable the default spring animation. Optional. The default value <b>0</b> means not
-    /// to enable the default spring animation.
+    /// .value[4]?.i32: whether to enable the default spring animation. Optional.
+    /// The default value <b>0</b> means not to enable the default spring animation.
     ///
-    /// .value[5]?.i32: Optional value, sets whether scrolling can cross the boundary.
+    /// .value[5]?.i32: whether to convert the scroll animation to an overshoot animation when the boundary is reached.
+    /// Optional.
+    ///
+    /// .value[6]?.i32: whether the component can stop at an overscrolled position.
+    /// This parameter is supported since API version 20.
     ///
     ///
     ///
@@ -6331,8 +7321,108 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_SCROLL_BACK_TO_TOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002021);
-    /// Defines the direction in which the list items are arranged. This attribute can be set, reset, and
-    /// obtained as required through APIs.
+    /// Defines the margin of the scrollbar.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: start margin of the scrollbar, in vp. The default value is <b>0</b>.
+    ///
+    /// .value[1].f32: end margin of the scrollbar, in vp. The default value is <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: start margin of the scrollbar, in vp.
+    ///
+    /// .value[1].f32: end margin of the scrollbar, in vp.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SCROLL_BAR_MARGIN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002022);
+    /// Sets the maximum zoom scale for scrollable content.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: maximum zoom scale to set.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: current maximum zoom scale.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SCROLL_MAX_ZOOM_SCALE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1002023);
+    /// Sets the minimum zoom scale for scrollable content.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: minimum zoom scale to set.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: current minimum zoom scale.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SCROLL_MIN_ZOOM_SCALE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1002024);
+    /// Sets the zoom scale for scrollable content.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: zoom scale to set.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: current zoom scale.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SCROLL_ZOOM_SCALE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002025);
+    /// Sets whether to enable the zoom bounce effect when the scaling exceeds the limits.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to enable the zoom bounce effect when the scaling exceeds the limits.
+    /// The value <b>1</b> means to enable the effect, and <b>0</b> means the opposite.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether to enable the zoom bounce effect when the scaling exceeds the limits.
+    /// The value <b>1</b> means to enable the effect, and <b>0</b> means the opposite.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SCROLL_ENABLE_BOUNCES_ZOOM: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1002026);
+    /// Sets the direction in which the list items are arranged.
+    /// This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
@@ -6593,6 +7683,68 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_LIST_MAINTAIN_VISIBLE_CONTENT_POSITION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1003013);
+    /// Sets whether the <b>List</b> component starts layout from the end.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether the <b>List</b> component starts layout from the end. The value <b>0</b> means layout
+    /// starts from the top, and <b>1</b> means layout starts from the end. The default value is <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether the <b>List</b> component starts layout from the end. The value <b>0</b> means layout
+    /// starts from the top, and <b>1</b> means layout starts from the end. The default value is <b>0</b>.
+    ///
+    ///
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const NODE_LIST_STACK_FROM_END: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003014);
+    /// Defines the focus wrap mode for the <b>List</b> component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: focus wrap mode of the <b>List</b> component.
+    /// The parameter type is [`ArkUI_FocusWrapMode`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: focus wrap mode of the <b>List</b> component.
+    /// The parameter type is [`ArkUI_FocusWrapMode`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_LIST_FOCUS_WRAP_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003015);
+    /// Defines whether the <b>List</b> component loads child nodes synchronously.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether the <b>List</b> component synchronously loads child nodes.
+    /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether the <b>List</b> component synchronously loads child nodes.
+    /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_LIST_SYNC_LOAD: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003016);
     /// Defines whether to enable loop playback for the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -6743,13 +7895,23 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
-    /// .value[0].i32: index value of the child component.
+    /// .value[0].i32: number of elements to display per page.
+    ///
+    /// .value[1]?.i32: whether to turn pages by group. The value <b>0</b> means to turn pages by child element,
+    /// and <b>1</b> means to turn pages by group. This parameter is supported since API version 19.
+    ///
+    /// .string?: this parameter can only be set to 'auto'. When 'auto' is set, the value[] parameters are ignored.
+    /// This parameter is supported since API version 19.
     ///
     ///
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
-    /// .value[0].i32: index value of the child component.
+    /// .value[0].i32: number of elements to display per page.
+    ///
+    /// .value[1].i32: whether to turn pages by group. This parameter is supported since API version 19.
+    ///
+    /// .string: 'auto' or empty string.
     pub const NODE_SWIPER_DISPLAY_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001009);
     /// Defines whether to disable the swipe feature.
     /// This attribute can be set, reset, and obtained as required through APIs.
@@ -6776,6 +7938,10 @@ impl ArkUI_NodeAttributeType {
     ///
     /// The default value is <b>ARKUI_SWIPER_ARROW_HIDE</b>.
     ///
+    /// .?object: arrow style. The parameter type is [`ArkUI_SwiperArrowStyle`].
+    ///
+    /// This parameter is supported since API version 19.
+    ///
     ///
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
@@ -6784,6 +7950,10 @@ impl ArkUI_NodeAttributeType {
     /// The parameter type is [`ArkUI_SwiperArrow`].
     ///
     /// The default value is <b>ARKUI_SWIPER_ARROW_HIDE</b>.
+    ///
+    /// .object: arrow style. The parameter type is [`ArkUI_SwiperArrowStyle`].
+    ///
+    /// This parameter is supported since API version 19.
     pub const NODE_SWIPER_SHOW_DISPLAY_ARROW: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001011);
     /// Defines the effect used at the edges of the swiper when the boundary of the scrollable content is reached.
@@ -6816,6 +7986,22 @@ impl ArkUI_NodeAttributeType {
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
     /// .value[0].i32: number of cached items in the swiper adapter.
+    ///
+    /// .value[1]?.i32: whether the cached items will be displayed.
+    ///
+    /// The value <b>0</b> indicates that cached items will not be displayed,
+    ///
+    /// and <b>1</b> indicates that cached nodes will be displayed. The default value is <b>0</b>.
+    ///
+    /// This parameter is supported from API version 19.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: number of cached items in the swiper adapter.
+    ///
+    /// .value[1].i32: whether the cached items will be displayed. This parameter is supported from API version 19.
     pub const NODE_SWIPER_CACHED_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001014);
     /// Defines the front margin of the wiper.
     /// The attribute can be set, reset, and obtained as required through APIs.
@@ -6858,13 +8044,25 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: navigation indicator type, the parameter type is [`ArkUI_SwiperIndicatorType`].
     ///
-    /// .object: The parameter type is [`ArkUI_SwiperIndicator`].
+    /// .object: The parameter type is [`ArkUI_SwiperIndicator`] when the indicator type
+    ///
+    /// is <b>ARKUI_SWIPER_INDICATOR_TYPE_DOT</b>. The parameter type is [`ArkUI_SwiperDigitIndicator`]
+    /// when the indicator type is <b>ARKUI_SWIPER_INDICATOR_TYPE_DIGIT</b>.
+    ///
+    /// [`ArkUI_SwiperDigitIndicator`] is supported since API version 19.
+    ///
+    ///
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[0].i32: navigation indicator type, the parameter type is [`ArkUI_SwiperIndicatorType`].
     ///
-    /// .object: The parameter type is [`ArkUI_SwiperIndicator`].
+    /// .object: The parameter type is [`ArkUI_SwiperIndicator`] when the indicator type
+    ///
+    /// is <b>ARKUI_SWIPER_INDICATOR_TYPE_DOT</b>. The parameter type is [`ArkUI_SwiperDigitIndicator`]
+    /// when the indicator type is <b>ARKUI_SWIPER_INDICATOR_TYPE_DIGIT</b>.
+    ///
+    /// [`ArkUI_SwiperDigitIndicator`] is supported since API version 19.
     pub const NODE_SWIPER_INDICATOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001017);
     /// Set the nested scrolling mode for the Swiper component and parent component.
     ///
@@ -6923,6 +8121,54 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_SWIPER_PAGE_FLIP_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001021);
+    /// Defines the minimum main axis size of child element for swiper to works out the display count.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: minimum main axis size of the child element, Unit: vp.
+    ///
+    /// .value[1]?.i32: whether to turn pages by group. The value <b>0</b> means to turn pages by child element,
+    /// and <b>1</b> means to turn pages by group. The default value is <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: minimum main axis size of the child element, Unit: vp.
+    ///
+    /// .value[1].i32: whether to turn pages by group.
+    ///
+    ///
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const NODE_SWIPER_AUTO_FILL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001022);
+    /// Sets whether to maintain the visible content's position when data is inserted or deleted outside
+    /// the display area of the <b>Swiper</b> component.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to maintain the visible content's position when data is inserted or deleted outside
+    /// the display area of the <b>Swiper</b> component. The value <b>0</b> means not to maintain the visible content's
+    /// position, and <b>1</b> means the opposite. The default value is <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether to maintain the visible content's position when data is inserted or deleted outside
+    /// the display area of the <b>Swiper</b> component. The value <b>0</b> means not to maintain the visible content's
+    /// position, and <b>1</b> means the opposite. The default value is <b>0</b>.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SWIPER_MAINTAIN_VISIBLE_CONTENT_POSITION: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1001023);
     /// Set the delineation component of the ListItem, supporting property settings, property resets, and
     /// property acquisition interfaces.
     ///
@@ -7185,6 +8431,24 @@ impl ArkUI_NodeAttributeType {
     /// <b>0</b> means the opposite.
     pub const NODE_REFRESH_PULL_TO_REFRESH: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1009004);
+    /// Sets the maximum pull-down distance for refreshing.
+    /// This attribute can be set, reset, and obtained through the API as required.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: maximum pull-down distance, in vp.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: maximum pull-down distance, in vp.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_REFRESH_MAX_PULL_DOWN_DISTANCE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1009005);
     /// Defines the main axis direction of the <b><WaterFlow></b> component layout.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7375,6 +8639,27 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const NODE_WATER_FLOW_LAYOUT_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010011);
+    /// Defines whether the <b>WaterFlow</b> component loads child nodes synchronously.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether the <b>WaterFlow</b> component synchronously loads child nodes.
+    /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether the <b>WaterFlow</b> component synchronously loads child nodes.
+    /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_WATER_FLOW_SYNC_LOAD: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1010012);
     /// Set the auxiliary line in the RelativeContaine container, supporting property setting,
     /// property reset and property acquisition interfaces.
     ///
@@ -7478,6 +8763,48 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[0].i32: number of cached items in the grid adapter.
     pub const NODE_GRID_CACHED_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013005);
+    /// Defines the focus wrap mode for the <b>Grid</b> component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: focus wrap mode of the <b>Grid</b> component.
+    /// The parameter type is [`ArkUI_FocusWrapMode`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: focus wrap mode of the <b>Grid</b> component.
+    /// The parameter type is [`ArkUI_FocusWrapMode`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_GRID_FOCUS_WRAP_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013006);
+    /// Defines whether the <b>Grid</b> component loads child nodes synchronously.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether the <b>Grid</b> component synchronously loads child nodes.
+    /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether the <b>Grid</b> component synchronously loads child nodes.
+    /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_GRID_SYNC_LOAD: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013007);
     /// Defines the column width of the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -7514,6 +8841,78 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const NODE_TEXT_PICKER_COLUMN_WIDTHS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15009);
+    /// Defines the disabled date range of the calendar picker.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .string: A string of dates. The `1st start date`,`1st end date`,`2nd start date`,`2nd end date`,
+    /// ...,`nth start date`,`nth end date` of the disabled date range.
+    ///
+    /// Example: 1910-01-01,1910-12-31,2020-01-01,2020-12-31
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .string: A string of dates.
+    ///
+    ///
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const NODE_CALENDAR_PICKER_DISABLED_DATE_RANGE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(16006);
+    /// Defines whether the calendar picker marks today.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// value[0].i32: whether the calendar picker marks today. The default value is <b>false</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// value[0].i32: whether the calendar picker marks today.
+    ///
+    ///
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const NODE_CALENDAR_PICKER_MARK_TODAY: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(16007);
+    /// Defines the want used to start EmbeddedAbility.
+    /// This attribute can be set as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: The want of EmbeddedComponent, with parameter type [`AbilityBase_Want`].
+    /// The default value is <b>nullptr</b>.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_EMBEDDED_COMPONENT_WANT: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1016000);
+    /// Set onError and onTerminated callbacks for EMBEDDED_COMPONENT.
+    /// This attribute can be set as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: The option for EmbeddedComponent, with parameter type [`ArkUI_EmbeddedComponentOption`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_EMBEDDED_COMPONENT_OPTION: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1016001);
 }
 #[repr(transparent)]
 /// Defines the ArkUI style attributes that can be set on the native side.
@@ -7946,6 +9345,21 @@ impl ArkUI_NodeEventType {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_ON_HOVER_MOVE: ArkUI_NodeEventType = ArkUI_NodeEventType(29);
+    /// Defines the size change event.
+    ///
+    /// The event will be triggered when the component size changes.
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`] contains four parameters:
+    /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: the width of the old rectangle.
+    /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: the height of the old rectangle.
+    /// <b>ArkUI_NodeComponentEvent.data[2].f32</b>: the width of the new rectangle.
+    /// <b>ArkUI_NodeComponentEvent.data[3].f32</b>: the height of the new rectangle.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_ON_SIZE_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(30);
     /// Triggers onDetectResultUpdate callback
     /// when the text is set to TextDataDetectorConfig and recognized successfully.
     ///
@@ -7958,6 +9372,17 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>：Indicates the result of text recognition, in Json format.
     pub const NODE_TEXT_ON_DETECT_RESULT_UPDATE: ArkUI_NodeEventType = ArkUI_NodeEventType(1000);
+    /// Defines the long press event for span.
+    ///
+    /// The event is triggered when the span is long pressed.
+    /// When the event callback occurs, the [`ArkUI_NodeEvent`] object can be obtained from the
+    /// [`ArkUI_UIInputEvent`] object.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_SPAN_ON_LONG_PRESS: ArkUI_NodeEventType = ArkUI_NodeEventType(1001);
     /// Defines the image loading success event.
     ///
     /// This event is triggered when an image is successfully loaded or decoded.
@@ -8225,6 +9650,21 @@ impl ArkUI_NodeEventType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_TEXT_INPUT_ON_CHANGE_WITH_PREVIEW_TEXT: ArkUI_NodeEventType =
         ArkUI_NodeEventType(7013);
+    /// Defines the event triggered before content changes
+    ///
+    /// When the event callback occurs, the union type [`ArkUI_NodeEvent`] is [`ArkUI_TextChangeEvent`].
+    ///
+    /// [`ArkUI_TextChangeEvent`] contains the following parameters:
+    ///
+    /// <b>ArkUI_TextChangeEvent.pStr</b>: content in the <b>TextInput</b> component.
+    /// <b>ArkUI_TextChangeEvent.pExtendStr</b>: content of the preview text in the <b>TextInput</b> component.
+    /// <b>ArkUI_TextChangeEvent.number</b>: start position of the preview text in the <b>TextInput</b> component.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_INPUT_ON_WILL_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(7014);
     /// Defines the event triggered when the input in the text box changes.
     ///
     ///
@@ -8404,6 +9844,21 @@ impl ArkUI_NodeEventType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_TEXT_AREA_ON_CHANGE_WITH_PREVIEW_TEXT: ArkUI_NodeEventType =
         ArkUI_NodeEventType(8012);
+    /// Defines the event triggered before content changes.
+    ///
+    /// When the event callback occurs, the union type [`ArkUI_NodeEvent`] is [`ArkUI_TextChangeEvent`].
+    ///
+    /// [`ArkUI_TextChangeEvent`] contains the following parameters:
+    ///
+    /// <b>ArkUI_TextChangeEvent.pStr</b>: content in the <b>TextArea</b> component.
+    /// <b>ArkUI_TextChangeEvent.pExtendStr</b>: content of the preview text in the <b>TextArea</b> component.
+    /// <b>ArkUI_TextChangeEvent.number</b>: start position of the preview text in the <b>TextArea</b> component.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_AREA_ON_WILL_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(8013);
     /// Defines the event triggered when the selected status of the <b>ARKUI_NODE_CHECKBOX</b> component changes.
     ///
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
@@ -8729,6 +10184,24 @@ impl ArkUI_NodeEventType {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const NODE_SWIPER_EVENT_ON_UNSELECTED: ArkUI_NodeEventType = ArkUI_NodeEventType(1001006);
+    /// Defines the <b>ARKUI_NODE_SWIPER</b> scroll state change event.
+    /// This event is triggered when the scroll state of the <b>Swiper</b> component changes during user dragging,
+    /// during the animation phase after the user lifts their finger, or upon stopping of scrolling.
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: current scroll state. The parameter type is
+    /// [`ArkUI_ScrollState`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SWIPER_EVENT_ON_SCROLL_STATE_CHANGED: ArkUI_NodeEventType =
+        ArkUI_NodeEventType(1001008);
     /// Defines the event triggered when the <b>ARKUI_NODE_SCROLL</b> component scrolls.
     ///
     /// Notes for triggering the event:
@@ -8904,6 +10377,131 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`] contains no parameters.
     pub const NODE_SCROLL_EVENT_ON_REACH_END: ArkUI_NodeEventType = ArkUI_NodeEventType(1002008);
+    /// Defines the callback for when the user is about to release the drag on the scrollable container component.
+    ///
+    /// This event is triggered when the user is about to release the drag on the scrollable container component.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: speed at which the user releases the drag, in vp.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SCROLL_EVENT_ON_WILL_STOP_DRAGGING: ArkUI_NodeEventType =
+        ArkUI_NodeEventType(1002009);
+    /// Defines the callback for the <b>Scroll</b> component's zoom event,
+    /// triggered at the end of each frame during zooming.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object
+    /// is [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: current zoom scale.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SCROLL_EVENT_ON_DID_ZOOM: ArkUI_NodeEventType = ArkUI_NodeEventType(1002010);
+    /// Defines the callback for the <b>Scroll</b> component's zoom start event,
+    /// triggered when zooming begins.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object
+    /// is [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SCROLL_EVENT_ON_ZOOM_START: ArkUI_NodeEventType = ArkUI_NodeEventType(1002011);
+    /// Defines the callback for the <b>Scroll</b> component's zoom end event,
+    /// triggered when zooming ends.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object
+    /// is [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_SCROLL_EVENT_ON_ZOOM_STOP: ArkUI_NodeEventType = ArkUI_NodeEventType(1002012);
+    /// Defines the callback for when the scrollable will start dragging.
+    ///
+    /// This event is triggered when the scrollable will start dragging.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains no parameters:
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_SCROLL_EVENT_ON_WILL_START_DRAGGING: ArkUI_NodeEventType =
+        ArkUI_NodeEventType(1002013);
+    /// Defines the callback for when the scrollable did end dragging.
+    ///
+    /// This event is triggered when the scrollable did end dragging.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: whether start fling animation.
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_SCROLL_EVENT_ON_DID_STOP_DRAGGING: ArkUI_NodeEventType =
+        ArkUI_NodeEventType(1002014);
+    /// Defines the callback for when the scrollable will start fling.
+    ///
+    /// This event is triggered when the scrollable will start fling.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains no parameters:
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_SCROLL_EVENT_ON_WILL_START_FLING: ArkUI_NodeEventType =
+        ArkUI_NodeEventType(1002015);
+    /// Defines the callback for when the scrollable did end fling.
+    ///
+    /// This event is triggered when the scrollable did end fling.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains no parameters:
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_SCROLL_EVENT_ON_DID_STOP_FLING: ArkUI_NodeEventType =
+        ArkUI_NodeEventType(1002016);
     /// Defines the enumerated values of the event triggered,
     ///
     /// when a subcomponent of ARKUI_NODE_LIST is moved into or out of the list display area.
@@ -9196,6 +10794,20 @@ impl ArkUI_NodeCustomEventType {
     /// Overlay type.
     pub const ARKUI_NODE_CUSTOM_EVENT_ON_OVERLAY_DRAW: ArkUI_NodeCustomEventType =
         ArkUI_NodeCustomEventType(16);
+    /// Draw front type.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_NODE_CUSTOM_EVENT_ON_DRAW_FRONT: ArkUI_NodeCustomEventType =
+        ArkUI_NodeCustomEventType(32);
+    /// Draw behind type.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_NODE_CUSTOM_EVENT_ON_DRAW_BEHIND: ArkUI_NodeCustomEventType =
+        ArkUI_NodeCustomEventType(64);
 }
 #[repr(transparent)]
 /// Defines the custom component event type.
@@ -10984,6 +12596,28 @@ extern "C" {
         node: ArkUI_NodeHandle,
         screenOffset: *mut ArkUI_IntOffset,
     ) -> i32;
+    /// Obtains the offset of a component relative to the global display.
+    /// The relative position does not count in transformation attributes, such as translate.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Pointer to the <b>ArkUI_NodeHandle</b> representing the component.
+    ///
+    /// * `offset` - Offset of the component relative to the global display, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_NodeUtils_GetLayoutPositionInGlobalDisplay(
+        node: ArkUI_NodeHandle,
+        offset: *mut ArkUI_IntOffset,
+    ) -> i32;
     /// Obtain the position of the component in the window, including the properties of graphic translation changes.
     ///
     /// # Arguments
@@ -11311,7 +12945,6 @@ extern "C" {
     /// * Error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] The component does not support this event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11352,7 +12985,6 @@ extern "C" {
     /// * Error code.
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] The component does not support this event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -11435,6 +13067,26 @@ extern "C" {
         target_parent: ArkUI_NodeHandle,
         index: i32,
     ) -> i32;
+    /// Triggers node updates in the current frame.
+    /// When node attributes are modified after the current frame's build phase (i.e., after
+    /// the unified processing of dirty nodes), the node updates will be deferred to the next
+    /// frame. This function forces immediate node updates within the current frame to
+    /// ensure rendering effects are applied synchronously.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_NativeModule_InvalidateAttributes(node: ArkUI_NodeHandle) -> i32;
     /// Set the cross-language option of the target node handle.
     ///
     /// # Arguments
@@ -11490,8 +13142,8 @@ extern "C" {
     /// # Returns
     ///
     /// * error code
-    /// [`ARKUI_INSPECTOR_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
-    /// [`ARKUI_INSPECTOR_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter is incorrect.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -11516,8 +13168,8 @@ extern "C" {
     /// # Returns
     ///
     /// * error code
-    /// [`ARKUI_INSPECTOR_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
-    /// [`ARKUI_INSPECTOR_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter is incorrect.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -11538,8 +13190,8 @@ extern "C" {
     /// # Returns
     ///
     /// * error code
-    /// [`ARKUI_INSPECTOR_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
-    /// [`ARKUI_INSPECTOR_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter is incorrect.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -11554,8 +13206,8 @@ extern "C" {
     /// # Returns
     ///
     /// * error code
-    /// [`ARKUI_INSPECTOR_NATIVE_RESULT_SUCCESSFUL`] if the operation is successful.
-    /// [`ARKUI_INSPECTOR_NATIVE_RESULT_BAD_PARAMETER`] if a parameter is incorrect.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter is incorrect.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -11630,5 +13282,272 @@ extern "C" {
     pub fn OH_ArkUI_NodeUtils_GetPositionToParent(
         node: ArkUI_NodeHandle,
         globalOffset: *mut ArkUI_IntOffset,
+    ) -> i32;
+    /// Adds the UI state style supported by the component. To handle states change efficiently, need to specify the
+    /// states of interest and the corresponding handler. When a state of interest occurs, the handler will be executed.
+    /// - You can adjust the UI style based on the current state within the callback. If this API is called multiple
+    /// times on the same node, the last set of states and handler will take precedence.
+    /// - Some component types have default system handling for certain states. For example, the <b>Button</b>
+    /// component has a default style effect for the PRESSED state. When custom state handling is implemented on such
+    /// components, the default style effect will be applied first, followed by the custom style changes, resulting in
+    /// a combined effect. To disable the default style effects, set <b>excludeInner</b> to <b>true</b>, if this is allowed
+    /// by the system implementation.
+    /// - And when this API is called, the provided handler function will be executed immediately.
+    /// - There is no need to explicitly register a listener for the NORMAL state. Once a non-NORMAL state is registered,
+    /// the system will automatically notify your application when the state changes back to NORMAL.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Target node.
+    ///
+    /// * `uiStates` - Target UI states to be handled on the node.
+    /// The combined result of all target UI states can be calculated using the <b>|</b> operator.
+    /// Example: <b>targetUIStates = ArkUI_UIState::PRESSED | ArkUI_UIState::FOCUSED</b>.
+    ///
+    /// * `statesChangeHandler` - Handler for UI state changes.
+    /// It rturns the current UI status. The value is the result of combining all current state enum values using the
+    /// <b>|</b> operator. You can determine the state using the <b>&</b> operator.
+    /// Example: <b>if (currentStates & ArkUI_UIState::PRESSED == ArkUI_UIState::PRESSED)</b>.
+    /// However, for checking the normal state, use the equality operator directly.
+    /// Example: <b>if (currentStates == ArkUI_UIState::NORMAL)</b>.
+    ///
+    /// * `excludeInner` - Whether to disable the default state styles.
+    ///
+    /// * `userData` - Custom data used in the <b>statesChangeHandler</b> callback.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_AddSupportedUIStates(
+        node: ArkUI_NodeHandle,
+        uiStates: i32,
+        statesChangeHandler: ::core::option::Option<
+            unsafe extern "C" fn(currentStates: i32, userData: *mut ::core::ffi::c_void),
+        >,
+        excludeInner: bool,
+        userData: *mut ::core::ffi::c_void,
+    ) -> ArkUiResult;
+    /// Removes registered UI states. When all states registered using <b>OH_ArkUI_AddSupportedUIStates</b>
+    /// are removed, the registered <b>stateChangeHandler</b> will no longer be executed.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Target node.
+    ///
+    /// * `uiStates` - Target UI states to be removed.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_RemoveSupportedUIStates(node: ArkUI_NodeHandle, uiStates: i32) -> ArkUiResult;
+    /// Run a custom function inside the UIContext scope.
+    ///
+    /// # Arguments
+    ///
+    /// * `uiContext` - ArkUI_ContextHandle.
+    ///
+    /// * `userData` - Indicates the pointer to the custom data.
+    ///
+    /// * `callback` - The custom function.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`] if the uiContext is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_CALLBACK_INVALID`] if the callback function is invalid.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_RunTaskInScope(
+        uiContext: ArkUI_ContextHandle,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>,
+    ) -> i32;
+    /// Get the node handle by uniqueId.
+    ///
+    /// # Arguments
+    ///
+    /// * `uniqueId` - The uniqueId of the target node handle.
+    ///
+    /// * `node` - The handle of target node handle.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_NodeUtils_GetNodeHandleByUniqueId(
+        uniqueId: u32,
+        node: *mut ArkUI_NodeHandle,
+    ) -> i32;
+    /// Get the uniqueId of the target node handle.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - The ArkUI-NodeHandle pointer.
+    ///
+    /// * `uniqueId` - The uniqueId of the target node handle, default value is -1.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_NodeUtils_GetNodeUniqueId(node: ArkUI_NodeHandle, uniqueId: *mut i32) -> i32;
+    /// Sets the inverse color algorithm for components and instances.
+    ///
+    /// # Arguments
+    ///
+    /// * `uiContext` - Indicates the context in which the inverse color feature should take effect.
+    /// If the value is null, the feature applies to the entire application process.
+    ///
+    /// * `forceDark` - Indicates whether the inverse color feature is enabled.
+    ///
+    /// * `nodeType` - Indicates the component type for which to enable the inverse color feature.
+    /// If the value is ARKUI_NODE_UNDEFINED, enabling the feature for all components.
+    ///
+    /// * `colorInvertFunc` - Indicates the user-defined inverse color algorithm.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// Returns [`ARKUI_ERROR_CODE_FORCE_DARK_CONFIG_INVALID`] if force dark config is invalid.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_SetForceDarkConfig(
+        uiContext: ArkUI_ContextHandle,
+        forceDark: bool,
+        nodeType: ArkUI_NodeType,
+        colorInvertFunc: ::core::option::Option<unsafe extern "C" fn(color: u32) -> u32>,
+    ) -> i32;
+    /// Register common event callback of target node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - The ArkUI-NodeHandle pointer.
+    ///
+    /// * `eventType` - Indicates the type of event to set.
+    ///
+    /// * `userData` - Indicates the pointer to the custom data.
+    ///
+    /// * `callback` - Indicates the event callback function.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function params is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_UNSUPPORTED_EVENT_TYPE`] Function parameter eventType is not supported.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_NativeModule_RegisterCommonEvent(
+        node: ArkUI_NodeHandle,
+        eventType: ArkUI_NodeEventType,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<unsafe extern "C" fn(event: *mut ArkUI_NodeEvent)>,
+    ) -> i32;
+    /// Unregister common event callback of target node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - The ArkUI-NodeHandle pointer.
+    ///
+    /// * `eventType` - Indicates the type of event to set.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function params is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_UNSUPPORTED_EVENT_TYPE`] Function parameter eventType is not supported.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_NativeModule_UnregisterCommonEvent(
+        node: ArkUI_NodeHandle,
+        eventType: ArkUI_NodeEventType,
+    ) -> i32;
+    /// Register common visible area approximate change event callback of target node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - The ArkUI-NodeHandle pointer.
+    ///
+    /// * `ratios` - Threshold array representing the visible area of the component.
+    ///
+    /// * `size` - The size of the ratios.
+    ///
+    /// * `expectedUpdateInterval` - The expected calculation interval for developers.
+    ///
+    /// * `userData` - Indicates the pointer to the custom data.
+    ///
+    /// * `callback` - Indicates the event callback function.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function params is invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_NativeModule_RegisterCommonVisibleAreaApproximateChangeEvent(
+        node: ArkUI_NodeHandle,
+        ratios: *mut f32,
+        size: i32,
+        expectedUpdateInterval: f32,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<unsafe extern "C" fn(event: *mut ArkUI_NodeEvent)>,
+    ) -> i32;
+    /// Unregister common visible area approximate change event callback of target node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - The ArkUI-NodeHandle pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function params is invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_NativeModule_UnregisterCommonVisibleAreaApproximateChangeEvent(
+        node: ArkUI_NodeHandle,
     ) -> i32;
 }

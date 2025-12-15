@@ -111,6 +111,26 @@ pub type ArkUI_ContextHandle = *mut ArkUI_Context;
 pub struct ArkUI_SwiperIndicator {
     _unused: [u8; 0],
 }
+/// Defines the digital indicator style for the swiper.
+///
+///
+/// Available since API-level: 19
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+#[repr(C)]
+pub struct ArkUI_SwiperDigitIndicator {
+    _unused: [u8; 0],
+}
+/// Defines the arrow style for the swiper.
+///
+///
+/// Available since API-level: 19
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+#[repr(C)]
+pub struct ArkUI_SwiperArrowStyle {
+    _unused: [u8; 0],
+}
 /// Define the data objects of styled string supported by text components.
 ///
 ///
@@ -240,6 +260,46 @@ pub struct ArkUI_ProgressLinearStyleOption {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[repr(C)]
 pub struct ArkUI_CrossLanguageOption {
+    _unused: [u8; 0],
+}
+/// Declares the Ability base want.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[repr(C)]
+pub struct AbilityBase_Want {
+    _unused: [u8; 0],
+}
+/// Define the EmbeddedComponentOption for the EmbeddedComponent.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[repr(C)]
+pub struct ArkUI_EmbeddedComponentOption {
+    _unused: [u8; 0],
+}
+/// Define the Edges describing the position of a component by distances to the container's four edges.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[repr(C)]
+pub struct ArkUI_PositionEdges {
+    _unused: [u8; 0],
+}
+/// Defines the PixelRound policy of a component's four edges.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[repr(C)]
+pub struct ArkUI_PixelRoundPolicy {
     _unused: [u8; 0],
 }
 /// Defines the event callback type.
@@ -405,6 +465,50 @@ impl ArkUI_TextAlignment {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_TextAlignment(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl ArkUI_TextVerticalAlignment {
+    /// Aligned to the baseline.
+    pub const ARKUI_TEXT_VERTICAL_ALIGNMENT_BASELINE: ArkUI_TextVerticalAlignment =
+        ArkUI_TextVerticalAlignment(0);
+    /// Bottom aligned.
+    pub const ARKUI_TEXT_VERTICAL_ALIGNMENT_BOTTOM: ArkUI_TextVerticalAlignment =
+        ArkUI_TextVerticalAlignment(1);
+    /// Center aligned.
+    pub const ARKUI_TEXT_VERTICAL_ALIGNMENT_CENTER: ArkUI_TextVerticalAlignment =
+        ArkUI_TextVerticalAlignment(2);
+    /// Top aligned.
+    pub const ARKUI_TEXT_VERTICAL_ALIGNMENT_TOP: ArkUI_TextVerticalAlignment =
+        ArkUI_TextVerticalAlignment(3);
+}
+#[repr(transparent)]
+/// Enumerates text vertical alignment styles.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_TextVerticalAlignment(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+impl ArkUI_TextContentAlign {
+    /// Top aligned.
+    pub const ARKUI_TEXT_CONTENT_ALIGN_TOP: ArkUI_TextContentAlign = ArkUI_TextContentAlign(0);
+    /// Center aligned.
+    pub const ARKUI_TEXT_CONTENT_ALIGN_CENTER: ArkUI_TextContentAlign = ArkUI_TextContentAlign(1);
+    /// Bottom aligned.
+    pub const ARKUI_TEXT_CONTENT_ALIGN_BOTTOM: ArkUI_TextContentAlign = ArkUI_TextContentAlign(2);
+}
+#[repr(transparent)]
+/// Enumerates text content align styles.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_TextContentAlign(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_EnterKeyType {
@@ -456,6 +560,12 @@ impl ArkUI_TextInputType {
     pub const ARKUI_TEXTINPUT_TYPE_NEW_PASSWORD: ArkUI_TextInputType = ArkUI_TextInputType(11);
     /// Number input mode with a decimal point.
     pub const ARKUI_TEXTINPUT_TYPE_NUMBER_DECIMAL: ArkUI_TextInputType = ArkUI_TextInputType(12);
+    /// One time code input mode.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_TEXTINPUT_TYPE_ONE_TIME_CODE: ArkUI_TextInputType = ArkUI_TextInputType(14);
 }
 #[repr(transparent)]
 /// Enumerates the text input types.
@@ -477,6 +587,12 @@ impl ArkUI_TextAreaType {
     pub const ARKUI_TEXTAREA_TYPE_PHONE_NUMBER: ArkUI_TextAreaType = ArkUI_TextAreaType(3);
     /// Email address input mode.
     pub const ARKUI_TEXTAREA_TYPE_EMAIL: ArkUI_TextAreaType = ArkUI_TextAreaType(5);
+    /// One time code input mode.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_TEXTAREA_TYPE_ONE_TIME_CODE: ArkUI_TextAreaType = ArkUI_TextAreaType(14);
 }
 #[repr(transparent)]
 /// Enumerates the text box types.
@@ -771,6 +887,23 @@ impl ArkUI_EffectEdge {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_EffectEdge(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl ArkUI_FocusWrapMode {
+    /// Default mode, where focus does not wrap when arrow keys are used.
+    pub const ARKUI_FOCUS_WRAP_MODE_DEFAULT: ArkUI_FocusWrapMode = ArkUI_FocusWrapMode(0);
+    /// Focus wraps automatically when arrow keys are used.
+    pub const ARKUI_FOCUS_WRAP_WITH_ARROW: ArkUI_FocusWrapMode = ArkUI_FocusWrapMode(1);
+}
+#[repr(transparent)]
+/// Enumerates the focus wrap mode of components.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_FocusWrapMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_ScrollDirection {
@@ -780,6 +913,13 @@ impl ArkUI_ScrollDirection {
     pub const ARKUI_SCROLL_DIRECTION_HORIZONTAL: ArkUI_ScrollDirection = ArkUI_ScrollDirection(1);
     /// Scrolling is not allowed.
     pub const ARKUI_SCROLL_DIRECTION_NONE: ArkUI_ScrollDirection = ArkUI_ScrollDirection(3);
+    /// Free scrolling in both directions.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_SCROLL_DIRECTION_FREE: ArkUI_ScrollDirection = ArkUI_ScrollDirection(4);
 }
 #[repr(transparent)]
 /// Enumerates the scroll directions for the <b><Scroll></b> component.
@@ -943,6 +1083,22 @@ impl ArkUI_HitTestMode {
     pub const ARKUI_HIT_TEST_MODE_TRANSPARENT: ArkUI_HitTestMode = ArkUI_HitTestMode(2);
     /// The node does not respond to the hit test of a touch event.
     pub const ARKUI_HIT_TEST_MODE_NONE: ArkUI_HitTestMode = ArkUI_HitTestMode(3);
+    /// The node and its child nodes participate in hit tests, while blocking hit tests for all sibling nodes and
+    /// parent nodes with lower priority.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_HIT_TEST_MODE_BLOCK_HIERARCHY: ArkUI_HitTestMode = ArkUI_HitTestMode(4);
+    /// The node does not respond to hit tests, and none of its descendants (including children and grandchildren)
+    /// participate in hit tests either.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_HIT_TEST_MODE_BLOCK_DESCENDANTS: ArkUI_HitTestMode = ArkUI_HitTestMode(5);
 }
 #[repr(transparent)]
 /// Enumerates the hit test modes.
@@ -1364,7 +1520,7 @@ pub struct ArkUI_AnimationPlayMode(pub ::core::ffi::c_uint);
 impl ArkUI_ImageSize {
     /// The original image aspect ratio is retained.
     pub const ARKUI_IMAGE_SIZE_AUTO: ArkUI_ImageSize = ArkUI_ImageSize(0);
-    /// Default value. The image is scaled with its aspect ratio retained for both sides to be greater than or equal
+    /// The image is scaled with its aspect ratio retained for both sides to be greater than or equal
     /// to the display boundaries.
     pub const ARKUI_IMAGE_SIZE_COVER: ArkUI_ImageSize = ArkUI_ImageSize(1);
     /// The image is scaled with its aspect ratio retained for the content to be completely displayed within the display
@@ -1472,6 +1628,29 @@ impl ArkUI_BlurStyle {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_BlurStyle(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+impl ArkUI_BlurStyleActivePolicy {
+    /// The blur effect changes according to the window's focus state;
+    /// it is inactive when the window is not in focus and active when the window is in focus.
+    pub const ARKUI_BLUR_STYLE_ACTIVE_POLICY_FOLLOWS_WINDOW_ACTIVE_STATE:
+        ArkUI_BlurStyleActivePolicy = ArkUI_BlurStyleActivePolicy(0);
+    /// The blur effect is always active.
+    pub const ARKUI_BLUR_STYLE_ACTIVE_POLICY_ALWAYS_ACTIVE: ArkUI_BlurStyleActivePolicy =
+        ArkUI_BlurStyleActivePolicy(1);
+    /// The blur effect is always inactive.
+    pub const ARKUI_BLUR_STYLE_ACTIVE_POLICY_ALWAYS_INACTIVE: ArkUI_BlurStyleActivePolicy =
+        ArkUI_BlurStyleActivePolicy(2);
+}
+#[repr(transparent)]
+/// Enumerates the activation policies for the background blur effect.
+///
+///
+/// Available since API-level: 19
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_BlurStyleActivePolicy(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_VerticalAlignment {
@@ -1549,6 +1728,14 @@ impl ArkUI_ImageSpanAlignment {
     /// The image is top aligned with the text.
     pub const ARKUI_IMAGE_SPAN_ALIGNMENT_TOP: ArkUI_ImageSpanAlignment =
         ArkUI_ImageSpanAlignment(3);
+    /// The image alignment mode follows the text component's alignment mode.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_IMAGE_SPAN_ALIGNMENT_FOLLOW_PARAGRAPH: ArkUI_ImageSpanAlignment =
+        ArkUI_ImageSpanAlignment(4);
 }
 #[repr(transparent)]
 /// Enumerates the alignment mode of the image with the text.
@@ -1595,6 +1782,13 @@ impl ArkUI_ObjectFit {
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_BOTTOM: ArkUI_ObjectFit = ArkUI_ObjectFit(13);
     /// Not resized, the image is aligned with the end edge at the bottom of the container.
     pub const ARKUI_OBJECT_FIT_NONE_AND_ALIGN_BOTTOM_END: ArkUI_ObjectFit = ArkUI_ObjectFit(14);
+    /// Not resized, and is used in conjunction with NODE_IMAGE_IMAGE_MATRIX.
+    ///
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const ARKUI_OBJECT_FIT_NONE_MATRIX: ArkUI_ObjectFit = ArkUI_ObjectFit(15);
 }
 #[repr(transparent)]
 /// Defines how the image is resized to fit its container.
@@ -1629,6 +1823,65 @@ impl ArkUI_ImageInterpolation {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_ImageInterpolation(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+impl ArkUI_DynamicRangeMode {
+    /// high dynamic range mode.
+    pub const ARKUI_DYNAMIC_RANGE_MODE_HIGH: ArkUI_DynamicRangeMode = ArkUI_DynamicRangeMode(0);
+    /// constraint dynamic range mode.
+    pub const ARKUI_DYNAMIC_RANGE_MODE_CONSTRAINT: ArkUI_DynamicRangeMode =
+        ArkUI_DynamicRangeMode(1);
+    /// standard dynamic range mode.
+    pub const ARKUI_DYNAMIC_RANGE_MODE_STANDARD: ArkUI_DynamicRangeMode = ArkUI_DynamicRangeMode(2);
+}
+#[repr(transparent)]
+/// Enumerates the image dynamic range mode.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_DynamicRangeMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+impl ArkUI_ImageRotateOrientation {
+    /// Use EXIF metadata for display orientation, with support for rotation and mirroring.
+    pub const ARKUI_ORIENTATION_AUTO: ArkUI_ImageRotateOrientation =
+        ArkUI_ImageRotateOrientation(0);
+    /// Display original pixel data without transformation.
+    pub const ARKUI_ORIENTATION_UP: ArkUI_ImageRotateOrientation = ArkUI_ImageRotateOrientation(1);
+    /// Display the image after rotating it 90 degrees clockwise.
+    pub const ARKUI_ORIENTATION_RIGHT: ArkUI_ImageRotateOrientation =
+        ArkUI_ImageRotateOrientation(2);
+    /// Display the image after rotating it 180 degrees clockwise.
+    pub const ARKUI_ORIENTATION_DOWN: ArkUI_ImageRotateOrientation =
+        ArkUI_ImageRotateOrientation(3);
+    /// Display the image after rotating it 270 degrees clockwise.
+    pub const ARKUI_ORIENTATION_LEFT: ArkUI_ImageRotateOrientation =
+        ArkUI_ImageRotateOrientation(4);
+    /// Display the image after flipping it horizontally.
+    pub const ARKUI_ORIENTATION_UP_MIRRORED: ArkUI_ImageRotateOrientation =
+        ArkUI_ImageRotateOrientation(5);
+    /// Display the image after flipping it horizontally and then rotating it 90 degrees clockwise.
+    pub const ARKUI_ORIENTATION_RIGHT_MIRRORED: ArkUI_ImageRotateOrientation =
+        ArkUI_ImageRotateOrientation(6);
+    /// Display the image after flipping it vertically.
+    pub const ARKUI_ORIENTATION_DOWN_MIRRORED: ArkUI_ImageRotateOrientation =
+        ArkUI_ImageRotateOrientation(7);
+    /// Display the image after flipping it horizontally and then rotating it 270 degrees clockwise.
+    pub const ARKUI_ORIENTATION_LEFT_MIRRORED: ArkUI_ImageRotateOrientation =
+        ArkUI_ImageRotateOrientation(8);
+}
+#[repr(transparent)]
+/// Enumerates the image rotate orientation.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_ImageRotateOrientation(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_BlendMode {
@@ -2371,6 +2624,12 @@ impl ArkUI_ButtonType {
     pub const ARKUI_BUTTON_TYPE_CAPSULE: ArkUI_ButtonType = ArkUI_ButtonType(1);
     /// Circle button.
     pub const ARKUI_BUTTON_TYPE_CIRCLE: ArkUI_ButtonType = ArkUI_ButtonType(2);
+    /// Rounded rectangle button.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const ARKUI_BUTTON_ROUNDED_RECTANGLE: ArkUI_ButtonType = ArkUI_ButtonType(8);
 }
 #[repr(transparent)]
 /// Enumerates the button types.
@@ -2731,6 +2990,13 @@ impl ArkUiErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const INTERNAL_ERROR: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(100001).unwrap() });
+    /// The XComponent is in invalid state.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const XCOMPONENT_STATE_INVALID: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(103501).unwrap() });
     /// The component does not support specific properties or events.
     pub const ATTRIBUTE_OR_EVENT_NOT_SUPPORTED: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106102).unwrap() });
@@ -2755,6 +3021,13 @@ impl ArkUiErrorCode {
     /// The component event does not support return values.
     pub const NODE_EVENT_NO_RETURN: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106109).unwrap() });
+    /// The event type is not supported by the node.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const NODE_UNSUPPORTED_EVENT_TYPE: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106110).unwrap() });
     /// The index value is invalid.
     pub const NODE_INDEX_INVALID: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106200).unwrap() });
@@ -2771,6 +3044,48 @@ impl ArkUiErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_NOT_ON_MAIN_TREE: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(106203).unwrap() });
+    /// Force dark config is invalid.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const FORCE_DARK_CONFIG_INVALID: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106205).unwrap() });
+    /// The node type is not custom node.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NOT_CUSTOM_NODE: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106401).unwrap() });
+    /// Node already has children.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const CHILD_EXISTED: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106402).unwrap() });
+    /// RenderNode parent is existed.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const RENDER_PARENT_EXISTED: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106403).unwrap() });
+    /// RenderNode child is not exist.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const RENDER_CHILD_NOT_EXIST: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106404).unwrap() });
+    /// Param is out of range.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const PARAM_OUT_OF_RANGE: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(106405).unwrap() });
     /// The node requesting focus is not focusable.
     ///
     /// Available since API-level: 15
@@ -2826,6 +3141,13 @@ impl ArkUiErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const POST_CLONED_NO_COMPONENT_HIT_TO_RESPOND_TO_THE_EVENT: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(180005).unwrap() });
+    /// Input event type not supported.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ARKUI_ERROR_INPUT_EVENT_TYPE_NOT_SUPPORTED: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(180006).unwrap() });
     /// invalid styled string.
     ///
     /// Available since API-level: 14
@@ -2833,6 +3155,13 @@ impl ArkUiErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const INVALID_STYLED_STRING: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(180101).unwrap() });
+    /// The gesture recognizer type is not supported.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+    pub const RECOGNIZER_TYPE_NOT_SUPPORTED: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(180102).unwrap() });
     /// The uiContext is invalid.
     ///
     /// Available since API-level: 18
@@ -2847,13 +3176,20 @@ impl ArkUiErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const CALLBACK_INVALID: ArkUiErrorCode =
         ArkUiErrorCode(const { core::num::NonZero::new(190002).unwrap() });
-    /// The gesture recognizer type is not supported.
+    /// operation is not allowed for current drag drop pharse.
     ///
-    /// Available since API-level: 18
-    #[cfg(feature = "api-18")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-    pub const RECOGNIZER_TYPE_NOT_SUPPORTED: ArkUiErrorCode =
-        ArkUiErrorCode(const { core::num::NonZero::new(180102).unwrap() });
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const DRAG_DROP_OPERATION_NOT_ALLOWED: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(190004).unwrap() });
+    /// Parameter error.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const PARAM_ERROR: ArkUiErrorCode =
+        ArkUiErrorCode(const { core::num::NonZero::new(100023).unwrap() });
 }
 #[repr(transparent)]
 /// Define error code enumeration values.
@@ -3318,6 +3654,140 @@ impl ArkUI_ExpandMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_ExpandMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl ArkUI_UIState {
+    /// Normal state.
+    pub const UI_STATE_NORMAL: ArkUI_UIState = ArkUI_UIState(0);
+    /// Pressed state.
+    pub const UI_STATE_PRESSED: ArkUI_UIState = ArkUI_UIState(1);
+    /// Focused state.
+    pub const UI_STATE_FOCUSED: ArkUI_UIState = ArkUI_UIState(2);
+    /// Disabled state.
+    pub const UI_STATE_DISABLED: ArkUI_UIState = ArkUI_UIState(4);
+    /// Selected state. This state is supported only by specific component types:
+    /// <b>Checkbox</b>, <b>Radio</b>, <b>Toggle</b>, <b>List</b>, <b>Grid</b>, and <b>MenuItem</b>.
+    pub const UI_STATE_SELECTED: ArkUI_UIState = ArkUI_UIState(8);
+}
+#[repr(transparent)]
+/// Defines the navigation point indicator style of the <b><Swiper></b> component.
+/// Enumerates the UI states of a component, used for handling state-specific styles.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_UIState(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl ArkUI_EdgeDirection {
+    /// Set all edge derection.
+    pub const ARKUI_EDGE_DIRECTION_ALL: ArkUI_EdgeDirection = ArkUI_EdgeDirection(0);
+    /// Set left edge derection.
+    pub const ARKUI_EDGE_DIRECTION_LEFT: ArkUI_EdgeDirection = ArkUI_EdgeDirection(1);
+    /// Set right edge derection.
+    pub const ARKUI_EDGE_DIRECTION_RIGHT: ArkUI_EdgeDirection = ArkUI_EdgeDirection(2);
+    /// Set top edge derection.
+    pub const ARKUI_EDGE_DIRECTION_TOP: ArkUI_EdgeDirection = ArkUI_EdgeDirection(3);
+    /// Set bottom edge derection.
+    pub const ARKUI_EDGE_DIRECTION_BOTTOM: ArkUI_EdgeDirection = ArkUI_EdgeDirection(4);
+}
+#[repr(transparent)]
+/// Enumerates the edge derection.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_EdgeDirection(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl ArkUI_CornerDirection {
+    /// Set all corner derection.
+    pub const ARKUI_CORNER_DIRECTION_ALL: ArkUI_CornerDirection = ArkUI_CornerDirection(0);
+    /// Set top left corner derection.
+    pub const ARKUI_CORNER_DIRECTION_TOP_LEFT: ArkUI_CornerDirection = ArkUI_CornerDirection(1);
+    /// Set top right corner derection.
+    pub const ARKUI_CORNER_DIRECTION_TOP_RIGHT: ArkUI_CornerDirection = ArkUI_CornerDirection(2);
+    /// Set bottom left corner derection.
+    pub const ARKUI_CORNER_DIRECTION_BOTTOM_LEFT: ArkUI_CornerDirection = ArkUI_CornerDirection(3);
+    /// Set bottom right corner derection.
+    pub const ARKUI_CORNER_DIRECTION_BOTTOM_RIGHT: ArkUI_CornerDirection = ArkUI_CornerDirection(4);
+}
+#[repr(transparent)]
+/// Enumerates the corner derection.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_CornerDirection(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+impl ArkUI_ListItemSwipeActionDirection {
+    /// When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.
+    /// When the List direction is horizontal, it indicates the top.
+    pub const ARKUI_LIST_ITEM_SWIPE_ACTION_DIRECTION_START: ArkUI_ListItemSwipeActionDirection =
+        ArkUI_ListItemSwipeActionDirection(0);
+    /// When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.
+    /// When the List direction is horizontal, it indicates the bottom.
+    pub const ARKUI_LIST_ITEM_SWIPE_ACTION_DIRECTION_END: ArkUI_ListItemSwipeActionDirection =
+        ArkUI_ListItemSwipeActionDirection(1);
+}
+#[repr(transparent)]
+/// Define the direction to expand the swipe action.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_ListItemSwipeActionDirection(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+impl ArkUI_LayoutPolicy {
+    /// The component fills its parent, which means its size is as large as its parent
+    pub const ARKUI_LAYOUTPOLICY_MATCHPARENT: ArkUI_LayoutPolicy = ArkUI_LayoutPolicy(0);
+    /// The component fills its content, which means its size is as large as its children but it is constrained
+    /// by its parent.
+    pub const ARKUI_LAYOUTPOLICY_WRAPCONTENT: ArkUI_LayoutPolicy = ArkUI_LayoutPolicy(1);
+    /// The component fills its content which means its size is as large as its children.
+    pub const ARKUI_LAYOUTPOLICY_FIXATIDEALSIZE: ArkUI_LayoutPolicy = ArkUI_LayoutPolicy(2);
+}
+#[repr(transparent)]
+/// Enumerates the LayoutPolicy.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_LayoutPolicy(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+impl ArkUI_PixelRoundCalcPolicy {
+    /// No Force round the component boundary coordinates to integer pixel.
+    pub const ARKUI_PIXELROUNDCALCPOLICY_NOFORCEROUND: ArkUI_PixelRoundCalcPolicy =
+        ArkUI_PixelRoundCalcPolicy(0);
+    /// Force ceil the component boundary coordinates to integer pixel.
+    pub const ARKUI_PIXELROUNDCALCPOLICY_FORCECEIL: ArkUI_PixelRoundCalcPolicy =
+        ArkUI_PixelRoundCalcPolicy(1);
+    /// Force floor the component boundary coordinates to integer pixel.
+    pub const ARKUI_PIXELROUNDCALCPOLICY_FORCEFLOOR: ArkUI_PixelRoundCalcPolicy =
+        ArkUI_PixelRoundCalcPolicy(2);
+}
+#[repr(transparent)]
+/// Enumerates the PixelRoundPolicy.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_PixelRoundCalcPolicy(pub ::core::ffi::c_uint);
 /// Defines parameter used by the system font style callback event.
 ///
 ///
@@ -3336,6 +3806,36 @@ pub struct ArkUI_SystemFontStyleEvent {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[repr(C)]
 pub struct ArkUI_SnapshotOptions {
+    _unused: [u8; 0],
+}
+/// TextPicker single column selector, supports mixing text and images.
+///
+///
+/// Available since API-level: 19
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+#[repr(C)]
+pub struct ArkUI_TextPickerRangeContentArray {
+    _unused: [u8; 0],
+}
+/// TextPicker multi column selector, supports mixing text and images.
+///
+///
+/// Available since API-level: 19
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+#[repr(C)]
+pub struct ArkUI_TextCascadePickerRangeContentArray {
+    _unused: [u8; 0],
+}
+/// Set the types and parameters related to content transition effects.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[repr(C)]
+pub struct ArkUI_ContentTransitionEffect {
     _unused: [u8; 0],
 }
 /// Defines the parameters for visible area change events.
@@ -4265,6 +4765,644 @@ extern "C" {
     pub fn OH_ArkUI_SwiperIndicator_GetMaxDisplayCount(
         indicator: *mut ArkUI_SwiperIndicator,
     ) -> i32;
+    /// Sets whether to ignore the size of the indicator for [`OH_ArkUI_SwiperIndicator_SetBottomPosition`].
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - Indicates the pointer to the indicator.
+    ///
+    /// * `ignoreSize` - Whether to ignore the size of the indicator. The value 1 means to ignore, and 0 means the opposite.
+    /// The default value is 0.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperIndicator_SetIgnoreSizeOfBottom(
+        indicator: *mut ArkUI_SwiperIndicator,
+        ignoreSize: i32,
+    );
+    /// Obtains whether to ignore the size of the indicator for [`OH_ArkUI_SwiperIndicator_SetBottomPosition`].
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - Indicates the pointer to the indicator.
+    ///
+    /// # Returns
+    ///
+    /// * Returns whether to ignore the size of the indicator.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperIndicator_GetIgnoreSizeOfBottom(
+        indicator: *mut ArkUI_SwiperIndicator,
+    ) -> i32;
+    /// Sets the space between the dots of the navigation indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - Indicates the pointer to the indicator.
+    ///
+    /// * `space` - the space between the dots of the navigation indicator, the default value is 8vp.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperIndicator_SetSpace(indicator: *mut ArkUI_SwiperIndicator, space: f32);
+    /// Obtains the space between the dots of the navigation indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - Indicates the pointer to the indicator.
+    ///
+    /// # Returns
+    ///
+    /// * the space between the dots of the navigation indicator
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperIndicator_GetSpace(indicator: *mut ArkUI_SwiperIndicator) -> f32;
+    /// Creates a digital indicator.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the new indicator.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_Create() -> *mut ArkUI_SwiperDigitIndicator;
+    /// Sets the distance between the digital indicator and the start of the swiper.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `value` - Indicates the distance between the digital indicator and the start of the swiper.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetStartPosition(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        value: f32,
+    );
+    /// Gets the distance between the digital indicator and the start of the swiper.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the distance between the digital indicator and the start of the swiper.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetStartPosition(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> f32;
+    /// Sets the distance between the digital indicator and the top of the swiper.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `value` - Indicates the distance between the digital indicator and the top of the swiper.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetTopPosition(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        value: f32,
+    );
+    /// Gets the distance between the digital indicator and the top of the swiper.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the distance between the digital indicator and the top of the swiper.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetTopPosition(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> f32;
+    /// Sets the distance between the digital indicator and the end of the swiper.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `value` - Indicates the distance between the digital indicator and the end of the swiper.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetEndPosition(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        value: f32,
+    );
+    /// Gets the distance between the digital indicator and the end of the swiper.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the distance between the digital indicator and the end of the swiper.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetEndPosition(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> f32;
+    /// Sets the distance between the digital indicator and the bottom of the swiper.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `value` - Returns the distance between the digital indicator and the bottom of the swiper.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetBottomPosition(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        value: f32,
+    );
+    /// Gets the distance between the digital indicator and the bottom of the swiper.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the distance between the digital indicator and the bottom of the swiper.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetBottomPosition(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> f32;
+    /// Sets the font color of total count in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `color` - font color, in 0xARGB format. Default value: 0xFF182431.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetFontColor(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        color: u32,
+    );
+    /// Gets the font color of total count in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * font color, in 0xARGB format.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetFontColor(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> u32;
+    /// Sets the font color of selected index in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `selectedColor` - font color, in 0xARGB format. Default value: 0xFF182431.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetSelectedFontColor(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        selectedColor: u32,
+    );
+    /// Gets the font color of selected index in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * font color, in 0xARGB format.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetSelectedFontColor(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> u32;
+    /// Sets the font size of total count in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `size` - font size, in fp.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetFontSize(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        size: f32,
+    );
+    /// Gets the font size of total count in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * font size, in fp.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetFontSize(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> f32;
+    /// Sets the font size of selected index in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `size` - font size, in fp.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetSelectedFontSize(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        size: f32,
+    );
+    /// Gets the font size of selected index in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * font size, in fp.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetSelectedFontSize(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> f32;
+    /// Sets the font weight of total count in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `fontWeight` - font weight [`ArkUI_FontWeight`]. The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetFontWeight(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        fontWeight: ArkUI_FontWeight,
+    );
+    /// Gets the font weight of total count in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * font weight [`ArkUI_FontWeight`].
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetFontWeight(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> ArkUI_FontWeight;
+    /// Sets the font weight of selected index in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `selectedFontWeight` - font weight [`ArkUI_FontWeight`]. The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetSelectedFontWeight(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        selectedFontWeight: ArkUI_FontWeight,
+    );
+    /// Gets the font weight of selected index in the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * font weight [`ArkUI_FontWeight`].
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetSelectedFontWeight(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> ArkUI_FontWeight;
+    /// Destroys the digital indicator.
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_Destroy(indicator: *mut ArkUI_SwiperDigitIndicator);
+    /// Sets whether to ignore the size of the indicator for [`OH_ArkUI_SwiperDigitIndicator_SetBottomPosition`].
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// * `ignoreSize` - Whether to ignore the size of the indicator. The value 1 means to ignore, and 0 means the opposite.
+    /// The default value is 0.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_SetIgnoreSizeOfBottom(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+        ignoreSize: i32,
+    );
+    /// Obtains whether to ignore the size of the indicator for [`OH_ArkUI_SwiperDigitIndicator_SetBottomPosition`].
+    ///
+    /// # Arguments
+    ///
+    /// * `indicator` - The pointer to the digital indicator.
+    ///
+    /// # Returns
+    ///
+    /// * Returns whether to ignore the size of the indicator.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperDigitIndicator_GetIgnoreSizeOfBottom(
+        indicator: *mut ArkUI_SwiperDigitIndicator,
+    ) -> i32;
+    /// Creates a arrow style for swiper.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the new arrow style.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_Create() -> *mut ArkUI_SwiperArrowStyle;
+    /// Sets whether to show the background for the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// * `showBackground` - whether to show the background for the arrow.
+    /// The value <b>1</b> means to show the background, and <b>0</b> means the opposite.
+    /// The default value is <b>0</b>.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_SetShowBackground(
+        arrowStyle: *mut ArkUI_SwiperArrowStyle,
+        showBackground: i32,
+    );
+    /// Gets whether to show the background for the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// # Returns
+    ///
+    /// * whether to show the background for the arrow.
+    /// The value <b>1</b> means to show the background, and <b>0</b> means the opposite.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_GetShowBackground(
+        arrowStyle: *mut ArkUI_SwiperArrowStyle,
+    ) -> i32;
+    /// Sets the display position of the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// * `showSidebarMiddle` - the display position of the arrow.
+    /// The value <b>1</b> means to display on boths sides of the swiper,
+    /// and <b>0</b> means display on boths sides of the swiper indicator.
+    /// The default value is <b>0</b>.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_SetShowSidebarMiddle(
+        arrowStyle: *mut ArkUI_SwiperArrowStyle,
+        showSidebarMiddle: i32,
+    );
+    /// Gets the display position of the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// # Returns
+    ///
+    /// * the display position of the arrow. The value <b>1</b> means to display on boths sides of the swiper,
+    /// and <b>0</b> means display on boths sides of the swiper indicator.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_GetShowSidebarMiddle(
+        arrowStyle: *mut ArkUI_SwiperArrowStyle,
+    ) -> i32;
+    /// Sets the background size of the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// * `backgroundSize` - the background size of the arrow. The unit is vp.
+    /// The default value is <b>24</b> when the arrow displays on both sides of the swiper indicator.
+    /// The default value is <b>32</b> when the arrow displays on both sides of the swiper.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_SetBackgroundSize(
+        arrowStyle: *mut ArkUI_SwiperArrowStyle,
+        backgroundSize: f32,
+    );
+    /// Gets the background size of the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the background size of the arrow. The unit is vp.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_GetBackgroundSize(
+        arrowStyle: *mut ArkUI_SwiperArrowStyle,
+    ) -> f32;
+    /// Destroys the arrow style.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_Destroy(arrowStyle: *mut ArkUI_SwiperArrowStyle);
+    /// Sets the background color of the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// * `backgroundColor` - the background color of the arrow, in 0xARGB format.
+    /// The default value is <b>0x00000000</b> when the arrow displays on both sides of the swiper indicator.
+    /// The default value is <b>0x19182431</b> when the arrow displays on both sides of the swiper.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_SetBackgroundColor(
+        arrowStyle: *mut ArkUI_SwiperArrowStyle,
+        backgroundColor: u32,
+    );
+    /// Gets the background color of the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the background color of the arrow, in 0xARGB format.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_GetBackgroundColor(
+        arrowStyle: *mut ArkUI_SwiperArrowStyle,
+    ) -> u32;
+    /// Sets the size of the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// * `arrowSize` - the size of the arrow. The unit is vp.
+    /// The default value is <b>18</b> when the arrow displays on both sides of the swiper indicator.
+    /// The default value is <b>24</b> when the arrow displays on both sides of the swiper.
+    /// The arrow size is fixed to 3/4 of the background size when the background is shown.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_SetArrowSize(
+        arrowStyle: *mut ArkUI_SwiperArrowStyle,
+        arrowSize: f32,
+    );
+    /// Gets the size of the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// # Returns
+    ///
+    /// * the size of the arrow. The unit is vp.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_GetArrowSize(arrowStyle: *mut ArkUI_SwiperArrowStyle) -> f32;
+    /// Sets the color of the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// * `arrowColor` - the color of the arrow, in 0xARGB format. The default value is <b>0x00182431</b>.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_SetArrowColor(
+        arrowStyle: *mut ArkUI_SwiperArrowStyle,
+        arrowColor: u32,
+    );
+    /// Gets the color of the arrow.
+    ///
+    /// # Arguments
+    ///
+    /// * `arrowStyle` - The pointer to the arrow style.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the color of the arrow, in 0xARGB format.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SwiperArrowStyle_GetArrowColor(arrowStyle: *mut ArkUI_SwiperArrowStyle) -> u32;
     /// Create auxiliary line information in the RelativeContaine container.
     ///
     /// # Arguments
@@ -4594,6 +5732,22 @@ extern "C" {
         barrierStyle: *mut ArkUI_BarrierOption,
         index: i32,
     ) -> i32;
+    /// creates content switching animation effects.
+    ///
+    /// # Arguments
+    ///
+    /// * `type` - content transition type: 0-identity, 1-opacity.
+    ///
+    /// # Returns
+    ///
+    /// * content transition effect.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_ContentTransitionEffect_Create(
+        type_: i32,
+    ) -> *mut ArkUI_ContentTransitionEffect;
     /// creates alignment rule information for subcomponents in relative containers.
     ///
     ///
@@ -6642,5 +7796,563 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_ArkUI_VisibleAreaEventOptions_GetExpectedUpdateInterval(
         option: *mut ArkUI_VisibleAreaEventOptions,
+    ) -> i32;
+    /// Creates a TextPickerRangeContent instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `length` - The length of the picker array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a <b>TextPickerRangeContent</b> instance.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_TextPickerRangeContentArray_Create(
+        length: i32,
+    ) -> *mut ArkUI_TextPickerRangeContentArray;
+    /// Sets the icon of items in a text picker ranges.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - The TextPickerRangeContent instance for obtaining information.
+    ///
+    /// * `icon` - Icon addreass.
+    ///
+    /// * `index` - The index position of the value to be obtained.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_TextPickerRangeContentArray_SetIconAtIndex(
+        handle: *mut ArkUI_TextPickerRangeContentArray,
+        icon: *mut ::core::ffi::c_char,
+        index: i32,
+    );
+    /// Sets the text of items in a text picker ranges
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - The TextPickerRangeContent instance for obtaining information.
+    ///
+    /// * `text` - Text content
+    ///
+    /// * `index` - The index position of the value to be obtained.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_TextPickerRangeContentArray_SetTextAtIndex(
+        handle: *mut ArkUI_TextPickerRangeContentArray,
+        text: *mut ::core::ffi::c_char,
+        index: i32,
+    );
+    /// Destroy the TextPickerRangeContent instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - The TextPickerRangeContent instance for obtaining information.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_TextPickerRangeContentArray_Destroy(
+        handle: *mut ArkUI_TextPickerRangeContentArray,
+    );
+    /// Creates a TextCascadePickerRangeContent instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `length` - The length of the picker array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a <b>TextCascadePickerRangeContent</b> instance.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_TextCascadePickerRangeContentArray_Create(
+        length: i32,
+    ) -> *mut ArkUI_TextCascadePickerRangeContentArray;
+    /// Sets the text of items in a multi text picker ranges.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - The TextCascadePickerRangeContent instance for obtaining information.
+    ///
+    /// * `text` - text content
+    ///
+    /// * `index` - The index position of the value to be obtained.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_TextCascadePickerRangeContentArray_SetTextAtIndex(
+        handle: *mut ArkUI_TextCascadePickerRangeContentArray,
+        text: *mut ::core::ffi::c_char,
+        index: i32,
+    );
+    /// Sets the childs info of items in a multi text picker ranges.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - The TextCascadePickerRangeContent instance for obtaining information.
+    ///
+    /// * `child` - The child instance.
+    ///
+    /// * `index` - The index position of the value to be obtained.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_TextCascadePickerRangeContentArray_SetChildAtIndex(
+        handle: *mut ArkUI_TextCascadePickerRangeContentArray,
+        child: *mut ArkUI_TextCascadePickerRangeContentArray,
+        index: i32,
+    );
+    /// Destroy the TextCascadePickerRangeContent instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - The TextCascadePickerRangeContent instance for obtaining information.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_TextCascadePickerRangeContentArray_Destroy(
+        handle: *mut ArkUI_TextCascadePickerRangeContentArray,
+    );
+    /// Create an object for the EmbeddedComponent option.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * A pointer to the object of the EmbeddedComponent option.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_EmbeddedComponentOption_Create() -> *mut ArkUI_EmbeddedComponentOption;
+    /// Destroy the object by EmbeddedComponent option.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Pointer to the object by the EmbeddeComponent to be destroyed.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_EmbeddedComponentOption_Dispose(option: *mut ArkUI_EmbeddedComponentOption);
+    /// Set the onError of EmbeddedComponent.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Pointer to the object option by the EmbeddedComponent.
+    ///
+    /// * `code` - Common error information about the API invoking failure.
+    ///
+    /// * `name` - Common error name information about the API invoking failure.
+    ///
+    /// * `message` - Common error message information about the API invoking failure.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_EmbeddedComponentOption_SetOnError(
+        option: *mut ArkUI_EmbeddedComponentOption,
+        callback: ::core::option::Option<
+            unsafe extern "C" fn(
+                code: i32,
+                name: *const ::core::ffi::c_char,
+                message: *const ::core::ffi::c_char,
+            ),
+        >,
+    );
+    /// Set the onTerminated of EmbeddedComponent.
+    ///
+    /// # Arguments
+    ///
+    /// * `option` - Pointer to the object option by the EmbeddedComponent.
+    ///
+    /// * `code` - Result code returned when the EmbeddedUIExtensionAbility exits.
+    ///
+    /// * `want` - Data returned when the EmbeddedUIExtensionAbility exits.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_EmbeddedComponentOption_SetOnTerminated(
+        option: *mut ArkUI_EmbeddedComponentOption,
+        callback: ::core::option::Option<
+            unsafe extern "C" fn(code: i32, want: *mut AbilityBase_Want),
+        >,
+    );
+    /// Expand the swipe action.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - List Item node.
+    ///
+    /// * `direction` - expand direction of swipeAction.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
+    /// [`ARKUI_ERROR_CODE_PARAM_ERROR`] The component type of the node is incorrect.
+    /// [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`] The node not mounted to component tree.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_ListItemSwipeAction_Expand(
+        node: ArkUI_NodeHandle,
+        direction: ArkUI_ListItemSwipeActionDirection,
+    ) -> i32;
+    /// Collapse the swipe action.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - List Item node.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
+    /// [`ARKUI_ERROR_CODE_PARAM_ERROR`] The component type of the node is incorrect.
+    /// [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`] The node not mounted to component tree.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_ListItemSwipeAction_Collapse(node: ArkUI_NodeHandle) -> i32;
+    /// Create an edge object for position attribute.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * A pointer to the edge object.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_Create() -> *mut ArkUI_PositionEdges;
+    /// Creates a deep copy of an edge object for position attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `edges` - A pointer to an edge object.
+    ///
+    /// # Returns
+    ///
+    /// * A pointer to the new edge object.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_Copy(
+        edges: *const ArkUI_PositionEdges,
+    ) -> *mut ArkUI_PositionEdges;
+    /// Dispose an edge object for position attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `edges` - Pointer to the edge object to be disposed.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_Dispose(edges: *mut ArkUI_PositionEdges);
+    /// Sets the top edge of an edge object for position attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `edges` - Pointer to the edge object.
+    ///
+    /// * `value` - The distance of top edge to the corresponding edge of parent container, in vp.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_SetTop(edges: *mut ArkUI_PositionEdges, value: f32);
+    /// Gets the top edge of an edge object for position attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `edges` - Pointer to the edge object.
+    ///
+    /// * `value` - The distance of top edge to the corresponding edge of parent container, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the parameter is invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_GetTop(edges: *mut ArkUI_PositionEdges, value: *mut f32) -> i32;
+    /// Sets the left edge of an edge object for position attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `edges` - Pointer to the edge object.
+    ///
+    /// * `value` - The distance of left edge to the corresponding edge of parent container, in vp.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_SetLeft(edges: *mut ArkUI_PositionEdges, value: f32);
+    /// Gets the left edge of an edge object for position attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `edges` - Pointer to the edge object.
+    ///
+    /// * `value` - The distance of left edge to the corresponding edge of parent container, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the parameter is invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_GetLeft(edges: *mut ArkUI_PositionEdges, value: *mut f32) -> i32;
+    /// Sets the bottom edge of an edge object for position attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `edges` - Pointer to the edge object.
+    ///
+    /// * `value` - The distance of bottom edge to the corresponding edge of parent container, in vp.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_SetBottom(edges: *mut ArkUI_PositionEdges, value: f32);
+    /// Gets the bottom edge of an edge object for position attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `edges` - Pointer to the edge object.
+    ///
+    /// * `value` - The distance of bottom edge to the corresponding edge of parent container, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the parameter is invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_GetBottom(
+        edges: *mut ArkUI_PositionEdges,
+        value: *mut f32,
+    ) -> i32;
+    /// Sets the right edge of an edge object for position attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `edges` - Pointer to the edge object.
+    ///
+    /// * `value` - The distance of right edge to the corresponding edge of parent container, in vp.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_SetRight(edges: *mut ArkUI_PositionEdges, value: f32);
+    /// Gets the right edge of an edge object for position attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `edges` - Pointer to the edge object.
+    ///
+    /// * `value` - The distance of right edge to the corresponding edge of parent container, in vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the parameter is invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PositionEdges_GetRight(edges: *mut ArkUI_PositionEdges, value: *mut f32)
+        -> i32;
+    /// Create a policy object for PixelRound attribute.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * A pointer to the policy object.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PixelRoundPolicy_Create() -> *mut ArkUI_PixelRoundPolicy;
+    /// Dispose a policy object for PixelRound attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `policy` - Pointer to the policy object to be disposed.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PixelRoundPolicy_Dispose(policy: *mut ArkUI_PixelRoundPolicy);
+    /// Sets the top edge of a policy object for PixelRound attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `policy` - Pointer to the policy object.
+    ///
+    /// * `value` - The CalcPolicy of top edge.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PixelRoundPolicy_SetTop(
+        policy: *mut ArkUI_PixelRoundPolicy,
+        value: ArkUI_PixelRoundCalcPolicy,
+    );
+    /// Gets the top edge of a policy object for PixelRound attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `policy` - Pointer to the policy object.
+    ///
+    /// * `value` - The CalcPolicy of top edge.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the parameter is invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PixelRoundPolicy_GetTop(
+        policy: *mut ArkUI_PixelRoundPolicy,
+        value: *mut ArkUI_PixelRoundCalcPolicy,
+    ) -> i32;
+    /// Sets the start edge of a policy object for PixelRound attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `policy` - Pointer to the policy object.
+    ///
+    /// * `value` - The CalcPolicy of start edge.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PixelRoundPolicy_SetStart(
+        policy: *mut ArkUI_PixelRoundPolicy,
+        value: ArkUI_PixelRoundCalcPolicy,
+    );
+    /// Gets the start edge of a policy object for PixelRound attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `policy` - Pointer to the policy object.
+    ///
+    /// * `value` - The CalcPolicy of start edge.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the parameter is invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PixelRoundPolicy_GetStart(
+        policy: *mut ArkUI_PixelRoundPolicy,
+        value: *mut ArkUI_PixelRoundCalcPolicy,
+    ) -> i32;
+    /// Sets the bottom edge of a policy object for PixelRound attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `policy` - Pointer to the policy object.
+    ///
+    /// * `value` - The CalcPolicy of bottom edge.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PixelRoundPolicy_SetBottom(
+        policy: *mut ArkUI_PixelRoundPolicy,
+        value: ArkUI_PixelRoundCalcPolicy,
+    );
+    /// Gets the bottom edge of a policy object for PixelRound attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `policy` - Pointer to the policy object.
+    ///
+    /// * `value` - The CalcPolicy of bottom edge.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the parameter is invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PixelRoundPolicy_GetBottom(
+        policy: *mut ArkUI_PixelRoundPolicy,
+        value: *mut ArkUI_PixelRoundCalcPolicy,
+    ) -> i32;
+    /// Sets the end edge of a policy object for PixelRound attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `policy` - Pointer to the policy object.
+    ///
+    /// * `value` - The CalcPolicy of end edge.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PixelRoundPolicy_SetEnd(
+        policy: *mut ArkUI_PixelRoundPolicy,
+        value: ArkUI_PixelRoundCalcPolicy,
+    );
+    /// Gets the end edge of a policy object for PixelRound attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `policy` - Pointer to the policy object.
+    ///
+    /// * `value` - The CalcPolicy of end edge.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the parameter is invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_ArkUI_PixelRoundPolicy_GetEnd(
+        policy: *mut ArkUI_PixelRoundPolicy,
+        value: *mut ArkUI_PixelRoundCalcPolicy,
     ) -> i32;
 }

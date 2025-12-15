@@ -261,7 +261,7 @@ api-18 = ["api-17",
 ]
 ## Enables bindings for OpenHarmony API-level 19
 api-19 = ["api-18",
-    # "arkui-sys?/api-19",
+    "arkui-sys?/api-19",
     "hilog-sys?/api-19",
     "hitrace-sys?/api-19",
     "ohos-abilitykit-sys?/api-19",
@@ -279,7 +279,7 @@ api-19 = ["api-18",
 ]
 ## Enables bindings for OpenHarmony API-level 20
 api-20 = ["api-19",
-    # "arkui-sys?/api-20",
+    "arkui-sys?/api-20",
     "hilog-sys?/api-20",
     "hitrace-sys?/api-20",
     "ohos-abilitykit-sys?/api-20",
@@ -297,7 +297,7 @@ api-20 = ["api-19",
 ]
 ## Enables bindings for OpenHarmony API-level 20
 api-21 = ["api-20",
-    # "arkui-sys?/api-21",
+    "arkui-sys?/api-21",
     "hilog-sys?/api-21",
     "hitrace-sys?/api-21",
     "ohos-abilitykit-sys?/api-21",

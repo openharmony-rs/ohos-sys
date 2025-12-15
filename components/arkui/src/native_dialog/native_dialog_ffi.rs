@@ -3,6 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-19")]
+use crate::native_node::ArkUI_AttributeItem;
 use crate::native_type::*;
 
 #[cfg(feature = "api-12")]
@@ -26,6 +28,70 @@ impl ArkUI_DismissReason {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_DismissReason(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl ArkUI_DialogState {
+    /// Uninitialized.
+    ///
+    /// Required System Capabilities: SystemCapability.ArkUI.ArkUI.Full
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const DIALOG_UNINITIALIZED: ArkUI_DialogState = ArkUI_DialogState(0);
+    /// Initialized.
+    ///
+    /// Required System Capabilities: SystemCapability.ArkUI.ArkUI.Full
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const DIALOG_INITIALIZED: ArkUI_DialogState = ArkUI_DialogState(1);
+    /// Appearing.
+    ///
+    /// Required System Capabilities: SystemCapability.ArkUI.ArkUI.Full
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const DIALOG_APPEARING: ArkUI_DialogState = ArkUI_DialogState(2);
+    /// Appeared.
+    ///
+    /// Required System Capabilities: SystemCapability.ArkUI.ArkUI.Full
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const DIALOG_APPEARED: ArkUI_DialogState = ArkUI_DialogState(3);
+    /// Disappearing.
+    ///
+    /// Required System Capabilities: SystemCapability.ArkUI.ArkUI.Full
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const DIALOG_DISAPPEARING: ArkUI_DialogState = ArkUI_DialogState(4);
+    /// Disappeared.
+    ///
+    /// Required System Capabilities: SystemCapability.ArkUI.ArkUI.Full
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const DIALOG_DISAPPEARED: ArkUI_DialogState = ArkUI_DialogState(5);
+}
+#[repr(transparent)]
+/// Enumerates the state of dialog.
+///
+///
+/// Required System Capabilities: SystemCapability.ArkUI.ArkUI.Full
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_DialogState(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl ArkUI_LevelMode {
@@ -76,6 +142,16 @@ pub type ArkUI_OnWillDismissEvent =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_DialogDismissEvent {
+    _unused: [u8; 0],
+}
+/// Defines a struct for the content object of a custom dialog box.
+///
+///
+/// Available since API-level: 19
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+#[repr(C)]
+pub struct ArkUI_CustomDialogOptions {
     _unused: [u8; 0],
 }
 /// Provides the custom dialog box APIs for the native side.
@@ -531,6 +607,535 @@ pub struct ArkUI_NativeDialogAPI_2 {
         ) -> i32,
     >,
 }
+/// Provides the custom dialog box APIs for the native side.
+///
+///
+/// Version: 3
+///
+/// Available since API-level: 19
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+#[repr(C)]
+pub struct ArkUI_NativeDialogAPI_3 {
+    /// Provides the custom dialog box APIs for the native side. The API scope is [`ArkUI_NativeDialogAPI_1`]
+    ///
+    ///
+    /// Available since API-level: 19
+    pub nativeDialogAPI1: ArkUI_NativeDialogAPI_1,
+    /// Provides the custom dialog box APIs for the native side. The API scope is [`ArkUI_NativeDialogAPI_2`]
+    ///
+    ///
+    /// Available since API-level: 19
+    pub nativeDialogAPI2: ArkUI_NativeDialogAPI_2,
+    /// Sets the display order for a custom dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `levelOrder` - Indicates the display order. The valid range is [-100000.0, 100000.0].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    pub setLevelOrder: ::core::option::Option<
+        unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, levelOrder: f64) -> i32,
+    >,
+    /// Registers a listener callback before the dialog openAnimation starts.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `userData` - Indicates the pointer to the custom data.
+    ///
+    /// * `callback` - Indicates the callback before the dialog openAnimation starts.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    pub registerOnWillAppear: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            userData: *mut ::core::ffi::c_void,
+            callback: ::core::option::Option<
+                unsafe extern "C" fn(userData: *mut ::core::ffi::c_void),
+            >,
+        ) -> i32,
+    >,
+    /// Registers a listener callback when the dialog appears.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `userData` - Indicates the pointer to the custom data.
+    ///
+    /// * `callback` - Indicates the callback when the dialog appears.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    pub registerOnDidAppear: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            userData: *mut ::core::ffi::c_void,
+            callback: ::core::option::Option<
+                unsafe extern "C" fn(userData: *mut ::core::ffi::c_void),
+            >,
+        ) -> i32,
+    >,
+    /// Registers a listener callback before the dialog closeAnimation starts.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `userData` - Indicates the pointer to the custom data.
+    ///
+    /// * `callback` - Indicates the callback before the dialog closeAnimation starts.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    pub registerOnWillDisappear: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            userData: *mut ::core::ffi::c_void,
+            callback: ::core::option::Option<
+                unsafe extern "C" fn(userData: *mut ::core::ffi::c_void),
+            >,
+        ) -> i32,
+    >,
+    /// Registers a listener callback when the dialog disappears.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `userData` - Indicates the pointer to the custom data.
+    ///
+    /// * `callback` - Indicates the callback when the dialog disappears.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    pub registerOnDidDisappear: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            userData: *mut ::core::ffi::c_void,
+            callback: ::core::option::Option<
+                unsafe extern "C" fn(userData: *mut ::core::ffi::c_void),
+            >,
+        ) -> i32,
+    >,
+    /// Sets the border width of the dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `top` - Width of the top border.
+    ///
+    /// * `right` - Width of the right border.
+    ///
+    /// * `bottom` - Width of the bottom border.
+    ///
+    /// * `left` - Width of the left border.
+    ///
+    /// * `unit` - Unit of the width. The default value is vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur..
+    ///
+    /// Available since API-level: 19
+    pub setBorderWidth: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            top: f32,
+            right: f32,
+            bottom: f32,
+            left: f32,
+            unit: ArkUI_LengthMetricUnit,
+        ) -> i32,
+    >,
+    /// Sets the border color of the dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `top` - Color of the top border.
+    ///
+    /// * `right` - Color of the right border.
+    ///
+    /// * `bottom` - Color of the bottom border.
+    ///
+    /// * `left` - Color of the left border.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur..
+    ///
+    /// Available since API-level: 19
+    pub setBorderColor: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            top: u32,
+            right: u32,
+            bottom: u32,
+            left: u32,
+        ) -> i32,
+    >,
+    /// Sets the border style of the dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `top` - Style of the top border.
+    ///
+    /// * `right` - Style of the right border.
+    ///
+    /// * `bottom` - Style of the bottom border.
+    ///
+    /// * `left` - Style of the left border.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur..
+    ///
+    /// Available since API-level: 19
+    pub setBorderStyle: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            top: i32,
+            right: i32,
+            bottom: i32,
+            left: i32,
+        ) -> i32,
+    >,
+    /// Sets the width of the dialog box background.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `width` - Width of the background.
+    ///
+    /// * `unit` - Unit of the width. The default value is vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur..
+    ///
+    /// Available since API-level: 19
+    pub setWidth: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            width: f32,
+            unit: ArkUI_LengthMetricUnit,
+        ) -> i32,
+    >,
+    /// Sets the height of the dialog box background.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `height` - Height of the background.
+    ///
+    /// * `unit` - Unit of the height. The default value is vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur..
+    ///
+    /// Available since API-level: 19
+    pub setHeight: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            height: f32,
+            unit: ArkUI_LengthMetricUnit,
+        ) -> i32,
+    >,
+    /// Sets the shadow of the dialog box background.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `shadow` - Shadow style of the background, specified by an enumerated value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur..
+    ///
+    /// Available since API-level: 19
+    pub setShadow: ::core::option::Option<
+        unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, shadow: ArkUI_ShadowStyle) -> i32,
+    >,
+    /// Sets the custom shadow of the dialog box background.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `customShadow` - Custom shadow parameter. The format is the same as that of the <b>NODE_SHADOW</b> property.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur..
+    ///
+    /// Available since API-level: 19
+    pub setCustomShadow: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            customShadow: *const ArkUI_AttributeItem,
+        ) -> i32,
+    >,
+    /// Sets the background blur style of the dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `blurStyle` - Background blur style, specified by an enumerated value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur..
+    ///
+    /// Available since API-level: 19
+    pub setBackgroundBlurStyle: ::core::option::Option<
+        unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, blurStyle: ArkUI_BlurStyle) -> i32,
+    >,
+    /// Sets the keyboard avoidance mode of the dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `keyboardAvoidMode` - Keyboard avoidance mode, specified by an enumerated value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur..
+    ///
+    /// Available since API-level: 19
+    pub setKeyboardAvoidMode: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            keyboardAvoidMode: ArkUI_KeyboardAvoidMode,
+        ) -> i32,
+    >,
+    /// Sets whether to enable the hover mode for the dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `enableHoverMode` - Whether to enable the hover mode. The default value is <b>false</b>.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur..
+    ///
+    /// Available since API-level: 19
+    pub enableHoverMode: ::core::option::Option<
+        unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, enableHoverMode: bool) -> i32,
+    >,
+    /// Set the default display area of the dialog box in hover mode.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Pointer to the dialog box controller.
+    ///
+    /// * `hoverModeAreaType` - Display area in hover mode, specified by an enumerated value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occur.
+    ///
+    /// Available since API-level: 19
+    pub setHoverModeArea: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            hoverModeAreaType: ArkUI_HoverModeAreaType,
+        ) -> i32,
+    >,
+    /// Sets whether to get focus when the custom dialog is displayed.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `focusable` - Specifies whether to get focus when the custom dialog is displayed. The default value is true.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    pub setFocusable: ::core::option::Option<
+        unsafe extern "C" fn(handle: ArkUI_NativeDialogHandle, focusable: bool) -> i32,
+    >,
+    /// Sets the background blur effect for a custom dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `backgroundBlurStyleOptions` - Background blur effect options.
+    /// Format of the [`ArkUI_AttributeItem`] parameter:
+    ///
+    /// .value[0].i32: color mode. The value is an enum of [`ArkUI_ColorMode`].
+    ///
+    /// .value[1]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`].
+    ///
+    /// .value[2]?.f32: blur degree. The value range is [0.0, 1.0].
+    ///
+    /// .value[3]?.u32: brightness of black in the grayscale blur. The value range is [0, 127].
+    ///
+    /// .value[4]?.u32: degree of darkening the white color in the grayscale blur. The value range is [0, 127].
+    ///
+    /// .value[5]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`].
+    ///
+    /// .value[6]?.u32: background color, in 0xARGB format, of the components within the window after the window
+    /// loses focus (in which case, the blur effect on the components within the window is
+    /// removed).
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    pub setBackgroundBlurStyleOptions: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            backgroundBlurStyleOptions: *const ArkUI_AttributeItem,
+        ) -> i32,
+    >,
+    /// Sets the background effect parameters for a custom dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>show</b> method.
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `backgroundEffect` - Background effect.
+    /// Format of the [`ArkUI_AttributeItem`] parameter:
+    ///
+    /// .value[0].f32: blur radius, in vp.
+    ///
+    /// .value[1]?.f32: saturation.
+    ///
+    /// .value[2]?.f32: brightness.
+    ///
+    /// .value[3]?.u32: color, in 0xARGB format.
+    ///
+    /// .value[4]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`].
+    ///
+    /// .value[5]?.u32: brightness of black in the grayscale blur. The value range is [0, 127].
+    ///
+    /// .value[6]?.u32: degree of darkening the white color in the grayscale blur. The value range is [0, 127].
+    ///
+    /// .value[7]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`].
+    ///
+    /// .value[8]?.u32: background color, in 0xARGB format, of the components within the window after the window
+    /// loses focus (in which case, the blur effect on the components within the window is
+    /// removed).
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    pub setBackgroundEffect: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: ArkUI_NativeDialogHandle,
+            backgroundEffect: *const ArkUI_AttributeItem,
+        ) -> i32,
+    >,
+}
 extern "C" {
     /// Sets whether to block the system behavior of dismissing a dialog box.
     ///
@@ -586,5 +1191,817 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DialogDismissEvent_GetDismissReason(
         event: *mut ArkUI_DialogDismissEvent,
+    ) -> i32;
+    /// Displays a custom dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `callback` - Callback to be invoked when the custom dialog box displays.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_OpenDialog(
+        options: *mut ArkUI_CustomDialogOptions,
+        callback: ::core::option::Option<unsafe extern "C" fn(dialogId: i32)>,
+    ) -> i32;
+    /// Updates a custom dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `callback` - Callback to be invoked when the custom dialog box updates.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_UpdateDialog(
+        options: *mut ArkUI_CustomDialogOptions,
+        callback: ::core::option::Option<unsafe extern "C" fn(dialogId: i32)>,
+    ) -> i32;
+    /// Closes a custom dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `dialogId` - Dialog id.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_CloseDialog(dialogId: i32) -> i32;
+    /// Creates custom dialog box options.
+    ///
+    /// # Arguments
+    ///
+    /// * `content` - Content of the custom dialog box.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the custom dialog box options.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_CreateOptions(
+        content: ArkUI_NodeHandle,
+    ) -> *mut ArkUI_CustomDialogOptions;
+    /// Destroys the custom dialog box options.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The pointer to the custom dialog box options.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_DisposeOptions(options: *mut ArkUI_CustomDialogOptions);
+    /// Sets the level mode for a custom dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>OH_ArkUI_CustomDialog_OpenDialog</b> method.
+    /// # Arguments
+    ///
+    /// * `options` - Indicates the pointer to the custom dialog options.
+    ///
+    /// * `levelMode` - Indicates the level mode. The parameter type is [`ArkUI_LevelMode`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetLevelMode(
+        options: *mut ArkUI_CustomDialogOptions,
+        levelMode: ArkUI_LevelMode,
+    ) -> i32;
+    /// Sets the level uniqueId for a custom dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Indicates the pointer to the custom dialog options.
+    ///
+    /// * `uniqueId` - Indicates the unique id of any nodes in router or navigation pages.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetLevelUniqueId(
+        options: *mut ArkUI_CustomDialogOptions,
+        uniqueId: i32,
+    ) -> i32;
+    /// Sets the immersive mode for a custom dialog box.
+    ///
+    ///
+    /// **Note:** This method must be called before the <b>OH_ArkUI_CustomDialog_OpenDialog</b> method.
+    /// # Arguments
+    ///
+    /// * `options` - Indicates the pointer to the custom dialog options.
+    ///
+    /// * `immersiveMode` - Indicates the immersive mode. The parameter type is [`ArkUI_ImmersiveMode`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetImmersiveMode(
+        options: *mut ArkUI_CustomDialogOptions,
+        immersiveMode: ArkUI_ImmersiveMode,
+    ) -> i32;
+    /// Sets the background color of the dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `backgroundColor` - Background color of the dialog box.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetBackgroundColor(
+        options: *mut ArkUI_CustomDialogOptions,
+        backgroundColor: u32,
+    ) -> i32;
+    /// Sets the corner radius for a custom dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `topLeft` - Corner radius of the upper left corner.
+    ///
+    /// * `topRight` - Corner radius of the upper right corner.
+    ///
+    /// * `bottomLeft` - Corner radius of the lower left corner.
+    ///
+    /// * `bottomRight` - Corner radius of the lower right corner.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetCornerRadius(
+        options: *mut ArkUI_CustomDialogOptions,
+        topLeft: f32,
+        topRight: f32,
+        bottomLeft: f32,
+        bottomRight: f32,
+    ) -> i32;
+    /// Sets the border width of the dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `top` - Width of the top border.
+    ///
+    /// * `right` - Width of the right border.
+    ///
+    /// * `bottom` - Width of the bottom border.
+    ///
+    /// * `left` - Width of the left border.
+    ///
+    /// * `unit` - Unit of the width. The default value is vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetBorderWidth(
+        options: *mut ArkUI_CustomDialogOptions,
+        top: f32,
+        right: f32,
+        bottom: f32,
+        left: f32,
+        unit: ArkUI_LengthMetricUnit,
+    ) -> i32;
+    /// Sets the border color of the dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `top` - Color of the top border.
+    ///
+    /// * `right` - Color of the right border.
+    ///
+    /// * `bottom` - Color of the bottom border.
+    ///
+    /// * `left` - Color of the left border.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetBorderColor(
+        options: *mut ArkUI_CustomDialogOptions,
+        top: u32,
+        right: u32,
+        bottom: u32,
+        left: u32,
+    ) -> i32;
+    /// Sets the border style of the dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `top` - Style of the top border.
+    ///
+    /// * `right` - Style of the right border.
+    ///
+    /// * `bottom` - Style of the bottom border.
+    ///
+    /// * `left` - Style of the left border.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetBorderStyle(
+        options: *mut ArkUI_CustomDialogOptions,
+        top: i32,
+        right: i32,
+        bottom: i32,
+        left: i32,
+    ) -> i32;
+    /// Sets the width of the dialog box background.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `width` - Width of the background.
+    ///
+    /// * `unit` - Unit of the width. The default value is vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetWidth(
+        options: *mut ArkUI_CustomDialogOptions,
+        width: f32,
+        unit: ArkUI_LengthMetricUnit,
+    ) -> i32;
+    /// Sets the height of the dialog box background.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `height` - Height of the background.
+    ///
+    /// * `unit` - Unit of the height. The default value is vp.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetHeight(
+        options: *mut ArkUI_CustomDialogOptions,
+        height: f32,
+        unit: ArkUI_LengthMetricUnit,
+    ) -> i32;
+    /// Sets the shadow of the dialog box background.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `shadow` - Shadow style of the background, specified by an enumerated value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetShadow(
+        options: *mut ArkUI_CustomDialogOptions,
+        shadow: ArkUI_ShadowStyle,
+    ) -> i32;
+    /// Sets the custom shadow of the dialog box background.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `customShadow` - Custom shadow parameter. The format is the same as that of
+    /// the <b>NODE_CUSTOM_SHADOW</b> property.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetCustomShadow(
+        options: *mut ArkUI_CustomDialogOptions,
+        customShadow: *const ArkUI_AttributeItem,
+    ) -> i32;
+    /// Sets the background blur style of the dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `blurStyle` - Background blur style, specified by an enumerated value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetBackgroundBlurStyle(
+        options: *mut ArkUI_CustomDialogOptions,
+        blurStyle: ArkUI_BlurStyle,
+    ) -> i32;
+    /// Sets the alignment mode of the dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `alignment` - Alignment mode of the dialog box. The parameter type is [`ArkUI_Alignment`].
+    ///
+    /// * `offsetX` - Indicates the horizontal offset of the custom dialog box. The value is a floating point number.
+    ///
+    /// * `offsetY` - Indicates the vertical offset of the custom dialog box. The value is a floating point number.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetAlignment(
+        options: *mut ArkUI_CustomDialogOptions,
+        alignment: i32,
+        offsetX: f32,
+        offsetY: f32,
+    ) -> i32;
+    /// Sets the modal mode for a custom dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `isModal` - Whether the dialog box is a modal. A modal dialog box has a mask applied,
+    /// while a non-modal dialog box does not. The value <b>true</b> means that the dialog box is a modal.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetModalMode(
+        options: *mut ArkUI_CustomDialogOptions,
+        isModal: bool,
+    ) -> i32;
+    /// Specifies whether to allow users to touch the mask to dismiss the custom dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `autoCancel` - Specifies whether to allow users to touch the mask to dismiss the dialog box.
+    /// The value <b>true</b> means to allow users to do so, and <b>false</b> means the opposite.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetAutoCancel(
+        options: *mut ArkUI_CustomDialogOptions,
+        autoCancel: bool,
+    ) -> i32;
+    /// Sets whether to display the dialog box in a subwindow.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `showInSubwindow` - Whether to display the dialog box in a subwindow when it is not in the main window.
+    /// The default value is <b>false</b>, meaning the dialog box is displayed within the application, not in a
+    /// separate subwindow.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetSubwindowMode(
+        options: *mut ArkUI_CustomDialogOptions,
+        showInSubwindow: bool,
+    ) -> i32;
+    /// Sets the mask for a custom dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `maskColor` - Mask color, in 0xargb format.
+    ///
+    /// * `maskRect` - Pointer to the mask area. Events outside the mask area are transparently transmitted,
+    /// and events within the mask area are not. The parameter type is [`ArkUI_Rect`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetMask(
+        options: *mut ArkUI_CustomDialogOptions,
+        maskColor: u32,
+        maskRect: *const ArkUI_Rect,
+    ) -> i32;
+    /// Sets the keyboard avoidance mode of the dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `keyboardAvoidMode` - Keyboard avoidance mode, specified by an enumerated value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetKeyboardAvoidMode(
+        options: *mut ArkUI_CustomDialogOptions,
+        keyboardAvoidMode: ArkUI_KeyboardAvoidMode,
+    ) -> i32;
+    /// Sets whether to enable the hover mode for the dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `enabled` - Whether to enable the hover mode. The default value is <b>false</b>.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetHoverModeEnabled(
+        options: *mut ArkUI_CustomDialogOptions,
+        enabled: bool,
+    ) -> i32;
+    /// Set the default display area of the dialog box in hover mode.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `hoverModeAreaType` - Display area in hover mode, specified by an enumerated value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetHoverModeArea(
+        options: *mut ArkUI_CustomDialogOptions,
+        hoverModeAreaType: ArkUI_HoverModeAreaType,
+    ) -> i32;
+    /// Registers a callback for the dismissal event of the custom dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `userData` - Pointer to the user-defined data.
+    ///
+    /// * `callback` - Callback for the dismissal event of the custom dialog box.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_RegisterOnWillDismissCallback(
+        options: *mut ArkUI_CustomDialogOptions,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<
+            unsafe extern "C" fn(event: *mut ArkUI_DialogDismissEvent),
+        >,
+    ) -> i32;
+    /// Registers a callback to be invoked when the custom dialog box is about to appear.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `userData` - Pointer to the user-defined data.
+    ///
+    /// * `callback` - Callback to be invoked when the dialog box is about to appear.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_RegisterOnWillAppearCallback(
+        options: *mut ArkUI_CustomDialogOptions,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>,
+    ) -> i32;
+    /// Registers a callback to be invoked when the custom dialog box appears.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `userData` - Pointer to the user-defined data.
+    ///
+    /// * `callback` - Callback to be invoked when the custom dialog box appears.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_RegisterOnDidAppearCallback(
+        options: *mut ArkUI_CustomDialogOptions,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>,
+    ) -> i32;
+    /// Registers a callback to be invoked when the custom dialog box is about to disappear.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `userData` - Pointer to the user-defined data.
+    ///
+    /// * `callback` - Callback to be invoked when the dialog box is about to disappear.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_RegisterOnWillDisappearCallback(
+        options: *mut ArkUI_CustomDialogOptions,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>,
+    ) -> i32;
+    /// Registers a callback to be invoked when the custom dialog box disappears.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `userData` - Pointer to the user-defined data.
+    ///
+    /// * `callback` - Callback to be invoked when the custom dialog box disappears.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_RegisterOnDidDisappearCallback(
+        options: *mut ArkUI_CustomDialogOptions,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>,
+    ) -> i32;
+    /// Get state of dialog.
+    ///
+    /// # Arguments
+    ///
+    /// * `handle` - Indicates the pointer to the custom dialog box controller.
+    ///
+    /// * `state` - Dialog state object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_CustomDialog_GetState(
+        handle: ArkUI_NativeDialogHandle,
+        state: *mut ArkUI_DialogState,
+    ) -> i32;
+    /// Sets the background blur effect for a dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `backgroundBlurStyleOptions` - Background blur effect options of the dialog box.
+    /// Format of the [`ArkUI_AttributeItem`] parameter:
+    ///
+    /// .value[0].i32: color mode. The value is an enum of [`ArkUI_ColorMode`].
+    ///
+    /// .value[1]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`].
+    ///
+    /// .value[2]?.f32: blur degree. The value range is [0.0, 1.0].
+    ///
+    /// .value[3]?.u32: brightness of black in the grayscale blur. The value range is [0, 127].
+    ///
+    /// .value[4]?.u32: degree of darkening the white color in the grayscale blur. The value range is [0, 127].
+    ///
+    /// .value[5]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`].
+    ///
+    /// .value[6]?.u32: background color, in 0xARGB format, of the components within the window after the window loses
+    /// focus (in which case, the blur effect on the components within the window is removed).
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetBackgroundBlurStyleOptions(
+        options: *mut ArkUI_CustomDialogOptions,
+        backgroundBlurStyleOptions: *const ArkUI_AttributeItem,
+    ) -> i32;
+    /// Sets the background effect parameters for a dialog box.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Dialog box parameters.
+    ///
+    /// * `backgroundEffect` - Background effect of the dialog box.
+    /// Format of the [`ArkUI_AttributeItem`] parameter:
+    ///
+    /// .value[0].f32: blur radius, in vp.
+    ///
+    /// .value[1]?.f32: saturation.
+    ///
+    /// .value[2]?.f32: brightness.
+    ///
+    /// .value[3]?.u32: color, in 0xARGB format.
+    ///
+    /// .value[4]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`].
+    ///
+    /// .value[5]?.u32: brightness of black in the grayscale blur. The value range is [0, 127].
+    ///
+    /// .value[6]?.u32: degree of darkening the white color in the grayscale blur. The value range is [0, 127].
+    ///
+    /// .value[7]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`].
+    ///
+    /// .value[8]?.u32: background color, in 0xARGB format, of the components within the window after the window loses
+    /// focus (in which case, the blur effect on the components within the window is removed).
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_CustomDialog_SetBackgroundEffect(
+        options: *mut ArkUI_CustomDialogOptions,
+        backgroundEffect: *const ArkUI_AttributeItem,
     ) -> i32;
 }

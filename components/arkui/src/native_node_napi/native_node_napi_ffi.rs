@@ -535,4 +535,70 @@ extern "C" {
             ),
         >,
     ) -> i32;
+    /// Initialize the ArkTS method for the specified env environment. Cannot be called on
+    /// the non-UI thread. Checking for non-UI thread calls will abort.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - napi environment pointer.
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if env is null or failed to set the whitelist.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_InitModuleForArkTSEnv(env: napi_env) -> ArkUiResult;
+    /// Notify the specified env environment is invalid. Cannot be called on
+    /// the non-UI thread. Checking for non-UI thread calls will abort.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - napi environment pointer.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_NotifyArkTSEnvDestroy(env: napi_env);
+    /// Register a callback to be executed at the end of the next idle frame.
+    /// If there is no next frame, will request one automatically.
+    ///
+    /// # Arguments
+    ///
+    /// * `uiContext` - ArkUI_ContextHandle.
+    ///
+    /// * `userData` - Indicates the custom data to be saved.
+    ///
+    /// * `callback` - Custom callback function.
+    ///
+    /// * `nanoTimeLeft` - Time remaining until the end of the current frame.
+    ///
+    /// * `frameCount` - Frame count.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`] if the uiContext is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_CALLBACK_INVALID`] if the callback function is invalid.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_PostIdleCallback(
+        uiContext: ArkUI_ContextHandle,
+        userData: *mut ::core::ffi::c_void,
+        callback: ::core::option::Option<
+            unsafe extern "C" fn(
+                nanoTimeLeft: u64,
+                frameCount: u32,
+                userData: *mut ::core::ffi::c_void,
+            ),
+        >,
+    ) -> i32;
 }

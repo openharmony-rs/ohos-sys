@@ -409,14 +409,13 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 match file_stem {
                     "drag_and_drop" => {
                         builder
-                            // Todo: Requires bindings to `database/udmf`
-                            .blocklist_function("OH_ArkUI_DragEvent_SetData")
-                            .blocklist_function("OH_ArkUI_DragEvent_GetUdmfData")
-                            .blocklist_function("OH_ArkUI_DragAction_SetData")
                             // Pixelmap is from image-kit
                             .raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
+                            .raw_line("use ohos_sys_opaque_types::OH_UdmfData;")
                             .raw_line("#[cfg(feature =\"api-15\")]")
                             .raw_line("use ohos_sys_opaque_types::OH_UdmfGetDataParams;")
+                            .raw_line("#[cfg(feature =\"api-20\")]")
+                            .raw_line("use ohos_sys_opaque_types::OH_UdmfDataLoadParams;")
                     }
                     "drawable_descriptor" => {
                         builder.raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
@@ -426,7 +425,10 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .no_copy("ArkUI_NativeAnimateAPI_.*"),
                     "native_dialog" => builder
                         .no_debug("ArkUI_NativeDialogAPI_.*")
-                        .no_copy("ArkUI_NativeDialogAPI_.*"),
+                        .no_copy("ArkUI_NativeDialogAPI_.*")
+                        .raw_line("#[cfg(feature =\"api-19\")]")
+                        .raw_line("use crate::native_node::ArkUI_AttributeItem;")
+                    ,
                     "native_gesture" => builder
                         .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
                         .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
