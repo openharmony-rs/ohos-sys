@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.3
+
+- Add API-21 bindings
+
 ## 0.3.2
 
 - Add API-16, 17 and 18 bindings
