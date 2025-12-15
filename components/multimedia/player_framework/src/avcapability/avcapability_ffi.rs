@@ -3,6 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(deprecated)]
 use crate::avcodec_base::OH_BitrateMode;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
@@ -48,8 +49,14 @@ impl OH_AVCapabilityFeature {
         OH_AVCapabilityFeature(0);
     /// Feature for codec supports long-term reference. It is only used in video encoder.
     pub const VIDEO_ENCODER_LONG_TERM_REFERENCE: OH_AVCapabilityFeature = OH_AVCapabilityFeature(1);
-    /// Feature for codec supports low latency. It is used in video encoder and video decoder.
+    /// Feature for codec supports low latency. It is only used in video decoder.
     pub const VIDEO_LOW_LATENCY: OH_AVCapabilityFeature = OH_AVCapabilityFeature(2);
+    /// Feature for codec supports B-frame encoding. It is only used in video encoder.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const VIDEO_ENCODER_B_FRAME: OH_AVCapabilityFeature = OH_AVCapabilityFeature(7);
 }
 #[repr(transparent)]
 /// The enum of optional features that can be used in specific codec seenarios.
@@ -252,6 +259,33 @@ extern "C" {
         capability: *mut OH_AVCapability,
         sampleRates: *mut *const i32,
         sampleRateNum: *mut u32,
+    ) -> OH_AVErrCode;
+    /// Get the audio codec's supported sample rate ranges.
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    /// # Arguments
+    ///
+    /// * `capability` - Audio codec capability pointer. Do not give a video codec capability pointer
+    ///
+    /// * `sampleRateRanges` - Output parameter. A pointer to the sample rate ranges array
+    ///
+    /// * `rangesNum` - Output parameter. The element number of the sample rate ranges array
+    ///
+    /// # Returns
+    ///
+    /// * Returns AV_ERR_OK if the execution is successful,
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// [`AV_ERR_INVALID_VAL`], the capability is invalid, the sampleRateRanges is nullptr, or rangesNum is nullptr.
+    /// [`AV_ERR_UNKNOWN`], unknown error.
+    /// [`AV_ERR_NO_MEMORY`], internal use memory malloc failed.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVCapability_GetAudioSupportedSampleRateRanges(
+        capability: *mut OH_AVCapability,
+        sampleRateRanges: *mut *mut OH_AVRange,
+        rangesNum: *mut u32,
     ) -> OH_AVErrCode;
     /// Get the audio codec's supported audio channel count range.
     ///

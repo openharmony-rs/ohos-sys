@@ -3,6 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(deprecated)]
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 #[cfg(feature = "api-12")]
@@ -147,6 +148,16 @@ impl AVPlayerOnInfoType {
     /// Return the reason when the audio output device changes. When this info is reported, the extra param of
     /// [`OH_AVPlayerOnInfo`] is the same as [`OH_AudioStream_DeviceChangeReason`] in audio framework.
     pub const AV_INFO_TYPE_AUDIO_OUTPUT_DEVICE_CHANGE: AVPlayerOnInfoType = AVPlayerOnInfoType(17);
+    /// Event type indicating playback rate configuration completed.
+    ///
+    /// Triggered when playback rate are successfully applied,
+    /// notifying the application of the actual effective value.
+    /// Use defined key [`OH_PLAYER_PLAYBACK_RATE`] to retrieve value from the event data.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const AV_INFO_TYPE_PLAYBACK_RATE_DONE: AVPlayerOnInfoType = AVPlayerOnInfoType(18);
 }
 #[repr(transparent)]
 /// Player OnInfo Type
@@ -425,6 +436,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_PLAYBACK_SPEED: *const ::core::ffi::c_char;
+    /// Key for retrieving effective playback rate, the value type is float.
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_PLAYER_PLAYBACK_RATE: *const ::core::ffi::c_char;
     /// Key to get bitrate, value type is uint32_t.
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer

@@ -3,6 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(deprecated)]
 use crate::avbuffer_info::OH_AVCodecBufferAttr;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;

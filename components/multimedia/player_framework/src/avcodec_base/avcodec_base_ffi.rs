@@ -3,6 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(deprecated)]
 #[cfg(feature = "api-11")]
 use crate::avbuffer::OH_AVBuffer;
 use crate::avbuffer_info::OH_AVCodecBufferAttr;
@@ -267,6 +268,49 @@ pub struct OH_AVDataSource {
     /// Callback interface for reading data from datasource.
     pub readAt: OH_AVDataSourceReadAt,
 }
+/// the function pointer will be called to get sequence media data.
+///
+/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+/// # Arguments
+///
+/// * `data` - OH_AVBuffer buffer to fill
+///
+/// * `length` - expected to read size;
+///
+/// * `pos` - current read offset
+///
+/// * `userData` - user-defined data
+///
+/// # Returns
+///
+/// * Actual size of data read to the buffer.
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub type OH_AVDataSourceReadAtExt = ::core::option::Option<
+    unsafe extern "C" fn(
+        data: *mut OH_AVBuffer,
+        length: i32,
+        pos: i64,
+        userData: *mut ::core::ffi::c_void,
+    ) -> i32,
+>;
+/// User customized data source.
+///
+/// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_AVDataSourceExt {
+    /// Total size of the data source.
+    pub size: i64,
+    /// Callback interface for reading data from datasource.
+    pub readAt: OH_AVDataSourceReadAtExt,
+}
 impl OH_MediaType {
     pub const MEDIA_TYPE_AUD: OH_MediaType = OH_MediaType(0);
     pub const MEDIA_TYPE_VID: OH_MediaType = OH_MediaType(1);
@@ -276,6 +320,18 @@ impl OH_MediaType {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const MEDIA_TYPE_SUBTITLE: OH_MediaType = OH_MediaType(2);
+    /// track is timed meta.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const MEDIA_TYPE_TIMED_METADATA: OH_MediaType = OH_MediaType(5);
+    /// track is auxiliary.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const MEDIA_TYPE_AUXILIARY: OH_MediaType = OH_MediaType(6);
 }
 #[repr(transparent)]
 /// Media type.
@@ -510,6 +566,12 @@ impl OH_AVOutputFormat {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const AV_OUTPUT_FORMAT_AAC: OH_AVOutputFormat = OH_AVOutputFormat(11);
+    /// The muxer output flac file format.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const AV_OUTPUT_FORMAT_FLAC: OH_AVOutputFormat = OH_AVOutputFormat(12);
 }
 #[repr(transparent)]
 /// Enumerates the muxer output file format
@@ -899,6 +961,12 @@ impl OH_BitrateMode {
     pub const BITRATE_MODE_VBR: OH_BitrateMode = OH_BitrateMode(1);
     /// Constant Quality mode.
     pub const BITRATE_MODE_CQ: OH_BitrateMode = OH_BitrateMode(2);
+    /// Stable Quality RateControl.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const BITRATE_MODE_SQR: OH_BitrateMode = OH_BitrateMode(3);
 }
 #[repr(transparent)]
 /// The bitrate mode of encoder.
@@ -1075,6 +1143,15 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_RAW: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio G711 A-law codec.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_G711A: *const ::core::ffi::c_char;
     /// Enumerates the MIME type of video mpeg2 codec.
     ///
     ///
@@ -1668,8 +1745,8 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_PIC_HEIGHT: *const ::core::ffi::c_char;
     /// Key to enable the low latency mode, value type is int32_t (0 or 1):1 is enabled, 0 otherwise.
-    /// If enabled, the video encoder or video decoder doesn't hold input and output data more than required by
-    /// the codec standards. This is an optional key that applies only to video encoder or video decoder.
+    /// If enabled, the video decoder doesn't hold input and output data more than required by
+    /// the codec standards. This is an optional key that applies only to video decoder.
     /// It is used in configure.
     ///
     ///
@@ -1823,4 +1900,166 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_REPEAT_PREVIOUS_MAX_COUNT: *const ::core::ffi::c_char;
+    /// Key to enable B-frame encoding, value type is int32_t (0 or 1): 1 is enabled, 0 otherwise.
+    ///
+    /// This is an optional key that applies only to video encoder, default is 0.
+    ///
+    /// If enabled, the video encoder will use B-frame, the decode order will be different from the display order.
+    ///
+    /// For unsupported platforms, Configuring this key will have no effect.
+    ///
+    /// Platform capability can be checked via [`OH_AVCapability_IsFeatureSupported`] with
+    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`].
+    ///
+    /// It's only used in configuration phase.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_ENABLE_B_FRAME: *const ::core::ffi::c_char;
+    /// Key for describing the maximum B-frame count of video encoder, value type is int32_t.
+    ///
+    /// Note: This key is only for querying the capability of the codec currently.
+    /// Usage specifications:
+    /// 1. Check feature support via [`OH_AVCapability_IsFeatureSupported`] with
+    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`].
+    ///
+    /// 2. Obtain OH_AVFormat handle via [`OH_AVCapability_GetFeatureProperties`] with
+    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`].
+    ///
+    /// 3. Get maximum B-frame count via [`OH_AVFormat_GetIntValue`] with this key.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_MAX_B_FRAMES: *const ::core::ffi::c_char;
+    /// Key to set the region of interest(ROI) as QpOffset-Rects, value type is string in the format
+    /// "Top1,Left1-Bottom1,Right1=Offset1;Top2,Left2-Bottom2,Right2=Offset2;". Each "Top,Left-Bottom,Right=Offset"
+    /// represents the coordinate information and quantization parameter of one ROI. Each "=Offset" in the string
+    /// can be omitted, like "Top1,Left1-Bottom1,Right1;Top2,Left2-Bottom2,Right2=Offset2;", the encoder
+    /// will use the default quantization parameter to perform the ROI encoding on the first ROI and
+    /// use Offset2 on the second ROI.
+    ///
+    /// This is an optional key that applies only to video encoder.
+    /// It is used in running process and is set with each frame.
+    /// In surface mode, it is used in [`OH_VideoEncoder_OnNeedInputParameter`].
+    /// In buffer mode, it is configured via [`OH_AVBuffer_SetParameter`].
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_ROI_PARAMS: *const ::core::ffi::c_char;
+    /// Key for front moov of the mp4 and m4a media file, value type is int32_t (0 or 1):1 is enabled, 0 otherwise.
+    /// This key may affect the performance of the stop function of the mp4 and m4a muxer.
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_ENABLE_MOOV_FRONT: *const ::core::ffi::c_char;
+    /// Key for the desired encoding quality, value type is int32_t, this key is only
+    /// supported for encoders that are configured in Stable Quality RateControl, the higher
+    /// values generally result in more efficient(smaller-sized) encoding.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_SQR_FACTOR: *const ::core::ffi::c_char;
+    /// Key for maximum bitrate, value type is int64_t.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_MAX_BITRATE: *const ::core::ffi::c_char;
+    /// Key for describing the reference relationship between tracks, value type is int32_t*.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_REFERENCE_TRACK_IDS: *const ::core::ffi::c_char;
+    /// Key for describing the track reference type, value type is string.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_TRACK_REFERENCE_TYPE: *const ::core::ffi::c_char;
+    /// Key for describing the track description, value type is string.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_TRACK_DESCRIPTION: *const ::core::ffi::c_char;
+    /// Key to enable Bitrate Control Based on Presentation Time Stamp(PTS),
+    /// value type is int32_t (0 or 1):1 is enabled, 0 otherwise.
+    ///
+    /// This is an optional key that applies only to video encoder, default is 0.
+    /// If enabled, the PTS information must be carried in each video frame and sent to the encoder.
+    /// It is used in configure.
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_VIDEO_ENCODER_ENABLE_PTS_BASED_RATECONTROL: *const ::core::ffi::c_char;
+    /// Key to enable synchronous mode, value type is (0 or 1): 1 is enabled, 0 otherwise.
+    ///
+    /// This is an optional key, default is 0.
+    ///
+    /// When enabled:
+    /// - Callbacks should NOT be set for codecs
+    /// - Buffer query APIs must be used instead
+    /// - Only used in configuration phase
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_ENABLE_SYNC_MODE: *const ::core::ffi::c_char;
+    /// Key for specifying whether to output a blank frame during video decoder shutdown,
+    /// value type is int32_t (0 or 1): 1 is enabled, 0 otherwise.
+    ///
+    /// This is an optional key, only used when configuring a video decoder in surface mode.
+    ///
+    /// By default, this feature is disabled (0).
+    ///
+    /// When enabled, the video decoder will output a blank frame (typically black)
+    /// when stop or release to ensure a smooth transition to no-signal state on display devices.
+    ///
+    /// This prevents display retention or flickering caused by abrupt termination.
+    ///
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub static mut OH_MD_KEY_VIDEO_DECODER_BLANK_FRAME_ON_SHUTDOWN: *const ::core::ffi::c_char;
 }

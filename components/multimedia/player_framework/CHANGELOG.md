@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.5
+
+- Update to API 21.
+
 ## 0.0.4
 
 - Fix lacking libraries linking
