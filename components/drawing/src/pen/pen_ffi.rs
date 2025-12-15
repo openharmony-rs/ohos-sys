@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::types::*;
+#[cfg(feature = "api-20")]
+use ohos_sys_opaque_types::OH_NativeColorSpaceManager;
 
 impl OH_Drawing_PenLineCapStyle {
     /// There is no cap style. Both ends of the line segment are cut off square.
@@ -187,6 +189,145 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_PenSetAlpha(pen: *mut OH_Drawing_Pen, alpha: u8);
+    /// Sets the color for a pen. The color will be used by the pen to fill in a shape.
+    /// The color is an ARGB structure described by floating point numbers and interpreted as being in the colorSpaceManager.
+    /// If colorSpaceManager is nullptr, then color is assumed to be in the sRGB color space.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    ///
+    /// * `a` - Indicates the alpha component of color, represented as a floating point number between 0 and 1.
+    ///
+    /// * `r` - Indicates the red component of color, represented as a floating point number between 0 and 1.
+    ///
+    /// * `g` - Indicates the green component of color, represented as a floating point number between 0 and 1.
+    ///
+    /// * `b` - Indicates the blue component of color, represented as a floating point number between 0 and 1.
+    ///
+    /// * `colorSpaceManager` - Indicates the pointer to an <b>OH_NativeColorSpaceManager</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if pen is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PenSetColor4f(
+        pen: *mut OH_Drawing_Pen,
+        a: f32,
+        r: f32,
+        g: f32,
+        b: f32,
+        colorSpaceManager: *mut OH_NativeColorSpaceManager,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the alpha component of a pen.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    ///
+    /// * `a` - Indicates the alpha component of color.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if pen or a is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PenGetAlphaFloat(
+        pen: *mut OH_Drawing_Pen,
+        a: *mut f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the red component of a pen.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    ///
+    /// * `r` - Indicates the red component of color.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if pen or r is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PenGetRedFloat(
+        pen: *mut OH_Drawing_Pen,
+        r: *mut f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the green component of a pen.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    ///
+    /// * `g` - Indicates the green component of color.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if pen or g is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PenGetGreenFloat(
+        pen: *mut OH_Drawing_Pen,
+        g: *mut f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the blue component of a pen.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    ///
+    /// * `b` - Indicates the blue component of color.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if pen or b is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PenGetBlueFloat(
+        pen: *mut OH_Drawing_Pen,
+        b: *mut f32,
+    ) -> crate::error_code::DrawingResult;
     /// Obtains the thickness of a pen. This thickness determines the width of the outline of a shape.
     ///
     ///

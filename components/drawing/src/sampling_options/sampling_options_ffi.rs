@@ -69,6 +69,26 @@ extern "C" {
         filterMode: OH_Drawing_FilterMode,
         mipmapMode: OH_Drawing_MipmapMode,
     ) -> *mut OH_Drawing_SamplingOptions;
+    /// Creates an <b>OH_Drawing_SamplingOptions</b> copy object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_SamplingOptions</b> object created.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_SamplingOptionsCopy(
+        samplingOptions: *mut OH_Drawing_SamplingOptions,
+    ) -> *mut OH_Drawing_SamplingOptions;
     /// Destroys an <b>OH_Drawing_SamplingOptions</b> object and reclaims the memory occupied by the object.
     ///
     ///

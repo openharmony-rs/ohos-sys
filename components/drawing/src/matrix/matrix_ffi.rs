@@ -44,6 +44,24 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_MatrixCreate() -> *mut OH_Drawing_Matrix;
+    /// Creates an <b>OH_Drawing_Matrix</b> copy object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_Matrix</b> object created.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_MatrixCopy(matrix: *const OH_Drawing_Matrix) -> *mut OH_Drawing_Matrix;
     /// Creates an <b>OH_Drawing_Matrix</b> object with rotation. Sets matrix to
     /// rotate by degrees about a pivot point at (px, py).
     ///

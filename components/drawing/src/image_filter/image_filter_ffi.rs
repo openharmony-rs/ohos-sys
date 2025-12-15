@@ -38,6 +38,40 @@ extern "C" {
         tileMode: OH_Drawing_TileMode,
         imageFilter: *mut OH_Drawing_ImageFilter,
     ) -> *mut OH_Drawing_ImageFilter;
+    /// Creates an <b>OH_Drawing_ImageFilter</b> object that blurs its input by the separate x and y sigmas.
+    /// Supports an optional crop rectangle to restrict the blur effect to a specific region of the input.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `sigmaX` - Indicates the Gaussian sigma value for blurring along the x axis.
+    ///
+    /// * `sigmaY` - Indicates the Gaussian sigma value for blurring along the y axis.
+    ///
+    /// * `tileMode` - Indicates the tile mode applied at edges.
+    ///
+    /// * `input` - Indicates the input filter that is blurred, uses source bitmap if this is null.
+    ///
+    /// * `rect` - Indicates optional rectangle that crops the input and output.
+    /// If rect is null, the blur effect applies to the entire input image.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_ImageFilterCreateBlurWithCrop(
+        sigmaX: f32,
+        sigmaY: f32,
+        tileMode: OH_Drawing_TileMode,
+        input: *mut OH_Drawing_ImageFilter,
+        rect: *const OH_Drawing_Rect,
+    ) -> *mut OH_Drawing_ImageFilter;
     /// Creates an <b>OH_Drawing_ImageFilter</b> object that applies the color filter to the input.
     ///
     ///
@@ -63,6 +97,57 @@ extern "C" {
     pub fn OH_Drawing_ImageFilterCreateFromColorFilter(
         colorFilter: *mut OH_Drawing_ColorFilter,
         imageFilter: *mut OH_Drawing_ImageFilter,
+    ) -> *mut OH_Drawing_ImageFilter;
+    /// Creates an <b>OH_Drawing_ImageFilter</b> object with the provided x and y offset.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `x` - Indicates the x offset.
+    ///
+    /// * `y` - Indicates the y offset.
+    ///
+    /// * `imageFilter` - Indicates the input filter, or uses the source bitmap if this is null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
+    /// If nullptr is returned, the creation fails.
+    /// The possible cause of the failure is that the available memory is empty.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_ImageFilterCreateOffset(
+        x: f32,
+        y: f32,
+        imageFilter: *mut OH_Drawing_ImageFilter,
+    ) -> *mut OH_Drawing_ImageFilter;
+    /// Creates an <b>OH_Drawing_ImageFilter</b> object that applies the shader to the input.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `shaderEffect` - Indicates the shader effect to be applied to the image.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_ImageFilter</b> object created.
+    /// If nullptr is returned, the creation fails.
+    /// The possible cause of the failure is that the available memory is empty or
+    /// a nullptr <b>OH_Drawing_ShaderEffect</b> is passed.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_ImageFilterCreateFromShaderEffect(
+        shaderEffect: *mut OH_Drawing_ShaderEffect,
     ) -> *mut OH_Drawing_ImageFilter;
     /// Destroys an <b>OH_Drawing_ImageFilter</b> object and reclaims the memory occupied by the object.
     ///

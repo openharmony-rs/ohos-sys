@@ -221,6 +221,43 @@ extern "C" {
     ///
     /// * `tileMode` - Indicates the tile mode.
     ///
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
+    /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
+    /// If matrix is nullptr, defaults to the identity matrix.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_ShaderEffectCreateSweepGradientWithLocalMatrix(
+        centerPt: *const OH_Drawing_Point,
+        colors: *const u32,
+        pos: *const f32,
+        size: u32,
+        tileMode: OH_Drawing_TileMode,
+        matrix: *const OH_Drawing_Matrix,
+    ) -> *mut OH_Drawing_ShaderEffect;
+    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a sweep gradient given a center.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `centerPt` - Indicates the center of the circle for the gradient.
+    ///
+    /// * `colors` - Indicates the colors to be distributed between the two points.
+    ///
+    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
+    ///
+    /// * `size` - Indicates the number of colors and pos.
+    ///
+    /// * `tileMode` - Indicates the tile mode.
+    ///
     /// # Returns
     ///
     /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
@@ -265,6 +302,39 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ShaderEffectCreateImageShader(
         image: *mut OH_Drawing_Image,
+        tileX: OH_Drawing_TileMode,
+        tileY: OH_Drawing_TileMode,
+        samplingOptions: *const OH_Drawing_SamplingOptions,
+        matrix: *const OH_Drawing_Matrix,
+    ) -> *mut OH_Drawing_ShaderEffect;
+    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a pixel map shader.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `pixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    ///
+    /// * `tileX` - Indicates the horizontal tile mode.
+    ///
+    /// * `tileY` - Indicates the vertical tile mode.
+    ///
+    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object. It cannot be null.
+    ///
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    /// If matrix is nullptr, defaults to the identity matrix.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_ShaderEffectCreatePixelMapShader(
+        pixelMap: *mut OH_Drawing_PixelMap,
         tileX: OH_Drawing_TileMode,
         tileY: OH_Drawing_TileMode,
         samplingOptions: *const OH_Drawing_SamplingOptions,
@@ -317,6 +387,34 @@ extern "C" {
         size: u32,
         tileMode: OH_Drawing_TileMode,
         matrix: *const OH_Drawing_Matrix,
+    ) -> *mut OH_Drawing_ShaderEffect;
+    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates by two shaders.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `dst` - Indicates the destination ShaderEffect pointer.
+    ///
+    /// * `src` - Indicates the source ShaderEffect pointer.
+    ///
+    /// * `mode` - Indicates the blend mode.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// If nullptr is returned, the creation fails.
+    /// The possible cause of the failure is that the available memory is empty or any of dst and src is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_ShaderEffectCreateCompose(
+        dst: *mut OH_Drawing_ShaderEffect,
+        src: *mut OH_Drawing_ShaderEffect,
+        mode: OH_Drawing_BlendMode,
     ) -> *mut OH_Drawing_ShaderEffect;
     /// Destroys an <b>OH_Drawing_ShaderEffect</b> object and reclaims the memory occupied by the object.
     ///

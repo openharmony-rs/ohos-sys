@@ -25,6 +25,13 @@ impl DrawingErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ALLOCATION_FAILED: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200002).unwrap() });
+    /// The attribute id is not recognized or supported.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const ATTRIBUTE_ID_MISMATCH: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200003).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates error codes of drawing.

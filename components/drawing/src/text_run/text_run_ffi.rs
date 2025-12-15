@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::text_declaration::OH_Drawing_Run;
+#[cfg(feature = "api-20")]
+use crate::text_typography::OH_Drawing_TextDirection;
 use crate::types::*;
 
 extern "C" {
@@ -293,4 +295,95 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_GetRunGlyphCount(run: *mut OH_Drawing_Run) -> u32;
+    /// Gets the Font Object of run.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `run` - Indicates the pointer to an <b>OH_Drawing_Run</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * The Font Object of run.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_GetRunFont(run: *mut OH_Drawing_Run) -> *mut OH_Drawing_Font;
+    /// Get the text direction.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `run` - Indicates the pointer to an <b>OH_Drawing_Run</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Return the text direction of an <b>OH_Drawing_TextDirection</b> object.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_GetRunTextDirection(run: *mut OH_Drawing_Run) -> OH_Drawing_TextDirection;
+    /// Gets the glyph advance array.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `run` - Indicates the pointer to an <b>OH_Drawing_Run</b> object.
+    ///
+    /// * `start` - The run of start index.
+    ///
+    /// * `length` - The run of length, if start and length are set to 0, then get all of the current run.
+    ///
+    /// # Returns
+    ///
+    /// * Indicates the pointer to the glyph advance array object <b>OH_Drawing_Array</b>.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_GetRunGlyphAdvances(
+        run: *mut OH_Drawing_Run,
+        start: u32,
+        length: u32,
+    ) -> *mut OH_Drawing_Array;
+    /// Gets the glyph advance by index.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `advances` - The glyph advance array object <b>OH_Drawing_Array</b>.
+    ///
+    /// * `index` - The run of glyph index.
+    ///
+    /// # Returns
+    ///
+    /// * Run of glyph advance pointer to an <b>OH_Drawing_Point</b> object.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_GetRunGlyphAdvanceByIndex(
+        advances: *mut OH_Drawing_Array,
+        index: usize,
+    ) -> *mut OH_Drawing_Point;
+    /// Releases the memory of glyph advance array.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `advances` - The run of glyph advance array object <b>OH_Drawing_Array</b>.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_DestroyRunGlyphAdvances(advances: *mut OH_Drawing_Array);
 }

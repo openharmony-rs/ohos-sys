@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::types::*;
+#[cfg(feature = "api-20")]
+use ohos_sys_opaque_types::OH_NativeColorSpaceManager;
 
 extern "C" {
     /// Creates an <b>OH_Drawing_Brush</b> object.
@@ -148,6 +150,145 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_BrushSetAlpha(brush: *mut OH_Drawing_Brush, alpha: u8);
+    /// Sets the color for a brush. The color will be used by the brush to fill in a shape.
+    /// The color is an ARGB structure described by floating point numbers and interpreted as being in the colorSpaceManager.
+    /// If colorSpaceManager is nullptr, then color is assumed to be in the sRGB color space.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    ///
+    /// * `a` - Indicates the alpha component of color, represented as a floating point number between 0 and 1.
+    ///
+    /// * `r` - Indicates the red component of color, represented as a floating point number between 0 and 1.
+    ///
+    /// * `g` - Indicates the green component of color, represented as a floating point number between 0 and 1.
+    ///
+    /// * `b` - Indicates the blue component of color, represented as a floating point number between 0 and 1.
+    ///
+    /// * `colorSpaceManager` - Indicates the pointer to an <b>OH_NativeColorSpaceManager</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if brush is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_BrushSetColor4f(
+        brush: *mut OH_Drawing_Brush,
+        a: f32,
+        r: f32,
+        g: f32,
+        b: f32,
+        colorSpaceManager: *mut OH_NativeColorSpaceManager,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the alpha component of a brush.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    ///
+    /// * `a` - Indicates the alpha component of color.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if brush or a is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_BrushGetAlphaFloat(
+        brush: *const OH_Drawing_Brush,
+        a: *mut f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the red component of a brush.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    ///
+    /// * `r` - Indicates the red component of color.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if brush or r is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_BrushGetRedFloat(
+        brush: *const OH_Drawing_Brush,
+        r: *mut f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the green component of a brush.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    ///
+    /// * `g` - Indicates the green component of color.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if brush or g is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_BrushGetGreenFloat(
+        brush: *const OH_Drawing_Brush,
+        g: *mut f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the blue component of a brush.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    ///
+    /// * `b` - Indicates the blue component of color.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if brush or b is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_BrushGetBlueFloat(
+        brush: *const OH_Drawing_Brush,
+        b: *mut f32,
+    ) -> crate::error_code::DrawingResult;
     /// Sets the shaderEffect for a brush.
     ///
     ///
