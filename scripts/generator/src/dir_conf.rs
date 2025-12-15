@@ -393,7 +393,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 let builder = if file_stem != "native_type" {
                     builder.raw_line("use crate::native_type::*;")
                 } else {
-                    builder
+                    builder.raw_line("pub use ohos_sys_opaque_types::{ArkUI_Node, ArkUI_NodeHandle};")
                 };
                 let builder = builder
                     .allowlist_file(header_path.to_str().unwrap())

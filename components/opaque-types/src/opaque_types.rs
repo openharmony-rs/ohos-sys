@@ -140,3 +140,8 @@ pub struct OHIPCRemoteProxy {
 pub struct ArkUI_AccessibilityProvider {
     _unused: [u8; 0],
 }
+#[repr(C)]
+pub struct ArkUI_Node {
+    _unused: [u8; 0],
+}
+pub type ArkUI_NodeHandle = *mut ArkUI_Node;

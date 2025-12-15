@@ -4,17 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::drawable_descriptor::ArkUI_DrawableDescriptor;
+pub use ohos_sys_opaque_types::{ArkUI_Node, ArkUI_NodeHandle};
 
-/// Defines the ArkUI native component object.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct ArkUI_Node {
-    _unused: [u8; 0],
-}
 #[repr(C)]
 pub struct ArkUI_NodeContent {
     _unused: [u8; 0],
@@ -56,13 +47,6 @@ pub struct ArkUI_LayoutConstraint {
 pub struct ArkUI_DrawContext {
     _unused: [u8; 0],
 }
-/// Defines the pointer to the ArkUI native component object.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-pub type ArkUI_NodeHandle = *mut ArkUI_Node;
 /// Defines the pointer to the custom dialog box controller of ArkUI on the native side.
 ///
 ///

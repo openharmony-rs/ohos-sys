@@ -69,6 +69,8 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
                     .blocklist_function("OH_ArkUI_XComponent_StopImageAnalyzer")
                     .raw_line("#[cfg(feature = \"api-13\")]")
                     .raw_line("use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;")
+                    .raw_line("#[cfg(feature = \"api-19\")]")
+                    .raw_line("use ohos_sys_opaque_types::{ArkUI_NodeHandle,OHNativeWindow};")
                     .clang_args(&["-x", "c++"])
             }),
         },

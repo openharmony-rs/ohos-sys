@@ -10,7 +10,6 @@
 #include "database/udmf/uds.h"
 #include "database/udmf/utd.h"
 #include "IPCKit/ipc_cparcel.h"
-#if BINDGEN_OHOS_API_LEVEL >= 13
 #include "arkui/native_interface_accessibility.h"
 #include "native_color_space_manager/native_color_space_manager.h"
-#endif
+#include "arkui/native_type.h"
