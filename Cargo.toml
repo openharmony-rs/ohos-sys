@@ -37,6 +37,7 @@ ohos-rawfile-sys = { version = "0.1.3", optional = true, path = "components/rawf
 ohos-sys-opaque-types = { workspace = true }
 ohos-window-sys = { version = "0.1.4", optional = true, path = "components/window" }
 ohos-vsync-sys = { version = "0.1.5", optional = true, path = "components/vsync" }
+udmf-sys = { version = "0.1.3", optional = true, path = "components/udmf" }
 xcomponent-sys = { version = "0.3.5", optional = true, path = "components/xcomponent" }
 ohos-window-manager-sys = { version = "0.1.3", optional = true, path = "components/window_manager" }
 
@@ -73,6 +74,8 @@ native_window = ['dep:ohos-window-sys']
 pasteboard = ['dep:ohos-pasteboard-sys']
 ## Enables bindings to `rawfile`
 rawfile = ['ohos-rawfile-sys']
+## Enables bindings to the Unified Data Management Framework (UDMF)
+udmf = ['dep:udmf-sys']
 ## Enables bindings to `native_vsync`
 vsync = ["dep:ohos-vsync-sys"]
 ## Enables bindings to `native_xcomponent`
@@ -102,6 +105,7 @@ all-components = [
     "pasteboard",
     "rawfile",
     "xcomponent",
+    "udmf",
     "vsync",
     "window_manager",
 ]
@@ -123,6 +127,7 @@ api-11 = [
     "ohos-vsync-sys?/api-11",
     "ohos-window-sys?/api-11",
     "ohos-rawfile-sys?/api-11",
+    "udmf-sys?/api-11",
     "xcomponent-sys?/api-11",
 ]
 ## Enables bindings for OpenHarmony API-level 12
@@ -142,6 +147,7 @@ api-12 = [
     "ohos-vsync-sys?/api-12",
     "ohos-window-sys?/api-12",
     "ohos-window-manager-sys?/api-12",
+    "udmf-sys?/api-12",
     "xcomponent-sys?/api-12",
 ]
 
@@ -162,6 +168,7 @@ api-13 = [
     "ohos-vsync-sys?/api-13",
     "ohos-window-sys?/api-13",
     "ohos-window-manager-sys?/api-13",
+    "udmf-sys?/api-13",
     "xcomponent-sys?/api-13",
 ]
 
@@ -182,6 +189,7 @@ api-14 = [
     "ohos-vsync-sys?/api-14",
     "ohos-window-manager-sys?/api-14",
     "ohos-window-sys?/api-14",
+    "udmf-sys?/api-14",
     "xcomponent-sys?/api-14",
 ]
 
@@ -202,6 +210,7 @@ api-15 = [
     "ohos-vsync-sys?/api-15",
     "ohos-window-manager-sys?/api-15",
     "ohos-window-sys?/api-15",
+    "udmf-sys?/api-15",
     "xcomponent-sys?/api-15",
 ]
 
@@ -221,6 +230,7 @@ api-16 = ["api-15",
     "ohos-vsync-sys?/api-16",
     "ohos-window-manager-sys?/api-16",
     "ohos-window-sys?/api-16",
+    "udmf-sys?/api-16",
     "xcomponent-sys?/api-16",
 ]
 ## Enables bindings for OpenHarmony API-level 17.
@@ -239,6 +249,7 @@ api-17 = ["api-16",
     "ohos-vsync-sys?/api-17",
     "ohos-window-manager-sys?/api-17",
     "ohos-window-sys?/api-17",
+    "udmf-sys?/api-17",
     "xcomponent-sys?/api-17",
 ]
 ## Enables bindings for OpenHarmony API-level 18 (5.1.0).
@@ -257,6 +268,7 @@ api-18 = ["api-17",
     "ohos-vsync-sys?/api-18",
     "ohos-window-manager-sys?/api-18",
     "ohos-window-sys?/api-18",
+    "udmf-sys?/api-18",
     "xcomponent-sys?/api-18",
 ]
 ## Enables bindings for OpenHarmony API-level 19
@@ -275,6 +287,7 @@ api-19 = ["api-18",
     "ohos-vsync-sys?/api-19",
     "ohos-window-manager-sys?/api-19",
     "ohos-window-sys?/api-19",
+    "udmf-sys?/api-19",
     "xcomponent-sys?/api-19",
 ]
 ## Enables bindings for OpenHarmony API-level 20
@@ -293,6 +306,7 @@ api-20 = ["api-19",
     "ohos-vsync-sys?/api-20",
     "ohos-window-manager-sys?/api-20",
     "ohos-window-sys?/api-20",
+    "udmf-sys?/api-20",
     "xcomponent-sys?/api-20",
 ]
 ## Enables bindings for OpenHarmony API-level 20
@@ -311,6 +325,7 @@ api-21 = ["api-20",
     "ohos-vsync-sys?/api-21",
     "ohos-window-manager-sys?/api-21",
     "ohos-window-sys?/api-21",
+    "udmf-sys?/api-21",
     "xcomponent-sys?/api-21",
 ]
 
