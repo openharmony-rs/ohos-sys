@@ -97,6 +97,12 @@ impl ImageResult {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const UNSUPPORTED_MEMORY_FORMAT: ImageResult = ImageResult(7600205);
+    /// Invalid parameter.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const INVALID_PARAMETER: ImageResult = ImageResult(7600206);
     /// failed to allocate memory
     pub const ALLOC_FAILED: ImageResult = ImageResult(7600301);
     /// memory copy failed
@@ -107,6 +113,13 @@ impl ImageResult {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const LOCK_UNLOCK_FAILED: ImageResult = ImageResult(7600303);
+    /// unsupported allocator mode, e.g., use share memory to create a HDR image as only
+    /// DMA supported hdr metadata.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ALLOCATOR_MODE_UNSUPPORTED: ImageResult = ImageResult(7600501);
     /// unknown error
     pub const UNKNOWN_ERROR: ImageResult = ImageResult(7600901);
     /// decode data source exception
@@ -131,6 +144,12 @@ impl ImageResult {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const SOURCE_UNSUPPORTED_ALLOCATOR_TYPE: ImageResult = ImageResult(7700201);
     pub const SOURCE_UNSUPPORTED_OPTIONS: ImageResult = ImageResult(7700203);
+    /// Invalid parameter.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const SOURCE_INVALID_PARAMETER: ImageResult = ImageResult(7700204);
     /// decode failed
     pub const DECODE_FAILED: ImageResult = ImageResult(7700301);
     /// memory allocation failed
@@ -139,8 +158,20 @@ impl ImageResult {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const SOURCE_ALLOC_FAILED: ImageResult = ImageResult(7700302);
+    /// Invalid parameter for ImagePacker.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub const PACKER_INVALID_PARAMETER: ImageResult = ImageResult(7800202);
     /// encode failed
     pub const ENCODE_FAILED: ImageResult = ImageResult(7800301);
+    /// Invalid parameter for ImageReceiver.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const RECEIVER_INVALID_PARAMETER: ImageResult = ImageResult(7900201);
 }
 #[repr(transparent)]
 /// Enumerates the return values that may be used by the interface.
@@ -154,8 +185,17 @@ pub struct ImageResult(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl Image_MetadataType {
+    /// EXIF metadata.
     pub const EXIF_METADATA: Image_MetadataType = Image_MetadataType(1);
+    /// Fragment metadata.
     pub const FRAGMENT_METADATA: Image_MetadataType = Image_MetadataType(2);
+    /// Metadata of a GIF image.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const GIF_METADATA: Image_MetadataType = Image_MetadataType(5);
 }
 #[repr(transparent)]
 /// Define the metadata type.
@@ -166,6 +206,40 @@ impl Image_MetadataType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct Image_MetadataType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl IMAGE_ALLOCATOR_MODE {
+    /// The system determines which memory to use to create the PixelMap.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const IMAGE_ALLOCATOR_MODE_AUTO: IMAGE_ALLOCATOR_MODE = IMAGE_ALLOCATOR_MODE(0);
+    /// Use DMA buffer to create the PixelMap.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const IMAGE_ALLOCATOR_MODE_DMA: IMAGE_ALLOCATOR_MODE = IMAGE_ALLOCATOR_MODE(1);
+    /// Use share memory to create the PixelMap.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const IMAGE_ALLOCATOR_MODE_SHARED_MEMORY: IMAGE_ALLOCATOR_MODE = IMAGE_ALLOCATOR_MODE(2);
+}
+#[repr(transparent)]
+/// Type of allocator used to allocate memory of a PixelMap.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
+pub struct IMAGE_ALLOCATOR_MODE(pub ::core::ffi::c_uint);
 /// Defines the bmp mime type.
 ///
 ///
@@ -1402,6 +1476,20 @@ pub const OHOS_IMAGE_PROPERTY_FRAGMENT_WIDTH: &::core::ffi::CStr = c"FragmentIma
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub const OHOS_IMAGE_PROPERTY_FRAGMENT_HEIGHT: &::core::ffi::CStr = c"FragmentImageHeight";
+/// Delay of each frame in a GIF image, in milliseconds.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub const IMAGE_PROPERTY_GIF_DELAY_TIME: &::core::ffi::CStr = c"GifDelayTime";
+/// Disposal type of each frame in a GIF image.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub const IMAGE_PROPERTY_GIF_DISPOSAL_TYPE: &::core::ffi::CStr = c"GifDisposalType";
 extern "C" {
     /// Creates a <b>PictureMetadata</b> object.
     ///
@@ -1472,6 +1560,32 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_PictureMetadata_SetProperty(
+        metadata: *mut OH_PictureMetadata,
+        key: *mut Image_String,
+        value: *mut Image_String,
+    ) -> ImageResult;
+    /// Obtains the property of picture metadata. The output value.data is null-terminated.
+    ///
+    /// # Arguments
+    ///
+    /// * `metadata` - Pointer to OH_PictureMetadata.
+    ///
+    /// * `key` - Pointer to property's key.
+    ///
+    /// * `value` - Pointer to property's value. Output parameter.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_INVALID_PARAMETER`] metadata is nullptr, or key is nullptr, or value is nullptr.
+    /// [`IMAGE_UNSUPPORTED_METADATA`] unsupported metadata type, or the metadata type does not match the
+    /// auxiliary picture type.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_PictureMetadata_GetPropertyWithNull(
         metadata: *mut OH_PictureMetadata,
         key: *mut Image_String,
         value: *mut Image_String,
