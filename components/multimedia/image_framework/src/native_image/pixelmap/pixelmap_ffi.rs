@@ -578,6 +578,27 @@ extern "C" {
         info: *mut OH_Pixelmap_ImageInfo,
         height: *mut u32,
     ) -> ImageResult;
+    /// Get alphaMode number for imageinfo struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - The imageinfo pointer will be operated.
+    ///
+    /// * `alphaMode` - The number of imageinfo alphaMode.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or alphaMode is nullptr.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_PixelmapImageInfo_GetAlphaMode(
+        info: *mut OH_Pixelmap_ImageInfo,
+        alphaMode: *mut i32,
+    ) -> ImageResult;
     /// Get rowStride number for imageinfo struct.
     ///
     /// # Arguments
@@ -692,6 +713,44 @@ extern "C" {
         data: *mut u8,
         dataLength: usize,
         options: *mut OH_Pixelmap_InitializationOptions,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ImageResult;
+    /// Creates a pixelmap based on options [`OH_Pixelmap_InitializationOptions`], the memory type used by the
+    /// pixelmap can be specified by allocatorType [`IMAGE_ALLOCATOR_MODE`]. By default, the system selects the memory
+    /// type based on the image type, image size, platform capability, etc. When processing the pixelmap returned by this
+    /// interface, please always consider the impact of stride.
+    ///
+    /// # Arguments
+    ///
+    /// * `data` - Input color buffer in BGRA_8888 format by default.
+    ///
+    /// * `dataLength` - Length of input buffer in bytes.
+    ///
+    /// * `options` - Pixelmap initialization properties including size, pixel format, alpha type, and editable flags.
+    ///
+    /// * `allocator` - Indicate which memory type will be used by the returned pixelmap.
+    ///
+    /// * `pixelmap` - Output parameter receiving the created pixelmap object pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If the param is nullptr or invalid.
+    /// [`IMAGE_TOO_LARGE`] too large data or image.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`] unsupported operations.
+    /// [`IMAGE_DMA_OPERATION_FAILED`] DMA operation failed.
+    /// [`IMAGE_ALLOCATOR_MODE_UNSUPPORTED`] unsupported allocator mode, e.g.,
+    /// use share memory to create a HDR image as only DMA supported hdr metadata.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_PixelmapNative_CreatePixelmapUsingAllocator(
+        data: *mut u8,
+        dataLength: usize,
+        options: *mut OH_Pixelmap_InitializationOptions,
+        allocator: IMAGE_ALLOCATOR_MODE,
         pixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
     /// Convert a native <b>PixelMap</b> object to <b>PixelMap</b> napi object.
@@ -1122,6 +1181,37 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PixelmapNative_CreateEmptyPixelmap(
         options: *mut OH_Pixelmap_InitializationOptions,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ImageResult;
+    /// Creates a empty pixelmap based on options [`OH_Pixelmap_InitializationOptions`], the memory type used
+    /// by the pixelmap can be specified by allocatorType [`IMAGE_ALLOCATOR_MODE`]. By default,
+    /// the system selects the memory type based on the image type, image size, platform capability, etc. When processing
+    /// the pixelmap returned by this interface, please always consider the impact of stride.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Pixelmap initialization properties including size, pixel format, alpha type, and editable flags.
+    ///
+    /// * `allocator` - Indicate which memory type will be used by the returned pixelmap.
+    ///
+    /// * `pixelmap` - Output parameter receiving the created pixelmap object pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If the param is nullptr or invalid.
+    /// [`IMAGE_TOO_LARGE`] too large data or image.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`] unsupported operations.
+    /// [`IMAGE_ALLOCATOR_MODE_UNSUPPORTED`] unsupported allocator mode, e.g., use
+    /// share memory to create a HDR image as only DMA supported hdr metadata.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator(
+        options: *mut OH_Pixelmap_InitializationOptions,
+        allocator: IMAGE_ALLOCATOR_MODE,
         pixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
     /// Get metadata.

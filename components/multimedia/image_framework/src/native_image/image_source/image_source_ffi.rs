@@ -166,6 +166,27 @@ extern "C" {
         info: *mut OH_ImageSource_Info,
         isHdr: *mut bool,
     ) -> ImageResult;
+    /// Obtains the MIME type of an image source.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Pointer to the OH_ImageSource_Info struct.
+    ///
+    /// * `mimetype` - Pointer to the MIME type of the image source.
+    ///
+    /// # Returns
+    ///
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if info or mimetype is a null pointer.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ImageSourceInfo_GetMimeType(
+        info: *mut OH_ImageSource_Info,
+        mimetype: *mut Image_MimeType,
+    ) -> ImageResult;
     /// delete OH_ImageSource_Info pointer.
     ///
     /// # Arguments
@@ -467,6 +488,90 @@ extern "C" {
         options: *mut OH_DecodingOptions,
         desiredDynamicRange: i32,
     ) -> ImageResult;
+    /// Obtains the color space set in the decoding options.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Pointer to the decoding options.
+    ///
+    /// * `colorSpace` - Pointer to the color space.
+    ///
+    /// # Returns
+    ///
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if options or colorSpace is null pointer.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_DecodingOptions_GetDesiredColorSpace(
+        options: *mut OH_DecodingOptions,
+        colorSpace: *mut i32,
+    ) -> ImageResult;
+    /// Sets the desired color space for the decoding options.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Pointer to the decoding options.
+    ///
+    /// * `colorSpace` - Desired color space.
+    ///
+    /// # Returns
+    ///
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if options is a null pointer or colorSpace is not supported.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_DecodingOptions_SetDesiredColorSpace(
+        options: *mut OH_DecodingOptions,
+        colorSpace: i32,
+    ) -> ImageResult;
+    /// Sets the crop region for the decoding options.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Pointer to the decoding options.
+    ///
+    /// * `cropRegion` - The target region will be cropped from the image.
+    ///
+    /// # Returns
+    ///
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if options or cropRegion is null pointer.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_DecodingOptions_SetCropRegion(
+        options: *mut OH_DecodingOptions,
+        cropRegion: *mut Image_Region,
+    ) -> ImageResult;
+    /// Gets the crop region for the decoding options.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Pointer to the decoding options.
+    ///
+    /// * `cropRegion` - The target region will be cropped from the image.
+    ///
+    /// # Returns
+    ///
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if options or cropRegion is null pointer.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_DecodingOptions_GetCropRegion(
+        options: *mut OH_DecodingOptions,
+        cropRegion: *mut Image_Region,
+    ) -> ImageResult;
     /// delete OH_DecodingOptions pointer.
     ///
     /// # Arguments
@@ -544,6 +649,31 @@ extern "C" {
         dataSize: usize,
         res: *mut *mut OH_ImageSourceNative,
     ) -> ImageResult;
+    /// Create an image source from data buffer. The data buffer is directly accessed by the image source
+    /// object, and therefore the data buffer must remain accessible within the lifecycle of the image source object.
+    ///
+    /// # Arguments
+    ///
+    /// * `data` - Pointer to the data buffer.
+    ///
+    /// * `datalength` - Length of the data buffer.
+    ///
+    /// * `imageSource` - Double pointer to the image source.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if data or imageSource is a null pointer or if datalength is 0.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ImageSourceNative_CreateFromDataWithUserBuffer(
+        data: *mut u8,
+        datalength: usize,
+        imageSource: *mut *mut OH_ImageSourceNative,
+    ) -> ImageResult;
     /// Creates an void pointer
     ///
     /// # Arguments
@@ -609,7 +739,7 @@ extern "C" {
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] source is nullptr, or picture is nullptr.
     /// [`IMAGE_BAD_SOURCE`] data source exception.
-    /// [`IMAGE_SOURCE_UNSUPPORTED_MIMETYPE`] unsupported mime type.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] unsupported mime type.
     /// [`IMAGE_SOURCE_TOO_LARGE`] image to large.
     /// [`IMAGE_SOURCE_UNSUPPORTED_ALLOCATOR_TYPE`] unsupported allocator type,
     /// e.g., use share memory to decode a HDR image as only DMA supported hdr metadata.
@@ -683,6 +813,34 @@ extern "C" {
         options: *mut OH_DecodingOptionsForPicture,
         picture: *mut *mut OH_PictureNative,
     ) -> ImageResult;
+    /// Decodes an image at the specified index into a Picture object.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - Pointer to the image source.
+    ///
+    /// * `index` - Image index.
+    ///
+    /// * `picture` - Double pointer to the Picture object obtained after decoding.
+    ///
+    /// # Returns
+    ///
+    /// * Result code.
+    /// [`IMAGE_SUCCESS`]: The execution is successful.
+    /// [`IMAGE_BAD_SOURCE`]: The data source is abnormal.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIMETYPE`]: The image format is unsupported.
+    /// [`IMAGE_SOURCE_TOO_LARGE`]: The image is too large.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_OPTIONS`]: The operation is not supported, for example, invalid index.
+    /// [`IMAGE_DECODE_FAILED`]: Decoding fails.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ImageSourceNative_CreatePictureAtIndex(
+        source: *mut OH_ImageSourceNative,
+        index: u32,
+        picture: *mut *mut OH_PictureNative,
+    ) -> ImageResult;
     /// Obtains the delay time list from some <b>ImageSource</b> objects (such as GIF image sources).
     ///
     /// # Arguments
@@ -748,6 +906,30 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageSourceNative_GetImageProperty(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut Image_String,
+    ) -> ImageResult;
+    /// Obtains the value of an image property from an <b>ImageSource</b> object. The output value.data is null-terminated.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - Pointer to ImageSource.
+    ///
+    /// * `key` - Pointer to the property key.
+    ///
+    /// * `value` - Pointer to the property value. Output Parameter.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or value is nullptr.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ImageSourceNative_GetImagePropertyWithNull(
         source: *mut OH_ImageSourceNative,
         key: *mut Image_String,
         value: *mut Image_String,
@@ -892,5 +1074,26 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_DecodingOptionsForPicture_Release(
         options: *mut OH_DecodingOptionsForPicture,
+    ) -> ImageResult;
+    /// Obtains the supported image formats that can be decoded.
+    ///
+    /// # Arguments
+    ///
+    /// * `supportedFormats` - Double pointer to an array of the supported image formats.
+    ///
+    /// * `length` - Pointer to the length of the array.
+    ///
+    /// # Returns
+    ///
+    /// * One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if <b>supportedFormats</b> or <b>length</b> is empty.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ImageSourceNative_GetSupportedFormats(
+        supportedFormats: *mut *mut Image_MimeType,
+        length: *mut usize,
     ) -> ImageResult;
 }

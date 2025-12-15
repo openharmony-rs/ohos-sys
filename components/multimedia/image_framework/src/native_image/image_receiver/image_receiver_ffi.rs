@@ -34,6 +34,15 @@ pub struct OH_ImageReceiverOptions {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_ImageReceiver_OnCallback =
     ::core::option::Option<unsafe extern "C" fn(receiver: *mut OH_ImageReceiverNative)>;
+/// Defines the callback for the ImageArrive event.
+///
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub type OH_ImageReceiver_ImageArriveCallback = ::core::option::Option<
+    unsafe extern "C" fn(receiver: *mut OH_ImageReceiverNative, userData: *mut ::core::ffi::c_void),
+>;
 extern "C" {
     /// Creates an <b>OH_ImageReceiverOptions</b> object at the application layer.
     ///
@@ -278,6 +287,50 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageReceiverNative_Off(receiver: *mut OH_ImageReceiverNative) -> ImageResult;
+    /// Registers an [`OH_ImageReceiver_ImageArriveCallback`] callback.
+    ///
+    /// # Arguments
+    ///
+    /// * `receiver` - Pointer to an OH_ImageReceiverNative object that processes the callback.
+    ///
+    /// * `callback` - OH_ImageReceiver_ImageArriveCallback to register.
+    ///
+    /// * `userData` - Pointer to the user data passed to the callback.
+    ///
+    /// # Returns
+    ///
+    /// * Result code. [`Image_ErrorCode`] IMAGE_SUCCESS is returned if the operation is successful.
+    /// [`Image_ErrorCode`] IMAGE_RECEIVER_INVALID_PARAMETER is returned if receiver or callback is null.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ImageReceiverNative_OnImageArrive(
+        receiver: *mut OH_ImageReceiverNative,
+        callback: OH_ImageReceiver_ImageArriveCallback,
+        userData: *mut ::core::ffi::c_void,
+    ) -> ImageResult;
+    /// Unregisters an [`OH_ImageReceiver_ImageArriveCallback`] callback.
+    ///
+    /// # Arguments
+    ///
+    /// * `receiver` - Pointer to an <b>OH_ImageReceiverNative</b> object that processes the callback.
+    ///
+    /// * `callback` - <b>OH_ImageReceiver_ImageArriveCallback</b> callback to unregister.
+    ///
+    /// # Returns
+    ///
+    /// * [`Image_ErrorCode`] IMAGE_SUCCESS - Operation succeeded.
+    /// [`Image_ErrorCode`] IMAGE_RECEIVER_INVALID_PARAMETER - <b>receiver</b> is empty or <b>callback</b> is not
+    /// registered.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ImageReceiverNative_OffImageArrive(
+        receiver: *mut OH_ImageReceiverNative,
+        callback: OH_ImageReceiver_ImageArriveCallback,
+    ) -> ImageResult;
     /// Obtains the size of the image receiver through an [`OH_ImageReceiverNative`] object.
     ///
     /// # Arguments

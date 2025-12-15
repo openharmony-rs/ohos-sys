@@ -92,6 +92,27 @@ extern "C" {
         options: *mut OH_PackingOptions,
         format: *mut Image_MimeType,
     ) -> ImageResult;
+    /// Gets MIME type from OH_PackingOptions. The output format.data is null-terminated.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_PackingOptions pointer will be operated.
+    ///
+    /// * `format` - MimeType set in the OH_PackingOptions.
+    ///
+    /// # Returns
+    ///
+    /// * Returns functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_PACKER_INVALID_PARAMETER`] if options or format is nullptr.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_PackingOptions_GetMimeTypeWithNull(
+        options: *mut OH_PackingOptions,
+        format: *mut Image_MimeType,
+    ) -> ImageResult;
     /// Set format number for OH_PackingOptions struct.
     ///
     /// # Arguments
@@ -716,4 +737,25 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImagePackerNative_Release(imagePacker: *mut OH_ImagePackerNative) -> ImageResult;
+    /// Obtains the supported image formats that can be encoded.
+    ///
+    /// # Arguments
+    ///
+    /// * `supportedFormats` - Double pointer to an array of the supported image formats.
+    ///
+    /// * `length` - Pointer to the length of the array.
+    ///
+    /// # Returns
+    ///
+    /// * One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_PACKER_INVALID_PARAMETER`] if <b>supportedFormats</b> or <b>length</b> is empty.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ImagePackerNative_GetSupportedFormats(
+        supportedFormats: *mut *mut Image_MimeType,
+        length: *mut usize,
+    ) -> ImageResult;
 }

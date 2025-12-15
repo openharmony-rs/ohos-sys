@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.4
+
+- Update to API-21
+
 ## 0.3.3 (2025-07-09)
 
 - Fix linking against `libpixelmap.so`
