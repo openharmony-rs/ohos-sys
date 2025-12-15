@@ -45,6 +45,13 @@ impl Ability_NativeChildProcessErrorCode {
     /// An invalid IPC object pointer may be returned.
     pub const CONNECTION_FAILED: Ability_NativeChildProcessErrorCode =
         Ability_NativeChildProcessErrorCode(const { core::num::NonZero::new(16010008).unwrap() });
+    /// The callback does not exist; it may not have been registered or has already been unregistered.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const CALLBACK_NOT_EXIST: Ability_NativeChildProcessErrorCode =
+        Ability_NativeChildProcessErrorCode(const { core::num::NonZero::new(16010009).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates the error codes used by the native child process module.
@@ -54,6 +61,33 @@ impl Ability_NativeChildProcessErrorCode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Ability_NativeChildProcessErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+impl NativeChildProcess_IsolationMode {
+    /// Normal isolation mode, parent process shares the same sandbox or internet with the child process.
+    pub const NCP_ISOLATION_MODE_NORMAL: NativeChildProcess_IsolationMode =
+        NativeChildProcess_IsolationMode(0);
+    /// Isolated mode, parent process does not share the same sandbox or internet with the child process.
+    pub const NCP_ISOLATION_MODE_ISOLATED: NativeChildProcess_IsolationMode =
+        NativeChildProcess_IsolationMode(1);
+}
+#[repr(transparent)]
+/// Enumerates the isolation modes used by the native child process module.
+///
+/// Available since API-level: 13
+#[cfg(feature = "api-13")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct NativeChildProcess_IsolationMode(pub ::core::ffi::c_uint);
+/// Defines a struct for the child process configs.
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[repr(C)]
+pub struct Ability_ChildProcessConfigs {
+    _unused: [u8; 0],
+}
 /// Defines a callback function for notifying the child process startup result.
 ///
 /// # Arguments
@@ -105,24 +139,6 @@ pub struct NativeChildProcess_FdList {
     /// For details, see [`NativeChildProcess_Fd`].
     pub head: *mut NativeChildProcess_Fd,
 }
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-impl NativeChildProcess_IsolationMode {
-    /// Normal isolation mode, parent process shares the same sandbox or internet with the child process.
-    pub const NCP_ISOLATION_MODE_NORMAL: NativeChildProcess_IsolationMode =
-        NativeChildProcess_IsolationMode(0);
-    /// Isolated mode, parent process does not share the same sandbox or internet with the child process.
-    pub const NCP_ISOLATION_MODE_ISOLATED: NativeChildProcess_IsolationMode =
-        NativeChildProcess_IsolationMode(1);
-}
-#[repr(transparent)]
-/// Enumerates the isolation modes used by the native child process module.
-///
-/// Available since API-level: 13
-#[cfg(feature = "api-13")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct NativeChildProcess_IsolationMode(pub ::core::ffi::c_uint);
 /// The options used by the child process.
 ///
 /// Available since API-level: 13
@@ -151,7 +167,119 @@ pub struct NativeChildProcess_Args {
     /// For details, see [`NativeChildProcess_FdList`].
     pub fdList: NativeChildProcess_FdList,
 }
+/// Defines a callback function to handle the exit of a native child process.
+///
+/// # Arguments
+///
+/// * `pid` - The pid of the exited native child process.
+///
+/// * `signal` - The signal of the exited native child process.
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub type OH_Ability_OnNativeChildProcessExit =
+    ::core::option::Option<unsafe extern "C" fn(pid: i32, signal: i32)>;
 extern "C" {
+    /// Creates a new child process configs object.
+    /// The caller is responsible for destroying the returned object by calling
+    /// [`OH_Ability_DestroyChildProcessConfigs`] to avoid memory leaks.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to the newly created [`Ability_ChildProcessConfigs`] object if successful.
+    /// Returns nullptr if an internal error occurs or memory allocation fails.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Ability_CreateChildProcessConfigs() -> *mut Ability_ChildProcessConfigs;
+    /// Destroys a child process configs object and releases associated resources.
+    ///
+    /// # Arguments
+    ///
+    /// * `configs` - Pointer to the child process configs object to be destroyed.
+    /// After this call, the pointer becomes invalid and must not be used.
+    /// Passing nullptr is allowed and will be ignored.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`NCP_NO_ERROR`] if the operation is successful or if the input is nullptr.
+    /// Returns [`NCP_ERR_INVALID_PARAM`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Ability_DestroyChildProcessConfigs(
+        configs: *mut Ability_ChildProcessConfigs,
+    ) -> Ability_NativeChildProcessResult;
+    /// Sets the isolation mode for the specified child process configs.
+    ///
+    /// # Arguments
+    ///
+    /// * `configs` - Pointer to the child process configs object. Must not be nullptr.
+    ///
+    /// * `isolationMode` - The isolation mode to set. See [`NativeChildProcess_IsolationMode`] for details.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`NCP_NO_ERROR`] if the isolation mode is set successfully.
+    /// Returns [`NCP_ERR_INVALID_PARAM`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Ability_ChildProcessConfigs_SetIsolationMode(
+        configs: *mut Ability_ChildProcessConfigs,
+        isolationMode: NativeChildProcess_IsolationMode,
+    ) -> Ability_NativeChildProcessResult;
+    /// Sets the UID isolation flag for the specified child process configs.
+    /// The isolationUid only takes effect when [`OH_Ability_ChildProcessConfigs_SetIsolationMode`]
+    /// is set to [`NCP_ISOLATION_MODE_ISOLATED`].
+    ///
+    /// # Arguments
+    ///
+    /// * `configs` - Pointer to the child process configs object. Must not be nullptr.
+    ///
+    /// * `isolationUid` - The UID isolation setting to apply.
+    /// - true: uses independent UID
+    /// - false: uses parent process's UID
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`NCP_NO_ERROR`] if the UID isolation flag is set successfully.
+    /// Returns [`NCP_ERR_INVALID_PARAM`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Ability_ChildProcessConfigs_SetIsolationUid(
+        configs: *mut Ability_ChildProcessConfigs,
+        isolationUid: bool,
+    ) -> Ability_NativeChildProcessResult;
+    /// Sets the process name for the specified child process configs.
+    ///
+    /// # Arguments
+    ///
+    /// * `configs` - Pointer to the child process configs object. Must not be nullptr.
+    ///
+    /// * `processName` - The process name to set.
+    /// Must be a non-empty string containing only letters, digits, or underscores.
+    /// Maximum length is 64 characters.
+    /// The name ultimately assigned to the process is {bundleName}:{processName}.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`NCP_NO_ERROR`] if the process name is set successfully.
+    /// Returns [`NCP_ERR_INVALID_PARAM`] if the input parameters are invalid.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Ability_ChildProcessConfigs_SetProcessName(
+        configs: *mut Ability_ChildProcessConfigs,
+        processName: *const ::core::ffi::c_char,
+    ) -> Ability_NativeChildProcessResult;
     /// Creates a child process, loads the specified dynamic library file, and returns the startup result
     /// asynchronously through a callback parameter.
     /// The callback notification is an independent thread. When implementing the callback function,
@@ -222,6 +350,57 @@ extern "C" {
         libName: *const ::core::ffi::c_char,
         onProcessStarted: OH_Ability_OnNativeChildProcessStarted,
     ) -> ::core::ffi::c_int;
+    /// Creates a child process, loads the specified dynamic library file, and returns the startup result
+    /// asynchronously through a callback parameter.
+    /// The callback notification is an independent thread. When implementing the callback function,
+    /// pay attention to thread synchronization and do not perform time-consuming operations to avoid long-time blocking.
+    ///
+    /// The dynamic library specified must implement and export the following functions:
+    /// 1. OHIPCRemoteStub* NativeChildProcess_OnConnect()
+    /// 2. void NativeChildProcess_MainProc()
+    ///
+    /// The processing logic sequence is shown in the following pseudocode:
+    /// Main process:
+    /// 1. OH_Ability_CreateNativeChildProcessWithConfigs(libName, configs, onProcessStartedCallback)
+    /// Child process:
+    /// 2. dlopen(libName)
+    /// 3. dlsym("NativeChildProcess_OnConnect")
+    /// 4. dlsym("NativeChildProcess_MainProc")
+    /// 5. ipcRemote = NativeChildProcess_OnConnect()
+    /// 6. NativeChildProcess_MainProc()
+    /// Main process:
+    /// 7. onProcessStartedCallback(ipcRemote, errCode)
+    /// Child process:
+    /// 8. The child process exits after the NativeChildProcess_MainProc() function is returned.
+    ///
+    /// # Arguments
+    ///
+    /// * `libName` - Name of the dynamic library file loaded in the child process. The value cannot be nullptr.
+    ///
+    /// * `configs` - Pointer to the child process configs object. The value cannot be nullptr.
+    ///
+    /// * `onProcessStarted` - Pointer to the callback function for notifying the child process startup result.
+    /// The value cannot be nullptr. For details, see [`OH_Ability_OnNativeChildProcessStarted`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`NCP_NO_ERROR`] if the call is successful, but the actual startup result is notified by the
+    /// callback function.
+    /// Returns [`NCP_ERR_INVALID_PARAM`] if the dynamic library name or callback function pointer is invalid.
+    /// Returns [`NCP_ERR_NOT_SUPPORTED`] if the device does not support the creation of native child processes.
+    /// Returns [`NCP_ERR_MULTI_PROCESS_DISABLED`] if the multi-process mode is disabled on the device.
+    /// Returns [`NCP_ERR_ALREADY_IN_CHILD`] if it is not allowed to create another child process in the child process.
+    /// Returns [`NCP_ERR_MAX_CHILD_PROCESSES_REACHED`] if the maximum number of native child processes is reached.
+    /// For details, see [`Ability_NativeChildProcess_ErrCode`].
+    /// [`OH_Ability_OnNativeChildProcessStarted`]
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Ability_CreateNativeChildProcessWithConfigs(
+        libName: *const ::core::ffi::c_char,
+        configs: *mut Ability_ChildProcessConfigs,
+        onProcessStarted: OH_Ability_OnNativeChildProcessStarted,
+    ) -> Ability_NativeChildProcessResult;
     /// Starts a child process, loads the specified dynamic library file.
     ///
     /// The dynamic library specified must implement a function with NativeChildProcess_Args as a
@@ -282,6 +461,52 @@ extern "C" {
         options: NativeChildProcess_Options,
         pid: *mut i32,
     ) -> Ability_NativeChildProcessResult;
+    /// Starts a child process, loads the specified dynamic library file.
+    ///
+    /// The dynamic library specified must implement a function with NativeChildProcess_Args as a
+    /// pamameter(function name can be customized), and export the function, such as:
+    /// 1. void Main(NativeChildProcess_Args args);
+    ///
+    /// The processing logic sequence is shown in the following pseudocode:
+    /// Main process:
+    /// 1. OH_Ability_StartNativeChildProcessWithConfigs(entryPoint, args, configs, &pid)
+    /// Child process:
+    /// 2. dlopen(libName)
+    /// 3. dlsym("Main")
+    /// 4. Main(args)
+    /// 5. The child process exits after the Main(args) function is returned
+    ///
+    /// # Arguments
+    ///
+    /// * `entry` - Dynamic library and entry function loaded in child process, such as "libEntry.so:Main".
+    /// The value cannot be nullptr.
+    ///
+    /// * `args` - The arguments passed to the child process.
+    /// For details, see [`NativeChildProcess_Args`].
+    ///
+    /// * `configs` - Pointer to the child process configs object. The value cannot be null.
+    /// For details, see [`Ability_ChildProcessConfigs`].
+    ///
+    /// * `pid` - The started child process id.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`NCP_NO_ERROR`] if the call is successful.
+    /// Returns [`NCP_ERR_INVALID_PARAM`] if the dynamic library name or callback function pointer is invalid.
+    /// Returns [`NCP_ERR_NOT_SUPPORTED`] if the device does not support the creation of native child processes.
+    /// Returns [`NCP_ERR_ALREADY_IN_CHILD`] if it is not allowed to create another child process in the child process.
+    /// Returns [`NCP_ERR_MAX_CHILD_PROCESSES_REACHED`] if the maximum number of native child processes is reached.
+    /// For details, see [`Ability_NativeChildProcess_ErrCode`].
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Ability_StartNativeChildProcessWithConfigs(
+        entry: *const ::core::ffi::c_char,
+        args: NativeChildProcess_Args,
+        configs: *mut Ability_ChildProcessConfigs,
+        pid: *mut i32,
+    ) -> Ability_NativeChildProcessResult;
     /// Child process get self NativeChildProcess_Args.
     ///
     ///
@@ -295,4 +520,44 @@ extern "C" {
     #[cfg(feature = "api-17")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_Ability_GetCurrentChildProcessArgs() -> *mut NativeChildProcess_Args;
+    /// Register a native child process exit callback.
+    /// Registering the same callback repeatedly will only keep one.
+    ///
+    /// # Arguments
+    ///
+    /// * `onProcessExit` - Pointer to the callback function to handle the exit of a native child process.
+    /// For details, see [`OH_Ability_OnNativeChildProcessExit`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`NCP_NO_ERROR`] if the call is successful.
+    /// Returns [`NCP_ERR_INTERNAL`] if internal error occurs.
+    /// For details, see [`Ability_NativeChildProcess_ErrCode`].
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Ability_RegisterNativeChildProcessExitCallback(
+        onProcessExit: OH_Ability_OnNativeChildProcessExit,
+    ) -> Ability_NativeChildProcessResult;
+    /// Unregister a native child process exit callback.
+    ///
+    /// # Arguments
+    ///
+    /// * `onProcessExit` - Pointer to the callback function to handle the exit of a native child process.
+    /// For details, see [`OH_Ability_OnNativeChildProcessExit`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`NCP_NO_ERROR`] if the call is successful.
+    /// Returns [`NCP_ERR_INTERNAL`] if internal error occurs.
+    /// Returns [`NCP_ERR_CALLBACK_NOT_EXIST`] if the callback is not exist.
+    /// For details, see [`Ability_NativeChildProcess_ErrCode`].
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Ability_UnregisterNativeChildProcessExitCallback(
+        onProcessExit: OH_Ability_OnNativeChildProcessExit,
+    ) -> Ability_NativeChildProcessResult;
 }

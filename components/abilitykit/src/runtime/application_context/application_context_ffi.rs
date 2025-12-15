@@ -272,6 +272,36 @@ extern "C" {
         bufferSize: i32,
         writeLength: *mut i32,
     ) -> AbilityRuntimeResult;
+    /// Obtain the resource directory of the target module.
+    ///
+    /// # Arguments
+    ///
+    /// * `moduleName` - The module name.
+    ///
+    /// * `buffer` - A pointer to a buffer that receives the resource directory of the target module.
+    ///
+    /// * `bufferSize` - The length of the buffer.
+    ///
+    /// * `writeLength` - The string length actually written to the buffer,
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// or the buffer size is less than the minimum buffer size.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetResourceDir(
+        moduleName: *const ::core::ffi::c_char,
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> AbilityRuntimeResult;
     /// Starts self UIAbility.
     ///
     /// `ohos.permission.NDK_START_SELF_UI_ABILITY`
@@ -306,6 +336,60 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_AbilityRuntime_StartSelfUIAbility(
         want: *mut AbilityBase_Want,
+    ) -> AbilityRuntimeResult;
+    /// Obtain the launch parameter of starting UIAbility.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - A pointer to a buffer that receives the launch parameter of starting UIAbility.
+    ///
+    /// * `bufferSize` - The length of the buffer.
+    ///
+    /// * `writeLength` - The string length actually written to the buffer,
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// or the buffer size is less than the minimum buffer size.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetLaunchParameter(
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Obtain the latest parameter of starting UIAbility.
+    ///
+    /// # Arguments
+    ///
+    /// * `buffer` - A pointer to a buffer that receives the latest parameter of starting UIAbility.
+    ///
+    /// * `bufferSize` - The length of the buffer.
+    ///
+    /// * `writeLength` - The string length actually written to the buffer,
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// or the buffer size is less than the minimum buffer size.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetLatestParameter(
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+        writeLength: *mut i32,
     ) -> AbilityRuntimeResult;
     /// Starts self UIAbility with start options.
     ///
@@ -349,5 +433,74 @@ extern "C" {
     pub fn OH_AbilityRuntime_StartSelfUIAbilityWithStartOptions(
         want: *mut AbilityBase_Want,
         options: *mut AbilityRuntime_StartOptions,
+    ) -> AbilityRuntimeResult;
+    /// Starts self UIAbility with start options and receives the process ID.
+    ///
+    /// ohos.permission.NDK_START_SELF_UI_ABILITY
+    /// # Arguments
+    ///
+    /// * `want` - The arguments passed to start self UIAbility.
+    /// For details, see [`AbilityBase_Want`].
+    ///
+    /// * `options` - The start options passed to start self UIAbility.
+    /// For details, see [`AbilityRuntime_StartOptions`].
+    ///
+    /// * `targetPid` - The process ID of the started UIAbility.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the call is successful.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`] if the caller has no correct permission.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the arguments provided is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`] if the device does not support starting self uiability.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`] if the target ability does not exist.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`] if the ability type is incorrect.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`] if the crowdtesting application expires.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`] if the ability cannot be started in Wukong mode.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`] if the app is controlled.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`] if the app is controlled by EDM.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`] if the caller tries to start a different application.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`] if internal error occurs. such as connect system service failed.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`] if the caller is not foreground process.
+    /// Returns [`ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED`] if setting visibility is disabled.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_MULTI_APP_NOT_SUPPORTED`]
+    /// if the app clone or multi-instance is not supported.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INVALID_APP_INSTANCE_KEY`] if the app instance key is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`] if the number of app instances reached the limit.
+    /// Returns [`ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED`] if the multi-instance is not supported.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`]
+    /// if the APP_INSTANCE_KEY cannot be specified.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_START_TIMEOUT`] if starting UIAbility time out.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_MAIN_THREAD_NOT_SUPPORTED`]
+    /// if the API is called in the main thread of the app.
+    /// For details, see [`AbilityRuntime_ErrorCode`].
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_AbilityRuntime_StartSelfUIAbilityWithPidResult(
+        want: *mut AbilityBase_Want,
+        options: *mut AbilityRuntime_StartOptions,
+        targetPid: *mut i32,
+    ) -> AbilityRuntimeResult;
+    /// Obtain the version code of the application.
+    ///
+    /// # Arguments
+    ///
+    /// * `versionCode` - The version code of the application.
+    ///
+    /// # Returns
+    ///
+    /// * The error code.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the versionCode is null.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_GET_APPLICATION_INFO_FAILED`] if the application info does not exist.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_AbilityRuntime_ApplicationContextGetVersionCode(
+        versionCode: *mut i64,
     ) -> AbilityRuntimeResult;
 }

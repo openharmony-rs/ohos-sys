@@ -133,6 +133,27 @@ impl AbilityRuntimeErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub const APP_INSTANCE_KEY_NOT_SUPPORTED: AbilityRuntimeErrorCode =
         AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000079).unwrap() });
+    /// Failed to obtain the target application information.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const GET_APPLICATION_INFO_FAILED: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000081).unwrap() });
+    /// Start UIAbility timeout.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const START_TIMEOUT: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000133).unwrap() });
+    /// The API does not support being called in the main thread.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub const MAIN_THREAD_NOT_SUPPORTED: AbilityRuntimeErrorCode =
+        AbilityRuntimeErrorCode(const { core::num::NonZero::new(16000134).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates the error codes.
