@@ -53,7 +53,7 @@ jobs:
     strategy:
       matrix:
         # Note: We don't test API 16+17 in CI, since they were never officially releases separately.
-        api_level: ["api-10", "api-11", "api-12", "api-13", "api-14", "api-15", "api-18"]
+        api_level: ["api-10", "api-11", "api-12", "api-13", "api-14", "api-15", "api-18", "api-20"]
     name: Build with API feature levels
     runs-on: ubuntu-latest
     steps:
