@@ -155,6 +155,66 @@ extern "C" {
         config: *mut InputMethod_TextConfig,
         windowId: i32,
     ) -> InputMethodResult;
+    /// Sets the placeholder text of an InputMethod_TextConfig instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `config` - Pointer to the InputMethod_TextConfig instance.
+    ///
+    /// * `placeholder` - Pointer to a UTF-16 encoded double-byte string. If a null pointer is passed, the placeholder text
+    /// is an empty string.
+    ///
+    /// * `length` - Number of elements in the memory to which <b>placeholder</b> points, including the null character of
+    /// the double-byte string.
+    /// 1) If <b>length</b> is <b>0</b>, the placeholder text is an empty string.
+    /// 2) The maximum number of UTF-16 encoded characters is 256, and the last element must be a null character.
+    /// 3) If the <b>length</b> exceeds 256, the placeholder text will be truncated.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`IME_ERR_OK`] - success.
+    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_TextConfig_SetPlaceholder(
+        config: *mut InputMethod_TextConfig,
+        placeholder: *const u16,
+        length: usize,
+    ) -> InputMethodResult;
+    /// Sets the ability name of an InputMethod_TextConfig instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `config` - Pointer to the InputMethod_TextConfig instance.
+    ///
+    /// * `abilityName` - Pointer to a UTF-16 encoded double-byte string. If a null pointer is passed, the ability name is
+    /// an empty string.
+    ///
+    /// * `length` - Number of elements in the memory to which <b>abilityName</b> points, including the null character of
+    /// the double-byte string.
+    /// 1) If <b>length</b> is <b>0</b>, the ability name is an empty string.
+    /// 2) The maximum number of UTF-16 encoded characters is 128, and the last element must be a null character.
+    /// 3) If the <b>length</b> exceeds 128, the placeholder text will be truncated.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`IME_ERR_OK`] - success.
+    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_TextConfig_SetAbilityName(
+        config: *mut InputMethod_TextConfig,
+        abilityName: *const u16,
+        length: usize,
+    ) -> InputMethodResult;
     /// Get input type from TextConfig
     ///
     /// # Arguments
@@ -313,5 +373,73 @@ extern "C" {
     pub fn OH_TextConfig_GetWindowId(
         config: *mut InputMethod_TextConfig,
         windowId: *mut i32,
+    ) -> InputMethodResult;
+    /// Obtains the placeholder text of an InputMethod_TextConfig instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `config` - Pointer to the InputMethod_TextConfig instance.
+    ///
+    /// * `placeholder` - Pointer to the placeholder text. The memory of this pointer is maintained by the caller.
+    ///
+    /// * `length` - Pointer to the length of the placeholder text, in double bytes. The length includes the null character
+    /// of the string.
+    /// 1) As an input parameter, <b>length</b> indicates the available length of the memory to which <b>placeholder</b>
+    /// points. As an output parameter, it indicates the actual length of the placeholder text.
+    /// 2) If <b>placeholder</b> is a null pointer and <b>length</b> points to valid memory, <b>length</b> will be set to
+    /// the actual length of the placeholder text, and an error will be return.
+    /// 3) If both <b>placeholder</b> and <b>length</b> point to valid memory, but the value of <b>length</b> is less
+    /// than the actual length of the placeholder text, <b>length</b> will be set to the actual length of the
+    /// placeholder text, and an error will be return.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`IME_ERR_OK`] - success.
+    /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
+    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_TextConfig_GetPlaceholder(
+        config: *mut InputMethod_TextConfig,
+        placeholder: *mut u16,
+        length: *mut usize,
+    ) -> InputMethodResult;
+    /// Obtains the ability name of an InputMethod_TextConfig instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `config` - Pointer to the InputMethod_TextConfig instance.
+    ///
+    /// * `abilityName` - Pointer to the ability name. The memory of this pointer is maintained by the caller.
+    ///
+    /// * `length` - Pointer to the length of the ability name, in double bytes. The length includes the null character of
+    /// the string.
+    /// 1) As an input parameter, <b>length</b> indicates the available length of the memory to which <b>abilityName</b>
+    /// points. As an output parameter, it indicates the actual length of the ability name.
+    /// 2) If <b>abilityName</b> is a null pointer and <b>length</b> points to valid memory, <b>length</b> will be set to
+    /// the actual length of the ability name, and an error will be return.
+    /// 3) If both <b>abilityName</b> and <b>length</b> point to valid memory, but the value of <b>length</b> is less
+    /// than the actual length of the ability name, <b>length</b> will be set to the actual length of the ability
+    /// name, and an error will be return.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`IME_ERR_OK`] - success.
+    /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
+    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_TextConfig_GetAbilityName(
+        config: *mut InputMethod_TextConfig,
+        abilityName: *mut u16,
+        length: *mut usize,
     ) -> InputMethodResult;
 }

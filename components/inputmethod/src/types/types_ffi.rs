@@ -138,6 +138,14 @@ impl InputMethod_TextInputType {
     /// The text input type is NUMBER DECIMAL.
     pub const IME_TEXT_INPUT_TYPE_NUMBER_DECIMAL: InputMethod_TextInputType =
         InputMethod_TextInputType(12);
+    /// The text input type is ONE TIME CODE.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const IME_TEXT_INPUT_TYPE_ONE_TIME_CODE: InputMethod_TextInputType =
+        InputMethod_TextInputType(13);
 }
 #[repr(transparent)]
 /// The text input type.
