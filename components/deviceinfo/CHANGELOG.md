@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.6
+
+- Add API 19-21 feature flags (no changes)
+
 ## 0.1.5
 
 - Add API-16, 17 and 18 feature flags (no changes)
