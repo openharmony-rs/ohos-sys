@@ -25,3 +25,7 @@ pub mod window;
 pub mod window_comm;
 
 pub mod window_event_filter;
+
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub mod window_pip;
