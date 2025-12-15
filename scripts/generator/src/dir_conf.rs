@@ -653,7 +653,10 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("#[cfg(feature=\"api-14\")]")
                         .raw_line("use crate::display_info::NativeDisplayManager_DisplayInfo;")
                         .raw_line("#[cfg(feature=\"api-14\")]")
-                        .raw_line("use crate::display_info::NativeDisplayManager_DisplaysInfo;"),
+                        .raw_line("use crate::display_info::NativeDisplayManager_DisplaysInfo;")
+                        .raw_line("#[cfg(feature=\"api-20\")]")
+                        .raw_line("use crate::display_info::{NativeDisplayManager_Rect, NativeDisplayManager_SourceMode};")
+                    ,
                     "display_capture" => builder
                         .raw_line("#[cfg(feature=\"api-12\")]")
                         .raw_line("use crate::display_info::NativeDisplayManagerResult;")
@@ -671,6 +674,10 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use crate::window_comm::{WindowManager_AvoidArea, WindowManager_AvoidAreaType, WindowManager_WindowProperties};")
                         .raw_line("#[cfg(feature=\"api-17\")]")
                         .raw_line("use crate::window_comm::WindowManager_Rect;")
+                        .raw_line("#[cfg(feature=\"api-20\")]")
+                        .raw_line("use ohos_sys_opaque_types::Input_TouchEvent;")
+                        .raw_line("#[cfg(feature=\"api-21\")]")
+                        .raw_line("use crate::window_comm::{WindowManager_MainWindowInfo, WindowManager_WindowSnapshotConfig};")
                     ,
                     _ => builder,
                 }

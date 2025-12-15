@@ -12,14 +12,14 @@ use crate::display_info::NativeDisplayManager_DisplaysInfo;
 use crate::display_info::NativeDisplayManager_FoldDisplayMode;
 use crate::display_info::NativeDisplayManager_Orientation;
 use crate::display_info::NativeDisplayManager_Rotation;
+#[cfg(feature = "api-20")]
+use crate::display_info::{NativeDisplayManager_Rect, NativeDisplayManager_SourceMode};
 
 /// the callback function type when display change.
 ///
 /// # Arguments
 ///
 /// * `displayId` - change display id.
-///
-/// Required System Capabilities: SystemCapability.Window.SessionManager
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -32,13 +32,44 @@ pub type OH_NativeDisplayManager_DisplayChangeCallback =
 ///
 /// * `displayMode` - current fold display mode.
 ///
-/// Required System Capabilities: SystemCapability.Window.SessionManager
-///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NativeDisplayManager_FoldDisplayModeChangeCallback =
     ::core::option::Option<unsafe extern "C" fn(displayMode: NativeDisplayManager_FoldDisplayMode)>;
+/// the callback function type when available area change.
+///
+/// # Arguments
+///
+/// * `displayId` - The changed display id.
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub type OH_NativeDisplayManager_AvailableAreaChangeCallback =
+    ::core::option::Option<unsafe extern "C" fn(displayId: u64)>;
+/// the callback function type when display connect.
+///
+/// # Arguments
+///
+/// * `displayId` - The added display id.
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub type OH_NativeDisplayManager_DisplayAddCallback =
+    ::core::option::Option<unsafe extern "C" fn(displayId: u64)>;
+/// the callback function type when display disconnect.
+///
+/// # Arguments
+///
+/// * `displayId` - The removed display id.
+///
+/// Available since API-level: 20
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub type OH_NativeDisplayManager_DisplayRemoveCallback =
+    ::core::option::Option<unsafe extern "C" fn(displayId: u64)>;
 extern "C" {
     /// Obtain the default display Id.
     ///
@@ -51,8 +82,6 @@ extern "C" {
     /// * { DISPLAY_MANAGER_OK } If the operation is successful
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
-    ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -72,8 +101,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -91,8 +118,6 @@ extern "C" {
     /// * { DISPLAY_MANAGER_OK } If the operation is successful
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
-    ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -112,8 +137,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -131,8 +154,6 @@ extern "C" {
     /// * { DISPLAY_MANAGER_OK } If the operation is successful
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
-    ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -152,8 +173,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -171,8 +190,6 @@ extern "C" {
     /// * { DISPLAY_MANAGER_OK } If the operation is successful
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
-    ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -192,8 +209,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -211,8 +226,6 @@ extern "C" {
     /// * { DISPLAY_MANAGER_OK } If the operation is successful
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
-    ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -232,8 +245,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -251,8 +262,6 @@ extern "C" {
     /// * { DISPLAY_MANAGER_OK } If the operation is successful
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
-    ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -272,8 +281,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -292,8 +299,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -311,8 +316,6 @@ extern "C" {
     /// * { DISPLAY_MANAGER_OK } If the operation is successful
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -325,8 +328,6 @@ extern "C" {
     /// # Returns
     ///
     /// * { bool } true means the device is foldable.
-    ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -343,8 +344,6 @@ extern "C" {
     /// * { DISPLAY_MANAGER_OK } If the operation is successful
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED } device not support.
-    ///
-    /// Required System Capabilities: SystemCapability.Window.SessionManager
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -366,8 +365,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -386,8 +383,6 @@ extern "C" {
     /// * { DISPLAY_MANAGER_OK } If the operation is successful
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
-    ///
-    /// Required System Capabilities: SystemCapability.WindowManager.WindowManager.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -410,8 +405,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED } device not support.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.Window.SessionManager
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -432,8 +425,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED } device not support.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.Window.SessionManager
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -452,8 +443,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.Window.SessionManager.Core
-    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -465,8 +454,6 @@ extern "C" {
     /// # Arguments
     ///
     /// * `allDisplays` - all displays to be free.
-    ///
-    /// Required System Capabilities: SystemCapability.Window.SessionManager.Core
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -488,8 +475,6 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.Window.SessionManager.Core
-    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -502,8 +487,6 @@ extern "C" {
     /// # Arguments
     ///
     /// * `displayInfo` - the target display to be free.
-    ///
-    /// Required System Capabilities: SystemCapability.Window.SessionManager.Core
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -523,12 +506,208 @@ extern "C" {
     /// { DISPLAY_MANAGER_ERROR_INVALID_PARAM } If Parameter error.
     /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
     ///
-    /// Required System Capabilities: SystemCapability.Window.SessionManager.Core
-    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_NativeDisplayManager_CreatePrimaryDisplay(
         displayInfo: *mut *mut NativeDisplayManager_DisplayInfo,
+    ) -> NativeDisplayManagerResult;
+    /// Register the callback for available area change listener.
+    ///
+    /// # Arguments
+    ///
+    /// * `availableAreaChangeCallback` - Available area change callback.
+    ///
+    /// * `listenerIndex` - Indicates the pointer to an <b>uint32_t</b> object. used in unregister call.
+    ///
+    /// # Returns
+    ///
+    /// * { DISPLAY_MANAGER_OK } If the operation is successful
+    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
+    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeDisplayManager_RegisterAvailableAreaChangeListener(
+        availableAreaChangeCallback: OH_NativeDisplayManager_AvailableAreaChangeCallback,
+        listenerIndex: *mut u32,
+    ) -> NativeDisplayManagerResult;
+    /// Unregister the callback for available area changes listener.
+    ///
+    /// # Arguments
+    ///
+    /// * `listenerIndex` - The display changed listener index.
+    ///
+    /// # Returns
+    ///
+    /// * { DISPLAY_MANAGER_OK } If the operation is successful
+    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
+    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeDisplayManager_UnregisterAvailableAreaChangeListener(
+        listenerIndex: u32,
+    ) -> NativeDisplayManagerResult;
+    /// Create the available area.
+    ///
+    /// # Arguments
+    ///
+    /// * `displayId` - The display id.
+    ///
+    /// * `availableArea` - Indicates the pointer to an <b>NativeDisplayManager_Rect</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * { DISPLAY_MANAGER_OK } If the operation is successful
+    /// { DISPLAY_MANAGER_ERROR_DEVICE_NOT_SUPPORTED } device not support.
+    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeDisplayManager_CreateAvailableArea(
+        displayId: u64,
+        availableArea: *mut *mut NativeDisplayManager_Rect,
+    ) -> NativeDisplayManagerResult;
+    /// Destroy an <b>NativeDisplayManager_Rect</b> object and reclaims the memory occupied by the object.
+    ///
+    /// # Arguments
+    ///
+    /// * `availableArea` - Indicates the pointer to an <b>NativeDisplayManager_Rect</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * { DISPLAY_MANAGER_OK } If the operation is successful
+    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeDisplayManager_DestroyAvailableArea(
+        availableArea: *mut NativeDisplayManager_Rect,
+    ) -> NativeDisplayManagerResult;
+    /// Register the callback for display connect listener.
+    ///
+    /// # Arguments
+    ///
+    /// * `displayAddCallback` - display add callback.
+    ///
+    /// * `listenerIndex` - Indicates the pointer to an <b>uint32_t</b> object. used in unregister call.
+    ///
+    /// # Returns
+    ///
+    /// * { DISPLAY_MANAGER_OK } If the operation is successful
+    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
+    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeDisplayManager_RegisterDisplayAddListener(
+        displayAddCallback: OH_NativeDisplayManager_DisplayAddCallback,
+        listenerIndex: *mut u32,
+    ) -> NativeDisplayManagerResult;
+    /// Unregister the callback for display connect listener.
+    ///
+    /// # Arguments
+    ///
+    /// * `listenerIndex` - The display add listener index.
+    ///
+    /// # Returns
+    ///
+    /// * { DISPLAY_MANAGER_OK } If the operation is successful
+    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
+    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeDisplayManager_UnregisterDisplayAddListener(
+        listenerIndex: u32,
+    ) -> NativeDisplayManagerResult;
+    /// Register the callback for display disconnect listener.
+    ///
+    /// # Arguments
+    ///
+    /// * `displayRemoveCallback` - display remove callback.
+    ///
+    /// * `listenerIndex` - Indicates the pointer to an <b>uint32_t</b> object. used in unregister call.
+    ///
+    /// # Returns
+    ///
+    /// * { DISPLAY_MANAGER_OK } If the operation is successful
+    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
+    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeDisplayManager_RegisterDisplayRemoveListener(
+        displayRemoveCallback: OH_NativeDisplayManager_DisplayRemoveCallback,
+        listenerIndex: *mut u32,
+    ) -> NativeDisplayManagerResult;
+    /// Unregister the callback for display disconnect listener.
+    ///
+    /// # Arguments
+    ///
+    /// * `listenerIndex` - The display remove listener index.
+    ///
+    /// # Returns
+    ///
+    /// * { DISPLAY_MANAGER_OK } If the operation is successful
+    /// { DISPLAY_MANAGER_ERROR_ILLEGAL_PARAM } If Parameter illegal.
+    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeDisplayManager_UnregisterDisplayRemoveListener(
+        listenerIndex: u32,
+    ) -> NativeDisplayManagerResult;
+    /// Get the source mode of the device.
+    ///
+    /// # Arguments
+    ///
+    /// * `displayId` - The display id.
+    ///
+    /// * `sourceMode` - Indicates the pointer to an <b>NativeDisplayManager_SourceMode</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * { DISPLAY_MANAGER_OK } If the operation is successful
+    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeDisplayManager_GetDisplaySourceMode(
+        displayId: u64,
+        sourceMode: *mut NativeDisplayManager_SourceMode,
+    ) -> NativeDisplayManagerResult;
+    /// Get the position of the device.
+    ///
+    /// # Arguments
+    ///
+    /// * `displayId` - The display id.
+    ///
+    /// * `x` - The x-coordinate of the screen's top-left corner relative to the primary screen's origin (in px).
+    ///
+    /// * `y` - The y-coordinate of the screen's top-left corner relative to the primary screen's origin (in px).
+    ///
+    /// # Returns
+    ///
+    /// * { DISPLAY_MANAGER_OK } If the operation is successful
+    /// { DISPLAY_MANAGER_ERROR_SYSTEM_ABNORMAL } If display manager service works abnormally.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeDisplayManager_GetDisplayPosition(
+        displayId: u64,
+        x: *mut i32,
+        y: *mut i32,
     ) -> NativeDisplayManagerResult;
 }

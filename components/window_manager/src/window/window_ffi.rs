@@ -8,8 +8,29 @@ use crate::window_comm::WindowManager_Rect;
 use crate::window_comm::{
     WindowManager_AvoidArea, WindowManager_AvoidAreaType, WindowManager_WindowProperties,
 };
+#[cfg(feature = "api-21")]
+use crate::window_comm::{WindowManager_MainWindowInfo, WindowManager_WindowSnapshotConfig};
+#[cfg(feature = "api-20")]
+use ohos_sys_opaque_types::Input_TouchEvent;
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
+/// Callback interface for getting main windows' snapshot.
+///
+/// # Arguments
+///
+/// * `snapshotPixelMapList` - List of windows' snapshot
+///
+/// * `snapshotListSize` - Size of snapshotPixelMapList
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+pub type OH_WindowManager_WindowSnapshotCallback = ::core::option::Option<
+    unsafe extern "C" fn(
+        snapshotPixelMapList: *mut *const OH_PixelmapNative,
+        snapshotListSize: usize,
+    ),
+>;
 extern "C" {
     /// Set whether to show status bar.
     ///
@@ -26,7 +47,6 @@ extern "C" {
     ///
     /// * Returns the result code.
     /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`] parameter error.
     /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
@@ -51,7 +71,6 @@ extern "C" {
     ///
     /// * Returns the result code.
     /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`] parameter error.
     /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
@@ -75,7 +94,6 @@ extern "C" {
     ///
     /// * Returns the result code.
     /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`] parameter error.
     /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
@@ -143,7 +161,6 @@ extern "C" {
     ///
     /// * Returns the result code.
     /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`] parameter error.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
     ///
@@ -163,7 +180,6 @@ extern "C" {
     ///
     /// * Returns the result code.
     /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`] parameter error.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
     ///
@@ -183,7 +199,6 @@ extern "C" {
     ///
     /// * Returns the result code.
     /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`] parameter error.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
     ///
@@ -245,7 +260,6 @@ extern "C" {
     ///
     /// * Returns the result code.
     /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`] parameter error.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
     ///
@@ -266,7 +280,6 @@ extern "C" {
     ///
     /// * Returns the result code.
     /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`] parameter error.
     /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
     /// [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`] permission verification failed.
@@ -310,7 +323,6 @@ extern "C" {
     /// * Returns the result code.
     /// [`OK`] the function call is successful, return pixel map ptr in pixelMap.
     /// [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
     /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
     ///
     /// Available since API-level: 15
@@ -355,5 +367,109 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_WindowManager_ReleaseAllWindowLayoutInfoList(
         windowLayoutInfoList: *mut WindowManager_Rect,
+    );
+    /// app can inject a touchEvent to target window without Focus and zOrder changed, just send to ArkUI.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - windowId when window is created.
+    ///
+    /// * `touchEvent` - multimodal touchEvent.
+    ///
+    /// * `windowX` - The position of the event relative to the abscissa of the window.
+    ///
+    /// * `windowY` - The position of the event relative to the ordinate of the window.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// [`OK`] the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
+    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_WindowManager_InjectTouchEvent(
+        windowId: i32,
+        touchEvent: *mut Input_TouchEvent,
+        windowX: i32,
+        windowY: i32,
+    ) -> i32;
+    /// Get all main window info on device.
+    ///
+    /// ohos.permission.CUSTOM_SCREEN_CAPTURE
+    /// # Arguments
+    ///
+    /// * `infoList` - Indicates the pointer to a main window info list.
+    ///
+    /// * `mainWindowInfoSize` - The size of main window info list.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`WS_OK`] the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`] permission verification failed.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_WindowManager_GetAllMainWindowInfo(
+        infoList: *mut *mut WindowManager_MainWindowInfo,
+        mainWindowInfoSize: *mut usize,
+    ) -> i32;
+    /// Release all main window info list.
+    ///
+    /// # Arguments
+    ///
+    /// * `infoList` - Pointer to the main window info list.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_WindowManager_ReleaseAllMainWindowInfo(infoList: *mut WindowManager_MainWindowInfo);
+    /// Get snapshot of the specified windows.
+    ///
+    /// ohos.permission.CUSTOM_SCREEN_CAPTURE
+    /// # Arguments
+    ///
+    /// * `windowIdList` - Main window id list for getting snapshot.
+    ///
+    /// * `windowIdListSize` - Size of main window id list.
+    ///
+    /// * `config` - Configuration for getting snapshot.
+    ///
+    /// * `callback` - Snapshot callback object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`WS_OK`] the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`] permission verification failed.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_WindowManager_GetMainWindowSnapshot(
+        windowIdList: *mut i32,
+        windowIdListSize: usize,
+        config: WindowManager_WindowSnapshotConfig,
+        callback: OH_WindowManager_WindowSnapshotCallback,
+    ) -> i32;
+    /// Release main window snapshot list.
+    ///
+    /// # Arguments
+    ///
+    /// * `snapshotPixelMapList` - Indicates the pointer of a windows' snapshot list.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_WindowManager_ReleaseMainWindowSnapshot(
+        snapshotPixelMapList: *const OH_PixelmapNative,
     );
 }
