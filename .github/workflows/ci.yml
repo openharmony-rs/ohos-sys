@@ -28,7 +28,7 @@ jobs:
       - name: Setup OpenHarmony SDK
         uses: openharmony-rs/setup-ohos-sdk@v0.2
         with:
-          version: 5.1.0
+          version: 6.0.0.1
       - name: Generate bindings
         run: ./scripts/generate_bindings.sh
       - name: Check integrity
@@ -53,7 +53,7 @@ jobs:
     strategy:
       matrix:
         # Note: We don't test API 16+17 in CI, since they were never officially releases separately.
-        api_level: ["api-10", "api-11", "api-12", "api-13", "api-14", "api-15", "api-18", "api-20"]
+        api_level: ["api-10", "api-11", "api-12", "api-13", "api-14", "api-15", "api-18", "api-20", "api-21"]
     name: Build with API feature levels
     runs-on: ubuntu-latest
     steps:
@@ -105,6 +105,12 @@ jobs:
         run: cargo build --features api-17 --features ${{ matrix.component }}
       - name: Build minimal features API-18
         run: cargo build --features api-18 --features ${{ matrix.component }}
+      - name: Build minimal features API-19
+        run: cargo build --features api-19 --features ${{ matrix.component }}
+      - name: Build minimal features API-20
+        run: cargo build --features api-20 --features ${{ matrix.component }}
+      - name: Build minimal features API-21
+        run: cargo build --features api-21 --features ${{ matrix.component }}
   semver_checks:
     runs-on: ubuntu-latest
     steps:
