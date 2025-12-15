@@ -19,7 +19,7 @@ members = [
 exclude = ["components/multimedia", "scripts"]
 
 [workspace.dependencies]
-ohos-sys-opaque-types = { version = "0.1.7", path = "components/opaque-types" }
+ohos-sys-opaque-types = { version = "0.1.8", path = "components/opaque-types" }
 
 [dependencies]
 document-features = { version = "0.2", optional = true }
