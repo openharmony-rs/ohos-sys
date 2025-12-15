@@ -1,6 +1,6 @@
 [package]
 name = "xcomponent-sys"
-version = "0.3.4"
+version = "0.3.5"
 edition = "2021"
 description = "Raw Bindings to the `xcomponent` API of OpenHarmony"
 license = "Apache-2.0"
@@ -13,7 +13,7 @@ readme = "README.md"
 document-features = { version = "0.2", optional = true }
 keyboard-types = { version = "0.8", optional = true }
 arkui-sys = { version = "0.3.0", path = "../arkui", optional = true}
-ohos-sys-opaque-types = { workspace = true}
+ohos-sys-opaque-types = { workspace = true }
 
 [features]
 default = []
@@ -30,6 +30,12 @@ api-16 = ["api-15"]
 api-17 = ["api-16"]
 ## Enables bindings for OpenHarmony API-level 18 (5.1.0).
 api-18 = ["api-17"]
+## Enables bindings for OpenHarmony API-level 19.
+api-19 = ["api-18"]
+## Enables bindings for OpenHarmony API-level 20.
+api-20 = ["api-19"]
+## Enables bindings for OpenHarmony API-level 21.
+api-21 = ["api-20"]
 ## Enables XComponent APIs that depend on ArkUI.
 arkui = ["dep:arkui-sys"]
 ## Provides optional conversion from the OH keyboard enum to the keyboard-types enum.

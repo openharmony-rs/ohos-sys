@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.5
+
+- Add support up to API-21
+
 ## 0.3.4
 
 - Upgrade keyboard_types to 0.8.0

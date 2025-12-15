@@ -5,6 +5,8 @@
 #![allow(non_snake_case)]
 #[cfg(feature = "api-13")]
 use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;
+#[cfg(feature = "api-19")]
+use ohos_sys_opaque_types::{ArkUI_NodeHandle, OHNativeWindow};
 
 pub const OH_NATIVE_XCOMPONENT_OBJ: &::core::ffi::CStr = c"__NATIVE_XCOMPONENT_OBJ__";
 pub const OH_NATIVE_XCOMPONENT_MAX_TOUCH_POINTS_NUMBER: u32 = 10;
@@ -398,6 +400,12 @@ impl OH_NativeXComponent_TouchEventType {
         OH_NativeXComponent_TouchEventType(4);
 }
 #[repr(transparent)]
+/// Represents the type of touch event.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeXComponent_TouchEventType(pub ::core::ffi::c_uint);
 impl OH_NativeXComponent_TouchPointToolType {
@@ -552,6 +560,12 @@ impl OH_NativeXComponent_TouchEvent_SourceTool {
 /// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeXComponent_TouchEvent_SourceTool(pub ::core::ffi::c_uint);
+/// Represents the historical point.
+///
+///
+/// Available since API-level: 10
+///
+/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeXComponent_HistoricalPoint {
@@ -580,6 +594,12 @@ pub struct OH_NativeXComponent_HistoricalPoint {
     /// The sourceTool of the current touch event.
     pub sourceTool: OH_NativeXComponent_TouchEvent_SourceTool,
 }
+/// Represents the touch point information of touch event.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeXComponent_TouchPoint {
@@ -604,6 +624,12 @@ pub struct OH_NativeXComponent_TouchPoint {
     /// Whether the current point is pressed.
     pub isPressed: bool,
 }
+/// Represents the touch event.
+///
+///
+/// Available since API-level: 8
+///
+/// Version: 1.0
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeXComponent_TouchEvent {
@@ -737,6 +763,39 @@ pub struct OH_NativeXComponent_ExpectedRateRange {
     pub max: i32,
     /// The expected frame rate of dynamical callback rate range.
     pub expected: i32,
+}
+/// Provides an encapsulated <b>OH_NativeXComponent_ExtraMouseEventInfo</b>
+/// instance which has extra info compared to OH_NativeXComponent_MouseEvent.
+///
+///
+/// Available since API-level: 20
+///
+/// Version: 1.0
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[repr(C)]
+pub struct OH_NativeXComponent_ExtraMouseEventInfo {
+    _unused: [u8; 0],
+}
+/// Provides an encapsulated <b>OH_ArkUI_SurfaceHolder</b> instance.
+///
+///
+/// Available since API-level: 19
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+#[repr(C)]
+pub struct OH_ArkUI_SurfaceHolder {
+    _unused: [u8; 0],
+}
+/// Define the surface lifecycle callback.
+///
+///
+/// Available since API-level: 19
+#[cfg(feature = "api-19")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+#[repr(C)]
+pub struct OH_ArkUI_SurfaceCallback {
+    _unused: [u8; 0],
 }
 extern "C" {
     /// Obtains the ID of the ArkUI XComponent.
@@ -1041,7 +1100,9 @@ extern "C" {
     ///
     /// * `window` - Indicates the native window handler.
     ///
-    /// * `historicalPoints` - Indicates the pointer to the current historicalPoints.
+    /// * `size` - Length of the historical touch point array.
+    ///
+    /// * `historicalPoints` - Pointer to the historical touch point array.
     ///
     /// # Returns
     ///
@@ -1115,6 +1176,54 @@ extern "C" {
     pub fn OH_NativeXComponent_RegisterMouseEventCallback(
         component: *mut OH_NativeXComponent,
         callback: *mut OH_NativeXComponent_MouseEvent_Callback,
+    ) -> i32;
+    /// Obtains the extra mouse event dispatched by the ArkUI XComponent.
+    ///
+    /// # Arguments
+    ///
+    /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
+    ///
+    /// * `extraMouseEventInfo` - Indicates the pointer to pointer of <b>OH_NativeXComponent_ExtraMouseEventInfo</b> instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeXComponent_GetExtraMouseEventInfo(
+        component: *mut OH_NativeXComponent,
+        extraMouseEventInfo: *mut *mut OH_NativeXComponent_ExtraMouseEventInfo,
+    ) -> i32;
+    /// Obtains the state of the modifier keys of the mouse event.
+    ///
+    /// # Arguments
+    ///
+    /// * `extraMouseEventInfo` - Indicates the pointer to this <b>OH_NativeXComponent_ExtraMouseEventInfo</b> instance.
+    ///
+    /// * `keys` - Pointer to a variable where the current combination of pressed modifier keys will be returned.
+    /// The application can use bitwise operations to determine the state of each modifier key.
+    /// Modifier keys can be referred to [`ArkUI_ModifierKeyName`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeXComponent_GetMouseEventModifierKeyStates(
+        extraMouseEventInfo: *mut OH_NativeXComponent_ExtraMouseEventInfo,
+        keys: *mut u64,
     ) -> i32;
     /// Registers a callback for this <b>OH_NativeXComponent</b> instance.
     ///
@@ -1302,13 +1411,107 @@ extern "C" {
         keyEvent: *mut OH_NativeXComponent_KeyEvent,
         timestamp: *mut i64,
     ) -> i32;
+    /// Obtains the state of the modifier keys of the key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    ///
+    /// * `keys` - Pointer to a variable where the current combination of pressed modifier keys will be returned.
+    /// The application can use bitwise operations to determine the state of each modifier key.
+    /// Modifier keys can be referred to [`ArkUI_ModifierKeyName`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeXComponent_GetKeyEventModifierKeyStates(
+        keyEvent: *mut OH_NativeXComponent_KeyEvent,
+        keys: *mut u64,
+    ) -> i32;
+    /// Obtains the Num Lock state of the key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    ///
+    /// * `isNumLockOn` - Return whether the Num Lock is on.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeXComponent_GetKeyEventNumLockState(
+        keyEvent: *mut OH_NativeXComponent_KeyEvent,
+        isNumLockOn: *mut bool,
+    ) -> i32;
+    /// Obtains the Caps Lock state of the key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    ///
+    /// * `isCapsLockOn` - Return whether the Caps Lock is on.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeXComponent_GetKeyEventCapsLockState(
+        keyEvent: *mut OH_NativeXComponent_KeyEvent,
+        isCapsLockOn: *mut bool,
+    ) -> i32;
+    /// Obtains the Scroll Lock state of the key event.
+    ///
+    /// # Arguments
+    ///
+    /// * `keyEvent` - Indicates the pointer to this <b>OH_NativeXComponent_KeyEvent</b> instance.
+    ///
+    /// * `isScrollLockOn` - Return whether the Scroll Lock is on.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_NativeXComponent_GetKeyEventScrollLockState(
+        keyEvent: *mut OH_NativeXComponent_KeyEvent,
+        isScrollLockOn: *mut bool,
+    ) -> i32;
     /// Set the Expected FrameRateRange.
     ///
     /// # Arguments
     ///
     /// * `component` - Indicates the pointer to this <b>OH_NativeXComponent</b> instance.
     ///
-    /// * `callback` - Indicates the pointer to a expected rate range.
+    /// * `range` - Indicates the pointer to a expected rate range.
     ///
     /// # Returns
     ///
@@ -1518,4 +1721,430 @@ extern "C" {
             ) -> bool,
         >,
     ) -> i32;
+    /// Create a <b>OH_ArkUI_SurfaceHolder</b> object from an XComponent node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent node.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the created <b>OH_ArkUI_SurfaceHolder</b> object's pointer.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceHolder_Create(node: ArkUI_NodeHandle) -> *mut OH_ArkUI_SurfaceHolder;
+    /// Disposes of a <b>OH_ArkUI_SurfaceHolder</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to <b>OH_ArkUI_SurfaceHolder</b> object needed to dispose.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceHolder_Dispose(surfaceHolder: *mut OH_ArkUI_SurfaceHolder);
+    /// Saves custom data on the <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `surfaceHolder` - Indicates the <b>OH_ArkUI_SurfaceHolder</b> instance
+    /// on which the custom data will be saved.
+    ///
+    /// * `userData` - Indicates the custom data to be saved.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceHolder_SetUserData(
+        surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
+        userData: *mut ::core::ffi::c_void,
+    ) -> i32;
+    /// Obtains the custom data saved on the <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `surfaceHolder` - Indicates the target <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the custom data.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceHolder_GetUserData(
+        surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
+    ) -> *mut ::core::ffi::c_void;
+    /// Create a <b>OH_ArkUI_SurfaceCallback</b> object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the created <b>OH_ArkUI_SurfaceCallback</b> object's pointer.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceCallback_Create() -> *mut OH_ArkUI_SurfaceCallback;
+    /// Disposes of a <b>OH_ArkUI_SurfaceCallback</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// * `callback` - Indicates the pointer to <b>OH_ArkUI_SurfaceCallback</b> object needed to dispose.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceCallback_Dispose(callback: *mut OH_ArkUI_SurfaceCallback);
+    /// Set the surface created event of the surface callback.
+    ///
+    /// # Arguments
+    ///
+    /// * `callback` - Indicated the pointer to the surface callback.
+    ///
+    /// * `onSurfaceCreated` - Indicates the surface created callback event
+    /// which will called when the surface is created.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceCallback_SetSurfaceCreatedEvent(
+        callback: *mut OH_ArkUI_SurfaceCallback,
+        onSurfaceCreated: ::core::option::Option<
+            unsafe extern "C" fn(surfaceHolder: *mut OH_ArkUI_SurfaceHolder),
+        >,
+    );
+    /// Set the surface changed event of the surface callback.
+    ///
+    /// # Arguments
+    ///
+    /// * `callback` - Indicated the pointer to the surface callback.
+    ///
+    /// * `onSurfaceChanged` - Indicates the surface changed callback event
+    /// which will called when the surface is changed.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceCallback_SetSurfaceChangedEvent(
+        callback: *mut OH_ArkUI_SurfaceCallback,
+        onSurfaceChanged: ::core::option::Option<
+            unsafe extern "C" fn(
+                surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
+                width: u64,
+                height: u64,
+            ),
+        >,
+    );
+    /// Set the surface destroyed event of the surface callback.
+    ///
+    /// # Arguments
+    ///
+    /// * `callback` - Indicated the pointer to the surface callback.
+    ///
+    /// * `onSurfaceDestroyed` - Indicates the surface destroyed callback event
+    /// which will called when the surface is destroyed.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceCallback_SetSurfaceDestroyedEvent(
+        callback: *mut OH_ArkUI_SurfaceCallback,
+        onSurfaceDestroyed: ::core::option::Option<
+            unsafe extern "C" fn(surfaceHolder: *mut OH_ArkUI_SurfaceHolder),
+        >,
+    );
+    /// Adds a surface lifecycle callback for this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `surfaceHolder` - Indicates the pointer to this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// * `callback` - Indicates the pointer to this new callback.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceHolder_AddSurfaceCallback(
+        surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
+        callback: *mut OH_ArkUI_SurfaceCallback,
+    ) -> i32;
+    /// Removes a previously added surface lifecycle callback
+    /// from this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `surfaceHolder` - Indicates the pointer to this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// * `callback` - Indicates the pointer to the callback needed to remove.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_SurfaceHolder_RemoveSurfaceCallback(
+        surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
+        callback: *mut OH_ArkUI_SurfaceCallback,
+    ) -> i32;
+    /// Obtains the nativeWindow associated with a <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `surfaceHolder` - Indicates the pointer to this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the nativeWindow associated with this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_XComponent_GetNativeWindow(
+        surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
+    ) -> *mut OHNativeWindow;
+    /// Set whether the XComponent node needs to initialize automatically.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent node.
+    ///
+    /// * `autoInitialize` - Indicates whether the XComponent node needs to initialize automatically or not.
+    /// If the value is true, OnSurfaceCreated will be called when the node is mounted and
+    /// OnSurfaceDestroyed will be called when the node is unmounted.
+    /// Default value is true.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node is invalid.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_XComponent_SetAutoInitialize(
+        node: ArkUI_NodeHandle,
+        autoInitialize: bool,
+    ) -> i32;
+    /// Initialize the XComponent node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent node.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node is invalid.
+    /// [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`] if the node has initialized.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_XComponent_Initialize(node: ArkUI_NodeHandle) -> i32;
+    /// Finalize the XComponent node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent node.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node is invalid.
+    /// [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`] if the node has finalized.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_XComponent_Finalize(node: ArkUI_NodeHandle) -> i32;
+    /// Obtains whether the XComponent node has initalized or not.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent node.
+    ///
+    /// * `isInitialized` - Indicates whether the XComponent node has initalized.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node is invalid.
+    ///
+    /// Available since API-level: 19
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_ArkUI_XComponent_IsInitialized(
+        node: ArkUI_NodeHandle,
+        isInitialized: *mut bool,
+    ) -> i32;
+    /// Set the Expected FrameRateRange for the XComponent node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent node.
+    ///
+    /// * `range` - Indicates the expected rate range.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_XComponent_SetExpectedFrameRateRange(
+        node: ArkUI_NodeHandle,
+        range: OH_NativeXComponent_ExpectedRateRange,
+    ) -> i32;
+    /// Registers an onFrame callback for the XComponent node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent node.
+    ///
+    /// * `callback` - Indicates the pointer to an onFrame callback.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_XComponent_RegisterOnFrameCallback(
+        node: ArkUI_NodeHandle,
+        callback: ::core::option::Option<
+            unsafe extern "C" fn(node: ArkUI_NodeHandle, timestamp: u64, targetTimestamp: u64),
+        >,
+    ) -> i32;
+    /// UnRegister the onFrame callback for the XComponent node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent node.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_XComponent_UnregisterOnFrameCallback(node: ArkUI_NodeHandle) -> i32;
+    /// Set whether the XComponent node needs soft keyboard when focused.
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent node.
+    ///
+    /// * `needSoftKeyboard` - Indicates whether the XComponent node needs soft keyboard or not.
+    /// Default value is false.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_XComponent_SetNeedSoftKeyboard(
+        node: ArkUI_NodeHandle,
+        needSoftKeyboard: bool,
+    ) -> i32;
+    /// Create a <b>ArkUI_AccessibilityProvider</b> object from an XComponent node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the XComponent node.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the created <b>ArkUI_AccessibilityProvider</b> object's pointer.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_AccessibilityProvider_Create(
+        node: ArkUI_NodeHandle,
+    ) -> *mut ArkUI_AccessibilityProvider;
+    /// Disposes of an <b>ArkUI_AccessibilityProvider</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// * `provider` - Indicates the pointer to <b>ArkUI_AccessibilityProvider</b> object needed to dispose.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_AccessibilityProvider_Dispose(provider: *mut ArkUI_AccessibilityProvider);
+    /// Set the surface show event of the surface callback.
+    ///
+    /// # Arguments
+    ///
+    /// * `callback` - Indicated the pointer to the surface callback.
+    ///
+    /// * `onSurfaceShow` - Indicates the surface show callback event which will called when the surface is shown.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_SurfaceCallback_SetSurfaceShowEvent(
+        callback: *mut OH_ArkUI_SurfaceCallback,
+        onSurfaceShow: ::core::option::Option<
+            unsafe extern "C" fn(surfaceHolder: *mut OH_ArkUI_SurfaceHolder),
+        >,
+    );
+    /// Set the surface hide event of the surface callback.
+    ///
+    /// # Arguments
+    ///
+    /// * `callback` - Indicated the pointer to the surface callback.
+    ///
+    /// * `onSurfaceHide` - Indicates the surface hide callback event which will called when the surface is hide.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_ArkUI_SurfaceCallback_SetSurfaceHideEvent(
+        callback: *mut OH_ArkUI_SurfaceCallback,
+        onSurfaceHide: ::core::option::Option<
+            unsafe extern "C" fn(surfaceHolder: *mut OH_ArkUI_SurfaceHolder),
+        >,
+    );
 }
