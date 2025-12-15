@@ -514,6 +514,9 @@ extern "C" {
     ///
     /// This interface will only take effect when used together with the <b>OH_NativeImage_UpdateSurfaceImage</b>.
     ///
+    /// The listener callback set through <b>OH-NativeImage_SetOnFrameAvailableListener</b> will not decrease
+    /// due to the frame loss mode being set.
+    ///
     /// This interface is a non-thread-safe type interface.
     ///
     ///

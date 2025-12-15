@@ -568,6 +568,17 @@ extern "C" {
     /// This interface is a non-thread-safe type interface.
     ///
     ///
+    /// <p><strong>API Note</strong>
+    ///
+    /// <strong>Performance Note</strong>
+    /// <p>By default, the window buffer in the current operating system is accessed via the CPU. If an application
+    /// does not need to access the window buffer data using the CPU, it can proactively disable CPU access to
+    /// enhance energy efficiency and reduce power consumption.
+    /// </p>
+    /// <p>For details about how to optimize power consumption for data read/write operations in data buffers,
+    /// see [How do I proactively disable CPU access to window buffers to reduce power consumption?][`https://developer.huawei.com/consumer/en/doc/harmonyos-faqs/faqs-arkgraphics-2d-14`].</p>
+    /// </p>
+    ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
     /// # Arguments
@@ -1155,4 +1166,27 @@ extern "C" {
         size: *mut i32,
         metadata: *mut *mut u8,
     ) -> i32;
+    /// Clean all <b>OHNativeWindowBuffer</b> caches of this <b>OHNativeWindow</b>
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
+    /// # Arguments
+    ///
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window is NULL.
+    /// [`NATIVE_ERROR_CONSUMER_DISCONNECTED`] 41211000 - the consumer is disconnected.
+    /// [`NATIVE_ERROR_BINDER_ERROR`] 50401000 - ipc send failed.
+    ///
+    /// Available since API-level: 19
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_NativeWindow_CleanCache(window: *mut OHNativeWindow) -> i32;
 }
