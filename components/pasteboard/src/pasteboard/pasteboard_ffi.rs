@@ -221,7 +221,8 @@ extern "C" {
     ///
     /// * `pasteboard` - Pointer to the [`OH_Pasteboard`] instance.
     ///
-    /// * `type` - Event type to subscribe to.
+    /// * `type` - Event type to subscribe to report the pasteboard data change.
+    /// For details, see [`Pasteboard_NotifyType`].
     ///
     /// * `observer` - - Pointer to the observer information, which specifies the callback used to
     /// reporting the pasteboard data change. For details, see [`OH_PasteboardObserver`].
@@ -231,7 +232,7 @@ extern "C" {
     /// * Returns the status code of the execution. For details, [`PASTEBOARD_ErrCode`].
     /// Returns [`ERR_OK`] if the operation is successful.
     /// Returns [`ERR_INVALID_PARAMETER`] if invalid args are detected.
-    /// [`OH_Pasteboard`] OH_PasteboardObserver PASTEBOARD_ErrCode.
+    /// [`OH_Pasteboard`] OH_PasteboardObserver Pasteboard_NotifyType PASTEBOARD_ErrCode.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -247,7 +248,8 @@ extern "C" {
     ///
     /// * `pasteboard` - Pointer to the [`OH_Pasteboard`] instance.
     ///
-    /// * `type` - Event type to subscribe to.
+    /// * `type` - Event type to subscribe to report the pasteboard data change.
+    /// For details, see [`Pasteboard_NotifyType`].
     ///
     /// * `observer` - - Pointer to the observer information, which specifies the callback used to
     /// reporting the pasteboard data change. For details, see [`OH_PasteboardObserver`].
@@ -257,7 +259,7 @@ extern "C" {
     /// * Returns the status code of the execution. For details, [`PASTEBOARD_ErrCode`].
     /// Returns [`ERR_OK`] if the operation is successful.
     /// Returns [`ERR_INVALID_PARAMETER`] if invalid args are detected.
-    /// [`OH_Pasteboard`] OH_PasteboardObserver PASTEBOARD_ErrCode.
+    /// [`OH_Pasteboard`] OH_PasteboardObserver Pasteboard_NotifyType PASTEBOARD_ErrCode.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -446,7 +448,7 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`Pasteboard_GetDataParams`]
     /// structure is returned. If the operation is failed, nullptr is returned.
-    /// [`Pasteboard_GetDataParams`]
+    /// [`Pasteboard_GetDataParams.`]
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -456,7 +458,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
-    /// [`Pasteboard_GetDataParams`]
+    /// [`Pasteboard_GetDataParams.`]
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -468,7 +470,7 @@ extern "C" {
     /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
     ///
     /// * `progressIndicator` - Represents to the progress indicator.
-    /// [`Pasteboard_GetDataParams`] Pasteboard_ProgressIndicator
+    /// [`Pasteboard_GetDataParams`] Pasteboard_ProgressIndicator.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -486,7 +488,7 @@ extern "C" {
     /// * `destUri` - Pointer to a destination uri.
     ///
     /// * `destUriLen` - Indicates the length of destination uri.
-    /// [`Pasteboard_GetDataParams`]
+    /// [`Pasteboard_GetDataParams.`]
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -502,7 +504,7 @@ extern "C" {
     /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
     ///
     /// * `option` - Represents to the file conflict options.
-    /// [`Pasteboard_GetDataParams`] Pasteboard_FileConflictOptions
+    /// [`Pasteboard_GetDataParams`] Pasteboard_FileConflictOptions.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -518,7 +520,7 @@ extern "C" {
     /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
     ///
     /// * `listener` - Represents to the data progress listener.
-    /// [`Pasteboard_GetDataParams`] OH_Pasteboard_ProgressListener
+    /// [`Pasteboard_GetDataParams`] OH_Pasteboard_ProgressListener.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -536,7 +538,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the progress.
-    /// [`Pasteboard_ProgressInfo`]
+    /// [`Pasteboard_ProgressInfo.`]
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -577,4 +579,19 @@ extern "C" {
         params: *mut Pasteboard_GetDataParams,
         status: *mut ::core::ffi::c_int,
     ) -> *mut OH_UdmfData;
+    /// Notifies the system pasteboard to synchronize all time-lapse paste data from application.
+    ///
+    /// # Arguments
+    ///
+    /// * `pasteboard` - Pointer to the [`OH_Pasteboard`] instance.
+    ///
+    /// * `callback` - Indicates the pointer to the callback that is called after the synchronize is finished.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Pasteboard_SyncDelayedDataAsync(
+        pasteboard: *mut OH_Pasteboard,
+        callback: ::core::option::Option<unsafe extern "C" fn(errorCode: ::core::ffi::c_int)>,
+    );
 }
