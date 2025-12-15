@@ -55,6 +55,26 @@ extern "C" {
         xRad: f32,
         yRad: f32,
     ) -> *mut OH_Drawing_RoundRect;
+    /// Creates an <b>OH_Drawing_RoundRect</b> copy object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object to copy.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_RoundRect</b> object created.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_RoundRectCopy(
+        roundRect: *const OH_Drawing_RoundRect,
+    ) -> *mut OH_Drawing_RoundRect;
     /// Sets the radiusX and radiusY for a specific corner position.
     ///
     ///

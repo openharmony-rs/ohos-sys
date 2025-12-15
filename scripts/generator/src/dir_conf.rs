@@ -354,6 +354,10 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     builder
                 };
                 let builder = match file_stem {
+                    "brush" => builder
+                        .raw_line("#[cfg(feature = \"api-20\")]")
+                        .raw_line("use ohos_sys_opaque_types::OH_NativeColorSpaceManager;")
+                    ,
                     "canvas" => builder
                         .raw_line("#[cfg(feature = \"api-18\")]")
                         .raw_line("use crate::sampling_options::OH_Drawing_FilterMode;"),
@@ -368,13 +372,20 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "register_font" => builder.raw_line("use crate::text_declaration::*;"),
                     "image_filter" => builder.raw_line("use crate::shader_effect::*;"),
                     "font_mgr" => builder.raw_line("use crate::text_typography::*;"),
+                    "pen" => builder
+                        .raw_line("#[cfg(feature = \"api-20\")]")
+                        .raw_line("use ohos_sys_opaque_types::OH_NativeColorSpaceManager;"),
                     "pixel_map" => builder.raw_line(
                         "use ohos_sys_opaque_types::{OH_PixelmapNative, NativePixelMap_};",
                     ),
                     "text_blob" => builder.no_copy("OH_Drawing_RunBuffer"),
                     "text_line" => builder.raw_line("use crate::text_declaration::{OH_Drawing_Run, OH_Drawing_TextLine, OH_Drawing_Typography};"),
                     "text_lineTypography" => builder.raw_line("use crate::text_declaration::{OH_Drawing_LineTypography, OH_Drawing_TextLine, OH_Drawing_TypographyCreate};"),
-                    "text_run" => builder.raw_line("use crate::text_declaration::OH_Drawing_Run;"),
+                    "text_run" => builder
+                        .raw_line("use crate::text_declaration::OH_Drawing_Run;")
+                        .raw_line("#[cfg(feature = \"api-20\")]")
+                        .raw_line("use crate::text_typography::OH_Drawing_TextDirection;")
+                    ,
                     _ => builder,
                 };
                 builder

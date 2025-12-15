@@ -63,4 +63,28 @@ extern "C" {
         fontBuffer: *mut u8,
         length: usize,
     ) -> u32;
+    /// Unregister a customized font by the font family.
+    /// Unregistering a font that is currently in use by UI components may lead to text rendering anomalies,
+    /// including garbled characters or missing glyphs.
+    /// All typography using the unregistered font family should be destroyed and re-created.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    ///
+    /// * `fontFamily` - Indicates the family-name of the font which need to be unregistered.
+    ///
+    /// # Returns
+    ///
+    /// * error code.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_UnregisterFont(
+        fontCollection: *mut OH_Drawing_FontCollection,
+        fontFamily: *const ::core::ffi::c_char,
+    ) -> u32;
 }

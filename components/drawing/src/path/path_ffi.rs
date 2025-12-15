@@ -159,6 +159,84 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_PathDestroy(path: *mut OH_Drawing_Path);
+    /// Sets <b>OH_Drawing_Path</b> object with the same content of another.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Path</b> object to copy content from.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if path or other is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PathSetPath(
+        path: *mut OH_Drawing_Path,
+        other: *mut OH_Drawing_Path,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if <b>OH_Drawing_Path</b> object is empty.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `isEmpty` - Indicates the return value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if path or isEmpty is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PathIsEmpty(
+        path: *mut OH_Drawing_Path,
+        isEmpty: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if <b>OH_Drawing_Path</b> represents a rectangle.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `rect` - Indicates the Pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `isRect` - Indicates the return value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if path or isRect is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PathIsRect(
+        path: *mut OH_Drawing_Path,
+        rect: *mut OH_Drawing_Rect,
+        isRect: *mut bool,
+    ) -> crate::error_code::DrawingResult;
     /// Sets the start point of a path.
     ///
     ///
@@ -861,6 +939,31 @@ extern "C" {
         path: *mut OH_Drawing_Path,
         pathFillType: OH_Drawing_PathFillType,
     );
+    /// Gets FillType, the rule used to fill path.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `pathFillType` - Indicates the FillType apply to path.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if path or pathFillType is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PathGetFillType(
+        path: *mut OH_Drawing_Path,
+        pathFillType: *mut OH_Drawing_PathFillType,
+    ) -> crate::error_code::DrawingResult;
     /// Gets the length of the current path object.
     ///
     ///
@@ -1098,4 +1201,108 @@ extern "C" {
         matrix: *mut OH_Drawing_Matrix,
         flag: OH_Drawing_PathMeasureMatrixFlags,
     ) -> bool;
+    /// Approximates the path with a series of line segments.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `acceptableError` - Indicates the acceptable error for a line on the path. Should be no less than 0.
+    ///
+    /// * `vals` - Indicates the storage for the computed array containing point components.
+    /// There are three components for each point:
+    /// 1.Fraction along the length of the path that the point resides.
+    /// 2.The x coordinate of the point.
+    /// 3.The y coordinate of the point.
+    ///
+    /// * `count` - Returns with the size of array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if path or count is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`] if acceptableError is less than 0.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PathApproximate(
+        path: *mut OH_Drawing_Path,
+        acceptableError: f32,
+        vals: *mut f32,
+        count: *mut u32,
+    ) -> crate::error_code::DrawingResult;
+    /// Performs interpolation between the current path and another path based on a given weight, and stores the
+    /// result in the target path object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Path</b> object to be interpolated with path.
+    ///
+    /// * `weight` - Indicates the interpolation weight, which must be in the range [0, 1].
+    ///
+    /// * `success` - Indicates the interpolation is success or not.
+    ///
+    /// * `interpolatedPath` - Indicates the pointer to an <b>OH_Drawing_Path</b> object to store the result.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if either path, other, success or interpolatedPath is
+    /// nullptr.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`] if weight is outside the range [0, 1].
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PathInterpolate(
+        path: *mut OH_Drawing_Path,
+        other: *mut OH_Drawing_Path,
+        weight: f32,
+        success: *mut bool,
+        interpolatedPath: *mut OH_Drawing_Path,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks whether the current path is compatible with another path (other) for interpolation, which means
+    /// they have exactly the same structure, both paths must have the same operations, in the same order.
+    /// If any of the operations are of type CONIC, then the weights of those conics must also match.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Path</b> object to be interpolated with path.
+    ///
+    /// * `result` - Indicates whether the current path and the other path are compatible for interpolation.
+    /// The value is true if the paths are compatible, and false otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if either path, other or result is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_PathIsInterpolate(
+        path: *mut OH_Drawing_Path,
+        other: *mut OH_Drawing_Path,
+        result: *mut bool,
+    ) -> crate::error_code::DrawingResult;
 }

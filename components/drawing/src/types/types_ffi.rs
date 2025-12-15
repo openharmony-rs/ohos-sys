@@ -261,6 +261,18 @@ pub struct OH_Drawing_ColorFilter {
 pub struct OH_Drawing_Font {
     _unused: [u8; 0],
 }
+/// Defines fontFeatures, which is used to describe the features for a font.
+///
+///
+/// Available since API-level: 20
+///
+/// Version: 1.0
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[repr(C)]
+pub struct OH_Drawing_FontFeatures {
+    _unused: [u8; 0],
+}
 /// Defines a memoryStream, which is used to describe the memory stream.
 ///
 ///

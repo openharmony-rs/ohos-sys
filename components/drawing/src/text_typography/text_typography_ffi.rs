@@ -155,6 +155,13 @@ impl OH_Drawing_PlaceholderVerticalAlignment {
     /// Center of Row Box
     pub const ALIGNMENT_CENTER_OF_ROW_BOX: OH_Drawing_PlaceholderVerticalAlignment =
         OH_Drawing_PlaceholderVerticalAlignment(5);
+    /// Follow paragraph setting
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const ALIGNMENT_FOLLOW_PARAGRAPH: OH_Drawing_PlaceholderVerticalAlignment =
+        OH_Drawing_PlaceholderVerticalAlignment(6);
 }
 #[repr(transparent)]
 /// Enumerates placeholder vertical alignment.
@@ -628,6 +635,126 @@ impl OH_Drawing_FontWidth {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_FontWidth(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+impl OH_Drawing_TextStyleAttributeId {
+    /// Line height maximum
+    pub const TEXT_STYLE_ATTR_D_LINE_HEIGHT_MAXIMUM: OH_Drawing_TextStyleAttributeId =
+        OH_Drawing_TextStyleAttributeId(0);
+    /// Line height minimum
+    pub const TEXT_STYLE_ATTR_D_LINE_HEIGHT_MINIMUM: OH_Drawing_TextStyleAttributeId =
+        OH_Drawing_TextStyleAttributeId(1);
+    /// Line height style
+    pub const TEXT_STYLE_ATTR_I_LINE_HEIGHT_STYLE: OH_Drawing_TextStyleAttributeId =
+        OH_Drawing_TextStyleAttributeId(2);
+    /// Font width
+    pub const TEXT_STYLE_ATTR_I_FONT_WIDTH: OH_Drawing_TextStyleAttributeId =
+        OH_Drawing_TextStyleAttributeId(3);
+}
+#[repr(transparent)]
+/// Enumerates text style attribute.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Drawing_TextStyleAttributeId(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+impl OH_Drawing_LineHeightStyle {
+    /// Use the font size as the scale factor for line height scaling
+    pub const TEXT_LINE_HEIGHT_BY_FONT_SIZE: OH_Drawing_LineHeightStyle =
+        OH_Drawing_LineHeightStyle(0);
+    /// Use the text height after shaping as the scale factor for line height scaling
+    pub const TEXT_LINE_HEIGHT_BY_FONT_HEIGHT: OH_Drawing_LineHeightStyle =
+        OH_Drawing_LineHeightStyle(1);
+}
+#[repr(transparent)]
+/// Enumerates line height's scaling type.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Drawing_LineHeightStyle(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+impl OH_Drawing_TypographyStyleAttributeId {
+    /// Line height maximum
+    pub const TYPOGRAPHY_STYLE_ATTR_D_LINE_HEIGHT_MAXIMUM: OH_Drawing_TypographyStyleAttributeId =
+        OH_Drawing_TypographyStyleAttributeId(0);
+    /// Line height minimum
+    pub const TYPOGRAPHY_STYLE_ATTR_D_LINE_HEIGHT_MINIMUM: OH_Drawing_TypographyStyleAttributeId =
+        OH_Drawing_TypographyStyleAttributeId(1);
+    /// Line spacing
+    pub const TYPOGRAPHY_STYLE_ATTR_D_LINE_SPACING: OH_Drawing_TypographyStyleAttributeId =
+        OH_Drawing_TypographyStyleAttributeId(2);
+    /// Line height style
+    pub const TYPOGRAPHY_STYLE_ATTR_I_LINE_HEIGHT_STYLE: OH_Drawing_TypographyStyleAttributeId =
+        OH_Drawing_TypographyStyleAttributeId(3);
+    /// Font width
+    pub const TYPOGRAPHY_STYLE_ATTR_I_FONT_WIDTH: OH_Drawing_TypographyStyleAttributeId =
+        OH_Drawing_TypographyStyleAttributeId(4);
+}
+#[repr(transparent)]
+/// Enumerates typography style attribute.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Drawing_TypographyStyleAttributeId(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl OH_Drawing_TextBadgeType {
+    /// No badge
+    pub const TEXT_BADGE_NONE: OH_Drawing_TextBadgeType = OH_Drawing_TextBadgeType(0);
+    /// Superscript
+    pub const TEXT_SUPERSCRIPT: OH_Drawing_TextBadgeType = OH_Drawing_TextBadgeType(1);
+    /// Subscript
+    pub const TEXT_SUBSCRIPT: OH_Drawing_TextBadgeType = OH_Drawing_TextBadgeType(2);
+}
+#[repr(transparent)]
+/// Type of badge.
+///
+///
+/// Available since API-level: 20
+///
+/// Version: 1.0
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Drawing_TextBadgeType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+impl OH_Drawing_TextVerticalAlignment {
+    /// Baseline of text line
+    pub const TEXT_VERTICAL_ALIGNMENT_BASELINE: OH_Drawing_TextVerticalAlignment =
+        OH_Drawing_TextVerticalAlignment(0);
+    /// Bottom of text line
+    pub const TEXT_VERTICAL_ALIGNMENT_BOTTOM: OH_Drawing_TextVerticalAlignment =
+        OH_Drawing_TextVerticalAlignment(1);
+    /// Center of text line
+    pub const TEXT_VERTICAL_ALIGNMENT_CENTER: OH_Drawing_TextVerticalAlignment =
+        OH_Drawing_TextVerticalAlignment(2);
+    /// Top of text line
+    pub const TEXT_VERTICAL_ALIGNMENT_TOP: OH_Drawing_TextVerticalAlignment =
+        OH_Drawing_TextVerticalAlignment(3);
+}
+#[repr(transparent)]
+/// Type of vertical alignment.
+///
+///
+/// Available since API-level: 20
+///
+/// Version: 1.0
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Drawing_TextVerticalAlignment(pub ::core::ffi::c_uint);
 /// Defines the font style struct.
 ///
 ///
@@ -694,6 +821,214 @@ pub struct OH_Drawing_StrutStyle {
     pub families: *mut *mut ::core::ffi::c_char,
 }
 extern "C" {
+    /// Sets double value to the text style attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    ///
+    /// * `id` - Indicates the attribute id.
+    ///
+    /// * `value` - Indicates the value to set.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`] if the value corresponding to the attribute id
+    /// exceeds the allowable range.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Drawing_SetTextStyleAttributeDouble(
+        style: *mut OH_Drawing_TextStyle,
+        id: OH_Drawing_TextStyleAttributeId,
+        value: f64,
+    ) -> crate::error_code::DrawingResult;
+    /// Gets the double type property's value from the text style.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    ///
+    /// * `id` - Indicates the attribute id.
+    ///
+    /// * `value` - Indicates the return value of the interface.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Drawing_GetTextStyleAttributeDouble(
+        style: *mut OH_Drawing_TextStyle,
+        id: OH_Drawing_TextStyleAttributeId,
+        value: *mut f64,
+    ) -> crate::error_code::DrawingResult;
+    /// Sets int value to the text style attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    ///
+    /// * `id` - Indicates the attribute id.
+    ///
+    /// * `value` - Indicates the value to set.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`] if the value corresponding to the attribute id
+    /// exceeds the allowable range.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Drawing_SetTextStyleAttributeInt(
+        style: *mut OH_Drawing_TextStyle,
+        id: OH_Drawing_TextStyleAttributeId,
+        value: ::core::ffi::c_int,
+    ) -> crate::error_code::DrawingResult;
+    /// Gets the int type property's value from the text style.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    ///
+    /// * `id` - Indicates the attribute id.
+    ///
+    /// * `value` - Indicates the return value of the interface.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Drawing_GetTextStyleAttributeInt(
+        style: *mut OH_Drawing_TextStyle,
+        id: OH_Drawing_TextStyleAttributeId,
+        value: *mut ::core::ffi::c_int,
+    ) -> crate::error_code::DrawingResult;
+    /// Sets double value to the typography style attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// * `id` - Indicates the attribute id.
+    ///
+    /// * `value` - Indicates the value to set.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`] if the value corresponding to the attribute id
+    /// exceeds the allowable range.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Drawing_SetTypographyStyleAttributeDouble(
+        style: *mut OH_Drawing_TypographyStyle,
+        id: OH_Drawing_TypographyStyleAttributeId,
+        value: f64,
+    ) -> crate::error_code::DrawingResult;
+    /// Gets the double type property's value from the typography style.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// * `id` - Indicates the attribute id.
+    ///
+    /// * `value` - Indicates the return value of the interface.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Drawing_GetTypographyStyleAttributeDouble(
+        style: *mut OH_Drawing_TypographyStyle,
+        id: OH_Drawing_TypographyStyleAttributeId,
+        value: *mut f64,
+    ) -> crate::error_code::DrawingResult;
+    /// Sets int value to the typography style attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// * `id` - Indicates the attribute id.
+    ///
+    /// * `value` - Indicates the value to set.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`] if the value corresponding to the attribute id
+    /// exceeds the allowable range.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Drawing_SetTypographyStyleAttributeInt(
+        style: *mut OH_Drawing_TypographyStyle,
+        id: OH_Drawing_TypographyStyleAttributeId,
+        value: ::core::ffi::c_int,
+    ) -> crate::error_code::DrawingResult;
+    /// Gets the int type property's value from the typography style.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// * `id` - Indicates the attribute id.
+    ///
+    /// * `value` - Indicates the return value of the interface.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_Drawing_GetTypographyStyleAttributeInt(
+        style: *mut OH_Drawing_TypographyStyle,
+        id: OH_Drawing_TypographyStyleAttributeId,
+        value: *mut ::core::ffi::c_int,
+    ) -> crate::error_code::DrawingResult;
     /// Creates an <b>OH_Drawing_TypographyStyle</b> object.
     ///
     ///
@@ -3505,6 +3840,26 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_TextStyleGetHalfLeading(style: *mut OH_Drawing_TextStyle) -> bool;
+    /// Sets the typography vertical alignment mode.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// * `align` - Indicates the typography vertical alignment mode. For details,
+    /// see the enum <b>OH_Drawing_TextVerticalAlignment</b>.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_SetTypographyVerticalAlignment(
+        style: *mut OH_Drawing_TypographyStyle,
+        align: OH_Drawing_TextVerticalAlignment,
+    );
     /// Gets the locale.
     ///
     ///
@@ -3526,6 +3881,23 @@ extern "C" {
     pub fn OH_Drawing_TextStyleGetLocale(
         style: *mut OH_Drawing_TextStyle,
     ) -> *const ::core::ffi::c_char;
+    /// Sets whether to use superscript or subscript in text layout.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `style` - Pointer to an OH_Drawing_TextStyle object.
+    ///
+    /// * `textBadgeType` - Superscript or subscript to use.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_SetTextStyleBadgeType(
+        style: *mut OH_Drawing_TextStyle,
+        textBadgeType: OH_Drawing_TextBadgeType,
+    );
     /// Sets the text style, including font weight, font width and font slant.
     ///
     ///
@@ -3974,6 +4346,100 @@ extern "C" {
         from: usize,
         to: usize,
         fontSize: f32,
+    );
+    /// Update the font color of the typography
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    ///
+    /// * `color` - Indicates the color to update.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_TypographyUpdateFontColor(typography: *mut OH_Drawing_Typography, color: u32);
+    /// Update the decoration of the typography.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    ///
+    /// * `decoration` - Indicates the text decoration to update. For details, see the enum
+    /// <b>OH_Drawing_TextDecoration</b>.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_TypographyUpdateDecoration(
+        typography: *mut OH_Drawing_Typography,
+        decoration: OH_Drawing_TextDecoration,
+    );
+    /// Update the decoration thickness scale of the typography.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    ///
+    /// * `decorationThicknessScale` - Indicates the thickness scale of the text decoration to update.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_TypographyUpdateDecorationThicknessScale(
+        typography: *mut OH_Drawing_Typography,
+        decorationThicknessScale: f64,
+    );
+    /// Update the decoration style of typography.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    ///
+    /// * `decorationStyle` - Indicates the text decoration style to update.
+    /// For details, see the enum <b>OH_Drawing_TextDecorationStyle</b>.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_TypographyUpdateDecorationStyle(
+        typography: *mut OH_Drawing_Typography,
+        decorationStyle: OH_Drawing_TextDecorationStyle,
+    );
+    /// Updates the decoration color of the paragraph.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `typography` - Indicates the pointer to the text <b>OH_Drawing_Typography</b> object.
+    ///
+    /// * `color` - Indicates the text decoration color to update.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_TypographyUpdateDecorationColor(
+        typography: *mut OH_Drawing_Typography,
+        color: u32,
     );
     /// Get whether the text layout enables line styles.
     ///
@@ -4482,4 +4948,124 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Drawing_GetDrawingArraySize(drawingArray: *mut OH_Drawing_Array) -> usize;
+    /// Sets whether to optimize whitespace at the end of each line for text typography.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// * `trailingSpaceOptimized` - Boolean value indicating whether to optimize whitespace at the end of each line
+    /// for text typography to set.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_SetTypographyTextTrailingSpaceOptimized(
+        style: *mut OH_Drawing_TypographyStyle,
+        trailingSpaceOptimized: bool,
+    );
+    /// Sets the text content. The content supports UTF-8, UTF-16, and UTF-32 formats.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `handler` - Indicates the pointer to an <b>OH_Drawing_TypographyCreate</b> object.
+    ///
+    /// * `text` - Indicates the pointer to the text content to set.
+    ///
+    /// * `byteLength` - Set the byte length of the text content.
+    ///
+    /// * `textEncodingType` - Indicates the text encoding type <b>OH_Drawing_TextEncoding</b>.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_TypographyHandlerAddEncodedText(
+        handler: *mut OH_Drawing_TypographyCreate,
+        text: *const ::core::ffi::c_void,
+        byteLength: usize,
+        textEncodingType: OH_Drawing_TextEncoding,
+    );
+    /// Set whether to enable automatic spacing between Chinese and English for paragraph.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// * `enableAutoSpace` - Indicates Whether to enable automatic spacing between Chinese and English.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_SetTypographyTextAutoSpace(
+        style: *mut OH_Drawing_TypographyStyle,
+        enableAutoSpace: bool,
+    );
+    /// Copy a typography style object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the copied <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_CopyTypographyStyle(
+        style: *mut OH_Drawing_TypographyStyle,
+    ) -> *mut OH_Drawing_TypographyStyle;
+    /// Copy a text style object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TextStyle</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the copied <b>OH_Drawing_TextStyle</b> object.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_CopyTextStyle(style: *mut OH_Drawing_TextStyle) -> *mut OH_Drawing_TextStyle;
+    /// Copy a text shadow object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `shadow` - Indicates the pointer to an <b>OH_Drawing_TextShadow</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the copied <b>OH_Drawing_TextShadow</b> object.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_CopyTextShadow(
+        shadow: *mut OH_Drawing_TextShadow,
+    ) -> *mut OH_Drawing_TextShadow;
 }

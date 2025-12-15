@@ -116,6 +116,30 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_ColorFilterCreateLuma() -> *mut OH_Drawing_ColorFilter;
+    /// Creates an <b>OH_Drawing_ColorFilter</b> with the given mutColor used to multiply source color and addColor
+    /// used to add to source color. The Alpha channel will not be affected.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `mulColor` - Indicates the color, which is a 32-bit (ARGB) variable.
+    ///
+    /// * `addColor` - Indicates the color, which is a 32-bit (ARGB) variable.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_ColorFilter</b> object created.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_ColorFilterCreateLighting(
+        mulColor: u32,
+        addColor: u32,
+    ) -> *mut OH_Drawing_ColorFilter;
     /// Destroys an <b>OH_Drawing_ColorFilter</b> object and reclaims the memory occupied by the object.
     ///
     ///

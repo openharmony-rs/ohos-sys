@@ -49,6 +49,24 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RegionCreate() -> *mut OH_Drawing_Region;
+    /// Creates an <b>OH_Drawing_Region</b> copy object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object to copy.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_Region</b> object created.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_RegionCopy(region: *const OH_Drawing_Region) -> *mut OH_Drawing_Region;
     /// Determines whether the region contains the specified coordinates.
     ///
     ///

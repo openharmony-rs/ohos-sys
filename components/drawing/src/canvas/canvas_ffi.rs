@@ -129,6 +129,29 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasCreate() -> *mut OH_Drawing_Canvas;
+    /// Creates an <b>OH_Drawing_Canvas</b> object from <b>OH_Drawing_PixelMap</b>.
+    /// The OH_Drawing_PixelMap should be dissolved by OH_Drawing_PixelMapDissolve after the OH_Drawing_Canvas is destroyed.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `pixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_Drawing_Canvas</b> object created.
+    /// If nullptr is returned, the creation fails.
+    /// The possible cause of the failure is that the available memory is empty or pixelMap is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_CanvasCreateWithPixelMap(
+        pixelMap: *mut OH_Drawing_PixelMap,
+    ) -> *mut OH_Drawing_Canvas;
     /// Destroys an <b>OH_Drawing_Canvas</b> object and reclaims the memory occupied by the object.
     ///
     ///
@@ -399,6 +422,44 @@ extern "C" {
         dst: *const OH_Drawing_Rect,
         samplingOptions: *const OH_Drawing_SamplingOptions,
     );
+    /// Draw the specified area of the Media::PixelMap to the specified area of the canvas.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// * `pixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    ///
+    /// * `src` - Indicates the area of source pixelmap.
+    ///
+    /// * `dst` - Indicates the area of destination canvas.
+    ///
+    /// * `samplingOptions` - Indicates the sampling mode.
+    ///
+    /// * `constraint` - Indicates constraint type.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of canvas, pixelMap
+    /// and dst is nullptr.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_CanvasDrawPixelMapRectConstraint(
+        canvas: *mut OH_Drawing_Canvas,
+        pixelMap: *mut OH_Drawing_PixelMap,
+        src: *const OH_Drawing_Rect,
+        dst: *const OH_Drawing_Rect,
+        samplingOptions: *const OH_Drawing_SamplingOptions,
+        constraint: OH_Drawing_SrcRectConstraint,
+    ) -> crate::error_code::DrawingResult;
     /// Fills clipped canvas area with brush.
     ///
     ///
@@ -763,6 +824,44 @@ extern "C" {
         font: *const OH_Drawing_Font,
         x: f32,
         y: f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Draws a single character with font features.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// * `str` - Indicates the single character encoded in UTF-8.
+    ///
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    ///
+    /// * `x` - Indicates the horizontal offset applied to the single character.
+    ///
+    /// * `y` - Indicates the vertical offset applied to the single character.
+    ///
+    /// * `fontFeatures` - Indicates the pointer to an <b>OH_Drawing_FontFeatures</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if any of canvas, str, font
+    /// or fontFeatures is nullptr, or if strlen(str) is 0.
+    ///
+    /// Available since API-level: 20
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_Drawing_CanvasDrawSingleCharacterWithFeatures(
+        canvas: *mut OH_Drawing_Canvas,
+        str_: *const ::core::ffi::c_char,
+        font: *const OH_Drawing_Font,
+        x: f32,
+        y: f32,
+        fontFeatures: *mut OH_Drawing_FontFeatures,
     ) -> crate::error_code::DrawingResult;
     /// Draws a textblob.
     ///
@@ -1371,6 +1470,31 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Drawing_CanvasDrawRecordCmd(
+        canvas: *mut OH_Drawing_Canvas,
+        recordCmd: *mut OH_Drawing_RecordCmd,
+    ) -> crate::error_code::DrawingResult;
+    /// Replay drawing command.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// # Arguments
+    ///
+    /// * `canvas` - Indicates the pointer to an <b>OH_Drawing_Canvas</b> object.
+    ///
+    /// * `recordCmd` - Indicates the pointer to an <b>OH_Drawing_RecordCmd</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if canvas or recordCmd is nullptr.
+    ///
+    /// Available since API-level: 19
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-19")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
+    pub fn OH_Drawing_CanvasDrawRecordCmdNesting(
         canvas: *mut OH_Drawing_Canvas,
         recordCmd: *mut OH_Drawing_RecordCmd,
     ) -> crate::error_code::DrawingResult;
