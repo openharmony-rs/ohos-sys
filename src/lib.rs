@@ -56,6 +56,14 @@ pub use ohos_abilitykit_sys as abilitykit;
 #[cfg_attr(docsrs, doc(cfg(feature = "pasteboard")))]
 pub use ohos_pasteboard_sys as pasteboard;
 
+#[cfg(feature = "rawfile")]
+#[cfg_attr(docsrs, doc(cfg(feature = "rawfile")))]
+pub use ohos_rawfile_sys as rawfile;
+
+#[cfg(feature = "udmf")]
+#[cfg_attr(docsrs, doc(cfg(feature = "udmf")))]
+pub use udmf_sys as udmf;
+
 #[cfg(feature = "native_buffer")]
 #[cfg_attr(docsrs, doc(cfg(feature = "native_buffer")))]
 pub use ohos_window_sys::native_buffer;
