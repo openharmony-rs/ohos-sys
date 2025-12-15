@@ -126,3 +126,7 @@ pub mod text_line_typography;
 #[cfg(feature = "api-18")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 pub mod text_run;
+
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub mod text_global;
