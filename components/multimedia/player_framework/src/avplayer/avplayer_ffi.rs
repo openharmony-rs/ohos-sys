@@ -3,6 +3,9 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(deprecated)]
+#[cfg(feature = "api-20")]
+use crate::avcodec_base::OH_AVDataSourceExt;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 use crate::avplayer_base::{
@@ -437,6 +440,27 @@ extern "C" {
         player: *mut OH_AVPlayer,
         speed: AVPlaybackSpeed,
     ) -> OH_AVErrCode;
+    /// Sets playback rate.
+    /// Supported states: prepared/playing/paused/completed.
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to OH_AVPlayer instance
+    ///
+    /// * `rate` - Playback rate, valid range is 0.125 ~ 4.
+    ///
+    /// # Returns
+    ///
+    /// * OH_AVErrCode Operation result code
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if called in unsupported state or during live streaming.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr, or rate is out of range.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVPlayer_SetPlaybackRate(player: *mut OH_AVPlayer, rate: f32) -> OH_AVErrCode;
     /// get the current player playback rate
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
@@ -851,6 +875,59 @@ extern "C" {
     pub fn OH_AVPlayer_SetOnErrorCallback(
         player: *mut OH_AVPlayer,
         callback: OH_AVPlayerOnErrorCallback,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVErrCode;
+    /// Sets the loudness gain of current media. The default gain is 0.0 dB.
+    /// This API can be called only when the AVPlayer is in the prepared, playing, paused completed or stopped state.
+    /// The default loudness gain is 0.0dB. The stream usage of the player must be
+    /// [`OH_AudioStream_Usage#AUDIOSTREAM_USAGE_MUSIC`], [`OH_AudioStream_Usage#AUDIOSTREAM_USAGE_MOVIE`]
+    /// or [`OH_AudioStream_Usage#AUDIOSTREAM_USAGE_AUDIOBOOK`].
+    /// The latency mode of the audio renderer must be [`OH_AudioStream_LatencyMode#AUDIOSTREAM_LATENCY_MODE_NORMAL`].
+    /// If AudioRenderer is played through the high-resolution pipe, this operation is not supported.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an <b>OH_AVPlayer</b> instance.
+    ///
+    /// * `loudnessGain` - Loudness gain to set which changes from -90.0 to 24.0, expressing in dB.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`AV_ERR_OK`] If the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`]:The value of <b>player</b> is a null pointer or
+    /// the value of <b>loudnessGain</b> is invalid.
+    /// [`AV_ERR_INVALID_STATE`]: The function is called in an incorrect state. or the stream usage of
+    /// audioRendererInfo is not one of [`StreamUsage#STREAM_USAGE_MUSIC`],
+    /// [`StreamUsage#STREAM_USAGE_MOVIE`] or [`StreamUsage#STREAM_USAGE_AUDIOBOOK`].
+    /// [`AV_ERR_SERVICE_DIED`]: System errors such as media service breakdown.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_AVPlayer_SetLoudnessGain(player: *mut OH_AVPlayer, loudnessGain: f32)
+        -> OH_AVErrCode;
+    /// Set the media source of the player. The data of this media source is provided by the application.
+    /// # Arguments
+    ///
+    /// {OH_AVPlayer*} player Pointer to an OH_AVPlayer instance
+    ///
+    /// {OH_AVDataSourceExt*} datasrc Pointer to an OH_AVDataSourceExt instance
+    ///
+    /// {void*} userData The handle passed in by the user is used to pass in the callback
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr or datasrc is nullptr.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_AVPlayer_SetDataSource(
+        player: *mut OH_AVPlayer,
+        datasrc: *mut OH_AVDataSourceExt,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
 }

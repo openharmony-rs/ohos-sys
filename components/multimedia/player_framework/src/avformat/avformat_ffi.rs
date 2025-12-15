@@ -3,6 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(deprecated)]
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 
@@ -25,6 +26,12 @@ impl OH_AVPixelFormat {
     pub const AV_PIXEL_FORMAT_SURFACE_FORMAT: OH_AVPixelFormat = OH_AVPixelFormat(4);
     /// RGBA8888
     pub const AV_PIXEL_FORMAT_RGBA: OH_AVPixelFormat = OH_AVPixelFormat(5);
+    /// RGBA1010102
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const AV_PIXEL_FORMAT_RGBA1010102: OH_AVPixelFormat = OH_AVPixelFormat(6);
 }
 #[repr(transparent)]
 /// Enumerates AVPixel Format.
@@ -450,4 +457,77 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_AVFormat_DumpInfo(format: *mut OH_AVFormat) -> *const ::core::ffi::c_char;
+    /// Read an array of int32_t values from an OH_AVFormat object.
+    ///
+    /// Note that the obtained buffer's lifetime bound to the OH_AVFormat object,
+    /// it's automatically invalidated when the format object is destroyed.
+    ///
+    /// Applications must explicitly copy the data to newly allocated memory if
+    /// the data needs to outlive the OH_AVFormat instance.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
+    /// # Arguments
+    ///
+    /// * `format` - pointer to an OH_AVFormat instance
+    ///
+    /// * `key` - Data identifier key
+    ///
+    /// * `addr` - Pointer to receive the data buffer reference
+    ///
+    /// * `size` - Pointer to receive the element count
+    ///
+    /// # Returns
+    ///
+    /// * The return value is TRUE for success, FALSE for failure
+    /// Possible failure causes:
+    /// 1. input format is nullptr.
+    /// 2. input format's magic error.
+    /// 3. key is nullptr.
+    /// 4. addr is nullptr.
+    /// 5. size is nullptr.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVFormat_GetIntBuffer(
+        format: *mut OH_AVFormat,
+        key: *const ::core::ffi::c_char,
+        addr: *mut *mut i32,
+        size: *mut usize,
+    ) -> bool;
+    /// Write an array of int32_t values to an OH_AVFormat object.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
+    /// # Arguments
+    ///
+    /// * `format` - pointer to an OH_AVFormat instance
+    ///
+    /// * `key` - Data identifier key
+    ///
+    /// * `addr` - Pointer to the source data buffer
+    ///
+    /// * `size` - Number of elements to write (in elements, not bytes)
+    ///
+    /// # Returns
+    ///
+    /// * The return value is TRUE for success, FALSE for failure
+    /// Possible failure causes:
+    /// 1. input format is nullptr.
+    /// 2. input format's magic error.
+    /// 3. key is nullptr.
+    /// 4. addr is nullptr.
+    /// 5. size is zero.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVFormat_SetIntBuffer(
+        format: *mut OH_AVFormat,
+        key: *const ::core::ffi::c_char,
+        addr: *const i32,
+        size: usize,
+    ) -> bool;
 }

@@ -131,6 +131,24 @@ impl OH_AVErrCode {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const AV_ERR_IO_UNSUPPORTED_REQUEST: OH_AVErrCode = OH_AVErrCode(5411011);
+    /// Signals a stream format change in synchronous mode.
+    /// Required follow-up actions:
+    /// - For video encoders: Call [`OH_VideoEncoder_GetOutputDescription`]
+    /// - For video decoders: Call [`OH_VideoDecoder_GetOutputDescription`]
+    /// - For audio decoders : Call [`OH_AudioCodec_GetOutputDescription`]
+    /// to retrieve updated stream configuration.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const AV_ERR_STREAM_CHANGED: OH_AVErrCode = OH_AVErrCode(5410005);
+    /// Indicates temporary buffer query failure in synchronous mode,
+    /// it's recommended to wait and retry the operation after a short interval.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const AV_ERR_TRY_AGAIN_LATER: OH_AVErrCode = OH_AVErrCode(5410006);
 }
 #[repr(transparent)]
 /// AV error code

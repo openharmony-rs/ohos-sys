@@ -3,8 +3,11 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(deprecated)]
 #[cfg(feature = "api-12")]
 use crate::avcodec_base::OH_AVDataSource;
+#[cfg(feature = "api-20")]
+use crate::avcodec_base::OH_AVDataSourceExt;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 use crate::avformat::OH_AVFormat;
@@ -39,6 +42,32 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AVSource_CreateWithDataSource(dataSource: *mut OH_AVDataSource) -> *mut OH_AVSource;
+    /// Creates an OH_AVSource instance with dataSource and userData.
+    ///
+    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// # Arguments
+    ///
+    /// * `dataSource` - A pointer to the data source structure, which can obtain the input data.
+    ///
+    /// * `userData` - A pointer to user-defined data.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to an OH_AVSource instance if the execution is successful, otherwise returns nullptr.
+    /// Possible failure causes:
+    /// 1. dataSource is nullptr.
+    /// 2. dataSource->size == 0.
+    /// 3. set data source failed.
+    /// 4. out of memory.
+    /// 5. demuxer engine is nullptr.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub fn OH_AVSource_CreateWithDataSourceExt(
+        dataSource: *mut OH_AVDataSourceExt,
+        userData: *mut ::core::ffi::c_void,
+    ) -> *mut OH_AVSource;
     /// Creates an OH_AVSource instance that models the media at the URI.
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter

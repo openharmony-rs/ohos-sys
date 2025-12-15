@@ -63,7 +63,11 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .allowlist_file(header_path.to_str().unwrap())
                     .clang_args(["-x", "c++"]);
                 let builder = if file_stem != "averrors" {
-                    builder.raw_line("#[allow(unused_imports)]use crate::averrors::OH_AVErrCode;")
+                    builder
+                        // silence deprecation warnings, which are due to us using exposing
+                        // deprecated APIs which in turn use deprecated types.
+                        .raw_line("#![allow(deprecated)]")
+                        .raw_line("#[allow(unused_imports)]use crate::averrors::OH_AVErrCode;")
                 } else {
                     builder
                 };
@@ -71,7 +75,10 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "avplayer" => builder.raw_line("use ohos_sys_opaque_types::OHNativeWindow;")
                         .raw_line("use crate::avplayer_base::{AVPlaybackSpeed, AVPlayerCallback, AVPlayerSeekMode, AVPlayerState, OH_AVPlayer};")
                         .raw_line("#[cfg(feature = \"api-12\")]use crate::avplayer_base::{OH_AVPlayerOnErrorCallback, OH_AVPlayerOnInfoCallback};")
+                        .raw_line("#[cfg(feature = \"api-20\")]")
+                        .raw_line("use crate::avcodec_base::OH_AVDataSourceExt;")
                         // require bindings to OH audio.
+                        .blocklist_function("OH_AVPlayer_SetVolumeMode")
                         .blocklist_function("OH_AVPlayer_SetAudioRendererInfo")
                         .blocklist_function("OH_AVPlayer_SetAudioInterruptMode")
                         .blocklist_function("OH_AVPlayer_SetAudioEffectMode")
@@ -90,6 +97,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "avsource" => builder
                         .raw_line("#[cfg(feature = \"api-12\")]use crate::avcodec_base::OH_AVDataSource;")
                         .raw_line("use crate::avformat::OH_AVFormat;")
+                        .raw_line("#[cfg(feature = \"api-20\")]")
+                        .raw_line("use crate::avcodec_base::OH_AVDataSourceExt;")
                     ,
                     "avbuffer" => builder.raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")
                         .raw_line("use crate::avbuffer_info::OH_AVCodecBufferAttr;")
