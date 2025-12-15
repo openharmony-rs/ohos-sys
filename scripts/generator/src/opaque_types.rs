@@ -1,4 +1,4 @@
-pub(crate) static OPAQUE_TYPES: [&str; 39] = [
+pub(crate) static OPAQUE_TYPES: [&str; 40] = [
     "ArkUI_AccessibilityProvider",
     "ArkUI_Node",
     "ArkUI_NodeHandle",
@@ -23,6 +23,7 @@ pub(crate) static OPAQUE_TYPES: [&str; 39] = [
     "Input_Hotkey",
     "OH_ImageSourceNative",
     "OH_UdmfData",
+    "OH_UdmfDataLoadParams",
     "OH_UdmfRecord",
     "OH_UdmfRecordProvider",
     "OH_UdmfProperty",
