@@ -233,6 +233,7 @@ fn base_bindgen_builder(sysroot_dir: &Path) -> anyhow::Result<bindgen::Builder> 
         .blocklist_file(r".*/__std[a-z_]+\.h")
         .blocklist_item("__(BYTE_ORDER|LONG_MAX|LITTLE_ENDIAN|BIG_ENDIAN|USE_TIME_BITS64)")
         .blocklist_item("u?intmax_t")
+        .blocklist_var("_REDIR_TIME64") // Might get generated in arm32 builds
         .raw_line("#![allow(non_upper_case_globals)]")
         .raw_line("#![allow(non_camel_case_types)]")
         .raw_line("#![allow(non_snake_case)]")
@@ -246,7 +247,7 @@ fn base_bindgen_builder(sysroot_dir: &Path) -> anyhow::Result<bindgen::Builder> 
             is_result_type: false,
         })
         // TODO: How to detect / deal with target specific bindings - Could this be a problem?
-        .clang_arg("--target=aarch64-linux-ohos")
+        .clang_arg("--target=armv7-linux-ohos")
         // dynamic_library_name()
         // .prepend_enum_name()
         ;
