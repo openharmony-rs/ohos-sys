@@ -9,76 +9,92 @@ Here is an overview of the available C header directories in the OpenHarmony sys
 this crate already provides bindings. The API-level column denotes up to which api level the bindings have
 already been generated.
 
-| API name                                | status | API-level |
-|-----------------------------------------|--------|-----------|
-| AbilityKit                              | ✅      | 21        |
-| BasicServicesKit                        |        |           |
-| Background Process Manager              |        |           |
-| ConnectivityKit                         |        |           |
-| CryptoArchitectureKit                   |        |           |
-| DataProtectionKit                       |        |           |
-| GameControllerKit                       |        |           |
-| IPCKit                                  |        |           |
-| LocationKit                             |        |           |
-| NotificationKit                         |        |           |
-| TEEKit                                  |        |           |
-| accesstoken                             |        |           |
-| ace/xcomponent                          | ✅      | 21        |
-| ark_runtime                             |        |           |
-| arkui                                   | ✅      | 21        |
-| asset                                   |        |           |
-| bundle                                  |        |           |
-| database                                |        |           |
-| ddk                                     |        |           |
-| distributedhardware                     |        |           |
-| ffrt                                    |        |           |
-| filemanagement                          |        |           |
-| hiappevent                              |        |           |
-| hicollie                                |        |           |
-| hid                                     |        |           |
-| hidebug                                 |        |           |
-| hilog                                   | ✅      | 21        |
-| hitrace                                 | ✅      | 21        |
-| huks                                    |        |           |
-| info                                    |        |           |
-| inputmethod                             | ✅      | 21        |
-| mindspore                               |        |           |
-| multimedia                              |        |           |
-| multimodalinput                         | ✅      | 21        |
-| napi                                    | ✅      | 21        |
-| native_buffer                           | ✅      | 21        |
-| native_color_space_manager              |        |           |
-| native_display_soloist                  |        |           |
-| native_drawing                          | ✅      | 21        |
-| native_effect                           |        |           |
-| native_fence                            |        |           |
-| native_image                            | ✅      | 21        |
-| native_vsync                            | ✅      | 21        |
-| native_window                           | ✅      | 21        |
-| network                                 |        |           |
-| neural_network_runtime                  |        |           |
-| ohaudio                                 |        |           |
-| ohcamera                                |        |           |
-| Pasteboard                              | ✅      | 21        |
-| purgeable_memory                        |        |           |
-| qos                                     |        |           |
-| rawfile                                 | ✅      | 21        |
-| resourcemanager                         |        |           |
-| sensors                                 |        |           |
-| SCSI Peripherals                        |        |           |
-| telephony                               |        |           |
-| transient_task                          |        |           |
-| Unified Data Management Framework(UDMF) | ✅      | 21        |
-| usb                                     |        |           |
-| usb serial                              |        |           |
-| web                                     |        |           |
-| window_manager                          | ✅      | 21        |
+| API name                                | status | API-level | crate                     |
+|-----------------------------------------|--------|-----------|---------------------------|
+| AbilityKit                              | ✅      | 21        | [ohos-abilitykit-sys]     |
+| BasicServicesKit                        |        |           |                           |
+| Background Process Manager              |        |           |                           |
+| ConnectivityKit                         |        |           |                           |
+| CryptoArchitectureKit                   |        |           |                           |
+| DataProtectionKit                       |        |           |                           |
+| GameControllerKit                       |        |           |                           |
+| IPCKit                                  |        |           |                           |
+| LocationKit                             |        |           |                           |
+| NotificationKit                         |        |           |                           |
+| TEEKit                                  |        |           |                           |
+| accesstoken                             |        |           |                           |
+| ace/xcomponent                          | ✅      | 21        | [xcomponent-sys]          |
+| ark_runtime                             |        |           |                           |
+| arkui                                   | ✅      | 21        | [arkui-sys]               |
+| asset                                   |        |           |                           |
+| bundle                                  |        |           |                           |
+| database                                |        |           |                           |
+| ddk                                     |        |           |                           |
+| distributedhardware                     |        |           |                           |
+| ffrt                                    |        |           |                           |
+| filemanagement                          |        |           |                           |
+| hiappevent                              |        |           |                           |
+| hicollie                                |        |           |                           |
+| hid                                     |        |           |                           |
+| hidebug                                 |        |           |                           |
+| hilog                                   | ✅      | 21        | [hilog-sys]               |
+| hitrace                                 | ✅      | 21        | [hitrace-sys]             |
+| huks                                    |        |           |                           |
+| info                                    |        |           |                           |
+| inputmethod                             | ✅      | 21        | [ohos-ime-sys]            |
+| mindspore                               |        |           |                           |
+| multimedia                              |        |           |                           |
+| multimodalinput                         | ✅      | 21        | [ohos-input-sys]          |
+| napi                                    | ✅      | 21        |                           |
+| native_buffer                           | ✅      | 21        | [ohos-window-sys]         |
+| native_color_space_manager              |        |           |                           |
+| native_display_soloist                  |        |           |                           |
+| native_drawing                          | ✅      | 21        | [ohos-drawing-sys]        |
+| native_effect                           |        |           |                           |
+| native_fence                            | ✅      | 21        | [ohos-window-sys]         |
+| native_image                            | ✅      | 21        | [ohos-window-sys]         |
+| native_vsync                            | ✅      | 21        | [ohos-vsync-sys]          |
+| native_window                           | ✅      | 21        | [ohos-window-sys]         |
+| network                                 |        |           |                           |
+| neural_network_runtime                  |        |           |                           |
+| ohaudio                                 |        |           |                           |
+| ohcamera                                |        |           |                           |
+| Pasteboard                              | ✅      | 21        | [ohos-pasteboard-sys]     |
+| purgeable_memory                        |        |           |                           |
+| qos                                     |        |           |                           |
+| rawfile                                 | ✅      | 21        | [ohos-rawfile-sys]        |
+| resourcemanager                         |        |           |                           |
+| sensors                                 |        |           |                           |
+| SCSI Peripherals                        |        |           |                           |
+| telephony                               |        |           |                           |
+| transient_task                          |        |           |                           |
+| Unified Data Management Framework(UDMF) | ✅      | 21        | [udmf-sys]                |
+| usb                                     |        |           |                           |
+| usb serial                              |        |           |                           |
+| web                                     |        |           |                           |
+| window_manager                          | ✅      | 21        | [ohos-window-manager-sys] |
+
+[arkui-sys]: https://docs.rs/arkui-sys/latest/arkui_sys/
+[hilog-sys]: https://docs.rs/hilog-sys/latest/hilog_sys/
+[hitrace-sys]: https://docs.rs/hitrace-sys/latest/hitrace_sys/
+[ohos-drawing-sys]: https://docs.rs/ohos-drawing-sys/latest/ohos_drawing_sys/
+[ohos-ime-sys]: https://docs.rs/ohos-ime-sys/latest/ohos_ime_sys/
+[ohos-input-sys]: https://docs.rs/ohos-input-sys/latest/ohos_input_sys/
+[ohos-pasteboard-sys]: https://docs.rs/ohos-pasteboard-sys/latest/ohos_pasteboard_sys/
+[ohos-rawfile-sys]: https://docs.rs/ohos-rawfile-sys/latest/ohos_rawfile_sys/
+[ohos-window-manager-sys]: https://docs.rs/ohos-window-manager-sys/latest/ohos_window_manager_sys/
+[ohos-window-sys]: https://docs.rs/ohos-window-sys/latest/ohos_window_sys/
+[ohos-abilitykit-sys]: https://docs.rs/ohos-abilitykit-sys/latest/ohos_abilitykit_sys/
+[ohos-vsync-sys]: https://docs.rs/ohos-vsync-sys/latest/ohos_vsync_sys/
+[udmf-sys]: https://docs.rs/udmf-sys/latest/udmf_sys/
+[xcomponent-sys]: https://docs.rs/xcomponent-sys/latest/xcomponent_sys/
+
 
 ## Development
 
 The current bindings are generated with `bindgen` using `scripts/generate_bindings.sh`.
 Bindings are currently generated with the OpenHarmony SDK API level 21, but with items
-added after API level 10 feature guarded behind `api-XX` features. this is handled
+added after API level 10 feature guarded behind `api-XX` features. This is handled
 automatically by the tool based on the documentation comments in the C header files.
 
 # Contributing
