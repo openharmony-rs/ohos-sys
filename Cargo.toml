@@ -25,8 +25,8 @@ ohos-sys-opaque-types = { version = "0.1.8", path = "components/opaque-types" }
 document-features = { version = "0.2", optional = true }
 arkui-sys = { version = "0.3.3", optional = true, path = "components/arkui" }
 hilog-sys = { version = "0.1.7", optional = true, path = "components/hilog" }
-hitrace-sys = { version = "0.1.7", optional = true, path = "components/hitrace" }
-ohos-abilitykit-sys = { version = "0.1.3", optional = true, path = "components/abilitykit" }
+hitrace-sys = { version = "0.1.8", optional = true, path = "components/hitrace" }
+ohos-abilitykit-sys = { version = "0.1.4", optional = true, path = "components/abilitykit" }
 ohos-deviceinfo-sys = { version = "0.1.6", optional = true, path = "components/deviceinfo" }
 ohos-drawing-sys = { path = "components/drawing", version = "0.3.3", optional = true }
 ohos-image-kit-sys = { version = "0.3.4", optional = true, path = "components/multimedia/image_framework" }
