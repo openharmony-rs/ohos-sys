@@ -1,6 +1,6 @@
 [package]
 name = "hitrace-sys"
-version = "0.1.8"
+version = "0.1.9"
 edition = "2021"
 keywords = ["OpenHarmony", "HarmonyOS", "hitrace", "tracing"]
 license = "Apache-2.0"
@@ -8,7 +8,9 @@ description = "Bindings to the HiTrace tracing system of OpenHarmony"
 repository = "https://github.com/openharmony-rs/ohos-sys"
 readme = "README.md"
 include = ["/src"]
-exclude = ["src/hitrace_api11.rs", "src/hitrace_api12.rs"]
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
 
 [features]
 default = ["api-10"]
@@ -35,9 +37,9 @@ api-16 = ["api-15"]
 api-17 = ["api-16"]
 ## Enables bindings for OpenHarmony API-level 18 (No changes).
 api-18 = ["api-17"]
-## Enables bindings for OpenHarmony API-level 19.
+## Enables bindings for OpenHarmony API-level 19. (No changes)
 api-19 = ["api-18"]
-## Enables bindings for OpenHarmony API-level 20.
+## Enables bindings for OpenHarmony API-level 20. (No changes)
 api-20 = ["api-19"]
 ## Enables bindings for OpenHarmony API-level 21.
 api-21 = ["api-20"]
