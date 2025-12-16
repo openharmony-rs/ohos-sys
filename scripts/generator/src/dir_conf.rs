@@ -168,6 +168,19 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             skip_files: vec!["graphic_error_code.h".to_string()],
         },
         DirBindingsConf {
+            directory: "native_fence/".to_string(),
+            output_dir: "components/window/src/native_fence".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .blocklist_file(".buffer_common.h")
+                    .blocklist_file(".*graphic_error_code.h")
+                    .clang_args(["-include", "stdbool.h"])
+            }),
+            skip_files: vec!["graphic_error_code.h".to_string()],
+        },
+        DirBindingsConf {
             directory: "native_image/".to_string(),
             output_dir: "components/window/src/native_image".to_string(),
             rename_output_file: None,
