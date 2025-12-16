@@ -13,6 +13,9 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
 pub mod native_buffer;
+#[cfg(feature = "api-20")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+pub mod native_fence;
 pub mod native_image;
 pub mod native_window;
 
