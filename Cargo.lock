@@ -36,7 +36,10 @@ dependencies = [
 
 [[package]]
 name = "hitrace-sys"
-version = "0.1.8"
+version = "0.1.9"
+dependencies = [
+ "document-features",
+]
 
 [[package]]
 name = "keyboard-types"
