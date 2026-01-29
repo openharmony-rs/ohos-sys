@@ -13,3 +13,7 @@
 #include "arkui/native_interface_accessibility.h"
 #include "native_color_space_manager/native_color_space_manager.h"
 #include "arkui/native_type.h"
+#include "database/data/data_asset.h"
+#include "database/data/oh_data_value.h"
+#include "database/data/oh_data_values.h"
+#include "database/data/oh_data_values_buckets.h"

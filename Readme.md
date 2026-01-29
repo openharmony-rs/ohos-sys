@@ -28,7 +28,7 @@ already been generated.
 | arkui                                   | ✅      | 21        | [arkui-sys]               |
 | asset                                   |        |           |                           |
 | bundle                                  |        |           |                           |
-| database                                |        |           |                           |
+| database                                | ✅      | 21        | [ohos-rdb-sys]            |
 | ddk                                     |        |           |                           |
 | distributedhardware                     |        |           |                           |
 | ffrt                                    |        |           |                           |
@@ -82,6 +82,7 @@ already been generated.
 [ohos-input-sys]: https://docs.rs/ohos-input-sys/latest/ohos_input_sys/
 [ohos-pasteboard-sys]: https://docs.rs/ohos-pasteboard-sys/latest/ohos_pasteboard_sys/
 [ohos-rawfile-sys]: https://docs.rs/ohos-rawfile-sys/latest/ohos_rawfile_sys/
+[rdb-sys]: https://docs.rs/ohos-rdb-sys/latest/ohos-rdb_sys/
 [ohos-window-manager-sys]: https://docs.rs/ohos-window-manager-sys/latest/ohos_window_manager_sys/
 [ohos-window-sys]: https://docs.rs/ohos-window-sys/latest/ohos_window_sys/
 [ohos-abilitykit-sys]: https://docs.rs/ohos-abilitykit-sys/latest/ohos_abilitykit_sys/

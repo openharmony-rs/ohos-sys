@@ -149,3 +149,19 @@ pub struct ArkUI_Node {
     _unused: [u8; 0],
 }
 pub type ArkUI_NodeHandle = *mut ArkUI_Node;
+#[repr(C)]
+pub struct Data_Asset {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_Data_Value {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_Data_Values {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_Data_VBuckets {
+    _unused: [u8; 0],
+}
