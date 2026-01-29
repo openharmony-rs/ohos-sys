@@ -214,6 +214,75 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             ..Default::default()
         },
         DirBindingsConf {
+            directory: "database/data".to_string(),
+            output_dir: "components/rdb/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"]);
+
+                match file_stem {
+                    "data_asset" => builder.raw_line("use crate::rdb_types::Data_Asset;"),
+                    "data_value" => builder
+                        .blocklist_type("OH_ColumnType")
+                        .raw_line("use crate::rdb_types::{Data_Asset, OH_ColumnType, OH_Data_Value};"),
+                    "data_values" => builder.raw_line(
+                        "use crate::rdb_types::{Data_Asset, OH_ColumnType, OH_Data_Value, OH_Data_Values};",
+                    ),
+                    "data_values_buckets" => builder
+                        .raw_line("use crate::values_bucket::{OH_Data_VBuckets, OH_VBucket};"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
+            directory: "database/rdb".to_string(),
+            output_dir: "components/rdb/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"]);
+
+                match file_stem {
+                    "cursor" => builder.raw_line("use crate::rdb_types::{Data_Asset, OH_ColumnType};"),
+                    "predicates" => builder
+                        .raw_line("#[cfg(feature = \"api-20\")]")
+                        .raw_line("use crate::rdb_types::OH_Data_Values;")
+                        .raw_line("use crate::value_object::OH_VObject;"),
+                    "rdb_transaction" => builder
+                        .raw_line("#[cfg(feature = \"api-18\")]")
+                        .raw_line("use crate::cursor::OH_Cursor;")
+                        .raw_line("#[cfg(feature = \"api-18\")]")
+                        .raw_line("use crate::predicates::OH_Predicates;")
+                        .raw_line("#[cfg(feature = \"api-18\")]")
+                        .raw_line("use crate::rdb_types::{OH_Data_Value, OH_Data_Values, Rdb_ConflictResolution};")
+                        .raw_line("#[cfg(feature = \"api-18\")]")
+                        .raw_line("use crate::values_bucket::{OH_Data_VBuckets, OH_VBucket};"),
+                    "relational_store" => builder
+                        .raw_line("use crate::cursor::OH_Cursor;")
+                        .raw_line("use crate::predicates::OH_Predicates;")
+                        .raw_line("#[cfg(feature = \"api-20\")]")
+                        .raw_line("use crate::rdb_crypto_param::OH_Rdb_CryptoParam;")
+                        .raw_line("#[cfg(feature = \"api-18\")]")
+                        .raw_line("use crate::rdb_transaction::{OH_RDB_TransOptions, OH_Rdb_Transaction};")
+                        .raw_line("#[cfg(feature = \"api-18\")]")
+                        .raw_line("use crate::rdb_types::{OH_Data_Value, OH_Data_Values, Rdb_ConflictResolution};")
+                        .raw_line("use crate::value_object::OH_VObject;")
+                        .raw_line("#[cfg(feature = \"api-18\")]")
+                        .raw_line("use crate::values_bucket::OH_Data_VBuckets;")
+                        .raw_line("use crate::values_bucket::OH_VBucket;"),
+                    "values_bucket" => builder
+                        .raw_line("#[cfg(feature = \"api-11\")]")
+                        .raw_line("use crate::rdb_types::Data_Asset;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
             directory: "database/udmf".to_string(),
             output_dir: "components/udmf/src".to_string(),
             set_builder_opts: Box::new(|file_stem, header_path, builder| {

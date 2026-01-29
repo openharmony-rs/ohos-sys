@@ -60,6 +60,10 @@ pub use ohos_pasteboard_sys as pasteboard;
 #[cfg_attr(docsrs, doc(cfg(feature = "rawfile")))]
 pub use ohos_rawfile_sys as rawfile;
 
+#[cfg(feature = "rdb")]
+#[cfg_attr(docsrs, doc(cfg(feature = "rdb")))]
+pub use rdb_sys as rdb;
+
 #[cfg(feature = "udmf")]
 #[cfg_attr(docsrs, doc(cfg(feature = "udmf")))]
 pub use udmf_sys as udmf;
