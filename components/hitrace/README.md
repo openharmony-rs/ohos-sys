@@ -4,7 +4,7 @@ Rust-bindings for hiTraceMeter on OpenHarmony. hiTraceMeter provides APIs for sy
 Available since OpenHarmony 4.0 (API-level 10).
 Please view the [Hitrace NDK guidelines] for usage details. 
 
-[Hitrace NDK guidelines]: https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/dfx/hitracemeter-guidelines-ndk.md
+[Hitrace NDK guidelines]: https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/dfx/hitracemeter-guidelines-ndk.md
 
 ## Development
 
