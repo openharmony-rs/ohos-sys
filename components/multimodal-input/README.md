@@ -2,9 +2,9 @@
 
 Raw rust-bindings for the `Input-kit` on OpenHarmony.
 Available since OpenHarmony 5.0 (API-level 12).
-Please view the [official Documentation] for more details.
+Please view the [Input Kit C API reference] for more details.
 
-[official Documentation]: https://docs.openharmony.cn/pages/v5.0/en/application-dev/reference/apis-input-kit/input.md
+[Input Kit C API reference]: https://gitcode.com/openharmony/docs/blob/master/en/application-dev/reference/apis-input-kit/capi-input.md
 
 ## License
 

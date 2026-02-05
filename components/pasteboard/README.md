@@ -6,7 +6,7 @@ URI, Want, pixel map, and other types.
 
 The Pasteboard is available since API-13.
 
-See also: https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V14/_pasteboard-V14
+C API reference: https://gitcode.com/openharmony/docs/blob/master/en/application-dev/reference/apis-basic-services-kit/capi-pasteboard.md
 
 ## License
 

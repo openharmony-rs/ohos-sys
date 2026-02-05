@@ -5,7 +5,7 @@ This crate should only be used on OpenHarmony (`target_env = "ohos"`).
 The official C-API documentation is available [on gitcode][hilog native guidelines].
 
 
-[hilog native guidelines]: https://gitcode.com/openharmony/docs/blob/master/en/application-dev/dfx/hilog-guidelines.md
+[hilog native guidelines]: https://gitcode.com/openharmony/docs/blob/master/en/application-dev/dfx/hilog-guidelines-ndk.md
 
 
 ## License
