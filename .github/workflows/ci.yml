@@ -79,6 +79,7 @@ jobs:
           - native_image
           - native_window
           - rawfile
+          - rdb
           - vsync
           - xcomponent
           - window_manager
