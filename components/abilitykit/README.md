@@ -1,6 +1,8 @@
 ## AbilityKit native bindings for OpenHarmony
 
-Raw bindings to native [AbilityKit] APIs on OpenHarmony. 
+Raw bindings to native [AbilityKit] APIs on OpenHarmony.
+
+[AbilityKit]: https://gitcode.com/openharmony/docs/blob/master/en/application-dev/reference/apis-ability-kit/capi-abilityruntime.md
 
 ## Development
 

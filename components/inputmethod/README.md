@@ -2,9 +2,9 @@
 
 Raw rust-bindings for the native `inputmethod` from the IME-Kit on OpenHarmony. hiTraceMeter provides APIs for system performance tracing.
 Available since OpenHarmony 5.0 (API-level 12).
-Please view the [HarmonyOS reference] for usage details (Link to the OpenHarmony documentation not available yet). 
+Please view the [OpenHarmony C API reference] for usage details.
 
-[HarmonyOS reference]: https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/_input_method-V5
+[OpenHarmony C API reference]: https://gitcode.com/openharmony/docs/blob/master/en/application-dev/reference/apis-ime-kit/capi-inputmethod.md
 
 ## License
 
