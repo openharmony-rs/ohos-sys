@@ -62,7 +62,7 @@ pub use ohos_rawfile_sys as rawfile;
 
 #[cfg(feature = "rdb")]
 #[cfg_attr(docsrs, doc(cfg(feature = "rdb")))]
-pub use rdb_sys as rdb;
+pub use ohos_rdb_sys as rdb;
 
 #[cfg(feature = "udmf")]
 #[cfg_attr(docsrs, doc(cfg(feature = "udmf")))]
