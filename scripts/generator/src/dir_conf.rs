@@ -789,5 +789,22 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
 
             skip_files: vec!["graphic_error_code.h".to_string()],
         },
+        DirBindingsConf {
+            directory: "sensors".to_string(),
+            output_dir: "components/sensors/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"]);
+
+                match file_stem {
+                    "sensor" => builder.raw_line("use crate::sensor_type::*;"),
+                    "vibrator" => builder.raw_line("use crate::vibrator_type::*;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
     ]
 }

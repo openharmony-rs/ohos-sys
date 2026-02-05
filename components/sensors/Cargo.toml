@@ -1,0 +1,51 @@
+[package]
+name = "ohos-sensors-sys"
+version = "0.1.0"
+edition = "2021"
+keywords = ["OpenHarmony", "HarmonyOS", "sensors", "vibrator"]
+description = "Rust bindings to the sensors and vibrator modules of OpenHarmony"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+license = "Apache-2.0"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+
+[features]
+default = ["api-10"]
+
+#! ### OpenHarmony API level
+#! This crate by default exposes bindings for API-level 10.
+#! Optionally enable one of the `api-*` features to get access to bindings for newer
+#! OpenHarmony versions.
+
+## No effect. API-10 bindings can't be deselected. The feature exists for internal purposes.
+api-10 = []
+## Enables bindings for OpenHarmony API-level 11
+api-11 = ["api-10"]
+## Enables bindings for OpenHarmony API-level 12
+api-12 = ["api-11"]
+## Enables bindings for OpenHarmony API-level 13
+api-13 = ["api-12"]
+## Enables bindings for OpenHarmony API-level 14
+api-14 = ["api-13"]
+## Enables bindings for OpenHarmony API-level 15
+api-15 = ["api-14"]
+## Enables bindings for OpenHarmony API-level 16.
+api-16 = ["api-15"]
+## Enables bindings for OpenHarmony API-level 17.
+api-17 = ["api-16"]
+## Enables bindings for OpenHarmony API-level 18 (5.1.0).
+api-18 = ["api-17"]
+## Enables bindings for OpenHarmony API-level 19.
+api-19 = ["api-18"]
+## Enables bindings for OpenHarmony API-level 20.
+api-20 = ["api-19"]
+## Enables bindings for OpenHarmony API-level 21.
+api-21 = ["api-20"]
+## Document available features when building the documentation
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true
