@@ -22,15 +22,36 @@ fn link_smoke() {
     unsafe {
         let _ =
             wm::display_capture::OH_NativeDisplayManager_CaptureScreenPixelmap(0, ptr::null_mut());
+        let _ = wm::display_manager::OH_NativeDisplayManager_CreateAllDisplays(ptr::null_mut());
     }
 
     #[cfg(feature = "api-15")]
     unsafe {
+        let _ = wm::window_event_filter::OH_NativeWindowManager_RegisterMouseEventFilter(0, None);
         let _ = wm::window::OH_WindowManager_ShowWindow(0);
+    }
+
+    #[cfg(feature = "api-17")]
+    unsafe {
+        let _ = wm::window::OH_WindowManager_GetAllWindowLayoutInfoList(
+            0,
+            ptr::null_mut(),
+            ptr::null_mut(),
+        );
     }
 
     #[cfg(feature = "api-20")]
     unsafe {
+        let _ = wm::display_manager::OH_NativeDisplayManager_RegisterAvailableAreaChangeListener(
+            None,
+            ptr::null_mut(),
+        );
+        let _ = wm::window::OH_WindowManager_InjectTouchEvent(0, ptr::null_mut(), 0, 0);
         let _ = wm::window_pip::OH_PictureInPicture_CreatePipConfig(ptr::null_mut());
+    }
+
+    #[cfg(feature = "api-21")]
+    unsafe {
+        let _ = wm::window::OH_WindowManager_GetAllMainWindowInfo(ptr::null_mut(), ptr::null_mut());
     }
 }

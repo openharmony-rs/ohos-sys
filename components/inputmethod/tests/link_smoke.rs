@@ -22,4 +22,21 @@ fn link_smoke() {
     }
 
     let _ = std::mem::size_of::<ime::types::InputMethod_KeyboardStatus>();
+
+    #[cfg(feature = "api-15")]
+    unsafe {
+        let _ = ime::attach_options::OH_AttachOptions_CreateWithRequestKeyboardReason(
+            false,
+            std::mem::zeroed(),
+        );
+        let _ = ime::inputmethod_proxy::OH_InputMethodProxy_ShowTextInput(
+            ptr::null_mut(),
+            ptr::null_mut(),
+        );
+    }
+
+    #[cfg(feature = "api-20")]
+    unsafe {
+        let _ = ime::text_config::OH_TextConfig_SetPlaceholder(ptr::null_mut(), ptr::null(), 0);
+    }
 }
