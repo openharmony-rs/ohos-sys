@@ -5,6 +5,7 @@
 #![allow(non_snake_case)]
 #![allow(deprecated)]
 #[cfg(feature = "api-20")]
+#[allow(unused_imports)]
 use crate::avcodec_base::OH_AVDataSourceExt;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;

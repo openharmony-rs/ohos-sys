@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0
+
+- Add remaining bindings (excluding those depending on `ohaudio`)
+
 ## 0.0.5
 
 - Update to API 21.
