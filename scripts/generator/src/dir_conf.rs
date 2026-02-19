@@ -155,13 +155,16 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "native_buffer" => builder
                         .raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")
                         .raw_line("#[cfg(feature = \"api-11\")]")
-                        .raw_line("use crate::native_buffer::buffer_common::OH_NativeBuffer_ColorSpace;")
+                        .raw_line(
+                            "use crate::native_buffer::buffer_common::OH_NativeBuffer_ColorSpace;",
+                        )
                         .raw_line("#[cfg(feature = \"api-12\")]")
                         .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
                         .raw_line("#[cfg(feature = \"api-12\")]")
-                        .raw_line("use crate::native_buffer::buffer_common::OH_NativeBuffer_MetadataKey;")
-                        .bitfield_enum("OH_NativeBuffer_Usage")
-                    ,
+                        .raw_line(
+                            "use crate::native_buffer::buffer_common::OH_NativeBuffer_MetadataKey;",
+                        )
+                        .bitfield_enum("OH_NativeBuffer_Usage"),
                     _ => builder,
                 }
             }),
@@ -495,7 +498,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 let builder = if file_stem != "native_type" {
                     builder.raw_line("use crate::native_type::*;")
                 } else {
-                    builder.raw_line("pub use ohos_sys_opaque_types::{ArkUI_Node, ArkUI_NodeHandle};")
+                    builder
+                        .raw_line("pub use ohos_sys_opaque_types::{ArkUI_Node, ArkUI_NodeHandle};")
                 };
                 let builder = builder
                     .allowlist_file(header_path.to_str().unwrap())
@@ -529,8 +533,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .no_debug("ArkUI_NativeDialogAPI_.*")
                         .no_copy("ArkUI_NativeDialogAPI_.*")
                         .raw_line("#[cfg(feature =\"api-19\")]")
-                        .raw_line("use crate::native_node::ArkUI_AttributeItem;")
-                    ,
+                        .raw_line("use crate::native_node::ArkUI_AttributeItem;"),
                     "native_gesture" => builder
                         .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
                         .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
@@ -665,7 +668,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .result_error_enum("AbilityBase_ErrorCode")
                     .parse_callbacks(Box::new(ResultEnumParseCallbacks {
                         rename_item: Box::new(|name| {
-                            name.strip_suffix("_ErrorCode").map(|name | {
+                            name.strip_suffix("_ErrorCode").map(|name| {
                                 let mut s = name.to_string();
                                 s.push_str("Result");
                                 s
@@ -676,8 +679,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 match file_stem {
                     "want" => builder
                         .raw_line("use crate::base::common::AbilityBaseResult;")
-                        .clang_args(["-include", "stdbool.h"])
-                    ,
+                        .clang_args(["-include", "stdbool.h"]),
                     _ => builder,
                 }
             }),
