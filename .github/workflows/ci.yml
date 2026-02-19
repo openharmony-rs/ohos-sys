@@ -80,6 +80,7 @@ jobs:
           - native_window
           - rawfile
           - rdb
+          - sensors
           - vsync
           - xcomponent
           - window_manager
