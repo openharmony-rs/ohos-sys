@@ -22,7 +22,7 @@ if [[ ! -x "${CLANG}" ]]; then
 fi
 
 
-if ! rustc --print target-list | rg -q "^${TARGET}$"; then
+if ! rustc --print target-list | grep -q "^${TARGET}$"; then
   echo "Rust target ${TARGET} is not installed. Install with: rustup target add ${TARGET}" >&2
   exit 1
 fi
