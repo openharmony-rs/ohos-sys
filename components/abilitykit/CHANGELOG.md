@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5
+
+- Fix missing #[link] for base and runtime.
+
 ## v0.1.3
 
 - Add API-21 bindings

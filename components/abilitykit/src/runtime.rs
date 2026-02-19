@@ -1,3 +1,6 @@
+#[link(name = "ability_runtime")]
+extern "C" {}
+
 pub mod application_context;
 mod common;
 mod context;

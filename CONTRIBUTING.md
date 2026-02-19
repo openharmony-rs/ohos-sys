@@ -93,10 +93,10 @@
 ## Link Smoke Tests
 
 To ensure linking works with the SDK sysroot, we maintain smoke integration tests that references at least
-one symbol from each module. This forces the linker to pull in every required library.
+one symbol from each module per API level. This forces the linker to pull in every required library.
 
 1. Create or update `<crate>/tests/link_smoke.rs` when adding modules:
-   - If the module exposes functions, call one function.
+   - If the module exposes functions, call one function (per API-level, if the API-level added new functions) from the module.
    - If the module is type/constant-only, it can be skipped.
 2. Run the CI link check script:
    ```bash

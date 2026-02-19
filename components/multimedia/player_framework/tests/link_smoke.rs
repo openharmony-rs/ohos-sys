@@ -7,6 +7,7 @@ fn touch_type<T>() {
 }
 
 #[test]
+#[allow(deprecated)]
 fn link_smoke() {
     unsafe {
         // native_media_core
