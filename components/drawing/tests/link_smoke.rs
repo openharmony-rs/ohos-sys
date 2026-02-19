@@ -73,6 +73,12 @@ fn link_smoke() {
             false,
             std::mem::zeroed(),
         );
+        #[cfg(feature = "api-16")]
+        let _ = drawing::surface::OH_Drawing_SurfaceCreateOnScreen(
+            ptr::null_mut(),
+            std::mem::zeroed(),
+            ptr::null_mut(),
+        );
     }
 
     #[cfg(feature = "api-13")]
@@ -93,6 +99,10 @@ fn link_smoke() {
             ptr::null_mut(),
             ptr::null_mut(),
         );
+        let _ = drawing::text_font_descriptor::OH_Drawing_MatchFontDescriptors(
+            ptr::null_mut(),
+            ptr::null_mut(),
+        );
         let _ = drawing::text_line::OH_Drawing_TypographyGetTextLines(ptr::null_mut());
         let _ = drawing::text_line_typography::OH_Drawing_CreateLineTypography(ptr::null_mut());
         let _ = drawing::text_run::OH_Drawing_GetRunStringIndices(ptr::null_mut(), 0, 0);
@@ -100,6 +110,14 @@ fn link_smoke() {
 
     #[cfg(feature = "api-20")]
     unsafe {
+        let _ = drawing::image_filter::OH_Drawing_ImageFilterCreateBlurWithCrop(
+            0.0,
+            0.0,
+            std::mem::zeroed(),
+            ptr::null_mut(),
+            ptr::null(),
+        );
+        let _ = drawing::round_rect::OH_Drawing_RoundRectCopy(ptr::null());
         let _ = drawing::text_global::OH_Drawing_SetTextHighContrast(std::mem::zeroed());
     }
 }
