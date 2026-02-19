@@ -64,7 +64,7 @@ already been generated.
 | qos                                     |        |           |                           |
 | rawfile                                 | ✅      | 21        | [ohos-rawfile-sys]        |
 | resourcemanager                         |        |           |                           |
-| sensors                                 |        |           |                           |
+| sensors                                 | ✅      | 21        | [ohos-sensors-sys]        |
 | SCSI Peripherals                        |        |           |                           |
 | telephony                               |        |           |                           |
 | transient_task                          |        |           |                           |
@@ -88,6 +88,7 @@ already been generated.
 [ohos-abilitykit-sys]: https://docs.rs/ohos-abilitykit-sys/latest/ohos_abilitykit_sys/
 [ohos-vsync-sys]: https://docs.rs/ohos-vsync-sys/latest/ohos_vsync_sys/
 [udmf-sys]: https://docs.rs/udmf-sys/latest/udmf_sys/
+[ohos-sensors-sys]: https://docs.rs/ohos-sensors-sys/latest/ohos_sensors_sys/
 [xcomponent-sys]: https://docs.rs/xcomponent-sys/latest/xcomponent_sys/
 
 

@@ -35,6 +35,7 @@ ohos-input-sys = { version = "0.3.3", optional = true, path = "components/multim
 ohos-pasteboard-sys = { version = "0.1.3", optional = true, path = "components/pasteboard" }
 ohos-rawfile-sys = { version = "0.1.3", optional = true, path = "components/rawfile" }
 ohos-rdb-sys = { version = "0.1.0", optional = true, path = "components/rdb" }
+ohos-sensors-sys = { version = "0.1.0", optional = true, path = "components/sensors" }
 ohos-sys-opaque-types = { workspace = true }
 ohos-window-sys = { version = "0.1.5", optional = true, path = "components/window" }
 ohos-vsync-sys = { version = "0.1.5", optional = true, path = "components/vsync" }
@@ -77,6 +78,8 @@ pasteboard = ['dep:ohos-pasteboard-sys']
 rawfile = ['ohos-rawfile-sys']
 ## Enables bindings to the relational database (RDB)
 rdb = ["dep:ohos-rdb-sys"]
+## Enables bindings to the sensors module.
+sensors = ["dep:ohos-sensors-sys"]
 ## Enables bindings to the Unified Data Management Framework (UDMF)
 udmf = ['dep:udmf-sys']
 ## Enables bindings to `native_vsync`
@@ -108,6 +111,7 @@ all-components = [
     "pasteboard",
     "rawfile",
     "rdb",
+    "sensors",
     "xcomponent",
     "udmf",
     "vsync",
@@ -132,6 +136,7 @@ api-11 = [
     "ohos-window-sys?/api-11",
     "ohos-rawfile-sys?/api-11",
     "ohos-rdb-sys?/api-11",
+    "ohos-sensors-sys?/api-11",
     "udmf-sys?/api-11",
     "xcomponent-sys?/api-11",
 ]
@@ -150,6 +155,7 @@ api-12 = [
     "ohos-pasteboard-sys?/api-12",
     "ohos-rawfile-sys?/api-12",
     "ohos-rdb-sys?/api-12",
+    "ohos-sensors-sys?/api-12",
     "ohos-vsync-sys?/api-12",
     "ohos-window-sys?/api-12",
     "ohos-window-manager-sys?/api-12",
@@ -172,6 +178,7 @@ api-13 = [
     "ohos-pasteboard-sys?/api-13",
     "ohos-rawfile-sys?/api-13",
     "ohos-rdb-sys?/api-13",
+    "ohos-sensors-sys?/api-13",
     "ohos-vsync-sys?/api-13",
     "ohos-window-sys?/api-13",
     "ohos-window-manager-sys?/api-13",
@@ -194,6 +201,7 @@ api-14 = [
     "ohos-pasteboard-sys?/api-14",
     "ohos-rawfile-sys?/api-14",
     "ohos-rdb-sys?/api-14",
+    "ohos-sensors-sys?/api-14",
     "ohos-vsync-sys?/api-14",
     "ohos-window-manager-sys?/api-14",
     "ohos-window-sys?/api-14",
@@ -216,6 +224,7 @@ api-15 = [
     "ohos-pasteboard-sys?/api-15",
     "ohos-rawfile-sys?/api-15",
     "ohos-rdb-sys?/api-15",
+    "ohos-sensors-sys?/api-15",
     "ohos-vsync-sys?/api-15",
     "ohos-window-manager-sys?/api-15",
     "ohos-window-sys?/api-15",
@@ -237,6 +246,7 @@ api-16 = ["api-15",
     "ohos-pasteboard-sys?/api-16",
     "ohos-rawfile-sys?/api-16",
     "ohos-rdb-sys?/api-16",
+    "ohos-sensors-sys?/api-16",
     "ohos-vsync-sys?/api-16",
     "ohos-window-manager-sys?/api-16",
     "ohos-window-sys?/api-16",
@@ -257,6 +267,7 @@ api-17 = ["api-16",
     "ohos-pasteboard-sys?/api-17",
     "ohos-rawfile-sys?/api-17",
     "ohos-rdb-sys?/api-17",
+    "ohos-sensors-sys?/api-17",
     "ohos-vsync-sys?/api-17",
     "ohos-window-manager-sys?/api-17",
     "ohos-window-sys?/api-17",
@@ -277,6 +288,7 @@ api-18 = ["api-17",
     "ohos-pasteboard-sys?/api-18",
     "ohos-rawfile-sys?/api-18",
     "ohos-rdb-sys?/api-18",
+    "ohos-sensors-sys?/api-18",
     "ohos-vsync-sys?/api-18",
     "ohos-window-manager-sys?/api-18",
     "ohos-window-sys?/api-18",
@@ -297,6 +309,7 @@ api-19 = ["api-18",
     "ohos-pasteboard-sys?/api-19",
     "ohos-rawfile-sys?/api-19",
     "ohos-rdb-sys?/api-19",
+    "ohos-sensors-sys?/api-19",
     "ohos-vsync-sys?/api-19",
     "ohos-window-manager-sys?/api-19",
     "ohos-window-sys?/api-19",
@@ -317,6 +330,7 @@ api-20 = ["api-19",
     "ohos-pasteboard-sys?/api-20",
     "ohos-rawfile-sys?/api-20",
     "ohos-rdb-sys?/api-20",
+    "ohos-sensors-sys?/api-20",
     "ohos-vsync-sys?/api-20",
     "ohos-window-manager-sys?/api-20",
     "ohos-window-sys?/api-20",
@@ -337,6 +351,7 @@ api-21 = ["api-20",
     "ohos-pasteboard-sys?/api-21",
     "ohos-rawfile-sys?/api-21",
     "ohos-rdb-sys?/api-21",
+    "ohos-sensors-sys?/api-21",
     "ohos-vsync-sys?/api-21",
     "ohos-window-manager-sys?/api-21",
     "ohos-window-sys?/api-21",
