@@ -34,6 +34,24 @@ jobs:
       - name: Check integrity
         run: git diff --exit-code
 
+  link-smoke:
+    name: Smoke Linking Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-unknown-linux-ohos
+      - name: Setup OpenHarmony SDK
+        id: setup_sdk
+        uses: openharmony-rs/setup-ohos-sdk@v0.2
+        with:
+          version: 6.0.0.1
+      - name: Run link smoke test
+        run: ./scripts/ci_link_check.sh
+        env:
+          OHOS_SDK_NATIVE: ${{ steps.setup_sdk.outputs.ohos_sdk_native }}
+
   build-toolchains:
     strategy:
       matrix:
@@ -142,6 +160,7 @@ jobs:
       - build-toolchains
       - api_feature_levels
       - api_minimal_featueres
+      - link-smoke
       # - semver_checks
       - rustdoc
     steps:
