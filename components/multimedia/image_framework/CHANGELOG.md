@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.5
+
+- Fix missing link to libimage_common.so
+
 ## 0.3.4
 
 - Update to API-21
