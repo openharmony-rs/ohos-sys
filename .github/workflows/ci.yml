@@ -38,6 +38,7 @@ jobs:
     name: Smoke Linking Test
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         sdk_version:
           - "5.0.0"

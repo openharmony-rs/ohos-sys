@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.6
+
+- Fix missing link of native library for native-fence.
+
 ## 0.1.5
 
 - Add native-fence bindings
