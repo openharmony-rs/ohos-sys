@@ -7,7 +7,7 @@
     cfg_attr(doc, doc = ::document_features::document_features!())
 )]
 #![cfg_attr(docsrs, feature(doc_cfg))]
-#![cfg(feature = "api-12")]
+#![cfg(feature = "api-13")]
 
 #[link(name = "pasteboard")]
 extern "C" {}

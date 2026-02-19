@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- Fix documented minimum API level
+
 ## 0.1.3
 
 - Add API-21 bindings
