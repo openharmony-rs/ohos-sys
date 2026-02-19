@@ -64,6 +64,10 @@ pub use ohos_rawfile_sys as rawfile;
 #[cfg_attr(docsrs, doc(cfg(feature = "rdb")))]
 pub use ohos_rdb_sys as rdb;
 
+#[cfg(feature = "sensors")]
+#[cfg_attr(docsrs, doc(cfg(feature = "sensors")))]
+pub use ohos_sensors_sys as sensors;
+
 #[cfg(feature = "udmf")]
 #[cfg_attr(docsrs, doc(cfg(feature = "udmf")))]
 pub use udmf_sys as udmf;

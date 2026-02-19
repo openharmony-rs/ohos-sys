@@ -143,6 +143,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-sensors-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-sys"
 version = "0.8.6"
 dependencies = [
@@ -159,6 +166,7 @@ dependencies = [
  "ohos-pasteboard-sys",
  "ohos-rawfile-sys",
  "ohos-rdb-sys",
+ "ohos-sensors-sys",
  "ohos-sys-opaque-types",
  "ohos-vsync-sys",
  "ohos-window-manager-sys",
