@@ -19,6 +19,12 @@ fn link_smoke() {
                 OH_AbilityRuntime_ApplicationContextGetCacheDir(ptr::null_mut(), 0, ptr::null_mut());
         }
 
-        let _ = abilitykit::childprocess::OH_Ability_CreateNativeChildProcess(ptr::null_mut(), None);
+        #[cfg(feature = "api-17")]
+        {
+            let _ = abilitykit::runtime::start_options::OH_AbilityRuntime_CreateStartOptions();
+        }
+
+        let _ =
+            abilitykit::childprocess::OH_Ability_CreateNativeChildProcess(ptr::null_mut(), None);
     }
 }
