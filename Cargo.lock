@@ -112,7 +112,7 @@ dependencies = [
 
 [[package]]
 name = "ohos-media-sys"
-version = "0.0.5"
+version = "0.1.0"
 dependencies = [
  "document-features",
  "ohos-sys-opaque-types",

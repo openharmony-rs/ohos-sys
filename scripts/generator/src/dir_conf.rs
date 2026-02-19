@@ -72,11 +72,70 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     builder
                 };
                 match file_stem {
+                    "avcodec_audiocodec" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avbuffer::OH_AVBuffer;")
+                        .raw_line("#[allow(unused_imports)]use crate::avcodec_base::{OH_AVCodec, OH_AVCodecCallback};")
+                        .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;"),
+                    "avcodec_audiodecoder" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avcodec_base::{OH_AVCodec, OH_AVCodecAsyncCallback};")
+                        .raw_line("#[allow(unused_imports)]use crate::avbuffer_info::OH_AVCodecBufferAttr;")
+                        .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;"),
+                    "avcodec_audioencoder" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avcodec_base::{OH_AVCodec, OH_AVCodecAsyncCallback};")
+                        .raw_line("#[allow(unused_imports)]use crate::avbuffer_info::OH_AVCodecBufferAttr;")
+                        .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;"),
+                    "avcodec_videodecoder" => builder
+                        .raw_line("#[cfg(feature = \"api-11\")]#[allow(unused_imports)]use crate::avbuffer::OH_AVBuffer;")
+                        .raw_line("#[allow(unused_imports)]use crate::avbuffer_info::OH_AVCodecBufferAttr;")
+                        .raw_line("#[allow(unused_imports)]use crate::avcodec_base::{OH_AVCodec, OH_AVCodecAsyncCallback};")
+                        .raw_line("#[cfg(feature = \"api-11\")]#[allow(unused_imports)]use crate::avcodec_base::OH_AVCodecCallback;")
+                        .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;")
+                        .raw_line("use ohos_sys_opaque_types::OHNativeWindow;"),
+                    "avcodec_videoencoder" => builder
+                        .raw_line("#[cfg(feature = \"api-11\")]#[allow(unused_imports)]use crate::avbuffer::OH_AVBuffer;")
+                        .raw_line("#[allow(unused_imports)]use crate::avbuffer_info::OH_AVCodecBufferAttr;")
+                        .raw_line("#[allow(unused_imports)]use crate::avcodec_base::{OH_AVCodec, OH_AVCodecAsyncCallback};")
+                        .raw_line("#[cfg(feature = \"api-11\")]#[allow(unused_imports)]use crate::avcodec_base::OH_AVCodecCallback;")
+                        .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;")
+                        .raw_line("use ohos_sys_opaque_types::OHNativeWindow;"),
+                    "avimage_generator" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avimage_generator_base::OH_AVImageGenerator_QueryOptions;")
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;"),
+                    "avmetadata_extractor" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;")
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;"),
+                    "avmuxer" => builder
+                        .raw_line("#[cfg(feature = \"api-11\")]#[allow(unused_imports)]use crate::avbuffer::OH_AVBuffer;")
+                        .raw_line("#[allow(unused_imports)]use crate::avbuffer_info::OH_AVCodecBufferAttr;")
+                        .raw_line("#[allow(unused_imports)]use crate::avcodec_base::OH_AVOutputFormat;")
+                        .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;")
+                        .raw_line("#[allow(unused_imports)]use crate::avmemory::OH_AVMemory;"),
+                    "avrecorder" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avrecorder_base::{OH_AVRecorder, OH_AVRecorder_Config, OH_AVRecorder_EncoderInfo, OH_AVRecorder_OnError, OH_AVRecorder_OnStateChange};")
+                        .raw_line("use ohos_sys_opaque_types::OHNativeWindow;")
+                        // missing media library bindings; blocklist dependent callback registration
+                        .blocklist_function("OH_AVRecorder_SetUriCallback"),
+                    "avrecorder_base" => builder
+                        // missing media library bindings; blocklist dependent callback type
+                        .blocklist_type("OH_MediaAsset")
+                        .blocklist_type("OH_AVRecorder_OnUri"),
+                    "avscreen_capture" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avscreen_capture_base::{OH_AudioBuffer, OH_AudioCaptureSourceType, OH_AVScreenCapture, OH_AVScreenCaptureCallback, OH_AVScreenCaptureConfig, OH_Rect};")
+                        .raw_line("#[cfg(feature = \"api-12\")]#[allow(unused_imports)]use crate::avscreen_capture_base::{OH_AVScreenCapture_ContentFilter, OH_AVScreenCaptureFilterableAudioContent, OH_AVScreenCapture_OnBufferAvailable, OH_AVScreenCapture_OnError, OH_AVScreenCapture_OnStateChange};")
+                        .raw_line("#[cfg(feature = \"api-15\")]#[allow(unused_imports)]use crate::avscreen_capture_base::OH_AVScreenCapture_OnDisplaySelected;")
+                        .raw_line("#[cfg(feature = \"api-20\")]#[allow(unused_imports)]use crate::avscreen_capture_base::{OH_AVScreenCapture_CaptureStrategy, OH_AVScreenCapture_FillMode, OH_AVScreenCapture_OnCaptureContentChanged, OH_AVScreenCapture_OnUserSelected, OH_AVScreenCapture_UserSelectionInfo};")
+                        .raw_line("#[allow(unused_imports)]use crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode;")
+                        .raw_line("#[allow(unused_imports)]use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeBuffer};"),
+                    "avscreen_capture_base" => builder
+                        .raw_line("#[cfg(feature = \"api-11\")]#[allow(unused_imports)]use crate::avbuffer::OH_AVBuffer;"),
+                    "avtranscoder" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avcodec_base::OH_AVOutputFormat;")
+                        .raw_line("#[allow(unused_imports)]use crate::avtranscoder_base::{OH_AVTranscoder, OH_AVTranscoder_Config, OH_AVTranscoder_OnError, OH_AVTranscoder_OnProgressUpdate, OH_AVTranscoder_OnStateChange};"),
                     "avplayer" => builder.raw_line("use ohos_sys_opaque_types::OHNativeWindow;")
                         .raw_line("use crate::avplayer_base::{AVPlaybackSpeed, AVPlayerCallback, AVPlayerSeekMode, AVPlayerState, OH_AVPlayer};")
                         .raw_line("#[cfg(feature = \"api-12\")]use crate::avplayer_base::{OH_AVPlayerOnErrorCallback, OH_AVPlayerOnInfoCallback};")
                         .raw_line("#[cfg(feature = \"api-20\")]")
-                        .raw_line("use crate::avcodec_base::OH_AVDataSourceExt;")
+                        .raw_line("#[allow(unused_imports)]use crate::avcodec_base::OH_AVDataSourceExt;")
                         // require bindings to OH audio.
                         .blocklist_function("OH_AVPlayer_SetVolumeMode")
                         .blocklist_function("OH_AVPlayer_SetAudioRendererInfo")
@@ -113,6 +172,32 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use crate::avsource::OH_AVSource;")
                         .raw_line("use crate::avmemory::OH_AVMemory;")
                     ,
+                    "lowpower_audio_sink" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;")
+                        .raw_line("#[allow(unused_imports)]use crate::lowpower_audio_sink_base::{OH_LowPowerAudioSink, OH_LowPowerAudioSinkCallback, OH_LowPowerAudioSink_OnDataNeeded, OH_LowPowerAudioSink_OnEos, OH_LowPowerAudioSink_OnError, OH_LowPowerAudioSink_OnPositionUpdated};")
+                        .raw_line("#[allow(unused_imports)]use crate::lowpower_avsink_base::OH_AVSamplesBuffer;")
+                        // missing ohaudio bindings; blocklist dependent callbacks
+                        .blocklist_function("OH_LowPowerAudioSinkCallback_SetInterruptListener")
+                        .blocklist_function("OH_LowPowerAudioSinkCallback_SetDeviceChangeListener"),
+                    "lowpower_audio_sink_base" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::lowpower_avsink_base::OH_AVSamplesBuffer;")
+                        // missing ohaudio bindings; blocklist dependent types
+                        .blocklist_type("OH_AudioInterrupt_ForceType")
+                        .blocklist_type("OH_AudioInterrupt_Hint")
+                        .blocklist_type("OH_AudioStream_DeviceChangeReason")
+                        .blocklist_type("OH_LowPowerAudioSink_OnInterrupted")
+                        .blocklist_type("OH_LowPowerAudioSink_OnDeviceChanged"),
+                    "lowpower_avsink_base" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avbuffer::OH_AVBuffer;"),
+                    "lowpower_video_sink" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;")
+                        .raw_line("#[allow(unused_imports)]use crate::lowpower_audio_sink_base::OH_LowPowerAudioSink;")
+                        .raw_line("#[allow(unused_imports)]use crate::lowpower_avsink_base::OH_AVSamplesBuffer;")
+                        .raw_line("#[allow(unused_imports)]use crate::lowpower_video_sink_base::{OH_LowPowerVideoSink, OH_LowPowerVideoSinkCallback, OH_LowPowerVideoSink_OnDataNeeded, OH_LowPowerVideoSink_OnEos, OH_LowPowerVideoSink_OnError, OH_LowPowerVideoSink_OnFirstFrameDecoded, OH_LowPowerVideoSink_OnRenderStarted, OH_LowPowerVideoSink_OnStreamChanged, OH_LowPowerVideoSink_OnTargetArrived};")
+                        .raw_line("use ohos_sys_opaque_types::OHNativeWindow;"),
+                    "lowpower_video_sink_base" => builder
+                        .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;")
+                        .raw_line("#[allow(unused_imports)]use crate::lowpower_avsink_base::OH_AVSamplesBuffer;"),
                     _ => builder,
                 }
             }),
