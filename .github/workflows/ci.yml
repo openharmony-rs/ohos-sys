@@ -37,6 +37,12 @@ jobs:
   link-smoke:
     name: Smoke Linking Test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        sdk_version:
+          - "5.0.0"
+          - "5.1.0"
+          - "6.0.0.1"
     steps:
       - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
@@ -46,7 +52,7 @@ jobs:
         id: setup_sdk
         uses: openharmony-rs/setup-ohos-sdk@v0.2
         with:
-          version: 6.0.0.1
+          version: ${{ matrix.sdk_version }}
       - name: Run link smoke test
         run: ./scripts/ci_link_check.sh
         env:
