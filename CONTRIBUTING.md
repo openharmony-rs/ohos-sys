@@ -90,6 +90,20 @@
    ```
 8. Run cargo check for each feature-level, to make sure there are no errors.
 
+## Link Smoke Tests
+
+To ensure linking works with the SDK sysroot, we maintain smoke integration tests that references at least
+one symbol from each module. This forces the linker to pull in every required library.
+
+1. Create or update `<crate>/tests/link_smoke.rs` when adding modules:
+   - If the module exposes functions, call one function.
+   - If the module is type/constant-only, it can be skipped.
+2. Run the CI link check script:
+   ```bash
+   OHOS_SDK_NATIVE=/path/to/ohos-sdk/<your_host_os>/native scripts/ci_link_check.sh
+   ```
+   This builds the test binary for `aarch64-unknown-linux-ohos` using the SDK sysroot.
+
 
 
 ## Fixing common issues when generating bindings
