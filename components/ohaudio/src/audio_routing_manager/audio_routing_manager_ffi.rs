@@ -4,9 +4,11 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::audio_common::OH_AudioCommon_Result;
+#[cfg(feature = "api-13")]
+use crate::audio_device_base::OH_AudioDevice_BlockStatus;
 use crate::audio_device_base::{
-    OH_AudioDeviceDescriptorArray, OH_AudioDevice_BlockStatus, OH_AudioDevice_ChangeType,
-    OH_AudioDevice_Flag, OH_AudioDevice_Usage,
+    OH_AudioDeviceDescriptorArray, OH_AudioDevice_ChangeType, OH_AudioDevice_Flag,
+    OH_AudioDevice_Usage,
 };
 use crate::audiostream_base::{OH_AudioStream_SourceType, OH_AudioStream_Usage};
 

@@ -936,7 +936,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "audiocapturer" => builder
                         .raw_line("use crate::audiostream_base::*;")
                         .raw_line("use libc::clockid_t;")
-                        .raw_line("#[cfg(feature = \"api-12\")]\nuse crate::audio_device_base::OH_AudioDeviceDescriptorArray;"),
+                        .raw_line("#[cfg(feature = \"api-20\")]\nuse crate::audio_device_base::OH_AudioDeviceDescriptorArray;"),
                     "audiorenderer" => builder
                         .raw_line("use crate::audiostream_base::*;")
                         .raw_line("use libc::clockid_t;")
@@ -958,12 +958,14 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use crate::audio_common::{OH_AudioCommon_Result, OH_AudioScene};"),
                     "audio_routing_manager" => builder
                         .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
-                        .raw_line("use crate::audio_device_base::{OH_AudioDeviceDescriptorArray, OH_AudioDevice_ChangeType, OH_AudioDevice_Flag, OH_AudioDevice_Usage, OH_AudioDevice_BlockStatus};")
+                        .raw_line("use crate::audio_device_base::{OH_AudioDeviceDescriptorArray, OH_AudioDevice_ChangeType, OH_AudioDevice_Flag, OH_AudioDevice_Usage};")
+                        .raw_line("#[cfg(feature = \"api-13\")]\nuse crate::audio_device_base::OH_AudioDevice_BlockStatus;")
                         .raw_line("use crate::audiostream_base::{OH_AudioStream_Usage, OH_AudioStream_SourceType};"),
                     "audio_session_manager" => builder
                         .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
-                        .raw_line("use crate::audio_device_base::{OH_AudioDevice_ChangeType, OH_AudioDeviceDescriptor, OH_AudioDeviceDescriptorArray, OH_AudioDevice_Type, OH_AudioDevice_Usage};")
-                        .raw_line("use crate::audiostream_base::OH_AudioStream_DeviceChangeReason;"),
+                        .raw_line("#[cfg(feature = \"api-20\")]\nuse crate::audio_device_base::{OH_AudioDeviceDescriptorArray, OH_AudioDevice_Type};")
+                        .raw_line("#[cfg(feature = \"api-21\")]\nuse crate::audio_device_base::{OH_AudioDevice_ChangeType, OH_AudioDeviceDescriptor, OH_AudioDevice_Usage};")
+                        .raw_line("#[cfg(feature = \"api-20\")]\nuse crate::audiostream_base::OH_AudioStream_DeviceChangeReason;"),
                     "audio_stream_manager" => builder
                         .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
                         .raw_line("use crate::audiostream_base::{OH_AudioStreamInfo, OH_AudioStream_Usage, OH_AudioStream_DirectPlaybackMode, OH_AudioStream_SourceType};"),
