@@ -71,7 +71,7 @@ already been generated.
 | Unified Data Management Framework(UDMF) | ✅      | 21        | [udmf-sys]                |
 | usb                                     |        |           |                           |
 | usb serial                              |        |           |                           |
-| web                                     |        |           |                           |
+| web                                     | ✅      | 21        | [arkweb-sys]            |
 | window_manager                          | ✅      | 21        | [ohos-window-manager-sys] |
 
 [arkui-sys]: https://docs.rs/arkui-sys/latest/arkui_sys/
@@ -87,6 +87,7 @@ already been generated.
 [rdb-sys]: https://docs.rs/ohos-rdb-sys/latest/ohos-rdb_sys/
 [ohos-window-manager-sys]: https://docs.rs/ohos-window-manager-sys/latest/ohos_window_manager_sys/
 [ohos-window-sys]: https://docs.rs/ohos-window-sys/latest/ohos_window_sys/
+[arkweb-sys]: https://docs.rs/arkweb-sys/latest/arkweb_sys/
 [ohos-abilitykit-sys]: https://docs.rs/ohos-abilitykit-sys/latest/ohos_abilitykit_sys/
 [ohos-vsync-sys]: https://docs.rs/ohos-vsync-sys/latest/ohos_vsync_sys/
 [udmf-sys]: https://docs.rs/udmf-sys/latest/udmf_sys/

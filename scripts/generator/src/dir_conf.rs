@@ -913,6 +913,36 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             ..Default::default()
         },
         DirBindingsConf {
+            directory: "web".to_string(),
+            output_dir: "components/web/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"]);
+
+                match file_stem {
+                    "arkweb_error_code" => builder.result_error_enum("ArkWeb_ErrorCode"),
+                    "arkweb_interface" => builder
+                        .raw_line("#[cfg(feature = \"api-18\")]\nuse crate::arkweb_type::ArkWeb_OnScrollCallback;"),
+                    "arkweb_scheme_handler" => {
+                        builder.raw_line("use crate::arkweb_net_error_list::ArkWeb_NetError;")
+                    }
+                    "arkweb_type" => builder
+                        .raw_line("use crate::arkweb_error_code::ArkWeb_ErrorCode;")
+                        // This type is referenced from an ungated field but is itself feature-gated by bindgen.
+                        // Provide a fallback placeholder for lower API levels.
+                        .raw_line("#[cfg(not(feature = \"api-18\"))]\n#[repr(C)]\npub struct ArkWeb_ProxyObjectWithResult { _unused: [u8; 0], }"),
+                    "native_interface_arkweb" => builder
+                        .raw_line("#[cfg(feature = \"api-15\")]\nuse crate::arkweb_error_code::ArkWeb_ErrorCode;")
+                        .raw_line("#[cfg(feature = \"api-20\")]\nuse crate::arkweb_error_code::ArkWeb_BlanklessErrorCode;")
+                        .raw_line("#[cfg(feature = \"api-20\")]\nuse crate::arkweb_type::ArkWeb_ProxyObjectWithResult;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
             directory: "ohaudio".to_string(),
             output_dir: "components/ohaudio/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "native_"))),

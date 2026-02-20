@@ -42,6 +42,10 @@ pub use ohos_ime_sys as inputmethod;
 #[cfg_attr(docsrs, doc(cfg(feature = "ohaudio")))]
 pub use ohaudio_sys as ohaudio;
 
+#[cfg(feature = "web")]
+#[cfg_attr(docsrs, doc(cfg(feature = "web")))]
+pub use arkweb_sys as web;
+
 #[cfg(feature = "ipckit")]
 #[cfg_attr(docsrs, doc(cfg(feature = "ipckit")))]
 pub use ohos_ipckit_sys as ipckit;

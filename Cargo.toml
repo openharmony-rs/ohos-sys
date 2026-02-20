@@ -32,6 +32,7 @@ ohos-drawing-sys = { path = "components/drawing", version = "0.3.3", optional = 
 ohos-image-kit-sys = { version = "0.3.4", optional = true, path = "components/multimedia/image_framework" }
 ohos-ime-sys = { version = "0.2.3", optional = true, path = "components/inputmethod" }
 ohaudio-sys = { version = "0.1.0", optional = true, path = "components/ohaudio" }
+arkweb-sys = { version = "0.1.0", optional = true, path = "components/web" }
 ohos-ipckit-sys = { version = "0.1.0", optional = true, path = "components/ipckit" }
 ohos-input-sys = { version = "0.3.3", optional = true, path = "components/multimodal-input" }
 ohos-pasteboard-sys = { version = "0.1.3", optional = true, path = "components/pasteboard" }
@@ -70,6 +71,8 @@ image-kit = ["dep:ohos-image-kit-sys"]
 multimodal-input = ["dep:ohos-input-sys"]
 ## Enables bindings to the OHAudio module.
 ohaudio = ["dep:ohaudio-sys"]
+## Enables bindings to the Web module.
+web = ["dep:arkweb-sys"]
 ## Enables bindings to `napi`
 napi = []
 ## Enables bindings to `native_buffer`
@@ -123,6 +126,7 @@ all-components = [
     "xcomponent",
     "udmf",
     "vsync",
+    "web",
     "window_manager",
 ]
 
@@ -141,6 +145,7 @@ api-11 = [
     "ohos-deviceinfo-sys?/api-11",
     "ohos-drawing-sys?/api-11",
     "ohaudio-sys?/api-11",
+    "arkweb-sys?/api-11",
     "ohos-vsync-sys?/api-11",
     "ohos-window-sys?/api-11",
     "ohos-rawfile-sys?/api-11",
@@ -163,6 +168,7 @@ api-12 = [
     "ohos-ipckit-sys?/api-12",
     "ohos-input-sys?/api-12",
     "ohaudio-sys?/api-12",
+    "arkweb-sys?/api-12",
     "ohos-pasteboard-sys?/api-12",
     "ohos-rawfile-sys?/api-12",
     "ohos-rdb-sys?/api-12",
@@ -188,6 +194,7 @@ api-13 = [
     "ohos-ipckit-sys?/api-13",
     "ohos-input-sys?/api-13",
     "ohaudio-sys?/api-13",
+    "arkweb-sys?/api-13",
     "ohos-pasteboard-sys?/api-13",
     "ohos-rawfile-sys?/api-13",
     "ohos-rdb-sys?/api-13",
@@ -213,6 +220,7 @@ api-14 = [
     "ohos-ipckit-sys?/api-14",
     "ohos-input-sys?/api-14",
     "ohaudio-sys?/api-14",
+    "arkweb-sys?/api-14",
     "ohos-pasteboard-sys?/api-14",
     "ohos-rawfile-sys?/api-14",
     "ohos-rdb-sys?/api-14",
@@ -238,6 +246,7 @@ api-15 = [
     "ohos-ipckit-sys?/api-15",
     "ohos-input-sys?/api-15",
     "ohaudio-sys?/api-15",
+    "arkweb-sys?/api-15",
     "ohos-pasteboard-sys?/api-15",
     "ohos-rawfile-sys?/api-15",
     "ohos-rdb-sys?/api-15",
@@ -262,6 +271,7 @@ api-16 = ["api-15",
     "ohos-ipckit-sys?/api-16",
     "ohos-input-sys?/api-16",
     "ohaudio-sys?/api-16",
+    "arkweb-sys?/api-16",
     "ohos-pasteboard-sys?/api-16",
     "ohos-rawfile-sys?/api-16",
     "ohos-rdb-sys?/api-16",
@@ -285,6 +295,7 @@ api-17 = ["api-16",
     "ohos-ipckit-sys?/api-17",
     "ohos-input-sys?/api-17",
     "ohaudio-sys?/api-17",
+    "arkweb-sys?/api-17",
     "ohos-pasteboard-sys?/api-17",
     "ohos-rawfile-sys?/api-17",
     "ohos-rdb-sys?/api-17",
@@ -308,6 +319,7 @@ api-18 = ["api-17",
     "ohos-ipckit-sys?/api-18",
     "ohos-input-sys?/api-18",
     "ohaudio-sys?/api-18",
+    "arkweb-sys?/api-18",
     "ohos-pasteboard-sys?/api-18",
     "ohos-rawfile-sys?/api-18",
     "ohos-rdb-sys?/api-18",
@@ -331,6 +343,7 @@ api-19 = ["api-18",
     "ohos-ipckit-sys?/api-19",
     "ohos-input-sys?/api-19",
     "ohaudio-sys?/api-19",
+    "arkweb-sys?/api-19",
     "ohos-pasteboard-sys?/api-19",
     "ohos-rawfile-sys?/api-19",
     "ohos-rdb-sys?/api-19",
@@ -354,6 +367,7 @@ api-20 = ["api-19",
     "ohos-ipckit-sys?/api-20",
     "ohos-input-sys?/api-20",
     "ohaudio-sys?/api-20",
+    "arkweb-sys?/api-20",
     "ohos-pasteboard-sys?/api-20",
     "ohos-rawfile-sys?/api-20",
     "ohos-rdb-sys?/api-20",
@@ -377,6 +391,7 @@ api-21 = ["api-20",
     "ohos-ipckit-sys?/api-21",
     "ohos-input-sys?/api-21",
     "ohaudio-sys?/api-21",
+    "arkweb-sys?/api-21",
     "ohos-pasteboard-sys?/api-21",
     "ohos-rawfile-sys?/api-21",
     "ohos-rdb-sys?/api-21",
