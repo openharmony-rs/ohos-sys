@@ -4,32 +4,31 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
+pub type OH_AudioCommon_Result = Result<(), OH_AudioCommonErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_AudioCommon_Result {
-    /// The call was successful.
-    pub const AUDIOCOMMON_RESULT_SUCCESS: OH_AudioCommon_Result = OH_AudioCommon_Result(0);
+impl OH_AudioCommonErrorCode {
     /// This means that the input parameter is invalid.
-    pub const AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM: OH_AudioCommon_Result =
-        OH_AudioCommon_Result(6800101);
+    pub const INVALID_PARAM: OH_AudioCommonErrorCode =
+        OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800101).unwrap() });
     /// This means there is no memory left.
-    pub const AUDIOCOMMON_RESULT_ERROR_NO_MEMORY: OH_AudioCommon_Result =
-        OH_AudioCommon_Result(6800102);
+    pub const NO_MEMORY: OH_AudioCommonErrorCode =
+        OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800102).unwrap() });
     /// Execution status exception.
-    pub const AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE: OH_AudioCommon_Result =
-        OH_AudioCommon_Result(6800103);
+    pub const ILLEGAL_STATE: OH_AudioCommonErrorCode =
+        OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800103).unwrap() });
     /// This means the operation is unsupported.
-    pub const AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED: OH_AudioCommon_Result =
-        OH_AudioCommon_Result(6800104);
+    pub const UNSUPPORTED: OH_AudioCommonErrorCode =
+        OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800104).unwrap() });
     /// This means the operation is timeout.
-    pub const AUDIOCOMMON_RESULT_ERROR_TIMEOUT: OH_AudioCommon_Result =
-        OH_AudioCommon_Result(6800105);
+    pub const TIMEOUT: OH_AudioCommonErrorCode =
+        OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800105).unwrap() });
     /// This means reached stream limit.
-    pub const AUDIOCOMMON_RESULT_ERROR_STREAM_LIMIT: OH_AudioCommon_Result =
-        OH_AudioCommon_Result(6800201);
+    pub const STREAM_LIMIT: OH_AudioCommonErrorCode =
+        OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800201).unwrap() });
     /// An system error has occurred.
-    pub const AUDIOCOMMON_RESULT_ERROR_SYSTEM: OH_AudioCommon_Result =
-        OH_AudioCommon_Result(6800301);
+    pub const SYSTEM: OH_AudioCommonErrorCode =
+        OH_AudioCommonErrorCode(const { core::num::NonZero::new(6800301).unwrap() });
 }
 #[repr(transparent)]
 /// Define the result of the function execution.
@@ -39,7 +38,7 @@ impl OH_AudioCommon_Result {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_AudioCommon_Result(pub ::core::ffi::c_uint);
+pub struct OH_AudioCommonErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_AudioScene {

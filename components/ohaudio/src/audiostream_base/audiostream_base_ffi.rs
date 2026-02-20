@@ -116,35 +116,34 @@ impl OH_AudioChannelLayout {
 #[repr(transparent)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AudioChannelLayout(pub ::core::ffi::c_ulonglong);
-impl OH_AudioStream_Result {
-    /// The call was successful.
-    ///
-    ///
-    /// Available since API-level: 10
-    pub const AUDIOSTREAM_SUCCESS: OH_AudioStream_Result = OH_AudioStream_Result(0);
+pub type OH_AudioStream_Result = Result<(), OH_AudioStreamErrorCode>;
+impl OH_AudioStreamErrorCode {
     /// This means that the function was executed with an invalid input parameter.
     ///
     ///
     /// Available since API-level: 10
-    pub const AUDIOSTREAM_ERROR_INVALID_PARAM: OH_AudioStream_Result = OH_AudioStream_Result(1);
+    pub const INVALID_PARAM: OH_AudioStreamErrorCode =
+        OH_AudioStreamErrorCode(const { core::num::NonZero::new(1).unwrap() });
     /// Execution status exception.
     ///
     ///
     /// Available since API-level: 10
-    pub const AUDIOSTREAM_ERROR_ILLEGAL_STATE: OH_AudioStream_Result = OH_AudioStream_Result(2);
+    pub const ILLEGAL_STATE: OH_AudioStreamErrorCode =
+        OH_AudioStreamErrorCode(const { core::num::NonZero::new(2).unwrap() });
     /// An system error has occurred.
     ///
     ///
     /// Available since API-level: 10
-    pub const AUDIOSTREAM_ERROR_SYSTEM: OH_AudioStream_Result = OH_AudioStream_Result(3);
+    pub const SYSTEM: OH_AudioStreamErrorCode =
+        OH_AudioStreamErrorCode(const { core::num::NonZero::new(3).unwrap() });
     /// Unsupported audio format, such as unsupported encoding type, sample format etc.
     ///
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
-    pub const AUDIOSTREAM_ERROR_UNSUPPORTED_FORMAT: OH_AudioStream_Result =
-        OH_AudioStream_Result(4);
+    pub const UNSUPPORTED_FORMAT: OH_AudioStreamErrorCode =
+        OH_AudioStreamErrorCode(const { core::num::NonZero::new(4).unwrap() });
 }
 #[repr(transparent)]
 /// Define the result of the function execution.
@@ -152,7 +151,7 @@ impl OH_AudioStream_Result {
 ///
 /// Available since API-level: 10
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_AudioStream_Result(pub ::core::ffi::c_uint);
+pub struct OH_AudioStreamErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 impl OH_AudioStream_Type {
     /// The type for audio stream is renderer.
     ///

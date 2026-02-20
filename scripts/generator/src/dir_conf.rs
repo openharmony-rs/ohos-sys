@@ -949,6 +949,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line(
                             "#[cfg(feature = \"api-20\")]\nuse crate::audiorenderer::{OH_AudioRenderer_OnErrorCallback, OH_AudioRenderer_OnFastStatusChange, OH_AudioRenderer_OnInterruptCallback, OH_AudioRenderer_OnWriteDataCallbackAdvanced};",
                         ),
+                    "audio_common" => builder.result_error_enum("OH_AudioCommon_Result"),
+                    "audiostream_base" => builder.result_error_enum("OH_AudioStream_Result"),
                     "audio_device_base" => builder
                         .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
                         .raw_line("use crate::audiostream_base::OH_AudioStream_EncodingType;"),

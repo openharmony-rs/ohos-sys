@@ -79,16 +79,29 @@
 5. If you encounter functions or types which require a non-opaque type from a different crate, where we don't have
    bindings for yet, then you can consider blocklisting that type and function using the type, while adding a todo
    comment explaining why it is blocked.
-6. Check the feature documentation comments in Cargo.toml and document the minimum required API level for the crate,
+6. If a C `Result` type is used as a return type in function signatures (not just a regular integer alias), apply
+   the `result_error_enum` optimization in the module's `DirBindingsConf` entry, for example:
+   ```rust
+   builder.result_error_enum("OH_AudioCommon_Result");
+   ```
+   This generates a `Result<(), NonZero<...>>` alias and improves ergonomics.
+7. When `result_error_enum` is used, also add the enum prefix to `scripts/generator/src/enum_prefix.rs` so that
+   the error variant names are stripped to their short form. 
+   The prefix should be the longest common prefix of all error enum variants (excluding the OK variant).
+   For example:
+   ```rust
+   ("OH_AudioCommon_Result", "AUDIOCOMMON_RESULT_ERROR_"),
+   ```
+8. Check the feature documentation comments in Cargo.toml and document the minimum required API level for the crate,
    and add a note if the API level did not add any new APIs.
-7. Check the modules added in `src/lib.rs`. If the header file the module was generated from was added in a later API
+9. Check the modules added in `src/lib.rs`. If the header file the module was generated from was added in a later API
    level than the minimum required API level, add a feature guard to the module and annottate it for docs.rs with:
    ```rust
    #[cfg(feature = "api-<level>")]
    #[cfg_attr(docsrs, doc(cfg(feature = "api-<level>")))]
    mod my_mod;
    ```
-8. Run cargo check for each feature-level, to make sure there are no errors.
+10. Run cargo check for each feature-level, to make sure there are no errors.
 
 ## Link Smoke Tests
 
