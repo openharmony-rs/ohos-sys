@@ -912,5 +912,68 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             skip_files: vec!["ipc_kit.h".to_string()],
             ..Default::default()
         },
+        DirBindingsConf {
+            directory: "ohaudio".to_string(),
+            output_dir: "components/ohaudio/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "native_"))),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let mut builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"]);
+
+                if file_stem == "audiostream_base" {
+                    if let Some(include_dir) = header_path.parent().and_then(|path| path.parent())
+                    {
+                        let channel_layout_header =
+                            include_dir.join("multimedia/native_audio_channel_layout.h");
+                        if channel_layout_header.exists() {
+                            builder = builder.allowlist_file(channel_layout_header.to_str().unwrap());
+                        }
+                    }
+                }
+
+                match file_stem {
+                    "audiocapturer" => builder
+                        .raw_line("use crate::audiostream_base::*;")
+                        .raw_line("use libc::clockid_t;")
+                        .raw_line("#[cfg(feature = \"api-12\")]\nuse crate::audio_device_base::OH_AudioDeviceDescriptorArray;"),
+                    "audiorenderer" => builder
+                        .raw_line("use crate::audiostream_base::*;")
+                        .raw_line("use libc::clockid_t;")
+                        .raw_line("#[cfg(feature = \"api-12\")]\nuse crate::audio_device_base::OH_AudioDevice_Type;"),
+                    "audiostreambuilder" => builder
+                        .raw_line("use crate::audiostream_base::*;")
+                        .raw_line(
+                            "#[cfg(feature = \"api-20\")]\nuse crate::audiocapturer::{OH_AudioCapturer_OnDeviceChangeCallback, OH_AudioCapturer_OnErrorCallback, OH_AudioCapturer_OnFastStatusChange, OH_AudioCapturer_OnInterruptCallback, OH_AudioCapturer_OnReadDataCallback};",
+                        )
+                        .raw_line(
+                            "#[cfg(feature = \"api-20\")]\nuse crate::audiorenderer::{OH_AudioRenderer_OnErrorCallback, OH_AudioRenderer_OnFastStatusChange, OH_AudioRenderer_OnInterruptCallback, OH_AudioRenderer_OnWriteDataCallbackAdvanced};",
+                        ),
+                    "audio_device_base" => builder
+                        .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
+                        .raw_line("use crate::audiostream_base::OH_AudioStream_EncodingType;"),
+                    "audio_manager" => builder
+                        .raw_line("use crate::audio_common::{OH_AudioCommon_Result, OH_AudioScene};"),
+                    "audio_routing_manager" => builder
+                        .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
+                        .raw_line("use crate::audio_device_base::{OH_AudioDeviceDescriptorArray, OH_AudioDevice_ChangeType, OH_AudioDevice_Flag, OH_AudioDevice_Usage, OH_AudioDevice_BlockStatus};")
+                        .raw_line("use crate::audiostream_base::{OH_AudioStream_Usage, OH_AudioStream_SourceType};"),
+                    "audio_session_manager" => builder
+                        .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
+                        .raw_line("use crate::audio_device_base::{OH_AudioDevice_ChangeType, OH_AudioDeviceDescriptor, OH_AudioDeviceDescriptorArray, OH_AudioDevice_Type, OH_AudioDevice_Usage};")
+                        .raw_line("use crate::audiostream_base::OH_AudioStream_DeviceChangeReason;"),
+                    "audio_stream_manager" => builder
+                        .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
+                        .raw_line("use crate::audiostream_base::{OH_AudioStreamInfo, OH_AudioStream_Usage, OH_AudioStream_DirectPlaybackMode, OH_AudioStream_SourceType};"),
+                    "audio_resource_manager" => builder
+                        .raw_line("use crate::audio_common::OH_AudioCommon_Result;"),
+                    "audio_volume_manager" => builder
+                        .raw_line("use crate::audio_common::{OH_AudioCommon_Result, OH_AudioRingerMode};")
+                        .raw_line("use crate::audiostream_base::OH_AudioStream_Usage;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
     ]
 }

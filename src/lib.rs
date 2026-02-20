@@ -38,6 +38,10 @@ pub use hitrace_sys as hitrace;
 #[cfg_attr(docsrs, doc(cfg(feature = "inputmethod")))]
 pub use ohos_ime_sys as inputmethod;
 
+#[cfg(feature = "ohaudio")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ohaudio")))]
+pub use ohaudio_sys as ohaudio;
+
 #[cfg(feature = "ipckit")]
 #[cfg_attr(docsrs, doc(cfg(feature = "ipckit")))]
 pub use ohos_ipckit_sys as ipckit;
