@@ -18,7 +18,7 @@ already been generated.
 | CryptoArchitectureKit                   |        |           |                           |
 | DataProtectionKit                       |        |           |                           |
 | GameControllerKit                       |        |           |                           |
-| IPCKit                                  |        |           |                           |
+| IPCKit                                  | ✅      | 21        | [ohos-ipckit-sys]         |
 | LocationKit                             |        |           |                           |
 | NotificationKit                         |        |           |                           |
 | TEEKit                                  |        |           |                           |
@@ -80,6 +80,7 @@ already been generated.
 [ohos-drawing-sys]: https://docs.rs/ohos-drawing-sys/latest/ohos_drawing_sys/
 [ohos-ime-sys]: https://docs.rs/ohos-ime-sys/latest/ohos_ime_sys/
 [ohos-input-sys]: https://docs.rs/ohos-input-sys/latest/ohos_input_sys/
+[ohos-ipckit-sys]: https://docs.rs/ohos-ipckit-sys/latest/ohos_ipckit_sys/
 [ohos-pasteboard-sys]: https://docs.rs/ohos-pasteboard-sys/latest/ohos_pasteboard_sys/
 [ohos-rawfile-sys]: https://docs.rs/ohos-rawfile-sys/latest/ohos_rawfile_sys/
 [rdb-sys]: https://docs.rs/ohos-rdb-sys/latest/ohos-rdb_sys/

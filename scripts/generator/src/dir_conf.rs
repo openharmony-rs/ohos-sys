@@ -893,5 +893,24 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             }),
             ..Default::default()
         },
+        DirBindingsConf {
+            directory: "IPCKit".to_string(),
+            output_dir: "components/ipckit/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "ipc_"))),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder.allowlist_file(header_path.to_str().unwrap());
+                match file_stem {
+                    "cparcel" => builder
+                        .raw_line("use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteProxy};"),
+                    "cremote_object" => builder
+                        .raw_line("use crate::cparcel::{OHIPCRemoteStub, OH_IPC_MemAllocator};")
+                        .raw_line("use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteProxy};"),
+                    "cskeleton" => builder.raw_line("use crate::cparcel::OH_IPC_MemAllocator;"),
+                    _ => builder,
+                }
+            }),
+            skip_files: vec!["ipc_kit.h".to_string()],
+            ..Default::default()
+        },
     ]
 }

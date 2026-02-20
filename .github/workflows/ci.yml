@@ -97,6 +97,7 @@ jobs:
           - hilog
           - hitrace
           - inputmethod
+          - ipckit
           - image-kit
           - multimodal-input
           - napi

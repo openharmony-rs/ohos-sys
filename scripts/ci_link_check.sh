@@ -48,7 +48,7 @@ if [[ -z "${API_LEVEL}" ]]; then
 fi
 FEATURE_ARGS=(--features "api-${API_LEVEL}")
 
-echo "Link check: building ohos-media-sys tests for ${TARGET} with SDK sysroot."
+echo "Link check: building tests for ${TARGET} with SDK sysroot."
 echo "Link check: using features: api-${API_LEVEL}"
 
 cargo test --workspace --tests --no-run --target "${TARGET}" "${FEATURE_ARGS[@]}" --features all-components
