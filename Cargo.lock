@@ -111,6 +111,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-ipckit-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+ "ohos-sys-opaque-types",
+]
+
+[[package]]
 name = "ohos-media-sys"
 version = "0.1.0"
 dependencies = [
@@ -163,6 +171,7 @@ dependencies = [
  "ohos-image-kit-sys",
  "ohos-ime-sys",
  "ohos-input-sys",
+ "ohos-ipckit-sys",
  "ohos-pasteboard-sys",
  "ohos-rawfile-sys",
  "ohos-rdb-sys",
