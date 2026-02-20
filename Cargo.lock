@@ -52,6 +52,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "libc"
+version = "0.2.182"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6800badb6cb2082ffd7b6a67e6125bb39f18782f793520caee8cb8846be06112"
+
+[[package]]
 name = "litrs"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -62,6 +68,14 @@ name = "log"
 version = "0.4.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
+
+[[package]]
+name = "ohaudio-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+ "libc",
+]
 
 [[package]]
 name = "ohos-abilitykit-sys"
@@ -165,6 +179,7 @@ dependencies = [
  "document-features",
  "hilog-sys",
  "hitrace-sys",
+ "ohaudio-sys",
  "ohos-abilitykit-sys",
  "ohos-deviceinfo-sys",
  "ohos-drawing-sys",

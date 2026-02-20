@@ -57,7 +57,7 @@ already been generated.
 | native_window                           | ✅      | 21        | [ohos-window-sys]         |
 | network                                 |        |           |                           |
 | neural_network_runtime                  |        |           |                           |
-| ohaudio                                 |        |           |                           |
+| ohaudio                                 | ✅      | 21        | [ohaudio-sys]             |
 | ohcamera                                |        |           |                           |
 | Pasteboard                              | ✅      | 21        | [ohos-pasteboard-sys]     |
 | purgeable_memory                        |        |           |                           |
@@ -81,6 +81,7 @@ already been generated.
 [ohos-ime-sys]: https://docs.rs/ohos-ime-sys/latest/ohos_ime_sys/
 [ohos-input-sys]: https://docs.rs/ohos-input-sys/latest/ohos_input_sys/
 [ohos-ipckit-sys]: https://docs.rs/ohos-ipckit-sys/latest/ohos_ipckit_sys/
+[ohaudio-sys]: https://docs.rs/ohaudio-sys/latest/ohaudio_sys/
 [ohos-pasteboard-sys]: https://docs.rs/ohos-pasteboard-sys/latest/ohos_pasteboard_sys/
 [ohos-rawfile-sys]: https://docs.rs/ohos-rawfile-sys/latest/ohos_rawfile_sys/
 [rdb-sys]: https://docs.rs/ohos-rdb-sys/latest/ohos-rdb_sys/
