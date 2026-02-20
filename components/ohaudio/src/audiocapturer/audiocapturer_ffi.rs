@@ -3,7 +3,7 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(feature = "api-12")]
+#[cfg(feature = "api-20")]
 use crate::audio_device_base::OH_AudioDeviceDescriptorArray;
 use crate::audiostream_base::*;
 use libc::clockid_t;

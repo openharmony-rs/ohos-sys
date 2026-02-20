@@ -4,10 +4,13 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::audio_common::OH_AudioCommon_Result;
+#[cfg(feature = "api-21")]
 use crate::audio_device_base::{
-    OH_AudioDeviceDescriptor, OH_AudioDeviceDescriptorArray, OH_AudioDevice_ChangeType,
-    OH_AudioDevice_Type, OH_AudioDevice_Usage,
+    OH_AudioDeviceDescriptor, OH_AudioDevice_ChangeType, OH_AudioDevice_Usage,
 };
+#[cfg(feature = "api-20")]
+use crate::audio_device_base::{OH_AudioDeviceDescriptorArray, OH_AudioDevice_Type};
+#[cfg(feature = "api-20")]
 use crate::audiostream_base::OH_AudioStream_DeviceChangeReason;
 
 /// Declare the audio session manager.
