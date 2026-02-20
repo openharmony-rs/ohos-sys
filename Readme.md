@@ -43,7 +43,13 @@ already been generated.
 | info                                    |        |           |                           |
 | inputmethod                             | ✅      | 21        | [ohos-ime-sys]            |
 | mindspore                               |        |           |                           |
-| multimedia                              |        |           |                           |
+| multimedia/av_session                   |        |           |                           |
+| multimedia/drm_framework                |        |           |                           |
+| multimedia/image_effect                 |        |           |                           |
+| multimedia/image_framework              | ✅      | 21        | [ohos-image-kit-sys]      |
+| multimedia/media_library                |        |           |                           |
+| multimedia/player_framework             | ✅      | 21        | [ohos-media-sys]          |
+| multimedia/video_processing_engine      |        |           |                           |
 | multimodalinput                         | ✅      | 21        | [ohos-input-sys]          |
 | napi                                    | ✅      | 21        |                           |
 | native_buffer                           | ✅      | 21        | [ohos-window-sys]         |
@@ -81,6 +87,8 @@ already been generated.
 [ohos-ime-sys]: https://docs.rs/ohos-ime-sys/latest/ohos_ime_sys/
 [ohos-input-sys]: https://docs.rs/ohos-input-sys/latest/ohos_input_sys/
 [ohos-ipckit-sys]: https://docs.rs/ohos-ipckit-sys/latest/ohos_ipckit_sys/
+[ohos-image-kit-sys]: https://docs.rs/ohos-image-kit-sys/latest/ohos_image_kit_sys/
+[ohos-media-sys]: https://docs.rs/ohos-media-sys/latest/ohos_media_sys/
 [ohaudio-sys]: https://docs.rs/ohaudio-sys/latest/ohaudio_sys/
 [ohos-pasteboard-sys]: https://docs.rs/ohos-pasteboard-sys/latest/ohos_pasteboard_sys/
 [ohos-rawfile-sys]: https://docs.rs/ohos-rawfile-sys/latest/ohos_rawfile_sys/
