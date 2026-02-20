@@ -384,11 +384,9 @@ impl OH_HEVCProfile {
     pub const HEVC_PROFILE_MAIN: OH_HEVCProfile = OH_HEVCProfile(0);
     pub const HEVC_PROFILE_MAIN_10: OH_HEVCProfile = OH_HEVCProfile(1);
     pub const HEVC_PROFILE_MAIN_STILL: OH_HEVCProfile = OH_HEVCProfile(2);
-    ///
     /// **Deprecated** since 14
     #[deprecated(since = "14")]
     pub const HEVC_PROFILE_MAIN_10_HDR10: OH_HEVCProfile = OH_HEVCProfile(3);
-    ///
     /// **Deprecated** since 14
     #[deprecated(since = "14")]
     pub const HEVC_PROFILE_MAIN_10_HDR10_PLUS: OH_HEVCProfile = OH_HEVCProfile(4);
@@ -597,12 +595,10 @@ impl OH_AVSeekMode {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVSeekMode(pub ::core::ffi::c_uint);
 impl OH_ScalingMode {
-    ///
     /// **Deprecated** since 14
     /// OH_SCALING_MODE_SCALE_TO_WINDOW_V2
     #[deprecated(since = "14")]
     pub const SCALING_MODE_SCALE_TO_WINDOW: OH_ScalingMode = OH_ScalingMode(1);
-    ///
     /// **Deprecated** since 14
     /// OH_SCALING_MODE_SCALE_CROP_V2
     #[deprecated(since = "14")]

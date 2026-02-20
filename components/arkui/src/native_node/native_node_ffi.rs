@@ -1196,7 +1196,6 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     /// Available since API-level: 12
-    ////
     ////**
     /// Defines the overlay attribute, which can be set, reset, and obtained as required through APIs.
     ///
@@ -2391,8 +2390,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].f32: Focus box width. Negative numbers and percentages are not supported.
     ///
     /// .value[2].u32: Focus box color.
-    ///
-    ///
     pub const NODE_FOCUS_BOX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(96);
     /// Defines the moving distance limit for the component-bound tap gesture.
     /// This attribute can be set as required through APIs.
@@ -4630,7 +4627,6 @@ impl ArkUI_NodeAttributeType {
     /// Format of the [`ArkUI_AttributeItem`] parameter for obtaining the attribute:
     /// .value[0].i32: whether to remain in the editable state. The value <b>true</b> means to remain in the editable
     /// state, and <b>false</b> means to exit the editable state.
-    ///
     pub const NODE_TEXT_AREA_EDITING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8006);
     /// Defines the text box type. This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -8236,7 +8232,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].f32: distance between the divider and the start of the list, in vp.
     ///
     /// .value[3].f32: distance between the divider and the end of the list, in vp.
-    ///
     pub const NODE_LIST_ITEM_GROUP_SET_DIVIDER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005002);
     /// Set the default spindle size for the ListItem Group subcomponent.
