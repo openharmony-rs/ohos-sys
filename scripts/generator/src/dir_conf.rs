@@ -913,6 +913,22 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             ..Default::default()
         },
         DirBindingsConf {
+            directory: "LocationKit".to_string(),
+            output_dir: "components/locationkit/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"]);
+                match file_stem {
+                    "location" => builder.raw_line("use crate::location_type::*;"),
+                    "location_type" => builder.result_error_enum("Location_ResultCode"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
             directory: "web".to_string(),
             output_dir: "components/web/src".to_string(),
             rename_output_file: None,

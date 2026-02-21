@@ -1,0 +1,42 @@
+[package]
+name = "ohos-locationkit-sys"
+version = "0.1.0"
+edition = "2021"
+description = "Raw bindings to the OpenHarmony LocationKit native APIs"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "ffi", "location", "LocationKit"]
+readme = "README.md"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+
+[features]
+default = []
+
+api-10 = []
+api-11 = ["api-10"]
+api-12 = ["api-11"]
+## API-13 is the minimum API level required for LocationKit.
+api-13 = ["api-12"]
+api-14 = ["api-13"]
+api-15 = ["api-14"]
+## Enables bindings for OpenHarmony API-level 16.
+api-16 = ["api-15"]
+## Enables bindings for OpenHarmony API-level 17.
+api-17 = ["api-16"]
+## Enables bindings for OpenHarmony API-level 18.
+api-18 = ["api-17"]
+## Enables bindings for OpenHarmony API-level 19.
+api-19 = ["api-18"]
+## Enables bindings for OpenHarmony API-level 20.
+api-20 = ["api-19"]
+## Enables bindings for OpenHarmony API-level 21.
+api-21 = ["api-20"]
+## Document available features when building the documentation
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true
