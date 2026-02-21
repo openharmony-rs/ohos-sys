@@ -34,6 +34,7 @@ ohos-ime-sys = { version = "0.2.3", optional = true, path = "components/inputmet
 ohaudio-sys = { version = "0.1.0", optional = true, path = "components/ohaudio" }
 arkweb-sys = { version = "0.1.0", optional = true, path = "components/web" }
 ohos-ipckit-sys = { version = "0.1.0", optional = true, path = "components/ipckit" }
+ohos-locationkit-sys = { version = "0.1.0", optional = true, path = "components/locationkit" }
 ohos-input-sys = { version = "0.3.3", optional = true, path = "components/multimodal-input" }
 ohos-pasteboard-sys = { version = "0.1.3", optional = true, path = "components/pasteboard" }
 ohos-rawfile-sys = { version = "0.1.3", optional = true, path = "components/rawfile" }
@@ -65,6 +66,8 @@ hitrace = ["dep:hitrace-sys"]
 inputmethod = ["dep:ohos-ime-sys"]
 ## Enables bindings to the IPCKit framework.
 ipckit = ["dep:ohos-ipckit-sys"]
+## Enables bindings to the LocationKit framework.
+locationkit = ["dep:ohos-locationkit-sys"]
 ## Bindings to the [Image Kit](https://docs.openharmony.cn/pages/v5.0/en/application-dev/media/image/image-overview.md)
 image-kit = ["dep:ohos-image-kit-sys"]
 ## Bindings to the Multimodal Input kit.
@@ -108,6 +111,7 @@ all-components = [
     "hitrace",
     "inputmethod",
     "ipckit",
+    "locationkit",
     "image-kit",
     "image-kit-image-packer",
     "image-kit-image-receiver",
@@ -167,6 +171,7 @@ api-12 = [
     "ohos-ime-sys?/api-12",
     "ohos-ipckit-sys?/api-12",
     "ohos-input-sys?/api-12",
+    "ohos-locationkit-sys?/api-12",
     "ohaudio-sys?/api-12",
     "arkweb-sys?/api-12",
     "ohos-pasteboard-sys?/api-12",
@@ -193,6 +198,7 @@ api-13 = [
     "ohos-ime-sys?/api-13",
     "ohos-ipckit-sys?/api-13",
     "ohos-input-sys?/api-13",
+    "ohos-locationkit-sys?/api-13",
     "ohaudio-sys?/api-13",
     "arkweb-sys?/api-13",
     "ohos-pasteboard-sys?/api-13",
@@ -219,6 +225,7 @@ api-14 = [
     "ohos-ime-sys?/api-14",
     "ohos-ipckit-sys?/api-14",
     "ohos-input-sys?/api-14",
+    "ohos-locationkit-sys?/api-14",
     "ohaudio-sys?/api-14",
     "arkweb-sys?/api-14",
     "ohos-pasteboard-sys?/api-14",
@@ -245,6 +252,7 @@ api-15 = [
     "ohos-ime-sys?/api-15",
     "ohos-ipckit-sys?/api-15",
     "ohos-input-sys?/api-15",
+    "ohos-locationkit-sys?/api-15",
     "ohaudio-sys?/api-15",
     "arkweb-sys?/api-15",
     "ohos-pasteboard-sys?/api-15",
@@ -270,6 +278,7 @@ api-16 = ["api-15",
     "ohos-ime-sys?/api-16",
     "ohos-ipckit-sys?/api-16",
     "ohos-input-sys?/api-16",
+    "ohos-locationkit-sys?/api-16",
     "ohaudio-sys?/api-16",
     "arkweb-sys?/api-16",
     "ohos-pasteboard-sys?/api-16",
@@ -294,6 +303,7 @@ api-17 = ["api-16",
     "ohos-ime-sys?/api-17",
     "ohos-ipckit-sys?/api-17",
     "ohos-input-sys?/api-17",
+    "ohos-locationkit-sys?/api-17",
     "ohaudio-sys?/api-17",
     "arkweb-sys?/api-17",
     "ohos-pasteboard-sys?/api-17",
@@ -318,6 +328,7 @@ api-18 = ["api-17",
     "ohos-ime-sys?/api-18",
     "ohos-ipckit-sys?/api-18",
     "ohos-input-sys?/api-18",
+    "ohos-locationkit-sys?/api-18",
     "ohaudio-sys?/api-18",
     "arkweb-sys?/api-18",
     "ohos-pasteboard-sys?/api-18",
@@ -342,6 +353,7 @@ api-19 = ["api-18",
     "ohos-ime-sys?/api-19",
     "ohos-ipckit-sys?/api-19",
     "ohos-input-sys?/api-19",
+    "ohos-locationkit-sys?/api-19",
     "ohaudio-sys?/api-19",
     "arkweb-sys?/api-19",
     "ohos-pasteboard-sys?/api-19",
@@ -366,6 +378,7 @@ api-20 = ["api-19",
     "ohos-ime-sys?/api-20",
     "ohos-ipckit-sys?/api-20",
     "ohos-input-sys?/api-20",
+    "ohos-locationkit-sys?/api-20",
     "ohaudio-sys?/api-20",
     "arkweb-sys?/api-20",
     "ohos-pasteboard-sys?/api-20",
@@ -390,6 +403,7 @@ api-21 = ["api-20",
     "ohos-ime-sys?/api-21",
     "ohos-ipckit-sys?/api-21",
     "ohos-input-sys?/api-21",
+    "ohos-locationkit-sys?/api-21",
     "ohaudio-sys?/api-21",
     "arkweb-sys?/api-21",
     "ohos-pasteboard-sys?/api-21",

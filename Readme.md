@@ -19,7 +19,7 @@ already been generated.
 | DataProtectionKit                       |        |           |                           |
 | GameControllerKit                       |        |           |                           |
 | IPCKit                                  | ✅      | 21        | [ohos-ipckit-sys]         |
-| LocationKit                             |        |           |                           |
+| LocationKit                             | ✅      | 21        | [ohos-locationkit-sys]    |
 | NotificationKit                         |        |           |                           |
 | TEEKit                                  |        |           |                           |
 | accesstoken                             |        |           |                           |
@@ -87,6 +87,7 @@ already been generated.
 [ohos-ime-sys]: https://docs.rs/ohos-ime-sys/latest/ohos_ime_sys/
 [ohos-input-sys]: https://docs.rs/ohos-input-sys/latest/ohos_input_sys/
 [ohos-ipckit-sys]: https://docs.rs/ohos-ipckit-sys/latest/ohos_ipckit_sys/
+[ohos-locationkit-sys]: https://docs.rs/ohos-locationkit-sys/latest/ohos_locationkit_sys/
 [ohos-image-kit-sys]: https://docs.rs/ohos-image-kit-sys/latest/ohos_image_kit_sys/
 [ohos-media-sys]: https://docs.rs/ohos-media-sys/latest/ohos_media_sys/
 [ohaudio-sys]: https://docs.rs/ohaudio-sys/latest/ohaudio_sys/

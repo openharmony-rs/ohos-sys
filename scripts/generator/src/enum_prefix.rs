@@ -29,6 +29,7 @@ pub(crate) static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>>
             ("Udmf_Intention", "UDMF_INTENTION_"),
             ("Udmf_ShareOption", "SHARE_OPTIONS_"),
             ("Udmf_ErrCode", "UDMF_"),
+            ("Location_ResultCode", "LOCATION_"),
             ("PASTEBOARD_ErrCode", "ERR_"),
             ("Pasteboard_NotifyType", "NOTIFY_"),
             ("OH_AVCodecBufferFlags", "AVCODEC_BUFFER_FLAGS_"),

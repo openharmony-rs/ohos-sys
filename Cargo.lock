@@ -140,6 +140,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-locationkit-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-media-sys"
 version = "0.1.0"
 dependencies = [
@@ -195,6 +202,7 @@ dependencies = [
  "ohos-ime-sys",
  "ohos-input-sys",
  "ohos-ipckit-sys",
+ "ohos-locationkit-sys",
  "ohos-pasteboard-sys",
  "ohos-rawfile-sys",
  "ohos-rdb-sys",

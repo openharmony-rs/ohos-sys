@@ -50,6 +50,10 @@ pub use arkweb_sys as web;
 #[cfg_attr(docsrs, doc(cfg(feature = "ipckit")))]
 pub use ohos_ipckit_sys as ipckit;
 
+#[cfg(feature = "locationkit")]
+#[cfg_attr(docsrs, doc(cfg(feature = "locationkit")))]
+pub use ohos_locationkit_sys as locationkit;
+
 #[cfg(feature = "multimodal-input")]
 #[cfg_attr(docsrs, doc(cfg(feature = "multimodal-input")))]
 pub use ohos_input_sys as multimodal_input;
