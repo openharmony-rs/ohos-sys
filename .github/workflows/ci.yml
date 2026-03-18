@@ -29,11 +29,11 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Generate bindings
         run: ./scripts/generate_bindings.sh
       - name: Check integrity
-        run: git diff --exit-code
+        run: pwd && git diff --exit-code
 
   link-smoke:
     name: Smoke Linking Test
@@ -67,7 +67,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: ${{ matrix.toolchain }}
@@ -83,7 +83,7 @@ jobs:
     name: Build with API feature levels
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build --features ${{ matrix.api_level }} --features all-components
         name: Build with API features
@@ -115,7 +115,7 @@ jobs:
     name: Build with minimal features
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Build minimal features API-10
         run: cargo build --features api-10 --features ${{ matrix.component }}
@@ -144,7 +144,7 @@ jobs:
   semver_checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Check semver
         uses: obi1kenobi/cargo-semver-checks-action@v2
@@ -153,7 +153,7 @@ jobs:
     name: Build Documentation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@nightly
       - name: Build docs
         run: cargo doc --all-features --workspace --no-deps
