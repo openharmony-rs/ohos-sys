@@ -19,16 +19,17 @@ jobs:
   integrity:
     name: Integrity Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    container:
+      image: ghcr.io/openharmony-rs/ohos-sys-integrity:6.0.1
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ github.token }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@nightly
-        with:
-          components: rustfmt
-      - name: Setup OpenHarmony SDK
-        uses: openharmony-rs/setup-ohos-sdk@v0.2
-        with:
-          version: 6.0.0.1
       - name: Generate bindings
         run: ./scripts/generate_bindings.sh
       - name: Check integrity
