@@ -19,16 +19,19 @@ jobs:
   integrity:
     name: Integrity Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    container:
+      image: ghcr.io/openharmony-rs/ohos-sys-integrity:6.0.1
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@nightly
-        with:
-          components: rustfmt
-      - name: Setup OpenHarmony SDK
-        uses: openharmony-rs/setup-ohos-sdk@v0.2
-        with:
-          version: 6.0.0.1
+        uses: actions/checkout@v6
+      - name: Trust workspace for git
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Generate bindings
         run: ./scripts/generate_bindings.sh
       - name: Check integrity
@@ -66,7 +69,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: ${{ matrix.toolchain }}
@@ -82,7 +85,7 @@ jobs:
     name: Build with API feature levels
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build --features ${{ matrix.api_level }} --features all-components
         name: Build with API features
@@ -114,7 +117,7 @@ jobs:
     name: Build with minimal features
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Build minimal features API-10
         run: cargo build --features api-10 --features ${{ matrix.component }}
@@ -143,7 +146,7 @@ jobs:
   semver_checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Check semver
         uses: obi1kenobi/cargo-semver-checks-action@v2
@@ -152,7 +155,7 @@ jobs:
     name: Build Documentation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@nightly
       - name: Build docs
         run: cargo doc --all-features --workspace --no-deps
