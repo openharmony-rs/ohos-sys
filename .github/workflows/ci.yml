@@ -30,8 +30,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Debug
+        run: |
+          git --version || true
+          ls -la 
+          ls -la .git || true
+          git rev-parse --show-toplevel || true
       - name: Generate bindings
         run: ./scripts/generate_bindings.sh
+      - name: Debug 2
+        run: |
+          git --version || true
+          ls -la 
+          ls -la .git || true
+          git rev-parse --show-toplevel || true
       - name: Check integrity
         run: pwd && git diff --exit-code
 
