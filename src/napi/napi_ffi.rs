@@ -3,11 +3,11 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+pub const NAPI_AUTO_LENGTH: usize = usize::MAX;
 pub use ohos_sys_opaque_types::{napi_env, napi_value};
 
 pub const NAPI_VERSION: u32 = 8;
 pub const NAPI_VERSION_EXPERIMENTAL: u32 = 2147483647;
-pub const NAPI_AUTO_LENGTH: i32 = -1;
 pub const NAPI_MODULE_VERSION: u32 = 1;
 impl napi_qos_t {
     pub const napi_qos_background: napi_qos_t = napi_qos_t(0);

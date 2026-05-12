@@ -33,6 +33,10 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
                     .no_copy("napi_extended_error_info")
                     .no_copy("napi_node_version")
                     .no_copy("napi_module")
+                    // `NAPI_AUTO_LENGTH` is `#define NAPI_AUTO_LENGTH SIZE_MAX`. 
+                    // Usages expect `size_t`.
+                    .blocklist_var("NAPI_AUTO_LENGTH")
+                    .raw_line("pub const NAPI_AUTO_LENGTH: usize = usize::MAX;")
                     .raw_line("pub use ohos_sys_opaque_types::{napi_env, napi_value};")
             }),
         },
