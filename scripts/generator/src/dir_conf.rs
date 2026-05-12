@@ -913,6 +913,24 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             ..Default::default()
         },
         DirBindingsConf {
+            directory: "network/netmanager".to_string(),
+            output_dir: "components/netmanager/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"]);
+                match file_stem {
+                    "net_connection" => builder
+                        .raw_line("use crate::net_connection_type::*;")
+                        .raw_line("use libc::addrinfo;"),
+                    "net_connection_type" => builder.raw_line("use libc::addrinfo;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
             directory: "LocationKit".to_string(),
             output_dir: "components/locationkit/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),
@@ -968,12 +986,12 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .clang_args(["-include", "stdbool.h"]);
 
                 if file_stem == "audiostream_base" {
-                    if let Some(include_dir) = header_path.parent().and_then(|path| path.parent())
-                    {
+                    if let Some(include_dir) = header_path.parent().and_then(|path| path.parent()) {
                         let channel_layout_header =
                             include_dir.join("multimedia/native_audio_channel_layout.h");
                         if channel_layout_header.exists() {
-                            builder = builder.allowlist_file(channel_layout_header.to_str().unwrap());
+                            builder =
+                                builder.allowlist_file(channel_layout_header.to_str().unwrap());
                         }
                     }
                 }
