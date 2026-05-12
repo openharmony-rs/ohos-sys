@@ -38,11 +38,11 @@ impl ::core::ops::BitAndAssign for OH_NativeBuffer_Usage {
     }
 }
 impl OH_NativeBuffer_Usage {
-    /// < CPU read buffer */
+    /// CPU read buffer
     pub const NATIVEBUFFER_USAGE_CPU_READ: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(1);
-    /// < CPU write memory */
+    /// CPU write memory
     pub const NATIVEBUFFER_USAGE_CPU_WRITE: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(2);
-    /// < Direct memory access (DMA) buffer */
+    /// Direct memory access (DMA) buffer
     pub const NATIVEBUFFER_USAGE_MEM_DMA: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(8);
     /// MMZ with cache
     ///
@@ -50,14 +50,14 @@ impl OH_NativeBuffer_Usage {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NATIVEBUFFER_USAGE_MEM_MMZ_CACHE: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(32);
-    /// < For GPU write case */
+    /// For GPU write case
     pub const NATIVEBUFFER_USAGE_HW_RENDER: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(256);
-    /// < For GPU read case */
+    /// For GPU read case
     pub const NATIVEBUFFER_USAGE_HW_TEXTURE: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(512);
-    /// < Often be mapped for direct CPU reads */
+    /// Often be mapped for direct CPU reads
     pub const NATIVEBUFFER_USAGE_CPU_READ_OFTEN: OH_NativeBuffer_Usage =
         OH_NativeBuffer_Usage(65536);
-    /// < 512 bytes alignment */
+    /// 512 bytes alignment
     pub const NATIVEBUFFER_USAGE_ALIGNMENT_512: OH_NativeBuffer_Usage =
         OH_NativeBuffer_Usage(262144);
 }

@@ -6,6 +6,7 @@ mod opaque_types;
 use crate::dir_conf::get_module_bindings_config;
 use crate::header_conf::get_bindings_config;
 use anyhow::{anyhow, bail, Context};
+use std::process::Command;
 use bindgen::callbacks::EnumVariantValue;
 use bindgen::{CodeGenAttributes, EnumVariation, Formatter};
 use log::{debug, error, info, warn};
@@ -431,6 +432,86 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
     Ok(())
 }
 
+/// Run `cargo +nightly fmt` against the workspace at `root_dir`.
+fn run_cargo_fmt(root_dir: &Path) -> anyhow::Result<()> {
+    info!("Running cargo +nightly fmt");
+    let status = Command::new("cargo")
+        .current_dir(root_dir)
+        .args(["+nightly", "fmt"])
+        .status()
+        .context("Failed to spawn `cargo +nightly fmt`")?;
+    if !status.success() {
+        bail!("`cargo +nightly fmt` failed with status {status}");
+    }
+    Ok(())
+}
+
+/// Apply every `*.patch` file in `patches_dir` (sorted by filename) against
+/// `root_dir` via `git apply`.
+///
+/// Patches exist to fix specific bindgen output that we cannot express through
+/// the generator config — e.g. C headers with malformed doxygen comments where
+/// the comment ends up attached to the wrong member.
+///
+/// Convention: each patch is a unified diff with paths relative to the repo
+/// root and a `--- a/PATH` / `+++ b/PATH` header. Generate one with:
+///
+/// ```sh
+/// REL=path/to/file.rs
+/// cp "$REL" /tmp/before.rs
+/// # ... hand-edit "$REL" into the desired state ...
+/// diff -u --label "a/$REL" --label "b/$REL" /tmp/before.rs "$REL" \
+///     > scripts/generator/patches/<descriptive-name>.patch
+/// ```
+fn apply_patches(root_dir: &Path, patches_dir: &Path) -> anyhow::Result<()> {
+    if !patches_dir.is_dir() {
+        debug!("No patches directory at {}, skipping.", patches_dir.display());
+        return Ok(());
+    }
+    let mut patches: Vec<PathBuf> = fs::read_dir(patches_dir)
+        .with_context(|| format!("Failed to read {}", patches_dir.display()))?
+        .filter_map(Result::ok)
+        .map(|e| e.path())
+        .filter(|p| p.extension().and_then(|s| s.to_str()) == Some("patch"))
+        .collect();
+    patches.sort();
+
+    for patch in patches {
+        let name = patch.file_name().unwrap().to_string_lossy().into_owned();
+
+        // Idempotency: if the patch already applies in reverse, the file is
+        // already in the patched state (e.g. ONLY_MODULE skipped regenerating
+        // it). Skip rather than fail.
+        let reverse_check = Command::new("git")
+            .current_dir(root_dir)
+            .args(["apply", "-R", "--check"])
+            .arg(&patch)
+            .output()
+            .with_context(|| format!("Failed to spawn `git apply -R --check` for {name}"))?;
+        if reverse_check.status.success() {
+            info!("Patch already applied, skipping: {name}");
+            continue;
+        }
+
+        info!("Applying patch: {name}");
+        let output = Command::new("git")
+            .current_dir(root_dir)
+            .args(["apply", "--whitespace=nowarn"])
+            .arg(&patch)
+            .output()
+            .with_context(|| format!("Failed to spawn `git apply` for {name}"))?;
+        if !output.status.success() {
+            bail!(
+                "Failed to apply patch {name}.\nstderr:\n{}\n\
+                 Likely the bindgen output drifted from the patch context. \
+                 Regenerate the patch — see the doc comment on `apply_patches`.",
+                String::from_utf8_lossy(&output.stderr)
+            );
+        }
+    }
+    Ok(())
+}
+
 fn main() -> anyhow::Result<()> {
     env_logger::init();
     let sdk_native_dir = std::env::var_os("OHOS_SDK_NATIVE").context(
@@ -456,6 +537,16 @@ fn main() -> anyhow::Result<()> {
     std::env::set_var("LIBCLANG_PATH", libclang_path);
     std::env::set_var("CLANG_PATH", clang_path);
     generate_bindings(&sdk_native_dir, api_version)?;
+
+    let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let root_dir = manifest_dir
+        .parent()
+        .and_then(|d| d.parent())
+        .ok_or(anyhow!("Could not determine root directory"))?
+        .canonicalize()
+        .context("Could not canonicalize root directory")?;
+    run_cargo_fmt(&root_dir)?;
+    apply_patches(&root_dir, &manifest_dir.join("patches"))?;
 
     Ok(())
 }
