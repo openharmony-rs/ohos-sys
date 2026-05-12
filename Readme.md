@@ -61,7 +61,8 @@ already been generated.
 | native_image                            | ✅      | 21        | [ohos-window-sys]         |
 | native_vsync                            | ✅      | 21        | [ohos-vsync-sys]          |
 | native_window                           | ✅      | 21        | [ohos-window-sys]         |
-| network                                 |        |           |                           |
+| network/netmanager                      | ✅      | 21        | [ohos-netmanager-sys]     |
+| network/netstack                        |        |           |                           |
 | neural_network_runtime                  |        |           |                           |
 | ohaudio                                 | ✅      | 21        | [ohaudio-sys]             |
 | ohcamera                                |        |           |                           |
@@ -88,6 +89,7 @@ already been generated.
 [ohos-input-sys]: https://docs.rs/ohos-input-sys/latest/ohos_input_sys/
 [ohos-ipckit-sys]: https://docs.rs/ohos-ipckit-sys/latest/ohos_ipckit_sys/
 [ohos-locationkit-sys]: https://docs.rs/ohos-locationkit-sys/latest/ohos_locationkit_sys/
+[ohos-netmanager-sys]: https://docs.rs/ohos-netmanager-sys/latest/ohos_netmanager_sys/
 [ohos-image-kit-sys]: https://docs.rs/ohos-image-kit-sys/latest/ohos_image_kit_sys/
 [ohos-media-sys]: https://docs.rs/ohos-media-sys/latest/ohos_media_sys/
 [ohaudio-sys]: https://docs.rs/ohaudio-sys/latest/ohaudio_sys/
