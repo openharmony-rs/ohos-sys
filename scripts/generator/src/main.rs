@@ -270,6 +270,8 @@ struct DirBindingsConf {
     set_builder_opts: Box<dyn Fn(&str, &Path, bindgen::Builder) -> bindgen::Builder>,
     /// Optionally skip the following headers
     skip_files: Vec<String>,
+    /// Known nested include directories, relative to the SDK include directory.
+    known_nested_include_dirs: Vec<String>,
 }
 
 impl Default for DirBindingsConf {
@@ -280,6 +282,7 @@ impl Default for DirBindingsConf {
             rename_output_file: None,
             set_builder_opts: Box::new(|_, _, builder| builder),
             skip_files: vec![],
+            known_nested_include_dirs: Default::default(),
         }
     }
 }
@@ -383,7 +386,24 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
         'outer: for file in paths {
             let file = file.context("Failed to enumerate dir")?;
             if file.file_type()?.is_dir() {
-                bail!("Subdirectories are not supported yet by this script");
+                let nested_dir = file.path();
+                let relative_nested_dir = nested_dir
+                    .strip_prefix(&sysroot_include_dir)
+                    .context("Nested include directory is not inside the SDK include directory")?;
+                let relative_nested_dir = relative_nested_dir.to_str().context("Unicode")?;
+                if binding
+                    .known_nested_include_dirs
+                    .iter()
+                    .any(|known| known == relative_nested_dir)
+                {
+                    debug!("Skipping known nested include directory {}", relative_nested_dir);
+                    continue;
+                }
+                bail!(
+                    "Unknown nested include directory {} under module {}",
+                    relative_nested_dir,
+                    binding.directory
+                );
             }
             let file_path = file
                 .path()

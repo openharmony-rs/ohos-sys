@@ -254,6 +254,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 }
             }),
             skip_files: vec!["graphic_error_code.h".to_string()],
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "native_fence/".to_string(),
@@ -267,6 +268,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .clang_args(["-include", "stdbool.h"])
             }),
             skip_files: vec!["graphic_error_code.h".to_string()],
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "native_image/".to_string(),
@@ -287,6 +289,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 }
             }),
             skip_files: vec!["graphic_error_code.h".to_string()],
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "database/pasteboard".to_string(),
@@ -875,6 +878,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             }),
 
             skip_files: vec!["graphic_error_code.h".to_string()],
+            ..Default::default()
         },
         DirBindingsConf {
             directory: "sensors".to_string(),
