@@ -419,10 +419,14 @@ impl OH_AudioStream_Event {
     ///
     ///
     /// **Deprecated** since 20
-    /// OH_AudioRenderer_OutputDeviceChangeCallback.
+    ///
+    /// **Use instead:** OH_AudioRenderer_OutputDeviceChangeCallback.
     ///
     /// Available since API-level: 10
-    #[deprecated(since = "20", note = "OH_AudioRenderer_OutputDeviceChangeCallback")]
+    #[deprecated(
+        since = "20",
+        note = "Use instead: OH_AudioRenderer_OutputDeviceChangeCallback"
+    )]
     pub const AUDIOSTREAM_EVENT_ROUTING_CHANGED: OH_AudioStream_Event = OH_AudioStream_Event(0);
 }
 #[repr(transparent)]
@@ -430,10 +434,14 @@ impl OH_AudioStream_Event {
 ///
 ///
 /// **Deprecated** since 20
-/// OH_AudioRenderer_OutputDeviceChangeCallback.
+///
+/// **Use instead:** OH_AudioRenderer_OutputDeviceChangeCallback.
 ///
 /// Available since API-level: 10
-#[deprecated(since = "20")]
+#[deprecated(
+    since = "20",
+    note = "Use instead: OH_AudioRenderer_OutputDeviceChangeCallback"
+)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AudioStream_Event(pub ::core::ffi::c_uint);
 impl OH_AudioStream_State {
@@ -576,10 +584,14 @@ impl OH_AudioStream_SourceType {
     ///
     ///
     /// **Deprecated** since 12
-    /// OH_AVScreenCapture in native interface.
+    ///
+    /// **Use instead:** OH_AVScreenCapture in native interface.
     ///
     /// Available since API-level: 10
-    #[deprecated(since = "12", note = "OH_AVScreenCapture in native interface")]
+    #[deprecated(
+        since = "12",
+        note = "Use instead: OH_AVScreenCapture in native interface"
+    )]
     pub const AUDIOSTREAM_SOURCE_TYPE_PLAYBACK_CAPTURE: OH_AudioStream_SourceType =
         OH_AudioStream_SourceType(2);
     /// Voice communication source type.
@@ -725,11 +737,15 @@ pub type OH_AudioCapturer = OH_AudioCapturerStruct;
 ///
 ///
 /// **Deprecated** since 20
-/// Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback,
+///
+/// **Use instead:** Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback,
 /// OH_AudioRenderer_OnInterruptEvent, OH_AudioRenderer_OnErrorCallback separately.
 ///
 /// Available since API-level: 10
-#[deprecated(since = "20")]
+#[deprecated(
+    since = "20",
+    note = "Use instead: Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback, OH_AudioRenderer_OnInterruptEvent, OH_AudioRenderer_OnErrorCallback separately"
+)]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AudioRenderer_Callbacks_Struct {
@@ -738,7 +754,8 @@ pub struct OH_AudioRenderer_Callbacks_Struct {
     ///
     ///
     /// **Deprecated** since 20
-    /// OH_AudioRenderer_OnWriteDataCallback.
+    ///
+    /// **Use instead:** OH_AudioRenderer_OnWriteDataCallback.
     ///
     /// Available since API-level: 10
     pub OH_AudioRenderer_OnWriteData: ::core::option::Option<
@@ -754,7 +771,8 @@ pub struct OH_AudioRenderer_Callbacks_Struct {
     ///
     ///
     /// **Deprecated** since 20
-    /// OH_AudioRenderer_OutputDeviceChangeCallback.
+    ///
+    /// **Use instead:** OH_AudioRenderer_OutputDeviceChangeCallback.
     ///
     /// Available since API-level: 10
     pub OH_AudioRenderer_OnStreamEvent: ::core::option::Option<
@@ -769,7 +787,8 @@ pub struct OH_AudioRenderer_Callbacks_Struct {
     ///
     ///
     /// **Deprecated** since 20
-    /// OH_AudioRenderer_OnInterruptCallback.
+    ///
+    /// **Use instead:** OH_AudioRenderer_OnInterruptCallback.
     ///
     /// Available since API-level: 10
     pub OH_AudioRenderer_OnInterruptEvent: ::core::option::Option<
@@ -785,7 +804,8 @@ pub struct OH_AudioRenderer_Callbacks_Struct {
     ///
     ///
     /// **Deprecated** since 20
-    /// OH_AudioRenderer_OnErrorCallback.
+    ///
+    /// **Use instead:** OH_AudioRenderer_OnErrorCallback.
     ///
     /// Available since API-level: 10
     pub OH_AudioRenderer_OnError: ::core::option::Option<
@@ -800,21 +820,29 @@ pub struct OH_AudioRenderer_Callbacks_Struct {
 ///
 ///
 /// **Deprecated** since 20
-/// Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback,
+///
+/// **Use instead:** Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback,
 /// OH_AudioRenderer_OnInterruptEvent, OH_AudioRenderer_OnErrorCallback separately.
 ///
 /// Available since API-level: 10
-#[deprecated(since = "20")]
+#[deprecated(
+    since = "20",
+    note = "Use instead: Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback, OH_AudioRenderer_OnInterruptEvent, OH_AudioRenderer_OnErrorCallback separately"
+)]
 pub type OH_AudioRenderer_Callbacks = OH_AudioRenderer_Callbacks_Struct;
 /// Declaring the callback struct for capturer stream.
 ///
 ///
 /// **Deprecated** since 20
-/// Use the callback type: OH_AudioCapturer_OnReadDataCallback, OH_AudioCapturer_OnDeviceChangeCallback,
+///
+/// **Use instead:** Use the callback type: OH_AudioCapturer_OnReadDataCallback, OH_AudioCapturer_OnDeviceChangeCallback,
 /// OH_AudioCapturer_OnInterruptCallback and OH_AudioCapturer_OnErrorCallback separately.
 ///
 /// Available since API-level: 10
-#[deprecated(since = "20")]
+#[deprecated(
+    since = "20",
+    note = "Use instead: Use the callback type: OH_AudioCapturer_OnReadDataCallback, OH_AudioCapturer_OnDeviceChangeCallback, OH_AudioCapturer_OnInterruptCallback and OH_AudioCapturer_OnErrorCallback separately"
+)]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AudioCapturer_Callbacks_Struct {
@@ -823,7 +851,8 @@ pub struct OH_AudioCapturer_Callbacks_Struct {
     ///
     ///
     /// **Deprecated** since 20
-    /// OH_AudioCapturer_OnReadDataCallback
+    ///
+    /// **Use instead:** OH_AudioCapturer_OnReadDataCallback
     ///
     /// Available since API-level: 10
     pub OH_AudioCapturer_OnReadData: ::core::option::Option<
@@ -839,7 +868,8 @@ pub struct OH_AudioCapturer_Callbacks_Struct {
     ///
     ///
     /// **Deprecated** since 20
-    /// OH_AudioRenderer_OutputDeviceChangeCallback
+    ///
+    /// **Use instead:** OH_AudioRenderer_OutputDeviceChangeCallback
     ///
     /// Available since API-level: 10
     pub OH_AudioCapturer_OnStreamEvent: ::core::option::Option<
@@ -854,7 +884,8 @@ pub struct OH_AudioCapturer_Callbacks_Struct {
     ///
     ///
     /// **Deprecated** since 20
-    /// OH_AudioCapturer_OnInterruptCallback
+    ///
+    /// **Use instead:** OH_AudioCapturer_OnInterruptCallback
     ///
     /// Available since API-level: 10
     pub OH_AudioCapturer_OnInterruptEvent: ::core::option::Option<
@@ -870,7 +901,8 @@ pub struct OH_AudioCapturer_Callbacks_Struct {
     ///
     ///
     /// **Deprecated** since 20
-    /// OH_AudioCapturer_OnErrorCallback
+    ///
+    /// **Use instead:** OH_AudioCapturer_OnErrorCallback
     ///
     /// Available since API-level: 10
     pub OH_AudioCapturer_OnError: ::core::option::Option<
@@ -885,11 +917,15 @@ pub struct OH_AudioCapturer_Callbacks_Struct {
 ///
 ///
 /// **Deprecated** since 20
-/// Use the callback type: OH_AudioCapturer_OnReadDataCallback, OH_AudioCapturer_OnDeviceChangeCallback,
+///
+/// **Use instead:** Use the callback type: OH_AudioCapturer_OnReadDataCallback, OH_AudioCapturer_OnDeviceChangeCallback,
 /// OH_AudioCapturer_OnInterruptCallback and OH_AudioCapturer_OnErrorCallback separately.
 ///
 /// Available since API-level: 10
-#[deprecated(since = "20")]
+#[deprecated(
+    since = "20",
+    note = "Use instead: Use the callback type: OH_AudioCapturer_OnReadDataCallback, OH_AudioCapturer_OnDeviceChangeCallback, OH_AudioCapturer_OnInterruptCallback and OH_AudioCapturer_OnErrorCallback separately"
+)]
 pub type OH_AudioCapturer_Callbacks = OH_AudioCapturer_Callbacks_Struct;
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]

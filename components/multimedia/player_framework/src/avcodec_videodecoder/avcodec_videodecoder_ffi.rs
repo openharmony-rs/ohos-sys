@@ -101,10 +101,11 @@ extern "C" {
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state, must be called before Prepare.
     ///
     /// **Deprecated** since 11
-    /// OH_VideoDecoder_RegisterCallback
+    ///
+    /// **Use instead:** OH_VideoDecoder_RegisterCallback
     ///
     /// Available since API-level: 9
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_VideoDecoder_RegisterCallback")]
     pub fn OH_VideoDecoder_SetCallback(
         codec: *mut OH_AVCodec,
         callback: OH_AVCodecAsyncCallback,
@@ -365,10 +366,11 @@ extern "C" {
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// **Deprecated** since 11
-    /// OH_VideoDecoder_PushInputBuffer
+    ///
+    /// **Use instead:** OH_VideoDecoder_PushInputBuffer
     ///
     /// Available since API-level: 9
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_VideoDecoder_PushInputBuffer")]
     pub fn OH_VideoDecoder_PushInputData(
         codec: *mut OH_AVCodec,
         index: u32,
@@ -397,10 +399,11 @@ extern "C" {
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// **Deprecated** since 11
-    /// OH_VideoDecoder_RenderOutputBuffer
+    ///
+    /// **Use instead:** OH_VideoDecoder_RenderOutputBuffer
     ///
     /// Available since API-level: 9
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_VideoDecoder_RenderOutputBuffer")]
     pub fn OH_VideoDecoder_RenderOutputData(codec: *mut OH_AVCodec, index: u32) -> OH_AVErrCode;
     /// Return the processed output Buffer to the decoder.
     ///
@@ -423,10 +426,11 @@ extern "C" {
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// **Deprecated** since 11
-    /// OH_VideoDecoder_FreeOutputBuffer
+    ///
+    /// **Use instead:** OH_VideoDecoder_FreeOutputBuffer
     ///
     /// Available since API-level: 9
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_VideoDecoder_FreeOutputBuffer")]
     pub fn OH_VideoDecoder_FreeOutputData(codec: *mut OH_AVCodec, index: u32) -> OH_AVErrCode;
     /// Submit the input buffer filled with data to the video decoder. The [`OH_AVCodecOnNeedInputBuffer`]
     /// callback will report the available input buffer and the corresponding index value. Once the buffer with the

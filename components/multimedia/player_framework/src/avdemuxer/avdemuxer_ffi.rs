@@ -34,12 +34,13 @@ pub struct DRM_MediaKeySystemInfo {
 /// Callback for getting media key system information from media source.
 ///
 /// **Deprecated** since 14
-/// Demuxer_MediaKeySystemInfoCallback
+///
+/// **Use instead:** Demuxer_MediaKeySystemInfoCallback
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-#[deprecated(since = "14")]
+#[deprecated(since = "14", note = "Use instead: Demuxer_MediaKeySystemInfoCallback")]
 pub type DRM_MediaKeySystemInfoCallback =
     ::core::option::Option<unsafe extern "C" fn(mediaKeySystemInfo: *mut DRM_MediaKeySystemInfo)>;
 /// Call back will be invoked when updating DRM information.
@@ -172,10 +173,11 @@ extern "C" {
     /// [`AV_ERR_UNKNOWN`] failed to read or parse frame from file.
     ///
     /// **Deprecated** since 11
-    /// OH_AVDemuxer_ReadSampleBuffer
+    ///
+    /// **Use instead:** OH_AVDemuxer_ReadSampleBuffer
     ///
     /// Available since API-level: 10
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_AVDemuxer_ReadSampleBuffer")]
     pub fn OH_AVDemuxer_ReadSample(
         demuxer: *mut OH_AVDemuxer,
         trackIndex: u32,
@@ -256,12 +258,16 @@ extern "C" {
     /// [`AV_ERR_INVALID_VAL`] 3 - If the demuxer instance is nullptr or invalid.
     ///
     /// **Deprecated** since 14
-    /// OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback
+    ///
+    /// **Use instead:** OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    #[deprecated(since = "14")]
+    #[deprecated(
+        since = "14",
+        note = "Use instead: OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback"
+    )]
     pub fn OH_AVDemuxer_SetMediaKeySystemInfoCallback(
         demuxer: *mut OH_AVDemuxer,
         callback: DRM_MediaKeySystemInfoCallback,

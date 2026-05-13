@@ -54,10 +54,11 @@ extern "C" {
     /// Available since API-level: 12
     ///
     /// **Deprecated** since 20
-    /// OH_ArkUI_NodeContent_AddNode
+    ///
+    /// **Use instead:** OH_ArkUI_NodeContent_AddNode
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    #[deprecated(since = "20")]
+    #[deprecated(since = "20", note = "Use instead: OH_ArkUI_NodeContent_AddNode")]
     pub fn OH_NativeXComponent_AttachNativeRootNode(
         component: *mut OH_NativeXComponent,
         root: ArkUI_NodeHandle,
@@ -80,10 +81,11 @@ extern "C" {
     /// Available since API-level: 12
     ///
     /// **Deprecated** since 20
-    /// OH_ArkUI_NodeContent_RemoveNode
+    ///
+    /// **Use instead:** OH_ArkUI_NodeContent_RemoveNode
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    #[deprecated(since = "20")]
+    #[deprecated(since = "20", note = "Use instead: OH_ArkUI_NodeContent_RemoveNode")]
     pub fn OH_NativeXComponent_DetachNativeRootNode(
         component: *mut OH_NativeXComponent,
         root: ArkUI_NodeHandle,

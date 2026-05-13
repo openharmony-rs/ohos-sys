@@ -235,14 +235,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
     /// **Deprecated** since 13
-    /// OH_NetConn_RegisterDnsResolver
+    ///
+    /// **Use instead:** OH_NetConn_RegisterDnsResolver
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    #[deprecated(since = "13")]
+    #[deprecated(since = "13", note = "Use instead: OH_NetConn_RegisterDnsResolver")]
     pub fn OHOS_NetConn_RegisterDnsResolver(resolver: OH_NetConn_CustomDnsResolver) -> i32;
     /// Unregisters a custom DNS resolver.
     ///
@@ -257,14 +258,15 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
     /// **Deprecated** since 13
-    /// OH_NetConn_UnregisterDnsResolver
+    ///
+    /// **Use instead:** OH_NetConn_UnregisterDnsResolver
     ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    #[deprecated(since = "13")]
+    #[deprecated(since = "13", note = "Use instead: OH_NetConn_UnregisterDnsResolver")]
     pub fn OHOS_NetConn_UnregisterDnsResolver() -> i32;
     /// Registers a custom DNS resolver.
     ///

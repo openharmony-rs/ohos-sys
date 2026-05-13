@@ -79,10 +79,11 @@ pub type OH_AVCodecOnStreamChanged = ::core::option::Option<
 /// * `userData` - User specific data
 ///
 /// **Deprecated** since 11
-/// OH_AVCodecOnNeedInputBuffer
+///
+/// **Use instead:** OH_AVCodecOnNeedInputBuffer
 ///
 /// Available since API-level: 9
-#[deprecated(since = "11")]
+#[deprecated(since = "11", note = "Use instead: OH_AVCodecOnNeedInputBuffer")]
 pub type OH_AVCodecOnNeedInputData = ::core::option::Option<
     unsafe extern "C" fn(
         codec: *mut OH_AVCodec,
@@ -111,10 +112,11 @@ pub type OH_AVCodecOnNeedInputData = ::core::option::Option<
 /// * `userData` - specified data
 ///
 /// **Deprecated** since 11
-/// OH_AVCodecOnNewOutputBuffer
+///
+/// **Use instead:** OH_AVCodecOnNewOutputBuffer
 ///
 /// Available since API-level: 9
-#[deprecated(since = "11")]
+#[deprecated(since = "11", note = "Use instead: OH_AVCodecOnNewOutputBuffer")]
 pub type OH_AVCodecOnNewOutputData = ::core::option::Option<
     unsafe extern "C" fn(
         codec: *mut OH_AVCodec,
@@ -193,10 +195,11 @@ pub type OH_AVCodecOnNewOutputBuffer = ::core::option::Option<
 /// * `onNeedOutputData` - Monitor codec to generate output data, refer to [`OH_AVCodecOnNewOutputData`]
 ///
 /// **Deprecated** since 11
-/// OH_AVCodecCallback
+///
+/// **Use instead:** OH_AVCodecCallback
 ///
 /// Available since API-level: 9
-#[deprecated(since = "11")]
+#[deprecated(since = "11", note = "Use instead: OH_AVCodecCallback")]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AVCodecAsyncCallback {
@@ -596,12 +599,14 @@ impl OH_AVSeekMode {
 pub struct OH_AVSeekMode(pub ::core::ffi::c_uint);
 impl OH_ScalingMode {
     /// **Deprecated** since 14
-    /// OH_SCALING_MODE_SCALE_TO_WINDOW_V2
-    #[deprecated(since = "14", note = "OH_SCALING_MODE_SCALE_TO_WINDOW_V2")]
+    ///
+    /// **Use instead:** OH_SCALING_MODE_SCALE_TO_WINDOW_V2
+    #[deprecated(since = "14", note = "Use instead: OH_SCALING_MODE_SCALE_TO_WINDOW_V2")]
     pub const SCALING_MODE_SCALE_TO_WINDOW: OH_ScalingMode = OH_ScalingMode(1);
     /// **Deprecated** since 14
-    /// OH_SCALING_MODE_SCALE_CROP_V2
-    #[deprecated(since = "14", note = "OH_SCALING_MODE_SCALE_CROP_V2")]
+    ///
+    /// **Use instead:** OH_SCALING_MODE_SCALE_CROP_V2
+    #[deprecated(since = "14", note = "Use instead: OH_SCALING_MODE_SCALE_CROP_V2")]
     pub const SCALING_MODE_SCALE_CROP: OH_ScalingMode = OH_ScalingMode(2);
 }
 #[repr(transparent)]
@@ -611,10 +616,11 @@ impl OH_ScalingMode {
 /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// **Deprecated** since 14
-/// OHScalingModeV2
+///
+/// **Use instead:** OHScalingModeV2
 ///
 /// Available since API-level: 10
-#[deprecated(since = "14")]
+#[deprecated(since = "14", note = "Use instead: OHScalingModeV2")]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_ScalingMode(pub ::core::ffi::c_uint);
 impl OH_BitsPerSample {
@@ -1499,10 +1505,14 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// **Deprecated** since 14
-    /// OH_NativeWindow_NativeWindowSetScalingModeV2
+    ///
+    /// **Use instead:** OH_NativeWindow_NativeWindowSetScalingModeV2
     ///
     /// Available since API-level: 10
-    #[deprecated(since = "14")]
+    #[deprecated(
+        since = "14",
+        note = "Use instead: OH_NativeWindow_NativeWindowSetScalingModeV2"
+    )]
     pub static mut OH_MD_KEY_SCALING_MODE: *const ::core::ffi::c_char;
     /// Key for max input buffer count, value type is int32_t.
     ///

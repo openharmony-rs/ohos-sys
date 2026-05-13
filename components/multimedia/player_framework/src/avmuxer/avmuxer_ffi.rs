@@ -155,10 +155,11 @@ extern "C" {
     /// [`AV_ERR_UNKNOWN`], unknown error.
     ///
     /// **Deprecated** since 11
-    /// OH_AVMuxer_WriteSampleBuffer
+    ///
+    /// **Use instead:** OH_AVMuxer_WriteSampleBuffer
     ///
     /// Available since API-level: 10
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_AVMuxer_WriteSampleBuffer")]
     pub fn OH_AVMuxer_WriteSample(
         muxer: *mut OH_AVMuxer,
         trackIndex: u32,

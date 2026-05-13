@@ -209,12 +209,13 @@ pub struct AVPlayerBufferingType(pub ::core::ffi::c_uint);
 /// Available since API-level: 11
 ///
 /// **Deprecated** since 12
-/// [`OH_AVPlayerOnInfoCallback`]
+///
+/// **Use instead:** [`OH_AVPlayerOnInfoCallback`]
 ///
 /// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-#[deprecated(since = "12")]
+#[deprecated(since = "12", note = "Use instead: [`OH_AVPlayerOnInfoCallback`]")]
 pub type OH_AVPlayerOnInfo = ::core::option::Option<
     unsafe extern "C" fn(player: *mut OH_AVPlayer, type_: AVPlayerOnInfoType, extra: i32),
 >;
@@ -256,12 +257,16 @@ pub type OH_AVPlayerOnInfoCallback = ::core::option::Option<
 /// Available since API-level: 11
 ///
 /// **Deprecated** since 12
-/// [`OH_AVPlayerOnInfoCallback`] [`OH_AVPlayerOnError`]
+///
+/// **Use instead:** [`OH_AVPlayerOnInfoCallback`] [`OH_AVPlayerOnError`]
 ///
 /// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-#[deprecated(since = "12")]
+#[deprecated(
+    since = "12",
+    note = "Use instead: [`OH_AVPlayerOnInfoCallback`] [`OH_AVPlayerOnError`]"
+)]
 pub type OH_AVPlayerOnError = ::core::option::Option<
     unsafe extern "C" fn(
         player: *mut OH_AVPlayer,
@@ -307,12 +312,16 @@ pub type OH_AVPlayerOnErrorCallback = ::core::option::Option<
 /// Available since API-level: 11
 ///
 /// **Deprecated** since 12
-/// [`OH_AVPlayerOnInfoCallback`] [`OH_AVPlayerOnErrorCallback`]
+///
+/// **Use instead:** [`OH_AVPlayerOnInfoCallback`] [`OH_AVPlayerOnErrorCallback`]
 ///
 /// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-#[deprecated(since = "12")]
+#[deprecated(
+    since = "12",
+    note = "Use instead: [`OH_AVPlayerOnInfoCallback`] [`OH_AVPlayerOnErrorCallback`]"
+)]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AVPlayerCallback {

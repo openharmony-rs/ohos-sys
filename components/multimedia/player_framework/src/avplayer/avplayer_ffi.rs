@@ -659,12 +659,16 @@ extern "C" {
     /// Available since API-level: 11
     ///
     /// **Deprecated** since 12
-    /// [`OH_AVPlayer_SetPlayerOnInfoCallback`] [`OH_AVPlayer_SetPlayerOnErrorCallback`]
+    ///
+    /// **Use instead:** [`OH_AVPlayer_SetPlayerOnInfoCallback`] [`OH_AVPlayer_SetPlayerOnErrorCallback`]
     ///
     /// Version: 1.0
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    #[deprecated(since = "12")]
+    #[deprecated(
+        since = "12",
+        note = "Use instead: [`OH_AVPlayer_SetPlayerOnInfoCallback`] [`OH_AVPlayer_SetPlayerOnErrorCallback`]"
+    )]
     pub fn OH_AVPlayer_SetPlayerCallback(
         player: *mut OH_AVPlayer,
         callback: AVPlayerCallback,
