@@ -1,6 +1,6 @@
 use std::ptr;
 
-use ohos_asset_sys as asset;
+use ohos_asset_store_sys as asset;
 
 #[test]
 fn link_smoke() {

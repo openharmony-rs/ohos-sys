@@ -1,5 +1,5 @@
 [package]
-name = "ohos-asset-sys"
+name = "ohos-asset-store-sys"
 version = "0.1.0"
 edition = "2021"
 description = "Raw bindings to the AssetStoreKit / Asset NDK of OpenHarmony"
