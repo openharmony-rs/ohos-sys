@@ -18,6 +18,10 @@
 #[cfg_attr(docsrs, doc(cfg(feature = "arkui")))]
 pub use arkui_sys as arkui;
 
+#[cfg(feature = "asset")]
+#[cfg_attr(docsrs, doc(cfg(feature = "asset")))]
+pub use ohos_asset_sys as asset;
+
 #[cfg(feature = "deviceinfo")]
 #[cfg_attr(docsrs, doc(cfg(feature = "deviceinfo")))]
 pub use ohos_deviceinfo_sys as deviceinfo;
