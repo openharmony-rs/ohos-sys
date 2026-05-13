@@ -653,18 +653,41 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
     Ok(())
 }
 
-/// Run `cargo +nightly fmt` against the workspace at `root_dir`.
+/// Run `cargo +nightly fmt` against the workspace at `root_dir` until it
+/// reaches a fixed point.
+///
+/// The unstable `normalize_comments` / `normalize_doc_attributes` features
+/// enabled in `.rustfmt.toml` are not idempotent: rustfmt can leave stray blank
+/// `///` and `////` markers behind on the first pass and only normalise them on
+/// a subsequent pass. We run fmt, then `fmt -- --check`, and re-run fmt until
+/// `--check` reports no further changes.
 fn run_cargo_fmt(root_dir: &Path) -> anyhow::Result<()> {
-    info!("Running cargo +nightly fmt");
-    let status = Command::new("cargo")
-        .current_dir(root_dir)
-        .args(["+nightly", "fmt"])
-        .status()
-        .context("Failed to spawn `cargo +nightly fmt`")?;
-    if !status.success() {
-        bail!("`cargo +nightly fmt` failed with status {status}");
+    const MAX_PASSES: usize = 4;
+    for pass in 1..=MAX_PASSES {
+        info!("Running cargo +nightly fmt (pass {pass})");
+        let status = Command::new("cargo")
+            .current_dir(root_dir)
+            .args(["+nightly", "fmt"])
+            .status()
+            .context("Failed to spawn `cargo +nightly fmt`")?;
+        if !status.success() {
+            bail!("`cargo +nightly fmt` failed with status {status}");
+        }
+        let check = Command::new("cargo")
+            .current_dir(root_dir)
+            .args(["+nightly", "fmt", "--", "--check"])
+            .output()
+            .context("Failed to spawn `cargo +nightly fmt -- --check`")?;
+        if check.status.success() {
+            return Ok(());
+        }
+        debug!("cargo +nightly fmt has not converged yet — re-running");
     }
-    Ok(())
+    bail!(
+        "`cargo +nightly fmt` did not converge after {MAX_PASSES} passes — \
+         likely a rustfmt bug interacting with the unstable comment-normalisation \
+         options in `.rustfmt.toml`. Inspect the latest `--check` output."
+    );
 }
 
 /// Apply every `*.patch` file in `patches_dir` (sorted by filename) against
