@@ -2390,7 +2390,6 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].f32: Focus box width. Negative numbers and percentages are not supported.
     ///
     /// .value[2].u32: Focus box color.
-    ///
     pub const NODE_FOCUS_BOX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(96);
     /// Defines the moving distance limit for the component-bound tap gesture.
     /// This attribute can be set as required through APIs.
