@@ -85,10 +85,11 @@ impl AudioChannelSet {
 /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// **Deprecated** since 11
-/// OH_AudioChannelSet
+///
+/// **Use instead:** OH_AudioChannelSet
 ///
 /// Available since API-level: 10
-#[deprecated(since = "11")]
+#[deprecated(since = "11", note = "Use instead: OH_AudioChannelSet")]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct AudioChannelSet(pub u64);
 impl AudioChannelLayout {
@@ -142,9 +143,10 @@ impl AudioChannelLayout {
 /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 ///
 /// **Deprecated** since 11
-/// OH_AudioChannelLayout
+///
+/// **Use instead:** OH_AudioChannelLayout
 ///
 /// Available since API-level: 10
-#[deprecated(since = "11")]
+#[deprecated(since = "11", note = "Use instead: OH_AudioChannelLayout")]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct AudioChannelLayout(pub u64);

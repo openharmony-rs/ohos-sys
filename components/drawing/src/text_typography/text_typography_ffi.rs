@@ -2045,10 +2045,14 @@ extern "C" {
     /// Version: 1.0
     ///
     /// **Deprecated** since 18
-    /// OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster
+    ///
+    /// **Use instead:** OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    #[deprecated(since = "18")]
+    #[deprecated(
+        since = "18",
+        note = "Use instead: OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster"
+    )]
     pub fn OH_Drawing_TypographyGetGlyphPositionAtCoordinate(
         typography: *mut OH_Drawing_Typography,
         dx: f64,
@@ -2302,10 +2306,14 @@ extern "C" {
     /// Version: 1.0
     ///
     /// **Deprecated** since 18
-    /// OH_Drawing_SetTypographyTextEllipsis
+    ///
+    /// **Use instead:** OH_Drawing_SetTypographyTextEllipsis
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    #[deprecated(since = "18")]
+    #[deprecated(
+        since = "18",
+        note = "Use instead: OH_Drawing_SetTypographyTextEllipsis"
+    )]
     pub fn OH_Drawing_SetTextStyleEllipsis(
         style: *mut OH_Drawing_TextStyle,
         ellipsis: *const ::core::ffi::c_char,
@@ -2325,10 +2333,14 @@ extern "C" {
     /// Version: 1.0
     ///
     /// **Deprecated** since 18
-    /// OH_Drawing_SetTypographyTextEllipsisModal
+    ///
+    /// **Use instead:** OH_Drawing_SetTypographyTextEllipsisModal
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    #[deprecated(since = "18")]
+    #[deprecated(
+        since = "18",
+        note = "Use instead: OH_Drawing_SetTypographyTextEllipsisModal"
+    )]
     pub fn OH_Drawing_SetTextStyleEllipsisModal(
         style: *mut OH_Drawing_TextStyle,
         ellipsisModal: ::core::ffi::c_int,
@@ -2758,10 +2770,14 @@ extern "C" {
     /// Version: 1.0
     ///
     /// **Deprecated** since 18
-    /// OH_Drawing_TypographyStyleGetEffectiveAlignment
+    ///
+    /// **Use instead:** OH_Drawing_TypographyStyleGetEffectiveAlignment
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    #[deprecated(since = "18")]
+    #[deprecated(
+        since = "18",
+        note = "Use instead: OH_Drawing_TypographyStyleGetEffectiveAlignment"
+    )]
     pub fn OH_Drawing_TypographyGetEffectiveAlignment(
         style: *mut OH_Drawing_TypographyStyle,
     ) -> ::core::ffi::c_int;

@@ -336,10 +336,14 @@ fn parse_deprecated_info(comment: &str) -> Result<Option<DeprecatedInfo>, ParseD
         }
     }
 
-    let note = useinstead_note
-        .or(inline_note)
-        .map(|n| normalize_note(&n))
-        .filter(|s| !s.is_empty());
+    let note = if let Some(raw) = useinstead_note {
+        let n = normalize_note(&raw);
+        (!n.is_empty()).then(|| format!("Use instead: {n}"))
+    } else {
+        inline_note
+            .map(|n| normalize_note(&n))
+            .filter(|s| !s.is_empty())
+    };
     Ok(Some(DeprecatedInfo { since, note }))
 }
 
@@ -831,7 +835,7 @@ mod tests {
         assert_eq!(info.since, Some(OpenHarmonyApiLevel::Thirteen));
         assert_eq!(
             info.note.as_deref(),
-            Some("OH_NetConn_RegisterDnsResolver")
+            Some("Use instead: OH_NetConn_RegisterDnsResolver")
         );
     }
 
@@ -844,7 +848,7 @@ mod tests {
         assert_eq!(info.since, Some(OpenHarmonyApiLevel::Twelve));
         assert_eq!(
             info.note.as_deref(),
-            Some("OH_AVScreenCapture in native interface")
+            Some("Use instead: OH_AVScreenCapture in native interface")
         );
     }
 
@@ -854,7 +858,10 @@ mod tests {
             " @deprecated since 11\n @useinstead {@link OH_NN_UNAVAILABLE_DEVICE}\n @since 9",
         )
         .expect("has deprecated");
-        assert_eq!(info.note.as_deref(), Some("OH_NN_UNAVAILABLE_DEVICE"));
+        assert_eq!(
+            info.note.as_deref(),
+            Some("Use instead: OH_NN_UNAVAILABLE_DEVICE")
+        );
     }
 
     #[test]
@@ -869,7 +876,7 @@ mod tests {
         .expect("has deprecated");
         assert_eq!(info.since, Some(OpenHarmonyApiLevel::Twenty));
         let note = info.note.expect("note present");
-        assert!(note.starts_with("Set the callback functions separately using"));
+        assert!(note.starts_with("Use instead: Set the callback functions separately using"));
         assert!(note.contains("OH_AudioStreamBuilder_SetRendererInterruptCallback"));
         assert!(!note.contains('\n'));
     }
@@ -895,7 +902,7 @@ mod tests {
         .expect("has deprecated");
         assert_eq!(
             info.note.as_deref(),
-            Some("OH_NetConn_RegisterDnsResolver")
+            Some("Use instead: OH_NetConn_RegisterDnsResolver")
         );
     }
 
@@ -908,7 +915,7 @@ mod tests {
         assert_eq!(info.since, Some(OpenHarmonyApiLevel::Twenty));
         assert_eq!(
             info.note.as_deref(),
-            Some("OH_AudioStreamBuilder_SetRendererWriteDataCallback")
+            Some("Use instead: OH_AudioStreamBuilder_SetRendererWriteDataCallback")
         );
     }
 

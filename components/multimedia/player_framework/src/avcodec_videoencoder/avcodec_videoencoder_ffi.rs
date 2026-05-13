@@ -51,20 +51,23 @@ impl OH_VideoEncodeBitrateMode {
     /// constant bit rate mode.
     ///
     /// **Deprecated** since 14
-    /// BITRATE_MODE_CBR
-    #[deprecated(since = "14", note = "BITRATE_MODE_CBR")]
+    ///
+    /// **Use instead:** BITRATE_MODE_CBR
+    #[deprecated(since = "14", note = "Use instead: BITRATE_MODE_CBR")]
     pub const CBR: OH_VideoEncodeBitrateMode = OH_VideoEncodeBitrateMode(0);
     /// variable bit rate mode.
     ///
     /// **Deprecated** since 14
-    /// BITRATE_MODE_VBR
-    #[deprecated(since = "14", note = "BITRATE_MODE_VBR")]
+    ///
+    /// **Use instead:** BITRATE_MODE_VBR
+    #[deprecated(since = "14", note = "Use instead: BITRATE_MODE_VBR")]
     pub const VBR: OH_VideoEncodeBitrateMode = OH_VideoEncodeBitrateMode(1);
     /// constant quality mode.
     ///
     /// **Deprecated** since 14
-    /// BITRATE_MODE_CQ
-    #[deprecated(since = "14", note = "BITRATE_MODE_CQ")]
+    ///
+    /// **Use instead:** BITRATE_MODE_CQ
+    #[deprecated(since = "14", note = "Use instead: BITRATE_MODE_CQ")]
     pub const CQ: OH_VideoEncodeBitrateMode = OH_VideoEncodeBitrateMode(2);
 }
 #[repr(transparent)]
@@ -73,10 +76,11 @@ impl OH_VideoEncodeBitrateMode {
 /// Required System Capabilities: SystemCapability.Multimedia.Media.VideoEncoder
 ///
 /// **Deprecated** since 14
-/// OH_BitrateMode
+///
+/// **Use instead:** OH_BitrateMode
 ///
 /// Available since API-level: 9
-#[deprecated(since = "14")]
+#[deprecated(since = "14", note = "Use instead: OH_BitrateMode")]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_VideoEncodeBitrateMode(pub ::core::ffi::c_uint);
 extern "C" {
@@ -150,10 +154,11 @@ extern "C" {
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state, must be called before Prepare.
     ///
     /// **Deprecated** since 11
-    /// OH_VideoEncoder_RegisterCallback
+    ///
+    /// **Use instead:** OH_VideoEncoder_RegisterCallback
     ///
     /// Available since API-level: 9
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_VideoEncoder_RegisterCallback")]
     pub fn OH_VideoEncoder_SetCallback(
         codec: *mut OH_AVCodec,
         callback: OH_AVCodecAsyncCallback,
@@ -433,10 +438,11 @@ extern "C" {
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// **Deprecated** since 11
-    /// OH_VideoEncoder_FreeOutputBuffer
+    ///
+    /// **Use instead:** OH_VideoEncoder_FreeOutputBuffer
     ///
     /// Available since API-level: 9
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_VideoEncoder_FreeOutputBuffer")]
     pub fn OH_VideoEncoder_FreeOutputData(codec: *mut OH_AVCodec, index: u32) -> OH_AVErrCode;
     /// Notifies the video encoder that the input stream has ended. It is recommended to use this interface to notify
     /// the encoder of the end of the stream in surface mode
@@ -481,10 +487,11 @@ extern "C" {
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// **Deprecated** since 11
-    /// OH_VideoEncoder_PushInputBuffer
+    ///
+    /// **Use instead:** OH_VideoEncoder_PushInputBuffer
     ///
     /// Available since API-level: 10
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_VideoEncoder_PushInputBuffer")]
     pub fn OH_VideoEncoder_PushInputData(
         codec: *mut OH_AVCodec,
         index: u32,

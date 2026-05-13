@@ -30,10 +30,11 @@ extern "C" {
     /// 3.failed to new OH_AVMemory.
     ///
     /// **Deprecated** since 11
-    /// OH_AVBuffer_Create
+    ///
+    /// **Use instead:** OH_AVBuffer_Create
     ///
     /// Available since API-level: 10
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_AVBuffer_Create")]
     pub fn OH_AVMemory_Create(size: i32) -> *mut OH_AVMemory;
     /// Get the memory's virtual address
     ///
@@ -48,12 +49,13 @@ extern "C" {
     /// Possible failure causes: 1. input mem is nullptr. 2. mem's magic error. 3. mem's memory is nullptr.
     ///
     /// **Deprecated** since 11
-    /// OH_AVBuffer_GetAddr
+    ///
+    /// **Use instead:** OH_AVBuffer_GetAddr
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_AVBuffer_GetAddr")]
     pub fn OH_AVMemory_GetAddr(mem: *mut OH_AVMemory) -> *mut u8;
     /// Get the memory's size
     ///
@@ -68,12 +70,13 @@ extern "C" {
     /// Possible failure causes: 1. input mem is nullptr. 2. mem's magic error. 3. mem's memory is nullptr.
     ///
     /// **Deprecated** since 11
-    /// OH_AVBuffer_GetCapacity
+    ///
+    /// **Use instead:** OH_AVBuffer_GetCapacity
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_AVBuffer_GetCapacity")]
     pub fn OH_AVMemory_GetSize(mem: *mut OH_AVMemory) -> i32;
     /// Clear the internal resources of the memory and destroy the memory
     /// instance
@@ -90,9 +93,10 @@ extern "C" {
     /// [`AV_ERR_INVALID_VAL`] if input mem is nullptr, mem's magic error or input mem is not user created.
     ///
     /// **Deprecated** since 11
-    /// OH_AVBuffer_Destroy
+    ///
+    /// **Use instead:** OH_AVBuffer_Destroy
     ///
     /// Available since API-level: 10
-    #[deprecated(since = "11")]
+    #[deprecated(since = "11", note = "Use instead: OH_AVBuffer_Destroy")]
     pub fn OH_AVMemory_Destroy(mem: *mut OH_AVMemory) -> OH_AVErrCode;
 }

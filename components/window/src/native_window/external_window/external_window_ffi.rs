@@ -104,11 +104,12 @@ pub mod NativeWindowOperation {
     /// [out] int32_t *stride.
     ///
     /// **Deprecated** since 16
-    /// Use [`OH_NativeWindow_GetBufferHandleFromNative`] to get a [`BufferHandleand`] from a buffer
+    ///
+    /// **Use instead:** Use [`OH_NativeWindow_GetBufferHandleFromNative`] to get a [`BufferHandleand`] from a buffer
     /// and then retrieve the stride from the [`BufferHandle`].
     #[deprecated(
         since = "16",
-        note = "Use OH_NativeWindow_GetBufferHandleFromNative to get a BufferHandleand from a buffer and then retrieve the stride from the BufferHandle"
+        note = "Use instead: Use OH_NativeWindow_GetBufferHandleFromNative to get a BufferHandleand from a buffer and then retrieve the stride from the BufferHandle"
     )]
     pub const GET_STRIDE: Type = 7;
     /// set native window buffer swap interval,
@@ -246,7 +247,8 @@ impl OHScalingMode {
 ///
 /// Available since API-level: 9
 /// = "10")
-/// OHScalingModeV2
+///
+/// **Use instead:** OHScalingModeV2
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OHScalingMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
@@ -391,8 +393,12 @@ extern "C" {
     /// Version: 1.0
     ///
     /// **Deprecated** since 12
-    /// OH_NativeWindow_CreateNativeWindowBufferFromNativeBuffer
-    #[deprecated(since = "12")]
+    ///
+    /// **Use instead:** OH_NativeWindow_CreateNativeWindowBufferFromNativeBuffer
+    #[deprecated(
+        since = "12",
+        note = "Use instead: OH_NativeWindow_CreateNativeWindowBufferFromNativeBuffer"
+    )]
     pub fn OH_NativeWindow_CreateNativeWindowBufferFromSurfaceBuffer(
         pSurfaceBuffer: *mut ::core::ffi::c_void,
     ) -> *mut OHNativeWindowBuffer;
@@ -531,10 +537,14 @@ extern "C" {
     /// Version: 1.0
     ///
     /// **Deprecated** since 12
-    /// OH_NativeWindow_GetLastFlushedBufferV2
+    ///
+    /// **Use instead:** OH_NativeWindow_GetLastFlushedBufferV2
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-    #[deprecated(since = "12")]
+    #[deprecated(
+        since = "12",
+        note = "Use instead: OH_NativeWindow_GetLastFlushedBufferV2"
+    )]
     pub fn OH_NativeWindow_GetLastFlushedBuffer(
         window: *mut OHNativeWindow,
         buffer: *mut *mut OHNativeWindowBuffer,
@@ -706,7 +716,8 @@ extern "C" {
     ///
     /// Version: 1.0
     /// = "10")
-    /// OH_NativeWindow_NativeWindowSetScalingModeV2
+    ///
+    /// **Use instead:** OH_NativeWindow_NativeWindowSetScalingModeV2
     pub fn OH_NativeWindow_NativeWindowSetScalingMode(
         window: *mut OHNativeWindow,
         sequence: u32,

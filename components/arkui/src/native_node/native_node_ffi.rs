@@ -2374,8 +2374,9 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     /// **Deprecated** since 20
-    /// OH_ArkUI_NodeUtils_GetNodeUniqueId
-    #[deprecated(since = "20", note = "OH_ArkUI_NodeUtils_GetNodeUniqueId")]
+    ///
+    /// **Use instead:** OH_ArkUI_NodeUtils_GetNodeUniqueId
+    #[deprecated(since = "20", note = "Use instead: OH_ArkUI_NodeUtils_GetNodeUniqueId")]
     pub const NODE_UNIQUE_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(95);
     /// Set the current component system focus box style.
     ///

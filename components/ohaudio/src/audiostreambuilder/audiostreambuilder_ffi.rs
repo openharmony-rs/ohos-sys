@@ -232,7 +232,8 @@ extern "C" {
     ///
     ///
     /// **Deprecated** since 20
-    /// Set the callback functions separately using OH_AudioStreamBuilder_SetRendererWriteDataCallback,
+    ///
+    /// **Use instead:** Set the callback functions separately using OH_AudioStreamBuilder_SetRendererWriteDataCallback,
     /// OH_AudioStreamBuilder_SetRendererInterruptCallback, OH_AudioStreamBuilder_SetRendererOutputDeviceChangeCallback
     /// and OH_AudioStreamBuilder_SetRendererErrorCallback.
     ///
@@ -253,7 +254,10 @@ extern "C" {
     /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
     /// 1.The param of builder is nullptr;
     /// 2.StreamType invalid.
-    #[deprecated(since = "20")]
+    #[deprecated(
+        since = "20",
+        note = "Use instead: Set the callback functions separately using OH_AudioStreamBuilder_SetRendererWriteDataCallback, OH_AudioStreamBuilder_SetRendererInterruptCallback…"
+    )]
     pub fn OH_AudioStreamBuilder_SetRendererCallback(
         builder: *mut OH_AudioStreamBuilder,
         callbacks: OH_AudioRenderer_Callbacks,
@@ -314,7 +318,8 @@ extern "C" {
     ///
     ///
     /// **Deprecated** since 20
-    /// Set the callback functions separately using OH_AudioStreamBuilder_SetCapturerReadDataCallback,
+    ///
+    /// **Use instead:** Set the callback functions separately using OH_AudioStreamBuilder_SetCapturerReadDataCallback,
     /// OH_AudioStreamBuilder_SetCapturerDeviceChangeCallback, OH_AudioStreamBuilder_SetCapturerInterruptCallback
     /// and OH_AudioStreamBuilder_SetCapturerErrorCallback.
     ///
@@ -335,7 +340,10 @@ extern "C" {
     /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
     /// 1.The param of builder is nullptr;
     /// 2.StreamType invalid.
-    #[deprecated(since = "20")]
+    #[deprecated(
+        since = "20",
+        note = "Use instead: Set the callback functions separately using OH_AudioStreamBuilder_SetCapturerReadDataCallback, OH_AudioStreamBuilder_SetCapturerDeviceChangeCallback…"
+    )]
     pub fn OH_AudioStreamBuilder_SetCapturerCallback(
         builder: *mut OH_AudioStreamBuilder,
         callbacks: OH_AudioCapturer_Callbacks,

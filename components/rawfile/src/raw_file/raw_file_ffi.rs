@@ -143,8 +143,12 @@ extern "C" {
     /// Version: 1.0
     ///
     /// **Deprecated** since 12
-    /// OH_ResourceManager_GetRawFileDescriptorData
-    #[deprecated(since = "12")]
+    ///
+    /// **Use instead:** OH_ResourceManager_GetRawFileDescriptorData
+    #[deprecated(
+        since = "12",
+        note = "Use instead: OH_ResourceManager_GetRawFileDescriptorData"
+    )]
     pub fn OH_ResourceManager_GetRawFileDescriptor(
         rawFile: *const RawFile,
         descriptor: *mut RawFileDescriptor,
@@ -189,8 +193,12 @@ extern "C" {
     /// Version: 1.0
     ///
     /// **Deprecated** since 12
-    /// OH_ResourceManager_ReleaseRawFileDescriptorData
-    #[deprecated(since = "12")]
+    ///
+    /// **Use instead:** OH_ResourceManager_ReleaseRawFileDescriptorData
+    #[deprecated(
+        since = "12",
+        note = "Use instead: OH_ResourceManager_ReleaseRawFileDescriptorData"
+    )]
     pub fn OH_ResourceManager_ReleaseRawFileDescriptor(
         descriptor: *const RawFileDescriptor,
     ) -> bool;

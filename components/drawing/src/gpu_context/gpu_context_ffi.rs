@@ -40,10 +40,11 @@ extern "C" {
     /// Version: 1.0
     ///
     /// **Deprecated** since 18
-    /// OH_Drawing_GpuContextCreate
+    ///
+    /// **Use instead:** OH_Drawing_GpuContextCreate
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    #[deprecated(since = "18")]
+    #[deprecated(since = "18", note = "Use instead: OH_Drawing_GpuContextCreate")]
     pub fn OH_Drawing_GpuContextCreateFromGL(
         gpuContextOptions: OH_Drawing_GpuContextOptions,
     ) -> *mut OH_Drawing_GpuContext;
