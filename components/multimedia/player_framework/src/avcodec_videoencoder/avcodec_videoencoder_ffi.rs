@@ -52,19 +52,19 @@ impl OH_VideoEncodeBitrateMode {
     ///
     /// **Deprecated** since 14
     /// BITRATE_MODE_CBR
-    #[deprecated(since = "14")]
+    #[deprecated(since = "14", note = "BITRATE_MODE_CBR")]
     pub const CBR: OH_VideoEncodeBitrateMode = OH_VideoEncodeBitrateMode(0);
     /// variable bit rate mode.
     ///
     /// **Deprecated** since 14
     /// BITRATE_MODE_VBR
-    #[deprecated(since = "14")]
+    #[deprecated(since = "14", note = "BITRATE_MODE_VBR")]
     pub const VBR: OH_VideoEncodeBitrateMode = OH_VideoEncodeBitrateMode(1);
     /// constant quality mode.
     ///
     /// **Deprecated** since 14
     /// BITRATE_MODE_CQ
-    #[deprecated(since = "14")]
+    #[deprecated(since = "14", note = "BITRATE_MODE_CQ")]
     pub const CQ: OH_VideoEncodeBitrateMode = OH_VideoEncodeBitrateMode(2);
 }
 #[repr(transparent)]
