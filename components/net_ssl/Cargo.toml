@@ -5,7 +5,7 @@ edition = "2021"
 description = "Raw bindings to the OpenHarmony NetworkKit (net_ssl) native APIs"
 license = "Apache-2.0"
 repository = "https://github.com/openharmony-rs/ohos-sys"
-keywords = ["OpenHarmony", "HarmonyOS", "ffi", "network", "NetworkKit", "ssl"]
+keywords = ["OpenHarmony", "HarmonyOS", "network", "ssl"]
 readme = "README.md"
 
 [dependencies]
