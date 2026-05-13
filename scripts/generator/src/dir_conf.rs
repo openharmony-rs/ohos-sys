@@ -1022,6 +1022,21 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             ..Default::default()
         },
         DirBindingsConf {
+            directory: "asset".to_string(),
+            output_dir: "components/asset/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"]);
+                match file_stem {
+                    "asset_api" => builder.raw_line("use crate::asset_type::*;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
             directory: "ohaudio".to_string(),
             output_dir: "components/ohaudio/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "native_"))),

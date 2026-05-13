@@ -93,6 +93,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-asset-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-deviceinfo-sys"
 version = "0.1.6"
 dependencies = [
@@ -218,6 +225,7 @@ dependencies = [
  "hitrace-sys",
  "ohaudio-sys",
  "ohos-abilitykit-sys",
+ "ohos-asset-sys",
  "ohos-deviceinfo-sys",
  "ohos-drawing-sys",
  "ohos-image-kit-sys",
