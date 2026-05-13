@@ -935,6 +935,47 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             ..Default::default()
         },
         DirBindingsConf {
+            directory: "network/netstack".to_string(),
+            output_dir: "components/netstack/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h", "-include", "stdint.h", "-include", "stddef.h"]);
+                match file_stem {
+                    "net_http" => builder.raw_line("use crate::net_http_type::*;"),
+                    "net_http_type" => builder
+                        .blocklist_var("NET_HTTP_METHOD_PATCH")
+                        .raw_line(
+                            "// SDK currently defines NET_HTTP_METHOD_PATCH as \"CONNECT\"; \
+                             blocklisted until this is re-evaluated against upstream headers.",
+                        ),
+                    "net_websocket" => builder
+                        .raw_line("use crate::net_websocket_type::*;")
+                        .clang_args(["-x", "c++"]),
+                    "net_websocket_type" => builder.clang_args(["-x", "c++"]),
+                    _ => builder,
+                }
+            }),
+            known_nested_include_dirs: vec!["network/netstack/net_ssl".to_string()],
+            ..Default::default()
+        },
+        DirBindingsConf {
+            directory: "network/netstack/net_ssl".to_string(),
+            output_dir: "components/net_ssl/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h", "-include", "stdint.h", "-include", "stddef.h"]);
+                match file_stem {
+                    "net_ssl_c" => builder.raw_line("use crate::net_ssl_c_type::*;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
             directory: "LocationKit".to_string(),
             output_dir: "components/locationkit/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "oh_"))),

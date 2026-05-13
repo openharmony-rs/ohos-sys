@@ -58,6 +58,14 @@ pub use ohos_locationkit_sys as locationkit;
 #[cfg_attr(docsrs, doc(cfg(feature = "netmanager")))]
 pub use ohos_netmanager_sys as netmanager;
 
+#[cfg(feature = "net_ssl")]
+#[cfg_attr(docsrs, doc(cfg(feature = "net_ssl")))]
+pub use ohos_net_ssl_sys as net_ssl;
+
+#[cfg(feature = "netstack")]
+#[cfg_attr(docsrs, doc(cfg(feature = "netstack")))]
+pub use ohos_netstack_sys as netstack;
+
 #[cfg(feature = "multimodal-input")]
 #[cfg_attr(docsrs, doc(cfg(feature = "multimodal-input")))]
 pub use ohos_input_sys as multimodal_input;
