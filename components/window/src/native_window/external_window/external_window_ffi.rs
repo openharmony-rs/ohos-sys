@@ -106,7 +106,10 @@ pub mod NativeWindowOperation {
     /// **Deprecated** since 16
     /// Use [`OH_NativeWindow_GetBufferHandleFromNative`] to get a [`BufferHandleand`] from a buffer
     /// and then retrieve the stride from the [`BufferHandle`].
-    #[deprecated(since = "16")]
+    #[deprecated(
+        since = "16",
+        note = "Use OH_NativeWindow_GetBufferHandleFromNative to get a BufferHandleand from a buffer and then retrieve the stride from the BufferHandle"
+    )]
     pub const GET_STRIDE: Type = 7;
     /// set native window buffer swap interval,
     /// variable parameter in function is

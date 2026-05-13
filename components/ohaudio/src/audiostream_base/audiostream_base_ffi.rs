@@ -422,7 +422,7 @@ impl OH_AudioStream_Event {
     /// OH_AudioRenderer_OutputDeviceChangeCallback.
     ///
     /// Available since API-level: 10
-    #[deprecated(since = "20")]
+    #[deprecated(since = "20", note = "OH_AudioRenderer_OutputDeviceChangeCallback")]
     pub const AUDIOSTREAM_EVENT_ROUTING_CHANGED: OH_AudioStream_Event = OH_AudioStream_Event(0);
 }
 #[repr(transparent)]
@@ -579,7 +579,7 @@ impl OH_AudioStream_SourceType {
     /// OH_AVScreenCapture in native interface.
     ///
     /// Available since API-level: 10
-    #[deprecated(since = "12")]
+    #[deprecated(since = "12", note = "OH_AVScreenCapture in native interface")]
     pub const AUDIOSTREAM_SOURCE_TYPE_PLAYBACK_CAPTURE: OH_AudioStream_SourceType =
         OH_AudioStream_SourceType(2);
     /// Voice communication source type.

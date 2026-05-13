@@ -597,11 +597,11 @@ pub struct OH_AVSeekMode(pub ::core::ffi::c_uint);
 impl OH_ScalingMode {
     /// **Deprecated** since 14
     /// OH_SCALING_MODE_SCALE_TO_WINDOW_V2
-    #[deprecated(since = "14")]
+    #[deprecated(since = "14", note = "OH_SCALING_MODE_SCALE_TO_WINDOW_V2")]
     pub const SCALING_MODE_SCALE_TO_WINDOW: OH_ScalingMode = OH_ScalingMode(1);
     /// **Deprecated** since 14
     /// OH_SCALING_MODE_SCALE_CROP_V2
-    #[deprecated(since = "14")]
+    #[deprecated(since = "14", note = "OH_SCALING_MODE_SCALE_CROP_V2")]
     pub const SCALING_MODE_SCALE_CROP: OH_ScalingMode = OH_ScalingMode(2);
 }
 #[repr(transparent)]
