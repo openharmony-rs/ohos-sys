@@ -34,6 +34,10 @@ pub use ohos_drawing_sys as drawing;
 #[cfg_attr(docsrs, doc(cfg(feature = "hilog")))]
 pub use hilog_sys as hilog;
 
+#[cfg(feature = "huks")]
+#[cfg_attr(docsrs, doc(cfg(feature = "huks")))]
+pub use ohos_huks_sys as huks;
+
 #[cfg(feature = "hitrace")]
 #[cfg_attr(docsrs, doc(cfg(feature = "hitrace")))]
 pub use hitrace_sys as hitrace;

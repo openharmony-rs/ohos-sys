@@ -1022,6 +1022,23 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             ..Default::default()
         },
         DirBindingsConf {
+            directory: "huks".to_string(),
+            output_dir: "components/huks/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"]);
+                match file_stem {
+                    "native_huks_api" | "native_huks_param" => {
+                        builder.raw_line("use crate::native_huks_type::*;")
+                    }
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
             directory: "asset".to_string(),
             output_dir: "components/asset/src".to_string(),
             rename_output_file: None,

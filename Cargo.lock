@@ -115,6 +115,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-huks-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-image-kit-sys"
 version = "0.3.5"
 dependencies = [
@@ -228,6 +235,7 @@ dependencies = [
  "ohos-asset-store-sys",
  "ohos-deviceinfo-sys",
  "ohos-drawing-sys",
+ "ohos-huks-sys",
  "ohos-image-kit-sys",
  "ohos-ime-sys",
  "ohos-input-sys",
