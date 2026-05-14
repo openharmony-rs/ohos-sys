@@ -14,9 +14,6 @@ fn link_smoke() {
         let _ = crypto::digest::OH_CryptoDigest_Create(ptr::null(), ptr::null_mut());
         crypto::digest::OH_DigestCrypto_Destroy(ptr::null_mut());
 
-        let _ = crypto::signature::OH_CryptoSign_Create(ptr::null(), ptr::null_mut());
-        crypto::signature::OH_CryptoSign_Destroy(ptr::null_mut());
-
         let _ = crypto::sym_cipher::OH_CryptoSymCipher_Create(ptr::null(), ptr::null_mut());
         crypto::sym_cipher::OH_CryptoSymCipher_Destroy(ptr::null_mut());
 
@@ -26,6 +23,9 @@ fn link_smoke() {
 
     #[cfg(feature = "api-20")]
     unsafe {
+        let _ = crypto::signature::OH_CryptoSign_Create(ptr::null(), ptr::null_mut());
+        crypto::signature::OH_CryptoSign_Destroy(ptr::null_mut());
+
         let _ = crypto::asym_cipher::OH_CryptoAsymCipher_Create(ptr::null(), ptr::null_mut());
         crypto::asym_cipher::OH_CryptoAsymCipher_Destroy(ptr::null_mut());
 
