@@ -25,6 +25,7 @@ ohos-sys-opaque-types = { version = "0.1.9", path = "components/opaque-types" }
 document-features = { version = "0.2", optional = true }
 arkui-sys = { version = "0.3.3", optional = true, path = "components/arkui" }
 ohos-asset-store-sys = { version = "0.1.0", optional = true, path = "components/asset" }
+ohos-crypto-sys = { version = "0.1.0", optional = true, path = "components/crypto" }
 ohos-huks-sys = { version = "0.1.0", optional = true, path = "components/huks" }
 hilog-sys = { version = "0.1.7", optional = true, path = "components/hilog" }
 hitrace-sys = { version = "0.1.9", optional = true, path = "components/hitrace" }
@@ -61,6 +62,8 @@ abilitykit = ["dep:ohos-abilitykit-sys"]
 arkui = ["dep:arkui-sys"]
 ## Enables bindings to the AssetStoreKit (Asset NDK). Re-exports `ohos-asset-store-sys`.
 asset-store = ["dep:ohos-asset-store-sys"]
+## Enables bindings to the CryptoArchitectureKit. Re-exports `ohos-crypto-sys`.
+crypto = ["dep:ohos-crypto-sys"]
 ## Enables bindings to the Universal Keystore Kit (HUKS). Re-exports `ohos-huks-sys`.
 huks = ["dep:ohos-huks-sys"]
 ## Enables bindings to `deviceinfo.h`. Re-exports `ohos-deviceinfo-sys`
@@ -121,6 +124,7 @@ all-components = [
     "abilitykit",
     "arkui",
     "asset-store",
+    "crypto",
     "huks",
     "deviceinfo",
     "drawing",
@@ -188,6 +192,7 @@ api-12 = [
     "api-11",
     "arkui-sys?/api-12",
     "ohos-asset-store-sys?/api-12",
+    "ohos-crypto-sys?/api-12",
     "ohos-huks-sys?/api-12",
     "hilog-sys?/api-12",
     "hitrace-sys?/api-12",
@@ -220,6 +225,7 @@ api-13 = [
     "api-12",
     "arkui-sys?/api-13",
     "ohos-asset-store-sys?/api-13",
+    "ohos-crypto-sys?/api-13",
     "ohos-huks-sys?/api-13",
     "hilog-sys?/api-13",
     "hitrace-sys?/api-13",
@@ -252,6 +258,7 @@ api-14 = [
     "api-13",
     "arkui-sys?/api-14",
     "ohos-asset-store-sys?/api-14",
+    "ohos-crypto-sys?/api-14",
     "ohos-huks-sys?/api-14",
     "hilog-sys?/api-14",
     "hitrace-sys?/api-14",
@@ -284,6 +291,7 @@ api-15 = [
     "api-14",
     "arkui-sys?/api-15",
     "ohos-asset-store-sys?/api-15",
+    "ohos-crypto-sys?/api-15",
     "ohos-huks-sys?/api-15",
     "hilog-sys?/api-15",
     "hitrace-sys?/api-15",
@@ -315,6 +323,7 @@ api-15 = [
 api-16 = ["api-15",
     "arkui-sys?/api-16",
     "ohos-asset-store-sys?/api-16",
+    "ohos-crypto-sys?/api-16",
     "ohos-huks-sys?/api-16",
     "hilog-sys?/api-16",
     "hitrace-sys?/api-16",
@@ -345,6 +354,7 @@ api-16 = ["api-15",
 api-17 = ["api-16",
     "arkui-sys?/api-17",
     "ohos-asset-store-sys?/api-17",
+    "ohos-crypto-sys?/api-17",
     "ohos-huks-sys?/api-17",
     "hilog-sys?/api-17",
     "hitrace-sys?/api-17",
@@ -375,6 +385,7 @@ api-17 = ["api-16",
 api-18 = ["api-17",
     "arkui-sys?/api-18",
     "ohos-asset-store-sys?/api-18",
+    "ohos-crypto-sys?/api-18",
     "ohos-huks-sys?/api-18",
     "hilog-sys?/api-18",
     "hitrace-sys?/api-18",
@@ -405,6 +416,7 @@ api-18 = ["api-17",
 api-19 = ["api-18",
     "arkui-sys?/api-19",
     "ohos-asset-store-sys?/api-19",
+    "ohos-crypto-sys?/api-19",
     "ohos-huks-sys?/api-19",
     "hilog-sys?/api-19",
     "hitrace-sys?/api-19",
@@ -435,6 +447,7 @@ api-19 = ["api-18",
 api-20 = ["api-19",
     "arkui-sys?/api-20",
     "ohos-asset-store-sys?/api-20",
+    "ohos-crypto-sys?/api-20",
     "ohos-huks-sys?/api-20",
     "hilog-sys?/api-20",
     "hitrace-sys?/api-20",
@@ -465,6 +478,7 @@ api-20 = ["api-19",
 api-21 = ["api-20",
     "arkui-sys?/api-21",
     "ohos-asset-store-sys?/api-21",
+    "ohos-crypto-sys?/api-21",
     "ohos-huks-sys?/api-21",
     "hilog-sys?/api-21",
     "hitrace-sys?/api-21",
