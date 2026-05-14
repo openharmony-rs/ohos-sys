@@ -42,5 +42,6 @@ pub(crate) static ENUM_PREFIX_MAP: LazyLock<HashMap<&'static str, &'static str>>
                 "WINDOW_MANAGER_AVOID_AREA_TYPE_",
             ),
             ("WindowManager_WindowType", "WINDOW_MANAGER_WINDOW_TYPE_"),
+            ("OH_Crypto_ErrCode", "CRYPTO_"),
         ])
     });

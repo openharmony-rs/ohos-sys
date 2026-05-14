@@ -15,7 +15,7 @@ already been generated.
 | BasicServicesKit                        |        |           |                           |
 | Background Process Manager              |        |           |                           |
 | ConnectivityKit                         |        |           |                           |
-| CryptoArchitectureKit                   |        |           |                           |
+| CryptoArchitectureKit                   | ✅      | 21        | [ohos-crypto-sys]         |
 | DataProtectionKit                       |        |           |                           |
 | GameControllerKit                       |        |           |                           |
 | IPCKit                                  | ✅      | 21        | [ohos-ipckit-sys]         |
@@ -26,7 +26,7 @@ already been generated.
 | ace/xcomponent                          | ✅      | 21        | [xcomponent-sys]          |
 | ark_runtime                             |        |           |                           |
 | arkui                                   | ✅      | 21        | [arkui-sys]               |
-| asset                                   |        |           |                           |
+| asset                                   | ✅      | 21        | [ohos-asset-store-sys]    |
 | bundle                                  |        |           |                           |
 | database                                | ✅      | 21        | [ohos-rdb-sys]            |
 | ddk                                     |        |           |                           |
@@ -39,7 +39,7 @@ already been generated.
 | hidebug                                 |        |           |                           |
 | hilog                                   | ✅      | 21        | [hilog-sys]               |
 | hitrace                                 | ✅      | 21        | [hitrace-sys]             |
-| huks                                    |        |           |                           |
+| huks                                    | ✅      | 21        | [ohos-huks-sys]           |
 | info                                    |        |           |                           |
 | inputmethod                             | ✅      | 21        | [ohos-ime-sys]            |
 | mindspore                               |        |           |                           |
@@ -107,6 +107,9 @@ already been generated.
 [udmf-sys]: https://docs.rs/udmf-sys/latest/udmf_sys/
 [ohos-sensors-sys]: https://docs.rs/ohos-sensors-sys/latest/ohos_sensors_sys/
 [xcomponent-sys]: https://docs.rs/xcomponent-sys/latest/xcomponent_sys/
+[ohos-asset-store-sys]: https://docs.rs/ohos-asset-store-sys/latest/ohos_asset_store_sys/
+[ohos-crypto-sys]: https://docs.rs/ohos-crypto-sys/latest/ohos_crypto_sys/
+[ohos-huks-sys]: https://docs.rs/ohos-huks-sys/latest/ohos_huks_sys/
 
 
 ## Development

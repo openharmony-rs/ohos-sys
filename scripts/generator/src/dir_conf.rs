@@ -864,7 +864,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use ohos_sys_opaque_types::{Input_MouseEvent, Input_TouchEvent};"),
                     "display_info" => builder.no_copy("^NativeDisplayManager_DisplayInfo"),
                     "window" => builder
-                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")  
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
                         .raw_line("use crate::window_comm::{WindowManager_AvoidArea, WindowManager_AvoidAreaType, WindowManager_WindowProperties};")
                         .raw_line("#[cfg(feature=\"api-17\")]")
                         .raw_line("use crate::window_comm::WindowManager_Rect;")
@@ -941,15 +941,20 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
                     .allowlist_file(header_path.to_str().unwrap())
-                    .clang_args(["-include", "stdbool.h", "-include", "stdint.h", "-include", "stddef.h"]);
+                    .clang_args([
+                        "-include",
+                        "stdbool.h",
+                        "-include",
+                        "stdint.h",
+                        "-include",
+                        "stddef.h",
+                    ]);
                 match file_stem {
                     "net_http" => builder.raw_line("use crate::net_http_type::*;"),
-                    "net_http_type" => builder
-                        .blocklist_var("NET_HTTP_METHOD_PATCH")
-                        .raw_line(
-                            "// SDK currently defines NET_HTTP_METHOD_PATCH as \"CONNECT\"; \
+                    "net_http_type" => builder.blocklist_var("NET_HTTP_METHOD_PATCH").raw_line(
+                        "// SDK currently defines NET_HTTP_METHOD_PATCH as \"CONNECT\"; \
                              blocklisted until this is re-evaluated against upstream headers.",
-                        ),
+                    ),
                     "net_websocket" => builder
                         .raw_line("use crate::net_websocket_type::*;")
                         .clang_args(["-x", "c++"]),
@@ -967,7 +972,14 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
                     .allowlist_file(header_path.to_str().unwrap())
-                    .clang_args(["-include", "stdbool.h", "-include", "stdint.h", "-include", "stddef.h"]);
+                    .clang_args([
+                        "-include",
+                        "stdbool.h",
+                        "-include",
+                        "stdint.h",
+                        "-include",
+                        "stddef.h",
+                    ]);
                 match file_stem {
                     "net_ssl_c" => builder.raw_line("use crate::net_ssl_c_type::*;"),
                     _ => builder,
@@ -1051,6 +1063,56 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     _ => builder,
                 }
             }),
+            ..Default::default()
+        },
+        DirBindingsConf {
+            directory: "CryptoArchitectureKit".to_string(),
+            output_dir: "components/crypto/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "crypto_"))),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .result_error_enum("OH_Crypto_ErrCode")
+                    .parse_callbacks(Box::new(ResultEnumParseCallbacks {
+                        rename_item: Box::new(|name| match name {
+                            "OH_Crypto_ErrCode" => Some("CryptoResult".to_string()),
+                            _ => None,
+                        }),
+                        ..Default::default()
+                    }));
+                match file_stem {
+                    "asym_cipher" => builder
+                        .raw_line("use crate::common::{Crypto_CipherMode, Crypto_DataBlob, CryptoResult};")
+                        .raw_line("use crate::asym_key::OH_CryptoKeyPair;"),
+                    "asym_key" => builder
+                        .raw_line("use crate::common::{Crypto_DataBlob, CryptoResult};"),
+                    "digest" => builder
+                        .raw_line("use crate::common::{Crypto_DataBlob, CryptoResult};"),
+                    "kdf" => builder
+                        .raw_line("use crate::common::{Crypto_DataBlob, CryptoResult};"),
+                    "key_agreement" => builder
+                        .raw_line("use crate::common::{Crypto_DataBlob, CryptoResult};")
+                        .raw_line("use crate::asym_key::{OH_CryptoPrivKey, OH_CryptoPubKey};"),
+                    "mac" => builder
+                        .raw_line("use crate::common::{Crypto_DataBlob, CryptoResult};")
+                        .raw_line("use crate::sym_key::OH_CryptoSymKey;"),
+                    "rand" => builder
+                        .raw_line("use crate::common::{Crypto_DataBlob, CryptoResult};"),
+                    "signature" => builder
+                        .raw_line("use crate::common::{Crypto_DataBlob, CryptoResult};")
+                        .raw_line("use crate::asym_key::OH_CryptoPubKey;")
+                        .raw_line("#[cfg(feature = \"api-20\")]")
+                        .raw_line("use crate::asym_key::OH_CryptoPrivKey;"),
+                    "sym_cipher" => builder
+                        .raw_line("use crate::common::{Crypto_CipherMode, Crypto_DataBlob, CryptoResult};")
+                        .raw_line("use crate::sym_key::OH_CryptoSymKey;"),
+                    "sym_key" => builder
+                        .raw_line("use crate::common::{Crypto_DataBlob, CryptoResult};"),
+                    _ => builder,
+                }
+            }),
+            // This header just includes all the other ones.
+            skip_files: vec!["crypto_architecture_kit.h".to_string()],
             ..Default::default()
         },
         DirBindingsConf {

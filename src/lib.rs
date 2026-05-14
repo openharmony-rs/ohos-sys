@@ -22,6 +22,10 @@ pub use arkui_sys as arkui;
 #[cfg_attr(docsrs, doc(cfg(feature = "asset-store")))]
 pub use ohos_asset_store_sys as asset_store;
 
+#[cfg(feature = "crypto")]
+#[cfg_attr(docsrs, doc(cfg(feature = "crypto")))]
+pub use ohos_crypto_sys as crypto;
+
 #[cfg(feature = "deviceinfo")]
 #[cfg_attr(docsrs, doc(cfg(feature = "deviceinfo")))]
 pub use ohos_deviceinfo_sys as deviceinfo;
