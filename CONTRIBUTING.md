@@ -58,7 +58,9 @@
     unsafe extern "C" {}
     ```
     Make sure to replace `libname` with the actual library name.
-9. You now have created the skeleton. Continue in the next section to fix any errors and fine-tune the bindings.
+9. Verify that the crate name you chose is not already taken on crates.io. If it is change it. 
+  Then update the root Readme and mark the module as supported.
+10. You now have created the skeleton. Continue in the next section to fix any errors and fine-tune the bindings.
 
 ### Fixing and Fine-tuning the bindings
 
