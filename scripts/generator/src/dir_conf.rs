@@ -1066,6 +1066,17 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             ..Default::default()
         },
         DirBindingsConf {
+            directory: "accesstoken".to_string(),
+            output_dir: "components/accesstoken/src".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|_file_stem, header_path, builder| {
+                builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"])
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
             directory: "CryptoArchitectureKit".to_string(),
             output_dir: "components/crypto/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "crypto_"))),

@@ -24,6 +24,7 @@ ohos-sys-opaque-types = { version = "0.1.9", path = "components/opaque-types" }
 [dependencies]
 document-features = { version = "0.2", optional = true }
 arkui-sys = { version = "0.3.3", optional = true, path = "components/arkui" }
+ohos-accesstoken-sys = { version = "0.1.0", optional = true, path = "components/accesstoken" }
 ohos-asset-store-sys = { version = "0.1.0", optional = true, path = "components/asset" }
 ohos-crypto-sys = { version = "0.1.0", optional = true, path = "components/crypto" }
 ohos-huks-sys = { version = "0.1.0", optional = true, path = "components/huks" }
@@ -58,6 +59,8 @@ ohos-window-manager-sys = { version = "0.1.3", optional = true, path = "componen
 default = ["api-10"]
 ## Enables bindings to the AbilitKit. Re-exports the `ohos-abilitykit-sys` library.
 abilitykit = ["dep:ohos-abilitykit-sys"]
+## Enables bindings to the AbilityAccessControl (AccessToken) NDK. Re-exports `ohos-accesstoken-sys`.
+accesstoken = ["dep:ohos-accesstoken-sys"]
 ## Enables bindings to the native ArkUI module. Re-exports the `arkui-sys` library.
 arkui = ["dep:arkui-sys"]
 ## Enables bindings to the AssetStoreKit (Asset NDK). Re-exports `ohos-asset-store-sys`.
@@ -122,6 +125,7 @@ window_manager = ["dep:ohos-window-manager-sys"]
 ## Enables all components listed above. Orthogonal to `api-XX` features.
 all-components = [
     "abilitykit",
+    "accesstoken",
     "arkui",
     "asset-store",
     "crypto",
@@ -191,6 +195,7 @@ api-11 = [
 api-12 = [
     "api-11",
     "arkui-sys?/api-12",
+    "ohos-accesstoken-sys?/api-12",
     "ohos-asset-store-sys?/api-12",
     "ohos-crypto-sys?/api-12",
     "ohos-huks-sys?/api-12",
@@ -224,6 +229,7 @@ api-12 = [
 api-13 = [
     "api-12",
     "arkui-sys?/api-13",
+    "ohos-accesstoken-sys?/api-13",
     "ohos-asset-store-sys?/api-13",
     "ohos-crypto-sys?/api-13",
     "ohos-huks-sys?/api-13",
@@ -257,6 +263,7 @@ api-13 = [
 api-14 = [
     "api-13",
     "arkui-sys?/api-14",
+    "ohos-accesstoken-sys?/api-14",
     "ohos-asset-store-sys?/api-14",
     "ohos-crypto-sys?/api-14",
     "ohos-huks-sys?/api-14",
@@ -290,6 +297,7 @@ api-14 = [
 api-15 = [
     "api-14",
     "arkui-sys?/api-15",
+    "ohos-accesstoken-sys?/api-15",
     "ohos-asset-store-sys?/api-15",
     "ohos-crypto-sys?/api-15",
     "ohos-huks-sys?/api-15",
@@ -322,6 +330,7 @@ api-15 = [
 ## Enables bindings for OpenHarmony API-level 16.
 api-16 = ["api-15",
     "arkui-sys?/api-16",
+    "ohos-accesstoken-sys?/api-16",
     "ohos-asset-store-sys?/api-16",
     "ohos-crypto-sys?/api-16",
     "ohos-huks-sys?/api-16",
@@ -353,6 +362,7 @@ api-16 = ["api-15",
 ## Enables bindings for OpenHarmony API-level 17.
 api-17 = ["api-16",
     "arkui-sys?/api-17",
+    "ohos-accesstoken-sys?/api-17",
     "ohos-asset-store-sys?/api-17",
     "ohos-crypto-sys?/api-17",
     "ohos-huks-sys?/api-17",
@@ -384,6 +394,7 @@ api-17 = ["api-16",
 ## Enables bindings for OpenHarmony API-level 18 (5.1.0).
 api-18 = ["api-17",
     "arkui-sys?/api-18",
+    "ohos-accesstoken-sys?/api-18",
     "ohos-asset-store-sys?/api-18",
     "ohos-crypto-sys?/api-18",
     "ohos-huks-sys?/api-18",
@@ -415,6 +426,7 @@ api-18 = ["api-17",
 ## Enables bindings for OpenHarmony API-level 19
 api-19 = ["api-18",
     "arkui-sys?/api-19",
+    "ohos-accesstoken-sys?/api-19",
     "ohos-asset-store-sys?/api-19",
     "ohos-crypto-sys?/api-19",
     "ohos-huks-sys?/api-19",
@@ -446,6 +458,7 @@ api-19 = ["api-18",
 ## Enables bindings for OpenHarmony API-level 20
 api-20 = ["api-19",
     "arkui-sys?/api-20",
+    "ohos-accesstoken-sys?/api-20",
     "ohos-asset-store-sys?/api-20",
     "ohos-crypto-sys?/api-20",
     "ohos-huks-sys?/api-20",
@@ -477,6 +490,7 @@ api-20 = ["api-19",
 ## Enables bindings for OpenHarmony API-level 20
 api-21 = ["api-20",
     "arkui-sys?/api-21",
+    "ohos-accesstoken-sys?/api-21",
     "ohos-asset-store-sys?/api-21",
     "ohos-crypto-sys?/api-21",
     "ohos-huks-sys?/api-21",

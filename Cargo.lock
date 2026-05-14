@@ -93,6 +93,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "ohos-accesstoken-sys"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+]
+
+[[package]]
 name = "ohos-asset-store-sys"
 version = "0.1.0"
 dependencies = [
@@ -239,6 +246,7 @@ dependencies = [
  "hitrace-sys",
  "ohaudio-sys",
  "ohos-abilitykit-sys",
+ "ohos-accesstoken-sys",
  "ohos-asset-store-sys",
  "ohos-crypto-sys",
  "ohos-deviceinfo-sys",
