@@ -54,6 +54,8 @@ enum OpenHarmonyApiLevel {
     Nineteen = 19,
     Twenty = 20,
     TwentyOne = 21,
+    TwentyTwo = 22,
+    TwentyThree = 23,
 }
 
 #[derive(Error, Debug)]
@@ -84,6 +86,8 @@ impl TryFrom<&str> for OpenHarmonyApiLevel {
             19 => OpenHarmonyApiLevel::Nineteen,
             20 => OpenHarmonyApiLevel::Twenty,
             21 => OpenHarmonyApiLevel::TwentyOne,
+            22 => OpenHarmonyApiLevel::TwentyTwo,
+            23 => OpenHarmonyApiLevel::TwentyThree,
             other => {
                 return Err(ApiLevelParseError::UnknownApiVersion(other));
             }
