@@ -6,13 +6,13 @@ mod opaque_types;
 use crate::dir_conf::get_module_bindings_config;
 use crate::header_conf::get_bindings_config;
 use anyhow::{anyhow, bail, Context};
-use std::process::Command;
 use bindgen::callbacks::EnumVariantValue;
 use bindgen::{CodeGenAttributes, EnumVariation, Formatter};
 use log::{debug, error, info, warn};
 use std::fs;
 use std::num::ParseIntError;
 use std::path::{Path, PathBuf};
+use std::process::Command;
 use std::str::FromStr;
 use thiserror::Error;
 
@@ -146,10 +146,7 @@ fn parse_deprecated_line(
     // Post-transform: `**Deprecated** <free-form>` (no since)
     if let Some((_, rhs)) = trimmed.split_once("**Deprecated**") {
         let trailing = rhs.trim();
-        return Ok((
-            None,
-            (!trailing.is_empty()).then(|| trailing.to_string()),
-        ));
+        return Ok((None, (!trailing.is_empty()).then(|| trailing.to_string())));
     }
 
     // Raw doxygen form: `@deprecated...`
@@ -271,7 +268,11 @@ fn normalize_note(raw: &str) -> String {
     }
     // Walk to the last char boundary <= MAX_CHARS, then back up to a space.
     let mut byte_end = escaped.len();
-    for (i, _) in escaped.char_indices().enumerate().take_while(|(i, _)| *i < MAX_CHARS) {
+    for (i, _) in escaped
+        .char_indices()
+        .enumerate()
+        .take_while(|(i, _)| *i < MAX_CHARS)
+    {
         byte_end = i;
     }
     // `byte_end` is now the byte index of the (MAX_CHARS - 1)th char — advance
@@ -283,7 +284,9 @@ fn normalize_note(raw: &str) -> String {
         .unwrap_or(escaped.len());
     let prefix = &escaped[..byte_end];
     let truncated = prefix.rsplit_once(' ').map(|(p, _)| p).unwrap_or(prefix);
-    let mut capped = truncated.trim_end_matches(|c: char| c == '.' || c == ',' || c == ';').to_string();
+    let mut capped = truncated
+        .trim_end_matches(|c: char| c == '.' || c == ',' || c == ';')
+        .to_string();
     capped.push('…');
     capped
 }
@@ -414,9 +417,7 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
 
         if let Some(info) = parse_deprecated_info(comment).expect("Parse failed") {
             let payload = match (info.since, info.note) {
-                (Some(s), Some(n)) => {
-                    Some(format!("since = \"{}\", note = \"{}\"", s as u32, n))
-                }
+                (Some(s), Some(n)) => Some(format!("since = \"{}\", note = \"{}\"", s as u32, n)),
                 (Some(s), None) => Some(format!("since = \"{}\"", s as u32)),
                 (None, Some(n)) => Some(format!("note = \"{}\"", n)),
                 (None, None) => None,
@@ -607,7 +608,10 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
                     .iter()
                     .any(|known| known == relative_nested_dir)
                 {
-                    debug!("Skipping known nested include directory {}", relative_nested_dir);
+                    debug!(
+                        "Skipping known nested include directory {}",
+                        relative_nested_dir
+                    );
                     continue;
                 }
                 bail!(
@@ -719,7 +723,10 @@ fn run_cargo_fmt(root_dir: &Path) -> anyhow::Result<()> {
 /// ```
 fn apply_patches(root_dir: &Path, patches_dir: &Path) -> anyhow::Result<()> {
     if !patches_dir.is_dir() {
-        debug!("No patches directory at {}, skipping.", patches_dir.display());
+        debug!(
+            "No patches directory at {}, skipping.",
+            patches_dir.display()
+        );
         return Ok(());
     }
     let mut patches: Vec<PathBuf> = fs::read_dir(patches_dir)
@@ -834,10 +841,9 @@ mod tests {
 
     #[test]
     fn parses_since_and_useinstead() {
-        let info = parse(
-            " @deprecated since 13\n @useinstead OH_NetConn_RegisterDnsResolver\n @since 11",
-        )
-        .expect("has deprecated");
+        let info =
+            parse(" @deprecated since 13\n @useinstead OH_NetConn_RegisterDnsResolver\n @since 11")
+                .expect("has deprecated");
         assert_eq!(info.since, Some(OpenHarmonyApiLevel::Thirteen));
         assert_eq!(
             info.note.as_deref(),
@@ -889,10 +895,9 @@ mod tests {
 
     #[test]
     fn deprecated_with_inline_trailing_note() {
-        let info = parse(
-            "@deprecated since 13 use OH_NetConn_RegisterDnsResolver instead\n@since 11",
-        )
-        .expect("has deprecated");
+        let info =
+            parse("@deprecated since 13 use OH_NetConn_RegisterDnsResolver instead\n@since 11")
+                .expect("has deprecated");
         assert_eq!(info.since, Some(OpenHarmonyApiLevel::Thirteen));
         assert_eq!(
             info.note.as_deref(),
@@ -943,10 +948,8 @@ mod tests {
     #[test]
     fn note_escapes_quotes_and_backslashes() {
         // Raw note containing characters that would otherwise break a Rust string literal.
-        let info = parse(
-            "@deprecated since 13\n@useinstead use \\path\\to\\Foo or \"OH_Foo\"",
-        )
-        .expect("has deprecated");
+        let info = parse("@deprecated since 13\n@useinstead use \\path\\to\\Foo or \"OH_Foo\"")
+            .expect("has deprecated");
         let note = info.note.expect("note present");
         assert!(!note.contains("\\p") || note.contains("\\\\path"));
         assert!(!note.contains("\"OH_Foo\"") || note.contains("\\\"OH_Foo\\\""));
