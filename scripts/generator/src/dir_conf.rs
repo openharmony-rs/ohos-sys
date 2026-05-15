@@ -1077,6 +1077,23 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             ..Default::default()
         },
         DirBindingsConf {
+            directory: "BasicServicesKit".to_string(),
+            output_dir: "components/basic-services-kit/src".to_string(),
+            rename_output_file: Some(Box::new(|stem| {
+                strip_prefix(&strip_prefix(stem, "oh_"), "oh")
+            })),
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = builder
+                    .allowlist_file(header_path.to_str().unwrap())
+                    .clang_args(["-include", "stdbool.h"]);
+                match file_stem {
+                    "os_account" => builder.raw_line("use crate::os_account_common::*;"),
+                    _ => builder,
+                }
+            }),
+            ..Default::default()
+        },
+        DirBindingsConf {
             directory: "CryptoArchitectureKit".to_string(),
             output_dir: "components/crypto/src".to_string(),
             rename_output_file: Some(Box::new(|stem| strip_prefix(stem, "crypto_"))),

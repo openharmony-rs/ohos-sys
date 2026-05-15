@@ -12,7 +12,7 @@ already been generated.
 | API name                                | status | API-level | crate                     |
 |-----------------------------------------|--------|-----------|---------------------------|
 | AbilityKit                              | ✅      | 21        | [ohos-abilitykit-sys]     |
-| BasicServicesKit                        |        |           |                           |
+| BasicServicesKit                        | ✅      | 21        | [ohos-basic-services-kit-sys] |
 | Background Process Manager              |        |           |                           |
 | ConnectivityKit                         |        |           |                           |
 | CryptoArchitectureKit                   | ✅      | 21        | [ohos-crypto-sys]         |
@@ -108,6 +108,7 @@ already been generated.
 [ohos-sensors-sys]: https://docs.rs/ohos-sensors-sys/latest/ohos_sensors_sys/
 [xcomponent-sys]: https://docs.rs/xcomponent-sys/latest/xcomponent_sys/
 [ohos-asset-store-sys]: https://docs.rs/ohos-asset-store-sys/latest/ohos_asset_store_sys/
+[ohos-basic-services-kit-sys]: https://docs.rs/ohos-basic-services-kit-sys/latest/ohos_basic_services_kit_sys/
 [ohos-crypto-sys]: https://docs.rs/ohos-crypto-sys/latest/ohos_crypto_sys/
 [ohos-huks-sys]: https://docs.rs/ohos-huks-sys/latest/ohos_huks_sys/
 
