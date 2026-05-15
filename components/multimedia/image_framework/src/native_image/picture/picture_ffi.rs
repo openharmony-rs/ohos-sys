@@ -62,7 +62,93 @@ impl Image_AuxiliaryPictureType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct Image_AuxiliaryPictureType(pub ::core::ffi::c_uint);
+/// Define a OH_ComposeOptions struct type, Describes compose parameters.
+///
+/// Used to specify the parameters used for composition, such as the target pixel format.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[repr(C)]
+pub struct OH_ComposeOptions {
+    _unused: [u8; 0],
+}
 extern "C" {
+    /// Create a instance for OH_ComposeOptions struct.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_ComposeOptions pointer will be operated.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ComposeOptions_Create(options: *mut *mut OH_ComposeOptions) -> ImageResult;
+    /// Set desired pixel format for ComposeOptions.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_ComposeOptions pointer will be operated.
+    ///
+    /// * `desiredPixelFormat` - The desired pixel format will be set, RGBA_1010102are supported.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or desiredPixelFormat is not supported.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ComposeOptions_SetDesiredPixelFormat(
+        options: *mut OH_ComposeOptions,
+        desiredPixelFormat: PIXEL_FORMAT,
+    ) -> ImageResult;
+    /// Get desired pixel format for ComposeOptions.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - The OH_ComposeOptions pointer will be operated.
+    ///
+    /// * `desiredPixelFormat` - The desired pixel format.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or desiredPixelFormat is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ComposeOptions_GetDesiredPixelFormat(
+        options: *mut OH_ComposeOptions,
+        desiredPixelFormat: *mut PIXEL_FORMAT,
+    ) -> ImageResult;
+    /// Releases an OH_ComposeOptions object.
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Indicates a OH_ComposeOptions pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ComposeOptions_Release(options: *mut OH_ComposeOptions) -> ImageResult;
     /// Create a <b>Picture</b> object.
     ///
     /// # Arguments
@@ -118,13 +204,38 @@ extern "C" {
     /// * Image functions result code.
     /// [`IMAGE_SUCCESS`] if the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] picture is nullptr, or hdrPixelmap is nullptr.
-    /// [`IMAGE_UNSUPPORTED_OPERATION`] Unsupported operation, e.g. the picture does not has a gainmap
+    /// [`IMAGE_UNSUPPORTED_OPERATION`] Unsupported operation, e.g. the picture does not has a gainmap.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_PictureNative_GetHdrComposedPixelmap(
         picture: *mut OH_PictureNative,
+        hdrPixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ImageResult;
+    /// Obtains the hdr pixel map with options.
+    ///
+    /// # Arguments
+    ///
+    /// * `picture` - The Picture pointer will be operated.
+    ///
+    /// * `options` - The compose options.
+    ///
+    /// * `hdrPixelmap` - Hdr pixel map pointer for obtained.
+    ///
+    /// # Returns
+    ///
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] picture is nullptr, or hdrPixelmap is nullptr.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`] Unsupported operation, e.g. the picture does not has a gainmap.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_PictureNative_GetHdrComposedPixelmapWithOptions(
+        picture: *mut OH_PictureNative,
+        options: *mut OH_ComposeOptions,
         hdrPixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
     /// Obtains the gainmap pixel map.

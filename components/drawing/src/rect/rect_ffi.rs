@@ -374,4 +374,186 @@ extern "C" {
     pub fn OH_Drawing_RectDestroyArray(
         rectArray: *mut OH_Drawing_Array,
     ) -> crate::error_code::DrawingResult;
+    /// Determine whether one <b>OH_Drawing_Rect</b> object totally contains another <b>OH_Drawing_Rect</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `isContains` - Indicates whether rect totally contains other.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if rect, other or isContains is nullptr.
+    ///
+    /// Available since API-level: 22
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_RectContains(
+        rect: *mut OH_Drawing_Rect,
+        other: *const OH_Drawing_Rect,
+        isContains: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Add the specified values to the left and top boundaried of an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `left` - Indicates the value added to the left boundary of an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `top` - Indicates the value added to the top boundary of an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `right` - Indicates the value added to the right boundary of an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `bottom` - Indicates the value added to the bottom boundary of an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if rect is nullptr.
+    ///
+    /// Available since API-level: 22
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_RectInset(
+        rect: *mut OH_Drawing_Rect,
+        left: f32,
+        top: f32,
+        right: f32,
+        bottom: f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if rect is empty.
+    ///
+    /// # Arguments
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `isEmpty` - Indicates whether rect is empty.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if rect or isEmpty is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RectIsEmpty(
+        rect: *const OH_Drawing_Rect,
+        isEmpty: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Offsets rect by adding dx to its left and right coordinates, and adding dy to its top and bottom
+    /// coordinates.
+    ///
+    /// # Arguments
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `dx` - Indicates the distance to offset on the x-axis in pixels.
+    ///
+    /// * `dy` - Indicates the distance to offset on the y-axis in pixels.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if rect is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RectOffset(
+        rect: *mut OH_Drawing_Rect,
+        dx: f32,
+        dy: f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Offsets rect to a specific position and keeps the width and height unchanged.
+    ///
+    /// # Arguments
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `newLeft` - Indicates the new left coordinate.
+    ///
+    /// * `newTop` - Indicates the new top coordinate.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if rect is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RectOffsetTo(
+        rect: *mut OH_Drawing_Rect,
+        newLeft: f32,
+        newTop: f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Sets the boundary coordinates of rect to zero.
+    ///
+    /// # Arguments
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if rect is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RectSetEmpty(rect: *mut OH_Drawing_Rect) -> crate::error_code::DrawingResult;
+    /// Swaps the left and right if the left is greater than right; and swaps top and bottom if the top is greater
+    /// than bottom. If the edges are already valid, then nothing is done.
+    ///
+    /// # Arguments
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if rect is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RectSort(rect: *mut OH_Drawing_Rect) -> crate::error_code::DrawingResult;
+    /// Sets rect to the union of itself and another.
+    ///
+    /// # Arguments
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if rect or other is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RectUnion(
+        rect: *mut OH_Drawing_Rect,
+        other: *const OH_Drawing_Rect,
+    ) -> crate::error_code::DrawingResult;
 }

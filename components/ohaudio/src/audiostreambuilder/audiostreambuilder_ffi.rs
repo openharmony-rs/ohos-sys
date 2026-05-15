@@ -797,4 +797,33 @@ extern "C" {
         callback: OH_AudioCapturer_OnFastStatusChange,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AudioStream_Result;
+    /// Sets target mode when using playback capture. Mode will decide what kind of streams to capture.
+    /// This function is only available for [`#AUDIOSTREAM_TYPE_CAPTURER`] type.
+    /// After setting playback capture mode, the [`#OH_AudioStream_SourceType`] will be ignored, so
+    /// caller do not need to use [`#OH_AudioStreamBuilder_SetCapturerInfo`] if you only want to capture
+    /// playback streams.
+    /// Note that playback capture is only available for specific system applications currently, others do
+    /// not have authorization.
+    ///
+    /// # Arguments
+    ///
+    /// * `builder` - Reference provided by OH_AudioStreamBuilder_Create().
+    ///
+    /// * `mode` - The playback capture mode to set. This can be a combination of the available
+    /// [`#OH_AudioStream_PlaybackCaptureMode`].
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`#AUDIOSTREAM_SUCCESS`] If the execution is successful.
+    /// [`#AUDIOSTREAM_ERROR_INVALID_PARAM`] 1.The param of builder is nullptr;
+    /// 2.The param of mode is invalid.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AudioStreamBuilder_SetPlaybackCaptureMode(
+        builder: *mut OH_AudioStreamBuilder,
+        mode: u32,
+    ) -> OH_AudioStream_Result;
 }

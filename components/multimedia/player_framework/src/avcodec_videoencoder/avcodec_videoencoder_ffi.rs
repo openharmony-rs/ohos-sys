@@ -127,7 +127,7 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], inner resource has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_Destroy(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -150,8 +150,7 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], inner resource has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state, must be called before Prepare.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     ///
     /// **Deprecated** since 11
     ///
@@ -183,8 +182,7 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], inner resource has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state, must be called before Prepare.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -215,7 +213,7 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], inner resource has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state, must be called before Prepare.
     ///
     /// Available since API-level: 12
@@ -241,9 +239,11 @@ extern "C" {
     /// * Returns AV_ERR_OK if the execution is successful,
     /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
     /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_INVALID_VAL`]
+    /// 1. an invalid encoder instance pointer is passed to parameter codec, including a null pointer;
+    /// 2. unsupported input format parameters.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state, must be called before Prepare.
     ///
     /// Available since API-level: 9
@@ -266,7 +266,7 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], instance has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// Available since API-level: 9
@@ -286,7 +286,7 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], instance has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// Available since API-level: 9
@@ -305,7 +305,7 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], instance has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// Available since API-level: 9
@@ -326,7 +326,7 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], instance has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// Available since API-level: 9
@@ -346,8 +346,7 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], instance has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_Reset(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -363,7 +362,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to an OH_AVFormat instance.
-    /// Return nullptr if the codec is nullptr or invaild.
+    /// Return nullptr if the codec is nullptr or invalid.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_GetOutputDescription(codec: *mut OH_AVCodec) -> *mut OH_AVFormat;
@@ -382,9 +381,11 @@ extern "C" {
     /// * Returns AV_ERR_OK if the execution is successful,
     /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
     /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_INVALID_VAL`]
+    /// 1. an invalid encoder instance pointer is passed to parameter codec, including a null pointer;
+    /// 2. unsupported input format parameters.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// Available since API-level: 9
@@ -406,11 +407,8 @@ extern "C" {
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
     /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], inner resource has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoEncoder_GetSurface(
@@ -434,7 +432,7 @@ extern "C" {
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// Buffer index should be given by [`OH_AVCodecOnNewOutputData`].
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// **Deprecated** since 11
@@ -459,7 +457,7 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], instance has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// Available since API-level: 9
@@ -483,7 +481,7 @@ extern "C" {
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// Buffer index should be given by [`OH_AVCodecOnNeedInputData`].
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// **Deprecated** since 11
@@ -540,7 +538,7 @@ extern "C" {
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// Index should be given by [`OH_VideoEncoder_OnNeedInputParameter`].
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// Available since API-level: 12
@@ -561,10 +559,12 @@ extern "C" {
     /// * Returns AV_ERR_OK if the execution is successful,
     /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
     /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
-    /// Buffer index should be given by [`OH_AVCodecOnNewOutputBuffer`].
+    /// [`AV_ERR_INVALID_VAL`]
+    /// 1. an invalid encoder instance pointer is passed to parameter codec, including a null pointer;
+    /// 2. invalid index or consecutive assignment to the same index,
+    /// the error does not affect the subsequent encode process.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     ///
     /// Available since API-level: 11
@@ -596,7 +596,6 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], internal errors in the input encode instance, such as an abnormal NULL.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permitted in asynchronous mode.
     /// [`AV_ERR_TRY_AGAIN_LATER`], query failed, recommended retry after delay..
@@ -656,11 +655,10 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`], internal errors in the input encode instance, such as an abnormal NULL.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
     /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
     /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
     /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permitted in asynchronous mode.
     /// [`AV_ERR_STREAM_CHANGED`], stream format changed, call [`OH_VideoEncoder_GetOutputDescription`] to
-    /// retrieve new steam information.
+    /// retrieve new stream information.
     /// [`AV_ERR_TRY_AGAIN_LATER`], query failed, recommended retry after delay.
     ///
     /// Available since API-level: 20
@@ -705,7 +703,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer to an OH_AVFormat instance.
-    /// Return nullptr if the encoder is nullptr or invaild.
+    /// Return nullptr if the encoder is nullptr or invalid.
     ///
     /// Available since API-level: 10
     pub fn OH_VideoEncoder_GetInputDescription(codec: *mut OH_AVCodec) -> *mut OH_AVFormat;
@@ -724,10 +722,7 @@ extern "C" {
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
     /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
     /// [`AV_ERR_INVALID_VAL`], the encoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_SERVICE_DIED`], avcodec service is died.
     ///
     /// Available since API-level: 10
     pub fn OH_VideoEncoder_IsValid(codec: *mut OH_AVCodec, isValid: *mut bool) -> OH_AVErrCode;

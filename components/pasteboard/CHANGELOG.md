@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5
+
+- Update bindings to API-22 and API-23.
+
 ## 0.1.4
 
 - Fix documented minimum API level

@@ -122,6 +122,27 @@ pub type OH_AudioCapturer_OnFastStatusChange = ::core::option::Option<
         status: OH_AudioStream_FastStatus,
     ),
 >;
+/// Callback function to get playback capture start result.
+///
+/// # Arguments
+///
+/// * `capturer` - Pointer to the AudioCapturer instance that triggers the callback.
+///
+/// * `userData` - Pointer to the user data passed when setting the callback via
+/// [`#OH_AudioCapturer_RequestPlaybackCaptureStart`].
+///
+/// * `state` - The final state to describe whether start request is successful.
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+pub type OH_AudioCapturer_OnPlaybackCaptureStartCallback = ::core::option::Option<
+    unsafe extern "C" fn(
+        capturer: *mut OH_AudioCapturer,
+        userData: *mut ::core::ffi::c_void,
+        state: OH_AudioStream_PlaybackCaptureStartState,
+    ),
+>;
 extern "C" {
     /// Request to release the capturer stream.
     ///
@@ -483,5 +504,32 @@ extern "C" {
     pub fn OH_AudioCapturer_GetFastStatus(
         capturer: *mut OH_AudioCapturer,
         status: *mut OH_AudioStream_FastStatus,
+    ) -> OH_AudioStream_Result;
+    /// Asynchronously request to start the playback capture stream.
+    /// This function is non-blocking, which means system will continue to process user authorization and
+    /// stream starting when receiving the start request. And the final result will be returned by callback.
+    /// # Arguments
+    ///
+    /// * `capturer` - reference created by [`#OH_AudioStreamBuilder_GenerateCapturer`]
+    ///
+    /// * `callback` - Callback function used to receive the final result of start request.
+    ///
+    /// * `userData` - Pointer to an application data structure that will be passed to the callback functions.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`#AUDIOSTREAM_SUCCESS`] If the execution is successful.
+    /// [`#AUDIOSTREAM_ERROR_INVALID_PARAM`] The param of capturer is nullptr or callback is invalid.
+    /// [`#AUDIOSTREAM_ERROR_ILLEGAL_STATE`] Running and released are illegal states.
+    /// [`#AUDIOSTREAM_ERROR_SYSTEM`] System internal error, like audio service error.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AudioCapturer_RequestPlaybackCaptureStart(
+        capturer: *mut OH_AudioCapturer,
+        callback: OH_AudioCapturer_OnPlaybackCaptureStartCallback,
+        userData: *mut ::core::ffi::c_void,
     ) -> OH_AudioStream_Result;
 }

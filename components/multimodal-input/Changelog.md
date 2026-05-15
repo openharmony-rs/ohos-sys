@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.4
+
+- Add API-22 and API-23 bindings.
+- Add `pointer_style` module (API-22).
+
 ## 0.3.3
 
 - Add API-21 bindings

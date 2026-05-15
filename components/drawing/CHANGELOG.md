@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.4
+
+- Add API-22 and API-23 bindings.
+- Add `lattice` and `path_iterator` modules (API-23).
+
 ## 0.3.3
 
 - Add API 19-21 bindings

@@ -7,6 +7,8 @@
 use crate::native_buffer::buffer_common::OH_NativeBuffer_ColorSpace;
 #[cfg(feature = "api-12")]
 use crate::native_buffer::buffer_common::OH_NativeBuffer_MetadataKey;
+#[cfg(feature = "api-23")]
+use ohos_sys_opaque_types::OHIPCParcel;
 #[cfg(feature = "api-12")]
 use ohos_sys_opaque_types::OHNativeWindowBuffer;
 use ohos_sys_opaque_types::OH_NativeBuffer;
@@ -51,13 +53,29 @@ impl OH_NativeBuffer_Usage {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NATIVEBUFFER_USAGE_MEM_MMZ_CACHE: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(32);
     /// For GPU write case
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_USAGE_HW_RENDER: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(256);
     /// For GPU read case
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_USAGE_HW_TEXTURE: OH_NativeBuffer_Usage = OH_NativeBuffer_Usage(512);
     /// Often be mapped for direct CPU reads
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_USAGE_CPU_READ_OFTEN: OH_NativeBuffer_Usage =
         OH_NativeBuffer_Usage(65536);
     /// 512 bytes alignment
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_USAGE_ALIGNMENT_512: OH_NativeBuffer_Usage =
         OH_NativeBuffer_Usage(262144);
 }
@@ -72,286 +90,6 @@ impl OH_NativeBuffer_Usage {
 /// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_NativeBuffer_Usage(pub ::core::ffi::c_uint);
-impl OH_NativeBuffer_Format {
-    /// CLUT8 format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_CLUT8: OH_NativeBuffer_Format = OH_NativeBuffer_Format(0);
-    /// CLUT1 format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_CLUT1: OH_NativeBuffer_Format = OH_NativeBuffer_Format(1);
-    /// CLUT4 format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_CLUT4: OH_NativeBuffer_Format = OH_NativeBuffer_Format(2);
-    /// CLUT4 format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_565: OH_NativeBuffer_Format = OH_NativeBuffer_Format(3);
-    /// < RGB565 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5658: OH_NativeBuffer_Format = OH_NativeBuffer_Format(4);
-    /// < RGBA5658 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(5);
-    /// < RGBX4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(6);
-    /// < RGBA4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(7);
-    /// < RGB444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(8);
-    /// < RGBX5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(9);
-    /// < RGBA5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_555: OH_NativeBuffer_Format = OH_NativeBuffer_Format(10);
-    /// < RGB555 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(11);
-    /// < RGBX8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(12);
-    /// < RGBA8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(13);
-    /// < RGB888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGR_565: OH_NativeBuffer_Format = OH_NativeBuffer_Format(14);
-    /// < BGR565 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(15);
-    /// < BGRX4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(16);
-    /// < BGRA4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(17);
-    /// < BGRX5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(18);
-    /// < BGRA5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(19);
-    /// < BGRX8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(20);
-    /// < BGRA8888 format */
-    /// **
-    /// * YUV422 interleaved format
-    /// * @since 12
-    /// */
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YUV_422_I: OH_NativeBuffer_Format = OH_NativeBuffer_Format(21);
-    /// YCBCR422 semi-planar format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YCBCR_422_SP: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(22);
-    /// YCRCB422 semi-planar format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YCRCB_422_SP: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(23);
-    /// YCBCR420 semi-planar format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YCBCR_420_SP: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(24);
-    /// YCRCB420 semi-planar format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YCRCB_420_SP: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(25);
-    /// YCBCR422 planar format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YCBCR_422_P: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(26);
-    /// YCRCB422 planar format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YCRCB_422_P: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(27);
-    /// YCBCR420 planar format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YCBCR_420_P: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(28);
-    /// YCRCB420 planar format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YCRCB_420_P: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(29);
-    /// YUYV422 packed format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YUYV_422_PKG: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(30);
-    /// UYVY422 packed format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_UYVY_422_PKG: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(31);
-    /// YVYU422 packed format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YVYU_422_PKG: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(32);
-    /// VYUY422 packed format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_VYUY_422_PKG: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(33);
-    /// RGBA_1010102 packed format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_1010102: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(34);
-    /// YCBCR420 semi-planar 10bit packed format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YCBCR_P010: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(35);
-    /// YCRCB420 semi-planar 10bit packed format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_YCRCB_P010: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(36);
-    /// Raw 10bit packed format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_RAW10: OH_NativeBuffer_Format = OH_NativeBuffer_Format(37);
-    /// BLOB format
-    ///
-    /// Available since API-level: 15
-    #[cfg(feature = "api-15")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_BLOB: OH_NativeBuffer_Format = OH_NativeBuffer_Format(38);
-    /// RGBA16 float format
-    ///
-    /// Available since API-level: 15
-    #[cfg(feature = "api-15")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA16_FLOAT: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(39);
-    /// Y8 format
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_Y8: OH_NativeBuffer_Format = OH_NativeBuffer_Format(40);
-    /// Y16 format
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_Y16: OH_NativeBuffer_Format = OH_NativeBuffer_Format(41);
-    /// vendor mask format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_VENDER_MASK: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(2147418112);
-    /// vendor mask format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_BUTT: OH_NativeBuffer_Format =
-        OH_NativeBuffer_Format(2147483647);
-}
-#[repr(transparent)]
-/// Indicates the format of a native buffer.
-///
-///
-/// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
-///
-/// Available since API-level: 10
-///
-/// Version: 1.0
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_NativeBuffer_Format(pub ::core::ffi::c_uint);
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_NativeBuffer_TransformType {
-    /// < No rotation
-    pub const NATIVEBUFFER_ROTATE_NONE: OH_NativeBuffer_TransformType =
-        OH_NativeBuffer_TransformType(0);
-    /// < Rotation by 90 degrees
-    pub const NATIVEBUFFER_ROTATE_90: OH_NativeBuffer_TransformType =
-        OH_NativeBuffer_TransformType(1);
-    /// < Rotation by 180 degrees
-    pub const NATIVEBUFFER_ROTATE_180: OH_NativeBuffer_TransformType =
-        OH_NativeBuffer_TransformType(2);
-    /// < Rotation by 270 degrees
-    pub const NATIVEBUFFER_ROTATE_270: OH_NativeBuffer_TransformType =
-        OH_NativeBuffer_TransformType(3);
-    /// < Flip horizontally
-    pub const NATIVEBUFFER_FLIP_H: OH_NativeBuffer_TransformType = OH_NativeBuffer_TransformType(4);
-    /// < Flip vertically
-    pub const NATIVEBUFFER_FLIP_V: OH_NativeBuffer_TransformType = OH_NativeBuffer_TransformType(5);
-    /// < Flip horizontally and rotate 90 degrees
-    pub const NATIVEBUFFER_FLIP_H_ROT90: OH_NativeBuffer_TransformType =
-        OH_NativeBuffer_TransformType(6);
-    /// < Flip vertically and rotate 90 degrees
-    pub const NATIVEBUFFER_FLIP_V_ROT90: OH_NativeBuffer_TransformType =
-        OH_NativeBuffer_TransformType(7);
-    /// < Flip horizontally and rotate 180 degrees
-    pub const NATIVEBUFFER_FLIP_H_ROT180: OH_NativeBuffer_TransformType =
-        OH_NativeBuffer_TransformType(8);
-    /// < Flip vertically and rotate 180 degrees
-    pub const NATIVEBUFFER_FLIP_V_ROT180: OH_NativeBuffer_TransformType =
-        OH_NativeBuffer_TransformType(9);
-    /// < Flip horizontally and rotate 270 degrees
-    pub const NATIVEBUFFER_FLIP_H_ROT270: OH_NativeBuffer_TransformType =
-        OH_NativeBuffer_TransformType(10);
-    /// < Flip vertically and rotate 270 degrees
-    pub const NATIVEBUFFER_FLIP_V_ROT270: OH_NativeBuffer_TransformType =
-        OH_NativeBuffer_TransformType(11);
-}
-#[repr(transparent)]
-/// Indicates the transform type of a native buffer.
-///
-///
-/// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
-///
-/// Available since API-level: 12
-///
-/// Version: 1.0
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_NativeBuffer_TransformType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_NativeBuffer_ColorGamut {
@@ -801,5 +539,152 @@ extern "C" {
         metadataKey: OH_NativeBuffer_MetadataKey,
         size: *mut i32,
         metadata: *mut *mut u8,
+    ) -> i32;
+    /// Provide direct cpu access to the OH_NativeBuffer in the process's address space and wait fence.
+    ///
+    /// If the interface returns OK, fenceFd does not need to be closed by the developer,
+    /// Otherwise, the developer needs to close the fenceFd.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
+    /// # Arguments
+    ///
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    ///
+    /// * `fenceFd` - Indicates the pointer to a file descriptor handle.
+    ///
+    /// * `virAddr` - Indicates the address of the <b>OH_NativeBuffer</b> in virtual memory.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer or virAddr is NULL or invalid fenceFd.
+    /// [`NATIVE_ERROR_UNKNOWN`] 50002000 - map failed.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_NativeBuffer_MapWaitFence(
+        buffer: *mut OH_NativeBuffer,
+        fenceFd: i32,
+        virAddr: *mut *mut ::core::ffi::c_void,
+    ) -> i32;
+    /// Serialize <b>OH_NativeBuffer</b> object to the serialized <b>OHIPCParcel</b> object.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
+    /// # Arguments
+    ///
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    ///
+    /// * `parcel` - Indicates the serialized <b>OHIPCParcel</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer or parcel is NULL.
+    /// [`SURFACE_ERROR_BINDER_ERROR`] 50401000 - ipc send failed.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_NativeBuffer_WriteToParcel(
+        buffer: *mut OH_NativeBuffer,
+        parcel: *mut OHIPCParcel,
+    ) -> i32;
+    /// Deserialize data from the serialized <b>OHIPCParcel</b> object and rebuild <b>OH_NativeBuffer</b> object.
+    /// This interface will cause an increase in the reference count of the <b>OH_NativeBuffer</b> instance.
+    /// This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unreference</b>,
+    ///
+    /// otherwise memory leaks will occur.
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
+    /// # Arguments
+    ///
+    /// * `parcel` - Indicates the serialized <b>OHIPCParcel</b> object.
+    ///
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> pointer.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - parcel or buffer is NULL.
+    /// [`NATIVE_ERROR_UNKNOWN`] 50002000 - deserialize failed.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_NativeBuffer_ReadFromParcel(
+        parcel: *mut OHIPCParcel,
+        buffer: *mut *mut OH_NativeBuffer,
+    ) -> i32;
+    /// Check whether the system supports the <b>NativeBufferConfig</b>.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
+    /// # Arguments
+    ///
+    /// * `config` - Indicates the config of the <b>OH_NativeBuffer</b>.
+    ///
+    /// * `isSupported` - Indicates whether the system supports the <b>NativeBufferConfig</b>.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - isSupported is NULL.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_NativeBuffer_IsSupported(
+        config: OH_NativeBuffer_Config,
+        isSupported: *mut bool,
+    ) -> i32;
+    /// Provide direct cpu access to the <b>OH_NativeBuffer</b> in the process's address space,
+    ///
+    /// and return a <b>NativeBufferConfig<b> of the <b>OH_NativeBuffer</b>.
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeBuffer
+    /// # Arguments
+    ///
+    /// * `buffer` - Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+    ///
+    /// * `virAddr` - Indicates the address of the <b>OH_NativeBuffer</b> in virtual memory.
+    ///
+    /// * `config` - Indicates the pointer to the <b>NativeBufferConfig</b> of the buffer.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer or virAddr or config is NULL or invalid fenceFd.
+    /// [`NATIVE_ERROR_UNKNOWN`] 50002000 - map failed.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_NativeBuffer_MapAndGetConfig(
+        buffer: *mut OH_NativeBuffer,
+        virAddr: *mut *mut ::core::ffi::c_void,
+        config: *mut OH_NativeBuffer_Config,
     ) -> i32;
 }

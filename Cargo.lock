@@ -156,6 +156,7 @@ name = "ohos-ime-sys"
 version = "0.2.3"
 dependencies = [
  "document-features",
+ "ohos-sys-opaque-types",
 ]
 
 [[package]]

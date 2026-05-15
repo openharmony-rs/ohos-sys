@@ -222,6 +222,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`] The node is not a customNode.
     /// [`ARKUI_ERROR_CODE_CHILD_EXISTED`] The node already has a child.
     /// [`ARKUI_ERROR_CODE_RENDER_PARENT_EXISTED`] The child already has a parent node.
+    /// [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`] if the child is obtained from a FrameNode, and its
+    /// corresponding FrameNode is no longer in the adopted state. Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -331,6 +333,10 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
+    /// [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`] if the child is obtained from a FrameNode, and its
+    /// corresponding FrameNode is no longer in the adopted state. Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -356,6 +362,10 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
+    /// [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`] if the child is obtained from a FrameNode, and its
+    /// corresponding FrameNode is no longer in the adopted state. Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -379,6 +389,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -399,6 +411,7 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the RenderNode is obtained from a FrameNode. Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -420,7 +433,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_CHILD_RENDER_NOT_EXIST`] The child does not exist.
+    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`] The child does not exist.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the RenderNode is obtained from a FrameNode. Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -444,7 +458,9 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_CHILD_RENDER_NOT_EXIST`] The child does not exist.
+    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`] The child does not exist.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -467,7 +483,7 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_CHILD_RENDER_NOT_EXIST`] The child does not exist.
+    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`] The child does not exist.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -490,7 +506,7 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_CHILD_RENDER_NOT_EXIST`] The child does not exist.
+    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`] The child does not exist.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -517,6 +533,7 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode. Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -540,6 +557,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -567,6 +586,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -594,6 +615,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -617,6 +640,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
     /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -639,6 +664,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -662,6 +689,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
     /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -684,6 +713,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -707,6 +738,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
     /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -726,6 +759,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -751,6 +786,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
     /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -776,6 +813,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -801,6 +840,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -826,6 +867,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -851,6 +894,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -872,6 +917,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -897,6 +944,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -918,6 +967,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -943,6 +994,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -968,6 +1021,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -995,6 +1050,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1023,6 +1080,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1074,7 +1133,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1102,6 +1162,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1127,6 +1189,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1151,6 +1215,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1176,6 +1242,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1200,6 +1268,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
     /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1220,6 +1290,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1243,6 +1315,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
     /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1265,6 +1339,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1288,6 +1364,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
     /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1310,6 +1388,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1332,6 +1412,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1354,6 +1436,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1376,6 +1460,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1398,6 +1484,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1420,6 +1508,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1442,6 +1532,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1461,6 +1553,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1483,6 +1577,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1505,6 +1601,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1527,6 +1625,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1549,6 +1649,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1578,6 +1680,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
     /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1609,6 +1713,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1640,6 +1746,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1665,6 +1773,8 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1678,10 +1788,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// * [`ArkUI_RenderContentModifierHandle`] A content modifier handle.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2772,13 +2879,6 @@ extern "C" {
     ///
     /// * `fillColor` - The fill color of the mask.
     ///
-    /// # Returns
-    ///
-    /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
@@ -2794,13 +2894,6 @@ extern "C" {
     ///
     /// * `strokeColor` - The stroke color of the mask.
     ///
-    /// # Returns
-    ///
-    /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
@@ -2815,13 +2908,6 @@ extern "C" {
     /// * `mask` - Pointer to the RenderNodeMask option.
     ///
     /// * `strokeWidth` - The stroke width of the mask.
-    ///
-    /// # Returns
-    ///
-    /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2922,4 +3008,27 @@ extern "C" {
     pub fn OH_ArkUI_RenderNodeUtils_DisposeRenderNodeClipOption(
         option: *mut ArkUI_RenderNodeClipOption,
     );
+    /// Get the RenderNode of the target node. The target node should be adopted.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer.
+    ///
+    /// * `renderNode` - ArkUI_RenderNodeHandle* pointer, the RenderNode of the target node.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_NOT_ADOPTED_NODE`] The node is not adopted.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_RenderNodeUtils_GetRenderNode(
+        node: ArkUI_NodeHandle,
+        renderNode: *mut ArkUI_RenderNodeHandle,
+    ) -> i32;
 }

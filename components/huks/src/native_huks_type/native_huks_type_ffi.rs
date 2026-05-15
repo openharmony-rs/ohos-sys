@@ -315,6 +315,13 @@ impl OH_Huks_AlgSuite {
     /// | key_material_size_len (4 Byte) | key_material_size | key_mat_enc_length (4 Byte) | key_mat_enc_data
     pub const OH_HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING: OH_Huks_AlgSuite =
         OH_Huks_AlgSuite(2);
+    /// Use SM2 and then use SM4-ECB-NoPadding to encrypt the key
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const OH_HUKS_UNWRAP_SUITE_SM2_SM4_ECB_NOPADDING: OH_Huks_AlgSuite = OH_Huks_AlgSuite(5);
 }
 #[repr(transparent)]
 /// Enumerates the algorithm suites required for ciphertext imports.
@@ -482,6 +489,55 @@ impl OH_Huks_ErrCode {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const OH_HUKS_ERR_CODE_INVALID_ARGUMENT: OH_Huks_ErrCode = OH_Huks_ErrCode(12000018);
+    /// The item already exists.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_ERR_CODE_ITEM_EXISTS: OH_Huks_ErrCode = OH_Huks_ErrCode(12000019);
+    /// An error occurred in the external module.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_ERR_CODE_EXTERNAL_MODULE: OH_Huks_ErrCode = OH_Huks_ErrCode(12000020);
+    /// The Ukey PIN is locked.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_ERR_CODE_PIN_LOCKED: OH_Huks_ErrCode = OH_Huks_ErrCode(12000021);
+    /// The Ukey PIN is incorrect.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_ERR_CODE_PIN_INCORRECT: OH_Huks_ErrCode = OH_Huks_ErrCode(12000022);
+    /// The Ukey PIN is not authenticated.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_ERR_CODE_PIN_NO_AUTH: OH_Huks_ErrCode = OH_Huks_ErrCode(12000023);
+    /// The device or resource is busy.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_ERR_CODE_BUSY: OH_Huks_ErrCode = OH_Huks_ErrCode(12000024);
+    /// The resource exceeds the limit.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_ERR_CODE_EXCEED_LIMIT: OH_Huks_ErrCode = OH_Huks_ErrCode(12000025);
 }
 #[repr(transparent)]
 /// Enumerates the error codes.
@@ -676,6 +732,33 @@ impl OH_Huks_SecureSignType {
 /// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Huks_SecureSignType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl OH_Huks_KeyClassType {
+    /// The default type specifics the key is stored in huks.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_KEY_CLASS_DEFAULT: OH_Huks_KeyClassType = OH_Huks_KeyClassType(0);
+    /// The key is stored in external crypto provider.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_KEY_CLASS_EXTENSION: OH_Huks_KeyClassType = OH_Huks_KeyClassType(1);
+}
+#[repr(transparent)]
+/// Enumerates the types of keys.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Huks_KeyClassType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl OH_Huks_KeyWrapType {
@@ -803,6 +886,27 @@ impl OH_Huks_Tag {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const OH_HUKS_TAG_KEY_OVERRIDE: OH_Huks_Tag = OH_Huks_Tag(1073742344);
+    /// The tag indicates the length of AEAD for CCM mode.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_TAG_AE_TAG_LEN: OH_Huks_Tag = OH_Huks_Tag(536871433);
+    /// The tag indicates the key class type.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const OH_HUKS_TAG_KEY_CLASS: OH_Huks_Tag = OH_Huks_Tag(536871434);
+    /// The tag indicates a group of shared keys among applications with the same developer ID.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const OH_HUKS_TAG_KEY_ACCESS_GROUP: OH_Huks_Tag = OH_Huks_Tag(1342177803);
     /// 601 to 1000 are reserved for other tags.
     ///
     /// Extended tags. The value range is 1001 to 9999.

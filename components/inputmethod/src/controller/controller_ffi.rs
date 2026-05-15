@@ -7,6 +7,8 @@ use crate::attach_options::InputMethod_AttachOptions;
 use crate::inputmethod_proxy::InputMethod_InputMethodProxy;
 use crate::text_editor_proxy::InputMethod_TextEditorProxy;
 use crate::types::*;
+#[cfg(feature = "api-23")]
+use ohos_sys_opaque_types::ArkUI_ContextHandle;
 
 extern "C" {
     /// Attach application to the input method service.
@@ -21,7 +23,7 @@ extern "C" {
     /// The options when attaching input method.
     ///
     /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
-    /// Lifecycle is mantianed until the next attach or detach call.
+    /// Lifecycle is maintained until the next attach or detach call.
     ///
     /// # Returns
     ///
@@ -37,6 +39,41 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_InputMethodController_Attach(
+        textEditorProxy: *mut InputMethod_TextEditorProxy,
+        options: *mut InputMethod_AttachOptions,
+        inputMethodProxy: *mut *mut InputMethod_InputMethodProxy,
+    ) -> InputMethodResult;
+    /// Attach application to the input method service.
+    ///
+    /// # Arguments
+    ///
+    /// * `context` - UIContext pointer of the page where the attach will be performed.
+    ///
+    /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance.
+    /// The caller needs to manage the lifecycle of textEditorProxy.
+    /// If the call succeeds, caller cannot release textEditorProxy until the next attach or detach call.
+    ///
+    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`] instance.
+    /// The options when attaching input method.
+    ///
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
+    /// Lifecycle is maintained until the next attach or detach call.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`IME_ERR_OK`] - success.
+    /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
+    /// [`IME_ERR_IMCLIENT`] - input method client error.
+    /// [`IME_ERR_IMMS`] - input method manager service error.
+    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_InputMethodController_AttachWithUIContext(
+        context: ArkUI_ContextHandle,
         textEditorProxy: *mut InputMethod_TextEditorProxy,
         options: *mut InputMethod_AttachOptions,
         inputMethodProxy: *mut *mut InputMethod_InputMethodProxy,

@@ -230,7 +230,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - Parameter is nullptr or
+    /// create OH_Pixelmap_InitializationOptions object failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -248,7 +251,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options or width is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -267,7 +272,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -286,7 +293,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options or height is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -305,7 +314,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -324,7 +335,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options or pixelFormat is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -333,17 +346,19 @@ extern "C" {
         options: *mut OH_Pixelmap_InitializationOptions,
         pixelFormat: *mut i32,
     ) -> ImageResult;
-    /// Set pixelFormat number for InitializationOtions struct.
+    /// Set pixelFormat number for InitializationOptions struct.
     ///
     /// # Arguments
     ///
-    /// * `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOptions pointer will be operated.
     ///
     /// * `pixelFormat` - the number of image pixelFormat.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -352,17 +367,19 @@ extern "C" {
         options: *mut OH_Pixelmap_InitializationOptions,
         pixelFormat: i32,
     ) -> ImageResult;
-    /// Get pixelFormat number for InitializationOtions struct.
+    /// Get pixelFormat number for InitializationOptions struct.
     ///
     /// # Arguments
     ///
-    /// * `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOptions pointer will be operated.
     ///
     /// * `srcpixelFormat` - the number of image srcpixelFormat.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options or srcpixelFormat is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -371,17 +388,19 @@ extern "C" {
         options: *mut OH_Pixelmap_InitializationOptions,
         srcpixelFormat: *mut i32,
     ) -> ImageResult;
-    /// Set pixelFormat number for InitializationOtions struct.
+    /// Set pixelFormat number for InitializationOptions struct.
     ///
     /// # Arguments
     ///
-    /// * `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOptions pointer will be operated.
     ///
     /// * `srcpixelFormat` - the number of image srcpixelFormat.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -436,13 +455,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `options` - The InitializationOtions pointer will be operated.
+    /// * `options` - The InitializationOptions pointer will be operated.
     ///
     /// * `alphaType` - the number of image alphaType.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options or alphaType is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -461,7 +482,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -518,7 +541,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -534,7 +559,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - Parameter is nullptr or
+    /// create OH_Pixelmap_ImageInfo object failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -550,7 +578,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if info or width is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -569,7 +599,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if info or height is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -609,7 +641,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if info or rowStride is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -628,7 +662,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if info or pixelFormat is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -647,7 +683,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if info or alphaType is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -666,8 +704,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if info or isHdr is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -684,7 +723,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if info is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -704,7 +745,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - Possible causes:
+    /// if data or options is null or failed to create pixelmap due to invalid options.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -814,7 +858,14 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] Parameter error. Possible causes:
+    /// 1.Parameter is nullptr
+    /// 2.pixelmap's inner pixelmap is nullptr.
+    /// 3.Parameter bufferSize is less than the actual data size.
+    /// [`IMAGE_UNKNOWN_ERROR`] Internal unknown error, e.g.
+    /// memory copy failed or pixelmap's attributes are incorrect.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -836,7 +887,15 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] Parameter error. Possible causes:
+    /// 1.Parameter is nullptr
+    /// 2.pixelmap's inner pixelmap is nullptr.
+    /// 3.Parameter bufferSize is less than the actual data size.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`] If the pixelmap is not editable.
+    /// [`IMAGE_UNKNOWN_ERROR`] Internal unknown error, e.g.
+    /// memory copy failed or pixelmap's attributes are incorrect.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -845,6 +904,51 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         source: *mut u8,
         bufferSize: usize,
+    ) -> ImageResult;
+    /// Reads data from a certain area of the PixelMap to a buffer. The resulting data will be in BGRA_8888 format.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - The PixelMap to be read.
+    ///
+    /// * `area` - Area of the PixelMap to read the data. Data will be read and copied into area->pixels.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or area is incorrect.
+    /// [`IMAGE_UNKNOWN_ERROR`] Internal unknown error, e.g. unsupported pixel format.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_PixelmapNative_ReadPixelsFromArea(
+        pixelmap: *mut OH_PixelmapNative,
+        area: *mut Image_PositionArea,
+    ) -> ImageResult;
+    /// Writes data from a buffer to a certain area of the PixelMap. The source data should be in BGRA_8888 format.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - The PixelMap to be written.
+    ///
+    /// * `area` - Area of the PixelMap to write the data.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or area is incorrect.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`] If the PixelMap is not editable.
+    /// [`IMAGE_UNKNOWN_ERROR`] Internal unknown error, e.g. unsupported pixel format.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_PixelmapNative_WritePixelsToArea(
+        pixelmap: *mut OH_PixelmapNative,
+        area: *mut Image_PositionArea,
     ) -> ImageResult;
     /// Get argb pixel buffer from pixelmap.
     ///
@@ -899,7 +1003,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// 1.pixelmap is nullptr.
+    /// 2.pixelmap's inner pixelmap is nullptr.
+    /// 3.imageInfo is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -918,7 +1027,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// 1.pixelmap is nullptr.
+    /// 2.pixelmap's inner pixelmap is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -936,7 +1049,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// 1.pixelmap is nullptr.
+    /// 2.pixelmap's inner pixelmap is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1046,7 +1163,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// 1.pixelmap is nullptr.
+    /// 2.pixelmap's inner pixelmap is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1055,6 +1176,87 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         x: f32,
         y: f32,
+    ) -> ImageResult;
+    /// Creates a PixelMap with only alpha channel from the source PixelMap.
+    ///
+    /// # Arguments
+    ///
+    /// * `srcPixelmap` - The source PixelMap.
+    ///
+    /// * `dstPixelmap` - The target PixelMap to be created.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. srcPixelmap or dstPixelmap is incorrect.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_PixelmapNative_CreateAlphaPixelmap(
+        srcPixelmap: *mut OH_PixelmapNative,
+        dstPixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ImageResult;
+    /// Clones a PixelMap from the source PixelMap.
+    ///
+    /// # Arguments
+    ///
+    /// * `srcPixelmap` - The source PixelMap to be cloned.
+    ///
+    /// * `dstPixelmap` - The target PixelMap to be created.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. srcPixelmap or dstPixelmap is incorrect.
+    /// [`IMAGE_UNSUPPORTED_DATA_FORMAT`] If the pixel format is unsupported.
+    /// [`IMAGE_TOO_LARGE`] If the PixelMap size is too large.
+    /// [`IMAGE_INIT_FAILED`] If the PixelMap initialization failed.
+    /// [`IMAGE_ALLOC_FAILED`] If the copying of PixelMap data failed.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_PixelmapNative_Clone(
+        srcPixelmap: *mut OH_PixelmapNative,
+        dstPixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ImageResult;
+    /// Creates a cropped and then scaled PixelMap based on the source PixelMap.
+    ///
+    /// # Arguments
+    ///
+    /// * `srcPixelmap` - The source PixelMap.
+    ///
+    /// * `region` - The crop region.
+    ///
+    /// * `scale` - The scale ratio of width and height.
+    ///
+    /// * `level` - The anti-aliasing algorithm to be used.
+    ///
+    /// * `dstPixelmap` - The target PixelMap to be created.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. srcPixelmap, region, scale, or dstPixelmap is
+    /// incorrect.
+    /// [`IMAGE_UNSUPPORTED_DATA_FORMAT`] If the pixel format is unsupported.
+    /// [`IMAGE_TOO_LARGE`] If the PixelMap size is too large.
+    /// [`IMAGE_INIT_FAILED`] If the PixelMap initialization failed.
+    /// [`IMAGE_ALLOC_FAILED`] If the copying of PixelMap data failed.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_PixelmapNative_CreateCroppedAndScaledPixelMap(
+        srcPixelmap: *mut OH_PixelmapNative,
+        region: *mut Image_Region,
+        scale: *mut Image_Scale,
+        level: OH_PixelmapNative_AntiAliasingLevel,
+        dstPixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
     /// Rotates this image based on the input angle.
     ///
@@ -1066,7 +1268,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// 1.pixelmap is nullptr.
+    /// 2.pixelmap's inner pixelmap is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1078,21 +1284,25 @@ extern "C" {
     ///
     /// * `pixelmap` - The Pixelmap pointer will be operated.
     ///
-    /// * `shouldFilpHorizontally` - Whether to flip the image horizontally.
+    /// * `shouldFlipHorizontally` - Whether to flip the image horizontally.
     ///
-    /// * `shouldFilpVertically` - Whether to flip the image vertically.
+    /// * `shouldFlipVertically` - Whether to flip the image vertically.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// 1.pixelmap is nullptr.
+    /// 2.pixelmap's inner pixelmap is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PixelmapNative_Flip(
         pixelmap: *mut OH_PixelmapNative,
-        shouldFilpHorizontally: bool,
-        shouldFilpVertically: bool,
+        shouldFlipHorizontally: bool,
+        shouldFlipVertically: bool,
     ) -> ImageResult;
     /// Crops this image based on the input size.
     ///
@@ -1104,7 +1314,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// 1.pixelmap is nullptr.
+    /// 2.region is nullptr.
+    /// 3.pixelmap's inner pixelmap is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1121,7 +1336,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if either:
+    /// 1.Pixelmap is nullptr.
+    /// 2.It's inner pixelmap is nullptr.
+    /// 3.Pixelmap is not allowed to release.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1154,7 +1374,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if either:
+    /// 1.srcpixelmap or dstpixelmap is null pointer.
+    /// 2.Their inner pixelmap structures are unavailable.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1174,7 +1398,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] - if options is null or
+    /// failed to create pixelmap due to invalid options.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1212,6 +1439,85 @@ extern "C" {
     pub fn OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator(
         options: *mut OH_Pixelmap_InitializationOptions,
         allocator: IMAGE_ALLOCATOR_MODE,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ImageResult;
+    /// Creates a PixelMap from a Surface with the Surface ID.
+    ///
+    /// # Arguments
+    ///
+    /// * `surfaceId` - The Surface ID.
+    ///
+    /// * `length` - Length of the Surface ID.
+    ///
+    /// * `pixelmap` - The PixelMap to be created.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. surfaceId or pixelmap is incorrect.
+    /// [`IMAGE_CREATE_PIXELMAP_FAILED`] If the PixelMap creation failed.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_PixelmapNative_CreatePixelmapFromSurface(
+        surfaceId: *const ::core::ffi::c_char,
+        length: usize,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ImageResult;
+    /// Creates a PixelMap object based on the ID of a Surface with transformation.
+    ///
+    /// # Arguments
+    ///
+    /// * `surfaceId` - ID of the Surface.
+    ///
+    /// * `length` - Length of the Surface ID.
+    ///
+    /// * `transformEnabled` - Whether to inverse transform the PixelMap to cancel out the transformation from the Surface.
+    /// If true, the PixelMap will be transformed by the same amount from the Surface but in a reversed direction;
+    /// if false, the PixelMap will not be transformed.
+    ///
+    /// * `pixelmap` - The PixelMap to be created.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] Operation is successful.
+    /// [`IMAGE_INVALID_PARAMETER`] Invalid parameter, e.g. surfaceId or pixelmap is incorrect.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`] Unsupported operation, e.g. on cross-platform.
+    /// [`IMAGE_GET_IMAGE_DATA_FAILED`] Failed to get the data from Surface.
+    /// [`IMAGE_CREATE_PIXELMAP_FAILED`] Failed to create the PixelMap.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation(
+        surfaceId: *const ::core::ffi::c_char,
+        length: usize,
+        transformEnabled: bool,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ImageResult;
+    /// Creates a PixelMap from a native buffer.
+    ///
+    /// # Arguments
+    ///
+    /// * `nativeBuffer` - The native buffer.
+    ///
+    /// * `pixelmap` - The PixelMap to be created.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. nativeBuffer or pixelmap is incorrect.
+    /// [`IMAGE_CREATE_PIXELMAP_FAILED`] If the PixelMap creation failed.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_PixelmapNative_CreatePixelmapFromNativeBuffer(
+        nativeBuffer: *mut OH_NativeBuffer,
         pixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
     /// Get metadata.
@@ -1437,4 +1743,46 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_PixelmapNative_UnaccessPixels(pixelmap: *mut OH_PixelmapNative) -> ImageResult;
+    /// Gets the unique ID of a PixelMap.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - The PixelMap to retrieve the unique ID.
+    ///
+    /// * `uniqueId` - The resulting unique ID.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or uniqueId is incorrect.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_PixelmapNative_GetUniqueId(
+        pixelmap: *mut OH_PixelmapNative,
+        uniqueId: *mut u32,
+    ) -> ImageResult;
+    /// Checks whether the PixelMap has been released.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - The PixelMap to check.
+    ///
+    /// * `released` - The resulting release status.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`] If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or released is incorrect.
+    /// [`OH_PixelmapNative`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_PixelmapNative_IsReleased(
+        pixelmap: *mut OH_PixelmapNative,
+        released: *mut bool,
+    ) -> ImageResult;
 }

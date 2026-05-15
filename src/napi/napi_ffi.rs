@@ -350,6 +350,29 @@ pub struct napi_strong_ref__ {
 #[cfg(feature = "api-21")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
 pub type napi_strong_ref = *mut napi_strong_ref__;
+#[repr(C)]
+pub struct napi_sendable_ref__ {
+    _unused: [u8; 0],
+}
+/// Native strong sendable reference of an sendable ArkTS object.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub type napi_sendable_ref = *mut napi_sendable_ref__;
+/// Native finalize callback is utilized to recycle native object resource.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub type napi_finalize_callback = ::core::option::Option<
+    unsafe extern "C" fn(
+        finalize_data: *mut ::core::ffi::c_void,
+        finalize_hint: *mut ::core::ffi::c_void,
+    ),
+>;
 extern "C" {
     /// Obtains the napi_extended_error_info struct, which contains the latest error information.
     ///
@@ -4849,5 +4872,187 @@ extern "C" {
         env: napi_env,
         ref_: napi_strong_ref,
         result: *mut napi_value,
+    ) -> napi_status;
+    /// Creates an ArkTS string from a UTF16-encoded C string.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `str` - C string encoded in UTF16 format.
+    ///
+    /// * `length` - The length of the C string 'str'.
+    ///
+    /// * `finalize_callback` - Native finalize callback used to recycle native resource.
+    ///
+    /// * `finalize_hint` - Optional contextual hint that is passed to the finalize_callback.
+    ///
+    /// * `result` - Result of the ArkTS string from the UTF16-encoded C string.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If the param env, str and(or) result is nullptr;
+    ///
+    /// If the param length is not equal with NAPI_AUTO_LENGTH and
+    ///
+    /// length is larger than INT_MAX;
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn napi_create_external_string_utf16(
+        env: napi_env,
+        str_: *const char16_t,
+        length: usize,
+        finalize_callback: napi_finalize_callback,
+        finalize_hint: *mut ::core::ffi::c_void,
+        result: *mut napi_value,
+    ) -> napi_status;
+    /// Creates an ArkTS string from a ASCII-encoded C string.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `str` - C string encoded in ASCII format.
+    ///
+    /// * `length` - The length of the C string 'str'.
+    ///
+    /// * `finalize_callback` - Native finalize callback used to recycle native resource.
+    ///
+    /// * `finalize_hint` - Optional contextual hint that is passed to the finalize_callback.
+    ///
+    /// * `result` - Result of the ArkTS string from the ASCII-encoded C string.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If the param env, str and(or) result is nullptr;
+    ///
+    /// If the param length is not equal with NAPI_AUTO_LENGTH and
+    ///
+    /// length is larger than INT_MAX;
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn napi_create_external_string_ascii(
+        env: napi_env,
+        str_: *const ::core::ffi::c_char,
+        length: usize,
+        finalize_callback: napi_finalize_callback,
+        finalize_hint: *mut ::core::ffi::c_void,
+        result: *mut napi_value,
+    ) -> napi_status;
+    /// Creates a strong sendable reference for an ArkTS object to extend its lifespan. The caller needs to manage
+    /// the sendable reference lifespan.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `value` - The sendable ArkTS object that is being referenced.
+    ///
+    /// * `result` - The napi_sendable_ref pointing to the new strong sendable reference.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn napi_create_strong_sendable_reference(
+        env: napi_env,
+        value: napi_value,
+        result: *mut napi_sendable_ref,
+    ) -> napi_status;
+    /// Deletes the strong sendable reference passed in.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `ref` - The sendable reference to be deleted.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or ref is nullptr.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn napi_delete_strong_sendable_reference(
+        env: napi_env,
+        ref_: napi_sendable_ref,
+    ) -> napi_status;
+    /// Obtains the ArkTS Object associated with the strong reference.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `ref` - The sendable reference of the sendable object value being requested.
+    ///
+    /// * `result` - The sendable ArkTS object referenced by the sendable reference.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env, ref or result is nullptr.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn napi_get_strong_sendable_reference_value(
+        env: napi_env,
+        ref_: napi_sendable_ref,
+        result: *mut napi_value,
+    ) -> napi_status;
+    /// Throws an ArkTS Error with text information.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `errorCode` - Error code to be set on the error object.
+    ///
+    /// * `msg` - C string representing the text to be associated with the error object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`] If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`] If env or msg is nullptr.
+    ///
+    /// [`napi_pending_exception`] There is an uncaught exception occurred before execution.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn napi_throw_business_error(
+        env: napi_env,
+        errorCode: i32,
+        msg: *const ::core::ffi::c_char,
     ) -> napi_status;
 }

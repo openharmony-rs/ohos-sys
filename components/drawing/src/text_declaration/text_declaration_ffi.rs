@@ -68,30 +68,6 @@ pub struct OH_Drawing_TypographyStyle {
 pub struct OH_Drawing_TypographyCreate {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_TextBox</b>, which is used to create an <b>OH_Drawing_TextBox</b> object.
-///
-///
-/// Available since API-level: 11
-///
-/// Version: 1.0
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-#[repr(C)]
-pub struct OH_Drawing_TextBox {
-    _unused: [u8; 0],
-}
-/// Defines an <b>OH_Drawing_PositionAndAffinity</b>,
-/// which is used to create an <b>OH_Drawing_PositionAndAffinity</b> object.
-///
-/// Available since API-level: 11
-///
-/// Version: 1.0
-#[cfg(feature = "api-11")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-#[repr(C)]
-pub struct OH_Drawing_PositionAndAffinity {
-    _unused: [u8; 0],
-}
 /// Defines an <b>OH_Drawing_Range</b>, which is used to create an <b>OH_Drawing_Range</b> object.
 ///
 ///
@@ -162,5 +138,15 @@ pub struct OH_Drawing_TextLine {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 #[repr(C)]
 pub struct OH_Drawing_Run {
+    _unused: [u8; 0],
+}
+/// Defines an <b>OH_Drawing_FontFullDescriptor</b>, which describes the font information.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct OH_Drawing_FontFullDescriptor {
     _unused: [u8; 0],
 }

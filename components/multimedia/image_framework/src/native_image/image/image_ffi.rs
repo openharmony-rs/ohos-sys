@@ -16,6 +16,25 @@ use ohos_sys_opaque_types::OH_NativeBuffer;
 pub struct OH_ImageNative {
     _unused: [u8; 0],
 }
+/// Defines the image buffer data.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[repr(C)]
+pub struct OH_ImageBufferData {
+    /// rowStride of each component.
+    pub rowStride: *mut i32,
+    /// pixelStride of each component.
+    pub pixelStride: *mut i32,
+    /// number of strides.
+    pub numStride: i32,
+    /// byte length of the buffer
+    pub bufferSize: usize,
+    /// native buffer of the image.
+    pub nativeBuffer: *mut OH_NativeBuffer,
+}
 extern "C" {
     /// Obtains [`Image_Size`] of an [`OH_ImageNative`] object.
     ///
@@ -190,4 +209,46 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageNative_Release(image: *mut OH_ImageNative) -> ImageResult;
+    /// Obtains the color space from an [`OH_ImageNative`] object.
+    ///
+    /// # Arguments
+    ///
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    ///
+    /// * `colorSpaceName` - Indicates the pointer to the obtained color space name, see [`ColorSpaceName`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] if bad parameter.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageNative_GetColorSpace(
+        image: *mut OH_ImageNative,
+        colorSpaceName: *mut i32,
+    ) -> ImageResult;
+    /// Obtains the image buffer data from an [`OH_ImageNative`] object.
+    ///
+    /// # Arguments
+    ///
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    ///
+    /// * `imageBufferData` - Indicates the pointer to the obtained image buffer data.
+    ///
+    /// # Returns
+    ///
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] if bad parameter.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageNative_GetBufferData(
+        image: *mut OH_ImageNative,
+        imageBufferData: *mut OH_ImageBufferData,
+    ) -> ImageResult;
 }

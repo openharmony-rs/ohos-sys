@@ -13,6 +13,24 @@ use crate::avformat::OH_AVFormat;
 pub struct OH_AVPlayer {
     _unused: [u8; 0],
 }
+/// OH_AVSeiMessageArray field.
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[repr(C)]
+pub struct OH_AVSeiMessageArray {
+    _unused: [u8; 0],
+}
+/// OH_AVPlaybackStrategy field.
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[repr(C)]
+pub struct OH_AVPlaybackStrategy {
+    _unused: [u8; 0],
+}
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl AVPlayerState {
@@ -51,6 +69,14 @@ impl AVPlayerSeekMode {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const AV_SEEK_CLOSEST: AVPlayerSeekMode = AVPlayerSeekMode(2);
+    /// Seek in continuous mode, which can provide a smoother dragging experience, but the device needs to support
+    /// the current stream to execute seek continuous. Before calling seek continuous,
+    /// check whether it is supported, see [`#OH_AVPlayer_IsSeekContinuousSupported`].
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AV_SEEK_CONTINUOUS: AVPlayerSeekMode = AVPlayerSeekMode(3);
 }
 #[repr(transparent)]
 /// Player Seek Mode
@@ -158,6 +184,13 @@ impl AVPlayerOnInfoType {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const AV_INFO_TYPE_PLAYBACK_RATE_DONE: AVPlayerOnInfoType = AVPlayerOnInfoType(18);
+    /// Super-resolution changed info type.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AV_INFO_TYPE_SUPER_RESOLUTION_CHANGED: AVPlayerOnInfoType = AVPlayerOnInfoType(19);
 }
 #[repr(transparent)]
 /// Player OnInfo Type
@@ -195,6 +228,24 @@ impl AVPlayerBufferingType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct AVPlayerBufferingType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl AVPlayerTrackSwitchMode {
+    /// Switch track smoothly
+    pub const AV_TRACK_SWITCH_MODE_SMOOTH: AVPlayerTrackSwitchMode = AVPlayerTrackSwitchMode(0);
+    /// Switch track segment
+    pub const AV_TRACK_SWITCH_MODE_SEGMENT: AVPlayerTrackSwitchMode = AVPlayerTrackSwitchMode(1);
+    /// Switch track closest
+    pub const AV_TRACK_SWITCH_MODE_CLOSEST: AVPlayerTrackSwitchMode = AVPlayerTrackSwitchMode(2);
+}
+#[repr(transparent)]
+/// Enumerates the track switch mode
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct AVPlayerTrackSwitchMode(pub ::core::ffi::c_uint);
 /// Called when a player message or alarm is received.
 ///
 /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
@@ -295,6 +346,55 @@ pub type OH_AVPlayerOnErrorCallback = ::core::option::Option<
         player: *mut OH_AVPlayer,
         errorCode: i32,
         errorMsg: *const ::core::ffi::c_char,
+        userData: *mut ::core::ffi::c_void,
+    ),
+>;
+/// Called when the maximum audio level values are calculated.
+/// # Arguments
+///
+/// * `player` - Pointer to an OH_AVPlayer instance.
+///
+/// * `amplitudes` - The pointer to the maximum audio level values array.
+/// Note: the amplitudes array will be released after callback automatically.
+/// If necessary, user need copy the data for the further use.
+///
+/// * `size` - The size of the maximum audio level values array.
+///
+/// * `userData` - Pointer to user specific data.
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+pub type OH_AVPlayerOnAmplitudeUpdateCallback = ::core::option::Option<
+    unsafe extern "C" fn(
+        player: *mut OH_AVPlayer,
+        amplitudes: *mut f64,
+        size: u32,
+        userData: *mut ::core::ffi::c_void,
+    ),
+>;
+/// Describes the handle used to obtain SEI messages. This is used when in subscriptions to SEI message events.
+/// and the callback returns detailed SEI information.
+/// # Arguments
+///
+/// * `player` - Pointer to an OH_AVPlayer instance
+///
+/// * `message` - SEI message array.
+/// Note: the message array will be released after callback automatically.
+/// If necessary, user need copy the data for the further use.
+///
+/// * `playbackPosition` - playback position
+///
+/// * `userData` - Pointer to user specific data
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+pub type OH_AVPlayerOnSeiMessageReceivedCallback = ::core::option::Option<
+    unsafe extern "C" fn(
+        player: *mut OH_AVPlayer,
+        message: *mut OH_AVSeiMessageArray,
+        playbackPosition: i32,
         userData: *mut ::core::ffi::c_void,
     ),
 >;
@@ -509,4 +609,179 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_PLAYER_IS_LIVE_STREAM: *const ::core::ffi::c_char;
+    /// Key to get the value whether the media resource contains video content,
+    /// value type is int32_t. 1 means true and 0 means false.
+    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`]
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_PLAYER_MD_KEY_HAS_VIDEO: *const ::core::ffi::c_char;
+    /// Key to get the value whether the media resource contains audio content,
+    /// value type is int32_t. 1 means true and 0 means false.
+    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`]
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_PLAYER_MD_KEY_HAS_AUDIO: *const ::core::ffi::c_char;
+    /// Key to get the value whether the media resource contains subtitle content,
+    /// value type is int32_t. 1 means true and 0 means false.
+    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`]
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_PLAYER_MD_KEY_HAS_SUBTITLE: *const ::core::ffi::c_char;
+    /// Key to get is track index, value type is int32_t.
+    /// Track description key, see [`OH_AVPlayer_GetTrackDescription`]
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_PLAYER_MD_KEY_TRACK_INDEX: *const ::core::ffi::c_char;
+    /// Sei message key for payload type.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_SEI_PAYLOAD_TYPE: *const ::core::ffi::c_char;
+    /// Sei message key for payload content.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_SEI_PAYLOAD_CONTENT: *const ::core::ffi::c_char;
+    /// Key to get whether the super resolution feature is enabled,
+    /// value type is int32_t. The value is 1 when enabled, otherwise 0.
+    /// Used in the info callback when super resolution state changes.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_SUPER_RESOLUTION_ENABLE_STATE: *const ::core::ffi::c_char;
+    /// Track change info key for track info, its value is int32_t type.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_TRACH_CHANGE_INFO_TRACK_INDEX: *const ::core::ffi::c_char;
+    /// Track change info key for track selected flag, its value is int32_t type.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_TRACH_CHANGE_INFO_TRACK_SELECTED: *const ::core::ffi::c_char;
+    /// Subtitle update info key for duration, its value is int32_t type.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_SUBTITLE_UPDATE_INFO_DURATION: *const ::core::ffi::c_char;
+    /// Subtitle update info key for start time, its value is int32_t type.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_SUBTITLE_UPDATE_INFO_START_TIME: *const ::core::ffi::c_char;
+    /// Subtitle update info key for subtitle text, its value is string type.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_SUBTITLE_UPDATE_INFO_TEXT: *const ::core::ffi::c_char;
+    /// Playback info key for server ip address.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_SERVER_IP_ADDRESS: *const ::core::ffi::c_char;
+    /// Playback info key for downloading state.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_IS_DOWNLOADING: *const ::core::ffi::c_char;
+    /// Playback info key for buffer duration.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_BUFFER_DURATION: *const ::core::ffi::c_char;
+    /// Playback info key for download rate.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_DOWNLOAD_RATE: *const ::core::ffi::c_char;
+    /// Playback info key for average download rate.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_PLAYER_AVG_DOWNLOAD_RATE: *const ::core::ffi::c_char;
+    /// Key to get prepare duration value in statistic metrics info,
+    /// value type is uint32_t, in milliseconds.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_PREPARE_DURATION: *const ::core::ffi::c_char;
+    /// Key to get resource link establishment time in statistic metrics info,
+    /// value type is uint32_t, in milliseconds.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_RESOURCE_CONNECTION_DURATION: *const ::core::ffi::c_char;
+    /// Key to get decapsulation time of the first sample in statistic metrics info,
+    /// value type is uint32_t, in milliseconds.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_FIRST_FRAME_DECAPSULATION_DURATION:
+        *const ::core::ffi::c_char;
+    /// Key to get cumulative playback time in statistic metrics info,
+    /// value type is uint32_t, in milliseconds.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_TOTAL_PLAYING_TIME: *const ::core::ffi::c_char;
+    /// Key to get cumulative times of media resource loading request in statistic metrics info,
+    /// value type is uint32_t.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_DOWNLOAD_REQUEST_COUNT: *const ::core::ffi::c_char;
+    /// Key to get the total time spent loading the media resource in statistic metrics info,
+    /// value type is uint32_t, in milliseconds.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_DOWNLOAD_TOTAL_TIME: *const ::core::ffi::c_char;
+    /// Key to get size of loaded media resources in statistic metrics info,
+    /// value type is int64_t.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_DOWNLOAD_TOTAL_SIZE: *const ::core::ffi::c_char;
+    /// Key to get cumulative stalling count in statistic metrics info,
+    /// value type is uint32_t.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_STALLING_COUNT: *const ::core::ffi::c_char;
+    /// Key to get the cumulative stalling time in statistic metrics info,
+    /// value type is uint32_t,in milliseconds.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MEDIA_EVENT_INFO_TOTAL_STALLING_TIME: *const ::core::ffi::c_char;
 }

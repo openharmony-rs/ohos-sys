@@ -16,6 +16,14 @@ impl ArkUI_NativeAPIVariantKind {
     pub const ARKUI_NATIVE_GESTURE: ArkUI_NativeAPIVariantKind = ArkUI_NativeAPIVariantKind(2);
     /// API related to animations. For details, see the struct definition in <arkui/native_animate.h>.
     pub const ARKUI_NATIVE_ANIMATE: ArkUI_NativeAPIVariantKind = ArkUI_NativeAPIVariantKind(3);
+    /// API related to supported multi thread UI components.
+    /// For details, see the struct definition in <arkui/native_node.h>.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const ARKUI_MULTI_THREAD_NATIVE_NODE: ArkUI_NativeAPIVariantKind =
+        ArkUI_NativeAPIVariantKind(4);
 }
 #[repr(transparent)]
 /// Defines the native API types.

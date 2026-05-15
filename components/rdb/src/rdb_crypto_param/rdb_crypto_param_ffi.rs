@@ -11,6 +11,12 @@ impl Rdb_EncryptionAlgo {
     pub const RDB_AES_256_GCM: Rdb_EncryptionAlgo = Rdb_EncryptionAlgo(0);
     /// Indicates the database is encrypted using RDB_AES_256_CBC.
     pub const RDB_AES_256_CBC: Rdb_EncryptionAlgo = Rdb_EncryptionAlgo(1);
+    /// Indicates the database is not encrypted.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const RDB_PLAIN_TEXT: Rdb_EncryptionAlgo = Rdb_EncryptionAlgo(2);
 }
 #[repr(transparent)]
 /// Enumerates the database encryption algorithms.

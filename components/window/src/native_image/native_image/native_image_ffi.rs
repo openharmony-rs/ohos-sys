@@ -3,6 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-22")]
+use crate::native_buffer::buffer_common::OH_NativeBuffer_ColorSpace;
 #[cfg(feature = "api-12")]
 use ohos_sys_opaque_types::OHNativeWindowBuffer;
 use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeImage};
@@ -543,4 +545,210 @@ extern "C" {
     #[cfg(feature = "api-17")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub fn OH_NativeImage_SetDropBufferMode(image: *mut OH_NativeImage, isOpen: bool) -> i32;
+    /// Create a <b>OH_NativeImage</b> related to an Opengl ES texture and target with textureId,
+    ///
+    /// and choose whether to set single buffer mode.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// * `textureId` - Indicates the id of the Opengl ES texture which the native image attached to.
+    ///
+    /// * `textureTarget` - Indicates the Opengl ES target.
+    ///
+    /// * `singleBufferMode` - Whether to set single buffer mode.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_NativeImage</b> instance created if the operation is successful,
+    ///
+    /// returns <b>NULL</b> otherwise.
+    ///
+    /// Available since API-level: 22
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_NativeImage_CreateWithSingleBufferMode(
+        textureId: u32,
+        textureTarget: u32,
+        singleBufferMode: bool,
+    ) -> *mut OH_NativeImage;
+    /// Create a <b>OH_NativeImage</b> as consumerSurface, and choose whether to set single buffer mode.
+    ///
+    /// This method can not be used at the same time with <b>OH_NativeImage_UpdateSurfaceImage</b>.
+    ///
+    /// This interface needs to be used in conjunction with <b>OH_NativeImage_Destroy</b>,
+    /// otherwise memory leaks will occur.
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// * `singleBufferMode` - Whether to set single buffer mode.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the <b>OH_NativeImage</b> instance created if the operation is successful,
+    ///
+    /// returns <b>NULL</b> otherwise.
+    ///
+    /// Available since API-level: 22
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ConsumerSurface_CreateWithSingleBufferMode(
+        singleBufferMode: bool,
+    ) -> *mut OH_NativeImage;
+    /// Release the <b>OH_NativeImage</b> in single buffer mode.
+    ///
+    /// This interface suggest be called after the producer flushes the buffer to let the buffer queue rotate,
+    ///
+    /// in the single buffer mode.
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
+    ///
+    /// Available since API-level: 22
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_NativeImage_ReleaseTextImage(image: *mut OH_NativeImage) -> i32;
+    /// Get the colorSpace of <b>OH_NativeImage</b>.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// * `colorSpace` - Indicates the colorSpace of <b>OH_NativeImage</b>.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    ///
+    /// Available since API-level: 22
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_NativeImage_GetColorSpace(
+        image: *mut OH_NativeImage,
+        colorSpace: *mut OH_NativeBuffer_ColorSpace,
+    ) -> i32;
+    /// Acquire a latest <b>OHNativeWindowBuffer</b> through an <b>OH_NativeImage</b> instance for content consumer.
+    ///
+    /// This method can get the latest <b>OHNativeWindowBuffer</b> and drop other <b>OHNativeWindowBuffers</b>, but consumer
+    /// can receive the callbacks of all available buffers.
+    ///
+    /// This method can not be used at the same time with <b>OH_NativeImage_UpdateSurfaceImage</b>.
+    ///
+    /// This method will create an <b>OHNativeWindowBuffer</b>.
+    ///
+    /// If there is a situation when <b>OHNativeWindowBuffer</b> is still used after calling
+    /// <b>OH_NativeImage_ReleaseNativeWindowBuffer</b>, you must pay attention to the following two points.
+    ///
+    /// 1) When using <b>OHNativeWindowBuffer</b>, need to increase its reference count
+    /// by <b>OH_NativeWindow_NativeObjectReference</b>.
+    ///
+    /// 2) When the <b>OHNativeWindowBuffer</b> is used up, its reference count needs to be decremented
+    /// by <b>OH_NativeWindow_NativeObjectUnreference</b>.
+    ///
+    /// This interface needs to be used in conjunction with <b>OH_NativeImage_ReleaseNativeWindowBuffer</b>,
+    /// otherwise memory leaks will occur.
+    ///
+    /// When the fenceFd is used up, you need to close it.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// * `nativeWindowBuffer` - Indicates the pointer to an <b>OHNativeWindowBuffer</b> point.
+    ///
+    /// * `fenceFd` - Indicates the pointer to a file descriptor handle.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image, nativeWindowBuffer, fenceFd is NULL.
+    /// [`NATIVE_ERROR_NO_BUFFER`] 40601000 - No buffer for consume.
+    ///
+    /// Available since API-level: 22
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_NativeImage_AcquireLatestNativeWindowBuffer(
+        image: *mut OH_NativeImage,
+        nativeWindowBuffer: *mut *mut OHNativeWindowBuffer,
+        fenceFd: *mut ::core::ffi::c_int,
+    ) -> i32;
+    /// Check whether the texture releated to the <b>OH_NativeImage</b> has been released.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// * `isReleased` - Indicates whether the texture releated to the <b>OH_NativeImage</b> has been released.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image or isReleased is NULL.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_NativeImage_IsReleased(image: *mut OH_NativeImage, isReleased: *mut bool) -> i32;
+    /// Clean all <b>OHNativeWindowBuffer</b> caches of the <b>OHNativeWindow</b> for the <b>OH_NativeImage</b>,
+    ///
+    /// and detach the OH_NativeImage from the Opengl ES context.
+    ///
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeImage
+    /// # Arguments
+    ///
+    /// * `image` - Indicates the pointer to a <b>OH_NativeImage</b> instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_NativeImage_Release(image: *mut OH_NativeImage) -> i32;
 }

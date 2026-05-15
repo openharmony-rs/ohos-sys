@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.7
+
+- Update bindings to API-22 and API-23 (no new symbols).
+
 ## 0.1.6
 
 - Add API 19-21 feature flags (no changes)

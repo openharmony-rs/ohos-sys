@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.7
+
+- Update bindings to API-22 and API-23 (OH_HiTrace_RegisterTraceListener in API-22).
+
 ## 0.1.6
 
 - Update bindings to API-21. This adds the new `OH_Hitrace_<variant>Ex` functions,

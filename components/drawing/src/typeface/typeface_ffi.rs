@@ -208,4 +208,50 @@ extern "C" {
     pub fn OH_Drawing_FontArgumentsDestroy(
         fontArguments: *mut OH_Drawing_FontArguments,
     ) -> crate::error_code::DrawingResult;
+    /// Checks if the typeface is bold.
+    ///
+    /// # Arguments
+    ///
+    /// * `typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    ///
+    /// * `isBold` - Indicates if the typeface is bold.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if typeface or isBold is nullptr.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_TypefaceIsBold(
+        typeface: *const OH_Drawing_Typeface,
+        isBold: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if the typeface is italic.
+    ///
+    /// # Arguments
+    ///
+    /// * `typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    ///
+    /// * `isItalic` - Indicates if the typeface is italic.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if typeface or italic is nullptr.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_TypefaceIsItalic(
+        typeface: *const OH_Drawing_Typeface,
+        isItalic: *mut bool,
+    ) -> crate::error_code::DrawingResult;
 }

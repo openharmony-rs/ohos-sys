@@ -222,6 +222,20 @@ impl OH_Rdb_ErrCode {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const RDB_E_SQLITE_CONSTRAINT: OH_Rdb_ErrCode = OH_Rdb_ErrCode(14800065);
+    /// The number of subscriptions exceeds the limit.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const RDB_E_SUB_LIMIT_REACHED: OH_Rdb_ErrCode = OH_Rdb_ErrCode(14800066);
+    /// SQLite error. Possible causes: syntax error, such as a table or column not existing.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const RDB_E_SQLITE_ERROR: OH_Rdb_ErrCode = OH_Rdb_ErrCode(14800067);
 }
 #[repr(transparent)]
 /// Indicates the error code information.

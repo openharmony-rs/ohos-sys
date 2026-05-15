@@ -36,6 +36,39 @@ pub struct Image_Region {
     /// Height of the region, in pixels.
     pub height: u32,
 }
+/// Defines the area of the image pixels to read or write.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct Image_PositionArea {
+    /// Image pixels data that will be read or written.
+    pub pixels: *mut u8,
+    /// Length of the image pixels data.
+    pub pixelsSize: usize,
+    /// Offset for data reading or writing.
+    pub offset: u32,
+    /// Number of bytes per row of the region.
+    pub stride: u32,
+    /// Region to read or write.
+    pub region: Image_Region,
+}
+/// Defines the image scale ratio.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+#[derive(Debug)]
+pub struct Image_Scale {
+    /// Scale ratio on the x-axis.
+    pub x: f32,
+    /// Scale ratio on the y-axis.
+    pub y: f32,
+}
 /// Defines the region of the image source to decode.
 ///
 ///
@@ -79,6 +112,12 @@ impl ImageResult {
     pub const UNKNOWN_MIME_TYPE: ImageResult = ImageResult(7600102);
     /// too large data or image
     pub const TOO_LARGE: ImageResult = ImageResult(7600103);
+    /// Failed to get image data.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const GET_IMAGE_DATA_FAILED: ImageResult = ImageResult(7600104);
     /// DMA memory does not exist
     pub const DMA_NOT_EXIST: ImageResult = ImageResult(7600173);
     /// DMA operation failed
@@ -103,6 +142,12 @@ impl ImageResult {
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub const INVALID_PARAMETER: ImageResult = ImageResult(7600206);
+    /// Unsupported data format
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const UNSUPPORTED_DATA_FORMAT: ImageResult = ImageResult(7600207);
     /// failed to allocate memory
     pub const ALLOC_FAILED: ImageResult = ImageResult(7600301);
     /// memory copy failed
@@ -113,6 +158,18 @@ impl ImageResult {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const LOCK_UNLOCK_FAILED: ImageResult = ImageResult(7600303);
+    /// Initialization failed
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const INIT_FAILED: ImageResult = ImageResult(7600304);
+    /// Create PixelMap failed
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const CREATE_PIXELMAP_FAILED: ImageResult = ImageResult(7600305);
     /// unsupported allocator mode, e.g., use share memory to create a HDR image as only
     /// DMA supported hdr metadata.
     ///
@@ -143,6 +200,13 @@ impl ImageResult {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const SOURCE_UNSUPPORTED_ALLOCATOR_TYPE: ImageResult = ImageResult(7700201);
+    /// Unsupported metadata. For example, the property key is not supported,
+    /// or the property value is invalid.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const SOURCE_UNSUPPORTED_METADATA: ImageResult = ImageResult(7700202);
     pub const SOURCE_UNSUPPORTED_OPTIONS: ImageResult = ImageResult(7700203);
     /// Invalid parameter.
     ///
@@ -1476,14 +1540,14 @@ pub const OHOS_IMAGE_PROPERTY_FRAGMENT_WIDTH: &::core::ffi::CStr = c"FragmentIma
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub const OHOS_IMAGE_PROPERTY_FRAGMENT_HEIGHT: &::core::ffi::CStr = c"FragmentImageHeight";
-/// Delay of each frame in a GIF image, in milliseconds.
+/// Delay time of each frame in a GIF image in milliseconds.
 ///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub const IMAGE_PROPERTY_GIF_DELAY_TIME: &::core::ffi::CStr = c"GifDelayTime";
-/// Disposal type of each frame in a GIF image.
+/// Disposal type of each frame in gif.
 ///
 ///
 /// Available since API-level: 20

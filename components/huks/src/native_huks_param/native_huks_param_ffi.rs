@@ -6,7 +6,11 @@
 use crate::native_huks_type::*;
 
 extern "C" {
-    /// Initializes a parameter set.
+    /// Initializing the parameter set, with no parameter information, allocating the default available memory space
+    /// for the parameter set.
+    /// The parameter set after initialisation needs to be released via OH_Huks_FreeParamSet.
+    /// The set of parameters to which parameters are added must use OH_Huks_AddParams to add parameters and must use
+    /// OH_Huks_BuildParamSet to construct the parameter set.
     ///
     /// # Arguments
     ///
@@ -45,7 +49,8 @@ extern "C" {
         params: *const OH_Huks_Param,
         paramCnt: u32,
     ) -> OH_Huks_Result;
-    /// Constructs a parameter set.
+    /// After initializing the parameter set and adding parameters, serialize the parameter set and copy the
+    /// blob type data to the adjacent memory area at the end of the paramSet structure.
     ///
     /// # Arguments
     ///
@@ -110,7 +115,7 @@ extern "C" {
     ///
     /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful,
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If paramSet or param is invalid,
-    /// or if the param doesn't exist in the pararmset.
+    /// or if the param doesn't exist in the pararmSet.
     ///
     /// Available since API-level: 9
     ///
@@ -194,11 +199,11 @@ extern "C" {
         baseParam: *const OH_Huks_Param,
         param: *const OH_Huks_Param,
     ) -> OH_Huks_Result;
-    /// Destroys a parameter set.
+    /// Destroys a key alias parameter set.
     ///
     /// # Arguments
     ///
-    /// * `keyAliasSet` - Indicates the pointer to the parameter set to destroy.
+    /// * `keyAliasSet` - Indicates the pointer to the key alias parameter set to destroy.
     ///
     /// Available since API-level: 20
     ///

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.6
+
+- Update bindings to API-22 and API-23.
+
 ## 0.1.5
 
 - Fix missing #[link] for base and runtime.

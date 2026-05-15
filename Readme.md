@@ -118,7 +118,7 @@ already been generated.
 ## Development
 
 The current bindings are generated with `bindgen` using `scripts/generate_bindings.sh`.
-Bindings are currently generated with the OpenHarmony SDK API level 21, but with items
+Bindings are currently generated with the OpenHarmony SDK API level 23, but with items
 added after API level 10 feature guarded behind `api-XX` features. This is handled
 automatically by the tool based on the documentation comments in the C header files.
 

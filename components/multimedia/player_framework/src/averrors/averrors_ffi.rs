@@ -131,6 +131,12 @@ impl OH_AVErrCode {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const AV_ERR_IO_UNSUPPORTED_REQUEST: OH_AVErrCode = OH_AVErrCode(5411011);
+    /// Http clear text not permitted.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AV_ERR_IO_CLEARTEXT_NOT_PERMITTED: OH_AVErrCode = OH_AVErrCode(5411012);
     /// Signals a stream format change in synchronous mode.
     /// Required follow-up actions:
     /// - For video encoders: Call [`OH_VideoEncoder_GetOutputDescription`]
@@ -149,6 +155,18 @@ impl OH_AVErrCode {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const AV_ERR_TRY_AGAIN_LATER: OH_AVErrCode = OH_AVErrCode(5410006);
+    /// Super-resolution unsupported.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AV_ERR_SUPER_RESOLUTION_UNSUPPORTED: OH_AVErrCode = OH_AVErrCode(5410003);
+    /// No PlaybackStrategy set to enable super-resolution feature.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AV_ERR_SUPER_RESOLUTION_NOT_ENABLED: OH_AVErrCode = OH_AVErrCode(5410004);
 }
 #[repr(transparent)]
 /// AV error code

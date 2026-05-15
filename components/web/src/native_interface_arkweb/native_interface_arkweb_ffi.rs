@@ -94,6 +94,13 @@ impl ArkWebEngineVersion {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const ARKWEB_M132: ArkWebEngineVersion = ArkWebEngineVersion(2);
+    /// ArkWeb auto use the newest ArkWeb Engine version.
+    /// Evergreen Web Engine.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const ARKWEB_EVERGREEN: ArkWebEngineVersion = ArkWebEngineVersion(99999);
 }
 #[repr(transparent)]
 /// ArkWeb Engine Version.
@@ -325,6 +332,7 @@ extern "C" {
     /// Sets whether to enable blankless page loading. This API must be used in pair with the
     /// OH_NativeArkWeb_GetBlanklessInfoWithKey API.
     ///
+    /// ohos.permission.INTERNET and ohos.permission.GET_NETWORK_INFO
     /// # Arguments
     ///
     /// * `webTag` - webTag used when the webviewController is created.
@@ -377,6 +385,7 @@ extern "C" {
     /// This API applies to pages in an applet or web application whose URLs are not fixed or cannot be uniquely
     /// identified.
     ///
+    /// ohos.permission.INTERNET and ohos.permission.GET_NETWORK_INFO
     /// # Arguments
     ///
     /// * `webTag` - webTag used when the webviewController is created.
@@ -474,4 +483,26 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_NativeArkWeb_GetActiveWebEngineVersion() -> ArkWebEngineVersion;
+    /// Delays the initialization of the web engine. By default, the web engine is initialized when the CookieManager
+    /// interface is called. By setting the 'lazy' parameter to true, the web engine will not be initialized when the
+    /// CookieManager interface is called. Instead, the web engine will be initialized either when the web component is
+    /// created or when initializeWebEngine is called.
+    /// # Arguments
+    ///
+    /// { bool } lazy - Controls whether to delay the initialization of the web engine.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_NativeArkWeb_LazyInitializeWebEngineInCookieManager(lazy: bool);
+    /// Check if the currently active ArkWeb engine is Evergreen.
+    ///
+    /// # Returns
+    ///
+    /// * { bool } true means the application is using the Evergreen Web Engine, false means not.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_NativeArkWeb_IsActiveWebEngineEvergreen() -> bool;
 }

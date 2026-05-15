@@ -43,6 +43,10 @@ api-19 = ["api-18"]
 api-20 = ["api-19"]
 ## Enables bindings for OpenHarmony API-level 21.
 api-21 = ["api-20"]
+## Enables bindings for OpenHarmony API-level 22.
+api-22 = ["api-21"]
+## Enables bindings for OpenHarmony API-level 23.
+api-23 = ["api-22"]
 ## Enables bindings for Functions that interact with the `drawing` module
 drawing = ["dep:ohos-drawing-sys"]
 

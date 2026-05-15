@@ -150,6 +150,11 @@ pub struct ArkUI_Node {
 }
 pub type ArkUI_NodeHandle = *mut ArkUI_Node;
 #[repr(C)]
+pub struct ArkUI_Context {
+    _unused: [u8; 0],
+}
+pub type ArkUI_ContextHandle = *mut ArkUI_Context;
+#[repr(C)]
 pub struct Data_Asset {
     _unused: [u8; 0],
 }
@@ -163,5 +168,17 @@ pub struct OH_Data_Values {
 }
 #[repr(C)]
 pub struct OH_Data_VBuckets {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct ArkUI_XComponentSurfaceConfig {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_Drawing_TextBox {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+pub struct OH_Drawing_PositionAndAffinity {
     _unused: [u8; 0],
 }

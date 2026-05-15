@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.7
+
+- Update bindings to API-22 and API-23. Adds `OH_NativeBuffer_IsSupported` and related
+  config helpers in `native_buffer`, and additional `native_image` / `native_window`
+  callbacks at API-22.
+
 ## 0.1.6
 
 - Fix missing link of native library for native-fence.

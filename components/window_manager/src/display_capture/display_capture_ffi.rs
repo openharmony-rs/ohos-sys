@@ -11,7 +11,7 @@ use ohos_sys_opaque_types::OH_PixelmapNative;
 extern "C" {
     /// Capture a screen pixelmap of the specified display.
     ///
-    /// `ohos.permission.CUSTOM_SCREEN_CAPTURE`
+    /// ohos.permission.CUSTOM_SCREEN_CAPTURE
     /// # Arguments
     ///
     /// * `displayId` - The ID of the display to be captured.

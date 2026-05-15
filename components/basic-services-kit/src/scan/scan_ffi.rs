@@ -173,7 +173,7 @@ extern "C" {
     /// [`SCAN_ERROR_DEVICE_BUSY`] Indicates that the scanner is busy.
     /// [`SCAN_ERROR_INVALID_PARAMETER`] Indicates that the input parameter is invalid.
     /// [`SCAN_ERROR_IO_ERROR`] Indicates an error occured while communicating with the device.
-    /// [`SCAN_ERROR_NO_MEM`] Indicates an insufficent amount of memory is available.
+    /// [`SCAN_ERROR_NO_MEMORY`] Indicates an insufficent amount of memory is available.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -282,7 +282,7 @@ extern "C" {
     /// [`SCAN_ERROR_NO_DOCS`] Indicates the document feeder is out of documents.
     /// [`SCAN_ERROR_COVER_OPEN`] Indicates the scanner cover is open.
     /// [`SCAN_ERROR_IO_ERROR`] Indicates an error occurred while communicating with the device.
-    /// [`SCAN_ERROR_NO_MEM`] Indicates an insufficent amount of memory is available.
+    /// [`SCAN_ERROR_NO_MEMORY`] Indicates an insufficent amount of memory is available.
     /// [`SCAN_ERROR_INVALID_PARAMETER`] Indicates that the input parameter is invalid.
     /// [`SCAN_ERROR_DEVICE_BUSY`] Indicates the device is busy, the operation should be retried later.
     ///
@@ -334,7 +334,7 @@ extern "C" {
     /// [`SCAN_ERROR_NO_DOCS`] Indicates the document feeder is out of documents.
     /// [`SCAN_ERROR_COVER_OPEN`] Indicates the scanner cover is open.
     /// [`SCAN_ERROR_IO_ERROR`] Indicates an error occurred while communicating with the scanner.
-    /// [`SCAN_ERROR_NO_MEM`] Indicates an insufficent amount of memory is available.
+    /// [`SCAN_ERROR_NO_MEMORY`] Indicates an insufficent amount of memory is available.
     /// [`SCAN_ERROR_DEVICE_BUSY`] Indicates the device is busy, the operation should be retried later.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.6
+
+- Add support up to API-23. Adds `OH_ArkUI_XComponentSurfaceConfig` and
+  `OH_ArkUI_SurfaceHolder_SetSurfaceConfig` at API-22.
+
 ## 0.3.5
 
 - Add support up to API-21

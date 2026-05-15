@@ -4,25 +4,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-pub const SDK_VERSION_FUTURE: u32 = 9999;
-pub const SDK_VERSION_7: u32 = 7;
-pub const SDK_VERSION_8: u32 = 8;
-pub const SDK_VERSION_9: u32 = 9;
-pub const OH_API_VERSION_10: u32 = 10;
-pub const OH_API_VERSION_11: u32 = 11;
-pub const OH_API_VERSION_12: u32 = 12;
-pub const OH_API_VERSION_13: u32 = 13;
-pub const OH_API_VERSION_14: u32 = 14;
-pub const OH_API_VERSION_15: u32 = 15;
-pub const OH_API_VERSION_16: u32 = 16;
-pub const OH_API_VERSION_17: u32 = 17;
-pub const OH_API_VERSION_18: u32 = 18;
-pub const OH_API_VERSION_19: u32 = 19;
-pub const OH_API_VERSION_20: u32 = 20;
-pub const OH_API_VERSION_21: u32 = 21;
-pub const OH_API_VERSION_22: u32 = 22;
-pub const OH_API_VERSION_23: u32 = 23;
-pub const OH_CURRENT_API_VERSION: u32 = 23;
 impl LogType {
     /// Third-party application logs
     pub const LOG_APP: LogType = LogType(0);
@@ -125,8 +106,6 @@ pub type LogCallback = ::core::option::Option<
     ),
 >;
 extern "C" {
-    pub fn get_application_target_sdk_version() -> ::core::ffi::c_int;
-    pub fn set_application_target_sdk_version(target: ::core::ffi::c_int);
     /// Outputs logs.
     ///
     /// You can use this function to output logs based on the specified log type, log level, service domain, log tag,

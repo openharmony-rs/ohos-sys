@@ -906,4 +906,38 @@ extern "C" {
         renderer: *mut OH_AudioRenderer,
         loudnessGain: *mut f32,
     ) -> OH_AudioStream_Result;
+    /// Gets the estimated audio latency in milliseconds for current audio route. For wireless connection
+    /// audio devices cases, the latency result may not be very accurate, system just provides it for reference only.
+    /// The real-time buffer status is also not taken into consideration, so it is recommended to get it only at the
+    /// beginning of audio playback, and do not call th function very frequently because it may be blocked by route
+    /// change.
+    /// Applications should still use [`#OH_AudioRenderer_GetAudioTimestampInfo`] to handle A/V sync after audio
+    /// data has been output to hardware.
+    ///
+    /// # Arguments
+    ///
+    /// * `renderer` - AudioRenderer created by OH_AudioStreamBuilder_GenerateRenderer().
+    ///
+    /// * `type` - Type of audio latency to get.
+    ///
+    /// * `latencyMs` - Pointer to a variable to receive the latency in milliseconds.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`#AUDIOSTREAM_SUCCESS`] If the execution is successful.
+    /// [`#AUDIOSTREAM_ERROR_INVALID_PARAM`]
+    /// 1.The param of renderer is nullptr.
+    /// 2.The param of latencyMs is nullptr.
+    /// 3.The param of type is invalid value.
+    /// [`#AUDIOSTREAM_ERROR_SYSTEM`] System internal error, like audio service error.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AudioRenderer_GetLatency(
+        renderer: *mut OH_AudioRenderer,
+        type_: OH_AudioStream_LatencyType,
+        latencyMs: *mut i32,
+    ) -> OH_AudioStream_Result;
 }

@@ -7,6 +7,8 @@
 use crate::font::OH_Drawing_Font_Metrics;
 use crate::text_declaration::*;
 use crate::types::*;
+#[cfg(feature = "api-11")]
+use ohos_sys_opaque_types::{OH_Drawing_PositionAndAffinity, OH_Drawing_TextBox};
 
 impl OH_Drawing_TextDirection {
     /// Right to left (RTL)
@@ -697,6 +699,27 @@ impl OH_Drawing_TypographyStyleAttributeId {
     /// Font width
     pub const TYPOGRAPHY_STYLE_ATTR_I_FONT_WIDTH: OH_Drawing_TypographyStyleAttributeId =
         OH_Drawing_TypographyStyleAttributeId(4);
+    /// Compress head punctuation
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const TYPOGRAPHY_STYLE_ATTR_B_COMPRESS_HEAD_PUNCTUATION:
+        OH_Drawing_TypographyStyleAttributeId = OH_Drawing_TypographyStyleAttributeId(5);
+    /// Font padding
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const TYPOGRAPHY_STYLE_ATTR_B_INCLUDE_FONT_PADDING: OH_Drawing_TypographyStyleAttributeId =
+        OH_Drawing_TypographyStyleAttributeId(6);
+    /// Fallback line spacing
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const TYPOGRAPHY_STYLE_ATTR_B_FALLBACK_LINE_SPACING: OH_Drawing_TypographyStyleAttributeId =
+        OH_Drawing_TypographyStyleAttributeId(7);
 }
 #[repr(transparent)]
 /// Enumerates typography style attribute.
@@ -1028,6 +1051,56 @@ extern "C" {
         style: *mut OH_Drawing_TypographyStyle,
         id: OH_Drawing_TypographyStyleAttributeId,
         value: *mut ::core::ffi::c_int,
+    ) -> crate::error_code::DrawingResult;
+    /// Sets bool value to the typography style attribute.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// * `id` - Indicates the attribute id.
+    ///
+    /// * `value` - Indicates the value to set.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_SetTypographyStyleAttributeBool(
+        style: *mut OH_Drawing_TypographyStyle,
+        id: OH_Drawing_TypographyStyleAttributeId,
+        value: bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Gets the bool type property's value from the typography style.
+    ///
+    /// # Arguments
+    ///
+    /// * `style` - Indicates the pointer to an <b>OH_Drawing_TypographyStyle</b> object.
+    ///
+    /// * `id` - Indicates the attribute id.
+    ///
+    /// * `value` - Indicates the return value of the interface.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if the style or value is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_GetTypographyStyleAttributeBool(
+        style: *mut OH_Drawing_TypographyStyle,
+        id: OH_Drawing_TypographyStyleAttributeId,
+        value: *mut bool,
     ) -> crate::error_code::DrawingResult;
     /// Creates an <b>OH_Drawing_TypographyStyle</b> object.
     ///
@@ -4363,7 +4436,7 @@ extern "C" {
         to: usize,
         fontSize: f32,
     );
-    /// Update the font color of the typography
+    /// Update the font color of the typography.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -4418,7 +4491,7 @@ extern "C" {
         typography: *mut OH_Drawing_Typography,
         decorationThicknessScale: f64,
     );
-    /// Update the decoration style of typography.
+    /// Update the decoration style of the typography.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -5084,4 +5157,16 @@ extern "C" {
     pub fn OH_Drawing_CopyTextShadow(
         shadow: *mut OH_Drawing_TextShadow,
     ) -> *mut OH_Drawing_TextShadow;
+    /// Releases the memory occupied by an <b>OH_Drawing_PositionAndAffinity</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// * `positionAndAffinity` - Indicates the pointer to an <b>OH_Drawing_PositionAndAffinity</b> object.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_DestroyPositionAndAffinity(
+        positionAndAffinity: *mut OH_Drawing_PositionAndAffinity,
+    );
 }

@@ -118,7 +118,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or width is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -137,7 +139,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or height is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -156,8 +160,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or isHdr is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -178,7 +183,7 @@ extern "C" {
     ///
     /// * Returns one of the following result codes:
     /// [`IMAGE_SUCCESS`] if the execution is successful.
-    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if info or mimetype is a null pointer.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] info is nullptr, or mimeType is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -195,7 +200,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] info is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -225,7 +232,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or pixelFormat is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -244,7 +253,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -263,7 +274,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or index is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -282,7 +295,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -299,7 +314,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or rotate is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -318,7 +335,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -337,7 +356,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or desiredSize is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -356,7 +377,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or desiredSize is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -375,7 +398,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or desiredRegion is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -394,7 +419,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options or desiredRegion is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -413,8 +440,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or desiredDynamicRange is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -435,8 +463,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// [`IMAGE_SUCCESS`]: The execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`]: options is a null pointer or cropAndScaleStrategy is not in the range of
+    /// [`IMAGE_SUCCESS`] The execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is a null pointer or cropAndScaleStrategy is not in the range of
     /// Image_CropAndScaleStrategy.
     ///
     /// Available since API-level: 18
@@ -478,8 +506,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -580,7 +609,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] if options is a null pointer.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -598,7 +629,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] if uri is a null pointer.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -618,7 +651,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] if fd is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -639,7 +674,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] if data is a null pointer or if dataSize is 0.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -684,7 +721,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] if rawFile is a null pointer.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -707,7 +746,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] source is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_OPTIONS`] unsupported options,
+    /// e.g, cannot convert image into desired pixel format.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -775,7 +818,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// *
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] source is nullptr, or options is nullptr, or resVecPixMap is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -853,7 +899,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] source is nullptr, or delayTimeList is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -876,7 +924,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] source is nullptr, or info is nullptr, or failed to get image info.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -890,17 +940,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `source` - Indicates a void pointer(from ImageSource pointer convert).
+    /// * `source` - Pointer to ImageSource.
     ///
-    /// * `key` - Indicates a pointer to the property. For details, see [`Image_String`]., key is an exif constant.
-    /// Release after use ImageSource, see [`OH_ImageSourceNative_Release`].
+    /// * `key` - Pointer to the property key.
     ///
-    /// * `value` - Indicates a pointer to the value obtained.The user can pass in a null pointer and zero size,
-    /// we will allocate memory, but user must free memory after use.
+    /// * `value` - Pointer to the property value. Output Parameter.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] source is nullptr, or key is nullptr, or value is nullptr.
+    /// [`IMAGE_ALLOC_FAILED`] allocate memory failed.
+    /// [`IMAGE_COPY_FAILED`] copy memory failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -946,7 +998,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] source is nullptr, or key is nullptr, or value is nullptr,
+    /// or failed to modify image property because of invalid parameters.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -962,11 +1017,13 @@ extern "C" {
     ///
     /// * `source` - Indicates a pointer to the [`OH_ImageSource`] object at the C++ native layer.
     ///
-    /// * `frameCount` - The number of image frameCount.
+    /// * `res` - Indicates a pointer to the number of frames obtained.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] source is nullptr, or frameCount is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -983,7 +1040,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns one of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] source is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1095,5 +1154,391 @@ extern "C" {
     pub fn OH_ImageSourceNative_GetSupportedFormats(
         supportedFormats: *mut *mut Image_MimeType,
         length: *mut usize,
+    ) -> ImageResult;
+    /// Obtains the value of an image property as short int type.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is queried.
+    ///
+    /// * `key` - The property to be queried.
+    ///
+    /// * `value` - Query result. Output Parameter.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or value is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a short int value.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_GetImagePropertyShort(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut u16,
+    ) -> ImageResult;
+    /// Obtains the value of an image property as long int type.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is queried.
+    ///
+    /// * `key` - The property to be queried.
+    ///
+    /// * `value` - Query result. Output Parameter.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or value is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a long int value.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_GetImagePropertyLong(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut u32,
+    ) -> ImageResult;
+    /// Obtains the value of an image property as double type.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is queried.
+    ///
+    /// * `key` - The property to be queried.
+    ///
+    /// * `value` - Query result. Output Parameter.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or value is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a double value.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_GetImagePropertyDouble(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut f64,
+    ) -> ImageResult;
+    /// Gets the array length of an array type property or the string length of a string type property.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is queried.
+    ///
+    /// * `key` - The property to be queried.
+    ///
+    /// * `size` - Array length for an array type property, string length for a string type property. Output Parameter.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or size is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist,
+    /// or is not a arrayvalue.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_GetImagePropertyArraySize(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        size: *mut usize,
+    ) -> ImageResult;
+    /// Obtains the value of an image property as string type.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is queried.
+    ///
+    /// * `key` - The property to be queried.
+    ///
+    /// * `value` - Query result. Output Parameter. The caller needs to manage memory application and release.
+    ///
+    /// * `size` - String length.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key, value or size is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a string value.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_GetImagePropertyString(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut ::core::ffi::c_char,
+        size: usize,
+    ) -> ImageResult;
+    /// Obtains the value of an image property as int array.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is queried.
+    ///
+    /// * `key` - The property to be queried.
+    ///
+    /// * `value` - Query result. Output Parameter. The caller needs to manage memory application and release.
+    ///
+    /// * `size` - Array length.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key, value or size is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a int array.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_GetImagePropertyIntArray(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut i32,
+        size: usize,
+    ) -> ImageResult;
+    /// Obtains the value of an image property as double array.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is queried.
+    ///
+    /// * `key` - The property to be queried.
+    ///
+    /// * `value` - Query result. Output Parameter. The caller needs to manage memory application and release.
+    ///
+    /// * `size` - Array length.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key, value or size is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a double array.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_GetImagePropertyDoubleArray(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut f64,
+        size: usize,
+    ) -> ImageResult;
+    /// Obtains the value of an image property as blob.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is queried.
+    ///
+    /// * `key` - The property to be queried.
+    ///
+    /// * `value` - Query result. Output Parameter. The caller needs to manage memory application and release.
+    ///
+    /// * `size` - Array length.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key, value or size is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a blob.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_GetImagePropertyBlob(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut ::core::ffi::c_void,
+        size: usize,
+    ) -> ImageResult;
+    /// Modify the value of an image property as short int.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is modified.
+    ///
+    /// * `key` - The property to be modified.
+    ///
+    /// * `value` - The value set to the property.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or value is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a short int.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_ModifyImagePropertyShort(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: u16,
+    ) -> ImageResult;
+    /// Modify the value of an image property as long int.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is modified.
+    ///
+    /// * `key` - The property to be modified.
+    ///
+    /// * `value` - The value set to the property.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or value is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a long int.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_ModifyImagePropertyLong(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: u32,
+    ) -> ImageResult;
+    /// Modify the value of an image property as double.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is modified.
+    ///
+    /// * `key` - The property to be modified.
+    ///
+    /// * `value` - The value set to the property.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or value is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a double.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_ModifyImagePropertyDouble(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: f64,
+    ) -> ImageResult;
+    /// Modify the value of an image property as int array.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is modified.
+    ///
+    /// * `key` - The property to be modified.
+    ///
+    /// * `value` - The value set to the property.
+    ///
+    /// * `size` - Array length.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or value is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not an int array.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_ModifyImagePropertyIntArray(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut i32,
+        size: usize,
+    ) -> ImageResult;
+    /// Modify the value of an image property as double array.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is modified.
+    ///
+    /// * `key` - The property to be modified.
+    ///
+    /// * `value` - The value set to the property.
+    ///
+    /// * `size` - Array length.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or value is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a double array.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_ModifyImagePropertyDoubleArray(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut f64,
+        size: usize,
+    ) -> ImageResult;
+    /// Modify the value of an image property as blob.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - ImageSource from which the property is modified.
+    ///
+    /// * `key` - The property to be modified.
+    ///
+    /// * `value` - The value set to the property.
+    ///
+    /// * `size` - Array length.
+    ///
+    /// # Returns
+    ///
+    /// * Returns One of the following result codes:
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_SOURCE_INVALID_PARAMETER`] if source, key or value is nullptr.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_MIME_TYPE`] if query image property of current mimetype is not supported.
+    /// [`IMAGE_SOURCE_UNSUPPORTED_METADATA`] if indicated metadata doesn't exist, or is not a blob.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ImageSourceNative_ModifyImagePropertyBlob(
+        source: *mut OH_ImageSourceNative,
+        key: *mut Image_String,
+        value: *mut ::core::ffi::c_void,
+        size: usize,
     ) -> ImageResult;
 }

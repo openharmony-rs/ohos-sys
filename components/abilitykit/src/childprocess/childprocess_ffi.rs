@@ -52,6 +52,14 @@ impl Ability_NativeChildProcessErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CALLBACK_NOT_EXIST: Ability_NativeChildProcessErrorCode =
         Ability_NativeChildProcessErrorCode(const { core::num::NonZero::new(16010009).unwrap() });
+    /// The specified PID does not exist or is not a child process of the current process
+    /// or is a SELF_FORK mode child process.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const INVALID_PID: Ability_NativeChildProcessErrorCode =
+        Ability_NativeChildProcessErrorCode(const { core::num::NonZero::new(16010010).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates the error codes used by the native child process module.
@@ -560,4 +568,28 @@ extern "C" {
     pub fn OH_Ability_UnregisterNativeChildProcessExitCallback(
         onProcessExit: OH_Ability_OnNativeChildProcessExit,
     ) -> Ability_NativeChildProcessResult;
+    /// Terminates a child process created by the current process.
+    ///
+    /// <p>**NOTE**:
+    /// <br>Child processes created in SELF_FORK mode cannot be terminated.
+    /// </p>
+    ///
+    /// # Arguments
+    ///
+    /// * `pid` - Process ID of the target child process to terminate.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`NCP_NO_ERROR`] if the operation succeeds.
+    /// Returns [`NCP_ERR_SERVICE_ERROR`] if system service error occurs, please try again later.
+    /// Returns [`NCP_ERR_INVALID_PID`] if:
+    /// - The specified PID does not exist
+    /// - The PID is not a child process of the current process
+    /// - The PID is a SELF_FORK mode child process
+    /// For details, see [`Ability_NativeChildProcess_ErrCode`].
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Ability_KillChildProcess(pid: i32) -> Ability_NativeChildProcessResult;
 }

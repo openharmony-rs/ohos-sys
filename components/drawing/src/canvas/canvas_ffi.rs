@@ -357,6 +357,54 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_CanvasDrawPath(canvas: *mut OH_Drawing_Canvas, path: *const OH_Drawing_Path);
+    /// Draw a pixel map on the grid, with the grid evenly distributed over the pixel map.
+    ///
+    /// # Arguments
+    ///
+    /// * `cCanvas` - Indicates the pointer to an OH_Drawing_Canvas object.
+    ///
+    /// * `pixelMap` - Indicates the pointer to an OH_Drawing_PixelMap.
+    ///
+    /// * `meshWidth` - The number of columns in the mesh.
+    ///
+    /// * `meshHeight` - The number of rows in the mesh.
+    ///
+    /// * `vertices` - Indicates the vertex array that specifies the drawing positions of the mesh.
+    ///
+    /// * `verticesSize` - The size of vertices.
+    ///
+    /// * `vertOffset` - The number of vert elements to skip before drawing.
+    ///
+    /// * `colors` - Indicates the color array that specifies a color at each vertex.
+    ///
+    /// * `colorsSize` - The size of colors.
+    ///
+    /// * `colorOffset` - The number of color elements to skip before drawing.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if any of canvas, pixelMap
+    /// and dst is nullptr.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_CanvasDrawPixelMapMesh(
+        cCanvas: *mut OH_Drawing_Canvas,
+        pixelMap: *mut OH_Drawing_PixelMap,
+        meshWidth: u32,
+        meshHeight: u32,
+        vertices: *const f32,
+        verticesSize: u32,
+        vertOffset: u32,
+        colors: *const u32,
+        colorsSize: u32,
+        colorOffset: u32,
+    ) -> crate::error_code::DrawingResult;
     /// Divides the pixelmap into a grid with nine sections: four sides, four corners, and the center.
     /// Draws the specified section of the pixelmap onto the canvas, corners are unmodified or scaled down if they exceed
     /// the destination rectangle, center and four sides are scaled to fit remaining space.

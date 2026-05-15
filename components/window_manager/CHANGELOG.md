@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.4
+
+- Update bindings to API-22 and API-23.
+
 ## v0.1.3
 
 - Update bindings to API-21

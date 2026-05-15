@@ -21,6 +21,8 @@ use crate::avscreen_capture_base::{
     OH_AVScreenCapture_OnBufferAvailable, OH_AVScreenCapture_OnError,
     OH_AVScreenCapture_OnStateChange,
 };
+#[cfg(feature = "api-22")]
+use crate::avscreen_capture_base::{OH_AVScreenCaptureHighlightConfig, OH_CapturePickerMode};
 #[cfg(feature = "api-20")]
 #[allow(unused_imports)]
 use crate::avscreen_capture_base::{
@@ -995,5 +997,103 @@ extern "C" {
     pub fn OH_AVScreenCapture_StrategyForFillMode(
         strategy: *mut OH_AVScreenCapture_CaptureStrategy,
         mode: OH_AVScreenCapture_FillMode,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// set the highlight style of recording area.
+    /// # Arguments
+    ///
+    /// {OH_AVScreenCapture*} capture Pointer to OH_AVScreenCapture which want to set highlight style.
+    ///
+    /// {OH_AVScreenCaptureHighlightConfig} config the highlight parameters are to be set for this screen capture.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_SCREEN_CAPTURE_ERR_OK`] if the execution is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`] input capture is nullptr or config is invalid.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_AVScreenCapture_SetCaptureAreaHighlight(
+        capture: *mut OH_AVScreenCapture,
+        config: OH_AVScreenCaptureHighlightConfig,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Configures exclusion list for system-level picker window
+    ///
+    ///
+    /// Filters specified windows before displaying the system-level picker.
+    /// Excluded windows will not appear in the selection list.
+    /// # Arguments
+    ///
+    /// * `capture` - [in] Screen capture handle created via OH_AVScreenCapture_Create
+    ///
+    /// * `excludedWindowIDs` - [in] Array of window IDs to exclude (process-local)
+    ///
+    /// * `windowCount` - [in] Number of excluded windows
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_SCREEN_CAPTURE_ERR_OK`] if the execution is successful.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`] invalid parameters.
+    /// (null pointer/cross-process window IDs)
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`] operation not be permitted.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_AVScreenCapture_ExcludePickerWindows(
+        capture: *mut OH_AVScreenCapture,
+        excludedWindowIDs: *const i32,
+        windowCount: u32,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Sets the mode for the system-level screen capture picker
+    ///
+    ///
+    /// Defines the content type displayed in the system-level picker.
+    /// Mode changes take effect upon the next call to function PresentPicker.
+    /// # Arguments
+    ///
+    /// * `capture` - [in] Pointer to the screen capture instance created via OH_AVScreenCapture_Create
+    ///
+    /// * `pickerMode` - [in] Picker display mode (see OH_CapturePickerMode enum)
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_SCREEN_CAPTURE_ERR_OK`] mode configuration succeeded.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`] invalid mode value or null pointer.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`] operation not be permitted.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_AVScreenCapture_SetPickerMode(
+        capture: *mut OH_AVScreenCapture,
+        pickerMode: OH_CapturePickerMode,
+    ) -> OH_AVSCREEN_CAPTURE_ErrCode;
+    /// Displays system-level picker for screen capture source selection
+    ///
+    ///
+    /// Activates system visual picker with two usage scenarios:
+    /// 1. Initial capture configuration: Select source before starting capture
+    /// 2. Dynamic source switching: Change capture target during active capture
+    /// # Arguments
+    ///
+    /// * `capture` - [in] Initialized screen capture instance
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_SCREEN_CAPTURE_ERR_OK`] picker activated successfully.
+    /// [`AV_SCREEN_CAPTURE_ERR_INVALID_VAL`] null pointer or uninitialized instance.
+    /// [`AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT`] operation not be permitted.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_AVScreenCapture_PresentPicker(
+        capture: *mut OH_AVScreenCapture,
     ) -> OH_AVSCREEN_CAPTURE_ErrCode;
 }

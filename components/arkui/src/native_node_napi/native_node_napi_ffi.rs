@@ -5,6 +5,8 @@
 #![allow(non_snake_case)]
 use crate::drawable_descriptor::ArkUI_DrawableDescriptor;
 use crate::native_type::*;
+#[cfg(feature = "api-12")]
+use ohos_sys_opaque_types::ArkUI_ContextHandle;
 use ohos_sys_opaque_types::{napi_env, napi_value};
 
 extern "C" {

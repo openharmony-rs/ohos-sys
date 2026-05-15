@@ -32,6 +32,62 @@ impl DrawingErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const ATTRIBUTE_ID_MISMATCH: DrawingErrorCode =
         DrawingErrorCode(const { core::num::NonZero::new(26200003).unwrap() });
+    /// incorrect input parameter. The possible cause is that the provided pointer is null.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const INCORRECT_PARAMETER: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200004).unwrap() });
+    /// File not found. The specified file does not exist or the path is incorrect..
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FILE_NOT_FOUND: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200005).unwrap() });
+    /// Failed to open the file. The file cannot be opened due to permission or I/O issues.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const OPEN_FILE_FAILED: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200006).unwrap() });
+    /// File seek failed. The system failed to reposition the file read pointer..
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FILE_SEEK_FAILED: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200007).unwrap() });
+    /// Failed to get the file size. The system was unable to obtain the file size information.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const GET_FILE_SIZE_FAILED: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200008).unwrap() });
+    /// Failed to read the file. The file could not be read completely or contains unreadable data.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const READ_FILE_FAILED: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200009).unwrap() });
+    /// Empty file. The specified file is empty and contains no valid data.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const EMPTY_FILE: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200010).unwrap() });
+    /// Corrupted file. The file content is invalid or damaged and cannot be parsed.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FILE_CORRUPTED: DrawingErrorCode =
+        DrawingErrorCode(const { core::num::NonZero::new(26200011).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates error codes of drawing.

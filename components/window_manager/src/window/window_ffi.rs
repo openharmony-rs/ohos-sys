@@ -269,7 +269,7 @@ extern "C" {
     pub fn OH_WindowManager_SetWindowKeepScreenOn(windowId: i32, isKeepScreenOn: bool) -> i32;
     /// Sets whether is private mode or not.
     ///
-    /// `ohos.permission.PRIVACY_WINDOW`
+    /// ohos.permission.PRIVACY_WINDOW
     /// # Arguments
     ///
     /// * `windowId` - WindowId when window is created.
@@ -472,4 +472,49 @@ extern "C" {
     pub fn OH_WindowManager_ReleaseMainWindowSnapshot(
         snapshotPixelMapList: *const OH_PixelmapNative,
     );
+    /// Lock the mouse cursor restricting it to a specified window area, and also control whether the cursor follows
+    /// movement. Only supported by the focus window; the lock is automatically released when the window loses focus.
+    ///
+    /// ohos.permission.LOCK_WINDOW_CURSOR
+    /// # Arguments
+    ///
+    /// * `windowId` - WindowId when window is created.
+    ///
+    /// * `isCursorFollowMovement` - Set mouse cursor lock mode.
+    /// If true:the cursor follow the mouse movement.
+    /// If false:the cursor does not follow the mouse.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`WS_OK`] the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`] permission verification failed.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
+    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_WindowManager_LockCursor(windowId: i32, isCursorFollowMovement: bool) -> i32;
+    /// Clear the window mouse cursor status. Revert to mouse cursor free movement mode.
+    ///
+    /// ohos.permission.LOCK_WINDOW_CURSOR
+    /// # Arguments
+    ///
+    /// * `windowId` - WindowId when window is created.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`WS_OK`] the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_NO_PERMISSION`] permission verification failed.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL`] this window state is abnormal.
+    /// [`WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL`] the window manager service works abnormally.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_WindowManager_UnlockCursor(windowId: i32) -> i32;
 }

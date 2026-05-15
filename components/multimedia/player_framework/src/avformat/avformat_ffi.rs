@@ -161,6 +161,28 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: i32,
     ) -> bool;
+    /// Write unsigned integer data to OH_AVFormat
+    /// # Arguments
+    ///
+    /// * `format` - pointer to an OH_AVFormat instance
+    ///
+    /// * `key` - key to write data
+    ///
+    /// * `value` - written data
+    ///
+    /// # Returns
+    ///
+    /// * The return value is TRUE for success, FALSE for failure
+    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVFormat_SetUintValue(
+        format: *mut OH_AVFormat,
+        key: *const ::core::ffi::c_char,
+        value: u32,
+    ) -> bool;
     /// Write Long data to OH_AVFormat
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
@@ -310,6 +332,29 @@ extern "C" {
         format: *mut OH_AVFormat,
         key: *const ::core::ffi::c_char,
         out: *mut i32,
+    ) -> bool;
+    /// Read unsigned integer data from OH_AVFormat
+    /// # Arguments
+    ///
+    /// * `format` - pointer to an OH_AVFormat instance
+    ///
+    /// * `key` - read key value
+    ///
+    /// * `out` - read data
+    ///
+    /// # Returns
+    ///
+    /// * The return value is TRUE for success, FALSE for failure
+    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
+    /// 4. out is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVFormat_GetUintValue(
+        format: *mut OH_AVFormat,
+        key: *const ::core::ffi::c_char,
+        out: *mut u32,
     ) -> bool;
     /// Read Long data from OH_AVFormat
     ///
@@ -529,5 +574,51 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         addr: *const i32,
         size: usize,
+    ) -> bool;
+    /// Get the total number of keys contained in OH_AVFormat.
+    /// # Arguments
+    ///
+    /// * `format` - Pointer to an OH_AVFormat instance
+    ///
+    /// # Returns
+    ///
+    /// * Returns the number of keys on success; returns 0 on failure
+    ///
+    ///
+    /// Possible failure causes:
+    /// 1. input format is NULL;
+    /// 2. system resources are insufficient.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVFormat_GetKeyCount(format: *mut OH_AVFormat) -> u32;
+    /// Get the key name string by index from OH_AVFormat.
+    /// # Arguments
+    ///
+    /// * `format` - Pointer to an OH_AVFormat instance
+    ///
+    /// * `index` - Zero-based index of the key to query, range: [0, OH_AVFormat_GetKeyCount(format))
+    ///
+    /// * `key` - Output pointer to receive the key name string; the lifecycle is bound to the format
+    ///
+    /// # Returns
+    ///
+    /// * Returns TRUE on success, FALSE on failure
+    ///
+    ///
+    /// Possible failure causes:
+    /// 1. input format is NULL;
+    /// 2. index is out of range;
+    /// 3. key is NULL;
+    /// 4. system resources are insufficient.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVFormat_GetKey(
+        format: *mut OH_AVFormat,
+        index: u32,
+        key: *mut *const ::core::ffi::c_char,
     ) -> bool;
 }

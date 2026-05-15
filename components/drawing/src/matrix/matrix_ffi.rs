@@ -504,6 +504,36 @@ extern "C" {
         matrix: *mut OH_Drawing_Matrix,
         value: *mut f32,
     ) -> crate::error_code::DrawingResult;
+    /// Matrix a left-multiplied by matrix b.
+    /// Given:
+    /// | A B C | | J K L |
+    /// a = | D E F |, b = | M N O |
+    /// | G H I | | P Q R |
+    /// Get:
+    /// | J K L | | A B C | | AJ+DK+GL BJ+EK+HL CJ+FK+IL |
+    /// b * a = | M N O | * | D E F | = | AM+DN+GO BM+EN+HO CM+FN+IO |
+    /// | P Q R | | G H I | | AP+DQ+GR BP+EQ+HR CP+FQ+IR |
+    /// # Arguments
+    ///
+    /// * `a` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    ///
+    /// * `b` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if a or b is nullptr.
+    ///
+    /// Available since API-level: 22
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_MatrixPreConcat(
+        a: *mut OH_Drawing_Matrix,
+        b: *mut OH_Drawing_Matrix,
+    ) -> crate::error_code::DrawingResult;
     /// Get one matrix value. Index is between the range of 0-8.
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -742,6 +772,108 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_MatrixIsIdentity(matrix: *mut OH_Drawing_Matrix) -> bool;
+    /// Checks if the matrix is affine. An affine matrix preserves straight lines and has no perspective.
+    ///
+    /// # Arguments
+    ///
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    ///
+    /// * `isAffine` - Indicates if the matrix is affine.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if matrix or isAffine is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_MatrixIsAffine(
+        matrix: *const OH_Drawing_Matrix,
+        isAffine: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Sets matrix to matrix multiplied by matrix constructed from skewing by (kx, ky) about pivot point (px, py).
+    ///
+    /// # Arguments
+    ///
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    ///
+    /// * `kx` - Indicates the horizontal skew factor.
+    ///
+    /// * `ky` - Indicates the vertical skew factor.
+    ///
+    /// * `px` - Indicates the pivot on x-axis.
+    ///
+    /// * `py` - Indicates the pivot on y-axis.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if matrix is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_MatrixPreSkew(
+        matrix: *mut OH_Drawing_Matrix,
+        kx: f32,
+        ky: f32,
+        px: f32,
+        py: f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if a rectangle will map to another rectangle after applying this matrix.
+    ///
+    /// # Arguments
+    ///
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    ///
+    /// * `isRectStaysRect` - Indicates if the transformation keeps rectangles as rectangles.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if matrix or isRectStaysRect is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_MatrixRectStaysRect(
+        matrix: *const OH_Drawing_Matrix,
+        isRectStaysRect: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Sets the sine and cosine values for a rotation transformation around a point.
+    ///
+    /// # Arguments
+    ///
+    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
+    ///
+    /// * `sinValue` - Indicates the sine of the angle of rotation.
+    ///
+    /// * `cosValue` - Indicates the cosine of the angle of rotation.
+    ///
+    /// * `px` - Indicates the x-coordinate of the point around which to rotate.
+    ///
+    /// * `py` - Indicates the y-coordinate of the point around which to rotate.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if matrix is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_MatrixSetSinCos(
+        matrix: *mut OH_Drawing_Matrix,
+        sinValue: f32,
+        cosValue: f32,
+        px: f32,
+        py: f32,
+    ) -> crate::error_code::DrawingResult;
     /// Destroys an <b>OH_Drawing_Matrix</b> object and reclaims the memory occupied by the object.
     ///
     ///

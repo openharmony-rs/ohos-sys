@@ -3,6 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-22")]
+use crate::text_declaration::OH_Drawing_FontFullDescriptor;
 use crate::text_typography::OH_Drawing_FontDescriptor;
 use crate::types::*;
 
@@ -33,6 +35,119 @@ impl OH_Drawing_SystemFontType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_SystemFontType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl OH_Drawing_FontFullDescriptorAttributeId {
+    /// The file path of the font
+    pub const FULL_DESCRIPTOR_ATTR_S_PATH: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(0);
+    /// A name that uniquely identifies the font
+    pub const FULL_DESCRIPTOR_ATTR_S_POSTSCRIPT_NAME: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(1);
+    /// The full name of the font
+    pub const FULL_DESCRIPTOR_ATTR_S_FULL_NAME: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(2);
+    /// The family name of the font
+    pub const FULL_DESCRIPTOR_ATTR_S_FAMILY_NAME: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(3);
+    /// The subfont family of the font
+    pub const FULL_DESCRIPTOR_ATTR_S_SUB_FAMILY_NAME: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(4);
+    /// The weight of the font
+    pub const FULL_DESCRIPTOR_ATTR_I_WEIGHT: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(5);
+    /// The width of the font
+    pub const FULL_DESCRIPTOR_ATTR_I_WIDTH: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(6);
+    /// Whether the font is tilted
+    pub const FULL_DESCRIPTOR_ATTR_I_ITALIC: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(7);
+    /// Whether the font is monospaced
+    pub const FULL_DESCRIPTOR_ATTR_B_MONO: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(8);
+    /// whether symbolic fonts are supported
+    pub const FULL_DESCRIPTOR_ATTR_B_SYMBOLIC: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(9);
+    /// The local postscript name of the font
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FULL_DESCRIPTOR_ATTR_S_LOCAL_POSTSCRIPT_NAME:
+        OH_Drawing_FontFullDescriptorAttributeId = OH_Drawing_FontFullDescriptorAttributeId(10);
+    /// The local full name of the font
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FULL_DESCRIPTOR_ATTR_S_LOCAL_FULL_NAME: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(11);
+    /// The local family name of the font
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FULL_DESCRIPTOR_ATTR_S_LOCAL_FAMILY_NAME: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(12);
+    /// The local sub family name of the font
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FULL_DESCRIPTOR_ATTR_S_LOCAL_SUB_FAMILY_NAME:
+        OH_Drawing_FontFullDescriptorAttributeId = OH_Drawing_FontFullDescriptorAttributeId(13);
+    /// The version of the font
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FULL_DESCRIPTOR_ATTR_S_VERSION: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(14);
+    /// The manufacture of the font
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FULL_DESCRIPTOR_ATTR_S_MANUFACTURE: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(15);
+    /// The copyright of the font
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FULL_DESCRIPTOR_ATTR_S_COPYRIGHT: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(16);
+    /// The trademark of the font
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FULL_DESCRIPTOR_ATTR_S_TRADEMARK: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(17);
+    /// The license of the font
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FULL_DESCRIPTOR_ATTR_S_LICENSE: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(18);
+    /// The font index in ttc file
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const FULL_DESCRIPTOR_ATTR_I_INDEX: OH_Drawing_FontFullDescriptorAttributeId =
+        OH_Drawing_FontFullDescriptorAttributeId(21);
+}
+#[repr(transparent)]
+/// An enumeration of font full descriptor attribute.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Drawing_FontFullDescriptorAttributeId(pub ::core::ffi::c_uint);
 extern "C" {
     /// Obtain all system font descriptive symbols that match the specified font descriptor. Where the 'path'
     /// fields are not considered as valid matching values, It takes effect when the remaining fields are not
@@ -153,4 +268,255 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Drawing_DestroySystemFontFullNames(fullNameArray: *mut OH_Drawing_Array);
+    /// Retrieves an array of font full descriptors from raw binary data.
+    ///
+    /// # Arguments
+    ///
+    /// * `data` - Pointer to the raw binary font data buffer.
+    ///
+    /// * `size` - Size of the font data buffer in bytes.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to <b>OH_Drawing_Array</b> containing font full descriptors.
+    /// Returns <b>NULL</b> if the operation fails due to invalid data format or parsing errors.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_GetFontFullDescriptorsFromStream(
+        data: *const ::core::ffi::c_void,
+        size: usize,
+    ) -> *mut OH_Drawing_Array;
+    /// Obtains an array of font full descriptors from font file path.
+    ///
+    /// # Arguments
+    ///
+    /// * `path` - The font file path.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to <b>OH_Drawing_Array</b> structure containing font full descriptors.
+    /// Returns <b>NULL</b> if no fonts are found, invalid path, no permission, or non-font file.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_GetFontFullDescriptorsFromPath(
+        path: *const ::core::ffi::c_char,
+    ) -> *mut OH_Drawing_Array;
+    /// Retrieves a font full descriptor from an array by index.
+    ///
+    /// # Arguments
+    ///
+    /// * `descriptorArray` - Pointer to the array of font full descriptors <b>OH_Drawing_Array</b>.
+    ///
+    /// * `index` - Zero-based index position of the descriptor to retrieve.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to <b>OH_Drawing_FontFullDescriptor</b> at the specified index.
+    /// Returns <b>NULL</b> if the index is out of bounds or the array is invalid.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_GetFontFullDescriptorByIndex(
+        descriptorArray: *mut OH_Drawing_Array,
+        index: usize,
+    ) -> *const OH_Drawing_FontFullDescriptor;
+    /// Releases the memory occupied by an array of font full descriptors.
+    ///
+    /// # Arguments
+    ///
+    /// * `descriptorArray` - Pointer to the array of font full descriptors <b>OH_Drawing_Array</b>.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_DestroyFontFullDescriptors(descriptorArray: *mut OH_Drawing_Array);
+    /// Defines an <b>OH_Drawing_GetFontUnicodeArrayFromFile</b>, which is used to get unicode from font file.
+    ///
+    /// # Arguments
+    ///
+    /// * `fontSrc` - Indicates the path of the font file.
+    ///
+    /// * `index` - Indicates the index of the font data in the ttc file.
+    ///
+    /// * `unicodeArray` - Output parameter to receive unicode, When no longer needed, use 'free()' to release.
+    ///
+    /// * `arrayLength` - Output parameter to receive the length of the unicode array.
+    ///
+    /// # Returns
+    ///
+    /// * error code.
+    /// Returns <b>OH_DRAWING_SUCCESS</b> if the operation is successful.
+    /// Returns <b>OH_DRAWING_ERROR_INCORRECT_PARAMETER</b> if the fontSrc is invalid or non-font file.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_GetFontUnicodeArrayFromFile(
+        fontSrc: *const ::core::ffi::c_char,
+        index: u32,
+        unicodeArray: *mut *mut i32,
+        arrayLength: *mut i32,
+    ) -> crate::error_code::DrawingResult;
+    /// Defines an <b>OH_Drawing_GetFontUnicodeArrayFromBuffer</b>, which is used to get unicode from font buffer.
+    ///
+    /// # Arguments
+    ///
+    /// * `fontBuffer` - Indicates the font data.
+    ///
+    /// * `length` - Indicates the font data length.
+    ///
+    /// * `index` - Indicates the index of the font data in the ttc file.
+    ///
+    /// * `unicodeArray` - Output parameter to receive unicode, When no longer needed, use 'free()' to release.
+    ///
+    /// * `arrayLength` - Output parameter to receive the length of the unicode array.
+    ///
+    /// # Returns
+    ///
+    /// * error code.
+    /// Returns <b>OH_DRAWING_SUCCESS</b> if the operation is successful.
+    /// Returns <b>OH_DRAWING_ERROR_INCORRECT_PARAMETER</b> if the fontBuffer is invalid or non-font buffer.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_GetFontUnicodeArrayFromBuffer(
+        fontBuffer: *mut u8,
+        length: usize,
+        index: u32,
+        unicodeArray: *mut *mut i32,
+        arrayLength: *mut i32,
+    ) -> crate::error_code::DrawingResult;
+    /// Retrieves an integer attribute value from a font full descriptor.
+    ///
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the font full descriptor <b>OH_Drawing_FontFullDescriptor</b>.
+    ///
+    /// * `id` - Attribute identifier from <b>OH_Drawing_FontFullDescriptorAttributeId</b> enumeration.
+    ///
+    /// * `value` - Output parameter to receive the requested integer attribute value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns <b>OH_DRAWING_SUCCESS</b> if the operation is successful.
+    /// Returns <b>OH_DRAWING_ERROR_INCORRECT_PARAMETER</b> if the descriptor or value is NULL.
+    /// Returns <b>OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH</b> if the attribute id is not recognized or supported.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_GetFontFullDescriptorAttributeInt(
+        descriptor: *const OH_Drawing_FontFullDescriptor,
+        id: OH_Drawing_FontFullDescriptorAttributeId,
+        value: *mut ::core::ffi::c_int,
+    ) -> crate::error_code::DrawingResult;
+    /// Retrieves a boolean attribute value from a font full descriptor.
+    ///
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the font full descriptor <b>OH_Drawing_FontFullDescriptor</b>.
+    ///
+    /// * `id` - Attribute identifier from <b>OH_Drawing_FontFullDescriptorAttributeId</b> enumeration.
+    ///
+    /// * `value` - Output parameter to receive the requested boolean attribute value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns <b>OH_DRAWING_SUCCESS</b> if the operation is successful.
+    /// Returns <b>OH_DRAWING_ERROR_INCORRECT_PARAMETER</b> if the descriptor or value is NULL.
+    /// Returns <b>OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH</b> if the attribute id is not recognized or supported.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_GetFontFullDescriptorAttributeBool(
+        descriptor: *const OH_Drawing_FontFullDescriptor,
+        id: OH_Drawing_FontFullDescriptorAttributeId,
+        value: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Retrieves a string attribute value from a font full descriptor.
+    ///
+    ///
+    /// **Note:** The caller is responsible for manually releasing the internal <b>strData</b> member of the
+    /// <b>OH_Drawing_String</b> structure when it is no longer needed.
+    ///
+    /// # Arguments
+    ///
+    /// * `descriptor` - Pointer to the font full descriptor <b>OH_Drawing_FontFullDescriptor</b>.
+    ///
+    /// * `id` - Attribute identifier from <b>OH_Drawing_FontFullDescriptorAttributeId</b> enumeration.
+    ///
+    /// * `str` - Output parameter to receive pointer to the requested string attribute value.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns <b>OH_DRAWING_SUCCESS</b> if the operation is successful.
+    /// Returns <b>OH_DRAWING_ERROR_INCORRECT_PARAMETER</b> if the descriptor or str is NULL.
+    /// Returns <b>OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH</b> if the attribute id is not recognized or supported.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_GetFontFullDescriptorAttributeString(
+        descriptor: *const OH_Drawing_FontFullDescriptor,
+        id: OH_Drawing_FontFullDescriptorAttributeId,
+        str_: *mut OH_Drawing_String,
+    ) -> crate::error_code::DrawingResult;
+    /// Defines an <b>OH_Drawing_GetFontCountFromFile</b>, which is used to get font count from font file.
+    ///
+    /// # Arguments
+    ///
+    /// * `fontSrc` - Indicates the path of the font file.
+    ///
+    /// # Returns
+    ///
+    /// * font count.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_GetFontCountFromFile(fontSrc: *const ::core::ffi::c_char) -> u32;
+    /// Defines an <b>OH_Drawing_GetFontCountFromBuffer</b>, which is used to get font count from font buffer.
+    ///
+    /// # Arguments
+    ///
+    /// * `fontBuffer` - Indicates the font data.
+    ///
+    /// * `length` - Indicates the font data length.
+    ///
+    /// # Returns
+    ///
+    /// * font count.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_GetFontCountFromBuffer(fontBuffer: *mut u8, length: usize) -> u32;
+    /// Get the font path list.
+    /// # Arguments
+    ///
+    /// * `fontType` - Indicates enumerates of system font type object <b>OH_Drawing_SystemFontType</b>.
+    ///
+    /// * `pathCount` - The count of return path list.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a font path object <b>OH_Drawing_String</b> list.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_GetFontPathsByType(
+        fontType: OH_Drawing_SystemFontType,
+        pathCount: *mut usize,
+    ) -> *mut OH_Drawing_String;
 }

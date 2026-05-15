@@ -178,4 +178,221 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RegionDestroy(region: *mut OH_Drawing_Region);
+    /// Set an <b>OH_Drawing_Region</b> empty.
+    ///
+    /// # Arguments
+    ///
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if region is nullptr.
+    ///
+    /// Available since API-level: 22
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Drawing_RegionEmpty(
+        region: *mut OH_Drawing_Region,
+    ) -> crate::error_code::DrawingResult;
+    /// Set the path to the boundary of the region. If the region is empty, the path will also be empty.
+    ///
+    /// # Arguments
+    ///
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if region or path is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RegionGetBoundaryPath(
+        region: *const OH_Drawing_Region,
+        path: *mut OH_Drawing_Path,
+    ) -> crate::error_code::DrawingResult;
+    /// Obtains the minimum bounding rectangle that encloses this path.
+    ///
+    /// # Arguments
+    ///
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    ///
+    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if region or rect is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RegionGetBounds(
+        region: *const OH_Drawing_Region,
+        rect: *mut OH_Drawing_Rect,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if the region contains more than one rectangle.
+    ///
+    /// # Arguments
+    ///
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    ///
+    /// * `isComplex` - Indicates if the region is complex.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if region or isComplex is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RegionIsComplex(
+        region: *const OH_Drawing_Region,
+        isComplex: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if the region is empty.
+    ///
+    /// # Arguments
+    ///
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    ///
+    /// * `isEmpty` - Indicates if the region is empty.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if region or isEmpty is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RegionIsEmpty(
+        region: *const OH_Drawing_Region,
+        isEmpty: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if the region is equivalent to a single rectangle.
+    ///
+    /// # Arguments
+    ///
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    ///
+    /// * `isRect` - Indicates if the region contains a single rectangle.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if region or isRect is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RegionIsRect(
+        region: *const OH_Drawing_Region,
+        isRect: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if the region is equivalent to a single rectangle and it contains the specified rectangle.
+    /// A false indicates that the region is not equivalent to a single rectangle or the rectangle is not contained by
+    /// this region. A true is a guarantee that the rectangle is contained by this region.
+    ///
+    /// # Arguments
+    ///
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    ///
+    /// * `left` - Indicates the left position of the rect.
+    ///
+    /// * `top` - Indicates the top position of the rect.
+    ///
+    /// * `right` - Indicates the right position of the rect.
+    ///
+    /// * `bottom` - Indicates the bottom position of the rect.
+    ///
+    /// * `isContained` - Indicates if the specified rectangle is contained in the region.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if region or isContained is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RegionQuickContains(
+        region: *const OH_Drawing_Region,
+        left: i32,
+        top: i32,
+        right: i32,
+        bottom: i32,
+        isContained: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Checks if the region is empty, or if the specified rectangle does not intersect the region.
+    ///
+    /// # Arguments
+    ///
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    ///
+    /// * `left` - Indicates the left position of the rect.
+    ///
+    /// * `top` - Indicates the top position of the rect.
+    ///
+    /// * `right` - Indicates the right position of the rect.
+    ///
+    /// * `bottom` - Indicates the bottom position of the rect.
+    ///
+    /// * `isReject` - Indicates if the specified rectangle does not intersect the region.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if region or isReject is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RegionQuickReject(
+        region: *const OH_Drawing_Region,
+        left: i32,
+        top: i32,
+        right: i32,
+        bottom: i32,
+        isReject: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Translates the region by dx, dy. If the region is empty, do nothing.
+    ///
+    /// # Arguments
+    ///
+    /// * `region` - Indicates the pointer to an <b>OH_Drawing_Region</b> object.
+    ///
+    /// * `dx` - Indicates the distance to translate on x-axis in pixels.
+    ///
+    /// * `dy` - Indicates the distance to translate on y-axis in pixels.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if region is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RegionTranslate(
+        region: *mut OH_Drawing_Region,
+        dx: i32,
+        dy: i32,
+    ) -> crate::error_code::DrawingResult;
 }

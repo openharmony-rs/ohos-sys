@@ -1769,4 +1769,28 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: *mut *mut ::core::ffi::c_char,
     ) -> i32;
+    /// Obtains the pointer to the <b> ArkUI_AccessibilityProvider</b>
+    /// instance of this <b>ArkUI_NodeHandle</b> instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - Indicates the pointer to the <b>ArkUI_NodeHandle</b> instance.
+    ///
+    /// * `provider` - Indicates the pointer to the <b>ArkUI_AccessibilityProvider</b> instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    ///
+    /// * Returns <b>ARKUI_ERROR_CODE_NO_ERROR<b> if the operation is successful.
+    /// Returns <b>ARKUI_ERROR_CODE_PARAM_INVALID<b> if a parameter error occurs:1. node or
+    /// provider is nullptr. 2. the type of node is not ARKUI_NODE_CUSTOM.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_NativeModule_GetNativeAccessibilityProvider(
+        node: *mut ArkUI_NodeHandle,
+        provider: *mut *mut ArkUI_AccessibilityProvider,
+    ) -> i32;
 }

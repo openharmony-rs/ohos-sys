@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.4
+
+- Add API-22 and API-23 bindings. Significant additions across `native_node`, `native_type`,
+  `native_gesture`, `ui_input_event`, and related modules.
+
 ## 0.3.3
 
 - Add API-21 bindings

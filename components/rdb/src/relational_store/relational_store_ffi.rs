@@ -9,6 +9,8 @@ use crate::predicates::OH_Predicates;
 use crate::rdb_crypto_param::OH_Rdb_CryptoParam;
 #[cfg(feature = "api-18")]
 use crate::rdb_transaction::{OH_RDB_TransOptions, OH_Rdb_Transaction};
+#[cfg(feature = "api-23")]
+use crate::rdb_types::OH_RDB_ReturningContext;
 #[cfg(feature = "api-18")]
 use crate::rdb_types::{OH_Data_Value, OH_Data_Values, Rdb_ConflictResolution};
 use crate::value_object::OH_VObject;
@@ -464,6 +466,9 @@ pub struct Rdb_ProgressDetails {
 ///
 /// # Arguments
 ///
+/// * `context` - Represents user-provided data context,
+/// which will be passed back into the function when invoked.
+///
 /// * `progressDetails` - The details of the sync progress.
 /// [`Rdb_ProgressDetails.`]
 /// Available since API-level: 11
@@ -500,6 +505,26 @@ pub struct Rdb_ProgressObserver {
     /// The callback function of progress observer.
     pub callback: Rdb_ProgressCallback,
 }
+/// The callback function of database corruption handle.
+///
+/// # Arguments
+///
+/// * `context` - Represents the context corruption handler.
+///
+/// * `config` - Represents a pointer to an OH_Rdb_ConfigV2 configuration of the database related to this RDB store.
+///
+/// * `store` - Represents a pointer to an OH_Rdb_Store instance.
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub type Rdb_CorruptedHandler = ::core::option::Option<
+    unsafe extern "C" fn(
+        context: *mut ::core::ffi::c_void,
+        config: *mut OH_Rdb_ConfigV2,
+        store: *mut OH_Rdb_Store,
+    ),
+>;
 extern "C" {
     /// Create OH_Rdb_ConfigV2 which is used to open store
     ///
@@ -1096,6 +1121,12 @@ extern "C" {
     ) -> ::core::ffi::c_int;
     /// Inserts a batch of data into the target table.
     ///
+    /// A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+    /// the error code RDB_E_INVALID_ARGS is returned. The product of the number of inserted data records and the size of
+    /// the union of all fields in the inserted data equals the number of parameters. For example, if the size of the union
+    /// is 10, a maximum of 3276 data records can be inserted (3276 × 10 = 32760). Ensure that your application complies
+    /// with this constraint when calling this API to avoid errors caused by excessive parameters.
+    ///
     /// # Arguments
     ///
     /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
@@ -1254,6 +1285,57 @@ extern "C" {
         predicates: *mut OH_Predicates,
         columnNames: *const *const ::core::ffi::c_char,
         length: ::core::ffi::c_int,
+    ) -> *mut OH_Cursor;
+    /// Queries data in the database based on specified conditions without row count.
+    ///
+    /// # Arguments
+    ///
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    ///
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// Indicates the specified query condition.
+    ///
+    /// * `columns` - Indicates the columns to query. If the value is empty array, the query applies to all columns.
+    ///
+    /// * `length` - Indicates the length of columns.
+    ///
+    /// # Returns
+    ///
+    /// * If the query is successful, a pointer to the instance of the [`OH_Cursor`] structure is returned.
+    /// If Get store failed or resultSet is nullptr, nullptr is returned.
+    /// [`OH_Rdb_Store,`] OH_Predicates, OH_Cursor.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Rdb_QueryWithoutRowCount(
+        store: *mut OH_Rdb_Store,
+        predicates: *mut OH_Predicates,
+        columns: *const *const ::core::ffi::c_char,
+        length: ::core::ffi::c_int,
+    ) -> *mut OH_Cursor;
+    /// Queries data in the database based on an SQL statement without row count.
+    ///
+    /// # Arguments
+    ///
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    ///
+    /// * `sql` - Indicates the SQL statement to execute.
+    ///
+    /// * `args` - Represents a pointer to an instance of OH_Data_Values and it is the selection arguments.
+    ///
+    /// # Returns
+    ///
+    /// * If the query is successful, a pointer to the instance of the [`OH_Cursor`] structure is returned.
+    /// If sql statement is invalid or the memory allocate failed, nullptr is returned.
+    /// [`OH_Rdb_Store.`]
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Rdb_QuerySqlWithoutRowCount(
+        store: *mut OH_Rdb_Store,
+        sql: *const ::core::ffi::c_char,
+        args: *const OH_Data_Values,
     ) -> *mut OH_Cursor;
     /// Executes an SQL statement.
     ///
@@ -1988,5 +2070,223 @@ extern "C" {
     pub fn OH_Rdb_SetLocale(
         store: *mut OH_Rdb_Store,
         locale: *const ::core::ffi::c_char,
+    ) -> ::core::ffi::c_int;
+    /// Registers corrupted handler for the database.
+    ///
+    /// # Arguments
+    ///
+    /// * `config` - Represents a pointer to an OH_Rdb_ConfigV2 configuration of the database related to this RDB store.
+    ///
+    /// * `context` - Represents the context corruption handle.
+    ///
+    /// * `handler` - The callback function of database corruption handle.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`RDB_OK`] if the execution is successful.
+    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_E_SUB_OVER_LIMIT`] - Indicates the number of subscriptions exceeds the limit.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`OH_Rdb_RegisterCorruptedHandler.`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Rdb_RegisterCorruptedHandler(
+        config: *const OH_Rdb_ConfigV2,
+        context: *mut ::core::ffi::c_void,
+        handler: Rdb_CorruptedHandler,
+    ) -> ::core::ffi::c_int;
+    /// Unregisters corrupted handler for the database.
+    ///
+    /// # Arguments
+    ///
+    /// * `config` - Represents a pointer to an OH_Rdb_ConfigV2 configuration of the database related to this RDB store.
+    ///
+    /// * `context` - Represents the context corruption handle.
+    ///
+    /// * `handler` - The callback function of database corruption handle.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`RDB_OK`] if the execution is successful.
+    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`OH_Rdb_UnregisterCorruptedHandler.`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Rdb_UnregisterCorruptedHandler(
+        config: *const OH_Rdb_ConfigV2,
+        context: *mut ::core::ffi::c_void,
+        handler: Rdb_CorruptedHandler,
+    ) -> ::core::ffi::c_int;
+    /// Change the encrypted database key.
+    /// # Arguments
+    ///
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    ///
+    /// * `param` - Represents a pointer to an instance of OH_Rdb_CryptoParam.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// Returns [`RDB_OK`] if the execution is successful.
+    /// Returns [`RDB_E_ERROR`] database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Rdb_RekeyEx(
+        store: *mut OH_Rdb_Store,
+        param: *mut OH_Rdb_CryptoParam,
+    ) -> ::core::ffi::c_int;
+    /// Inserts a batch of data into the target table and output change info to context.
+    ///
+    /// A maximum of 32766 parameters can be inserted at a time. If the number of parameters exceeds the upper limit,
+    /// the error code RDB_E_INVALID_ARGS is returned. The product of the number of inserted data records and the size of
+    /// the union of all fields in the inserted data equals the number of parameters. For example, if the size of the union
+    /// is 10, a maximum of 3276 data records can be inserted (3276 × 10 = 32760). Ensure that your application complies
+    /// with this constraint when calling this API to avoid errors caused by excessive parameters.
+    ///
+    /// # Arguments
+    ///
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    ///
+    /// * `table` - Represents the target table.
+    ///
+    /// * `rows` - Represents the rows data to be inserted into the table.
+    ///
+    /// * `resolution` - Represents the resolution when conflict occurs.
+    ///
+    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`] instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// Returns [`RDB_OK`] if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
+    /// Returns [`RDB_E_NOT_SUPPORTED`] The error code for not support.
+    /// Returns [`RDB_E_DATABASE_BUSY`] The error code for database busy.
+    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
+    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
+    /// Possible causes: syntax error, such as a table or column not existing.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`OH_Rdb_Store,`] OH_Data_VBuckets, OH_Rdb_ErrCode, OH_RDB_ReturningContext.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Rdb_BatchInsertWithReturning(
+        store: *mut OH_Rdb_Store,
+        table: *const ::core::ffi::c_char,
+        rows: *const OH_Data_VBuckets,
+        resolution: Rdb_ConflictResolution,
+        context: *mut OH_RDB_ReturningContext,
+    ) -> ::core::ffi::c_int;
+    /// Updates data in the database based on specified conditions and output change info to context.
+    ///
+    /// # Arguments
+    ///
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    ///
+    /// * `row` - Represents the row data to be updated into the table.
+    ///
+    /// * `predicates` - Represents a pointer to an {link OH_Predicates} instance.
+    ///
+    /// * `resolution` - Represents the resolution when conflict occurs.
+    ///
+    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`] instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// Returns [`RDB_OK`] if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
+    /// Returns [`RDB_E_NOT_SUPPORTED`] The error code for not support.
+    /// Returns [`RDB_E_EMPTY_VALUES_BUCKET`] The error code for a values bucket is empty.
+    /// Returns [`RDB_E_DATABASE_BUSY`] The error code for database busy.
+    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
+    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
+    /// Possible causes: syntax error, such as a table or column not existing.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`OH_Rdb_Store,`] OH_Data_VBuckets, OH_Predicates, OH_Rdb_ErrCode, OH_RDB_ReturningContext.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Rdb_UpdateWithReturning(
+        store: *mut OH_Rdb_Store,
+        row: *mut OH_VBucket,
+        predicates: *mut OH_Predicates,
+        resolution: Rdb_ConflictResolution,
+        context: *mut OH_RDB_ReturningContext,
+    ) -> ::core::ffi::c_int;
+    /// Deletes data from the database based on specified conditions and output change info to context.
+    ///
+    /// # Arguments
+    ///
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    ///
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    ///
+    /// * `context` - Represents a pointer to an [`OH_RDB_ReturningContext`] instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// Returns [`RDB_OK`] if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
+    /// Returns [`RDB_E_NOT_SUPPORTED`] The error code for not support.
+    /// Returns [`RDB_E_DATABASE_BUSY`] The error code for database busy.
+    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
+    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
+    /// Possible causes: syntax error, such as a table or column not existing.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`OH_Rdb_Store,`] OH_Predicates, OH_Rdb_ErrCode, OH_RDB_ReturningContext.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Rdb_DeleteWithReturning(
+        store: *mut OH_Rdb_Store,
+        predicates: *mut OH_Predicates,
+        context: *mut OH_RDB_ReturningContext,
     ) -> ::core::ffi::c_int;
 }

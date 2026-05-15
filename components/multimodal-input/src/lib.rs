@@ -19,3 +19,7 @@ extern "C" {}
 pub mod axis_type;
 pub mod input_manager;
 pub mod key_code;
+
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub mod pointer_style;

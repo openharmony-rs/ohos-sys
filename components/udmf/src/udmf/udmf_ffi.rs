@@ -1328,6 +1328,7 @@ extern "C" {
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     /// [`UDMF_ERR`] Internal data error.
+    /// The possible cause is that the server is faulty or the memory is insufficient.
     /// [`OH_UdmfProperty`] Udmf_Intention Udmf_ErrCode.
     ///
     /// Available since API-level: 12
@@ -1345,6 +1346,7 @@ extern "C" {
     /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`].
     ///
     /// * `dataArray` - Represents output params of [`OH_UdmfData`].
+    /// It should be accessed using [`OH_UDMF_GetDataElementAt`] to retrieve elements by index.
     /// This pointer needs to be released using the [`OH_Udmf_DestroyDataArray`] function.
     ///
     /// * `dataSize` - Represents the data count of output params.
@@ -1355,6 +1357,7 @@ extern "C" {
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     /// [`UDMF_ERR`] Internal data error.
+    /// The possible cause is that the server is faulty or the memory is insufficient.
     /// [`OH_UdmfData`] Udmf_Intention Udmf_ErrCode.
     ///
     /// Available since API-level: 20
@@ -1384,6 +1387,7 @@ extern "C" {
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     /// [`UDMF_ERR`] Internal data error.
+    /// The possible cause is that the server is faulty or the memory is insufficient.
     /// [`OH_UdmfProperty`] Udmf_Intention Udmf_ErrCode.
     ///
     /// Available since API-level: 12
@@ -1414,6 +1418,7 @@ extern "C" {
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     /// [`UDMF_ERR`] Internal data error.
+    /// The possible cause is that the server is faulty or the memory is insufficient.
     /// [`OH_UdmfOptions`] OH_UdmfData Udmf_ErrCode.
     ///
     /// Available since API-level: 20
@@ -1439,6 +1444,7 @@ extern "C" {
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     /// [`UDMF_ERR`] Internal data error.
+    /// The possible cause is that the server is faulty or the memory is insufficient.
     /// [`OH_UdmfOptions`] OH_UdmfData Udmf_ErrCode.
     ///
     /// Available since API-level: 20
@@ -1455,6 +1461,7 @@ extern "C" {
     /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`].
     ///
     /// * `dataArray` - Represents output params of [`OH_UdmfData`].
+    /// It should be accessed using [`OH_UDMF_GetDataElementAt`] to retrieve elements by index.
     /// This pointer needs to be released using the [`OH_Udmf_DestroyDataArray`] function.
     ///
     /// * `dataSize` - Represents the data count of output params.
@@ -1465,6 +1472,7 @@ extern "C" {
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     /// [`UDMF_ERR`] Internal data error.
+    /// The possible cause is that the server is faulty or the memory is insufficient.
     /// [`OH_UdmfData`] Udmf_Intention Udmf_ErrCode.
     ///
     /// Available since API-level: 20
@@ -1475,6 +1483,25 @@ extern "C" {
         dataArray: *mut *mut OH_UdmfData,
         dataSize: *mut ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
+    /// Gets the pointer to the element at the specified index from the input array.
+    ///
+    /// # Arguments
+    ///
+    /// * `dataArray` - A pointer to an array of [`OH_UdmfData`] pointers.
+    ///
+    /// * `index` - The index of the desired element. Note that the input index should not exceed the array range.
+    ///
+    /// # Returns
+    ///
+    /// * A pointer to the [`OH_UdmfData`] element at the specified index; returns NULL if the array is NULL.
+    /// [`OH_UdmfData`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UDMF_GetDataElementAt(
+        dataArray: *mut *mut OH_UdmfData,
+        index: ::core::ffi::c_uint,
+    ) -> *mut OH_UdmfData;
     /// Destroy data array memory.
     ///
     /// # Arguments
