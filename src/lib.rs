@@ -22,6 +22,10 @@ pub use arkui_sys as arkui;
 #[cfg_attr(docsrs, doc(cfg(feature = "asset-store")))]
 pub use ohos_asset_store_sys as asset_store;
 
+#[cfg(feature = "basic-services-kit")]
+#[cfg_attr(docsrs, doc(cfg(feature = "basic-services-kit")))]
+pub use ohos_basic_services_kit_sys as basic_services_kit;
+
 #[cfg(feature = "crypto")]
 #[cfg_attr(docsrs, doc(cfg(feature = "crypto")))]
 pub use ohos_crypto_sys as crypto;

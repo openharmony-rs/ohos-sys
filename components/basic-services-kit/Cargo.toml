@@ -1,0 +1,82 @@
+[package]
+name = "ohos-basic-services-kit-sys"
+version = "0.1.0"
+edition = "2021"
+description = "Raw bindings to the BasicServicesKit NDK of OpenHarmony"
+license = "Apache-2.0"
+repository = "https://github.com/openharmony-rs/ohos-sys"
+keywords = ["OpenHarmony", "HarmonyOS", "ffi", "commonevent", "BasicServicesKit"]
+readme = "README.md"
+
+[dependencies]
+document-features = { version = "0.2", optional = true }
+
+[features]
+default = []
+
+#! ### Sub-APIs
+#!
+#! BasicServicesKit groups several unrelated system-service APIs under one
+#! upstream kit. Each NDK lives in a separate shared library, so each is
+#! exposed behind its own cargo feature. A sub-API feature is a no-op unless
+#! the matching `api-XX` feature is also enabled (CommonEvent / Print / Scan
+#! / OS Account / Time Service require `api-12`; BatteryInfo requires
+#! `api-13`).
+
+## Enables the CommonEvent NDK (`libohcommonevent.so`). Requires `api-12`.
+commonevent = []
+## Enables the BatteryInfo NDK (`libohbattery_info.so`). Requires `api-13`.
+battery-info = []
+## Enables the Print NDK (`libohprint.so`). Requires `api-12`.
+print = []
+## Enables the Scan NDK (`libohscan.so`). Requires `api-12`.
+scan = []
+## Enables the OS Account NDK (`libos_account_ndk.so`). Requires `api-12`.
+os-account = []
+## Enables the Time Service NDK (`libtime_service_ndk.so`). Requires `api-12`.
+time-service = []
+
+## Enables every sub-API in this kit.
+all-apis = [
+    "commonevent",
+    "battery-info",
+    "print",
+    "scan",
+    "os-account",
+    "time-service",
+]
+
+#! ### OpenHarmony API level
+
+## Enables bindings for OpenHarmony API-level 12. BasicServicesKit is first
+## available at this API level, so this is the minimum supported feature.
+api-12 = []
+## Enables bindings for OpenHarmony API-level 13. Adds BatteryInfo.
+api-13 = ["api-12"]
+## Enables bindings for OpenHarmony API-level 14 (No changes).
+api-14 = ["api-13"]
+## Enables bindings for OpenHarmony API-level 15 (No changes).
+api-15 = ["api-14"]
+## Enables bindings for OpenHarmony API-level 16 (No changes).
+api-16 = ["api-15"]
+## Enables bindings for OpenHarmony API-level 17 (No changes).
+api-17 = ["api-16"]
+## Enables bindings for OpenHarmony API-level 18. Adds the CommonEvent
+## publish APIs and the ordered-event subscriber APIs.
+api-18 = ["api-17"]
+## Enables bindings for OpenHarmony API-level 19 (No changes).
+api-19 = ["api-18"]
+## Enables bindings for OpenHarmony API-level 20. Adds the CommonEvent
+## `SENDING_LIMIT_EXCEEDED` error variant.
+api-20 = ["api-19"]
+## Enables bindings for OpenHarmony API-level 21 (No changes).
+api-21 = ["api-20"]
+
+#! ### Internal features
+## Document available features when building the documentation
+document-features = ["dep:document-features"]
+
+[package.metadata.docs.rs]
+features = ["document-features", "all-apis", "api-21"]
+targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
+all-features = true
