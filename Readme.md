@@ -22,7 +22,7 @@ already been generated.
 | LocationKit                             | ✅      | 21        | [ohos-locationkit-sys]    |
 | NotificationKit                         |        |           |                           |
 | TEEKit                                  |        |           |                           |
-| accesstoken                             |        |           |                           |
+| accesstoken                             | ✅      | 21        | [ohos-accesstoken-sys]    |
 | ace/xcomponent                          | ✅      | 21        | [xcomponent-sys]          |
 | ark_runtime                             |        |           |                           |
 | arkui                                   | ✅      | 21        | [arkui-sys]               |
@@ -40,7 +40,7 @@ already been generated.
 | hilog                                   | ✅      | 21        | [hilog-sys]               |
 | hitrace                                 | ✅      | 21        | [hitrace-sys]             |
 | huks                                    | ✅      | 21        | [ohos-huks-sys]           |
-| info                                    |        |           |                           |
+| info                                    | ✅      | 21        | [ohos-deviceinfo-sys]     |
 | inputmethod                             | ✅      | 21        | [ohos-ime-sys]            |
 | mindspore                               |        |           |                           |
 | multimedia/av_session                   |        |           |                           |
@@ -111,6 +111,8 @@ already been generated.
 [ohos-basic-services-kit-sys]: https://docs.rs/ohos-basic-services-kit-sys/latest/ohos_basic_services_kit_sys/
 [ohos-crypto-sys]: https://docs.rs/ohos-crypto-sys/latest/ohos_crypto_sys/
 [ohos-huks-sys]: https://docs.rs/ohos-huks-sys/latest/ohos_huks_sys/
+[ohos-accesstoken-sys]: https://docs.rs/ohos-accesstoken-sys/latest/ohos_accesstoken_sys/
+[ohos-deviceinfo-sys]: https://docs.rs/ohos-deviceinfo-sys/latest/ohos_deviceinfo_sys/
 
 
 ## Development
