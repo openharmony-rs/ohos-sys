@@ -235,7 +235,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
                     .allowlist_file(header_path.to_str().unwrap())
-                    .blocklist_file(".*graphic_error_code.h");
+                    .blocklist_file(".*graphic_error_code.h")
+                    .clang_args(["-include", "stdbool.h"]);
                 match file_stem {
                     "native_buffer" => builder
                         .raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")

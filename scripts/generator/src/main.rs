@@ -568,6 +568,8 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
         }
         debug!("Generating binding: {}", binding.include_filename);
         let builder = base_builder.clone().header(header_filename_str);
+        // Transitively pulled in.
+        let builder = builder.blocklist_file(r".*/info/application_target_sdk_version\.h");
         let builder = (binding.set_builder_opts)(builder);
         let bindings = builder.generate().context("Bindgen failed")?;
 
