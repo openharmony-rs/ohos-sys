@@ -6,6 +6,8 @@
 #![allow(deprecated)]
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
+#[cfg(feature = "api-23")]
+use ohos_sys_opaque_types::OH_PixelmapNative;
 
 /// Key to get the album title of the media source, value type is const char*.
 ///
@@ -200,3 +202,53 @@ pub const OH_AVMETADATA_EXTRACTOR_LOCATION_LATITUDE: &::core::ffi::CStr = c"lati
 #[cfg(feature = "api-18")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 pub const OH_AVMETADATA_EXTRACTOR_LOCATION_LONGITUDE: &::core::ffi::CStr = c"longitude";
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl OH_AVMetadataExtractor_FetchState {
+    /// Fetch operation is failed
+    pub const OH_AVMETADATA_EXTRACTOR_FETCH_FAILED: OH_AVMetadataExtractor_FetchState =
+        OH_AVMetadataExtractor_FetchState(0);
+    /// Fetch operation is success
+    pub const OH_AVMETADATA_EXTRACTOR_FETCH_SUCCEEDED: OH_AVMetadataExtractor_FetchState =
+        OH_AVMetadataExtractor_FetchState(1);
+    /// Fetch operation is cancelled by user
+    pub const OH_AVMETADATA_EXTRACTOR_FETCH_CANCELED: OH_AVMetadataExtractor_FetchState =
+        OH_AVMetadataExtractor_FetchState(2);
+}
+#[repr(transparent)]
+/// Enumerates the fetch frame result.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AVMetadataExtractor_FetchState(pub ::core::ffi::c_uint);
+/// defines the output param for frames fetched by AVMetadataExtractor
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[repr(C)]
+pub struct OH_AVMetadataExtractor_OutputParam {
+    _unused: [u8; 0],
+}
+/// defines the frame info fetched from video
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_AVMetadataExtractor_FrameInfo {
+    /// The request time passed by user
+    pub requestTimeUs: i64,
+    /// The actual time for the fetched frame, -1 if failed to fetch
+    pub actualTimeUs: i64,
+    /// The frame fetched from video, nullptr if failed to fecth
+    pub image: *mut OH_PixelmapNative,
+    /// The frame fetched result
+    pub result: OH_AVMetadataExtractor_FetchState,
+}

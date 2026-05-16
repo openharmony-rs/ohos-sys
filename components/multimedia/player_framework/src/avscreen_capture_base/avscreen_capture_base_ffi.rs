@@ -156,6 +156,45 @@ impl OH_ContainerFormatType {
 /// Version: 1.0
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_ContainerFormatType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl OH_CapturePickerMode {
+    /// Show application window options only
+    pub const OH_CAPTURE_PICKER_MODE_WINDOW_ONLY: OH_CapturePickerMode = OH_CapturePickerMode(0);
+    /// Show physical screen options only
+    pub const OH_CAPTURE_PICKER_MODE_SCREEN_ONLY: OH_CapturePickerMode = OH_CapturePickerMode(1);
+    /// Show both screen and window options (default mode)
+    pub const OH_CAPTURE_PICKER_MODE_SCREEN_AND_WINDOW: OH_CapturePickerMode =
+        OH_CapturePickerMode(2);
+}
+#[repr(transparent)]
+/// Capture source selector display mode enumeration
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_CapturePickerMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl OH_ScreenCaptureHighlightMode {
+    /// Default mode, highlight recording area with closed border
+    pub const OH_HIGHLIGHT_MODE_CLOSED: OH_ScreenCaptureHighlightMode =
+        OH_ScreenCaptureHighlightMode(0);
+    /// highlight recording area with corner wrap border
+    pub const OH_HIGHLIGHT_MODE_CORNER_WRAP: OH_ScreenCaptureHighlightMode =
+        OH_ScreenCaptureHighlightMode(1);
+}
+#[repr(transparent)]
+/// Screen recording highlight mode definition
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_ScreenCaptureHighlightMode(pub ::core::ffi::c_uint);
 /// Audio capture info struct
 ///
 /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
@@ -261,6 +300,22 @@ pub struct OH_RecorderInfo {
     pub url: *mut ::core::ffi::c_char,
     pub urlLen: u32,
     pub fileFormat: OH_ContainerFormatType,
+}
+/// Highlight configure for Capture rectangle frame info
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct OH_AVScreenCaptureHighlightConfig {
+    /// define the style of the capture area frame.
+    pub mode: OH_ScreenCaptureHighlightMode,
+    /// define the thickness of the frame line
+    pub lineThickness: u32,
+    /// define the color of the frame line
+    pub lineColor: u32,
 }
 /// AV screeen capture config info
 ///

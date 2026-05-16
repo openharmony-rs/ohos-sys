@@ -63,6 +63,59 @@ extern "C" {
         fontBuffer: *mut u8,
         length: usize,
     ) -> u32;
+    /// Defines an <b>OH_Drawing_RegisterFontByIndex</b>, which is used to register font from ttc file.
+    ///
+    /// # Arguments
+    ///
+    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    ///
+    /// * `fontFamily` - Indicates the family name of the font which need to register.
+    ///
+    /// * `familySrc` - Indicates the path of the font file which need to register.
+    ///
+    /// * `index` - Indicates the index of the font data in the ttc file.
+    ///
+    /// # Returns
+    ///
+    /// * error code.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RegisterFontByIndex(
+        fontCollection: *mut OH_Drawing_FontCollection,
+        fontFamily: *const ::core::ffi::c_char,
+        familySrc: *const ::core::ffi::c_char,
+        index: u32,
+    ) -> u32;
+    /// Defines an <b>OH_Drawing_RegisterFontBufferByIndex</b>, which is used to register font from ttc buffer.
+    ///
+    /// # Arguments
+    ///
+    /// * `fontCollection` - Indicates the pointer to an <b>OH_Drawing_FontCollection</b> object.
+    ///
+    /// * `fontFamily` - Indicates the family name of the font which need to register.
+    ///
+    /// * `fontBuffer` - Indicates the font data which need to register.
+    ///
+    /// * `length` - Indicates the font data length.
+    ///
+    /// * `index` - Indicates the index of the font data in the ttc file.
+    ///
+    /// # Returns
+    ///
+    /// * error code.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_RegisterFontBufferByIndex(
+        fontCollection: *mut OH_Drawing_FontCollection,
+        fontFamily: *const ::core::ffi::c_char,
+        fontBuffer: *mut u8,
+        length: usize,
+        index: u32,
+    ) -> u32;
     /// Unregister a customized font by the font family.
     /// Unregistering a font that is currently in use by UI components may lead to text rendering anomalies,
     /// including garbled characters or missing glyphs.
@@ -87,4 +140,34 @@ extern "C" {
         fontCollection: *mut OH_Drawing_FontCollection,
         fontFamily: *const ::core::ffi::c_char,
     ) -> u32;
+    /// Checks whether the font format specified by the path is supported.
+    ///
+    /// # Arguments
+    ///
+    /// * `path` - The absolute path to the font file.
+    ///
+    /// # Returns
+    ///
+    /// * Returns true if the font is supported; otherwise, returns false.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_IsFontSupportedFromPath(path: *const ::core::ffi::c_char) -> bool;
+    /// Checks whether the font format specified by the buffer is supported.
+    ///
+    /// # Arguments
+    ///
+    /// * `data` - A pointer to the memory buffer containing font data.
+    ///
+    /// * `dataLength` - The size of the font data in bytes.
+    ///
+    /// # Returns
+    ///
+    /// * Returns true if the font is supported; otherwise, returns false.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_IsFontSupportedFromBuffer(data: *mut u8, dataLength: usize) -> bool;
 }

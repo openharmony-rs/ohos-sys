@@ -227,10 +227,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
+    /// * 0 - Success.
     /// 401 - Parameter error. 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.INTERNET
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -250,10 +249,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
+    /// * 0 - Success.
+    /// 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.INTERNET
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -278,9 +276,7 @@ extern "C" {
     ///
     /// * Returns the result code.
     /// [`NETMANAGER_EXT_SUCCESS`] if the operation is successful.
-    /// [`NETMANAGER_ERR_PERMISSION_DENIED`] Missing permissions, add permission.
     /// [`NETMANAGER_ERR_PARAMETER_ERROR`] Parameter error. Please enter a correct parameter.
-    /// ohos.permission.INTERNET
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -295,10 +291,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * 0 - Success. 201 - Missing permissions.
-    /// 401 - Parameter error. 2100002 - Unable to connect to service.
+    /// * 0 - Success.
+    /// 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.INTERNET
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///

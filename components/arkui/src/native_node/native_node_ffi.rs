@@ -4,7 +4,11 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_type::*;
+#[cfg(feature = "api-22")]
+use crate::ui_input_event::ArkUI_TouchTestInfo;
 use crate::ui_input_event::ArkUI_UIInputEvent;
+#[cfg(feature = "api-12")]
+use ohos_sys_opaque_types::ArkUI_ContextHandle;
 #[cfg(feature = "api-15")]
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
@@ -107,6 +111,12 @@ impl ArkUI_NodeType {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const ARKUI_NODE_UNDEFINED: ArkUI_NodeType = ArkUI_NodeType(1017);
+    /// Picker container.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const ARKUI_NODE_PICKER: ArkUI_NodeType = ArkUI_NodeType(1018);
 }
 #[repr(transparent)]
 /// Enumerates ArkUI component types that can be created on the native side.
@@ -117,7 +127,8 @@ impl ArkUI_NodeType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeType(pub ::core::ffi::c_uint);
-/// Defines the general input parameter structure of the [`setAttribute`] function.
+/// Defines the general input parameter structure of the [`setAttribute`] function. The property
+/// setting interfaces can utilize the member variables within it to store data of specific parameter types.
 ///
 ///
 /// Available since API-level: 12
@@ -126,13 +137,13 @@ pub struct ArkUI_NodeType(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AttributeItem {
-    /// Numeric array.
+    /// A number array, used to store parameters of the number array type.
     pub value: *const ArkUI_NumberValue,
-    /// Size of the numeric array.
+    /// The size of the number array, used together with the variable value, indicating the length of the value array.
     pub size: i32,
-    /// String type.
+    /// String type, used to store parameters of the string type.
     pub string: *const ::core::ffi::c_char,
-    /// Object type.
+    /// Object type, used to store parameters of the object type.
     pub object: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "api-12")]
@@ -603,7 +614,7 @@ impl ArkUI_NodeAttributeType {
     /// This attribute can be set and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute,
-    /// which supports five types of shapes:
+    /// which supports four types of shapes:
     ///
     /// 1. Rectangle:
     ///
@@ -626,6 +637,8 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[8]?.f32: radius of the bottom right corner of the rectangular shape.
     ///
+    /// ?.object: clipOption of the rectangle. The parameter type is [`ArkUI_RenderNodeClipOption`] type.
+    /// It takes effect when only the .object parameter is passed, ArkUI_RenderNodeClipOption type is rectangle, and .size must be equal to 1.
     /// 2. Circle:
     ///
     /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
@@ -635,6 +648,8 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: height of the circle.
     ///
+    /// ?.object: clipOption of the circle. The parameter type is [`ArkUI_RenderNodeClipOption`] type.
+    /// It takes effect when only the .object parameter is passed, ArkUI_RenderNodeClipOption type is circle, and .size must be equal to 1.
     /// 3.Ellipse:
     ///
     /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
@@ -644,6 +659,8 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: height of the ellipse.
     ///
+    /// ?.object: clipOption of the ellipse. The parameter type is [`ArkUI_RenderNodeClipOption`] type.
+    /// It takes effect when only the .object parameter is passed, ArkUI_RenderNodeClipOption type is ellipse, and .size must be equal to 1.
     /// 4. Path:
     ///
     /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
@@ -655,7 +672,9 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: command for drawing the path.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`], which supports five types of shapes:
+    /// ?.object: clipOption of the path. The parameter type is [`ArkUI_RenderNodeClipOption`] type.
+    /// It takes effect when only the .object parameter is passed, ArkUI_RenderNodeClipOption type is path, and .size must be equal to 1.
+    /// Format of the return value [`ArkUI_AttributeItem`], which supports four types of shapes:
     ///
     /// 1. Rectangle:
     ///
@@ -678,6 +697,10 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[8].f32: radius of the bottom right corner of the rectangular shape;
     ///
+    /// .value[9]?.f32: horizontal coordinate offset of the rectangle.
+    ///
+    /// .value[10]?.f32: vertical coordinate offset of the rectangle.
+    ///
     /// 2. Circle:
     ///
     /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
@@ -687,6 +710,10 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: height of the circle.
     ///
+    /// .value[3]?.f32: horizontal coordinate offset of the circle.
+    ///
+    /// .value[4]?.f32: vertical coordinate offset of the circle.
+    ///
     /// 3.Ellipse:
     ///
     /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
@@ -695,6 +722,10 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].f32: width of the ellipse.
     ///
     /// .value[2].f32: height of the ellipse.
+    ///
+    /// .value[3]?.f32: horizontal coordinate offset of the ellipse.
+    ///
+    /// .value[4]?.f32: vertical coordinate offset of the ellipse.
     ///
     /// 4. Path:
     ///
@@ -1171,36 +1202,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
-    /// .string: mask text.
-    ///
-    /// .value[0]?.i32: position of the overlay relative to the component. Optional.
-    /// The parameter type is [`ArkUI_Alignment`].
-    /// The default value is <b>ARKUI_ALIGNMENT_TOP_START.</b>
-    ///
-    /// .value[1]?.f32: offset of the overlay relative to the upper left corner of itself on the x-axis, in vp. Optional.
-    ///
-    /// .value[2]?.f32: offset of the overlay relative to the upper left corner of itself on the y-axis, in vp. Optional.
-    ///
-    ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
-    ///
-    /// .string: mask text.
-    ///
-    /// .value[0].i32: position of the overlay relative to the component.
-    /// The parameter type is [`ArkUI_Alignment`].
-    /// The default value is <b>ARKUI_ALIGNMENT_TOP_START.</b>
-    ///
-    /// .value[1].f32: offset of the overlay relative to the upper left corner of itself on the x-axis, in vp.
-    ///
-    /// .value[2].f32: offset of the overlay relative to the upper left corner of itself on the y-axis, in vp.
-    ///
-    ///
-    /// Available since API-level: 12
-    ////**
-    /// Defines the overlay attribute, which can be set, reset, and obtained as required through APIs.
-    ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
-    ///
+    /// You can set the overlay content through .string or .object as follow, and .string has higher priority.
     /// .string: mask text.
     ///
     /// .value[0]?.i32: position of the overlay relative to the component. Optional.
@@ -1213,7 +1215,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     /// .value[3]?.i32: the layout direction.
-    /// The parameter type is [`ArkUI_Direction`].
+    /// The parameter type is [`ArkUI_Direction`], supported since API 21.
     /// The default value is <b>ARKUI_DIRECTION_LTR.</b>
     ///
     /// In most cases, this parameter should be set to Auto, this allowing the system to handle
@@ -1225,7 +1227,7 @@ impl ArkUI_NodeAttributeType {
     /// The parameter type is [`ArkUI_NodeHandle`].
     /// The default value is <b>nullptr.</b>
     ///
-    /// this parameter is conflict with .string, and it has lower priority than .string. Optional.
+    /// this parameter is conflict with .string, and it has lower priority than .string.
     ///
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
@@ -1240,16 +1242,10 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: offset of the overlay relative to the upper left corner of itself on the y-axis, in vp.
     /// .value[3].i32: the layout direction.
-    /// The parameter type is [`ArkUI_Direction`].
+    /// The parameter type is [`ArkUI_Direction`], supported since API 21.
     /// The default value is <b>ARKUI_DIRECTION_LTR.</b>
     ///
     /// .object: the overlay node handle.
-    ///
-    ///
-    ///
-    /// Available since API-level: 21
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NODE_OVERLAY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(42);
     /// Defines the sweep gradient effect.
     /// This attribute can be set, reset, and obtained as required through APIs.
@@ -2350,6 +2346,32 @@ impl ArkUI_NodeAttributeType {
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
     /// .value[...].f32: threshold array.
+    ///
+    ///
+    ///
+    /// Available since API-level: 12
+    ////**
+    /// Defines the visible area ratio (visible area/total area of the component) threshold for invoking the
+    /// visible area change event of the component, this enum extends the configuration capbility.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[...].f32: threshold array. The value range is 0 to 1.
+    /// .?object: pass in one [`ArkUI_VisibleAreaEventOptions`] objcet for configging the ratio or other options.
+    /// Please note, when use this param, the ratios set through .value[...].f32 will be ignored, and the update
+    /// interval from it is always ignored too.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[...].f32: threshold array.
+    ///
+    /// .object: the [`ArkUI_VisibleAreaEventOptions`] objcet.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NODE_VISIBLE_AREA_CHANGE_RATIO: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(93);
     /// Sets the transition effect when the component is inserted or deleted.
     /// This attribute can be set, and obtained as required through APIs.
@@ -2701,6 +2723,317 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const NODE_PIXEL_ROUND: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(109);
+    /// Defines the motion path attribute, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object indicates a pointer to the ArkUI_MotionPathOptions. The parameter type is
+    /// [`ArkUI_MotionPathOptions`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object indicates a pointer to the ArkUI_MotionPathOptions. The parameter type is
+    /// [`ArkUI_MotionPathOptions`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_MOTION_PATH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(111);
+    /// Defines the hover effect applied when the component is hovered over. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Hover effect applied when the component is hovered over.
+    /// The parameter type is [`ArkUI_HoverEffect`]. The default value is <b>ARKUI_HOVER_EFFECT_AUTO</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Hover effect applied when the component is hovered over.
+    /// The parameter type is [`ArkUI_HoverEffect`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_HOVER_EFFECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(112);
+    /// Configures the container as a focus group with the specified identifier. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .string: focus scope identifier.
+    ///
+    /// .value[0]?.i32: whether the scope is a focus group. The default value is <b>0</b>. The value is <b>1</b> or <b>0</b>.
+    ///
+    /// .value[1]?.i32: whether arrow keys can move focus outside the focus group. This setting only takes effect when <b>isGroup</b> is <b>true</b>. The default value is <b>1</b>.
+    /// The value is <b>1</b> or <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .string: focus scope identifier.
+    ///
+    /// .value[0]?.i32: whether the scope is a focus group. The default value is <b>0</b>. The value is <b>1</b> or <b>0</b>.
+    ///
+    /// .value[1]?.i32: whether arrow keys can move focus outside the focus group. This setting only takes effect when <b>isGroup</b> is <b>true</b>. The default value is <b>1</b>.
+    /// The value is <b>1</b> or <b>0</b>.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_FOCUS_SCOPE_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(113);
+    /// Sets the component focus priority within a specific focus scope. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .string: focus scope identifier.
+    ///
+    /// .value[0]?.i32: focus priority within the focus scope. The parameter type is [`ArkUI_FocusPriority`].
+    /// The default value is <b>ARKUI_FOCUS_PRIORITY_AUTO</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .string: focus scope identifier.
+    ///
+    /// .value[0]?.i32: focus priority within the focus scope. The parameter type is [`ArkUI_FocusPriority`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_FOCUS_SCOPE_PRIORITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(114);
+    /// Sets the distance threshold for click events. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    ///
+    /// **Note:** If finger movement exceeds the preset distance limit, click event recognition will fail.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: distance threshold for click events.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: distance threshold for click events.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_ON_CLICK_EVENT_DISTANCE_THRESHOLD: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(115);
+    /// Defines the component event response region. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .data[0].i32: input tool type for the response region, specified using the [`ArkUI_ResponseRegionSupportedTool`] enum. Default value: <b>ARKUI_RESPONSE_REGIN_SUPPORTED_TOOL_ALL</b>.
+    /// .data[1].f32: x-coordinate of the pointer position relative to the upper left corner of the component, in vp.
+    ///
+    /// .data[2].f32: y-coordinate of the pointer position relative to the upper left corner of the component, in vp.
+    ///
+    /// .data[3].f32: width of the response region. The value is a percentage.
+    ///
+    /// .data[4].f32: height of the response region. The value is a percentage.
+    ///
+    /// .data[5...].f32: additional response regions in the same parameter order.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .data[0].i32: input tool type for the response region, specified using the [`ArkUI_ResponseRegionSupportedTool`] enum. Default value: <b>ARKUI_RESPONSE_REGIN_SUPPORTED_TOOL_ALL</b>.
+    /// .data[1].f32: x-coordinate of the pointer position relative to the upper left corner of the component, in vp.
+    ///
+    /// .data[2].f32: y-coordinate of the pointer position relative to the upper left corner of the component, in vp.
+    ///
+    /// .data[3].f32: width of the response region. The value is a percentage.
+    ///
+    /// .data[4].f32: height of the response region. The value is a percentage.
+    ///
+    /// .data[5...].f32: additional response regions in the same parameter order.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_RESPONSE_REGION_LIST: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(116);
+    /// Defines the event monopolization attribute. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Boolean value (1 or 0).
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Boolean value (1 or 0).
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_MONOPOLIZE_EVENTS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(117);
+    /// Sets the weight of the component in a chain, which is used to re-lay out components that form the chain.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: Horizontal ChainWeight.
+    ///
+    /// .value[1].f32: Vertical ChainWeight.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: Horizontal ChainWeight.
+    ///
+    /// .value[1].f32: Vertical ChainWeight.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_CHAIN_WEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(118);
+    /// Expands the layout safe area of a component.,
+    /// supporting property setting, property reset, and property fetching.
+    ///
+    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    ///
+    /// .value[0].u32: The region type to expand the component's layout safe area into. The default value is LayoutSafeAreaType.SYSTEM. [`ArkUI_LayoutSafeAreaType`],
+    /// For example, ARKUI_LAYOUT_SAFE_AREA_TYPE_SYSTEM;
+    ///
+    /// .value[1].u32: The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL. [`ArkUI_LayoutSafeAreaEdge`];
+    ///
+    /// For example: ARKUI_LAYOUT_SAFE_AREA_EDGE_TOP | ARKUI_LAYOUT_SAFE_AREA_EDGE_START;
+    ///
+    ///
+    ///
+    /// Attribute fetch method return value [`ArkUI_AttributeItem`] format:
+    ///
+    /// .value[0].u32: The region type to expand the component's layout safe area into.
+    ///
+    /// .value[1].u32: The set of edges for which to ignore layout safe area.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_IGNORE_LAYOUT_SAFE_AREA: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(119);
+    /// Defines the length of dash when BorderStyle is dashed, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: The length of dash on the top border.
+    ///
+    /// .value[1].f32: The length of dash on the right border.
+    ///
+    /// .value[2].f32: The length of dash on the bottom border.
+    ///
+    /// .value[3].f32: The length of dash on the left border.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: The length of dash on the top border.
+    ///
+    /// .value[1].f32: The length of dash on the right border.
+    ///
+    /// .value[2].f32: The length of dash on the bottom border.
+    ///
+    /// .value[3].f32: The length of dash on the left border.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_DASH_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(120);
+    /// Defines the gap of dash when BorderStyle is dashed, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: The gap of dash on the top border.
+    ///
+    /// .value[1].f32: The gap of dash on the right border.
+    ///
+    /// .value[2].f32: The gap of dash on the bottom border.
+    ///
+    /// .value[3].f32: The gap of dash on the left border.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: The gap of dash on the top border.
+    ///
+    /// .value[1].f32: The gap of dash on the right border.
+    ///
+    /// .value[2].f32: The gap of dash on the bottom border.
+    ///
+    /// .value[3].f32: The gap of dash on the left border.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_DASH_GAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(121);
+    /// Defines the align rules of child component in Stack container, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// The default value is <b>ARKUI_LOCALIZED_ALIGNMENT_CENTER</b>.
+    ///
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: LocalizedAlignment mode. The data type is [`ArkUI_LocalizedAlignment`].
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: LocalizedAlignment mode. The data type is [`ArkUI_LocalizedAlignment`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_LAYOUT_GRAVITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(122);
+    /// Defines the render types for drawing rounded corners when the radius of the border rounded corners is set, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Render types for drawing rounded corners. The data type is [`ArkUI_RenderStrategy`].
+    /// The default value is <b>ARKUI_RENDERSTRATEGY_FAST</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Render types for drawing rounded corners. The data type is [`ArkUI_RenderStrategy`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_BORDER_RADIUS_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(123);
     /// Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -2794,6 +3127,35 @@ impl ArkUI_NodeAttributeType {
     /// .value[1].u32: text decoration color, in 0xARGB format.
     ///
     /// .value[2].i32: text decoration style [`ArkUI_TextDecorationStyle`].
+    ////**
+    /// Defines the text decoration style and color.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: text decoration type [`ArkUI_TextDecorationType`].
+    /// The default value is <b>ARKUI_TEXT_DECORATION_TYPE_NONE</b>.
+    ///
+    /// .value[1]?.u32: text decoration color, in 0xARGB format. For example, 0xFFFF0000 indicates red. Optional.
+    ///
+    /// .value[2]?.i32: text decoration style [`ArkUI_TextDecorationStyle`].
+    ///
+    /// .value[3]?.f32: text decoration thickness scale.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: text decoration type [`ArkUI_TextDecorationType`].
+    ///
+    /// .value[1].u32: text decoration color, in 0xARGB format.
+    ///
+    /// .value[2].i32: text decoration style [`ArkUI_TextDecorationStyle`].
+    ///
+    /// .value[3].f32: text decoration thickness scale.
+    ///
+    ///
+    /// since 22
     pub const NODE_TEXT_DECORATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1006);
     /// Defines the text case attribute, which can be set, reset, and obtained as required through APIs.
     ///
@@ -3143,6 +3505,17 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const NODE_IMMUTABLE_FONT_WEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1030);
+    /// Defines the text line count attribute, which can only be obtained as required through APIs.
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: line count of the node.
+    ///
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
+    pub const NODE_TEXT_LINE_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1031);
     /// Sets whether to optimize the trailing spaces at the end of each line during text layout.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3164,17 +3537,6 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NODE_TEXT_OPTIMIZE_TRAILING_SPACE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1032);
-    /// Defines the text line count attribute, which can only be obtained as required through APIs.
-    ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
-    ///
-    /// .value[0].i32: line count of the node.
-    ///
-    ///
-    /// Available since API-level: 20
-    #[cfg(feature = "api-20")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
-    pub const NODE_TEXT_LINE_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1031);
     /// Sets a linear gradient effect for text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3321,6 +3683,286 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const NODE_TEXT_CONTENT_ALIGN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1036);
+    /// Sets the minimum number of lines in the text.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: minimum number of lines in the text.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: minimum number of lines in the text.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_MIN_LINES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1037);
+    /// Enables the selected data detector.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Enable selected text recognition, default value true.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether selected text recognition is enabled.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_ENABLE_SELECTED_DATA_DETECTOR: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1038);
+    /// Defines the minimum text line height attribute, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: minimum line height.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: minimum line height.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_MIN_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1040);
+    /// Defines the maximum text line height attribute, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: maximum line height.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: maximum line height.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_MAX_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1041);
+    /// Defines line height multiple value of text, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: line height multiple value of text.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: line height multiple value of text.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_LINE_HEIGHT_MULTIPLE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1042);
+    /// Get the text layout manager of the text.
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object: the layout manager of text. The parameter type is [`ArkUI_TextLayoutManager`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_LAYOUT_MANAGER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1043);
+    /// Set the edit menu options of the text.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: the edit menu options of text. The parameter type is [`ArkUI_TextEditMenuOptions`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_EDIT_MENU_OPTIONS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1044);
+    /// Bind the selection menu for text.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: the custom selection menu of text.
+    /// The parameter type is [`ArkUI_SelectionMenuOptions`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_BIND_SELECTION_MENU: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1045);
+    /// Sets the text selection area, which will be highlighted.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: start position of the text selection.
+    ///
+    /// .value[1].i32: end position of the text selection.
+    ///
+    /// .object: selection options including the menu popup policy.
+    /// The parameter type is [`ArkUI_SelectionOptions`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: start position of the text selection.
+    ///
+    /// .value[1].i32: end position of the text selection.
+    ///
+    /// .object: selection options including the menu popup policy.
+    /// The parameter type is [`ArkUI_SelectionOptions`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_TEXT_SELECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1046);
+    /// Whether to compress punctuation at the beginning of line.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
+    /// The default value is false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether compress punctuation at the beginning of line.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_COMPRESS_LEADING_PUNCTUATION: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1048);
+    /// Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Enable include the font padding, true means enable this feature, false means disable.
+    /// The default value is false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether include the font padding.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_INCLUDE_FONT_PADDING: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1049);
+    /// Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
+    /// The default value is false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether fallback line spacing.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_FALLBACK_LINE_SPACING: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1050);
+    /// Set the marquee options of text.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: the marquee options of text. The parameter type is [`ArkUI_TextMarqueeOptions`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object: the marquee options of text. The parameter type is [`ArkUI_TextMarqueeOptions`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_MARQUEE_OPTIONS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1051);
+    /// Writing direction of the text.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: writing direction of the text. The value is an enum of [`ArkUI_TextDirection`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: writing direction the text. The value is an enum of [`ArkUI_TextDirection`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1052);
+    /// Used to set the selected drag preview style.
+    ///
+    /// Format of the [`Arkui_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: selected drag preview style configuration.
+    ///
+    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`Arkui_AttributeItem`]:
+    ///
+    /// .object: selected drag preview style configuration.
+    ///
+    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_SELECTED_DRAG_PREVIEW_STYLE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1053);
     /// Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -3453,6 +4095,42 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const NODE_IMAGE_SPAN_BASELINE_OFFSET: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(3003);
+    /// Defines the color filter of the image span.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value [0].f32 to . value [19].f32: filter matrix array.
+    ///
+    /// .size :5 x 4 filter array size.
+    ///
+    /// .object : the pointer to OH_Drawing_ColorFilter. Either . value or . object is set.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_IMAGE_SPAN_COLOR_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3004);
+    /// Set the range of SVG parsing capabilities supported through enable switch.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether color fliter support svg. The default value is <b>false</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: enable switch.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_IMAGE_SPAN_SUPPORT_SVG2: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3005);
     /// Defines the image source of the <Image> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -3839,6 +4517,71 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const NODE_IMAGE_CONTENT_TRANSITION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(4022);
+    /// Defines the placeholder image during loading process.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .string: placeholder image source.
+    ///
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`]. Either .string or .object must be set.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .string: placeholder image source.
+    ///
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_IMAGE_ALT_PLACEHOLDER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4023);
+    /// Defines the placeholder image when loading fails.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .string: placeholder image source.
+    ///
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`]. Either .string or .object must be set.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .string: placeholder image source.
+    ///
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_IMAGE_ALT_ERROR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4024);
+    /// Configure image edge anti-aliasing via an enable switch.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: enable switch,the default value is false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: enable switch.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_IMAGE_ANTIALIASED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4025);
     /// Defines the color of the component when it is selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4522,6 +5265,180 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NODE_TEXT_INPUT_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7037);
+    /// Enables selected data detector.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Enable selected text recognition, default value true.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether selected text recognition is enabled.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_INPUT_ENABLE_SELECTED_DATA_DETECTOR: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(7038);
+    /// Defines the counter settings. This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to show a character counter. The value <b>true</b> means to show a character counter.
+    ///
+    /// .value[1]?.f32: threshold percentage for displaying the character counter. The character counter is displayed
+    /// when the number of characters that have been entered is greater than the maximum number of characters multiplied
+    /// by the threshold percentage value. The value range is 1 to 100. If the value is a decimal, it is rounded down.
+    ///
+    /// .value[2]?.i32: whether to highlight the border when the number of entered characters reaches the maximum.
+    ///
+    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether to show a character counter.
+    ///
+    /// .value[1].f32: threshold percentage for displaying the character counter. The character counter is displayed
+    /// when the number of characters that have been entered is greater than the maximum number of characters multiplied
+    /// by the threshold percentage value. The value range is 1 to 100.
+    ///
+    /// .value[2].i32: whether to highlight the border when the number of entered characters reaches the maximum.
+    /// The default value is <b>true</b>.
+    ///
+    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_INPUT_SHOW_COUNTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7040);
+    /// Used to set or get the text content base controller.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_INPUT_TEXT_CONTENT_CONTROLLER_BASE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(7041);
+    /// Whether to compress punctuation at the beginning of line.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
+    /// The default value is false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether compress punctuation at the beginning of line.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_INPUT_COMPRESS_LEADING_PUNCTUATION: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(7044);
+    /// Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Enable include the font padding, true means enable this feature, false means disable.
+    /// The default value is false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether include the font padding.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_INPUT_INCLUDE_FONT_PADDING: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(7045);
+    /// Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
+    /// The default value is false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether fallback line spacing.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_INPUT_FALLBACK_LINE_SPACING: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(7046);
+    /// Writing direction of the text.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: writing direction of the text. The value is an enum of [`ArkUI_TextDirection`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: writing direction the text. The value is an enum of [`ArkUI_TextDirection`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_INPUT_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7047);
+    /// Used to set the selected drag preview style.
+    ///
+    /// Format of the [`Arkui_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: selected drag preview style configuration.
+    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`Arkui_AttributeItem`]:
+    ///
+    /// .object: selected drag preview style configuration.
+    ///
+    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_INPUT_SELECTED_DRAG_PREVIEW_STYLE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(7048);
     /// Defines the default placeholder text for the multi-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -4654,6 +5571,8 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2]?.i32: whether to highlight the border when the number of entered characters reaches the maximum.
     ///
+    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`].
+    ///
     ///
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
@@ -4666,6 +5585,8 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].i32: whether to highlight the border when the number of entered characters reaches the maximum.
     /// The default value is <b>true</b>.
+    ///
+    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`].
     pub const NODE_TEXT_AREA_SHOW_COUNTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8008);
     /// Sets whether to hide the text selection menu when the text box is long-pressed, double-click,
     /// or right-clicked. This attribute can be set, reset, and obtained as required through APIs.
@@ -5025,6 +5946,207 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NODE_TEXT_AREA_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8031);
+    /// Define bar state of the text area.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: bar state of the text area, specified using the [`ArkUI_BarState`] enum.
+    /// The default value is <b>ARKUI_BAR_STATE_AUTO</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: bar state of the text area, specified using the [`ArkUI_BarState`] enum.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_AREA_BAR_STATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8032);
+    /// Enables selected data detector.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Enable selected text recognition, default value true.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether selected text recognition is enabled.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_AREA_ENABLE_SELECTED_DATA_DETECTOR: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(8033);
+    /// Defines the color of the scrollbar. This attribute can be set, reset, and obtained as required
+    /// through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .data[0].u32: color of the scroll bar thumb, in 0xARGB format.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .data[0].u32: color of the scroll bar thumb, in 0xARGB format.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_AREA_SCROLL_BAR_COLOR: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(8035);
+    /// Sets up a custom keyboard.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: custom keyboard,The parameter type is [`ArkUI_NodeHandle`].
+    ///
+    /// .value[0]?.i32: Sets whether the custom keyboard supports the avoidance feature, default value false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object:custom keyboard,The parameter type is [`ArkUI_NodeHandle`].
+    ///
+    /// .value[0].i32: Set whether the custom keyboard supports the avoidance function.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_TEXT_AREA_CUSTOM_KEYBOARD: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(8036);
+    /// Used to set or get the text content base controller.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_AREA_TEXT_CONTENT_CONTROLLER_BASE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(8037);
+    /// Whether to compress punctuation at the beginning of line.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
+    /// The default value is false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether compress punctuation at the beginning of line.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_AREA_COMPRESS_LEADING_PUNCTUATION: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(8040);
+    /// Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Enable include the font padding, true means enable this feature, false means disable.
+    /// The default value is false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether include the font padding.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_AREA_INCLUDE_FONT_PADDING: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(8041);
+    /// Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
+    /// The default value is false.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: Whether fallback line spacing.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_AREA_FALLBACK_LINE_SPACING: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(8042);
+    /// Writing direction of the text.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: writing direction of the text. The value is an enum of [`ArkUI_TextDirection`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: writing direction the text. The value is an enum of [`ArkUI_TextDirection`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_AREA_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8044);
+    /// Used to set the selected drag preview style.
+    ///
+    /// Format of the [`Arkui_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: selected drag preview style configuration.
+    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`Arkui_AttributeItem`]:
+    ///
+    /// .object: selected drag preview style configuration.
+    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_TEXT_AREA_SELECTED_DRAG_PREVIEW_STYLE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(8045);
     /// Defines the button text content. This attribute can be set, reset, and obtained as required through APIs.
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
@@ -7478,6 +8600,7 @@ impl ArkUI_NodeAttributeType {
     /// .value[1]?.i32: whether to show cached items. The value <b>0</b> means to hide cached items, and <b>0</b> means
     /// to show cached items. The default value is <b>0</b>. This parameter is supported since API version 15.
     ///
+    /// .value[2]?.i32: maximum cache count. This parameter is supported since API version 22.
     ///
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
@@ -7486,6 +8609,8 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].i32: whether to show cached items. The value <b>0</b> means to hide cached items, and <b>0</b> means
     /// to show cached items. This parameter is supported since API version 15.
+    ///
+    /// .value[2].i32: maximum cache count. This parameter is supported since API version 22.
     pub const NODE_LIST_CACHED_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003004);
     /// Scroll to the specified index.
     ///
@@ -7742,6 +8867,80 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NODE_LIST_SYNC_LOAD: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003016);
+    /// Defines the scroll snap animation speed for the <b>List</b> component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: scroll snap animation speed for the <b>List</b> component.
+    /// The parameter type is [`ArkUI_ScrollSnapAnimationSpeed`].
+    /// Default value: <b>ARKUI_SCROLL_SNAP_ANIMATION_NORMAL</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: scroll snap animation speed for the <b>List</b> component.
+    /// The parameter type is [`ArkUI_ScrollSnapAnimationSpeed`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_LIST_SCROLL_SNAP_ANIMATION_SPEED: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1003017);
+    /// Specifies the responsive column layout policy for the <b>List</b> component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: number of columns at different breakpoint specifications.
+    /// The data type is [`ArkUI_ItemFillPolicy`].
+    ///
+    /// .value[1]?.f32: column spacing. unit: vp. Default value: <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: number of columns at different breakpoint specifications.
+    /// The data type is [`ArkUI_ItemFillPolicy`].
+    ///
+    /// .value[1].f32: column spacing. unit: vp.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_LIST_LANES_ITEMFILLPOLICY: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1003018);
+    /// Specifies whether to support empty branch rendering in lazy loading mode for the <b>List</b> container.
+    /// This attribute can be set, reset, and obtained as required through APIs. When enabled in lazy loading mode,
+    /// empty branches (items without content) in the <b>List</b> will be rendered and set to width 0 and height 0,
+    /// which may affect the overall layout and scrolling behavior. This is typically used in scenarios where the
+    /// data source may have gaps or when maintaining specific layout positions is required.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to support empty branch rendering in lazy loading mode.
+    /// <b>0</b>: Disable empty branch support. Empty branches will not be rendered. <b>1</b>: Enable empty branch support.
+    /// Empty branches will be rendered as placeholder items. Default value: <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether empty branch rendering is enabled. <b>0</b>: Disabled. <b>1</b>: Enabled.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_LIST_SUPPORT_EMPTY_BRANCH_IN_LAZY_LOADING: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1003019);
     /// Defines whether to enable loop playback for the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -8166,6 +9365,33 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NODE_SWIPER_MAINTAIN_VISIBLE_CONTENT_POSITION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001023);
+    /// Specifies the responsive column layout policy for the <b>Swiper</b> component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: number of columns at different breakpoint specifications.
+    /// The data type is [`ArkUI_ItemFillPolicy`].
+    ///
+    /// .value[1]?.i32: whether to paginate by group. The value <b>0</b> means to paginate by individual child elements,
+    /// and <b>1</b> means to paginate by groups of child elements displayed within the viewport.
+    /// The default value is <b>0</b>.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: number of columns at different breakpoint specifications.
+    /// The data type is [`ArkUI_ItemFillPolicy`].
+    ///
+    /// .value[1].i32: whether to paginate by group.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_SWIPER_ITEMFILLPOLICY: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1001024);
     /// Set the delineation component of the ListItem, supporting property settings, property resets, and
     /// property acquisition interfaces.
     ///
@@ -8301,6 +9527,43 @@ impl ArkUI_NodeAttributeType {
     /// .value[0].i32: vertical alignment mode of child components. The parameter type is [`ArkUI_FlexAlignment`].
     pub const NODE_COLUMN_JUSTIFY_CONTENT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1006001);
+    /// Defines Row constructor options or Column constructor options used for settting the spacing of child components, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: The space of child components, in vp.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: The space of child components, in vp.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_LINEAR_LAYOUT_SPACE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1006002);
+    /// Defines whether the arrangement of child components along the main axis in a Column or Row is reversed, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: The value that determines whether the arrangement of child components along the main axis is reversed.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: The value that determines whether the arrangement of child components along the main axis is reversed.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_LINEAR_LAYOUT_REVERSE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1006003);
     /// Defines the vertical alignment mode of child components in the row.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -8368,6 +9631,28 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[4].i32: alignment mode along the cross axis for multi-line content.
     pub const NODE_FLEX_OPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1008000);
+    /// Defines Row constructor options used for settting the spacing of child components, which can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].f32: Space on the main axis of the flex container., in vp.
+    ///
+    /// .value[1].f32: Space on the cross axis of a flex container., in vp.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].f32: Space on the main axis of the flex container., in vp.
+    ///
+    /// .value[1].f32: Space on the cross axis of a flex container., in vp.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_FLEX_SPACE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1008001);
     /// Sets whether the component is being refreshed.
     /// This attribute can be set and obtained as required through APIs.
     ///
@@ -8445,6 +9730,26 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NODE_REFRESH_MAX_PULL_DOWN_DISTANCE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1009005);
+    /// Sets whether the pull-up gesture cancels refresh.
+    /// This attribute can be set, reset, and obtained through the API as required.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether the pull-up gesture cancels refresh. The value <b>1</b> means that the pull-up gesture
+    /// cancels refresh, and <b>0</b> means the opposite. Default value: <b>1</b>.
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// * .value[0].i32: whether the pull-up gesture cancels refresh. The value <b>1</b> means that the pull-up gesture
+    /// cancels refresh, and <b>0</b> means the opposite.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_REFRESH_PULL_UP_TO_CANCEL_REFRESH: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1009006);
     /// Defines the main axis direction of the <b><WaterFlow></b> component layout.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -8583,13 +9888,19 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
     ///
-    /// .value[0].i32：The index value of the target element to be slid to in the current container.
+    /// .value[0].i32: The index value of the target element to be slid to in the current container.
     ///
-    /// .value[1]?.i32：Set whether there is an action when sliding to the index value of a list item in the list, where
-    /// 1 indicates an action and 0 indicates no action. Default value is 0。
+    /// .value[1].i32: Set whether there is an action when sliding to the index value of a list item in the list, where
+    /// 1 indicates an action and 0 indicates no action. This parameter is optional, default value is 0.
     ///
-    /// .value[2]?.i32：Specify the alignment of the sliding element with the current container，The parameter type is
-    /// [`ArkUI_ScrollAlignment`]. Default value is </b>ARKUI_SCROLL_ALIGNMENT_START</b>。
+    /// .value[2].i32: Specify the alignment of the sliding element with the current container, The parameter type is
+    /// [`ArkUI_ScrollAlignment`]. This parameter is optional, default value is </b>ARKUI_SCROLL_ALIGNMENT_START</b>.
+    ///
+    /// .value[3].f32: Extra offset after scrolling to a specified index, in vp. This parameter is optional, the default
+    /// value is <b>0</b>.
+    /// If value[3] is positive, it will offset further towards the bottom.
+    /// If value[3] is negative, it will offset further towards the top.
+    /// This parameter is supported since API version 23.
     pub const NODE_WATER_FLOW_SCROLL_TO_INDEX: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010009);
     /// Defines the size constraints to apply to water flow items.
@@ -8656,6 +9967,28 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NODE_WATER_FLOW_SYNC_LOAD: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1010012);
+    /// Specifies the responsive column layout policy for the <b>WaterFlow</b> component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: number of columns at different breakpoint specifications.
+    /// The data type is [`ArkUI_ItemFillPolicy`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: number of columns at different breakpoint specifications.
+    /// The data type is [`ArkUI_ItemFillPolicy`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_WATER_FLOW_COLUMN_TEMPLATE_ITEMFILLPOLICY: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1010013);
     /// Set the auxiliary line in the RelativeContaine container, supporting property setting,
     /// property reset and property acquisition interfaces.
     ///
@@ -8801,6 +10134,255 @@ impl ArkUI_NodeAttributeType {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NODE_GRID_SYNC_LOAD: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013007);
+    /// Specifies the alignment of <b>GridItem</b> components in the parent <b>Grid</b> container.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: alignment of <b>GridItem</b> components in the parent <b>Grid</b> container,
+    ///
+    /// specified using the [`ArkUI_GridItemAlignment`] enum.
+    ///
+    /// The default value is <b>GRID_ITEM_ALIGNMENT_DEFAULT</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: alignment of <b>GridItem</b> components in the parent <b>Grid</b> container,
+    ///
+    /// specified using the [`ArkUI_GridItemAlignment`] enum.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_GRID_ALIGN_ITEMS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013008);
+    /// Specifies the layout options of the <b>Grid</b> component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .object: layout options, with the parameter format of [`ArkUI_GridLayoutOptions`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .object: current [`ArkUI_GridLayoutOptions`] object.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_GRID_LAYOUT_OPTIONS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013009);
+    /// Specifies the responsive column layout policy for the <b>Grid</b> component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: number of columns at different breakpoint specifications.
+    /// The data type is [`ArkUI_ItemFillPolicy`].
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: number of columns at different breakpoint specifications.
+    /// The data type is [`ArkUI_ItemFillPolicy`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_GRID_COLUMN_TEMPLATE_ITEMFILLPOLICY: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1013010);
+    /// Specifies whether to enable edit mode for the <b>Grid</b> component.
+    /// In edit mode, <b>GridItem</b> components can be dragged through the <b>NODE_GRID_ON_ITEM_DRAG_START</b> event.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to enable edit mode for the <b>Grid</b> component.
+    /// </b>: Disable edit mode. <b>1</b>: Enable edit mode. Default value: <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether to enable edit mode for the <b>Grid</b> component.
+    /// <b>0</b>: Disable edit mode. <b>1</b>: Enable edit mode.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_EDIT_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013011);
+    /// Specifies whether to enable the drag animation for <b>GridItem</b> components in the <b>Grid</b>
+    /// container. This attribute can be set, reset, and obtained as required through APIs.
+    /// Animations are supported only in scrolling mode (when either <b>NODE_GRID_ROW_TEMPLATE</b> or
+    /// <b>NODE_GRID_COLUMN_TEMPLATE</b> is set, but not both). Drag animations are only supported in regularly sized
+    /// grid layouts; scenarios involving spanning across rows or columns are not supported.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to enable the drag animation for <b>GridItem</b> components in the <b>Grid</b> container.
+    /// <b>0</b>: Disable the drag animation. <b>1</b>: Enable the drag animation. Default value: <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether to enable the drag animation for <b>GridItem</b> components in the <b>Grid</b> container.
+    /// <b>0</b>: Disable the drag animation. <b>1</b>: Enable the drag animation.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_DRAG_ANIMATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013012);
+    /// Specifies whether to enable mouse-based multi-selection in the <b>Grid</b> container. This attribute can
+    /// be set, reset, and obtained as required through APIs. When enabled, mouse-based multi-selection within the
+    /// <b>Grid</b> area triggers the <b>NODE_GRID_ITEM_EVENT_ON_SELECT</b> event on <b>GridItem</b> components.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to enable mouse-based multi-selection.
+    /// <b>0</b>: Disable mouse-based multi-selection. <b>1</b>: Enable mouse-based multi-selection. Default value:
+    /// <b>0</b>.
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// .value[0].i32: whether to enable
+    /// mouse-based multi-selection. <b>0</b>: Disable mouse-based multi-selection. <b>1</b>: Enable mouse-based
+    /// multi-selection.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_MULTI_SELECTABLE: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1013013);
+    /// Scroll to the specified index.
+    ///
+    /// When activating the smooth animation, all items passed through will be loaded and layout calculated, which can
+    /// lead to performance issues when loading a large number of items.
+    ///
+    ///
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: The index value of the target element to be slid to in the current container.
+    ///
+    /// .value[1].i32: Set whether there is an animation when sliding to the target element, where
+    /// 1 indicates an animation and 0 indicates no animation. This parameter is optional. default value is 0.
+    ///
+    /// .value[2].i32: Specify the alignment of the target element with the current container. The parameter type is
+    /// [`ArkUI_ScrollAlignment`]. This parameter is optional, default value is </b>ARKUI_SCROLL_ALIGNMENT_AUTO</b>.
+    ///
+    /// .value[3].f32: Extra offset after scrolling to a specified index, in vp. This parameter is optional, the default
+    /// value is <b>0</b>.
+    /// If value[3] is positive, it will offset further towards the bottom.
+    /// If value[3] is negative, it will offset further towards the top.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_SCROLL_TO_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013014);
+    /// Specifies whether to support empty branch rendering in lazy loading mode for the <b>Grid</b> container.
+    /// This attribute can be set, reset, and obtained as required through APIs. When enabled in lazy loading mode,
+    /// empty branches (items without content) in the <b>Grid</b> will be rendered and set to width 0 and height 0,
+    /// which may affect the overall layout and scrolling behavior. This is typically used in scenarios where the
+    /// data source may have gaps or when maintaining specific layout positions is required.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to support empty branch rendering in lazy loading mode.
+    /// <b>0</b>: Disable empty branch support. Empty branches will not be rendered. <b>1</b>: Enable empty branch support.
+    /// Empty branches will be rendered as placeholder items. Default value: <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether empty branch rendering is enabled. <b>0</b>: Disabled. <b>1</b>: Enabled.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_SUPPORT_EMPTY_BRANCH_IN_LAZY_LOADING: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1013015);
+    /// Sets the style of the <b>GridItem</b> component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: style of the <b>GridItem</b> component, specified using [`ArkUI_SliderStyle`].
+    ///
+    /// The default value is <b>GRID_ITEM_STYLE_NONE</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: style of the <b>GridItem</b> component, specified using [`ArkUI_SliderStyle`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_GRID_ITEM_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1014000);
+    /// Specifies whether the <b>GridItem</b> component can be selected using mouse-based multi-selection.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether the <b>GridItem</b> component can be selected using mouse-based multi-selection.
+    /// <b>0</b>: not selectable. <b>1</b>: selectable. Default value: <b>1</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: whether the <b>GridItem</b> component can be selected using mouse-based multi-selection.
+    /// <b>0</b>: not selectable. <b>1</b>: selectable.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_ITEM_SELECTABLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1014001);
+    /// Sets the selected state of the <b>GridItem</b> component.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: selected state of the <b>GridItem</b> component.
+    /// <b>0</b>: not selected. <b>1</b>: selected. Default value: <b>0</b>.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].i32: selected state of the <b>GridItem</b> component. <b>0</b>: not selected. <b>1</b>: selected.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_ITEM_SELECTED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1014002);
     /// Defines the column width of the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
@@ -8909,6 +10491,85 @@ impl ArkUI_NodeAttributeType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const NODE_EMBEDDED_COMPONENT_OPTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1016001);
+    /// Defines the index of the default selected item in the data selection range of the picker.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].u32: index.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// .value[0].u32: index.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_PICKER_OPTION_SELECTED_INDEX: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1018000);
+    /// Defines whether haptic feedback.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to feedback. The value <b>true</b> means to feedback, and
+    /// <b>false</b> means the opposite.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// value[0].i32: whether to feedback.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_PICKER_ENABLE_HAPTIC_FEEDBACK: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1018001);
+    /// Defines whether to support scroll looping for the picker.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    ///
+    /// .value[0].i32: whether to support scroll looping. The value <b>true</b> means to support scroll looping, and
+    /// <b>false</b> means the opposite.
+    ///
+    ///
+    ///
+    /// Format of the return value [`ArkUI_AttributeItem`]:
+    ///
+    /// value[0].i32: The value <b>1</b> means to support scroll looping, and <b>0</b> means the opposite.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_PICKER_CAN_LOOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1018002);
+    /// Sets the type and parameters of the selection indicator.
+    /// This attribute can be set, reset, and obtained as required through APIs.
+    ///
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`] Format:
+    ///
+    /// .object: Parameter type [`ArkUI_PickerIndicatorStyle`].
+    ///
+    ///
+    /// Attribute fetch method return value [`ArkUI_AttributeItem`] format:
+    ///
+    /// .object: Parameter type [`ArkUI_PickerIndicatorStyle`].
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_PICKER_SELECTION_INDICATOR: ArkUI_NodeAttributeType =
+        ArkUI_NodeAttributeType(1018003);
 }
 #[repr(transparent)]
 /// Defines the ArkUI style attributes that can be set on the native side.
@@ -8963,8 +10624,7 @@ pub struct ArkUI_TextChangeEvent {
 impl ArkUI_NodeEventType {
     /// Defines the gesture event type.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_UIInputEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is [`ArkUI_UIInputEvent`].
     pub const NODE_TOUCH_EVENT: ArkUI_NodeEventType = ArkUI_NodeEventType(0);
     /// Defines the mount event.
     ///
@@ -9356,6 +11016,36 @@ impl ArkUI_NodeEventType {
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const NODE_ON_SIZE_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(30);
+    /// Defines the coasting axis event.
+    ///
+    /// The event is triggered when user swipes with two fingers on the touchpad, the system constructs
+    /// sliding events based on the speed at the moment the fingers are lifted, according to a certain
+    /// decay curve. You can listen for such events to handle the flick effect immediately after the
+    /// regular axis events.
+    ///
+    /// When the event callback occurs, the [`ArkUI_UIInputEvent`] object can be obtained from the
+    /// [`ArkUI_NodeEvent`] object through [`OH_ArkUI_NodeEvent_GetInputEvent`].
+    /// And the [`ArkUI_CoastingAxisEvent`] object can be obtained from the [`ArkUI_UIInputEvent`]
+    /// object through [`OH_ArkUI_UIInputEvent_GetCoastingAxisEvent`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_ON_COASTING_AXIS_EVENT: ArkUI_NodeEventType = ArkUI_NodeEventType(31);
+    /// Defines the pre-touch test of sub component in touch events. Called to specify how to perform the touch test on the children of this component.
+    ///
+    /// The event is triggered when the component is touched.
+    ///
+    /// When the event callback occurs, the [`ArkUI_NodeEvent`] object can be obtained from the
+    /// [`ArkUI_TouchTestInfo`] object.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_ON_CHILD_TOUCH_TEST: ArkUI_NodeEventType = ArkUI_NodeEventType(32);
     /// Triggers onDetectResultUpdate callback
     /// when the text is set to TextDataDetectorConfig and recognized successfully.
     ///
@@ -10110,30 +11800,6 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[3].f32</b> : The length of the page in the axis direction.
     pub const NODE_SWIPER_EVENT_ON_CONTENT_DID_SCROLL: ArkUI_NodeEventType =
         ArkUI_NodeEventType(1001004);
-    /// Defines the event triggered when content in the swiper component will scroll.
-    /// Instructions: Before page scrolling, the </b>ContentWillScrollCallback</b> callback is invoked.
-    ///
-    ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
-    ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
-    ///
-    /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: the index value of the current child page.
-    ///
-    /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: the index value of the child page that will display.
-    ///
-    /// <b>ArkUI_NodeComponentEvent.data[2].f32</b>: the sliding offset of each frame.
-    /// Positive numbers indicating slide backward(e.g. from index=1 to index=0), negative numbers indicating
-    /// slide forward(e.g. from index=0 to index=1).
-    ///
-    ///
-    ///
-    /// Available since API-level: 15
-    #[cfg(feature = "api-15")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-    pub const NODE_SWIPER_EVENT_ON_CONTENT_WILL_SCROLL: ArkUI_NodeEventType =
-        ArkUI_NodeEventType(1001007);
     /// Defines the event triggered when the selected index of the <b>ARKUI_NODE_SWIPER</b> changed.
     ///
     /// This event is triggered under the following scenarios:
@@ -10180,6 +11846,30 @@ impl ArkUI_NodeEventType {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const NODE_SWIPER_EVENT_ON_UNSELECTED: ArkUI_NodeEventType = ArkUI_NodeEventType(1001006);
+    /// Defines the event triggered when content in the swiper component will scroll.
+    /// Instructions: Before page scrolling, the </b>ContentWillScrollCallback</b> callback is invoked.
+    ///
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: the index value of the current child page.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: the index value of the child page that will display.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[2].f32</b>: the sliding offset of each frame.
+    /// Positive numbers indicating slide backward(e.g. from index=1 to index=0), negative numbers indicating
+    /// slide forward(e.g. from index=0 to index=1).
+    ///
+    ///
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub const NODE_SWIPER_EVENT_ON_CONTENT_WILL_SCROLL: ArkUI_NodeEventType =
+        ArkUI_NodeEventType(1001007);
     /// Defines the <b>ARKUI_NODE_SWIPER</b> scroll state change event.
     /// This event is triggered when the scroll state of the <b>Swiper</b> component changes during user dragging,
     /// during the animation phase after the user lifts their finger, or upon stopping of scrolling.
@@ -10600,7 +12290,7 @@ impl ArkUI_NodeEventType {
     /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
     /// [`ArkUI_NodeComponentEvent`].
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    /// [`ArkUI_NodeComponentEvent`] contains six parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the first child component in the list display area.
     ///
@@ -10721,7 +12411,7 @@ impl ArkUI_NodeEventType {
     ///
     /// [`ArkUI_NodeComponentEvent`].
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
     ///
     /// ArkUI_NodeComponentEvent.data[0].i32: The index value of the
     ///
@@ -10731,6 +12421,322 @@ impl ArkUI_NodeEventType {
     ///
     /// the end position of the currently displayed waterfall.
     pub const NODE_WATER_FLOW_ON_SCROLL_INDEX: ArkUI_NodeEventType = ArkUI_NodeEventType(1010002);
+    /// Defines the event triggered when a child component enters or leaves the grid display area.
+    ///
+    /// Notes for triggering the event:
+    ///
+    /// This event is triggered once when the grid is initialized and when the index of the first or
+    ///
+    /// last child component in the grid display area changes.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    ///
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the first child component in the grid display area.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: index of the last child component in the grid display area.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_GRID_ON_SCROLL_INDEX: ArkUI_NodeEventType = ArkUI_NodeEventType(1013000);
+    /// Defines the event triggered when the grid is about to scroll.
+    ///
+    /// Notes for triggering the event:
+    ///
+    /// 1. This event is triggered when scrolling is started by the scrollable component or other input settings,
+    /// such as keyboard and mouse operations.
+    ///
+    /// 2. Scrolling can be initiated by calling the controller API.
+    ///
+    /// 3. The out-of-bounds bounce effect is supported.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>:
+    /// Scroll offset of each frame. A positive offset indicates content scrolling upward,
+    ///
+    /// and a negative offset indicates content scrolling downward.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: current scroll state. The parameter type is
+    /// [`ArkUI_ScrollState`].
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: scroll source. The parameter type is [`ArkUI_ScrollSource`].
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns one or no number to indicate the actual amount by which the scroll component scrolls.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_GRID_ON_WILL_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1013001);
+    /// Defines the event triggered when the grid scrolls.
+    ///
+    /// Notes for triggering the event:
+    ///
+    /// 1. This event is triggered when scrolling is started by the scrollable component or other input settings,
+    /// such as keyboard and mouse operations.
+    ///
+    /// 2. Scrolling can be initiated by calling the controller API.
+    ///
+    /// 3. The out-of-bounds bounce effect is supported.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>:
+    /// Scroll offset of each frame. A positive offset indicates content scrolling upward,
+    ///
+    /// and a negative offset indicates content scrolling downward.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: current scroll state.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_GRID_ON_DID_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1013002);
+    /// Defines the event triggered at the end of each frame layout of the <b>ARKUI_NODE_GRID</b> component,
+    /// which is used to set the position and length of the scrollbar.
+    ///
+    /// The event parameter is [`ArkUI_NodeEvent`].
+    ///
+    /// value.i32 at index 0:offset of the first visible grid item,
+    /// obtained using <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
+    ///
+    /// value.f32 at index 1: offset of the first visible item relative to the grid's display starting position, in vp,
+    /// obtained using <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Information about the scrollbar position and length.
+    ///
+    /// You can set the return value using <b>OH_ArkUI_NodeEvent_SetReturnNumberValue</b>.
+    ///
+    /// value.f32 at index 0: total offset of the grid content relative to the display area, in px.
+    ///
+    /// value.f32 at index 1: total length of the grid content, in px.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const NODE_GRID_ON_SCROLL_BAR_UPDATE: ArkUI_NodeEventType = ArkUI_NodeEventType(1013003);
+    /// Defines the <b>Grid</b> component's child drag start event.
+    ///
+    /// This event is triggered under the following scenarios:
+    ///
+    /// 1. <b>NODE_GRID_EDIT_MODE</b> is set to <b>1</b>.
+    ///
+    /// 2. The user long-presses and drags a <b>Grid</b> child component with sufficient displacement.
+    ///
+    /// The event parameter is [`ArkUI_NodeEvent`].
+    ///
+    /// value.f32 at index 0: x-coordinate of the current drag point relative to the <b>Grid</b> component, in vp,
+    /// obtained using <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
+    ///
+    /// value.f32 at index 1: y-coordinate of the current drag point relative to the <b>Grid</b> component, in vp,
+    /// obtained using <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
+    ///
+    /// value.i32 at index 2: index of the dragged child component in the <b>Grid</b> component,
+    /// obtained using <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
+    ///
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Whether the drag operation is allowed.
+    ///
+    /// You can set the return value using <b>OH_ArkUI_NodeEvent_SetReturnNumberValue</b>.
+    ///
+    /// value.i32 at index 0 in the return value indicates whether dragging is allowed.
+    /// <b>0</b>: not allowed. <b>1</b>: allowed.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_ON_ITEM_DRAG_START: ArkUI_NodeEventType = ArkUI_NodeEventType(1013004);
+    /// Defines the event triggered when a dragged child component enters this <b>Grid</b> component's area.
+    ///
+    /// This event is triggered under the following scenarios:
+    ///
+    /// A child component successfully dragged using <b>NODE_GRID_ON_ITEM_DRAG_START</b> enters the current <b>Grid</b>
+    /// component's area.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: x-coordinate of the current drag point relative to the <b>Grid</b>
+    /// component, in vp.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: y-coordinate of the current drag point relative to the <b>Grid</b>
+    /// component, in vp.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_ON_ITEM_DRAG_ENTER: ArkUI_NodeEventType = ArkUI_NodeEventType(1013005);
+    /// Defines the event triggered when a dragged child component moves within this <b>Grid</b> component's area.
+    ///
+    /// This event is triggered under the following scenarios:
+    ///
+    /// A child component successfully dragged using <b>NODE_GRID_ON_ITEM_DRAG_START</b> moves within the current
+    /// <b>Grid</b> component's area.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains four parameters:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: x-coordinate of the current drag point relative to the <b>Grid</b>
+    /// component, in vp.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: y-coordinate of the current drag point relative to the <b>Grid</b>
+    /// component, in vp.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: index of the dragged child component in the source <b>Grid</b>
+    /// component.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[3].i32</b>: index of the dragged child component in the current <b>Grid</b>
+    /// component.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_ON_ITEM_DRAG_MOVE: ArkUI_NodeEventType = ArkUI_NodeEventType(1013006);
+    /// Defines the event triggered when a dragged child component leaves this <b>Grid</b> component's area.
+    ///
+    /// This event is triggered under the following scenarios:
+    ///
+    /// A child component successfully dragged using <b>NODE_GRID_ON_ITEM_DRAG_START</b> leaves the current <b>Grid</b>
+    /// component's area.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: x-coordinate of the current drag point relative to the <b>Grid</b>
+    /// component, in vp.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: y-coordinate of the current drag point relative to the <b>Grid</b>
+    /// component, in vp.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: index of the dragged child component in the source <b>Grid</b>
+    /// component.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_ON_ITEM_DRAG_LEAVE: ArkUI_NodeEventType = ArkUI_NodeEventType(1013007);
+    /// Defines the event triggered when a dragged child component is released.
+    ///
+    /// This event is triggered under the following scenarios:
+    ///
+    /// A child component successfully dragged using <b>NODE_GRID_ON_ITEM_DRAG_START</b> is released.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains five parameters:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: x-coordinate of the current drag point relative to the <b>Grid</b>
+    /// component, in vp.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: y-coordinate of the current drag point relative to the <b>Grid</b>
+    /// component, in vp.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: index of the dragged child component in the source <b>Grid</b>
+    /// component.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[3].i32</b>: index of the dragged child component in the current <b>Grid</b>
+    /// component.
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[4].i32</b>: whether the dragged child component is successfully released.
+    ///
+    /// <b>1</b>: The component is released within the <b>Grid</b> component's area.
+    /// <b>0</b>: The component is released outside the <b>Grid</b> component's area.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_ON_ITEM_DROP: ArkUI_NodeEventType = ArkUI_NodeEventType(1013008);
+    /// Defines the selected state change event of the <b>GridItem</b> component.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: selected state. <b>0</b>: not selected. <b>1</b>: selected.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_GRID_ITEM_ON_SELECT: ArkUI_NodeEventType = ArkUI_NodeEventType(1014000);
+    /// Defines the event triggered when an item is selected in the <b>ARKUI_NODE_PICKER</b> component.
+    ///
+    ///
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0...11].i32</b>: value of the selected item.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_PICKER_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(1018000);
+    /// Defines the event triggered when an item is selected and scrolling has stopped in the
+    /// <b>ARKUI_NODE_PICKER</b> component.
+    ///
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// [`ArkUI_NodeComponentEvent`].
+    ///
+    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    ///
+    /// <b>ArkUI_NodeComponentEvent.data[0...11].i32</b>: value of the selected item.
+    ///
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const NODE_PICKER_EVENT_ON_SCROLL_STOP: ArkUI_NodeEventType = ArkUI_NodeEventType(1018001);
 }
 #[repr(transparent)]
 /// Enumerates the event types supported by the NativeNode component.
@@ -10887,6 +12893,9 @@ pub struct ArkUI_NodeAdapterEventType(pub ::core::ffi::c_uint);
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_NativeNodeAPI_1 {
     /// Struct version.
+    ///
+    ///
+    /// Available since API-level: 12
     pub version: i32,
     /// Creates a component based on [`ArkUI_NodeType`] and returns the pointer to the created component.
     ///
@@ -10897,6 +12906,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the pointer to the created component. If the component fails to be created, NULL is returned.
+    ///
+    /// Available since API-level: 12
     pub createNode:
         ::core::option::Option<unsafe extern "C" fn(type_: ArkUI_NodeType) -> ArkUI_NodeHandle>,
     /// Destroys the component to which the specified pointer points.
@@ -10904,6 +12915,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Arguments
     ///
     /// * `node` - Indicates the pointer.
+    ///
+    /// Available since API-level: 12
     pub disposeNode: ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle)>,
     /// Adds a component to a parent node.
     ///
@@ -10918,9 +12931,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
-    /// on BuilderNode generated nodes:
-    /// setting or resetting attributes, setting events, or adding or editing subnodes.
+    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed on
+    /// BuilderNode generated nodes: setting or resetting attributes, setting events, or adding or editing subnodes.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the child node has already been adopted. Add since api 22.
+    ///
+    /// Available since API-level: 12
     pub addChild: ::core::option::Option<
         unsafe extern "C" fn(parent: ArkUI_NodeHandle, child: ArkUI_NodeHandle) -> i32,
     >,
@@ -10940,6 +12955,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
     /// on BuilderNode generated nodes:
     /// setting or resetting attributes, setting events, or adding or editing subnodes.
+    ///
+    /// Available since API-level: 12
     pub removeChild: ::core::option::Option<
         unsafe extern "C" fn(parent: ArkUI_NodeHandle, child: ArkUI_NodeHandle) -> i32,
     >,
@@ -10959,9 +12976,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
-    /// on BuilderNode generated nodes:
-    /// setting or resetting attributes, setting events, or adding or editing subnodes.
+    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed on BuilderNode generated
+    /// nodes: setting or resetting attributes, setting events, or adding or editing subnodes.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the child node has already been adopted. Add since api 22.
+    ///
+    /// Available since API-level: 12
     pub insertChildAfter: ::core::option::Option<
         unsafe extern "C" fn(
             parent: ArkUI_NodeHandle,
@@ -10985,9 +13004,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
-    /// on BuilderNode generated nodes:
-    /// setting or resetting attributes, setting events, or adding or editing subnodes.
+    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed on BuilderNode generated
+    /// nodes: setting or resetting attributes, setting events, or adding or editing subnodes.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the child node has already been adopted. Add since api 22.
+    ///
+    /// Available since API-level: 12
     pub insertChildBefore: ::core::option::Option<
         unsafe extern "C" fn(
             parent: ArkUI_NodeHandle,
@@ -11011,9 +13032,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
-    /// on BuilderNode generated nodes:
-    /// setting or resetting attributes, setting events, or adding or editing subnodes.
+    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed on BuilderNode generated
+    /// nodes: setting or resetting attributes, setting events, or adding or editing subnodes.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the child node has already been adopted. Add since api 22.
+    ///
+    /// Available since API-level: 12
     pub insertChildAt: ::core::option::Option<
         unsafe extern "C" fn(
             parent: ArkUI_NodeHandle,
@@ -11041,6 +13064,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
     /// on BuilderNode generated nodes:
     /// setting or resetting attributes, setting events, or adding or editing subnodes.
+    ///
+    /// Available since API-level: 12
     pub setAttribute: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -11062,6 +13087,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the attribute value. If the operation fails, a null pointer is returned.
+    ///
+    /// Available since API-level: 12
     pub getAttribute: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -11086,6 +13113,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
     /// on BuilderNode generated nodes:
     /// setting or resetting attributes, setting events, or adding or editing subnodes.
+    ///
+    /// Available since API-level: 12
     pub resetAttribute: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, attribute: ArkUI_NodeAttributeType) -> i32,
     >,
@@ -11114,6 +13143,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
     /// on BuilderNode generated nodes:
     /// setting or resetting attributes, setting events, or adding or editing subnodes.
+    ///
+    /// Available since API-level: 12
     pub registerNodeEvent: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -11131,6 +13162,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// * `node` - Indicates the target node.
     ///
     /// * `eventType` - Indicates the type of event to unregister.
+    ///
+    /// Available since API-level: 12
     pub unregisterNodeEvent: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, eventType: ArkUI_NodeEventType),
     >,
@@ -11150,12 +13183,17 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Arguments
     ///
     /// * `eventReceiver` - Indicates the event receiver to register.
+    ///
+    /// Available since API-level: 12
     pub registerNodeEventReceiver: ::core::option::Option<
         unsafe extern "C" fn(
             eventReceiver: ::core::option::Option<unsafe extern "C" fn(event: *mut ArkUI_NodeEvent)>,
         ),
     >,
     /// Unregisters the event receiver.
+    ///
+    ///
+    /// Available since API-level: 12
     pub unregisterNodeEventReceiver: ::core::option::Option<unsafe extern "C" fn()>,
     /// Forcibly marks the current node that needs to be measured, laid out, or rendered again.
     ///
@@ -11166,6 +13204,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// * `node` - Indicates the node for which you want to mark as dirty area.
     ///
     /// * `dirtyFlag` - Indicates type of dirty area.
+    ///
+    /// Available since API-level: 12
     pub markDirty: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, dirtyFlag: ArkUI_NodeDirtyFlag),
     >,
@@ -11178,6 +13218,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * the number of subnodes. If not, returns 0.
+    ///
+    /// Available since API-level: 12
     pub getTotalChildCount:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> u32>,
     /// Obtains a subnode.
@@ -11191,6 +13233,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+    ///
+    /// Available since API-level: 12
     pub getChildAt: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, position: i32) -> ArkUI_NodeHandle,
     >,
@@ -11203,6 +13247,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+    ///
+    /// Available since API-level: 12
     pub getFirstChild:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle>,
     /// Obtains the last subnode.
@@ -11214,6 +13260,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+    ///
+    /// Available since API-level: 12
     pub getLastChild:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle>,
     /// Obtains the previous sibling node.
@@ -11225,6 +13273,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+    ///
+    /// Available since API-level: 12
     pub getPreviousSibling:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle>,
     /// Obtains the next sibling node.
@@ -11236,6 +13286,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the pointer to the subnode if the subnode exists; returns <b>NULL</b> otherwise.
+    ///
+    /// Available since API-level: 12
     pub getNextSibling:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle>,
     /// Registers a custom event for a node. When the event is triggered, the value is returned through the entry
@@ -11260,6 +13312,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
     /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] if the dynamic implementation library
     /// of the native API was not found.
+    ///
+    /// Available since API-level: 12
     pub registerNodeCustomEvent: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -11275,6 +13329,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// * `node` - Indicates the target node.
     ///
     /// * `eventType` - Indicates the type of event to unregister.
+    ///
+    /// Available since API-level: 12
     pub unregisterNodeCustomEvent: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, eventType: ArkUI_NodeCustomEventType),
     >,
@@ -11293,6 +13349,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Arguments
     ///
     /// * `eventReceiver` - Indicates the event receiver to register.
+    ///
+    /// Available since API-level: 12
     pub registerNodeCustomEventReceiver: ::core::option::Option<
         unsafe extern "C" fn(
             eventReceiver: ::core::option::Option<
@@ -11301,6 +13359,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
         ),
     >,
     /// Unregisters the unified entry point function for custom node event callbacks.
+    ///
+    ///
+    /// Available since API-level: 12
     pub unregisterNodeCustomEventReceiver: ::core::option::Option<unsafe extern "C" fn()>,
     /// Sets the width and height for a component after the measurement.
     ///
@@ -11316,7 +13377,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
     pub setMeasuredSize: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, width: i32, height: i32) -> i32,
     >,
@@ -11334,7 +13397,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
     pub setLayoutPosition: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, positionX: i32, positionY: i32) -> i32,
     >,
@@ -11347,6 +13412,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the width and height of the component.
+    ///
+    /// Available since API-level: 12
     pub getMeasuredSize:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_IntSize>,
     /// Obtains the position of a component after the layout is complete.
@@ -11358,6 +13425,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the position of the component.
+    ///
+    /// Available since API-level: 12
     pub getLayoutPosition:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_IntOffset>,
     /// Measures a node. You can use the <b>getMeasuredSize</b> API to obtain the size after the measurement.
@@ -11372,7 +13441,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
     pub measureNode: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -11395,7 +13466,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
     pub layoutNode: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, positionX: i32, positionY: i32) -> i32,
     >,
@@ -11422,7 +13495,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
     pub addNodeEventReceiver: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -11441,7 +13516,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
     pub removeNodeEventReceiver: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -11472,6 +13549,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
     pub addNodeCustomEventReceiver: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -11493,6 +13572,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
     pub removeNodeCustomEventReceiver: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -11513,7 +13594,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs..
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
     pub setUserData: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, userData: *mut ::core::ffi::c_void) -> i32,
     >,
@@ -11526,6 +13609,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the custom data.
+    ///
+    /// Available since API-level: 12
     pub getUserData: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle) -> *mut ::core::ffi::c_void,
     >,
@@ -11543,6 +13628,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 12
     pub setLengthMetricUnit: ::core::option::Option<
         unsafe extern "C" fn(node: ArkUI_NodeHandle, unit: ArkUI_LengthMetricUnit) -> i32,
     >,
@@ -11555,6 +13642,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the pointer of the component, if not return NULL
+    ///
+    /// Available since API-level: 12
     pub getParent:
         ::core::option::Option<unsafe extern "C" fn(node: ArkUI_NodeHandle) -> ArkUI_NodeHandle>,
     /// Uninstall all child nodes from the parent component.
@@ -11833,6 +13922,23 @@ extern "C" {
         value: *mut ArkUI_NumberValue,
         size: i32,
     ) -> i32;
+    /// Obtains a <b>ArkUI_TouchTestInfo</b> object from the specified <b>ArkUI_NodeEvent</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// {pointer} nodeEvent Indicates the pointer to an <b>ArkUI_NodeEvent</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to an <b>ArkUI_TouchTestInfo</b> object.
+    /// Returns <b>null</b> if the parameter passed in is invalid or is not a touch test info.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_NodeEvent_GetTouchTestInfo(
+        nodeEvent: *mut ArkUI_NodeEvent,
+    ) -> *mut ArkUI_TouchTestInfo;
     /// Creates a component adapter.
     ///
     ///
@@ -12451,6 +14557,7 @@ extern "C" {
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the node has already been adopted. add since api 22.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -12495,6 +14602,7 @@ extern "C" {
     /// * Returns the error code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the node has already been adopted. add since api 22.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -13037,6 +15145,27 @@ extern "C" {
     pub fn OH_ArkUI_SystemFontStyleEvent_GetFontWeightScale(
         event: *const ArkUI_SystemFontStyleEvent,
     ) -> f32;
+    /// Get the node handle by id.
+    ///
+    /// # Arguments
+    ///
+    /// * `id` - The id of the target node handle.
+    ///
+    /// * `node` - The handle of target node handle.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+    pub fn OH_ArkUI_NodeUtils_GetAttachedNodeHandleById(
+        id: *const ::core::ffi::c_char,
+        node: *mut ArkUI_NodeHandle,
+    ) -> i32;
     /// Move the node handle to target parent node as child.
     ///
     /// # Arguments
@@ -13054,6 +15183,7 @@ extern "C" {
     /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the node has already been adopted. add since api 22.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -13064,8 +15194,8 @@ extern "C" {
         index: i32,
     ) -> i32;
     /// Triggers node updates in the current frame.
-    /// When node attributes are modified after the current frame's build phase (i.e., after
-    /// the unified processing of dirty nodes), the node updates will be deferred to the next
+    /// When node attributes are modified after the current frame's build phase,
+    /// the node updates will be deferred to the next
     /// frame. This function forces immediate node updates within the current frame to
     /// ensure rendering effects are applied synchronously.
     ///
@@ -13209,27 +15339,6 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_UnregisterDrawCallbackOnNodeHandle(node: ArkUI_NodeHandle) -> i32;
-    /// Get the node handle by id.
-    ///
-    /// # Arguments
-    ///
-    /// * `id` - The id of the target node handle.
-    ///
-    /// * `node` - The handle of target node handle.
-    ///
-    /// # Returns
-    ///
-    /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    ///
-    /// Available since API-level: 15
-    #[cfg(feature = "api-15")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-    pub fn OH_ArkUI_NodeUtils_GetAttachedNodeHandleById(
-        id: *const ::core::ffi::c_char,
-        node: *mut ArkUI_NodeHandle,
-    ) -> i32;
     /// Get the snapshot pixelmap for the given node synchronously, will get error if the node is not on the
     /// tree or is not rendered yet.
     /// Note: the pixelmap should be released through OH_PixelmapNative_Release when it's not used any more.
@@ -13251,6 +15360,33 @@ extern "C" {
     /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_TIMEOUT`] if the snapshot taking is timeout.
     ///
     /// Available since API-level: 15
+    ////**
+    /// Obtains a snapshot of a given component. If the node is not in the component tree or has not been rendered,
+    /// the snapshot operation will fail. When the <b>Pixelmap</b> object created is no longer in use, it should be released
+    /// by calling [`OH_PixelmapNative_Release`].
+    ///
+    ///
+    /// * `node` - Target node.
+    ///
+    /// * `snapshotOptions` - Snapshot settings. If the value is null, the default settings are used.
+    /// Snapshot settings include scaling, color space, and dynamic range configuration.
+    /// Scaling: floating-point value greater than 0.
+    /// Color space: <b>3</b> (DISPLAY_P3), <b>4</b> (SRGB), <b>27</b> (DISPLAY_BT2020_SRGB).
+    /// Dynamic range: [`ArkUI_DynamicRangeMode`].
+    ///
+    /// * `pixelmap` - Pointer to the <b>Pixelmap</b> object created by the system.
+    ///
+    /// * Result code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INTERNAL_ERROR`] if the snapshot fails, returning a null pointer.
+    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_TIMEOUT`] if the snapshot operation times out.
+    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_MODE_NOT_SUPPORTED`] if the provided color space or
+    /// dynamic range mode is not supported.
+    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_AUTO_NOT_SUPPORTED`] if the isAuto parameter of the color
+    /// space or dynamic range mode is set to true for offscreen node snapshot.
+    ///
+    /// Available since API-level: 23
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_GetNodeSnapshot(
@@ -13352,7 +15488,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `uiContext` - ArkUI_ContextHandle.
+    /// * `uiContext` - Indicates the pointer to a UI instance.
     ///
     /// * `userData` - Indicates the pointer to the custom data.
     ///
@@ -13407,7 +15543,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
     /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
     ///
@@ -13415,6 +15551,75 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_ArkUI_NodeUtils_GetNodeUniqueId(node: ArkUI_NodeHandle, uniqueId: *mut i32) -> i32;
+    /// Returns true if the node is in the render state. A node is considered to be in the render state if its
+    /// corresponding RenderNode is on the render tree.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer.
+    ///
+    /// * `isInRenderState` - If the node is in the render state.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_NativeModule_IsInRenderState(
+        node: ArkUI_NodeHandle,
+        isInRenderState: *mut bool,
+    ) -> i32;
+    /// The current node adopts the target child node. The node being adopted must not have an existing parent node.
+    /// This operation does not actually append it as a child, but only allows it to receive life-cycle
+    /// callbacks as if it were a child.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer, the parent node that will adopt the child node.
+    ///
+    /// * `child` - ArkUI_NodeHandle pointer, the target node being adopted.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NODE_HAS_PARENT`] The child already has a parent node.
+    /// [`ARKUI_ERROR_CODE_NODE_CAN_NOT_BE_ADOPTED`] The child can not be adopted.
+    /// [`ARKUI_ERROR_CODE_NODE_CAN_NOT_ADOPT_TO`] The node can not adopt children.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_NativeModule_AdoptChild(node: ArkUI_NodeHandle, child: ArkUI_NodeHandle)
+        -> i32;
+    /// Remove the target adopted child node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer, the parent node.
+    ///
+    /// * `child` - ArkUI_NodeHandle pointer, the node being removed.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NODE_IS_NOT_IN_ADOPTED_CHILDREN`] This child node is not adopted by the parent node.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_NativeModule_RemoveAdoptedChild(
+        node: ArkUI_NodeHandle,
+        child: ArkUI_NodeHandle,
+    ) -> i32;
     /// Sets the inverse color algorithm for components and instances.
     ///
     /// # Arguments
@@ -13546,4 +15751,293 @@ extern "C" {
     pub fn OH_ArkUI_NativeModule_UnregisterCommonVisibleAreaApproximateChangeEvent(
         node: ArkUI_NodeHandle,
     ) -> i32;
+    /// Converts a point's coordinates from the target node's coordinate system
+    /// to the current window's coordinate system, with consideration of the node’s transformation.
+    ///
+    /// # Arguments
+    ///
+    /// {ArkUI_NodeHandle} currentNode ArkUI_NodeHandle The target node.
+    ///
+    /// {ArkUI_IntOffset} localPosition The point's coordinates in the target node's local coordinate system, in px.
+    ///
+    /// {ArkUI_IntOffset*} windowPosition The converted coordinates in the current window's coordinate system, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`] The target node is not on main tree.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_NativeModule_ConvertPositionToWindow(
+        currentNode: ArkUI_NodeHandle,
+        localPosition: ArkUI_IntOffset,
+        windowPosition: *mut ArkUI_IntOffset,
+    ) -> i32;
+    /// Converts a point's coordinates from the current window's coordinate system
+    /// to the target node's coordinate system, with consideration of the node’s transformation.
+    ///
+    /// # Arguments
+    ///
+    /// {ArkUI_NodeHandle } targetNode ArkUI_NodeHandle The target node.
+    ///
+    /// {ArkUI_IntOffset} windowPosition The point's coordinates in the current window's coordinate system, in px.
+    ///
+    /// {ArkUI_IntOffset*} localPosition The converted coordinates in the target node's local coordinate system, in px.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`] The target node is not on main tree.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_NativeModule_ConvertPositionFromWindow(
+        targetNode: ArkUI_NodeHandle,
+        windowPosition: ArkUI_IntOffset,
+        localPosition: *mut ArkUI_IntOffset,
+    ) -> i32;
+    /// Stop the animation being executed by the Swiper node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_Swiper_FinishAnimation(node: ArkUI_NodeHandle) -> i32;
+    /// Post UI task to background threads.
+    ///
+    /// # Arguments
+    ///
+    /// * `context` - UIContext pointer of the page where the UI task located.
+    ///
+    /// * `asyncUITaskData` - Parameter of asyncUITask and onFinish.
+    ///
+    /// * `asyncUITask` - Function executed by a background thread.
+    ///
+    /// * `onFinish` - Function executed by UI thread after async UI task is executed.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if context or asyncUITask is nullptr.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_PostAsyncUITask(
+        context: ArkUI_ContextHandle,
+        asyncUITaskData: *mut ::core::ffi::c_void,
+        asyncUITask: ::core::option::Option<
+            unsafe extern "C" fn(asyncUITaskData: *mut ::core::ffi::c_void),
+        >,
+        onFinish: ::core::option::Option<
+            unsafe extern "C" fn(asyncUITaskData: *mut ::core::ffi::c_void),
+        >,
+    ) -> i32;
+    /// Post UI task to UI thread.
+    ///
+    /// # Arguments
+    ///
+    /// * `context` - UIContext pointer of the page where the UI task located.
+    ///
+    /// * `taskData` - Parameter of task.
+    ///
+    /// * `task` - Function executed by UI thread.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if context or task is nullptr.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_PostUITask(
+        context: ArkUI_ContextHandle,
+        taskData: *mut ::core::ffi::c_void,
+        task: ::core::option::Option<unsafe extern "C" fn(taskData: *mut ::core::ffi::c_void)>,
+    ) -> i32;
+    /// set the visiblity of the menubar.
+    ///
+    /// # Arguments
+    ///
+    /// * `uiContext` - ArkUI_ContextHandle. - The designated ArkUI container context.
+    ///
+    /// * `visible` - visibility. true indicate the menubar is visible,
+    /// false indicate the menubar is invisible.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`] if the uiContext is invalid.
+    /// for example, 1.uiContext is nullptr 2.can not get container by uiContext.
+    /// 3. the uiContext is not belong to atomic service.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_NativeModule_AtomicServiceMenuBarSetVisible(
+        uiContext: ArkUI_ContextHandle,
+        visible: bool,
+    ) -> i32;
+    /// Post UI task to UI thread and wait until UI task finished.
+    ///
+    /// # Arguments
+    ///
+    /// * `context` - UIContext pointer of the page where the UI task located.
+    ///
+    /// * `taskData` - Parameter of task.
+    ///
+    /// * `task` - Function executed by UI thread.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if context or task is nullptr.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_PostUITaskAndWait(
+        context: ArkUI_ContextHandle,
+        taskData: *mut ::core::ffi::c_void,
+        task: ::core::option::Option<unsafe extern "C" fn(taskData: *mut ::core::ffi::c_void)>,
+    ) -> i32;
+    /// Start a fake drag of the Swiper node.
+    /// Call OH_ArkUI_Swiper_FakeDragBy to simulate the drag motion. Call OH_ArkUI_Swiper_StopFakeDrag to complete the
+    /// fake drag. A fake drag can be interrupted by a real drag. If you need to ignore touch events and other user input
+    /// during a fake drag, use NODE_SWIPER_DISABLE_SWIPE.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer.
+    ///
+    /// * `isSuccessful` - If the fake drag started successfully, return true.
+    /// If the Swiper is not ready to start the fake drag, or a real or fake drag is already in progress, return false.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_Swiper_StartFakeDrag(node: ArkUI_NodeHandle, isSuccessful: *mut bool) -> i32;
+    /// Fake drag by an offset of the Swiper node.
+    /// The OH_ArkUI_Swiper_StartFakeDrag must be called first.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer.
+    ///
+    /// * `offset` - The offset that needs to be scrolled. The unit is vp.
+    ///
+    /// * `isConsumedOffset` - If not in a fake drag progress, or no offset is consumed, return false.
+    /// If any offset is consumed, return true.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_Swiper_FakeDragBy(
+        node: ArkUI_NodeHandle,
+        offset: f32,
+        isConsumedOffset: *mut bool,
+    ) -> i32;
+    /// Stop a fake drag of the Swiper node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer.
+    ///
+    /// * `isSuccessful` - If the fake drag stopped successfully, return true.
+    /// If the Swiper is not ready to stop the fake drag, or no fake drag is in progress, return false.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_Swiper_StopFakeDrag(node: ArkUI_NodeHandle, isSuccessful: *mut bool) -> i32;
+    /// Get the fake drag state of the Swiper node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer.
+    ///
+    /// * `isFakeDragging` - If a fake drag is in progress return true, otherwise return false
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_Swiper_IsFakeDragging(node: ArkUI_NodeHandle, isFakeDragging: *mut bool)
+        -> i32;
+    /// Show the previous page of the Swiper node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_Swiper_ShowPrevious(node: ArkUI_NodeHandle) -> i32;
+    /// Show the next page of the Swiper node.
+    ///
+    /// # Arguments
+    ///
+    /// * `node` - ArkUI_NodeHandle pointer.
+    ///
+    /// # Returns
+    ///
+    /// * Error code.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_ArkUI_Swiper_ShowNext(node: ArkUI_NodeHandle) -> i32;
 }

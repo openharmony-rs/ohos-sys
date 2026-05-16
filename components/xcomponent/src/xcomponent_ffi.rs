@@ -5,6 +5,8 @@
 #![allow(non_snake_case)]
 #[cfg(feature = "api-13")]
 use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;
+#[cfg(feature = "api-22")]
+use ohos_sys_opaque_types::ArkUI_XComponentSurfaceConfig;
 #[cfg(feature = "api-19")]
 use ohos_sys_opaque_types::{ArkUI_NodeHandle, OHNativeWindow};
 
@@ -2147,4 +2149,63 @@ extern "C" {
             unsafe extern "C" fn(surfaceHolder: *mut OH_ArkUI_SurfaceHolder),
         >,
     );
+    /// Create an <b>ArkUI_XComponentSurfaceConfig</b> object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * A pointer to the object of the XComponent's surface config.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_XComponentSurfaceConfig_Create() -> *mut ArkUI_XComponentSurfaceConfig;
+    /// Dispose of an <b>ArkUI_XComponentSurfaceConfig</b> object.
+    ///
+    /// # Arguments
+    ///
+    /// * `config` - A pointer to the object of the XComponent's surface config to be destroyed.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_XComponentSurfaceConfig_Dispose(config: *mut ArkUI_XComponentSurfaceConfig);
+    /// Set whether the surface held by XComponent needs to be considered opaque,
+    /// even if the surface has translucent pixel.
+    ///
+    /// # Arguments
+    ///
+    /// * `config` - A pointer to the object of the XComponent's surface config.
+    ///
+    /// * `isOpaque` - Indicates whether the surface held by XComponent needs to be considered opaque,
+    /// True means needing to be considered opaque, false otherwise.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_XComponentSurfaceConfig_SetIsOpaque(
+        config: *mut ArkUI_XComponentSurfaceConfig,
+        isOpaque: bool,
+    );
+    /// Set surface config for this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `surfaceHolder` - Indicates the pointer to this <b>OH_ArkUI_SurfaceHolder</b> instance.
+    ///
+    /// * `config` - Indicates the pointer to the XComponent's surface config.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_SurfaceHolder_SetSurfaceConfig(
+        surfaceHolder: *mut OH_ArkUI_SurfaceHolder,
+        config: *mut ArkUI_XComponentSurfaceConfig,
+    ) -> i32;
 }

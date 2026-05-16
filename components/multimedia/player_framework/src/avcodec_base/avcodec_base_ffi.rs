@@ -539,6 +539,97 @@ impl OH_H263Profile {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_H263Profile(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl OH_VC1Profile {
+    /// Simple profile
+    pub const VC1_PROFILE_SIMPLE: OH_VC1Profile = OH_VC1Profile(0);
+    /// Main profile
+    pub const VC1_PROFILE_MAIN: OH_VC1Profile = OH_VC1Profile(1);
+    /// Advanced profile
+    pub const VC1_PROFILE_ADVANCED: OH_VC1Profile = OH_VC1Profile(2);
+}
+#[repr(transparent)]
+/// VC-1 Profile
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_VC1Profile(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl OH_AV1Profile {
+    /// Main profile
+    pub const AV1_PROFILE_MAIN: OH_AV1Profile = OH_AV1Profile(0);
+    /// High profile
+    pub const AV1_PROFILE_HIGH: OH_AV1Profile = OH_AV1Profile(1);
+    /// Professional profile
+    pub const AV1_PROFILE_PROFESSIONAL: OH_AV1Profile = OH_AV1Profile(2);
+}
+#[repr(transparent)]
+/// AV1 Profile
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AV1Profile(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl OH_VP9Profile {
+    /// 0 profile
+    pub const VP9_PROFILE_0: OH_VP9Profile = OH_VP9Profile(0);
+    /// 1 profile
+    pub const VP9_PROFILE_1: OH_VP9Profile = OH_VP9Profile(1);
+    /// 2 profile
+    pub const VP9_PROFILE_2: OH_VP9Profile = OH_VP9Profile(2);
+    /// 3 profile
+    pub const VP9_PROFILE_3: OH_VP9Profile = OH_VP9Profile(3);
+}
+#[repr(transparent)]
+/// VP9 Profile
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_VP9Profile(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl OH_WVC1Profile {
+    /// Advanced profile
+    pub const WVC1_PROFILE_ADVANCED: OH_WVC1Profile = OH_WVC1Profile(0);
+}
+#[repr(transparent)]
+/// WVC1 Profile.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_WVC1Profile(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl OH_WMV3Profile {
+    /// Simple profile
+    pub const WMV3_PROFILE_SIMPLE: OH_WMV3Profile = OH_WMV3Profile(0);
+    /// Main profile
+    pub const WMV3_PROFILE_MAIN: OH_WMV3Profile = OH_WMV3Profile(1);
+}
+#[repr(transparent)]
+/// WMV3 Profile
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_WMV3Profile(pub ::core::ffi::c_uint);
 impl OH_AVOutputFormat {
     pub const AV_OUTPUT_FORMAT_DEFAULT: OH_AVOutputFormat = OH_AVOutputFormat(0);
     pub const AV_OUTPUT_FORMAT_MPEG_4: OH_AVOutputFormat = OH_AVOutputFormat(2);
@@ -573,6 +664,12 @@ impl OH_AVOutputFormat {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const AV_OUTPUT_FORMAT_FLAC: OH_AVOutputFormat = OH_AVOutputFormat(12);
+    /// The muxer output ogg file format.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AV_OUTPUT_FORMAT_OGG: OH_AVOutputFormat = OH_AVOutputFormat(13);
 }
 #[repr(transparent)]
 /// Enumerates the muxer output file format
@@ -933,6 +1030,179 @@ impl OH_H263Level {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_H263Level(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl OH_VC1Level {
+    /// L0 level
+    pub const VC1_LEVEL_L0: OH_VC1Level = OH_VC1Level(0);
+    /// L1 level
+    pub const VC1_LEVEL_L1: OH_VC1Level = OH_VC1Level(1);
+    /// L2 level
+    pub const VC1_LEVEL_L2: OH_VC1Level = OH_VC1Level(2);
+    /// L3 level
+    pub const VC1_LEVEL_L3: OH_VC1Level = OH_VC1Level(3);
+    /// L4 level
+    pub const VC1_LEVEL_L4: OH_VC1Level = OH_VC1Level(4);
+    /// LOW level
+    pub const VC1_LEVEL_LOW: OH_VC1Level = OH_VC1Level(5);
+    /// MEDIUM level
+    pub const VC1_LEVEL_MEDIUM: OH_VC1Level = OH_VC1Level(6);
+    /// HIGH level
+    pub const VC1_LEVEL_HIGH: OH_VC1Level = OH_VC1Level(7);
+}
+#[repr(transparent)]
+/// VC-1 Level.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_VC1Level(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl OH_AV1Level {
+    /// 2.0 level
+    pub const AV1_LEVEL_20: OH_AV1Level = OH_AV1Level(0);
+    /// 2.1 level
+    pub const AV1_LEVEL_21: OH_AV1Level = OH_AV1Level(1);
+    /// 2.2 level
+    pub const AV1_LEVEL_22: OH_AV1Level = OH_AV1Level(2);
+    /// 2.3 level
+    pub const AV1_LEVEL_23: OH_AV1Level = OH_AV1Level(3);
+    /// 3.0 level
+    pub const AV1_LEVEL_30: OH_AV1Level = OH_AV1Level(4);
+    /// 3.1 level
+    pub const AV1_LEVEL_31: OH_AV1Level = OH_AV1Level(5);
+    /// 3.2 level
+    pub const AV1_LEVEL_32: OH_AV1Level = OH_AV1Level(6);
+    /// 3.3 level
+    pub const AV1_LEVEL_33: OH_AV1Level = OH_AV1Level(7);
+    /// 4.0 level
+    pub const AV1_LEVEL_40: OH_AV1Level = OH_AV1Level(8);
+    /// 4.1 level
+    pub const AV1_LEVEL_41: OH_AV1Level = OH_AV1Level(9);
+    /// 4.2 level
+    pub const AV1_LEVEL_42: OH_AV1Level = OH_AV1Level(10);
+    /// 4.3 level
+    pub const AV1_LEVEL_43: OH_AV1Level = OH_AV1Level(11);
+    /// 5.0 level
+    pub const AV1_LEVEL_50: OH_AV1Level = OH_AV1Level(12);
+    /// 5.1 level
+    pub const AV1_LEVEL_51: OH_AV1Level = OH_AV1Level(13);
+    /// 5.2 level
+    pub const AV1_LEVEL_52: OH_AV1Level = OH_AV1Level(14);
+    /// 5.3 level
+    pub const AV1_LEVEL_53: OH_AV1Level = OH_AV1Level(15);
+    /// 6.0 level
+    pub const AV1_LEVEL_60: OH_AV1Level = OH_AV1Level(16);
+    /// 6.1 level
+    pub const AV1_LEVEL_61: OH_AV1Level = OH_AV1Level(17);
+    /// 6.2 level
+    pub const AV1_LEVEL_62: OH_AV1Level = OH_AV1Level(18);
+    /// 6.3 level
+    pub const AV1_LEVEL_63: OH_AV1Level = OH_AV1Level(19);
+    /// 7.0 level
+    pub const AV1_LEVEL_70: OH_AV1Level = OH_AV1Level(20);
+    /// 7.1 level
+    pub const AV1_LEVEL_71: OH_AV1Level = OH_AV1Level(21);
+    /// 7.2 level
+    pub const AV1_LEVEL_72: OH_AV1Level = OH_AV1Level(22);
+    /// 7.3 level
+    pub const AV1_LEVEL_73: OH_AV1Level = OH_AV1Level(23);
+}
+#[repr(transparent)]
+/// AV1 Level.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AV1Level(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl OH_VP9Level {
+    /// 1 level
+    pub const VP9_LEVEL_1: OH_VP9Level = OH_VP9Level(0);
+    /// 1.1 level
+    pub const VP9_LEVEL_11: OH_VP9Level = OH_VP9Level(1);
+    /// 2 level
+    pub const VP9_LEVEL_2: OH_VP9Level = OH_VP9Level(2);
+    /// 2.1 level
+    pub const VP9_LEVEL_21: OH_VP9Level = OH_VP9Level(3);
+    /// 3 level
+    pub const VP9_LEVEL_3: OH_VP9Level = OH_VP9Level(4);
+    /// 3.1 level
+    pub const VP9_LEVEL_31: OH_VP9Level = OH_VP9Level(5);
+    /// 4 level
+    pub const VP9_LEVEL_4: OH_VP9Level = OH_VP9Level(6);
+    /// 4.1 level
+    pub const VP9_LEVEL_41: OH_VP9Level = OH_VP9Level(7);
+    /// 5 level
+    pub const VP9_LEVEL_5: OH_VP9Level = OH_VP9Level(8);
+    /// 5.1 level
+    pub const VP9_LEVEL_51: OH_VP9Level = OH_VP9Level(9);
+    /// 5.2 level
+    pub const VP9_LEVEL_52: OH_VP9Level = OH_VP9Level(10);
+    /// 6 level
+    pub const VP9_LEVEL_6: OH_VP9Level = OH_VP9Level(11);
+    /// 6.1 level
+    pub const VP9_LEVEL_61: OH_VP9Level = OH_VP9Level(12);
+    /// 6.2 level
+    pub const VP9_LEVEL_62: OH_VP9Level = OH_VP9Level(13);
+}
+#[repr(transparent)]
+/// VP9 Level.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_VP9Level(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl OH_WVC1Level {
+    /// L0 level
+    pub const WVC1_LEVEL_L0: OH_WVC1Level = OH_WVC1Level(0);
+    /// L1 level
+    pub const WVC1_LEVEL_L1: OH_WVC1Level = OH_WVC1Level(1);
+    /// L2 level
+    pub const WVC1_LEVEL_L2: OH_WVC1Level = OH_WVC1Level(2);
+    /// L3 level
+    pub const WVC1_LEVEL_L3: OH_WVC1Level = OH_WVC1Level(3);
+    /// L4 level
+    pub const WVC1_LEVEL_L4: OH_WVC1Level = OH_WVC1Level(4);
+}
+#[repr(transparent)]
+/// WVC1 level.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_WVC1Level(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl OH_WMV3Level {
+    /// LOW level
+    pub const WMV3_LEVEL_LOW: OH_WMV3Level = OH_WMV3Level(0);
+    /// MEDIUM level
+    pub const WMV3_LEVEL_MEDIUM: OH_WMV3Level = OH_WMV3Level(1);
+    /// HIGH level
+    pub const WMV3_LEVEL_HIGH: OH_WMV3Level = OH_WMV3Level(2);
+}
+#[repr(transparent)]
+/// WMV3 Level.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_WMV3Level(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_TemporalGopReferenceMode {
@@ -1154,6 +1424,115 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_AVCODEC_MIMETYPE_AUDIO_G711A: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of ALAC (Apple Lossless Audio Codec).
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_ALAC: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio AC-3 codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_AC3: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio Enhanced AC-3 codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_EAC3: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of windows media audio 1 codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_WMAV1: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of windows media audio 2 codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_WMAV2: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of windows media audio 9 professional codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO: *const ::core::ffi::c_char;
+    /// Key for specifying the number of bytes per audio packet. The value type is int32_t.
+    ///
+    /// This key is required only for Windows Media audio decoders. The supported decoder MIME types
+    /// include [`OH_AVCODEC_MIMETYPE_AUDIO_WMAV1`], [`OH_AVCODEC_MIMETYPE_AUDIO_WMAV2`],
+    /// and [`OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO`].
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_MD_KEY_BLOCK_ALIGN: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio GSM codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_GSM: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio GSM Microsoft varient codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_GSM_MS: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio TwinVQ codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_TWINVQ: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio internet low bitrate codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_ILBC: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio TrueHD codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_TRUEHD: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio DV Audio codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_DVAUDIO: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio DTS codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_DTS: *const ::core::ffi::c_char;
+    /// Enumerates the mime types of audio COOK codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_AUDIO_COOK: *const ::core::ffi::c_char;
     /// Enumerates the MIME type of video mpeg2 codec.
     ///
     ///
@@ -1181,6 +1560,97 @@ extern "C" {
     #[cfg(feature = "api-17")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-17")))]
     pub static mut OH_AVCODEC_MIMETYPE_VIDEO_H263: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video VC-1 codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_VC1: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video AV1 codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_AV1: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video VP9 codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_VP9: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video VP8 codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_VP8: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video RV30 codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_RV30: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video RV40 codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_RV40: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video WVC1 codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_WVC1: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video DV codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_DVVIDEO: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video raw.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_RAWVIDEO: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video MPEG1 codec.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MPEG1: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video MSVIDEO1 codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MSVIDEO1: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video WMV3 codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_WMV3: *const ::core::ffi::c_char;
+    /// Enumerates the MIME type of video MJPEG codec.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_AVCODEC_MIMETYPE_VIDEO_MJPEG: *const ::core::ffi::c_char;
     /// Key for timeStamp in surface's extraData, value type is int64_t.
     ///
     ///
@@ -1315,6 +1785,25 @@ extern "C" {
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_ROTATION: *const ::core::ffi::c_char;
+    /// Key for video transform type, value type is int32_t, see [`OH_NativeBuffer_TransformType`].
+    ///
+    /// This key is used to set the surface transform for video decoders (surface mode).
+    /// If not specified, the default value is 0 ([`NATIVEBUFFER_ROTATE_NONE`]).
+    /// This key and [`OH_MD_KEY_ROTATION`] are mutually exclusive. If both are provided,
+    /// OH_MD_KEY_VIDEO_TRANSFORM_TYPE takes precedence.
+    /// Note that the degrees specified in [`OH_NativeBuffer_TransformType`] represent counter-clockwise rotation,
+    /// which are opposite to the direction of rotation defined by [`OH_MD_KEY_ROTATION`].
+    /// The correspondence is:
+    /// - [`NATIVEBUFFER_ROTATE_NONE`] => same as OH_MD_KEY_ROTATION = 0
+    /// - [`NATIVEBUFFER_ROTATE_90`] => same as OH_MD_KEY_ROTATION = 270
+    /// - [`NATIVEBUFFER_ROTATE_180`] => same as OH_MD_KEY_ROTATION = 180
+    /// - [`NATIVEBUFFER_ROTATE_270`] => same as OH_MD_KEY_ROTATION = 90
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_MD_KEY_VIDEO_TRANSFORM_TYPE: *const ::core::ffi::c_char;
     /// Key for video YUV value range flag, value type is bool, true for full range, false for limited range.
     ///
     ///
@@ -1599,7 +2088,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_SIZE: *const ::core::ffi::c_char;
     /// Key for describing the reference mode in temporal group of picture, value type is int32_t, see enum
-    /// [`OH_TemporalGopReferenceMode`]. It takes effect only when temporal level sacle is enabled.
+    /// [`OH_TemporalGopReferenceMode`]. It takes effect only when temporal level scale is enabled.
     /// This is an optional key that applies only to video encoder. It is used in configure.
     ///
     ///
@@ -1610,7 +2099,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_REFERENCE_MODE: *const ::core::ffi::c_char;
     /// Key for describing the count of used long-term reference frames, value type is int32_t, must be within the
-    /// supported range. To get supported range, you should query wthether the capability is supported through the interface
+    /// supported range. To get supported range, you should query whether the capability is supported through the interface
     /// [`OH_AVCapability_GetFeatureProperties`] with enum [`VIDEO_ENCODER_LONG_TERM_REFERENCE`], otherwise, not set
     /// the key. This is an optional key that applies only to video encoder. It is used in configure.
     ///
@@ -1886,7 +2375,7 @@ extern "C" {
     pub static mut OH_MD_KEY_CREATION_TIME: *const ::core::ffi::c_char;
     /// Key applies only when configuring a video encoder in surface mode, value type is int32_t.
     /// If no new frame became available since the last frame submitted to the encoder,
-    /// it will sumbit the previous frame repeatly in milliseconds. It is used in configure.
+    /// it will submit the previous frame repeatedly in milliseconds. It is used in configure.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -1897,7 +2386,7 @@ extern "C" {
     pub static mut OH_MD_KEY_VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER: *const ::core::ffi::c_char;
     /// Key for describing the maximum count that the frame previously submitted to the encoder will be
     /// repeated, in case no new frame has been available since, value type is int32_t. This key takes effect only when
-    /// [`VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER`] is vaild. It is used in configure.
+    /// [`VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER`] is valid. It is used in configure.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -2068,4 +2557,24 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_VIDEO_DECODER_BLANK_FRAME_ON_SHUTDOWN: *const ::core::ffi::c_char;
+    /// Key for querying native buffer pixel formats for video codec operations, value type is int32_t.
+    /// The value represents pixel formats defined in [`OH_NativeBuffer_Format`].
+    ///
+    /// This key serves two primary purposes:
+    /// 1. Runtime decoder output: Get current output format via [`OH_VideoDecoder_GetOutputDescription`]
+    /// or [`OH_AVCodecOnStreamChanged`] events.
+    /// 2. Runtime encoder input: Get current input format via [`OH_VideoEncoder_GetInputDescription`].
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub static mut OH_MD_KEY_VIDEO_NATIVE_BUFFER_FORMAT: *const ::core::ffi::c_char;
+    /// Key for skip samples of audio frame. value type is a uint8_t pointer.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub static mut OH_MD_KEY_BUFFER_SKIP_SAMPLES_INFO: *const ::core::ffi::c_char;
 }

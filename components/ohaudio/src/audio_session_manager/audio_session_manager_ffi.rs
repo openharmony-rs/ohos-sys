@@ -90,6 +90,28 @@ impl OH_AudioSession_StateChangeHint {
     /// Unducked the playback.
     pub const AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK: OH_AudioSession_StateChangeHint =
         OH_AudioSession_StateChangeHint(5);
+    /// Suggests to mute the playback because there is another application begin to play nonmixable
+    /// audio, application can decide whether to mute.
+    /// If interrupt strategy is duck, [`#AUDIO_SESSION_STATE_CHANGE_HINT_DUCK`] will replace mute suggestion event,
+    /// but application can still decide to mute when receive hint duck.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIO_SESSION_STATE_CHANGE_HINT_MUTE_SUGGESTION: OH_AudioSession_StateChangeHint =
+        OH_AudioSession_StateChangeHint(6);
+    /// Suggest to unmute the playback because another application's nonmixable audio ends,
+    /// application can decide whether to mute.
+    /// If interrupt strategy is unduck, [`#AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK`] will replace unmute
+    /// suggestion event, but application can still decide to unmute when receive hint unduck.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE_SUGGESTION: OH_AudioSession_StateChangeHint =
+        OH_AudioSession_StateChangeHint(7);
 }
 #[repr(transparent)]
 /// Declare the audio session state change hints.
@@ -871,4 +893,54 @@ extern "C" {
         audioSessionManager: *mut OH_AudioSessionManager,
         audioDeviceDescriptor: *mut OH_AudioDeviceDescriptor,
     ) -> OH_AudioCommon_Result;
+    /// Enables mute suggestion callback function when using [`#CONCURRENCY_MIX_WITH_OTHERS`] mode.
+    /// Usually when using mix mode, application won't receive state change event when there is another audio playing
+    /// simultaneously. But in some scenarios, like game or radio, the application may intend to mute its audio to
+    /// achieve better user experience.
+    /// If enabled, the mute and unmute suggestion hint will be sent by [`#OH_AudioSession_StateChangedCallback`]
+    /// registered by [`#OH_AudioSessionManager_RegisterStateChangeCallback`]. Mute suggestion means there is
+    /// another application starting non-mixable audio.
+    /// This function only supports audio session with [`#OH_AudioSession_Scene`] set and activated with
+    /// [`#CONCURRENCY_MIX_WITH_OTHERS`] mode. And it takes effect only once during activation, so application
+    /// need to enable it every time before activation.
+    ///
+    /// # Arguments
+    ///
+    /// * `audioSessionManager` - the [`#OH_AudioSessionManager`]
+    /// returned by the [`#OH_AudioManager_GetAudioSessionManager`].
+    ///
+    /// * `enable` - Sets true to enable mute suggestion while registering session state change event callback.
+    ///
+    /// # Returns
+    ///
+    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
+    /// or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] Parameter validation fails.
+    /// or [`#AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`] Function is called without setting
+    /// [`#OH_AudioSession_Scene`] or called after audio session activation.
+    /// or [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] Audio client call audio service error, system internal error.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AudioSessionManager_EnableMuteSuggestionWhenMixWithOthers(
+        audioSessionManager: *mut OH_AudioSessionManager,
+        enable: bool,
+    ) -> OH_AudioCommon_Result;
+    /// Returns if there is any other application playing audio in media usage, including media session activated.
+    ///
+    /// # Arguments
+    ///
+    /// * `audioSessionManager` - the [`#OH_AudioSessionManager`]
+    /// returned by the [`#OH_AudioManager_GetAudioSessionManager`].
+    ///
+    /// # Returns
+    ///
+    /// * True if there is other application playing audio in media usage.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AudioSessionManager_IsOtherMediaPlaying(
+        audioSessionManager: *mut OH_AudioSessionManager,
+    ) -> bool;
 }

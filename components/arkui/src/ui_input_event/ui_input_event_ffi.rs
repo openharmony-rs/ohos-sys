@@ -15,6 +15,57 @@ use crate::native_type::*;
 pub struct ArkUI_UIInputEvent {
     _unused: [u8; 0],
 }
+/// Defines the coasting axis event.
+/// When a user swipes with two fingers on the touchpad, the system constructs
+/// sliding events based on the speed at the moment the fingers are lifted according to
+/// a certain decay curve. You can listen for such events to handle the flick effect
+/// immediately after the regular axis events.
+///
+/// It only can be received when user flings on the touchpad with two fingers and any components register
+/// NODE_ON_COASTING_AXIS_EVENT through [`registerNodeEvent`] exist under the pointer location.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct ArkUI_CoastingAxisEvent {
+    _unused: [u8; 0],
+}
+/// Defines the touch test info.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct ArkUI_TouchTestInfo {
+    _unused: [u8; 0],
+}
+/// Defines the touch test info item.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct ArkUI_TouchTestInfoItem {
+    _unused: [u8; 0],
+}
+/// Defines the touch test info item handle.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub type ArkUI_TouchTestInfoItemHandle = *mut ArkUI_TouchTestInfoItem;
+/// Defines the gesture recognizer handle array.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub type ArkUI_TouchTestInfoItemArray = *mut ArkUI_TouchTestInfoItemHandle;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl ArkUI_UIInputEvent_Type {
@@ -40,6 +91,31 @@ impl ArkUI_UIInputEvent_Type {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_UIInputEvent_Type(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl ArkUI_CoastingAxisEventPhase {
+    /// Idle phase, indicating no-coasting phase.
+    pub const ARKUI_COASTING_AXIS_EVENT_PHASE_NONE: ArkUI_CoastingAxisEventPhase =
+        ArkUI_CoastingAxisEventPhase(0);
+    /// Coasting begin, this is the first coasting event.
+    pub const ARKUI_COASTING_AXIS_EVENT_PHASE_BEGIN: ArkUI_CoastingAxisEventPhase =
+        ArkUI_CoastingAxisEventPhase(1);
+    /// Coasting ongoing.
+    pub const ARKUI_COASTING_AXIS_EVENT_PHASE_UPDATE: ArkUI_CoastingAxisEventPhase =
+        ArkUI_CoastingAxisEventPhase(2);
+    /// Coasting end, this is the last coasting event.
+    pub const ARKUI_COASTING_AXIS_EVENT_PHASE_END: ArkUI_CoastingAxisEventPhase =
+        ArkUI_CoastingAxisEventPhase(3);
+}
+#[repr(transparent)]
+/// Enumerates the coasting axis event phases.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_CoastingAxisEventPhase(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl HitTestMode {
@@ -168,6 +244,105 @@ pub const UI_FOCUS_AXIS_EVENT_ABS_HAT0X: _bindgen_ty_6 = _bindgen_ty_6(6);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub const UI_FOCUS_AXIS_EVENT_ABS_HAT0Y: _bindgen_ty_6 = _bindgen_ty_6(7);
+/// Game controller RX-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_RX: _bindgen_ty_6 = _bindgen_ty_6(8);
+/// Game controller RY-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_RY: _bindgen_ty_6 = _bindgen_ty_6(9);
+/// Game controller THROTTLE-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_THROTTLE: _bindgen_ty_6 = _bindgen_ty_6(10);
+/// Game controller RUDDER-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_RUDDER: _bindgen_ty_6 = _bindgen_ty_6(11);
+/// Game controller WHEEL-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_WHEEL: _bindgen_ty_6 = _bindgen_ty_6(12);
+/// Game controller HAT1X-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT1X: _bindgen_ty_6 = _bindgen_ty_6(13);
+/// Game controller HAT1Y-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT1Y: _bindgen_ty_6 = _bindgen_ty_6(14);
+/// Game controller HAT2X-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT2X: _bindgen_ty_6 = _bindgen_ty_6(15);
+/// Game controller HAT2Y-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT2Y: _bindgen_ty_6 = _bindgen_ty_6(16);
+/// Game controller HAT3X-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT3X: _bindgen_ty_6 = _bindgen_ty_6(17);
+/// Game controller HAT3Y-axis.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+pub const UI_FOCUS_AXIS_EVENT_ABS_HAT3Y: _bindgen_ty_6 = _bindgen_ty_6(18);
 #[repr(transparent)]
 /// Defines an enum for the axis types for focus axis events.
 ///
@@ -177,6 +352,27 @@ pub const UI_FOCUS_AXIS_EVENT_ABS_HAT0Y: _bindgen_ty_6 = _bindgen_ty_6(7);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct _bindgen_ty_6(pub ::core::ffi::c_uint);
+/// Vertical scroll axis.
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub const UI_AXIS_TYPE_VERTICAL_AXIS: _bindgen_ty_7 = _bindgen_ty_7(0);
+/// Horizontal scroll axis.
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub const UI_AXIS_TYPE_HORIZONTAL_AXIS: _bindgen_ty_7 = _bindgen_ty_7(1);
+/// Pinch axis.
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub const UI_AXIS_TYPE_PINCH_AXIS: _bindgen_ty_7 = _bindgen_ty_7(2);
+#[repr(transparent)]
+/// Enumerates the axis types for axis events.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct _bindgen_ty_7(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl ArkUI_InteractionHand {
@@ -199,23 +395,23 @@ pub struct ArkUI_InteractionHand(pub ::core::ffi::c_uint);
 /// The axis event is abnormal.
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-pub const UI_AXIS_EVENT_ACTION_NONE: _bindgen_ty_7 = _bindgen_ty_7(0);
+pub const UI_AXIS_EVENT_ACTION_NONE: _bindgen_ty_8 = _bindgen_ty_8(0);
 /// The axis event begins.
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-pub const UI_AXIS_EVENT_ACTION_BEGIN: _bindgen_ty_7 = _bindgen_ty_7(1);
+pub const UI_AXIS_EVENT_ACTION_BEGIN: _bindgen_ty_8 = _bindgen_ty_8(1);
 /// The axis event is updated.
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-pub const UI_AXIS_EVENT_ACTION_UPDATE: _bindgen_ty_7 = _bindgen_ty_7(2);
+pub const UI_AXIS_EVENT_ACTION_UPDATE: _bindgen_ty_8 = _bindgen_ty_8(2);
 /// The axis event ends.
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-pub const UI_AXIS_EVENT_ACTION_END: _bindgen_ty_7 = _bindgen_ty_7(3);
+pub const UI_AXIS_EVENT_ACTION_END: _bindgen_ty_8 = _bindgen_ty_8(3);
 /// The axis event is canceled.
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-pub const UI_AXIS_EVENT_ACTION_CANCEL: _bindgen_ty_7 = _bindgen_ty_7(4);
+pub const UI_AXIS_EVENT_ACTION_CANCEL: _bindgen_ty_8 = _bindgen_ty_8(4);
 #[repr(transparent)]
 /// Enumerates the action types for axis events.
 ///
@@ -224,7 +420,31 @@ pub const UI_AXIS_EVENT_ACTION_CANCEL: _bindgen_ty_7 = _bindgen_ty_7(4);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct _bindgen_ty_7(pub ::core::ffi::c_uint);
+pub struct _bindgen_ty_8(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl ArkUI_TouchTestStrategy {
+    /// Custom dispatch has no effect; the system distributes events based on the hit status of the current node.
+    pub const ARKUI_TOUCH_TEST_STRATEGY_DEFAULT: ArkUI_TouchTestStrategy =
+        ArkUI_TouchTestStrategy(0);
+    /// The specified event is forwarded to a particular child node, and the system determines whether to
+    /// distribute the event to other sibling nodes.
+    pub const ARKUI_TOUCH_TEST_STRATEGY_FORWARD_COMPETITION: ArkUI_TouchTestStrategy =
+        ArkUI_TouchTestStrategy(1);
+    /// The specified event is forwarded to a particular child node, and the system no longer distributes
+    /// the event to other sibling nodes.
+    pub const ARKUI_TOUCH_TEST_STRATEGY_FORWARD: ArkUI_TouchTestStrategy =
+        ArkUI_TouchTestStrategy(2);
+}
+#[repr(transparent)]
+/// Define the touch test strategy.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ArkUI_TouchTestStrategy(pub ::core::ffi::c_uint);
 extern "C" {
     /// Obtains the type of a UI input event.
     ///
@@ -1363,6 +1583,23 @@ extern "C" {
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_AxisEvent_GetAxisAction(event: *const ArkUI_UIInputEvent) -> i32;
+    /// Checks whether this axis event contains the specified axis type.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to the current UI input event.
+    ///
+    /// * `axis` - Axis type of the axis event.
+    ///
+    /// # Returns
+    ///
+    /// * Whether the current axis event contains the specified axis type.
+    /// Returns <b>true</b> if the axis event contains the specified axis type, and <b>false</b> otherwise.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_AxisEvent_HasAxis(event: *const ArkUI_UIInputEvent, axis: i32) -> i32;
     /// Sets the hit testing mode, that is, how the component behaves during hit testing.
     /// This API only applies to scenarios raw input events are received, such as when [`NODE_ON_TOUCH`] is used for
     /// touch event handling.
@@ -1668,32 +1905,36 @@ extern "C" {
         event: *const ArkUI_UIInputEvent,
         pointerIndex: u32,
     ) -> i64;
-    /// Obtains the x-axis offset of the mouse pointer position relative to the position in the previously reported
-    /// mouse event. This value may be less than the difference between the two reported X coordinates when the mouse pointer
-    /// is near the screen edge.
+    /// Obtains the movement increment of the mouse device along the X-axis in a two-dimensional plane.
+    /// Its value represents the raw movement data from the mouse device, expressed in units of physical
+    /// distance in the real world. The reported value is determined by the hardware itself and does not
+    /// correspond to the physical or logical pixels on the screen.
+    ///
     /// # Arguments
     ///
     /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
     ///
     /// # Returns
     ///
-    /// * Returns the x-axis offset of the mouse pointer position relative to the position in the previously reported
+    /// * Returns the x-axis offset of the mouse position relative to the position in the previously reported
     /// mouse event; returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_MouseEvent_GetRawDeltaX(event: *const ArkUI_UIInputEvent) -> f32;
-    /// Obtains the y-axis offset of the mouse pointer position relative to the position in the previously reported
-    /// mouse event. This value may be less than the difference between the two reported Y coordinates when the mouse pointer
-    /// is near the screen edge.
+    /// Obtains the movement increment of the mouse device along the Y-axis in a two-dimensional plane.
+    /// Its value represents the raw movement data from the mouse device, expressed in units of physical
+    /// distance in the real world. The reported value is determined by the hardware itself and does not
+    /// correspond to the physical or logical pixels on the screen.
+    ///
     /// # Arguments
     ///
     /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
     ///
     /// # Returns
     ///
-    /// * Returns the y-axis offset of the mouse pointer position relative to the position in the previously reported
+    /// * Returns the y-axis offset of the mouse position relative to the position in the previously reported
     /// mouse event; returns <b>0.0f</b> if any parameter error occurs.
     ///
     /// Available since API-level: 15
@@ -1812,7 +2053,7 @@ extern "C" {
     /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// Returns [`ARKUI_ERROR_CODE_NOT_CLONED_POINTER_EVENT`] if the input event pointer is not a
     /// cloned event pointer.
     ///
     /// Available since API-level: 15
@@ -1834,7 +2075,7 @@ extern "C" {
     /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// Returns [`ARKUI_ERROR_CODE_NOT_CLONED_POINTER_EVENT`] if the input event pointer is not a
     /// cloned event pointer.
     ///
     /// Available since API-level: 15
@@ -1863,7 +2104,7 @@ extern "C" {
     /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// Returns [`ARKUI_ERROR_CODE_NOT_CLONED_POINTER_EVENT`] if the input event pointer is not a
     /// cloned event pointer.
     ///
     /// Available since API-level: 15
@@ -1888,7 +2129,7 @@ extern "C" {
     /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// Returns [`ARKUI_ERROR_CODE_NOT_CLONED_POINTER_EVENT`] if the input event pointer is not a
     /// cloned event pointer.
     ///
     /// Available since API-level: 15
@@ -1911,7 +2152,7 @@ extern "C" {
     /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// Returns [`ARKUI_ERROR_CODE_NOT_CLONED_POINTER_EVENT`] if the input event pointer is not a
     /// cloned event pointer.
     ///
     /// Available since API-level: 15
@@ -1936,7 +2177,7 @@ extern "C" {
     /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// Returns [`ARKUI_ERROR_CODE_NOT_CLONED_POINTER_EVENT`] if the input event pointer is not a
     /// cloned event pointer.
     ///
     /// Available since API-level: 15
@@ -1960,7 +2201,7 @@ extern "C" {
     /// * Returns the result code.
     /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
     /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NON_CLONED_POINTER_EVENT`] if the input event pointer is not a
+    /// Returns [`ARKUI_ERROR_CODE_NOT_CLONED_POINTER_EVENT`] if the input event pointer is not a
     /// cloned event pointer.
     /// Returns [`ARKUI_ERROR_CODE_POST_CLONED_COMPONENT_STATUS_ABNORMAL`]
     /// if the component status abnormal.
@@ -1996,4 +2237,314 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_ArkUI_UIInputEvent_GetLatestStatus() -> ArkUiResult;
+    /// Obtains the coasting axis event from a component event, valid event only can be
+    /// fetched only when user flings on the touchpad with two fingers and any components register
+    /// NODE_ON_COASTING_AXIS_EVENT exist under the pointer location.
+    /// Call this method after the [`ArkUI_UIInputEvent`] object is obtained from the [`ArkUI_NodeEvent`] object.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to the UI input event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the pointer to the coasting axis event, return null if no any coasting axis event occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_UIInputEvent_GetCoastingAxisEvent(
+        event: *mut ArkUI_UIInputEvent,
+    ) -> *mut ArkUI_CoastingAxisEvent;
+    /// Obtains the time when this coasting event occurs.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to the coasting axis event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the time when the UI input event occurs; returns <b>0</b> if any parameter error occurs.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_CoastingAxisEvent_GetEventTime(event: *mut ArkUI_CoastingAxisEvent) -> i64;
+    /// Obtains the coasting phase when this coasting event occurs.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to the coasting axis event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the event phase, see [`ArkUI_CoastingAxisEventPhase`];
+    /// returns <b>ARKUI_COASTING_AXIS_EVENT_PHASE_NONE</b> if any parameter error occurs.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_CoastingAxisEvent_GetPhase(
+        event: *mut ArkUI_CoastingAxisEvent,
+    ) -> ArkUI_CoastingAxisEventPhase;
+    /// Obtains the horizontal delta value.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to the coasting axis event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns delta X value, count in PX; returns <b>0</b> if any parameter error occurs.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_CoastingAxisEvent_GetDeltaX(event: *mut ArkUI_CoastingAxisEvent) -> f32;
+    /// Obtains the vertical delta value.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Indicates the pointer to the coasting axis event.
+    ///
+    /// # Returns
+    ///
+    /// * Returns delta Y value, count in PX; returns <b>0</b> if any parameter error occurs.
+    ///
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_CoastingAxisEvent_GetDeltaY(event: *mut ArkUI_CoastingAxisEvent) -> f32;
+    /// Sets whether to enable coasting axis event propagation.
+    ///
+    /// # Arguments
+    ///
+    /// * `event` - Pointer to the coasting axis event.
+    ///
+    /// * `propagation` - Whether to enable event propagation.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_CoastingAxisEvent_SetPropagation(
+        event: *mut ArkUI_CoastingAxisEvent,
+        propagation: bool,
+    ) -> i32;
+    /// Obtains touch test info item list in the touch test info.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Indicates the pointer to a touch test info.
+    ///
+    /// * `array` - Indicates the pointer to the array of touch test info list.
+    ///
+    /// * `size` - Indicates the size of the array of touch test info list.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfo_GetTouchTestInfoList(
+        info: *mut ArkUI_TouchTestInfo,
+        array: *mut ArkUI_TouchTestInfoItemArray,
+        size: *mut i32,
+    ) -> ArkUiResult;
+    /// Obtains the X coordinate relative to the upper left corner of the child component from the touch test
+    /// info item.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Indicates the pointer to the touch test info item.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the X coordinate relative to the upper left corner of the parent component.
+    /// returns <b>0</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfoItem_GetX(info: *const ArkUI_TouchTestInfoItem) -> f32;
+    /// Obtains the Y coordinate relative to the upper left corner of the child component from the touch test
+    /// info item.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Indicates the pointer to the touch test info item.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the Y coordinate relative to the upper left corner of the parent component.
+    /// returns <b>0</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfoItem_GetY(info: *const ArkUI_TouchTestInfoItem) -> f32;
+    /// Obtains the X coordinate relative to the upper left corner of the current application window from the touch
+    /// test info item.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Indicates the pointer to the touch test info item.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the X coordinate relative to the upper left corner of the current application window.
+    /// returns <b>0.0f</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfoItem_GetWindowX(info: *const ArkUI_TouchTestInfoItem) -> f32;
+    /// Obtains the Y coordinate relative to the upper left corner of the current application window from the touch
+    /// test info item.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Indicates the pointer to the touch test info item.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the Y coordinate relative to the upper left corner of the current application window.
+    /// returns <b>0.0f</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfoItem_GetWindowY(info: *const ArkUI_TouchTestInfoItem) -> f32;
+    /// Obtains the X coordinate relative to the upper left corner of the parent component from the touch test
+    /// info item.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Indicates the pointer to the touch test info item.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the X coordinate relative to the upper left corner of the parent component.
+    /// returns <b>0</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfoItem_GetXRelativeToParent(
+        info: *const ArkUI_TouchTestInfoItem,
+    ) -> f32;
+    /// Obtains the Y coordinate relative to the upper left corner of the parent component from the touch test
+    /// info item.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Indicates the pointer to the touch test info item.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the Y coordinate relative to the upper left corner of the parent component.
+    /// returns <b>0</b> if any parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfoItem_GetYRelativeToParent(
+        info: *const ArkUI_TouchTestInfoItem,
+    ) -> f32;
+    /// Obtains the sub component's frame rect info from the touch test info item.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Indicates the pointer to the touch test info item.
+    ///
+    /// * `childRect` - Indicates the pointer to the child frame rect.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfoItem_GetChildRect(
+        info: *const ArkUI_TouchTestInfoItem,
+        childRect: *mut ArkUI_Rect,
+    ) -> ArkUiResult;
+    /// Obtains the sub component's name from the touch test info item.
+    ///
+    /// # Arguments
+    ///
+    /// * `info` - Indicates the pointer to the touch test info item.
+    ///
+    /// * `buffer` - Indicates the buffer.
+    ///
+    /// * `bufferSize` - Indicates the buffer size.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`] if the buffer is not large enough.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfoItem_GetChildId(
+        info: *const ArkUI_TouchTestInfoItem,
+        buffer: *mut ::core::ffi::c_char,
+        bufferSize: i32,
+    ) -> ArkUiResult;
+    /// Sets the touch test strategy, that is, how the component and the sub components behave during hit testing.
+    ///
+    /// # Arguments
+    ///
+    /// {pointer} info Indicates the pointer to a touch test info.
+    ///
+    /// {ArkUI_TouchTestStrategy} strategy The touch test strategy.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfo_SetTouchResultStrategy(
+        info: *mut ArkUI_TouchTestInfo,
+        strategy: ArkUI_TouchTestStrategy,
+    ) -> ArkUiResult;
+    /// Sets the sub component's name, that is, which sub components need to be effected during hit testing.
+    ///
+    /// # Arguments
+    ///
+    /// {pointer} info Indicates the pointer to a touch test info.
+    ///
+    /// {pointer} id The sub component's name.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TouchTestInfo_SetTouchResultId(
+        info: *mut ArkUI_TouchTestInfo,
+        id: *const ::core::ffi::c_char,
+    ) -> ArkUiResult;
 }

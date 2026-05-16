@@ -759,6 +759,18 @@ impl HiTraceId {
         __bindgen_bitfield_unit
     }
 }
+/// Defines the callback type used in trace status switch event.
+/// The value of traceStatus indicates the current trace status.
+///
+/// # Arguments
+///
+/// * `traceStatus` - The current trace status, true for open, false for close.
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub type OH_HiTrace_TraceEventListener =
+    ::core::option::Option<unsafe extern "C" fn(traceStatus: bool)>;
 extern "C" {
     /// Starts tracing of a process.
     ///
@@ -1353,4 +1365,45 @@ extern "C" {
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_HiTrace_IsTraceEnabled() -> bool;
+    /// Register trace switch notification callback.
+    ///
+    /// Register a callback function to execute specific trace-related behavior when trace
+    /// status is changed. The current status will be passed as 0 for off or 1 for on as callback function
+    /// paramter representing current trace status. The maximum number of registered callback functions is 10.
+    ///
+    /// # Arguments
+    ///
+    /// * `callback` - The callback function to be invoked when trace status is changed.
+    ///
+    /// # Returns
+    ///
+    /// * The callback registeration status.
+    /// >= 0: Successfully registered and callback index used for unregister.
+    /// -1: Reaches max number of callback functions.
+    /// -2: Invalid parameter.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_HiTrace_RegisterTraceListener(callback: OH_HiTrace_TraceEventListener) -> i32;
+    /// Unregister trace switch notification callback.
+    ///
+    /// Unregister the callback function registeration for trace switch
+    /// notification with provided registered callback function index.
+    ///
+    /// # Arguments
+    ///
+    /// * `index` - The callback function index to be unregistered.
+    ///
+    /// # Returns
+    ///
+    /// * The callback unregisteration status.
+    /// 0: Success.
+    /// -1: Callback function with target index has not been registered.
+    /// -2: Invalid index range.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_HiTrace_UnregisterTraceListener(index: i32) -> i32;
 }

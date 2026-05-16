@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.8.7
+
+- Update bindings to API-22 and API-23.
+- Add `api-22` and `api-23` features that propagate to all sub-crates.
+- New `drawing` modules: `lattice`, `path_iterator` (API-23).
+- New `huks` modules: `native_huks_external_crypto_api`, `native_huks_external_crypto_type` (API-22).
+- New `multimedia/player_framework` modules: `avmedia_base`, `avmedia_source`, `avmetakeys` (API-23).
+- New `multimodal-input` module: `pointer_style` (API-22).
+
 ## v0.8.6 (2026-12-15)
 
 - Fix re-export of udmf and rawfile crates.

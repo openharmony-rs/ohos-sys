@@ -4,10 +4,10 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_image::common::*;
-#[cfg(feature = "api-13")]
-use crate::native_image::picture::OH_PictureNative;
 #[cfg(feature = "api-12")]
 use ohos_sys_opaque_types::OH_ImageSourceNative;
+#[cfg(feature = "api-13")]
+use ohos_sys_opaque_types::OH_PictureNative;
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
 /// Define a ImagePacker struct type, used for ImagePacker pointer controls.
@@ -83,7 +83,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or format is nullptr.
+    /// [`IMAGE_ALLOC_FAILED`] allocate memory failed.
+    /// [`IMAGE_COPY_FAILED`] copy memory failed
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -123,7 +127,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or format is nullptr.
+    /// [`IMAGE_ALLOC_FAILED`] allocate memory failed.
+    /// [`IMAGE_COPY_FAILED`] copy memory failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -142,7 +150,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or quality is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -161,7 +171,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -180,7 +192,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or needsPackProperties is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -199,7 +213,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -218,8 +234,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr, or desiredDynamicRange is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -238,8 +255,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -256,7 +274,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -508,7 +528,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`]imagePacker is nullptr, or options is nullptr,
+    /// or imageSource is nullptr, or outData is nullptr.
+    /// [`IMAGE_ENCODE_FAILED`] encode failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -536,7 +560,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`]imagePacker is nullptr, or options is nullptr,
+    /// or pixelmap is nullptr, or outData is nullptr.
+    /// [`IMAGE_ENCODE_FAILED`] encode failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -628,7 +656,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`]imagePacker is nullptr, or options is nullptr,
+    /// or imageSource is nullptr, or fd is invalid.
+    /// [`IMAGE_ENCODE_FAILED`] encode failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -653,7 +685,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// *
+    /// * Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`]imagePacker is nullptr, or options is nullptr,
+    /// or pixelmap is nullptr, or fd is invalid.
+    /// [`IMAGE_ENCODE_FAILED`] encode failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -731,7 +768,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`]
+    /// * Returns Image functions result code.
+    /// [`IMAGE_SUCCESS`] if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`] imagePacker is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

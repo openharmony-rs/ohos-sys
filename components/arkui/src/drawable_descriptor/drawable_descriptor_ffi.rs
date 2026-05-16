@@ -23,6 +23,41 @@ pub struct ArkUI_DrawableDescriptor {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_PixelmapNativeHandle = *mut OH_PixelmapNative;
+/// Defines the animation controller of arkui drawable descriptor.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct ArkUI_DrawableDescriptor_AnimationController {
+    _unused: [u8; 0],
+}
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+impl DrawableDescriptor_AnimationStatus {
+    /// animation is initial.
+    pub const DRAWABLE_DESCRIPTOR_ANIMATION_STATUS_INITIAL: DrawableDescriptor_AnimationStatus =
+        DrawableDescriptor_AnimationStatus(0);
+    /// animation is playing.
+    pub const DRAWABLE_DESCRIPTOR_ANIMATION_STATUS_RUNNING: DrawableDescriptor_AnimationStatus =
+        DrawableDescriptor_AnimationStatus(1);
+    /// animation is paused.
+    pub const DRAWABLE_DESCRIPTOR_ANIMATION_STATUS_PAUSED: DrawableDescriptor_AnimationStatus =
+        DrawableDescriptor_AnimationStatus(2);
+    /// animation is stopped.
+    pub const DRAWABLE_DESCRIPTOR_ANIMATION_STATUS_STOPPED: DrawableDescriptor_AnimationStatus =
+        DrawableDescriptor_AnimationStatus(3);
+}
+#[repr(transparent)]
+/// Defines the animation status of the drawable descriptor.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct DrawableDescriptor_AnimationStatus(pub ::core::ffi::c_uint);
 extern "C" {
     /// Creates a DrawableDescriptor from a Pixelmap.
     ///
@@ -178,5 +213,216 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DrawableDescriptor_GetAnimationIteration(
         drawableDescriptor: *mut ArkUI_DrawableDescriptor,
+    ) -> i32;
+    /// Sets the frame duration array.
+    ///
+    /// # Arguments
+    ///
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    ///
+    /// * `durations` - Indicates the pointer to the frame duration array.
+    ///
+    /// * `size` - Indicates the size of the frame duration array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful;
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_SetAnimationFrameDurations(
+        drawableDescriptor: *mut ArkUI_DrawableDescriptor,
+        durations: *mut u32,
+        size: usize,
+    ) -> i32;
+    /// Obtains the frame duration array.
+    ///
+    /// # Arguments
+    ///
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    ///
+    /// * `durations` - Indicates the pointer to the frame duration array.
+    ///
+    /// * `size` - Indicates the size of the frame duration array.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful;
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_GetAnimationFrameDurations(
+        drawableDescriptor: *mut ArkUI_DrawableDescriptor,
+        durations: *mut u32,
+        size: *mut usize,
+    ) -> i32;
+    /// Sets whether to play the animation automatically.
+    ///
+    /// # Arguments
+    ///
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    ///
+    /// * `autoPlay` - Indicates whether to play the animation automatically.
+    /// default value is 1, which means to play the animation automatically.
+    /// value 0 means not to play the animation automatically.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful;
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_SetAnimationAutoPlay(
+        drawableDescriptor: *mut ArkUI_DrawableDescriptor,
+        autoPlay: u32,
+    ) -> i32;
+    /// Obtains whether to play the animation automatically.
+    ///
+    /// # Arguments
+    ///
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    ///
+    /// * `autoPlay` - Indicates whether to play the animation automatically.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful;
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_GetAnimationAutoPlay(
+        drawableDescriptor: *mut ArkUI_DrawableDescriptor,
+        autoPlay: *mut u32,
+    ) -> i32;
+    /// Obtains the animation controller.
+    ///
+    /// # Arguments
+    ///
+    /// * `drawableDescriptor` - Indicates the pointer to the drawableDescriptor.
+    ///
+    /// * `node` - Indicates the node handle.
+    ///
+    /// * `controller` - Indicates the pointer to the animation controller.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful;
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_CreateAnimationController(
+        drawableDescriptor: *mut ArkUI_DrawableDescriptor,
+        node: ArkUI_NodeHandle,
+        controller: *mut *mut ArkUI_DrawableDescriptor_AnimationController,
+    ) -> i32;
+    /// Releases the animation controller.
+    ///
+    /// # Arguments
+    ///
+    /// * `controller` - Indicates the pointer to the animation controller.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_DisposeAnimationController(
+        controller: *mut ArkUI_DrawableDescriptor_AnimationController,
+    );
+    /// Starts the animation from first frame.
+    ///
+    /// # Arguments
+    ///
+    /// * `controller` - Indicates the pointer to the animation controller.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful;
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_StartAnimation(
+        controller: *mut ArkUI_DrawableDescriptor_AnimationController,
+    ) -> i32;
+    /// Stops the animation and back to first frame.
+    ///
+    /// # Arguments
+    ///
+    /// * `controller` - Indicates the pointer to the animation controller.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful;
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_StopAnimation(
+        controller: *mut ArkUI_DrawableDescriptor_AnimationController,
+    ) -> i32;
+    /// Resumes the animation at the current frame.
+    ///
+    /// # Arguments
+    ///
+    /// * `controller` - Indicates the pointer to the animation controller.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful;
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_ResumeAnimation(
+        controller: *mut ArkUI_DrawableDescriptor_AnimationController,
+    ) -> i32;
+    /// Pauses the animation at the current frame.
+    ///
+    /// # Arguments
+    ///
+    /// * `controller` - Indicates the pointer to the animation controller.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful;
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_PauseAnimation(
+        controller: *mut ArkUI_DrawableDescriptor_AnimationController,
+    ) -> i32;
+    /// Obtains the animation playback status.
+    ///
+    /// # Arguments
+    ///
+    /// * `controller` - Indicates the pointer to the animation controller.
+    ///
+    /// * `status` - Indicates the pointer to the animation playback status.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful;
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_DrawableDescriptor_GetAnimationStatus(
+        controller: *mut ArkUI_DrawableDescriptor_AnimationController,
+        status: *mut DrawableDescriptor_AnimationStatus,
     ) -> i32;
 }

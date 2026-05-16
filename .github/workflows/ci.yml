@@ -19,21 +19,20 @@ jobs:
   integrity:
     name: Integrity Test
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: read
-    container:
-      image: ghcr.io/openharmony-rs/ohos-sys-integrity:6.0.1
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Trust workspace for git
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - uses: actions/checkout@v6
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rustfmt
+      - name: Setup OpenHarmony SDK
+        id: setup_sdk
+        uses: openharmony-rs/setup-ohos-sdk@v1.0.0
+        with:
+          version: "6.1"
       - name: Generate bindings
         run: ./scripts/generate_bindings.sh
+        env:
+          OHOS_SDK_NATIVE: ${{ steps.setup_sdk.outputs.ohos_sdk_native }}
       - name: Check integrity
         run: git diff --exit-code
 
@@ -47,6 +46,7 @@ jobs:
           - "5.0.0"
           - "5.1.0"
           - "6.0.0.1"
+          - "6.1"
     steps:
       - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
@@ -54,7 +54,7 @@ jobs:
           targets: aarch64-unknown-linux-ohos
       - name: Setup OpenHarmony SDK
         id: setup_sdk
-        uses: openharmony-rs/setup-ohos-sdk@v0.2
+        uses: openharmony-rs/setup-ohos-sdk@v1.0.0
         with:
           version: ${{ matrix.sdk_version }}
       - name: Run link smoke test
@@ -81,7 +81,19 @@ jobs:
     strategy:
       matrix:
         # Note: We don't test API 16+17 in CI, since they were never officially releases separately.
-        api_level: ["api-10", "api-11", "api-12", "api-13", "api-14", "api-15", "api-18", "api-20", "api-21"]
+        api_level:
+          [
+            "api-10",
+            "api-11",
+            "api-12",
+            "api-13",
+            "api-14",
+            "api-15",
+            "api-18",
+            "api-20",
+            "api-21",
+            "api-23",
+          ]
     name: Build with API feature levels
     runs-on: ubuntu-latest
     steps:
@@ -89,31 +101,54 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build --features ${{ matrix.api_level }} --features all-components
         name: Build with API features
-  api_minimal_featueres:
+  api_minimal_features:
     strategy:
+      fail-fast: false
       matrix:
         component:
           - abilitykit
+          - accesstoken
           - arkui
+          - asset-store
+          - basic-services-kit
+          - basic-services-kit-battery-info
+          - basic-services-kit-commonevent
+          - basic-services-kit-os-account
+          - basic-services-kit-print
+          - basic-services-kit-scan
+          - basic-services-kit-time-service
+          - crypto
           - deviceinfo
           - drawing
           - hilog
           - hitrace
+          - huks
+          - image-kit
+          - image-kit-image-packer
+          - image-kit-image-receiver
+          - image-kit-image-source
+          - image-kit-pixelmap
           - inputmethod
           - ipckit
-          - image-kit
+          - locationkit
           - multimodal-input
           - napi
           - native_buffer
           - native_image
           - native_window
+          - net_ssl
+          - netmanager
+          - netstack
+          - ohaudio
+          - pasteboard
           - rawfile
           - rdb
           - sensors
+          - udmf
           - vsync
-          - xcomponent
           - web
           - window_manager
+          - xcomponent
     name: Build with minimal features
     runs-on: ubuntu-latest
     steps:
@@ -143,13 +178,58 @@ jobs:
         run: cargo build --features api-20 --features ${{ matrix.component }}
       - name: Build minimal features API-21
         run: cargo build --features api-21 --features ${{ matrix.component }}
+      - name: Build minimal features API-22
+        run: cargo build --features api-22 --features ${{ matrix.component }}
+      - name: Build minimal features API-23
+        run: cargo build --features api-23 --features ${{ matrix.component }}
   semver_checks:
+    name: Semver Check (${{ matrix.crate }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        crate:
+          - ohos-sys
+          - arkui-sys
+          - arkweb-sys
+          - hilog-sys
+          - hitrace-sys
+          - ohaudio-sys
+          - ohos-abilitykit-sys
+          - ohos-accesstoken-sys
+          - ohos-asset-store-sys
+          - ohos-basic-services-kit-sys
+          - ohos-crypto-sys
+          - ohos-deviceinfo-sys
+          - ohos-drawing-sys
+          - ohos-huks-sys
+          - ohos-image-kit-sys
+          - ohos-ime-sys
+          - ohos-input-sys
+          - ohos-ipckit-sys
+          - ohos-locationkit-sys
+          - ohos-media-sys
+          - ohos-net-ssl-sys
+          - ohos-netmanager-sys
+          - ohos-netstack-sys
+          - ohos-pasteboard-sys
+          - ohos-rawfile-sys
+          - ohos-rdb-sys
+          - ohos-sensors-sys
+          - ohos-sys-opaque-types
+          - ohos-vsync-sys
+          - ohos-window-manager-sys
+          - ohos-window-sys
+          - udmf-sys
+          - xcomponent-sys
     steps:
       - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Check semver
         uses: obi1kenobi/cargo-semver-checks-action@v2
+        with:
+          package: ${{ matrix.crate }}
+          feature-group: all-features
 
   rustdoc:
     name: Build Documentation
@@ -171,7 +251,7 @@ jobs:
       - code_quality
       - build-toolchains
       - api_feature_levels
-      - api_minimal_featueres
+      - api_minimal_features
       - link-smoke
       # - semver_checks
       - rustdoc

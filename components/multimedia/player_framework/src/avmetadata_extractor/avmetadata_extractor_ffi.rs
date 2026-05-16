@@ -8,6 +8,14 @@
 use crate::averrors::OH_AVErrCode;
 #[allow(unused_imports)]
 use crate::avformat::OH_AVFormat;
+#[cfg(feature = "api-23")]
+use crate::avmedia_base::OH_AVMedia_SeekMode;
+#[cfg(feature = "api-23")]
+use crate::avmedia_source::OH_AVMediaSource;
+#[cfg(feature = "api-23")]
+use crate::avmetadata_extractor_base::{
+    OH_AVMetadataExtractor_FrameInfo, OH_AVMetadataExtractor_OutputParam,
+};
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
 /// Define OH_AVMetadataExtractor field.
@@ -22,7 +30,225 @@ use ohos_sys_opaque_types::OH_PixelmapNative;
 pub struct OH_AVMetadataExtractor {
     _unused: [u8; 0],
 }
+/// defines the callback function for frames fetched by AVMetadataExtractor
+/// Note: frameInfo will be released automatically after callback, but user should release
+/// frameInfo.image manually by [`OH_PixelmapNative_Destroy`] to avoid memory leaks.
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+pub type OH_AVMetadataExtractor_OnFrameFetched = ::core::option::Option<
+    unsafe extern "C" fn(
+        extractor: *mut OH_AVMetadataExtractor,
+        frameInfo: *const OH_AVMetadataExtractor_FrameInfo,
+        code: OH_AVErrCode,
+        userData: *mut ::core::ffi::c_void,
+    ),
+>;
 extern "C" {
+    /// Create an OH_AVMetadataExtractor_OutputParam instance
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * The new OH_AVMetadataExtractor_OutputParam instance.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVMetadataExtractor_OutputParam_Create() -> *mut OH_AVMetadataExtractor_OutputParam;
+    /// Release an OH_AVMetadataExtractor_OutputParam instance
+    ///
+    /// # Arguments
+    ///
+    /// * `outputParam` - - Pointer to an OH_AVMetadataExtractor_OutputParam instance.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVMetadataExtractor_OutputParam_Destroy(
+        outputParam: *mut OH_AVMetadataExtractor_OutputParam,
+    );
+    /// Set an OH_AVMetadataExtractor_OutputParam instance's size attribute
+    /// If the width or height is negtive, use the original video width or height;
+    /// If the width or height is zero, keep the aspect ratio and scale image.
+    /// If width and height both are positive, scale image with input width and height parameter.
+    /// # Arguments
+    ///
+    /// * `outputParam` - - Pointer to an OH_AVMetadataExtractor_OutputParam instance.
+    ///
+    /// * `width` - - The width of output image, scaled if neccessary.
+    ///
+    /// * `height` - - The height of output image, scaled if neccessary.
+    ///
+    /// # Returns
+    ///
+    /// * The return value is TRUE for success, FALSE for failure.
+    /// Possible failure causes: outputParam is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVMetadataExtractor_OutputParam_SetSize(
+        outputParam: *mut OH_AVMetadataExtractor_OutputParam,
+        width: i32,
+        height: i32,
+    ) -> bool;
+    /// Fetch an image at the specific time from a video resource.
+    /// This function must be called after source set.
+    ///
+    /// # Arguments
+    ///
+    /// * `extractor` - - Pointer to an OH_AVMetadataExtractor instance.
+    ///
+    /// * `timeUs` - - The time expected to fetch picture from the video resource. The unit is microsecond(us).
+    ///
+    /// * `seekMode` - - The seek option about the relationship between the given timeUs and a key frame,
+    /// see [`OH_AVMedia_SeekMode`].
+    ///
+    /// * `outputParam` - - The output format of the image, e.g. height or width of the image.
+    /// see [`OH_AVMetadataExtractor_OutputParam`].
+    /// If nullptr, the fetched frame uses video original size
+    ///
+    /// * `pixelMap` - The fetched output image from the video source. For details, see [`OH_PixelmapNative`].
+    /// Note: user need release pixelMap by [`OH_PixelmapNative_Destroy`] after use.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if the input param is invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if operation not allowed.
+    /// [`AV_ERR_UNSUPPORTED_FORMAT`] if format is unsupported.
+    /// [`AV_ERR_SERVICE_DIED`] if the service died.
+    /// [`AV_ERR_IO_CLEARTEXT_NOT_PERMITTED`] if http cleartext traffic is not permitted.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVMetadataExtractor_FetchFrameByTime(
+        extractor: *mut OH_AVMetadataExtractor,
+        timeUs: i64,
+        seekMode: OH_AVMedia_SeekMode,
+        outputParam: *const OH_AVMetadataExtractor_OutputParam,
+        pixelMap: *mut *mut OH_PixelmapNative,
+    ) -> OH_AVErrCode;
+    /// Batch fetch images at the specific times from a video resource.
+    /// This function must be called after source set.
+    ///
+    /// # Arguments
+    ///
+    /// * `extractor` - - Pointer to an OH_AVMetadataExtractor instance.
+    ///
+    /// * `timesUs` - - The times array expected to fetch picture from the video resource. The unit is microsecond(us).
+    ///
+    /// * `timesUsSize` - - The length of input times array.
+    ///
+    /// * `seekMode` - - The seek option about the relationship between the given timeUs and a key frame,
+    /// see [`OH_AVMedia_SeekMode`].
+    ///
+    /// * `outputParam` - - The output format of the image, e.g. height or width of the image.
+    /// see [`OH_AVMetadataExtractor_OutputParam`].
+    /// If nullptr, the fetched frame uses video original size
+    ///
+    /// * `onFrameInfoCallback` - - The callback function when a frame is fetched or failed to fetch.
+    ///
+    /// * `userData` - - The user custom data for callback function.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if the input param is invalid.
+    /// [`AV_ERR_SERVICE_DIED`] if the service died.
+    /// [`AV_ERR_IO_CLEARTEXT_NOT_PERMITTED`] if http cleartext traffic is not permitted.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if operation not allowed. Returned by onFrameInfoCallback.
+    /// [`AV_ERR_UNSUPPORTED_FORMAT`] if format is unsupported. Returned by onFrameInfoCallback.
+    /// [`AV_ERR_TIMEOUT`] if the execution is times out. Returned by onFrameInfoCallback.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVMetadataExtractor_FetchFramesByTimes(
+        extractor: *mut OH_AVMetadataExtractor,
+        timesUs: *mut i64,
+        timesUsSize: u16,
+        seekMode: OH_AVMedia_SeekMode,
+        outputParam: *const OH_AVMetadataExtractor_OutputParam,
+        onFrameInfoCallback: OH_AVMetadataExtractor_OnFrameFetched,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVErrCode;
+    /// Cancel the batch fetch images operation (initiated by [`OH_AVMetadataExtractor_FetchFramesByTimes`]).
+    /// The pending fetches are cancelled and marked with CANCELLED result
+    /// in [`OH_AVMetadataExtractor_OnFrameFetched`] callback
+    ///
+    /// # Arguments
+    ///
+    /// * `extractor` - - Pointer to an OH_AVMetadataExtractor instance.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVMetadataExtractor_CancelAllFetchFrames(extractor: *mut OH_AVMetadataExtractor);
+    /// Get the track description information from the media source.
+    /// This function must be called after source set.
+    /// # Arguments
+    ///
+    /// * `extractor` - Pointer to an OH_AVMetadataExtractor instance.
+    ///
+    /// * `index` - The index of the track description to retrieve.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to an OH_AVFormat instance containing track description for success, nullptr for failure.
+    /// Possible failure causes: extractor is nullptr, no source set, or format is unsupported.
+    /// Note: User need release OH_AVFormat by [`OH_AVFormat_Destroy`] after use.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVMetadataExtractor_GetTrackDescription(
+        extractor: *mut OH_AVMetadataExtractor,
+        index: u32,
+    ) -> *mut OH_AVFormat;
+    /// Get the custom information from the media source.
+    /// This function must be called after source set.
+    /// # Arguments
+    ///
+    /// * `extractor` - Pointer to an OH_AVMetadataExtractor instance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to an OH_AVFormat instance containing custom metadata for success, nullptr for failure.
+    /// Possible failure causes: extractor is nullptr, no source set, or custom info not found.
+    /// Note: User need release OH_AVFormat by [`OH_AVFormat_Destroy`] after use.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVMetadataExtractor_GetCustomInfo(
+        extractor: *mut OH_AVMetadataExtractor,
+    ) -> *mut OH_AVFormat;
+    /// Set media source to the extractor
+    /// # Arguments
+    ///
+    /// * `extractor` - Pointer to an OH_AVMetadataExtractor instance.
+    ///
+    /// * `source` - The media source to set to the extractor.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input extractor is nullptr or input source is invalid.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVMetadataExtractor_SetMediaSource(
+        extractor: *mut OH_AVMetadataExtractor,
+        source: *mut OH_AVMediaSource,
+    ) -> OH_AVErrCode;
     /// Create a metadata extractor.
     ///
     ///
@@ -89,6 +315,24 @@ extern "C" {
     /// [`AV_ERR_NO_MEMORY`] if internal memory allocation failed.
     ///
     /// Available since API-level: 18
+    ////**
+    /// Extract metadata info from the media source.
+    /// This function must be called after source set.
+    ///
+    ///
+    /// * `extractor` - Pointer to an OH_AVMetadataExtractor instance.
+    ///
+    /// * `avMetadata` - Pointer to an [`OH_AVFormat`] instance, its content contains the fetched metadata info.
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input extractor is nullptr or input param is invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if operation not allowed.
+    /// [`AV_ERR_UNSUPPORTED_FORMAT`] if format is unsupported.
+    /// [`AV_ERR_NO_MEMORY`] if internal memory allocation failed.
+    /// [`AV_ERR_IO_CLEARTEXT_NOT_PERMITTED`] if http cleartext traffic is not permitted.
+    ///
+    /// Available since API-level: 23
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_AVMetadataExtractor_FetchMetadata(

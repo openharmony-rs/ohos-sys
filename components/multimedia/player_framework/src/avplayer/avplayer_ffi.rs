@@ -7,10 +7,21 @@
 #[cfg(feature = "api-20")]
 #[allow(unused_imports)]
 use crate::avcodec_base::OH_AVDataSourceExt;
+#[cfg(feature = "api-23")]
+use crate::avcodec_base::OH_MediaType;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
+#[cfg(feature = "api-22")]
+use crate::avformat::OH_AVFormat;
+#[cfg(feature = "api-23")]
+use crate::avmedia_source::OH_AVMediaSource;
 use crate::avplayer_base::{
     AVPlaybackSpeed, AVPlayerCallback, AVPlayerSeekMode, AVPlayerState, OH_AVPlayer,
+};
+#[cfg(feature = "api-23")]
+use crate::avplayer_base::{
+    AVPlayerTrackSwitchMode, OH_AVPlaybackStrategy, OH_AVPlayerOnAmplitudeUpdateCallback,
+    OH_AVPlayerOnSeiMessageReceivedCallback, OH_AVSeiMessageArray,
 };
 #[cfg(feature = "api-12")]
 use crate::avplayer_base::{OH_AVPlayerOnErrorCallback, OH_AVPlayerOnInfoCallback};
@@ -486,6 +497,22 @@ extern "C" {
         player: *mut OH_AVPlayer,
         speed: *mut AVPlaybackSpeed,
     ) -> OH_AVErrCode;
+    /// get the current player playback rate
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `rate` - the playback rate which can get.
+    ///
+    /// # Returns
+    ///
+    /// * Returns [`AV_ERR_OK`] if the current player playback rate is get; returns an error code defined
+    /// in [`native_averrors.h`] otherwise.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_GetPlaybackRate(player: *mut OH_AVPlayer, rate: *mut f32) -> OH_AVErrCode;
     /// set the bit rate use for hls player
     ///
     /// the playback bitrate expressed in bits per second, expressed in bits per second,
@@ -935,4 +962,734 @@ extern "C" {
         datasrc: *mut OH_AVDataSourceExt,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
+    /// Get the player media source info.
+    ///
+    /// This function can be used after media source is set and player is in
+    /// initialized/prepared/playing/paused/completed/stopped state.
+    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
+    /// to be manually released by the caller.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// # Returns
+    ///
+    /// * Returns the player's source media info if the execution is successful, otherwise returns nullptr.
+    /// Possible failure causes:
+    /// 1. player is invaild.
+    /// 2. player's media source is invalid.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_AVPlayer_GetMediaDescription(player: *mut OH_AVPlayer) -> *mut OH_AVFormat;
+    /// Get the track info of player media source by the index.
+    ///
+    /// This function can be used after media source is set and player is in
+    /// initialized/prepared/playing/paused/completed/stopped state.
+    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
+    /// to be manually released by the caller.
+    ///
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `index` - Indicates tracks array index.
+    ///
+    /// # Returns
+    ///
+    /// * Returns one track info of player media source by the index if the execution is successful,
+    /// otherwise returns nullptr.
+    /// Possible failure causes:
+    /// 1. player is invaild.
+    /// 2. player's media source is invalid.
+    /// 3. index is out of tracks array's bounds.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_AVPlayer_GetTrackDescription(
+        player: *mut OH_AVPlayer,
+        index: u32,
+    ) -> *mut OH_AVFormat;
+    /// Get the statistic metrics info of current player.
+    /// This API can be called only when the AVPlayer is in the prepared, playing, paused, completed, or stopped state.
+    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
+    /// to be manually released by the caller.
+    /// # Arguments
+    ///
+    /// {OH_AVPlayer*} player Pointer to an OH_AVPlayer instance
+    ///
+    /// # Returns
+    ///
+    /// * Returns the player's statistic metrics info.
+    /// if the execution is successful, otherwise returns nullptr. Possible failure causes:
+    /// 1. player is invalid.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_GetPlaybackStatisticMetrics(player: *mut OH_AVPlayer) -> *mut OH_AVFormat;
+    /// Add subtitle resource represented by FD to the player. Currently, the external subtitle must be set after
+    /// fdSrc of the video resource is set in an AVPlayer instance.
+    /// # Arguments
+    ///
+    /// {OH_AVPlayer} player Pointer to an OH_AVPlayer instance
+    ///
+    /// {int32_t} fd Indicates the file descriptor of subtitle source.
+    ///
+    /// {int64_t} offset Indicates the offset of media source in file descriptor.
+    ///
+    /// {int64_t} size Indicates the size of media source.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_AddFdSubtitleSource(
+        player: *mut OH_AVPlayer,
+        fd: i32,
+        offset: i64,
+        size: i64,
+    ) -> OH_AVErrCode;
+    /// Add subtitle resource represented by url to the player. The external subtitle must be set after
+    /// url is set in an AVPlayer instance.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `url` - Indicates the url of subtitle source.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_AddUrlSubtitleSource(
+        player: *mut OH_AVPlayer,
+        url: *const ::core::ffi::c_char,
+    ) -> OH_AVErrCode;
+    /// Set playback start position and end position. After the setting, only the content in the specified range of
+    /// the audio or video file is played. It can be used in the initialized, prepared, paused, stopped, or completed state.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `mSecondsStart` - Playback start position, should be in [0, duration),
+    /// -1 means that the start position is not set, and the playback will start from 0.
+    ///
+    /// * `mSecondsEnd` - Playback end position, which should usually be in (startTimeMs, duration],
+    /// -1 means that the end position is not set, and the playback will be ended at the end of the stream.
+    ///
+    /// * `closestRange` - Use closest seek policy or not.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if operation not allowed.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_SetPlaybackRange(
+        player: *mut OH_AVPlayer,
+        mSecondsStart: i32,
+        mSecondsEnd: i32,
+        closestRange: bool,
+    ) -> OH_AVErrCode;
+    /// Mute the media stream. This API can be called only when the AVPlayer is in the prepared, playing,
+    /// paused, or completed state.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `mediaType` - Specified media type, see [`OH_MediaType`] in [`native_avcodec_base.h`]
+    ///
+    /// * `muted` - true for mute, false for unmute.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input parameter is invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if operation not allowed.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_SetMediaMuted(
+        player: *mut OH_AVPlayer,
+        mediaType: OH_MediaType,
+        muted: bool,
+    ) -> OH_AVErrCode;
+    /// Get the playback position, accurate to millisecond. This API can be called only when the AVPlayer is in
+    /// the prepared, playing, paused, or completed state.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// # Returns
+    ///
+    /// * Returns the playback position in milliseconds.
+    /// Return -1 if the player is nullptr or invalid.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_GetPlaybackPosition(player: *mut OH_AVPlayer) -> i32;
+    /// Checks whether the media source supports continuous seek.
+    /// The actual value is returned when this API is called in the prepared, playing, paused, or completed state.
+    /// The value **false** is returned if it is called in other states. For devices that do not support the seek
+    /// operation in [`AV_SEEK_CONTINUOUS`] mode, false is returned.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance.
+    ///
+    /// # Returns
+    ///
+    /// * true - seek continuous is supported.
+    /// false - seek continuous is not supported or the support status is uncertain.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_IsSeekContinuousSupported(player: *mut OH_AVPlayer) -> bool;
+    /// Select track with switch mode when playing a resource with multiple audio and video tracks.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `index` - The selected track index.
+    ///
+    /// * `mode` - The switch mode.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input parameter is invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if operation not allowed.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_SelectTrackWithMode(
+        player: *mut OH_AVPlayer,
+        index: i32,
+        mode: AVPlayerTrackSwitchMode,
+    ) -> OH_AVErrCode;
+    /// Subscribes to update events of the maximum audio level value, which is periodically reported when audio
+    /// resources are played.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `callback` - Pointer to callback function, nullptr indicates unregister callback.
+    ///
+    /// * `userData` - Pointer to user specific data.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_SetAmplitudeUpdateCallback(
+        player: *mut OH_AVPlayer,
+        callback: OH_AVPlayerOnAmplitudeUpdateCallback,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVErrCode;
+    /// Subscribes to events indicating that a Supplemental Enhancement Information (SEI) message is received. This
+    /// applies only to HTTP-FLV live streaming and is triggered when SEI messages are present in the video stream.
+    /// You must initiate the subscription before calling prepare.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `payloadTypes` - playload types
+    ///
+    /// * `typeNum` - The size of the playload types array.
+    ///
+    /// * `callback` - Pointer to callback function, nullptr indicates unregister callback.
+    ///
+    /// * `userData` - Pointer to user specific data
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_SetSeiReceivedCallback(
+        player: *mut OH_AVPlayer,
+        payloadTypes: *const i32,
+        typeNum: u32,
+        callback: OH_AVPlayerOnSeiMessageReceivedCallback,
+        userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVErrCode;
+    /// Get the number of message items in SEI message array.
+    /// # Arguments
+    ///
+    /// * `message` - Pointer to an OH_AVSeiMessageArray instance
+    ///
+    /// # Returns
+    ///
+    /// * The number of message items in SEI message array
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVSeiMessage_GetSeiCount(message: *mut OH_AVSeiMessageArray) -> u32;
+    /// Get SEI of the message item by index in SEI message array.
+    /// # Arguments
+    ///
+    /// * `message` - Pointer to an OH_AVSeiMessageArray instance
+    ///
+    /// * `index` - The index of the message item
+    ///
+    /// # Returns
+    ///
+    /// * The SEI of the message item
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVSeiMessage_GetSei(
+        message: *mut OH_AVSeiMessageArray,
+        index: u32,
+    ) -> *mut OH_AVFormat;
+    /// Set video window size for super-resolution. This API can be called when the AVPlayer is in the initialized,
+    /// prepared, playing, paused, completed, or stopped state.The input parameter values must be in the range
+    /// of 320 x 320 to 1920 x 1080 (in px).
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `width` - Width of the window. The value range is [320 - 1920], in px.
+    ///
+    /// * `height` - Height of the window. The value range is [320 - 1080], in px.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr, or Parameter errord.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if Operation not allowed.
+    /// [`AV_ERR_SUPER_RESOLUTION_UNSUPPORTED`] if Super resolution is not supported.
+    /// [`AV_ERR_SUPER_RESOLUTION_NOT_ENABLED`] if Missing enable super resolution feature in[`OH_AVPlaybackStrategy`].
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_SetTargetVideoWindowSize(
+        player: *mut OH_AVPlayer,
+        width: i32,
+        height: i32,
+    ) -> OH_AVErrCode;
+    /// Enable or disable super-resolution dynamically. This API can be called when the AVPlayer is in the
+    /// initialized, prepared, playing, paused, completed, or stopped state.
+    /// Must enable super-resolution feature in [`OH_AVPlaybackStrategy`] before calling prepare.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance.
+    ///
+    /// * `enabled` - true: super-resolution enabled; false: super-resolution disabled.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr, or Parameter error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if Operation not allowed.
+    /// [`AV_ERR_SUPER_RESOLUTION_UNSUPPORTED`] if Super resolution is not supported.
+    /// [`AV_ERR_SUPER_RESOLUTION_NOT_ENABLED`] if Missing enable super resolution feature in[`OH_AVPlaybackStrategy`].
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_SetVideoSuperResolutionEnable(
+        player: *mut OH_AVPlayer,
+        enabled: bool,
+    ) -> OH_AVErrCode;
+    /// Create a playback strategy instance
+    ///
+    /// # Returns
+    ///
+    /// * a playback strategy instance, nullptr if fails.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_Create() -> *mut OH_AVPlaybackStrategy;
+    /// Release a playback strategy instance
+    /// # Arguments
+    ///
+    /// * `strategy` - The OH_AVPlaybackStrategy instance.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_Destroy(strategy: *mut OH_AVPlaybackStrategy) -> OH_AVErrCode;
+    /// Choose a stream width close to it.
+    /// # Arguments
+    ///
+    /// * `strategy` - The OH_AVPlaybackStrategy used by avplayer.
+    ///
+    /// * `width` - the preferred width chosen to play by avplayer at start.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetPreferredWidth(
+        strategy: *mut OH_AVPlaybackStrategy,
+        width: i32,
+    ) -> OH_AVErrCode;
+    /// Choose a stream height close to it.
+    /// # Arguments
+    ///
+    /// * `strategy` - The OH_AVPlaybackStrategy used by avplayer.
+    ///
+    /// * `height` - The preferred width chosen to play by avplayer at start.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetPreferredHeight(
+        strategy: *mut OH_AVPlaybackStrategy,
+        height: i32,
+    ) -> OH_AVErrCode;
+    /// Choose a preferred buffer duration close to it.
+    /// # Arguments
+    ///
+    /// * `strategy` - The OH_AVPlaybackStrategy used by avplayer.
+    ///
+    /// * `ms` - The preferred buffer duration chosen to play by avplayer at start.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetPreferredBufferDuration(
+        strategy: *mut OH_AVPlaybackStrategy,
+        ms: i32,
+    ) -> OH_AVErrCode;
+    /// Enable or disable preferred HDR mode.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    ///
+    /// * `enabled` - true to enable HDR, false to disable.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetPreferredHdr(
+        strategy: *mut OH_AVPlaybackStrategy,
+        enabled: bool,
+    ) -> OH_AVErrCode;
+    /// Set preferred subtitle language.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    ///
+    /// * `lang` - Subtitle language code (e.g., "zh").
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetPreferredSubtitleLanguage(
+        strategy: *mut OH_AVPlaybackStrategy,
+        lang: *const ::core::ffi::c_char,
+    ) -> OH_AVErrCode;
+    /// Set preferred audio language.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    ///
+    /// * `lang` - Audio language code (e.g., "en").
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetPreferredAudioLanguage(
+        strategy: *mut OH_AVPlaybackStrategy,
+        lang: *const ::core::ffi::c_char,
+    ) -> OH_AVErrCode;
+    /// Set muted media type for playback.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    ///
+    /// * `mediaType` - Media type to mute.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetMutedMediaType(
+        strategy: *mut OH_AVPlaybackStrategy,
+        mediaType: OH_MediaType,
+    ) -> OH_AVErrCode;
+    /// Set whether to show the first frame on prepare.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    ///
+    /// * `enabled` - true to show, false otherwise.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetShowFirstFrameOnPrepare(
+        strategy: *mut OH_AVPlaybackStrategy,
+        enabled: bool,
+    ) -> OH_AVErrCode;
+    /// Set the threshold for auto quick play.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    ///
+    /// * `seconds` - Threshold value.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetThresholdForAutoQuickPlay(
+        strategy: *mut OH_AVPlaybackStrategy,
+        seconds: f64,
+    ) -> OH_AVErrCode;
+    /// Enable or disable super resolution.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    ///
+    /// * `enabled` - true to enable, false to disable.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetSuperResolutionEnable(
+        strategy: *mut OH_AVPlaybackStrategy,
+        enabled: bool,
+    ) -> OH_AVErrCode;
+    /// Set preferred buffer duration for playing in seconds (double).
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    ///
+    /// * `seconds` - Buffer duration in seconds.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetPreferredBufferDurationForPlaying(
+        strategy: *mut OH_AVPlaybackStrategy,
+        seconds: f64,
+    ) -> OH_AVErrCode;
+    /// Set whether to keep decoding when muted.
+    ///
+    /// # Arguments
+    ///
+    /// * `strategy` - Pointer to OH_AVPlaybackStrategy.
+    ///
+    /// * `enabled` - true to keep decoding, false to pause decoding when muted.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input strategy is nullptr.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlaybackStrategy_SetKeepDecodingOnMute(
+        strategy: *mut OH_AVPlaybackStrategy,
+        enabled: bool,
+    ) -> OH_AVErrCode;
+    /// Set playback strategy to avplayer. This API can be called only when the avplayer is in the initialized state.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `strategy` - The playback strategy instance.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if operation not allowed.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_SetPlaybackStrategy(
+        player: *mut OH_AVPlayer,
+        strategy: *mut OH_AVPlaybackStrategy,
+    ) -> OH_AVErrCode;
+    /// Get statistic info of current player. This API can be called only when the avplayer is in the prepared,
+    /// playing, or paused state.
+    /// # Arguments
+    ///
+    /// {OH_AVPlayer*} player Pointer to an OH_AVPlayer instance
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to an OH_AVFormat instance.
+    /// Return nullptr if the player is nullptr or invalid.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_GetPlaybackInfo(player: *mut OH_AVPlayer) -> *mut OH_AVFormat;
+    /// Sets an OH_AVMediaSource to the player.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance.
+    ///
+    /// * `source` - Indicates the media source.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code.
+    /// [`AV_ERR_OK`] if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`] if input player is nullptr, source is null or player setUrlSource failed.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_SetMediaSource(
+        player: *mut OH_AVPlayer,
+        source: *mut OH_AVMediaSource,
+    ) -> OH_AVErrCode;
+    /// Get the track count of player media source.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// # Returns
+    ///
+    /// * Returns the track count.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_GetTrackCount(player: *mut OH_AVPlayer) -> u32;
+    /// Get the player track info by the index.
+    /// # Arguments
+    ///
+    /// * `player` - Pointer to an OH_AVPlayer instance
+    ///
+    /// * `trackIndex` - Indicates tracks array index.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to an OH_AVFormat instance.
+    /// Return nullptr if the player is nullptr or invalid.
+    /// Return nullptr if the trackIndex is invalid.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_AVPlayer_GetTrackFormat(
+        player: *mut OH_AVPlayer,
+        trackIndex: u32,
+    ) -> *mut OH_AVFormat;
 }

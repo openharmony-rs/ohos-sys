@@ -71,12 +71,16 @@ api-19 = ["api-18"]
 api-20 = ["api-19"]
 ## Enables bindings for OpenHarmony API-level 21 (No changes).
 api-21 = ["api-20"]
+## Enables bindings for OpenHarmony API-level 22 (No changes).
+api-22 = ["api-21"]
+## Enables bindings for OpenHarmony API-level 23 (No changes).
+api-23 = ["api-22"]
 
 #! ### Internal features
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 
 [package.metadata.docs.rs]
-features = ["document-features", "all-apis", "api-21"]
+features = ["document-features", "all-apis", "api-23"]
 targets = ["aarch64-unknown-linux-ohos", "armv7-unknown-linux-ohos", "x86_64-unknown-linux-ohos"]
 all-features = true

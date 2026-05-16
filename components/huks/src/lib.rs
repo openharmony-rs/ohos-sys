@@ -27,5 +27,13 @@ pub mod native_huks_api;
 pub mod native_huks_param;
 pub mod native_huks_type;
 
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub mod native_huks_external_crypto_api;
+
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+pub mod native_huks_external_crypto_type;
+
 #[link(name = "huks_ndk.z")]
 unsafe extern "C" {}

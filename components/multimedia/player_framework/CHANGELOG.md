@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Add API-22 and API-23 bindings.
+- Add `avmedia_base`, `avmedia_source`, and `avmetakeys` modules (API-23).
+
 ## 0.1.0
 
 - Add remaining bindings (excluding those depending on `ohaudio`)

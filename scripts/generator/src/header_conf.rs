@@ -75,6 +75,8 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
                     .raw_line("use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;")
                     .raw_line("#[cfg(feature = \"api-19\")]")
                     .raw_line("use ohos_sys_opaque_types::{ArkUI_NodeHandle,OHNativeWindow};")
+                    .raw_line("#[cfg(feature = \"api-22\")]")
+                    .raw_line("use ohos_sys_opaque_types::ArkUI_XComponentSurfaceConfig;")
                     .clang_args(&["-x", "c++"])
             }),
         },

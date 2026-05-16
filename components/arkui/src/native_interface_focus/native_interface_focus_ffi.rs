@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_type::*;
+#[cfg(feature = "api-15")]
+use ohos_sys_opaque_types::ArkUI_ContextHandle;
 
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]

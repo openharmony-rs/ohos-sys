@@ -3,6 +3,8 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-23")]
+use crate::cursor::OH_Cursor;
 
 #[cfg(feature = "api-18")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -29,3 +31,112 @@ impl Rdb_ConflictResolution {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Rdb_ConflictResolution(pub ::core::ffi::c_uint);
+/// Define the OH_RDB_ReturningContext structure type.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[repr(C)]
+pub struct OH_RDB_ReturningContext {
+    _unused: [u8; 0],
+}
+extern "C" {
+    /// Creates an OH_RDB_ReturningContext instance object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to OH_RDB_ReturningContext instance when the execution is successful.
+    /// Otherwise, nullptr is returned. The memory must be released through the OH_RDB_DestroyReturningContext
+    /// interface after the use is complete.
+    /// [`OH_RDB_DestroyReturningContext.`]
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_RDB_CreateReturningContext() -> *mut OH_RDB_ReturningContext;
+    /// Destroys an OH_RDB_ReturningContext instance object.
+    ///
+    /// # Arguments
+    ///
+    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`] instance.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_RDB_DestroyReturningContext(context: *mut OH_RDB_ReturningContext);
+    /// Set the returning fields.
+    ///
+    /// # Arguments
+    ///
+    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`] instance.
+    ///
+    /// * `fields` - Indicates the columnNames to returning.
+    ///
+    /// * `len` - Indicates the length of fields.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`RDB_OK`] if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_RDB_SetReturningFields(
+        context: *mut OH_RDB_ReturningContext,
+        fields: *const *const ::core::ffi::c_char,
+        len: i32,
+    ) -> ::core::ffi::c_int;
+    /// Set the maximum returning value.
+    ///
+    /// # Arguments
+    ///
+    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`] instance.
+    ///
+    /// * `count` - Indicates the maximum entry of the returned result set.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`RDB_OK`] if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_RDB_SetMaxReturningCount(
+        context: *mut OH_RDB_ReturningContext,
+        count: i32,
+    ) -> ::core::ffi::c_int;
+    /// Get the cursor of data changes, includes 1024 by default.
+    ///
+    /// # Arguments
+    ///
+    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`] instance.
+    ///
+    /// # Returns
+    ///
+    /// * a pointer to the instance of the [`OH_Cursor`] structure is returned.
+    /// If Get Cursor failed, nullptr is returned.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_RDB_GetReturningValues(context: *mut OH_RDB_ReturningContext) -> *mut OH_Cursor;
+    /// Get the number of rows affected by this operation.
+    ///
+    /// # Arguments
+    ///
+    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`] instance.
+    ///
+    /// # Returns
+    ///
+    /// * the number of entries that have changed, it will return -1 if get the change fails.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_RDB_GetChangedCount(context: *mut OH_RDB_ReturningContext) -> i64;
+}

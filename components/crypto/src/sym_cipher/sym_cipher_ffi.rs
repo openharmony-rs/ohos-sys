@@ -117,6 +117,7 @@ extern "C" {
     /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`] 401 - If parameter is invalid.
     /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`] 801 - If the operation is not supported.
     /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
+    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`] 17620003 - If parameter check failed.
     /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
     ///
     /// Available since API-level: 12
@@ -144,6 +145,7 @@ extern "C" {
     /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`] 401 - If parameter is invalid.
     /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`] 801 - If the operation is not supported.
     /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
+    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`] 17620003 - If parameter check failed.
     /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
     /// [`OH_CryptoSymCipher_Update`] [`OH_CryptoSymCipher_Final`]
     /// Available since API-level: 12
@@ -171,6 +173,7 @@ extern "C" {
     /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`] 401 - If parameter is invalid.
     /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`] 801 - If the operation is not supported.
     /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
+    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`] 17620003 - If parameter check failed.
     /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
     /// [`OH_CryptoSymCipher_Init`] [`OH_CryptoSymCipher_Final`]
     /// Available since API-level: 12
@@ -197,6 +200,7 @@ extern "C" {
     /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`] 401 - If parameter is invalid.
     /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`] 801 - If the operation is not supported.
     /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
+    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`] 17620003 - If parameter check failed.
     /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
     /// [`OH_CryptoSymCipher_Init`] [`OH_CryptoSymCipher_Update`]
     /// Available since API-level: 12

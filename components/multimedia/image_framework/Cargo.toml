@@ -1,6 +1,6 @@
 [package]
 name = "ohos-image-kit-sys"
-version = "0.3.5"
+version = "0.3.6"
 edition = "2021"
 description = "Bindings to the multimedia Image Kit API of OpenHarmony"
 license = "Apache-2.0"
@@ -43,6 +43,10 @@ api-19 = ["api-18"]
 api-20 = ["api-19"]
 ## Enables bindings for OpenHarmony API-level 21.
 api-21 = ["api-20"]
+## Enables bindings for OpenHarmony API-level 22.
+api-22 = ["api-21"]
+## Enables bindings for OpenHarmony API-level 23.
+api-23 = ["api-22"]
 
 #! ### Image Kit Modules
 #!
@@ -56,7 +60,7 @@ image-receiver = []
 ## Image decoding
 image-source = ["dep:ohos-rawfile-sys"]
 ## Picture
-picture = ["pixelmap"]
+picture = ["pixelmap", "image-source"]
 ## Pixel Map
 pixelmap = []
 ## Document available features when building the documentation

@@ -297,7 +297,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIODEVICE_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
+    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

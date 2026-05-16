@@ -11,6 +11,16 @@ pub use ohos_sys_opaque_types::{OH_UdsAppItem, OH_UdsHtml, OH_UdsHyperlink, OH_U
 #[cfg(feature = "api-13")]
 pub use ohos_sys_opaque_types::{OH_UdsArrayBuffer, OH_UdsFileUri, OH_UdsPixelMap};
 
+/// Describes the key-value object of UDS data.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct OH_UdsDetails {
+    _unused: [u8; 0],
+}
 extern "C" {
     /// Creation a pointer to the instance of the [`OH_UdsPlainText`].
     ///
@@ -76,6 +86,28 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsPlainText_GetAbstract(pThis: *mut OH_UdsPlainText) -> *const ::core::ffi::c_char;
+    /// Get details from the [`OH_UdsPlainText`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`OH_UdsPlainText`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsPlainText_GetDetails(
+        pThis: *mut OH_UdsPlainText,
+        details: *mut OH_UdsDetails,
+    ) -> ::core::ffi::c_int;
     /// Set content to the [`OH_UdsPlainText`].
     ///
     /// # Arguments
@@ -119,6 +151,28 @@ extern "C" {
     pub fn OH_UdsPlainText_SetAbstract(
         pThis: *mut OH_UdsPlainText,
         abstract_: *const ::core::ffi::c_char,
+    ) -> ::core::ffi::c_int;
+    /// Set details to the [`OH_UdsPlainText`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`OH_UdsPlainText`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsPlainText_SetDetails(
+        pThis: *mut OH_UdsPlainText,
+        details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
     /// Creation a pointer to the instance of the [`OH_UdsHyperlink`].
     ///
@@ -186,6 +240,28 @@ extern "C" {
     pub fn OH_UdsHyperlink_GetDescription(
         pThis: *mut OH_UdsHyperlink,
     ) -> *const ::core::ffi::c_char;
+    /// Get details from the [`OH_UdsHyperlink`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`OH_UdsHyperlink`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsHyperlink_GetDetails(
+        pThis: *mut OH_UdsHyperlink,
+        details: *mut OH_UdsDetails,
+    ) -> ::core::ffi::c_int;
     /// Set url to the [`OH_UdsHyperlink`].
     ///
     /// # Arguments
@@ -229,6 +305,28 @@ extern "C" {
     pub fn OH_UdsHyperlink_SetDescription(
         pThis: *mut OH_UdsHyperlink,
         description: *const ::core::ffi::c_char,
+    ) -> ::core::ffi::c_int;
+    /// Set details to the [`OH_UdsHyperlink`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsHyperlink`] OH_UdsDetails Udmf_ErrCode
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsHyperlink_SetDetails(
+        pThis: *mut OH_UdsHyperlink,
+        details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
     /// Creation a pointer to the instance of the [`OH_UdsHtml`].
     ///
@@ -294,6 +392,28 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsHtml_GetPlainContent(pThis: *mut OH_UdsHtml) -> *const ::core::ffi::c_char;
+    /// Get details from the [`OH_UdsHtml`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsHtml`] OH_UdsDetails Udmf_ErrCode
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsHtml_GetDetails(
+        pThis: *mut OH_UdsHtml,
+        details: *mut OH_UdsDetails,
+    ) -> ::core::ffi::c_int;
     /// Set content to the [`OH_UdsHtml`].
     ///
     /// # Arguments
@@ -337,6 +457,28 @@ extern "C" {
     pub fn OH_UdsHtml_SetPlainContent(
         pThis: *mut OH_UdsHtml,
         plainContent: *const ::core::ffi::c_char,
+    ) -> ::core::ffi::c_int;
+    /// Set details to the [`OH_UdsHtml`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsHtml`] OH_UdsDetails Udmf_ErrCode
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsHtml_SetDetails(
+        pThis: *mut OH_UdsHtml,
+        details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
     /// Creation a pointer to the instance of the [`OH_UdsAppItem`].
     ///
@@ -458,6 +600,28 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsAppItem_GetAbilityName(pThis: *mut OH_UdsAppItem) -> *const ::core::ffi::c_char;
+    /// Get details from the [`OH_UdsAppItem`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsAppItem`] OH_UdsDetails Udmf_ErrCode
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsAppItem_GetDetails(
+        pThis: *mut OH_UdsAppItem,
+        details: *mut OH_UdsDetails,
+    ) -> ::core::ffi::c_int;
     /// Set application id to the [`OH_UdsAppItem`].
     ///
     /// # Arguments
@@ -590,6 +754,28 @@ extern "C" {
         pThis: *mut OH_UdsAppItem,
         abilityName: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
+    /// Set details to the [`OH_UdsAppItem`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`OH_UdsAppItem`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsAppItem_SetDetails(
+        pThis: *mut OH_UdsAppItem,
+        details: *const OH_UdsDetails,
+    ) -> ::core::ffi::c_int;
     /// Creation a pointer to the instance of the [`OH_UdsFileUri`].
     ///
     ///
@@ -654,6 +840,28 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsFileUri_GetFileType(pThis: *mut OH_UdsFileUri) -> *const ::core::ffi::c_char;
+    /// Get details from the [`OH_UdsFileUri`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsFileUri`] OH_UdsDetails Udmf_ErrCode
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsFileUri_GetDetails(
+        pThis: *mut OH_UdsFileUri,
+        details: *mut OH_UdsDetails,
+    ) -> ::core::ffi::c_int;
     /// Set file uri to the [`OH_UdsFileUri`].
     ///
     /// # Arguments
@@ -697,6 +905,28 @@ extern "C" {
     pub fn OH_UdsFileUri_SetFileType(
         pThis: *mut OH_UdsFileUri,
         fileType: *const ::core::ffi::c_char,
+    ) -> ::core::ffi::c_int;
+    /// Set details to the [`OH_UdsFileUri`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// [`OH_UdsFileUri`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsFileUri_SetDetails(
+        pThis: *mut OH_UdsFileUri,
+        details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
     /// Creation a pointer to the instance of the [`OH_UdsPixelMap`].
     ///
@@ -749,6 +979,28 @@ extern "C" {
         pThis: *mut OH_UdsPixelMap,
         pixelmapNative: *mut OH_PixelmapNative,
     );
+    /// Get details from the [`OH_UdsPixelMap`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsPixelMap`] OH_UdsDetails Udmf_ErrCode
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsPixelMap_GetDetails(
+        pThis: *mut OH_UdsPixelMap,
+        details: *mut OH_UdsDetails,
+    ) -> ::core::ffi::c_int;
     /// Set pixel map to the [`OH_UdsPixelMap`].
     ///
     /// # Arguments
@@ -770,6 +1022,28 @@ extern "C" {
     pub fn OH_UdsPixelMap_SetPixelMap(
         pThis: *mut OH_UdsPixelMap,
         pixelmapNative: *mut OH_PixelmapNative,
+    ) -> ::core::ffi::c_int;
+    /// Set details to the [`OH_UdsPixelMap`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
+    ///
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsPixelMap`] OH_UdsDetails Udmf_ErrCode
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsPixelMap_SetDetails(
+        pThis: *mut OH_UdsPixelMap,
+        details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
     /// Creation a pointer to the instance of the [`OH_UdsArrayBuffer`].
     ///
@@ -1138,4 +1412,153 @@ extern "C" {
         pThis: *mut OH_UdsContentForm,
         linkUri: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
+    /// Creation a pointer to the instance of the [`OH_UdsDetails`].
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsDetails`]
+    /// structure is returned. If the operation is failed, nullptr is returned.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsDetails`]
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsDetails_Create() -> *mut OH_UdsDetails;
+    /// Destroy a pointer that points to the [`OH_UdsDetails`] instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsDetails`]
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsDetails_Destroy(pThis: *mut OH_UdsDetails);
+    /// Determine whether the [`OH_UdsDetails`] contain the specified key.
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of the [`OH_UdsDetails`].
+    ///
+    /// * `key` - Represents key in the details.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution.
+    /// `false` Represents The details do not contain the key.
+    /// `true` Represents The details contain the key.
+    /// [`OH_UdsDetails`]
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsDetails_HasKey(
+        pThis: *const OH_UdsDetails,
+        key: *const ::core::ffi::c_char,
+    ) -> bool;
+    /// Remove the value corresponding to this key from the [`OH_UdsDetails`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    ///
+    /// * `key` - Represents key in the details.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsDetails`] Udmf_ErrCode
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsDetails_Remove(
+        pThis: *mut OH_UdsDetails,
+        key: *const ::core::ffi::c_char,
+    ) -> ::core::ffi::c_int;
+    /// Clear all data in the [`OH_UdsDetails`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsDetails`] Udmf_ErrCode
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsDetails_Clear(pThis: *mut OH_UdsDetails) -> ::core::ffi::c_int;
+    /// Set key-value data to the [`OH_UdsDetails`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    ///
+    /// * `key` - Represents the key data to be written.
+    ///
+    /// * `value` - Represents the value data to be written.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
+    /// [`UDMF_E_OK`] success.
+    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsDetails`] Udmf_ErrCode
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsDetails_SetValue(
+        pThis: *mut OH_UdsDetails,
+        key: *const ::core::ffi::c_char,
+        value: *const ::core::ffi::c_char,
+    ) -> ::core::ffi::c_int;
+    /// Get the value from the [`OH_UdsDetails`] using the key.
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    ///
+    /// * `key` - Represents key in the details.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a string pointer when input args normally, otherwise return nullptr.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsDetails`]
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsDetails_GetValue(
+        pThis: *const OH_UdsDetails,
+        key: *const ::core::ffi::c_char,
+    ) -> *const ::core::ffi::c_char;
+    /// Get the all keys from the [`OH_UdsDetails`].
+    ///
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    ///
+    /// * `count` - Represents the keys count.
+    ///
+    /// # Returns
+    ///
+    /// * Returns string list of keys. Memory will be released after calling the OH_UdsDetails_Destroy function.
+    ///
+    /// Available since API-level: 22
+    /// [`OH_UdsDetails`]
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_UdsDetails_GetAllKeys(
+        pThis: *mut OH_UdsDetails,
+        count: *mut ::core::ffi::c_uint,
+    ) -> *mut *mut ::core::ffi::c_char;
 }

@@ -494,7 +494,7 @@ extern "C" {
         controlType: PictureInPicture_PipControlType,
         status: PictureInPicture_PipControlStatus,
     ) -> i32;
-    /// Set picture-in-picture controll enable status.
+    /// Set picture-in-picture control enable status.
     ///
     /// # Arguments
     ///
@@ -519,6 +519,26 @@ extern "C" {
         controlType: PictureInPicture_PipControlType,
         enabled: bool,
     ) -> i32;
+    /// Set the picture-in-picture parent window ID.
+    ///
+    /// # Arguments
+    ///
+    /// * `controllerId` - The picture-in-picture controller ID.
+    ///
+    /// * `windowId` - The picture-in-picture parent window ID.
+    ///
+    /// # Returns
+    ///
+    /// * Return the result code.
+    /// [`OK`] the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_PictureInPicture_SetParentWindowId(controllerId: u32, windowId: u32) -> i32;
     /// Set picture-in-picture initial surface rect.
     ///
     /// # Arguments

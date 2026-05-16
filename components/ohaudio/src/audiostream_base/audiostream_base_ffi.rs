@@ -1155,3 +1155,111 @@ impl OH_AudioStream_VolumeMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AudioStream_VolumeMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl OH_AudioStream_LatencyType {
+    /// Type to get latency of all audio processing units, including software and hardware.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIOSTREAM_LATENCY_TYPE_ALL: OH_AudioStream_LatencyType =
+        OH_AudioStream_LatencyType(0);
+    /// Type to get latency of software part, including audio effects in software.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIOSTREAM_LATENCY_TYPE_SOFTWARE: OH_AudioStream_LatencyType =
+        OH_AudioStream_LatencyType(1);
+    /// Type to get latency of hardware part, including audio effects in hal, driver and hardware.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIOSTREAM_LATENCY_TYPE_HARDWARE: OH_AudioStream_LatencyType =
+        OH_AudioStream_LatencyType(2);
+}
+#[repr(transparent)]
+/// Defines audio latency types.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AudioStream_LatencyType(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl OH_AudioStream_PlaybackCaptureMode {
+    /// Default mode. Capture most of the audio streams, except tone streams and privacy streams.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIOSTREAM_PLAYBACKCAPTURE_MODE_DEFAULT: OH_AudioStream_PlaybackCaptureMode =
+        OH_AudioStream_PlaybackCaptureMode(0);
+    /// Media mode. Capture media, voice message and also unknown streams.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIOSTREAM_PLAYBACKCAPTURE_MODE_MEDIA: OH_AudioStream_PlaybackCaptureMode =
+        OH_AudioStream_PlaybackCaptureMode(1);
+    /// Excluding self mode. Capture streams excluding the audio played by application itself.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIOSTREAM_PLAYBACKCAPTURE_MODE_EXCLUDING_SELF: OH_AudioStream_PlaybackCaptureMode =
+        OH_AudioStream_PlaybackCaptureMode(32768);
+}
+#[repr(transparent)]
+/// Defines mode for playback capture, each mode means different target
+/// streams to capture.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AudioStream_PlaybackCaptureMode(pub ::core::ffi::c_uint);
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+impl OH_AudioStream_PlaybackCaptureStartState {
+    /// Start playback capture success state.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIOSTREAM_PLAYBACKCAPTURE_START_STATE_SUCCESS:
+        OH_AudioStream_PlaybackCaptureStartState = OH_AudioStream_PlaybackCaptureStartState(0);
+    /// Start playback capture failed state, because the request for interrupt is denied
+    /// or meet system internal error.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIOSTREAM_PLAYBACKCAPTURE_START_STATE_FAILED:
+        OH_AudioStream_PlaybackCaptureStartState = OH_AudioStream_PlaybackCaptureStartState(1);
+    /// Start playback capture but user not authorized state.
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub const AUDIOSTREAM_PLAYBACKCAPTURE_START_STATE_NOT_AUTHORIZED:
+        OH_AudioStream_PlaybackCaptureStartState = OH_AudioStream_PlaybackCaptureStartState(2);
+}
+#[repr(transparent)]
+/// Defines the playback capture start state, which is returned asynchronously
+/// after calling [`#OH_AudioCapturer_RequestPlaybackCaptureStart`] function.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_AudioStream_PlaybackCaptureStartState(pub ::core::ffi::c_uint);

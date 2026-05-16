@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.6
+
+- Update bindings to API-22 and API-23.
+
 ## 0.3.5
 
 - Fix missing link to libimage_common.so

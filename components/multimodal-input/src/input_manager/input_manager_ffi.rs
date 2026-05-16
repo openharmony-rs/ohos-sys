@@ -4,8 +4,12 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::axis_type::{InputEvent_AxisAction, InputEvent_AxisEventType, InputEvent_AxisType};
+#[cfg(feature = "api-22")]
+use crate::pointer_style::Input_PointerStyle;
 #[cfg(feature = "api-14")]
 use ohos_sys_opaque_types::Input_Hotkey;
+#[cfg(feature = "api-22")]
+use ohos_sys_opaque_types::OH_PixelmapNative;
 use ohos_sys_opaque_types::{
     Input_AxisEvent, Input_KeyEvent, Input_KeyState, Input_MouseEvent, Input_TouchEvent,
 };
@@ -221,6 +225,16 @@ impl InputEvent_SourceType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct InputEvent_SourceType(pub ::core::ffi::c_uint);
+/// Defines the cursor information.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct Input_CursorInfo {
+    _unused: [u8; 0],
+}
 pub type Input_Result = Result<(), InputErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -306,6 +320,13 @@ impl InputErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const DEVICE_NO_POINTER: InputErrorCode =
         InputErrorCode(const { core::num::NonZero::new(3900010).unwrap() });
+    /// Invalid windowID
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub const INVALID_WINDOWID: InputErrorCode =
+        InputErrorCode(const { core::num::NonZero::new(26500001).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates error codes.
@@ -331,6 +352,26 @@ pub type Input_HotkeyCallback =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
 pub struct Input_DeviceInfo {
+    _unused: [u8; 0],
+}
+/// Pixel map resource.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct Input_CustomCursor {
+    _unused: [u8; 0],
+}
+/// Defines the custom cursor configuration.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct Input_CursorConfig {
     _unused: [u8; 0],
 }
 /// Defines a lifecycle callback for keyEvent. If the callback is triggered, keyEvent will be destroyed.
@@ -3310,5 +3351,361 @@ extern "C" {
         displayId: *mut i32,
         displayX: *mut f64,
         displayY: *mut f64,
+    ) -> Input_Result;
+    /// Creates a cursor info object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns an [`Input_CursorInfo`] cursor object if the operation is successful.
+    /// Otherwise, a null cursor is returned. The possible cause is memory allocation failure.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CursorInfo_Create() -> *mut Input_CursorInfo;
+    /// Destroys a cursor info object.
+    ///
+    /// # Arguments
+    ///
+    /// * `cursorInfo` - Cursor info object.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CursorInfo_Destroy(cursorInfo: *mut *mut Input_CursorInfo);
+    /// Obtains the cursor visibility of the cursorInfo.
+    ///
+    /// # Arguments
+    ///
+    /// * `cursorInfo` - Cursor info object.
+    ///
+    /// * `visible` - Visibility of the cursorInfo.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_CursorInfo_IsVisible function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor;
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CursorInfo_IsVisible(
+        cursorInfo: *mut Input_CursorInfo,
+        visible: *mut bool,
+    ) -> Input_Result;
+    /// Obtains the cursor style of the cursorInfo.
+    ///
+    /// # Arguments
+    ///
+    /// * `cursorInfo` - Cursor info object.
+    ///
+    /// * `style` - Cursor style of the cursorInfo.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_CursorInfo_GetStyle function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor or the cursor is invisible;
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CursorInfo_GetStyle(
+        cursorInfo: *mut Input_CursorInfo,
+        style: *mut Input_PointerStyle,
+    ) -> Input_Result;
+    /// Obtains the cursor sizeLevel of the cursorInfo.
+    ///
+    /// # Arguments
+    ///
+    /// * `cursorInfo` - Cursor info object.
+    ///
+    /// * `sizeLevel` - Cursor size level of the cursorInfo.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_CursorInfo_GetSizeLevel function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor or the cursor is invisible;
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CursorInfo_GetSizeLevel(
+        cursorInfo: *mut Input_CursorInfo,
+        sizeLevel: *mut i32,
+    ) -> Input_Result;
+    /// Obtains the cursor color of the cursorInfo represented as a 32-bit ARGB integer.
+    ///
+    /// # Arguments
+    ///
+    /// * `cursorInfo` - Cursor info object.
+    ///
+    /// * `color` - Cursor color of the cursorInfo represented as a 32-bit ARGB integer.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_CursorInfo_GetColor function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor or the cursor is invisible;
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CursorInfo_GetColor(
+        cursorInfo: *mut Input_CursorInfo,
+        color: *mut u32,
+    ) -> Input_Result;
+    /// Get cursor info of the mouseEvent.
+    ///
+    /// # Arguments
+    ///
+    /// * `mouseEvent` - The received mouseEvent.
+    ///
+    /// * `cursorInfo` - The object to receive the cursor info.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetMouseEventCursorInfo function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor;
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_GetMouseEventCursorInfo(
+        mouseEvent: *const Input_MouseEvent,
+        cursorInfo: *mut Input_CursorInfo,
+    ) -> Input_Result;
+    /// Retrieves cursor information. If the pixelmap parameter is specified, and the cursor is user-defined type
+    /// currently, the cursor's pixelmap will be returned along with it.
+    ///
+    /// # Arguments
+    ///
+    /// * `cursorInfo` - The object to receive the cursor info.
+    ///
+    /// * `pixelmap` - The object to receive the cursor pixelmap, null value will be ignored.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetCursorInfo function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor;
+    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_GetCursorInfo(
+        cursorInfo: *mut Input_CursorInfo,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> Input_Result;
+    /// Sets the visible status of the mouse pointer.
+    ///
+    /// # Arguments
+    ///
+    /// * `visible` - Whether the mouse pointer is visible. The value true indicates that the pointer
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_SetPointerVisible function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`] if the device is not supported.
+    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_SetPointerVisible(visible: bool) -> Input_Result;
+    /// Obtains the mouse pointer style.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - Window ID. The value is an integer greater than or equal to -1.
+    ///
+    /// * `pointerStyle` - Pointer to the pointerStyle.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_GetPointerStyle function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null pointer or window ID is invalid;
+    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_GetPointerStyle(windowId: i32, pointerStyle: *mut i32) -> Input_Result;
+    /// Sets the mouse pointer style.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - Window ID. The value is an integer greater than or equal to 0.
+    ///
+    /// * `pointerStyle` - Pointer style.The value should be a member of the [`Input_PointerStyle`] enumeration.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_SetPointerStyle function api result code
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if window ID is invalid or pointerStyle is invalid;
+    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_SetPointerStyle(windowId: i32, pointerStyle: i32) -> Input_Result;
+    /// Creates a CustomCursor object.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelMap` - Pointer to a [`OH_PixelmapNative`] object.
+    ///
+    /// * `anchorX` - Horizontal coordinate of the cursor focus.
+    ///
+    /// * `anchorY` - Vertical coordinate of the cursor focus.
+    ///
+    /// # Returns
+    ///
+    /// * Returns an [`Input_CustomCursor`] pointer object if the operation is successful.
+    /// returns a null pointer otherwise.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CustomCursor_Create(
+        pixelMap: *mut OH_PixelmapNative,
+        anchorX: i32,
+        anchorY: i32,
+    ) -> *mut Input_CustomCursor;
+    /// Destroys a CustomCursor object.
+    ///
+    /// # Arguments
+    ///
+    /// * `customCursor` - Pointer to a pointer to an [`Input_CustomCursor`] object.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CustomCursor_Destroy(customCursor: *mut *mut Input_CustomCursor);
+    /// Obtains the pixelMap of the CustomCursor.
+    ///
+    /// # Arguments
+    ///
+    /// * `customCursor` - Pointer to an [`Input_CustomCursor`] object.
+    ///
+    /// * `pixelMap` - Pointer to a [`OH_PixelmapNative`] object.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_CustomCursor_GetPixelMap function result code.
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] The customCursor is NULL.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CustomCursor_GetPixelMap(
+        customCursor: *mut Input_CustomCursor,
+        pixelMap: *mut *mut OH_PixelmapNative,
+    ) -> Input_Result;
+    /// Obtains the anchor of the CustomCursor.
+    ///
+    /// # Arguments
+    ///
+    /// * `customCursor` - Pointer to an [`Input_CustomCursor`] object.
+    ///
+    /// * `anchorX` - Pointer to horizontal coordinate of the cursor focus.
+    ///
+    /// * `anchorY` - Pointer to vertical coordinate of the cursor focus.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_CustomCursor_GetAnchor function result code.
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] The customCursor is NULL.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CustomCursor_GetAnchor(
+        customCursor: *mut Input_CustomCursor,
+        anchorX: *mut i32,
+        anchorY: *mut i32,
+    ) -> Input_Result;
+    /// Creates a CursorConfig object.
+    ///
+    /// # Arguments
+    ///
+    /// * `followSystem` - Pointer of the config whether to adjust the cursor size based on system settings
+    ///
+    /// # Returns
+    ///
+    /// * Returns an [`Input_CursorConfig`] pointer object if the operation is successful.
+    /// returns a null pointer otherwise.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CursorConfig_Create(followSystem: bool) -> *mut Input_CursorConfig;
+    /// Destroys a CursorConfig object.
+    ///
+    /// # Arguments
+    ///
+    /// * `cursorConfig` - Pointer to a pointer to an [`cursorConfig`] object.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CursorConfig_Destroy(cursorConfig: *mut *mut Input_CursorConfig);
+    /// Obtains the followSystem of the cursorConfig.
+    ///
+    /// # Arguments
+    ///
+    /// * `cursorConfig` - Pointer to an [`Input_CursorConfig`] object.
+    ///
+    /// * `followSystem` - Pointer of the config whether to adjust the cursor size based on system settings
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_CursorConfig_IsFollowSystem function result code.
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] The cursorOptions or followSystem the is NULL.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_CursorConfig_IsFollowSystem(
+        cursorConfig: *mut Input_CursorConfig,
+        followSystem: *mut bool,
+    ) -> Input_Result;
+    /// Sets the custom cursor style.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - Window ID. The value is an integer greater than or equal to 0.
+    ///
+    /// * `customCursor` - Pointer to an [`Input_CustomCursor`] object.
+    ///
+    /// * `cursorConfig` - Pointer to an [`cursorConfig`] object.
+    ///
+    /// # Returns
+    ///
+    /// * OH_Input_SetCustomCursor function result code.
+    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`] if window ID is abnormal or customCursor is invalid;
+    /// [`INPUT_INVALID_WINDOWID`] if window ID is invaild.
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_Input_SetCustomCursor(
+        windowId: i32,
+        customCursor: *mut Input_CustomCursor,
+        cursorConfig: *mut Input_CursorConfig,
     ) -> Input_Result;
 }

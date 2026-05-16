@@ -568,3 +568,18 @@ pub const COMMON_EVENT_MINORSMODE_OFF: &::core::ffi::CStr = c"usual.event.MINORS
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub const COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED: &::core::ffi::CStr =
     c"usual.event.MANAGED_BROWSER_POLICY_CHANGED";
+/// This common event means that the open and closed state of the stand associated
+/// with the tablet mode has changed.
+/// This is a protected common event that can only be sent by system.
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+pub const COMMON_EVENT_TABLET_MODE_CHANGED: &::core::ffi::CStr = c"usual.event.TABLET_MODE_CHANGED";
+/// This common event means that the state (open or closed) of the laptop lid has changed.
+/// This is a protected common event that can only be sent by system.
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+pub const COMMON_EVENT_LID_STATE_CHANGED: &::core::ffi::CStr = c"usual.event.LID_STATE_CHANGED";

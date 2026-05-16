@@ -103,7 +103,13 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;"),
                     "avmetadata_extractor" => builder
                         .raw_line("#[allow(unused_imports)]use crate::avformat::OH_AVFormat;")
-                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;"),
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use crate::avmetadata_extractor_base::{OH_AVMetadataExtractor_FrameInfo, OH_AVMetadataExtractor_OutputParam};")
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use crate::avmedia_base::OH_AVMedia_SeekMode;")
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use crate::avmedia_source::OH_AVMediaSource;"),
                     "avmuxer" => builder
                         .raw_line("#[cfg(feature = \"api-11\")]#[allow(unused_imports)]use crate::avbuffer::OH_AVBuffer;")
                         .raw_line("#[allow(unused_imports)]use crate::avbuffer_info::OH_AVCodecBufferAttr;")
@@ -124,6 +130,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("#[cfg(feature = \"api-12\")]#[allow(unused_imports)]use crate::avscreen_capture_base::{OH_AVScreenCapture_ContentFilter, OH_AVScreenCaptureFilterableAudioContent, OH_AVScreenCapture_OnBufferAvailable, OH_AVScreenCapture_OnError, OH_AVScreenCapture_OnStateChange};")
                         .raw_line("#[cfg(feature = \"api-15\")]#[allow(unused_imports)]use crate::avscreen_capture_base::OH_AVScreenCapture_OnDisplaySelected;")
                         .raw_line("#[cfg(feature = \"api-20\")]#[allow(unused_imports)]use crate::avscreen_capture_base::{OH_AVScreenCapture_CaptureStrategy, OH_AVScreenCapture_FillMode, OH_AVScreenCapture_OnCaptureContentChanged, OH_AVScreenCapture_OnUserSelected, OH_AVScreenCapture_UserSelectionInfo};")
+                        .raw_line("#[cfg(feature = \"api-22\")]use crate::avscreen_capture_base::{OH_AVScreenCaptureHighlightConfig, OH_CapturePickerMode};")
                         .raw_line("#[allow(unused_imports)]use crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode;")
                         .raw_line("#[allow(unused_imports)]use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeBuffer};"),
                     "avscreen_capture_base" => builder
@@ -136,6 +143,14 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("#[cfg(feature = \"api-12\")]use crate::avplayer_base::{OH_AVPlayerOnErrorCallback, OH_AVPlayerOnInfoCallback};")
                         .raw_line("#[cfg(feature = \"api-20\")]")
                         .raw_line("#[allow(unused_imports)]use crate::avcodec_base::OH_AVDataSourceExt;")
+                        .raw_line("#[cfg(feature = \"api-22\")]")
+                        .raw_line("use crate::avformat::OH_AVFormat;")
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use crate::avplayer_base::{AVPlayerTrackSwitchMode, OH_AVPlaybackStrategy, OH_AVPlayerOnAmplitudeUpdateCallback, OH_AVPlayerOnSeiMessageReceivedCallback, OH_AVSeiMessageArray};")
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use crate::avmedia_source::OH_AVMediaSource;")
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use crate::avcodec_base::OH_MediaType;")
                         // require bindings to OH audio.
                         .blocklist_function("OH_AVPlayer_SetVolumeMode")
                         .blocklist_function("OH_AVPlayer_SetAudioRendererInfo")
@@ -145,7 +160,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "avplayer_base" => builder.raw_line("#[cfg(feature = \"api-12\")]use crate::avformat::OH_AVFormat;"),
                     "avcapability" => builder
                         .raw_line("#[cfg(feature = \"api-12\")]use crate::avformat::OH_AVFormat;")
-                        .raw_line("use crate::avcodec_base::OH_BitrateMode;"),
+                        .raw_line("use crate::avcodec_base::OH_BitrateMode;")
+                        // Requires OH_NativeBuffer_Format from ohos-window-sys (not a dependency of this crate).
+                        .blocklist_function("OH_AVCapability_GetVideoSupportedNativeBufferFormats"),
 
                     "avcodec_base" => builder
                         .raw_line("use crate::avbuffer_info::OH_AVCodecBufferAttr;")
@@ -159,6 +176,11 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("#[cfg(feature = \"api-20\")]")
                         .raw_line("use crate::avcodec_base::OH_AVDataSourceExt;")
                     ,
+                    "avmedia_source" => builder
+                        .raw_line("use crate::avcodec_base::OH_AVDataSource;"),
+                    "avmetadata_extractor_base" => builder
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;"),
                     "avbuffer" => builder.raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")
                         .raw_line("use crate::avbuffer_info::OH_AVCodecBufferAttr;")
                         .raw_line("use crate::avformat::OH_AVFormat;"),
@@ -235,7 +257,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
                 let builder = builder
                     .allowlist_file(header_path.to_str().unwrap())
-                    .blocklist_file(".*graphic_error_code.h");
+                    .blocklist_file(".*graphic_error_code.h")
+                    .clang_args(["-include", "stdbool.h"]);
                 match file_stem {
                     "native_buffer" => builder
                         .raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")
@@ -249,6 +272,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line(
                             "use crate::native_buffer::buffer_common::OH_NativeBuffer_MetadataKey;",
                         )
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use ohos_sys_opaque_types::OHIPCParcel;")
+                        .blocklist_type("OHIPCParcel")
                         .bitfield_enum("OH_NativeBuffer_Usage"),
                     _ => builder,
                 }
@@ -283,6 +309,10 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeImage};")
                         .raw_line("#[cfg(feature = \"api-12\")]")
                         .raw_line("use ohos_sys_opaque_types::OHNativeWindowBuffer;")
+                        .raw_line("#[cfg(feature = \"api-22\")]")
+                        .raw_line(
+                            "use crate::native_buffer::buffer_common::OH_NativeBuffer_ColorSpace;",
+                        )
                         .clang_args(["-include", "stdbool.h"])
                         .no_copy("^OH_OnFrameAvailableListener"),
                     _ => builder,
@@ -339,6 +369,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
 
                 match file_stem {
                     "cursor" => builder.raw_line("use crate::rdb_types::{Data_Asset, OH_ColumnType};"),
+                    "rdb_types" => builder
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use crate::cursor::OH_Cursor;"),
                     "predicates" => builder
                         .raw_line("#[cfg(feature = \"api-20\")]")
                         .raw_line("use crate::rdb_types::OH_Data_Values;")
@@ -351,7 +384,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("#[cfg(feature = \"api-18\")]")
                         .raw_line("use crate::rdb_types::{OH_Data_Value, OH_Data_Values, Rdb_ConflictResolution};")
                         .raw_line("#[cfg(feature = \"api-18\")]")
-                        .raw_line("use crate::values_bucket::{OH_Data_VBuckets, OH_VBucket};"),
+                        .raw_line("use crate::values_bucket::{OH_Data_VBuckets, OH_VBucket};")
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use crate::rdb_types::OH_RDB_ReturningContext;"),
                     "relational_store" => builder
                         .raw_line("use crate::cursor::OH_Cursor;")
                         .raw_line("use crate::predicates::OH_Predicates;")
@@ -364,7 +399,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use crate::value_object::OH_VObject;")
                         .raw_line("#[cfg(feature = \"api-18\")]")
                         .raw_line("use crate::values_bucket::OH_Data_VBuckets;")
-                        .raw_line("use crate::values_bucket::OH_VBucket;"),
+                        .raw_line("use crate::values_bucket::OH_VBucket;")
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use crate::rdb_types::OH_RDB_ReturningContext;"),
                     "values_bucket" => builder
                         .raw_line("#[cfg(feature = \"api-11\")]")
                         .raw_line("use crate::rdb_types::Data_Asset;"),
@@ -411,40 +448,40 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     ..Default::default()
                 }));
                 let builder = match file_stem {
-                    "pixelmap" => {
-                        builder
-                            .raw_line("use ohos_sys_opaque_types::{napi_env, napi_value, \
-                            OH_NativeBuffer, OH_PixelmapNative, OH_NativeColorSpaceManager};")
-
-                    },
+                    "pixelmap" => builder.raw_line(
+                        "use ohos_sys_opaque_types::{napi_env, napi_value, \
+                            OH_NativeBuffer, OH_PixelmapNative, OH_NativeColorSpaceManager};",
+                    ),
                     "picture" => {
                         builder
-                            .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                            .raw_line("use ohos_sys_opaque_types::{OH_PixelmapNative, OH_PictureNative};")
                             .raw_line("use crate::native_image::pixelmap::PIXEL_FORMAT;")
+                            .raw_line("pub use crate::native_image::image_source::Image_AuxiliaryPictureType;")
+                            .blocklist_item("Image_AuxiliaryPictureType")
+                        // OH_PictureNative is blocklisted globally via OPAQUE_TYPES
                     }
-                    "image_source" => {
-                        builder
-                            .raw_line("pub use ohos_sys_opaque_types::OH_ImageSourceNative;")
-                            .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
-                            .raw_line("use ohos_rawfile_sys::RawFileDescriptor;")
-                            .raw_line("#[cfg(feature = \"api-13\")]")
-                            .raw_line("use crate::native_image::picture::{OH_PictureNative, Image_AuxiliaryPictureType};")
-                    }
+                    "image_source" => builder
+                        .raw_line("pub use ohos_sys_opaque_types::OH_ImageSourceNative;")
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                        .raw_line("use ohos_rawfile_sys::RawFileDescriptor;")
+                        .raw_line("#[cfg(feature = \"api-13\")]")
+                        .raw_line("use ohos_sys_opaque_types::OH_PictureNative;")
+                        .allowlist_item("Image_AuxiliaryPictureType"),
                     "image_receiver" => {
                         builder.raw_line("use crate::native_image::image::OH_ImageNative;")
                     }
-                    "image_packer" => {
-                        builder
-                            .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
-                            .raw_line("#[cfg(feature = \"api-12\")]")
-                            .raw_line("use ohos_sys_opaque_types::OH_ImageSourceNative;")
-                            .raw_line("#[cfg(feature = \"api-13\")]")
-                            .raw_line("use crate::native_image::picture::OH_PictureNative;")
-                    }
+                    "image_packer" => builder
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                        .raw_line("#[cfg(feature = \"api-12\")]")
+                        .raw_line("use ohos_sys_opaque_types::OH_ImageSourceNative;")
+                        .raw_line("#[cfg(feature = \"api-13\")]")
+                        .raw_line("use ohos_sys_opaque_types::OH_PictureNative;"),
                     "image" => {
                         builder
                             .raw_line("use ohos_sys_opaque_types::OH_NativeBuffer;")
-
+                            // API-23 `OH_ImageNative_GetFormat` returns `OH_NativeBuffer_Format`
+                            // from `ohos-window-sys`, which is not a dependency of this crate.
+                            .blocklist_function("OH_ImageNative_GetFormat")
                     }
                     _ => builder,
                 };
@@ -492,7 +529,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "controller" => builder
                         .raw_line("use crate::inputmethod_proxy::InputMethod_InputMethodProxy;")
                         .raw_line("use crate::text_editor_proxy::InputMethod_TextEditorProxy;")
-                        .raw_line("use crate::attach_options::InputMethod_AttachOptions;"),
+                        .raw_line("use crate::attach_options::InputMethod_AttachOptions;")
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use ohos_sys_opaque_types::ArkUI_ContextHandle;"),
                     _ => builder,
                 };
                 builder
@@ -547,10 +586,13 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "text_typography" => builder
                         .raw_line("use crate::text_declaration::*;")
                         .raw_line("#[cfg(feature = \"api-12\")]")
-                        .raw_line("use crate::font::OH_Drawing_Font_Metrics;"),
-                    "text_font_descriptor" => {
-                        builder.raw_line("use crate::text_typography::OH_Drawing_FontDescriptor;")
-                    }
+                        .raw_line("use crate::font::OH_Drawing_Font_Metrics;")
+                        .raw_line("#[cfg(feature = \"api-11\")]")
+                        .raw_line("use ohos_sys_opaque_types::{OH_Drawing_TextBox, OH_Drawing_PositionAndAffinity};"),
+                    "text_font_descriptor" => builder
+                        .raw_line("use crate::text_typography::OH_Drawing_FontDescriptor;")
+                        .raw_line("#[cfg(feature = \"api-22\")]")
+                        .raw_line("use crate::text_declaration::OH_Drawing_FontFullDescriptor;"),
                     "register_font" => builder.raw_line("use crate::text_declaration::*;"),
                     "image_filter" => builder.raw_line("use crate::shader_effect::*;"),
                     "font_mgr" => builder.raw_line("use crate::text_typography::*;"),
@@ -606,17 +648,24 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                             // Pixelmap is from image-kit
                             .raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
                             .raw_line("use ohos_sys_opaque_types::OH_UdmfData;")
+                            .raw_line("#[cfg(feature =\"api-12\")]")
+                            .raw_line("use ohos_sys_opaque_types::ArkUI_ContextHandle;")
                             .raw_line("#[cfg(feature =\"api-15\")]")
                             .raw_line("use ohos_sys_opaque_types::OH_UdmfGetDataParams;")
                             .raw_line("#[cfg(feature =\"api-20\")]")
                             .raw_line("use ohos_sys_opaque_types::OH_UdmfDataLoadParams;")
                     }
+                    "native_animate" => builder
+                        .no_debug("ArkUI_NativeAnimateAPI_.*")
+                        .no_copy("ArkUI_NativeAnimateAPI_.*")
+                        .raw_line("#[cfg(feature =\"api-12\")]")
+                        .raw_line("use ohos_sys_opaque_types::ArkUI_ContextHandle;"),
+                    "native_interface_focus" => builder
+                        .raw_line("#[cfg(feature =\"api-15\")]")
+                        .raw_line("use ohos_sys_opaque_types::ArkUI_ContextHandle;"),
                     "drawable_descriptor" => {
                         builder.raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
                     }
-                    "native_animate" => builder
-                        .no_debug("ArkUI_NativeAnimateAPI_.*")
-                        .no_copy("ArkUI_NativeAnimateAPI_.*"),
                     "native_dialog" => builder
                         .no_debug("ArkUI_NativeDialogAPI_.*")
                         .no_copy("ArkUI_NativeDialogAPI_.*")
@@ -637,11 +686,17 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "native_node" => builder
                         .blocklist_var("MAX_NODE_SCOPE_NUM")
                         .blocklist_var("MAX_COMPONENT_EVENT_ARG_NUM")
+                        .raw_line("#[cfg(feature =\"api-12\")]")
+                        .raw_line("use ohos_sys_opaque_types::ArkUI_ContextHandle;")
                         .raw_line("#[cfg(feature =\"api-15\")]")
                         .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
-                        .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;"),
+                        .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
+                        .raw_line("#[cfg(feature = \"api-22\")]")
+                        .raw_line("use crate::ui_input_event::ArkUI_TouchTestInfo;"),
                     "native_node_napi" => builder
                         .raw_line("use ohos_sys_opaque_types::{napi_env, napi_value};")
+                        .raw_line("#[cfg(feature =\"api-12\")]")
+                        .raw_line("use ohos_sys_opaque_types::ArkUI_ContextHandle;")
                         .raw_line("use crate::drawable_descriptor::ArkUI_DrawableDescriptor;"),
                     "native_type" => {
                         builder
@@ -658,7 +713,14 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .blocklist_function("OH_ArkUI_StyledString_Create")
                         .blocklist_function("OH_ArkUI_StyledString_PushTextStyle")
                         .blocklist_function("OH_ArkUI_StyledString_CreateTypography")
-                        .blocklist_function("OH_ArkUI_StyledString_AddPlaceholder"),
+                        .blocklist_function("OH_ArkUI_StyledString_AddPlaceholder")
+                        // API-22 TextLayoutManager APIs use drawing types from `ohos-drawing-sys`,
+                        // which is not a dependency of this crate; blocklist for now.
+                        .blocklist_function("OH_ArkUI_TextLayoutManager_GetRectsForRange")
+                        .blocklist_function(
+                            "OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate",
+                        )
+                        .blocklist_function("OH_ArkUI_TextLayoutManager_GetLineMetrics"),
                     "ui_input_event" => builder
                         .bitfield_enum("ArkUI_ModifierKeyName")
                         .blocklist_item("UI_TOUCH_EVENT_ACTION_.*")
@@ -734,6 +796,10 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                                  .raw_line("use ohos_sys_opaque_types::{Input_AxisEvent, Input_KeyEvent, Input_KeyState, Input_MouseEvent, Input_TouchEvent};")
                                  .raw_line("#[cfg(feature = \"api-14\")]")
                                  .raw_line("use ohos_sys_opaque_types::Input_Hotkey;")
+                                 .raw_line("#[cfg(feature = \"api-22\")]")
+                                 .raw_line("use crate::pointer_style::Input_PointerStyle;")
+                                 .raw_line("#[cfg(feature = \"api-22\")]")
+                                 .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
                          },
                          "key_code" => {
                              builder
@@ -1043,6 +1109,12 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .clang_args(["-include", "stdbool.h"]);
                 match file_stem {
                     "native_huks_api" | "native_huks_param" => {
+                        builder.raw_line("use crate::native_huks_type::*;")
+                    }
+                    "native_huks_external_crypto_api" => builder
+                        .raw_line("use crate::native_huks_type::*;")
+                        .raw_line("use crate::native_huks_external_crypto_type::*;"),
+                    "native_huks_external_crypto_type" => {
                         builder.raw_line("use crate::native_huks_type::*;")
                     }
                     _ => builder,

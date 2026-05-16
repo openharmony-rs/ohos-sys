@@ -32,7 +32,9 @@ pub struct InputMethod_TextEditorProxy {
 ///
 /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance.
 ///
-/// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance.
+/// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance. You can only access the memory when
+/// this callback is called. After this callback returns, the memory will be released and you should not access this
+/// memory again.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -54,7 +56,8 @@ pub type OH_TextEditorProxy_GetTextConfigFunc = ::core::option::Option<
 /// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`] instance which will be set
 /// in.
 ///
-/// * `text` - Represents a pointer to the text to be inserted.
+/// * `text` - Represents a pointer to the text to be inserted. You can only access the memory when this callback
+/// is called. After this callback returns, the memory will be released and you should not access this memory again.
 ///
 /// * `length` - Represents the length of the text to be inserted.
 ///
@@ -222,7 +225,9 @@ pub type OH_TextEditorProxy_HandleExtendActionFunc = ::core::option::Option<
 ///
 /// * `number` - Represents the number of characters to be get.
 ///
-/// * `text` - Represents the left text of cursor, you need to assing this parameter.
+/// * `text` - Represents the left text of cursor, you need to assing this parameter. You can only access the memory
+/// when this callback is called. After this callback returns, the memory will be released and you should not access this
+/// memory again.
 ///
 /// * `length` - Represents the length of the left text of cursor, you need to assing this parameter.
 ///
@@ -249,7 +254,9 @@ pub type OH_TextEditorProxy_GetLeftTextOfCursorFunc = ::core::option::Option<
 ///
 /// * `number` - Represents the number of characters to be get.
 ///
-/// * `text` - Represents the right text of cursor, you need to assing this parameter.
+/// * `text` - Represents the right text of cursor, you need to assing this parameter. You can only access the memory
+/// when this callback is called. After this callback returns, the memory will be released and you should not access this
+/// memory again.
 ///
 /// * `length` - Represents the length of the right text of cursor.
 ///
@@ -294,7 +301,8 @@ pub type OH_TextEditorProxy_GetTextIndexAtCursorFunc = ::core::option::Option<
 ///
 /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// * `privateCommand` - Private command from input method.
+/// * `privateCommand` - Private command from input method. You can only access the memory when this callback is called.
+/// After this callback returns, the memory will be released and you should not access this memory again.
 ///
 /// * `size` - Size of private command.
 ///
@@ -322,7 +330,8 @@ pub type OH_TextEditorProxy_ReceivePrivateCommandFunc = ::core::option::Option<
 ///
 /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
 ///
-/// * `text` - Represents text to be previewd.
+/// * `text` - Represents text to be previewd. You can only access the memory when this callback is called.
+/// After this callback returns, the memory will be released and you should not access this memory again.
 ///
 /// * `length` - Length of preview text.
 ///
@@ -1074,5 +1083,35 @@ extern "C" {
     pub fn OH_TextEditorProxy_GetFinishTextPreviewFunc(
         proxy: *mut InputMethod_TextEditorProxy,
         finishTextPreviewFunc: *mut OH_TextEditorProxy_FinishTextPreviewFunc,
+    ) -> InputMethodResult;
+    /// Configure the execution thread (main thread/IPC thread) for the callback functions of
+    /// [`InputMethod_TextEditorProxy`].
+    /// This interface only controls all callbacks in [`InputMethod_TextEditorProxy`] except
+    /// [`OH_TextEditorProxy_GetTextConfigFunc`].
+    /// The execution thread of [`OH_TextEditorProxy_GetTextConfigFunc`] is determined by the thread that calls
+    /// [`OH_InputMethodController_Attach`] and is not affected by this interface.
+    ///
+    /// # Arguments
+    ///
+    /// * `proxy` - Pointer to the target [`InputMethod_TextEditorProxy`] instance.
+    ///
+    /// * `isCallbackInMainThread` - Thread execution strategy
+    /// - true: The callback function is switched to the main thread for execution (to avoid
+    /// multi-thread concurrency)
+    /// - false: The callback function is executed in the IPC thread (there may be multi-thread
+    /// concurrency)
+    ///
+    /// # Returns
+    ///
+    /// * Execution result.
+    /// [`IME_ERR_OK`] - Configuration succeeded.
+    /// [`IME_ERR_NULL_POINTER`] - Returned when proxy is NULL.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_TextEditorProxy_SetCallbackInMainThread(
+        proxy: *mut InputMethod_TextEditorProxy,
+        isCallbackInMainThread: bool,
     ) -> InputMethodResult;
 }

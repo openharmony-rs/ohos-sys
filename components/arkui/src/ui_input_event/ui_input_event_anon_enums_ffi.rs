@@ -74,6 +74,24 @@ pub const UI_INPUT_EVENT_SOURCE_TYPE_MOUSE: _bindgen_ty_3 = _bindgen_ty_3(1);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const UI_INPUT_EVENT_SOURCE_TYPE_TOUCH_SCREEN: _bindgen_ty_3 = _bindgen_ty_3(2);
+/// The key type.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+pub const UI_INPUT_EVENT_SOURCE_TYPE_KEY: _bindgen_ty_3 = _bindgen_ty_3(4);
+/// The joystick type.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[cfg(feature = "api-12")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+pub const UI_INPUT_EVENT_SOURCE_TYPE_JOYSTICK: _bindgen_ty_3 = _bindgen_ty_3(5);
 #[repr(transparent)]
 /// Defines the source type of the touch event.
 ///

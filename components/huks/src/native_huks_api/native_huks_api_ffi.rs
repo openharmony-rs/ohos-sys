@@ -40,15 +40,15 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSetIn or
     /// paramSetOut is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`] 12000004 - If failed to remove file,
     /// or if failed to write file.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the base key file is not exit.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the base key file is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`] 12000015 - If Failed to obtain
@@ -57,7 +57,9 @@ extern "C" {
     /// but not set.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`] 12000017 - If the key with same alias is
-    /// already exist, add since api 20.
+    /// already exist, added since api level 20.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -84,20 +86,22 @@ extern "C" {
     /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSet or key is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`] 12000004 - If failed to remove file,
     /// or if failed to write file.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`] 12000015 - If Failed to obtain
     /// the security information via UserIAM.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`] 12000017 - If the key with same alias is
-    /// already exist, add since api 20.
+    /// already exist, added since api level 20.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -128,21 +132,23 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or wrappingKeyAlias or
     /// paramSet or wrappedKeyData is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`] 12000004 - If failed to remove file,
     /// or if failed to write file.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`] 12000015 - If Failed to obtain
     /// the security information via UserIAM.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`] 12000017 - If the key with same alias is
-    /// already exist, add since api 20.
+    /// already exist, added since api level 20.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -167,17 +173,20 @@ extern "C" {
     /// # Returns
     ///
     /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSet or key is invalid.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or
+    /// paramSet or key is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exit.
+    /// input parameter abnormal.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -202,14 +211,16 @@ extern "C" {
     /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSet is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exit.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -235,15 +246,17 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSetIn or
     /// paramSetOut is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exit.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -267,14 +280,16 @@ extern "C" {
     /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSet is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exit.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -300,18 +315,20 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or
     /// paramSet or certChain is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exit.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PERMISSION_FAIL`] 201 - If the permission check failed,
     /// please apply for the required permissions first.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -337,18 +354,20 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or
     /// paramSet or certChain is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exit.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PERMISSION_FAIL`] 201 - If the permission check failed,
     /// please apply for the required permissions first.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 11
     ///
@@ -362,7 +381,7 @@ extern "C" {
         paramSet: *const OH_Huks_ParamSet,
         certChain: *mut OH_Huks_CertChain,
     ) -> OH_Huks_Result;
-    /// Initializes the key session interface and obtains a handle (mandatory) and challenge value (optional).
+    /// Initializes the key session interface and obtains a handle (mandatory) and token value (optional).
     ///
     /// # Arguments
     ///
@@ -374,7 +393,7 @@ extern "C" {
     /// This handle is required for subsequent operations, including [`OH_Huks_UpdateSession`],
     /// [`OH_Huks_FinishSession`], and [`OH_Huks_AbortSession`].
     ///
-    /// * `token` - Indicates the pointer to the token used for key access control.
+    /// * `token` - Indicates the pointer to the token value obtained.
     ///
     /// # Returns
     ///
@@ -382,17 +401,28 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSet or handle or
     /// token is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exit.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_SESSION_LIMIT`] 12000010 - If reached max session limit.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine
+    /// the Ukey driver operation failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the aead length is invalid or
+    /// the group id specified by the access group tag is invalid, added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`] 12000020 - If the provider operation failed,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_LOCKED`] 12000021 - If the UKey PIN is locked,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_NO_AUTH`] 12000023 - If the Ukey PIN not authenticated,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`] 12000024 - If the provider or Ukey is busy,
+    /// added since api level 22.
     ///
     /// Available since API-level: 9
     ///
@@ -424,16 +454,17 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If handle or paramSet or inData or
     /// outData is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exit,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist,
     /// or if the handle is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST`] 12000013 - If credemtial is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine
+    /// the Ukey driver operation failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED`] 12000008 - If auth token verify failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED`] 12000007 - If auth token info
     /// verify failed.
@@ -442,6 +473,16 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET`] 12000016 - If device password is required
     /// but not set.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`] 12000020 - If the provider operation failed,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_LOCKED`] 12000021 - If the UKey PIN is locked,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_NO_AUTH`] 12000023 - If the Ukey PIN not authenticated,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`] 12000024 - If the provider or Ukey is busy,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -471,16 +512,17 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If handle or paramSet or inData or
     /// outData is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exit,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist,
     /// or if the handle is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST`] 12000013 - If credemtial is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine
+    /// or the Ukey driver operation failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED`] 12000008 - If auth token verify failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED`] 12000007 - If auth token info
     /// verify failed.
@@ -490,7 +532,17 @@ extern "C" {
     /// but not set.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`] 12000017 - If the key with same alias is
-    /// already exist, add since api 20.
+    /// already exist, added since api level 20.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`] 12000020 - If the provider operation failed,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_LOCKED`] 12000021 - If the UKey PIN is locked,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_NO_AUTH`] 12000023 - If the Ukey PIN not authenticated,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`] 12000024 - If the provider or Ukey is busy,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -517,15 +569,21 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If handle or paramSet or inData or
     /// outData is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
     /// is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - or if the handle is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST`] 12000013 - If credemtial is not exist.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`] 12000020 - If the provider operation failed,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`] 12000024 - If the provider or Ukey is busy,
+    /// added since api level 22.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
@@ -549,13 +607,13 @@ extern "C" {
     /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If paramSet or outData is invalid.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
-    /// input parameter abnormal..
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
+    /// input parameter abnormal.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 20
-    ///
-    /// Version: 1.0
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Huks_ListAliases(
@@ -578,9 +636,10 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`] 801 - api is not supported
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`] 12000004 - If failed to remove file,
     /// or if failed to write file.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exit.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If system error ocurred.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the input parameter is invalid.
     ///
@@ -609,8 +668,9 @@ extern "C" {
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`] 801 - api is not supported
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`] 12000004 - If failed to remove file,
     /// or if failed to write file.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc commuication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If system error ocurred.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// input parameter abnormal.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`] 12000015 - If connect userIam failed.
     /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the input parameter is invalid.

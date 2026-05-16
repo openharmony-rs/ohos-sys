@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.8
+
+- Update bindings to API-22 and API-23 (no new symbols).
+
 ## 0.1.7
 
 - Update bindings to API-21. (Adds `OH_LOG_SetLogLevel`)

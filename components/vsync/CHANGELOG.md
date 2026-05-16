@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.6
+
+- Update bindings to API-22 and API-23 (no new symbols).
+- Stop leaking `OH_API_VERSION_*` constants and the
+  `get_application_target_sdk_version` / `set_application_target_sdk_version`
+  functions from `info/application_target_sdk_version.h`, which were
+  unintentionally included in the bindings.
+
 ## 0.1.5
 
 - Update to API-21. Adds support for `OH_NativeVSync_SetExpectedFrameRateRange()`

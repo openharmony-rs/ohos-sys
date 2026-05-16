@@ -1305,4 +1305,47 @@ extern "C" {
         other: *mut OH_Drawing_Path,
         result: *mut bool,
     ) -> crate::error_code::DrawingResult;
+    /// Checks if the fill type is one of the INVERSE variants.
+    ///
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// * `isInverse` - Indicates if the filltype is one of the INVERSE variants.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if path or isInverse is nullptr.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_PathIsInverseFillType(
+        path: *const OH_Drawing_Path,
+        isInverse: *mut bool,
+    ) -> crate::error_code::DrawingResult;
+    /// Toggles the INVERSE state of the filltype.
+    ///
+    /// # Arguments
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if path is nullptr.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_Drawing_PathToggleInverseFillType(
+        path: *mut OH_Drawing_Path,
+    ) -> crate::error_code::DrawingResult;
 }

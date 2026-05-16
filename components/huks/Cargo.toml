@@ -1,6 +1,6 @@
 [package]
 name = "ohos-huks-sys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Raw bindings to the Universal Keystore Kit (HUKS) of OpenHarmony"
 license = "Apache-2.0"
@@ -47,6 +47,12 @@ api-19 = ["api-18"]
 api-20 = ["api-19"]
 ## Enables bindings for OpenHarmony API-level 21 (No changes).
 api-21 = ["api-20"]
+## Enables bindings for OpenHarmony API-level 22.
+##
+## Adds the `native_huks_external_crypto_api` and `native_huks_external_crypto_type` modules.
+api-22 = ["api-21"]
+## Enables bindings for OpenHarmony API-level 23 (No changes).
+api-23 = ["api-22"]
 ## Document available features when building the documentation
 document-features = ["dep:document-features"]
 

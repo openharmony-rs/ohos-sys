@@ -15,6 +15,16 @@ use crate::native_type::*;
 pub struct ArkUI_StyledString {
     _unused: [u8; 0],
 }
+/// Defines the layout manager of text.
+///
+///
+/// Available since API-level: 22
+#[cfg(feature = "api-22")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+#[repr(C)]
+pub struct ArkUI_TextLayoutManager {
+    _unused: [u8; 0],
+}
 extern "C" {
     /// Free the memory occupied by the ArkUI_StyledString object.
     ///
@@ -141,4 +151,35 @@ extern "C" {
         descriptor: *mut ArkUI_StyledString_Descriptor,
         resultSize: *mut usize,
     ) -> i32;
+    /// Dispose an object of the text layout manager.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Pointer to the ArkUI_TextLayoutManager object to be disposed.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TextLayoutManager_Dispose(layoutManager: *mut ArkUI_TextLayoutManager);
+    /// Gets the line count.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Indicates the pointer to an <b>ArkUI_TextLayoutManager</b> object.
+    ///
+    /// * `outLineCount` - Returns the line count.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TextLayoutManager_GetLineCount(
+        layoutManager: *mut ArkUI_TextLayoutManager,
+        outLineCount: *mut i32,
+    ) -> ArkUiResult;
 }

@@ -5,6 +5,11 @@
 #![allow(non_snake_case)]
 use ohos_sys_opaque_types::OH_UdmfData;
 
+pub const PASTEBOARD_MIMETYPE_TEXT_PLAIN: &::core::ffi::CStr = c"text/plain";
+pub const PASTEBOARD_MIMETYPE_TEXT_URI: &::core::ffi::CStr = c"text/uri";
+pub const PASTEBOARD_MIMETYPE_TEXT_HTML: &::core::ffi::CStr = c"text/html";
+pub const PASTEBOARD_MIMETYPE_PIXELMAP: &::core::ffi::CStr = c"pixelMap";
+pub const PASTEBOARD_MIMETYPE_TEXT_WANT: &::core::ffi::CStr = c"text/want";
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl Pasteboard_NotifyType {
@@ -349,6 +354,7 @@ extern "C" {
     pub fn OH_Pasteboard_HasData(pasteboard: *mut OH_Pasteboard) -> bool;
     /// Obtains data from the Pasteboard.
     ///
+    /// ohos.permission.READ_PASTEBOARD
     /// # Arguments
     ///
     /// * `pasteboard` - Pointer to the [`OH_Pasteboard`] instance.

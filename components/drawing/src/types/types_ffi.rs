@@ -57,6 +57,29 @@ pub struct OH_Drawing_Brush {
 pub struct OH_Drawing_Path {
     _unused: [u8; 0],
 }
+/// Defines a pathIterator, which is used to describe a path operation iterator.
+/// You can read path operation instructions by traversing the iterator.
+///
+///
+/// Available since API-level: 23
+///
+/// Version: 1.0
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[repr(C)]
+pub struct OH_Drawing_PathIterator {
+    _unused: [u8; 0],
+}
+/// Defines a lattice, which divides an image into a rectangular grid.
+///
+///
+/// Available since API-level: 23
+#[cfg(feature = "api-23")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+#[repr(C)]
+pub struct OH_Drawing_Lattice {
+    _unused: [u8; 0],
+}
 /// Defines a bitmap, which is a memory that contains the pixel data of a shape.
 ///
 ///

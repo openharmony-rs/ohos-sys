@@ -1674,6 +1674,52 @@ extern "C" {
         recognizer: *mut ArkUI_GestureRecognizer,
         distanceThreshold: *mut f64,
     ) -> i32;
+    /// Sets the maximum moving distance for gestures to be recognized by a long press gesture recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Indicates the pointer to a gesture recognizer.
+    ///
+    /// * `allowableMovement` - Indicates maximum moving distance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is
+    /// not supported.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_LongPressGesture_SetAllowableMovement(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        allowableMovement: f64,
+    ) -> ArkUiResult;
+    /// Obtains the maximum moving distance for gestures to be recognized by a long press gesture recognizer.
+    ///
+    /// # Arguments
+    ///
+    /// * `recognizer` - Pointer to a gesture recognizer.
+    ///
+    /// * `allowableMovement` - Indicates maximum moving distance.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// supported.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_LongPressGesture_GetAllowableMovement(
+        recognizer: *mut ArkUI_GestureRecognizer,
+        allowableMovement: *mut f64,
+    ) -> ArkUiResult;
     /// Sets the minimum movement distance thresholds for gestures to be recognized by a gesture recognizer.
     ///
     /// # Arguments

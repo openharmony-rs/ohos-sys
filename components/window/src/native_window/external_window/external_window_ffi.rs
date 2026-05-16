@@ -246,9 +246,11 @@ impl OHScalingMode {
 /// Indicates Scaling Mode.
 ///
 /// Available since API-level: 9
-/// = "10")
+///
+/// **Deprecated** since 10
 ///
 /// **Use instead:** OHScalingModeV2
+#[deprecated(since = "10", note = "Use instead: OHScalingModeV2")]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OHScalingMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
@@ -297,13 +299,17 @@ impl OHHDRMetadataKey {
 /// Enumerates the HDR metadata keys.
 ///
 /// Available since API-level: 9
-/// = "10")
+///
+/// **Deprecated** since 10
+#[deprecated(since = "10")]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OHHDRMetadataKey(pub ::core::ffi::c_uint);
 /// Defines the HDR metadata.
 ///
 /// Available since API-level: 9
-/// = "10")
+///
+/// **Deprecated** since 10
+#[deprecated(since = "10")]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OHHDRMetaData {
@@ -313,7 +319,9 @@ pub struct OHHDRMetaData {
 /// Defines the ExtData Handle
 ///
 /// Available since API-level: 9
-/// = "10")
+///
+/// **Deprecated** since 10
+#[deprecated(since = "10")]
 #[repr(C)]
 #[derive(Debug)]
 pub struct OHExtDataHandle {
@@ -715,9 +723,14 @@ extern "C" {
     /// Available since API-level: 9
     ///
     /// Version: 1.0
-    /// = "10")
+    ///
+    /// **Deprecated** since 10
     ///
     /// **Use instead:** OH_NativeWindow_NativeWindowSetScalingModeV2
+    #[deprecated(
+        since = "10",
+        note = "Use instead: OH_NativeWindow_NativeWindowSetScalingModeV2"
+    )]
     pub fn OH_NativeWindow_NativeWindowSetScalingMode(
         window: *mut OHNativeWindow,
         sequence: u32,
@@ -744,7 +757,9 @@ extern "C" {
     /// Available since API-level: 9
     ///
     /// Version: 1.0
-    /// = "10")
+    ///
+    /// **Deprecated** since 10
+    #[deprecated(since = "10")]
     pub fn OH_NativeWindow_NativeWindowSetMetaData(
         window: *mut OHNativeWindow,
         sequence: u32,
@@ -774,7 +789,9 @@ extern "C" {
     /// Available since API-level: 9
     ///
     /// Version: 1.0
-    /// = "10")
+    ///
+    /// **Deprecated** since 10
+    #[deprecated(since = "10")]
     pub fn OH_NativeWindow_NativeWindowSetMetaDataSet(
         window: *mut OHNativeWindow,
         sequence: u32,
@@ -799,7 +816,9 @@ extern "C" {
     /// Available since API-level: 9
     ///
     /// Version: 1.0
-    /// = "10")
+    ///
+    /// **Deprecated** since 10
+    #[deprecated(since = "10")]
     pub fn OH_NativeWindow_NativeWindowSetTunnelHandle(
         window: *mut OHNativeWindow,
         handle: *const OHExtDataHandle,
@@ -1203,4 +1222,89 @@ extern "C" {
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_NativeWindow_CleanCache(window: *mut OHNativeWindow) -> i32;
+    /// PreAlloc <b>OHNativeWindowBuffer</b> of this <b>OHNativeWindow</b>
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
+    /// # Arguments
+    ///
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    ///
+    /// * `allocBufferCnt` - Indicates the count of <b>OHNativeWindowBuffers</b>.
+    ///
+    /// # Returns
+    ///
+    /// * Returns an error code, 0 is success, otherwise, failed.
+    ///
+    /// Available since API-level: 22
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_NativeWindow_PreAllocBuffers(window: *mut OHNativeWindow, allocBufferCnt: u32)
+        -> i32;
+    /// Requests an <b>OHNativeWindowBuffer</b> through an <b>OHNativeWindow</b> instance for content production,
+    ///
+    /// and lock the <b>OHNativeWindowBuffer</b>, the interface needs to be paired with
+    ///
+    /// <b>OH_NativeWindow_UnlockAndFlushBuffer</b> for use, after lock, it must be unlocked in order to relock,
+    ///
+    /// repeatedly lock or unlock will return an illegal operation error code, the interface supports rendering images
+    ///
+    /// directly through memory read and write on the CPU.
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
+    /// # Arguments
+    ///
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    ///
+    /// * `region` - Indicates the info of the dirty region.
+    ///
+    /// * `buffer` - Indicates the pointer to an <b>OHNativeWindowBuffer</b> pointer.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window or buffer is NULL.
+    /// [`NATIVE_ERROR_UNKNOWN`] 50002000 - surface of window is NULL.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_NativeWindow_LockBuffer(
+        window: *mut OHNativeWindow,
+        region: Region,
+        buffer: *mut *mut OHNativeWindowBuffer,
+    ) -> i32;
+    /// Flushes the <b>OHNativeWindowBuffer</b> filled with the content to the buffer queue through an
+    ///
+    /// <b>OHNativeWindow</b> instance for content consumption, and unlock the <b>OHNativeWindowBuffer</b>.
+    /// This interface is a non-thread-safe type interface.
+    ///
+    ///
+    ///
+    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeWindow
+    /// # Arguments
+    ///
+    /// * `window` - Indicates the pointer to a <b>OHNativeWindow</b> instance.
+    ///
+    /// # Returns
+    ///
+    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window is NULL.
+    /// [`NATIVE_ERROR_UNKNOWN`] 50002000 - surface of window is NULL.
+    ///
+    /// Available since API-level: 23
+    ///
+    /// Version: 1.0
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
+    pub fn OH_NativeWindow_UnlockAndFlushBuffer(window: *mut OHNativeWindow) -> i32;
 }

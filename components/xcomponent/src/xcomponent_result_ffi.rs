@@ -6,15 +6,15 @@
 #![allow(unused)]
 
 /// Successful.
-pub const OH_NATIVEXCOMPONENT_RESULT_SUCCESS: _bindgen_ty_13 = 0;
+pub const OH_NATIVEXCOMPONENT_RESULT_SUCCESS: _bindgen_ty_14 = 0;
 /// Failed.
-pub const OH_NATIVEXCOMPONENT_RESULT_FAILED: _bindgen_ty_13 = -1;
+pub const OH_NATIVEXCOMPONENT_RESULT_FAILED: _bindgen_ty_14 = -1;
 /// Invalid parameters.
-pub const OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER: _bindgen_ty_13 = -2;
+pub const OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER: _bindgen_ty_14 = -2;
 /// Enumerates the API access states.
 ///
 ///
 /// Available since API-level: 8
 ///
 /// Version: 1.0
-pub type _bindgen_ty_13 = ::core::ffi::c_int;
+pub type _bindgen_ty_14 = ::core::ffi::c_int;
