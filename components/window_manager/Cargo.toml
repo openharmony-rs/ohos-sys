@@ -1,6 +1,6 @@
 [package]
 name = "ohos-window-manager-sys"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 description = "Raw Bindings to the `window_manager` API of OpenHarmony"
 license = "Apache-2.0"

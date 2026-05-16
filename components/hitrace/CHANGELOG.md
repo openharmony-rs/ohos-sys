@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.7
+## 0.1.10
 
 - Update bindings to API-22 and API-23 (OH_HiTrace_RegisterTraceListener in API-22).
 

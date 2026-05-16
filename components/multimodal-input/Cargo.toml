@@ -1,6 +1,6 @@
 [package]
 name = "ohos-input-sys"
-version = "0.3.3"
+version = "0.3.4"
 edition = "2021"
 description = "Bindings to the multi-modal Input-kit on OpenHarmony"
 license = "Apache-2.0"
