@@ -160,12 +160,53 @@ jobs:
       - name: Build minimal features API-23
         run: cargo build --features api-23 --features ${{ matrix.component }}
   semver_checks:
+    name: Semver Check (${{ matrix.crate }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        crate:
+          - ohos-sys
+          - arkui-sys
+          - arkweb-sys
+          - hilog-sys
+          - hitrace-sys
+          - ohaudio-sys
+          - ohos-abilitykit-sys
+          - ohos-accesstoken-sys
+          - ohos-asset-store-sys
+          - ohos-basic-services-kit-sys
+          - ohos-crypto-sys
+          - ohos-deviceinfo-sys
+          - ohos-drawing-sys
+          - ohos-huks-sys
+          - ohos-image-kit-sys
+          - ohos-ime-sys
+          - ohos-input-sys
+          - ohos-ipckit-sys
+          - ohos-locationkit-sys
+          - ohos-media-sys
+          - ohos-net-ssl-sys
+          - ohos-netmanager-sys
+          - ohos-netstack-sys
+          - ohos-pasteboard-sys
+          - ohos-rawfile-sys
+          - ohos-rdb-sys
+          - ohos-sensors-sys
+          - ohos-sys-opaque-types
+          - ohos-vsync-sys
+          - ohos-window-manager-sys
+          - ohos-window-sys
+          - udmf-sys
+          - xcomponent-sys
     steps:
       - uses: actions/checkout@v6
       - uses: dtolnay/rust-toolchain@stable
       - name: Check semver
         uses: obi1kenobi/cargo-semver-checks-action@v2
+        with:
+          package: ${{ matrix.crate }}
+          feature-group: all-features
 
   rustdoc:
     name: Build Documentation
