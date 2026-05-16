@@ -101,31 +101,54 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build --features ${{ matrix.api_level }} --features all-components
         name: Build with API features
-  api_minimal_featueres:
+  api_minimal_features:
     strategy:
+      fail-fast: false
       matrix:
         component:
           - abilitykit
+          - accesstoken
           - arkui
+          - asset-store
+          - basic-services-kit
+          - basic-services-kit-battery-info
+          - basic-services-kit-commonevent
+          - basic-services-kit-os-account
+          - basic-services-kit-print
+          - basic-services-kit-scan
+          - basic-services-kit-time-service
+          - crypto
           - deviceinfo
           - drawing
           - hilog
           - hitrace
+          - huks
+          - image-kit
+          - image-kit-image-packer
+          - image-kit-image-receiver
+          - image-kit-image-source
+          - image-kit-pixelmap
           - inputmethod
           - ipckit
-          - image-kit
+          - locationkit
           - multimodal-input
           - napi
           - native_buffer
           - native_image
           - native_window
+          - net_ssl
+          - netmanager
+          - netstack
+          - ohaudio
+          - pasteboard
           - rawfile
           - rdb
           - sensors
+          - udmf
           - vsync
-          - xcomponent
           - web
           - window_manager
+          - xcomponent
     name: Build with minimal features
     runs-on: ubuntu-latest
     steps:
@@ -228,7 +251,7 @@ jobs:
       - code_quality
       - build-toolchains
       - api_feature_levels
-      - api_minimal_featueres
+      - api_minimal_features
       - link-smoke
       # - semver_checks
       - rustdoc
