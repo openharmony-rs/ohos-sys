@@ -268,7 +268,7 @@ pub struct AVPlayerTrackSwitchMode(pub ::core::ffi::c_uint);
 /// Version: 1.0
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
-#[deprecated(since = "12", note = "Use instead: [`OH_AVPlayerOnInfoCallback`]")]
+#[deprecated(since = "12", note = "Use instead: OH_AVPlayerOnInfoCallback")]
 pub type OH_AVPlayerOnInfo = ::core::option::Option<
     unsafe extern "C" fn(player: *mut OH_AVPlayer, type_: AVPlayerOnInfoType, extra: i32),
 >;
@@ -318,7 +318,7 @@ pub type OH_AVPlayerOnInfoCallback = ::core::option::Option<
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[deprecated(
     since = "12",
-    note = "Use instead: [`OH_AVPlayerOnInfoCallback`] [`OH_AVPlayerOnError`]"
+    note = "Use instead: OH_AVPlayerOnInfoCallback OH_AVPlayerOnError"
 )]
 pub type OH_AVPlayerOnError = ::core::option::Option<
     unsafe extern "C" fn(
@@ -422,7 +422,7 @@ pub type OH_AVPlayerOnSeiMessageReceivedCallback = ::core::option::Option<
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[deprecated(
     since = "12",
-    note = "Use instead: [`OH_AVPlayerOnInfoCallback`] [`OH_AVPlayerOnErrorCallback`]"
+    note = "Use instead: OH_AVPlayerOnInfoCallback OH_AVPlayerOnErrorCallback"
 )]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
