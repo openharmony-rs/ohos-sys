@@ -4,6 +4,8 @@
 
 - Add `MouseEventButton`, and `InputEventSourceType::KEY` and `InputEventSourceType::JOYSTICK`
   (API-22), which were missing.
+- The API-22 `OH_ArkUI_TextLayoutManager_*` functions using `ohos-drawing-sys` types, which
+  were previously not bound, are now available with the `drawing` feature.
 
 ## 0.3.5
 

@@ -52,6 +52,28 @@ impl bindgen::callbacks::ParseCallbacks for ResultEnumParseCallbacks {
     }
 }
 
+/// Functions in `arkui/styled_string.h` which use types from `ohos-drawing-sys`.
+pub(crate) const STYLED_STRING_DRAWING_FUNCTIONS: &[&str] = &[
+    "OH_ArkUI_StyledString_Create",
+    "OH_ArkUI_StyledString_PushTextStyle",
+    "OH_ArkUI_StyledString_CreateTypography",
+    "OH_ArkUI_StyledString_AddPlaceholder",
+    "OH_ArkUI_TextLayoutManager_GetRectsForRange",
+    "OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate",
+    "OH_ArkUI_TextLayoutManager_GetLineMetrics",
+];
+
+/// Renames `ArkUI_ErrorCode` to `ArkUiResult`.
+pub(crate) fn arkui_result_parse_callbacks() -> Box<ResultEnumParseCallbacks> {
+    Box::new(ResultEnumParseCallbacks {
+        rename_item: Box::new(|original_item_name| match original_item_name {
+            "ArkUI_ErrorCode" => Some("ArkUiResult".to_string()),
+            _ => None,
+        }),
+        ..Default::default()
+    })
+}
+
 pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
     vec![
         DirBindingsConf {
@@ -667,13 +689,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 let builder = builder
                     .allowlist_file(header_path.to_str().unwrap())
                     .prepend_enum_name(false)
-                    .parse_callbacks(Box::new(ResultEnumParseCallbacks {
-                        rename_item: Box::new(|original_item_name| match original_item_name {
-                            "ArkUI_ErrorCode" => Some("ArkUiResult".to_string()),
-                            _ => None,
-                        }),
-                        ..Default::default()
-                    }))
+                    .parse_callbacks(arkui_result_parse_callbacks())
                     .clang_args(&["-x", "c++"]);
                 match file_stem {
                     "drag_and_drop" => {
@@ -745,17 +761,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                             .result_error_enum("ArkUI_ErrorCode")
                     }
                     "styled_string" => builder
-                        .blocklist_function("OH_ArkUI_StyledString_Create")
-                        .blocklist_function("OH_ArkUI_StyledString_PushTextStyle")
-                        .blocklist_function("OH_ArkUI_StyledString_CreateTypography")
-                        .blocklist_function("OH_ArkUI_StyledString_AddPlaceholder")
-                        // API-22 TextLayoutManager APIs use drawing types from `ohos-drawing-sys`,
-                        // which is not a dependency of this crate; blocklist for now.
-                        .blocklist_function("OH_ArkUI_TextLayoutManager_GetRectsForRange")
-                        .blocklist_function(
-                            "OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate",
-                        )
-                        .blocklist_function("OH_ArkUI_TextLayoutManager_GetLineMetrics"),
+                        // Functions using `ohos-drawing-sys` types are generated separately,
+                        // behind the `drawing` feature.
+                        .blocklist_function(STYLED_STRING_DRAWING_FUNCTIONS.join("|")),
                     "ui_input_event" => builder
                         .bitfield_enum("ArkUI_ModifierKeyName")
                         .blocklist_item("UI_TOUCH_EVENT_ACTION_.*")

@@ -1,4 +1,6 @@
-use crate::dir_conf::ResultEnumParseCallbacks;
+use crate::dir_conf::{
+    arkui_result_parse_callbacks, ResultEnumParseCallbacks, STYLED_STRING_DRAWING_FUNCTIONS,
+};
 use crate::BindingConf;
 use bindgen::EnumVariation;
 
@@ -167,15 +169,21 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
             output_prefix: "components/arkui/src/styled_string/drawing".to_string(),
             set_builder_opts: Box::new(|builder| {
                 builder
-                    .allowlist_function("OH_ArkUI_StyledString_Create")
-                    .allowlist_function("OH_ArkUI_StyledString_PushTextStyle")
-                    .allowlist_function("OH_ArkUI_StyledString_CreateTypography")
-                    .allowlist_function("OH_ArkUI_StyledString_AddPlaceholder")
+                    .allowlist_function(STYLED_STRING_DRAWING_FUNCTIONS.join("|"))
+                    .parse_callbacks(arkui_result_parse_callbacks())
                     .clang_args(["-x", "c++"])
                     .allowlist_recursively(false)
                     .raw_line("pub use super::ArkUI_StyledString;")
                     .raw_line("pub use ohos_drawing_sys::text_typography::OH_Drawing_PlaceholderSpan;")
                     .raw_line("pub use ohos_drawing_sys::text_declaration::{OH_Drawing_FontCollection, OH_Drawing_TextStyle, OH_Drawing_Typography, OH_Drawing_TypographyStyle};")
+                    .raw_line("#[cfg(feature = \"api-22\")]")
+                    .raw_line("use super::ArkUI_TextLayoutManager;")
+                    .raw_line("#[cfg(feature = \"api-22\")]")
+                    .raw_line("use crate::native_type::ArkUiResult;")
+                    .raw_line("#[cfg(feature = \"api-22\")]")
+                    .raw_line("use ohos_drawing_sys::text_typography::{OH_Drawing_LineMetrics, OH_Drawing_RectHeightStyle, OH_Drawing_RectWidthStyle};")
+                    .raw_line("#[cfg(feature = \"api-22\")]")
+                    .raw_line("use ohos_sys_opaque_types::{OH_Drawing_PositionAndAffinity, OH_Drawing_TextBox};")
             }),
         },
         BindingConf {
