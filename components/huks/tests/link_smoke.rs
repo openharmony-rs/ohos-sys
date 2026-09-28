@@ -20,4 +20,12 @@ fn link_smoke() {
         let _ = huks::native_huks_api::OH_Huks_WrapKey(ptr::null(), ptr::null(), ptr::null_mut());
         let _ = huks::native_huks_api::OH_Huks_UnwrapKey(ptr::null(), ptr::null(), ptr::null_mut());
     }
+
+    #[cfg(feature = "api-22")]
+    unsafe {
+        let _ = huks::native_huks_external_crypto_api::OH_Huks_RegisterProvider(
+            ptr::null(),
+            ptr::null(),
+        );
+    }
 }
