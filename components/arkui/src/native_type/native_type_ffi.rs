@@ -5488,7 +5488,7 @@ extern "C" {
         indicator: *mut ArkUI_SwiperIndicator,
         value: f32,
     );
-    /// Obtains the height of the dot for the dot indicator.
+    ///  Obtains the height of the dot for the dot indicator.
     ///
     /// # Arguments
     ///
@@ -5517,7 +5517,7 @@ extern "C" {
         indicator: *mut ArkUI_SwiperIndicator,
         value: f32,
     );
-    /// Obtains the width of the selected dot for the dot indicator.
+    ///  Obtains the width of the selected dot for the dot indicator.
     ///
     /// # Arguments
     ///
@@ -5548,7 +5548,7 @@ extern "C" {
         indicator: *mut ArkUI_SwiperIndicator,
         value: f32,
     );
-    /// Obtains the height of the selected dot for the dot indicator.
+    ///  Obtains the height of the selected dot for the dot indicator.
     ///
     /// # Arguments
     ///
@@ -10749,7 +10749,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * ArkUI_PickerIndicatorStyle instance. If the instance returns a null pointer,
+    /// *  ArkUI_PickerIndicatorStyle instance. If the instance returns a null pointer,
     /// it indicates creation failure, and the reason for the failure may be that the address space is full or
     /// the type not supported.
     ///

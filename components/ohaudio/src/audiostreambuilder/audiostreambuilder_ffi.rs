@@ -763,7 +763,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AUDIOSTREAM_SUCCESS`] if the execution is successful.
+    /// *  [`AUDIOSTREAM_SUCCESS`] if the execution is successful.
     /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] the param of builder or callback is nullptr.
     ///
     /// Available since API-level: 20
@@ -786,7 +786,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AUDIOSTREAM_SUCCESS`] if the execution is successful.
+    /// *  [`AUDIOSTREAM_SUCCESS`] if the execution is successful.
     /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] the param of builder or callback is nullptr.
     ///
     /// Available since API-level: 20

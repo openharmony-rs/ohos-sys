@@ -84,7 +84,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AUDIOCOMMON_RESULT_SUCCESS`] if the execution is successful
+    /// *  [`AUDIOCOMMON_RESULT_SUCCESS`] if the execution is successful
     /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]
     /// 1.param of manager is nullptr
     /// 2.param of callback is nullptr
@@ -108,7 +108,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AUDIOCOMMON_RESULT_SUCCESS`] if the execution is successful
+    /// *  [`AUDIOCOMMON_RESULT_SUCCESS`] if the execution is successful
     /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]
     /// 1.param of manager is nullptr
     /// 2.param of callback is nullptr

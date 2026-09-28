@@ -258,7 +258,7 @@ pub struct OH_AVCodecCallback {
 ///
 /// # Returns
 ///
-/// * Actual size of data read to the buffer.
+/// *  Actual size of data read to the buffer.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -296,7 +296,7 @@ pub struct OH_AVDataSource {
 ///
 /// # Returns
 ///
-/// * Actual size of data read to the buffer.
+/// *  Actual size of data read to the buffer.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]

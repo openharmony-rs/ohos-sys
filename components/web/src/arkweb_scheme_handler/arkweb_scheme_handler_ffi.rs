@@ -299,7 +299,7 @@ pub type ArkWeb_HttpBodyStreamAsyncReadCallback = ::core::option::Option<
         bytesRead: ::core::ffi::c_int,
     ),
 >;
-/// Callback when the init operation done.
+///  Callback when the init operation done.
 /// # Arguments
 ///
 /// * `httpBodyStream` - The ArkWeb_HttpBodyStream.

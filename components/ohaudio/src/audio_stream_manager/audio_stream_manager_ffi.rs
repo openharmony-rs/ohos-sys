@@ -30,7 +30,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] if system state error
     ///
     /// Available since API-level: 19
