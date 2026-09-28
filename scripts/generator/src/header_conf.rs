@@ -157,7 +157,7 @@ pub(crate) fn get_bindings_config(_api_version: u32) -> Vec<BindingConf> {
                     .allowlist_var("UI_INPUT_EVENT_TOOL_TYPE_.*")
                     .allowlist_var("UI_INPUT_EVENT_SOURCE_TYPE_.*")
                     .allowlist_var("UI_MOUSE_EVENT_ACTION_.*")
-                    .allowlist_var("UI_MOUSE_EVENT_BUTTON_*")
+                    .allowlist_var("UI_MOUSE_EVENT_BUTTON_.*")
                     .allowlist_recursively(true)
                     .clang_args(["-include", "stdbool.h"])
             }),
