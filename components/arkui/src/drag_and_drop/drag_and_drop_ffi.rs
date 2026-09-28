@@ -299,7 +299,7 @@ extern "C" {
     /// This method should be always prioritized over using [`OH_ArkUI_DragEvent_SetData`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetData).
     /// See `OH_UdmfDataLoadParams_Create` in <b>udmf.h</b> for how to create and prepare the data loading parameter.
     ///
-    /// [Note]: Please be awared this method is conflict with [`OH_ArkUI_DragEvent_SetData`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetData), and the system always use
+    /// \[Note\]: Please be awared this method is conflict with [`OH_ArkUI_DragEvent_SetData`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetData), and the system always use
     /// the last called method as the final result.
     ///
     /// # Arguments
@@ -1216,7 +1216,7 @@ extern "C" {
     /// It's recommanded to use this method instead of using [`OH_ArkUI_DragAction_SetData`](crate::drag_and_drop::OH_ArkUI_DragAction_SetData).
     /// See `OH_UdmfDataLoadParams_Create` in <b>udmf.h</b> for how to create and prepare the data loading parameter.
     ///
-    /// [Note]: Please be awared this method is conflict with [`OH_ArkUI_DragAction_SetData`](crate::drag_and_drop::OH_ArkUI_DragAction_SetData), and the system always use
+    /// \[Note\]: Please be awared this method is conflict with [`OH_ArkUI_DragAction_SetData`](crate::drag_and_drop::OH_ArkUI_DragAction_SetData), and the system always use
     /// the last called method as the final result.
     ///
     /// # Arguments

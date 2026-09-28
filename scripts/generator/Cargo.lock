@@ -127,9 +127,10 @@ checksum = "5b63caa9aa9397e2d9480a9b13673856c78d8ac123288526c37d7839f2a86990"
 [[package]]
 name = "doxygen-rs"
 version = "0.5.0"
-source = "git+https://github.com/openharmony-rs/doxygen-rs.git?branch=jschwe%2Fohos-sys-support#0970b46da7592c6ddabf2269b949af50ffe56a9f"
+source = "git+https://github.com/openharmony-rs/doxygen-rs.git?branch=jschwe%2Fohos-sys-support#cb69f57ca78b1821c575c7005b34ae4e33dd4467"
 dependencies = [
  "phf",
+ "pulldown-cmark",
 ]
 
 [[package]]
@@ -321,6 +322,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulldown-cmark"
+version = "0.13.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e9f068eba8e7071c5f9511831b44f32c740d5adf574e990f946ddb53db2f314e"
+dependencies = [
+ "bitflags",
+ "memchr",
+ "unicase",
+]
+
+[[package]]
 name = "quote"
 version = "1.0.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -446,6 +458,12 @@ dependencies = [
  "quote",
  "syn 2.0.87",
 ]
+
+[[package]]
+name = "unicase"
+version = "2.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dbc4bc3a9f746d862c45cb89d705aa10f187bb96c76001afab07a0d35ce60142"
 
 [[package]]
 name = "unicode-ident"

@@ -71,38 +71,38 @@ pub mod NativeWindowOperation {
     pub type Type = ::core::ffi::c_uint;
     /// set native window buffer geometry,
     /// variable parameter in function is
-    /// [in] int32_t width, [in] int32_t height
+    /// \[in\] int32_t width, \[in\] int32_t height
     pub const SET_BUFFER_GEOMETRY: Type = 0;
     /// get native window buffer geometry,
     /// variable parameter in function is
-    /// [out] int32_t *height, [out] int32_t *width
+    /// \[out\] int32_t *height, \[out\] int32_t *width
     pub const GET_BUFFER_GEOMETRY: Type = 1;
     /// get native window buffer format,
     /// variable parameter in function is
-    /// [out] int32_t *format, the enumeration value refers to [`OH_NativeBuffer_Format`](crate::native_buffer::buffer_common::OH_NativeBuffer_Format).
+    /// \[out\] int32_t *format, the enumeration value refers to [`OH_NativeBuffer_Format`](crate::native_buffer::buffer_common::OH_NativeBuffer_Format).
     pub const GET_FORMAT: Type = 2;
     /// set native window buffer format,
     /// variable parameter in function is
-    /// [in] int32_t format, the enumeration value refers to [`OH_NativeBuffer_Format`](crate::native_buffer::buffer_common::OH_NativeBuffer_Format).
+    /// \[in\] int32_t format, the enumeration value refers to [`OH_NativeBuffer_Format`](crate::native_buffer::buffer_common::OH_NativeBuffer_Format).
     pub const SET_FORMAT: Type = 3;
     /// get native window buffer usage,
     /// variable parameter in function is
-    /// [out] uint64_t *usage, the enumeration value refers to [`OH_NativeBuffer_Usage`](crate::native_buffer::native_buffer::OH_NativeBuffer_Usage).
+    /// \[out\] uint64_t *usage, the enumeration value refers to [`OH_NativeBuffer_Usage`](crate::native_buffer::native_buffer::OH_NativeBuffer_Usage).
     pub const GET_USAGE: Type = 4;
     /// set native window buffer usage,
     /// variable parameter in function is
-    /// [in] uint64_t usage, the enumeration value refers to [`OH_NativeBuffer_Usage`](crate::native_buffer::native_buffer::OH_NativeBuffer_Usage).
+    /// \[in\] uint64_t usage, the enumeration value refers to [`OH_NativeBuffer_Usage`](crate::native_buffer::native_buffer::OH_NativeBuffer_Usage).
     pub const SET_USAGE: Type = 5;
     /// set native window buffer stride,
     /// variable parameter in function is
-    /// [in] int32_t stride.
+    /// \[in\] int32_t stride.
     ///
     /// **Deprecated** since 16
     #[deprecated(since = "16")]
     pub const SET_STRIDE: Type = 6;
     /// get native window buffer stride,
     /// variable parameter in function is
-    /// [out] int32_t *stride.
+    /// \[out\] int32_t *stride.
     ///
     /// **Deprecated** since 16
     ///
@@ -115,45 +115,45 @@ pub mod NativeWindowOperation {
     pub const GET_STRIDE: Type = 7;
     /// set native window buffer swap interval,
     /// variable parameter in function is
-    /// [in] int32_t interval.
+    /// \[in\] int32_t interval.
     pub const SET_SWAP_INTERVAL: Type = 8;
     /// get native window buffer swap interval,
     /// variable parameter in function is
-    /// [out] int32_t *interval.
+    /// \[out\] int32_t *interval.
     pub const GET_SWAP_INTERVAL: Type = 9;
     /// set the timeout in milliseconds when the native window requests a buffer,
     /// the default value is 3000 milliseconds when not set,
     /// variable parameter in function is
-    /// [in] int32_t timeout, in milliseconds.
+    /// \[in\] int32_t timeout, in milliseconds.
     pub const SET_TIMEOUT: Type = 10;
     /// get the timeout in milliseconds when the native window requests a buffer,
     /// the default value is 3000 milliseconds when not set,
     /// variable parameter in function is
-    /// [out] int32_t *timeout, in milliseconds.
+    /// \[out\] int32_t *timeout, in milliseconds.
     pub const GET_TIMEOUT: Type = 11;
     /// set native window buffer colorGamut,
     /// variable parameter in function is
-    /// [in] int32_t colorGamut, the enumeration value refers to [`OH_NativeBuffer_ColorGamut`](crate::native_buffer::native_buffer::OH_NativeBuffer_ColorGamut).
+    /// \[in\] int32_t colorGamut, the enumeration value refers to [`OH_NativeBuffer_ColorGamut`](crate::native_buffer::native_buffer::OH_NativeBuffer_ColorGamut).
     pub const SET_COLOR_GAMUT: Type = 12;
     /// get native window buffer colorGamut,
     /// variable parameter in function is
-    /// [out] int32_t *colorGamut, the enumeration value refers to [`OH_NativeBuffer_ColorGamut`](crate::native_buffer::native_buffer::OH_NativeBuffer_ColorGamut).
+    /// \[out\] int32_t *colorGamut, the enumeration value refers to [`OH_NativeBuffer_ColorGamut`](crate::native_buffer::native_buffer::OH_NativeBuffer_ColorGamut).
     pub const GET_COLOR_GAMUT: Type = 13;
     /// set native window buffer transform,
     /// variable parameter in function is
-    /// [in] int32_t transform, the enumeration value refers to [`OH_NativeBuffer_TransformType`](crate::native_buffer::buffer_common::OH_NativeBuffer_TransformType).
+    /// \[in\] int32_t transform, the enumeration value refers to [`OH_NativeBuffer_TransformType`](crate::native_buffer::buffer_common::OH_NativeBuffer_TransformType).
     pub const SET_TRANSFORM: Type = 14;
     /// get native window buffer transform,
     /// variable parameter in function is
-    /// [out] int32_t *transform, the enumeration value refers to [`OH_NativeBuffer_TransformType`](crate::native_buffer::buffer_common::OH_NativeBuffer_TransformType).
+    /// \[out\] int32_t *transform, the enumeration value refers to [`OH_NativeBuffer_TransformType`](crate::native_buffer::buffer_common::OH_NativeBuffer_TransformType).
     pub const GET_TRANSFORM: Type = 15;
     /// set native window buffer uiTimestamp,
     /// variable parameter in function is
-    /// [in] uint64_t uiTimestamp.
+    /// \[in\] uint64_t uiTimestamp.
     pub const SET_UI_TIMESTAMP: Type = 16;
     /// get native window bufferqueue size,
     /// variable parameter in function is
-    /// [out] int32_t *size.
+    /// \[out\] int32_t *size.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -161,7 +161,7 @@ pub mod NativeWindowOperation {
     pub const GET_BUFFERQUEUE_SIZE: Type = 17;
     /// set surface source type,
     /// variable parameter in function is
-    /// [in] int32_t sourceType, the enumeration value refers to [`OHSurfaceSource`](crate::native_window::OHSurfaceSource).
+    /// \[in\] int32_t sourceType, the enumeration value refers to [`OHSurfaceSource`](crate::native_window::OHSurfaceSource).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -169,7 +169,7 @@ pub mod NativeWindowOperation {
     pub const SET_SOURCE_TYPE: Type = 18;
     /// get surface source type,
     /// variable parameter in function is
-    /// [out] int32_t *sourceType, the enumeration value refers to [`OHSurfaceSource`](crate::native_window::OHSurfaceSource).
+    /// \[out\] int32_t *sourceType, the enumeration value refers to [`OHSurfaceSource`](crate::native_window::OHSurfaceSource).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -177,7 +177,7 @@ pub mod NativeWindowOperation {
     pub const GET_SOURCE_TYPE: Type = 19;
     /// set app framework type,
     /// variable parameter in function is
-    /// [in] char* frameworkType. maximum length is 64 bytes, otherwise the setting fails.
+    /// \[in\] char* frameworkType. maximum length is 64 bytes, otherwise the setting fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -185,7 +185,7 @@ pub mod NativeWindowOperation {
     pub const SET_APP_FRAMEWORK_TYPE: Type = 20;
     /// get app framework type,
     /// variable parameter in function is
-    /// [out] char** frameworkType.
+    /// \[out\] char** frameworkType.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -193,7 +193,7 @@ pub mod NativeWindowOperation {
     pub const GET_APP_FRAMEWORK_TYPE: Type = 21;
     /// set hdr white point brightness,
     /// variable parameter in function is
-    /// [in] float brightness. the value range is 0.0f to 1.0f.
+    /// \[in\] float brightness. the value range is 0.0f to 1.0f.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -201,7 +201,7 @@ pub mod NativeWindowOperation {
     pub const SET_HDR_WHITE_POINT_BRIGHTNESS: Type = 22;
     /// set sdr white point brightness,
     /// variable parameter in function is
-    /// [in] float brightness. the value range is 0.0f to 1.0f.
+    /// \[in\] float brightness. the value range is 0.0f to 1.0f.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -223,7 +223,7 @@ pub mod NativeWindowOperation {
     /// the desiredPresentTimestamp will be ignored.
     ///
     /// Variable parameter in function is
-    /// [in] int64_t desiredPresentTimestamp.
+    /// \[in\] int64_t desiredPresentTimestamp.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]

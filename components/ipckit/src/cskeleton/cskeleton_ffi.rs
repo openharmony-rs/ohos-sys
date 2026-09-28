@@ -112,7 +112,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `maxThreadNum` - Maximum number of worker threads to set. The default value is <b>16</b>.
-    /// The value range is [1, 32].
+    /// The value range is \[1, 32\].
     ///
     /// # Returns
     ///

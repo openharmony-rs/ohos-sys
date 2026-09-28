@@ -55,9 +55,9 @@ extern "C" {
     ///
     /// * `yDivs` - Indicates the array of Y coordinates used to divide the image. The value is an integer.
     ///
-    /// * `xCount` - Indicates the number of xDivs. The value range is [0, 5].
+    /// * `xCount` - Indicates the number of xDivs. The value range is \[0, 5\].
     ///
-    /// * `yCount` - Indicates the number of yDivs. The value range is [0, 5].
+    /// * `yCount` - Indicates the number of yDivs. The value range is \[0, 5\].
     ///
     /// * `bounds` - Indicates source bounds to draw. The rectangle parameter must be an integer.
     /// The default value is the rectangle size of the original image. If the rectangle parameter is a decimal,

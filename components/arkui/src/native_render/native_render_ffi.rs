@@ -1100,10 +1100,10 @@ extern "C" {
     ///
     /// * `matrix` - Pointer to a 4x4 transformation matrix (16 consecutive values).
     /// The transformation matrix should be provided as 16 consecutive floating-point values in row-major order:
-    /// [m00, m01, m02, m03,
+    /// \[m00, m01, m02, m03,
     /// m10, m11, m12, m13,
     /// m20, m21, m22, m23,
-    /// m30, m31, m32, m33]
+    /// m30, m31, m32, m33\]
     /// Where the matrix represents:
     /// | m00 m01 m02 m03 |
     /// | m10 m11 m12 m13 |
