@@ -148,8 +148,8 @@ fn split_first_token(s: &str) -> (&str, Option<&str>) {
     }
 }
 
-/// Parse the `@deprecated` (or post-transform `**Deprecated**`) line, returning
-/// the `since` API level and any free-form trailing note on the same line.
+/// Parse the `@deprecated` line, returning the `since` API level and any
+/// free-form trailing note on the same line.
 fn parse_deprecated_line(
     line: &str,
 ) -> Result<(Option<OpenHarmonyApiLevel>, Option<String>), ParseDeprecatedError> {
@@ -157,19 +157,6 @@ fn parse_deprecated_line(
 
     if trimmed == "@deprecated" {
         return Ok((None, None));
-    }
-
-    // Post-transform: `**Deprecated** since N [trailing note]`
-    if let Some((_, rhs)) = trimmed.split_once("**Deprecated** since") {
-        let (level_str, trailing) = split_first_token(rhs.trim());
-        let level = OpenHarmonyApiLevel::try_from(level_str)?;
-        return Ok((Some(level), trailing.map(str::to_string)));
-    }
-
-    // Post-transform: `**Deprecated** <free-form>` (no since)
-    if let Some((_, rhs)) = trimmed.split_once("**Deprecated**") {
-        let trailing = rhs.trim();
-        return Ok((None, (!trailing.is_empty()).then(|| trailing.to_string())));
     }
 
     // Raw doxygen form: `@deprecated...`
@@ -208,8 +195,8 @@ fn parse_deprecated_line(
 }
 
 /// Walk lines starting at `start_idx + 1`, joining continuation lines into one
-/// string. Stops at the next `@`-tag, the next post-transform paragraph break
-/// (blank line) or the next post-transform bold marker (`**Foo:**`).
+/// string. Stops at the next `@`-tag, a blank line or a line starting with bold
+/// text like `**Note:**`.
 fn collect_continuation(lines: &[&str], start_idx: usize) -> String {
     let mut parts: Vec<&str> = Vec::new();
     for line in &lines[start_idx + 1..] {
@@ -258,7 +245,7 @@ fn strip_doxygen_links(raw: &str) -> String {
 /// punctuation, escape characters that would break the Rust string literal, and
 /// cap length so generated attributes stay readable.
 fn normalize_note(raw: &str) -> String {
-    let s = strip_doxygen_links(raw).replace("[`", "").replace("`]", "");
+    let s = strip_doxygen_links(raw);
 
     let mut collapsed = String::with_capacity(s.len());
     let mut prev_ws = false;
@@ -316,42 +303,21 @@ fn normalize_note(raw: &str) -> String {
 
 /// Extract `since` and `note` from a doxygen comment block.
 ///
-/// Returns `None` if the comment has no `@deprecated` (or post-transform
-/// `**Deprecated**`) marker. The comment may arrive in raw doxygen form with
-/// `@deprecated` / `@useinstead` tags, or already post-`doxygen_rs::transform`
-/// form with `**Deprecated** since` / `**Use instead:**` markers. Both shapes
-/// are handled.
+/// Returns `None` if the comment has no `@deprecated` tag.
 fn parse_deprecated_info(comment: &str) -> Result<Option<DeprecatedInfo>, ParseDeprecatedError> {
     let lines: Vec<&str> = comment.lines().collect();
-    let Some(dep_idx) = lines
-        .iter()
-        .position(|line| line.contains("@deprecated") || line.contains("**Deprecated**"))
-    else {
+    let Some(dep_idx) = lines.iter().position(|line| line.contains("@deprecated")) else {
         return Ok(None);
     };
 
     let (since, inline_note) = parse_deprecated_line(lines[dep_idx])?;
 
-    // Look for an `@useinstead` body (raw) or `**Use instead:**` paragraph
-    // (post-transform) somewhere after the `@deprecated` line. Either one wins
-    // over any inline trailing text on the `@deprecated` line.
+    // Look for an `@useinstead` body somewhere after the `@deprecated` line. It
+    // wins over any inline trailing text on the `@deprecated` line.
     let mut useinstead_note: Option<String> = None;
     for (j, line) in lines.iter().enumerate().skip(dep_idx + 1) {
         let trimmed = line.trim();
         if let Some(rest) = trimmed.strip_prefix("@useinstead") {
-            let head = rest.trim();
-            let mut body = head.to_string();
-            let cont = collect_continuation(&lines, j);
-            if !cont.is_empty() {
-                if !body.is_empty() {
-                    body.push(' ');
-                }
-                body.push_str(&cont);
-            }
-            useinstead_note = Some(body);
-            break;
-        }
-        if let Some(rest) = trimmed.strip_prefix("**Use instead:**") {
             let head = rest.trim();
             let mut body = head.to_string();
             let cont = collect_continuation(&lines, j);
@@ -418,11 +384,7 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
         let mut attributes: Vec<CodeGenAttributes> = vec![];
         let api_version = comment
             .lines()
-            // TODO: Investigate why some comments appear to have already been processed!
-            .find_map(|line| {
-                line.split_once("@since")
-                    .or_else(|| line.split_once("Available since API-level: "))
-            })
+            .find_map(|line| line.split_once("@since"))
             .map(|(_, since)| {
                 let api_level_str = since.trim();
                 let api_level: Result<OpenHarmonyApiLevel, _> = api_level_str
@@ -957,27 +919,6 @@ mod tests {
     }
 
     #[test]
-    fn post_transform_deprecated_with_use_instead() {
-        let info = parse(
-            "\n**Deprecated** since 20\n\n**Use instead:** OH_AudioStreamBuilder_SetRendererWriteDataCallback\n\nAvailable since API-level: 10",
-        )
-        .expect("has deprecated");
-        assert_eq!(info.since, Some(OpenHarmonyApiLevel::Twenty));
-        assert_eq!(
-            info.note.as_deref(),
-            Some("Use instead: OH_AudioStreamBuilder_SetRendererWriteDataCallback")
-        );
-    }
-
-    #[test]
-    fn post_transform_deprecated_since_only() {
-        let info = parse("\n**Deprecated** since 20\n\nAvailable since API-level: 10")
-            .expect("has deprecated");
-        assert_eq!(info.since, Some(OpenHarmonyApiLevel::Twenty));
-        assert_eq!(info.note, None);
-    }
-
-    #[test]
     fn parses_semver_api_level() {
         assert_eq!(
             OpenHarmonyApiLevel::try_from("26.0.0").unwrap(),
@@ -986,13 +927,6 @@ mod tests {
         assert!(OpenHarmonyApiLevel::try_from("26.1.0").is_err());
         let info = parse(" @deprecated since 26.0.0\n @since 12").expect("has deprecated");
         assert_eq!(info.since, Some(OpenHarmonyApiLevel::TwentySix));
-    }
-
-    #[test]
-    fn useinstead_strips_markdown_link() {
-        let info = parse("\n**Deprecated** since 23\n\n**Use instead:** [`OH_Foo`]\n\nAvailable since API-level: 12")
-            .expect("has deprecated");
-        assert_eq!(info.note.as_deref(), Some("Use instead: OH_Foo"));
     }
 
     #[test]
