@@ -290,6 +290,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .constified_enum_module("^NativeWindowOperation$");
                 match file_stem {
                     "external_window" => builder
+                        // Deprecated APIs use deprecated types.
+                        .raw_line("#![allow(deprecated)]")
                         .raw_line("use crate::native_window::BufferHandle;")
                         .raw_line("use ohos_sys_opaque_types::{OHNativeWindow, OHNativeWindowBuffer};")
                         .raw_line("#[cfg(feature = \"api-12\")]")
