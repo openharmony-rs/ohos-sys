@@ -3,22 +3,10 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(doc)]
-use crate::drag_and_drop::*;
-#[cfg(doc)]
-use crate::drawable_descriptor::*;
-#[cfg(doc)]
-use crate::native_animate::*;
-#[cfg(all(doc, feature = "api-20"))]
-use crate::native_render::*;
 use crate::native_type::*;
-#[cfg(doc)]
-use crate::styled_string::*;
 #[cfg(feature = "api-22")]
 use crate::ui_input_event::ArkUI_TouchTestInfo;
 use crate::ui_input_event::ArkUI_UIInputEvent;
-#[cfg(doc)]
-use crate::ui_input_event::*;
 #[cfg(feature = "api-12")]
 use ohos_sys_opaque_types::ArkUI_ContextHandle;
 #[cfg(feature = "api-15")]
@@ -139,7 +127,7 @@ impl ArkUI_NodeType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_NodeType(pub ::core::ffi::c_uint);
-/// Defines the general input parameter structure of the [`setAttribute`] function. The property
+/// Defines the general input parameter structure of the `setAttribute` function. The property
 /// setting interfaces can utilize the member variables within it to store data of specific parameter types.
 ///
 ///
@@ -163,64 +151,64 @@ pub struct ArkUI_AttributeItem {
 impl ArkUI_NodeAttributeType {
     /// Defines the width attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: width, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: width, in vp.
     pub const NODE_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(0);
     /// Defines the height attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: height, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: height, in vp.
     pub const NODE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1);
     /// Defines the background color attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: background color. The value is in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: background color. The value is in 0xARGB format. For example, 0xFFFF0000 indicates red.
     pub const NODE_BACKGROUND_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(2);
     /// Defines the background image attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: image address;
     ///
-    /// .value[0]?.i32: whether to repeat the image. Optional. The parameter type is [`ArkUI_ImageRepeat`].
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`]. Either .string or .object must be set.
+    /// .value[0]?.i32: whether to repeat the image. Optional. The parameter type is [`ArkUI_ImageRepeat`](crate::native_type::ArkUI_ImageRepeat).
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor). Either .string or .object must be set.
     ///
     /// The default value is <b>ARKUI_IMAGE_REPEAT_NONE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: image address;
     ///
-    /// .value[0].i32: whether to repeat the image. The parameter type is [`ArkUI_ImageRepeat`].
+    /// .value[0].i32: whether to repeat the image. The parameter type is [`ArkUI_ImageRepeat`](crate::native_type::ArkUI_ImageRepeat).
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor).
     pub const NODE_BACKGROUND_IMAGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3);
     /// Defines the padding attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// There are two formats of [`ArkUI_AttributeItem`] for setting the attribute value:
+    /// There are two formats of [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) for setting the attribute value:
     ///
     /// 1: Specify the same padding for the four directions.
     ///
@@ -238,7 +226,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: top padding, in vp.
     ///
@@ -250,31 +238,31 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_PADDING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4);
     /// Defines the component ID attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: component ID.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: component ID.
     pub const NODE_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5);
     /// Defines the interactivity attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The value <b>true</b> means that the component can interact with users, and <b>false</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The value <b>1</b> means that the component can interact with users, and <b>0</b> means the opposite.
     pub const NODE_ENABLED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(6);
     /// Defines the margin attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// There are two formats of [`ArkUI_AttributeItem`] for setting the attribute value:
+    /// There are two formats of [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) for setting the attribute value:
     ///
     /// 1: Specify the same margin for the four directions.
     ///
@@ -292,7 +280,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: top margin, in vp.
     ///
@@ -304,7 +292,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_MARGIN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7);
     /// Defines the translate attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: distance to translate along the x-axis, in vp. The default value is <b>0</b>.
     ///
@@ -314,7 +302,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: distance to translate along the x-axis, in vp.
     ///
@@ -324,7 +312,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TRANSLATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8);
     /// Defines the scale attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: scale factor along the x-axis. The default value is <b>1</b>.
     ///
@@ -332,7 +320,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: scale factor along the x-axis.
     ///
@@ -340,7 +328,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SCALE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(9);
     /// Defines the rotate attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: X coordinate of the rotation axis vector. The default value is <b>0</b>.
     ///
@@ -355,7 +343,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: X coordinate of the rotation axis vector.
     ///
@@ -369,52 +357,52 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_ROTATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10);
     /// Sets the brightness attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: brightness value. The default value is <b>1.0</b>, and the recommended value range is [0, 2].
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: brightness value.
     pub const NODE_BRIGHTNESS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11);
     /// Sets the saturation attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: saturation value. The default value is <b>1.0</b>, and the recommended value range is [0, 50).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: saturation value.
     pub const NODE_SATURATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12);
     /// Sets the blur attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: blur radius. A larger value indicates a higher blur degree. If the value is <b>0</b>,
     /// the component is not blurred. The unit is vp. The default value is <b>0.0</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: blur radius. The larger the fuzzy radius, the more blurred the image. If the value is <b>0</b>,
     /// the image is not blurred. The unit is vp.
     pub const NODE_BLUR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13);
     /// Sets the gradient attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: start angle of the linear gradient. This attribute takes effect only when
-    /// [`ArkUI_LinearGradientDirection`] is set to <b>ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM</b>.
+    /// [`ArkUI_LinearGradientDirection`](crate::native_type::ArkUI_LinearGradientDirection) is set to <b>ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM</b>.
     /// A positive value indicates a clockwise rotation from the origin, (0, 0). The default value is <b>180</b>.
     ///
     /// .value[1].i32: direction of the linear gradient. When it is set, the <b>angle</b> attribute does not take effect.
-    /// The parameter type is [`ArkUI_LinearGradientDirection`]:
+    /// The parameter type is [`ArkUI_LinearGradientDirection`](crate::native_type::ArkUI_LinearGradientDirection):
     ///
     /// .value[2].i32: whether the colors are repeated. The default value is <b>false</b>.
     ///
@@ -429,7 +417,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: start angle of the linear gradient.
     ///
@@ -448,32 +436,32 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_LINEAR_GRADIENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(14);
     /// Sets the alignment attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`].
+    /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`](crate::native_type::ArkUI_Alignment).
     /// The default value is <b>ARKUI_ALIGNMENT_CENTER</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`].
+    /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`](crate::native_type::ArkUI_Alignment).
     pub const NODE_ALIGNMENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(15);
     /// Defines the opacity attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: opacity value. The value ranges from 0 to 1.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: opacity value. The value ranges from 0 to 1.
     pub const NODE_OPACITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(16);
     /// Defines the border width attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// 1: .value[0].f32: width of the four borders.
     ///
@@ -487,7 +475,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: width of the top border.
     ///
@@ -499,7 +487,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_BORDER_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17);
     /// Defines the border corner radius attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// 1: .value[0].f32: radius of the four corners.
     ///
@@ -513,7 +501,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: radius of the upper left corner.
     ///
@@ -525,7 +513,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_BORDER_RADIUS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18);
     /// Defines the border color attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// 1: .value[0].u32: color of the four borders, in 0xARGB format, for example, <b>0xFFFF11FF</b>.
     ///
@@ -539,7 +527,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color of the top border, in 0xARGB format, for example, <b>0xFFFF11FF</b>.
     ///
@@ -551,26 +539,26 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_BORDER_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19);
     /// Defines the border line style attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// 1: .value[0].i32: line style of the four borders. The parameter type is [`ArkUI_BorderStyle`].
+    /// 1: .value[0].i32: line style of the four borders. The parameter type is [`ArkUI_BorderStyle`](crate::native_type::ArkUI_BorderStyle).
     /// The default value is <b>ARKUI_BORDER_STYLE_SOLID</b>.
     ///
-    /// 2: .value[0].i32: line style of the top border. The parameter type is [`ArkUI_BorderStyle`].
+    /// 2: .value[0].i32: line style of the top border. The parameter type is [`ArkUI_BorderStyle`](crate::native_type::ArkUI_BorderStyle).
     /// The default value is <b>ARKUI_BORDER_STYLE_SOLID</b>.
     ///
-    /// .value[1].i32: line style of the right border. The parameter type is [`ArkUI_BorderStyle`].
+    /// .value[1].i32: line style of the right border. The parameter type is [`ArkUI_BorderStyle`](crate::native_type::ArkUI_BorderStyle).
     /// The default value is <b>ARKUI_BORDER_STYLE_SOLID</b>.
     ///
-    /// .value[2].i32: line style of the bottom border. The parameter type is [`ArkUI_BorderStyle`].
+    /// .value[2].i32: line style of the bottom border. The parameter type is [`ArkUI_BorderStyle`](crate::native_type::ArkUI_BorderStyle).
     /// The default value is <b>ARKUI_BORDER_STYLE_SOLID</b>.
     ///
-    /// .value[3].i32: line style of the left border. The parameter type is [`ArkUI_BorderStyle`].
+    /// .value[3].i32: line style of the left border. The parameter type is [`ArkUI_BorderStyle`](crate::native_type::ArkUI_BorderStyle).
     /// The default value is <b>ARKUI_BORDER_STYLE_SOLID</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: line style of the top border.
     ///
@@ -583,41 +571,41 @@ impl ArkUI_NodeAttributeType {
     /// Defines the z-index attribute for the stack sequence.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: z-index value.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: z-index value.
     pub const NODE_Z_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(21);
     /// Defines the visibility attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: whether to show or hide the component. The parameter type is [`ArkUI_Visibility`].
+    /// .value[0].i32: whether to show or hide the component. The parameter type is [`ArkUI_Visibility`](crate::native_type::ArkUI_Visibility).
     /// The default value is <b>ARKUI_VISIBILITY_VISIBLE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: whether to show or hide the component. The parameter type is [`ArkUI_Visibility`].
+    /// .value[0].i32: whether to show or hide the component. The parameter type is [`ArkUI_Visibility`](crate::native_type::ArkUI_Visibility).
     /// The default value is <b>ARKUI_VISIBILITY_VISIBLE</b>.
     pub const NODE_VISIBILITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(22);
     /// Defines the clipping and masking attribute, which can be set, reset, and obtained as required through
     /// APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to clip the component based on the parent container bounds.
     /// The value <b>1</b> means to clip the component, and <b>0</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to clip the component based on the parent container bounds.
     /// The value <b>1</b> means to clip the component, and <b>0</b> means the opposite.
@@ -625,12 +613,12 @@ impl ArkUI_NodeAttributeType {
     /// Defines the clipping region on the component.
     /// This attribute can be set and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute,
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute,
     /// which supports four types of shapes:
     ///
     /// 1. Rectangle:
     ///
-    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
+    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`](crate::native_type::ArkUI_ClipType).
     /// The value is <b>ARKUI_CLIP_TYPE_RECTANGLE</b> for the rectangle shape.
     ///
     /// .value[1].f32: width of the rectangle.
@@ -649,33 +637,33 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[8]?.f32: radius of the bottom right corner of the rectangular shape.
     ///
-    /// ?.object: clipOption of the rectangle. The parameter type is [`ArkUI_RenderNodeClipOption`] type.
+    /// ?.object: clipOption of the rectangle. The parameter type is [`ArkUI_RenderNodeClipOption`](crate::native_render::ArkUI_RenderNodeClipOption) type.
     /// It takes effect when only the .object parameter is passed, ArkUI_RenderNodeClipOption type is rectangle, and .size must be equal to 1.
     /// 2. Circle:
     ///
-    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
+    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`](crate::native_type::ArkUI_ClipType).
     /// The value is <b>ARKUI_CLIP_TYPE_CIRCLE</b> for the circle shape.
     ///
     /// .value[1].f32: width of the circle.
     ///
     /// .value[2].f32: height of the circle.
     ///
-    /// ?.object: clipOption of the circle. The parameter type is [`ArkUI_RenderNodeClipOption`] type.
+    /// ?.object: clipOption of the circle. The parameter type is [`ArkUI_RenderNodeClipOption`](crate::native_render::ArkUI_RenderNodeClipOption) type.
     /// It takes effect when only the .object parameter is passed, ArkUI_RenderNodeClipOption type is circle, and .size must be equal to 1.
     /// 3.Ellipse:
     ///
-    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
+    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`](crate::native_type::ArkUI_ClipType).
     /// The value is <b>ARKUI_CLIP_TYPE_ELLIPSE</b> for the ellipse shape.
     ///
     /// .value[1].f32: width of the ellipse.
     ///
     /// .value[2].f32: height of the ellipse.
     ///
-    /// ?.object: clipOption of the ellipse. The parameter type is [`ArkUI_RenderNodeClipOption`] type.
+    /// ?.object: clipOption of the ellipse. The parameter type is [`ArkUI_RenderNodeClipOption`](crate::native_render::ArkUI_RenderNodeClipOption) type.
     /// It takes effect when only the .object parameter is passed, ArkUI_RenderNodeClipOption type is ellipse, and .size must be equal to 1.
     /// 4. Path:
     ///
-    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
+    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`](crate::native_type::ArkUI_ClipType).
     /// The value is <b>ARKUI_CLIP_TYPE_PATH</b> for the path shape.
     ///
     /// .value[1].f32: width of the path.
@@ -684,13 +672,13 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .string: command for drawing the path.
     ///
-    /// ?.object: clipOption of the path. The parameter type is [`ArkUI_RenderNodeClipOption`] type.
+    /// ?.object: clipOption of the path. The parameter type is [`ArkUI_RenderNodeClipOption`](crate::native_render::ArkUI_RenderNodeClipOption) type.
     /// It takes effect when only the .object parameter is passed, ArkUI_RenderNodeClipOption type is path, and .size must be equal to 1.
-    /// Format of the return value [`ArkUI_AttributeItem`], which supports four types of shapes:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem), which supports four types of shapes:
     ///
     /// 1. Rectangle:
     ///
-    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
+    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`](crate::native_type::ArkUI_ClipType).
     /// The value is <b>ARKUI_CLIP_TYPE_RECTANGLE</b> for the rectangle shape.
     ///
     /// .value[1].f32: width of the rectangle.
@@ -715,7 +703,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 2. Circle:
     ///
-    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
+    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`](crate::native_type::ArkUI_ClipType).
     /// The value is <b>ARKUI_CLIP_TYPE_CIRCLE</b> for the circle shape.
     ///
     /// .value[1].f32: width of the circle.
@@ -728,7 +716,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 3.Ellipse:
     ///
-    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
+    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`](crate::native_type::ArkUI_ClipType).
     /// The value is <b>ARKUI_CLIP_TYPE_ELLIPSE</b> for the ellipse shape.
     ///
     /// .value[1].f32: width of the ellipse.
@@ -741,7 +729,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 4. Path:
     ///
-    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`].
+    /// .value[0].i32: type of shape. The parameter type is [`ArkUI_ClipType`](crate::native_type::ArkUI_ClipType).
     /// The value is <b>ARKUI_CLIP_TYPE_PATH</b> for the path shape.
     ///
     /// .value[1].f32: width of the path.
@@ -753,34 +741,34 @@ impl ArkUI_NodeAttributeType {
     /// Defines the transform attribute, which can be used to translate, rotate, and scale images.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0...15].f32: 16 floating-point numbers.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0...15].f32: 16 floating-point numbers.
     pub const NODE_TRANSFORM: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(25);
     /// Defines the hit test behavior attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: hit test mode. The parameter type is [`ArkUI_HitTestMode`].
+    /// .value[0].i32: hit test mode. The parameter type is [`ArkUI_HitTestMode`](crate::native_type::ArkUI_HitTestMode).
     /// The default value is <b>ARKUI_HIT_TEST_MODE_DEFAULT</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: hit test mode. The parameter type is [`ArkUI_HitTestMode`].
+    /// .value[0].i32: hit test mode. The parameter type is [`ArkUI_HitTestMode`](crate::native_type::ArkUI_HitTestMode).
     /// The default value is <b>ARKUI_HIT_TEST_MODE_DEFAULT</b>.
     pub const NODE_HIT_TEST_BEHAVIOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(26);
     /// Defines the offset attribute, which specifies the offset of the component's upper left corner relative
     /// to the parent container's. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: X coordinate.
     ///
@@ -788,7 +776,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: X coordinate.
     ///
@@ -796,19 +784,19 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_POSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(27);
     /// Defines the shadow attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: shadow effect. The parameter type is [`ArkUI_ShadowStyle`].
+    /// .value[0].i32: shadow effect. The parameter type is [`ArkUI_ShadowStyle`](crate::native_type::ArkUI_ShadowStyle).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: shadow effect. The parameter type is [`ArkUI_ShadowStyle`].
+    /// .value[0].i32: shadow effect. The parameter type is [`ArkUI_ShadowStyle`](crate::native_type::ArkUI_ShadowStyle).
     pub const NODE_SHADOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(28);
     /// Defines the custom shadow effect. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0]?.f32: blur radius of the shadow, in vp.
     ///
@@ -819,7 +807,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3]?.f32: offset of the shadow along the y-axis, in px.
     ///
-    /// .value[4]?.i32: shadow type [`ArkUI_ShadowType`]. The default value is <b>ARKUI_SHADOW_TYPE_COLOR</b>.
+    /// .value[4]?.i32: shadow type [`ArkUI_ShadowType`](crate::native_type::ArkUI_ShadowType). The default value is <b>ARKUI_SHADOW_TYPE_COLOR</b>.
     ///
     /// .value[5]?.u32: shadow color, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
@@ -829,7 +817,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: blur radius of the shadow, in vp.
     ///
@@ -839,7 +827,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].f32: offset of the shadow along the y-axis, in px.
     ///
-    /// .value[4].i32: shadow type [`ArkUI_ShadowType`]. The default value is <b>ARKUI_SHADOW_TYPE_COLOR</b>.
+    /// .value[4].i32: shadow type [`ArkUI_ShadowType`](crate::native_type::ArkUI_ShadowType). The default value is <b>ARKUI_SHADOW_TYPE_COLOR</b>.
     ///
     /// .value[5].u32: shadow color, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
@@ -849,7 +837,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the background image width and height.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: width of the image. The value range is [0, +∞), and the unit is vp.
     ///
@@ -857,7 +845,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: width of the image, in vp.
     ///
@@ -866,26 +854,26 @@ impl ArkUI_NodeAttributeType {
     /// Defines the background image size.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: size of the background image. The value is an enum of [`ArkUI_ImageSize`].
+    /// .value[0].i32: size of the background image. The value is an enum of [`ArkUI_ImageSize`](crate::native_type::ArkUI_ImageSize).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: size of the background image. The value is an enum of [`ArkUI_ImageSize`].
+    /// .value[0].i32: size of the background image. The value is an enum of [`ArkUI_ImageSize`](crate::native_type::ArkUI_ImageSize).
     pub const NODE_BACKGROUND_IMAGE_SIZE_WITH_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(31);
     /// Defines the background blur attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: blue type. The value is an enum of [`ArkUI_BlurStyle`].
+    /// .value[0].i32: blue type. The value is an enum of [`ArkUI_BlurStyle`](crate::native_type::ArkUI_BlurStyle).
     ///
-    /// .value[1]?.i32: color mode. The value is an enum of [`ArkUI_ColorMode`].
+    /// .value[1]?.i32: color mode. The value is an enum of [`ArkUI_ColorMode`](crate::native_type::ArkUI_ColorMode).
     ///
-    /// .value[2]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`].
+    /// .value[2]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor).
     ///
     /// .value[3]?.f32: blur degree. The value range is [0.0, 1.0].
     ///
@@ -895,13 +883,13 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: blue type. The value is an enum of [`ArkUI_BlurStyle`].
+    /// .value[0].i32: blue type. The value is an enum of [`ArkUI_BlurStyle`](crate::native_type::ArkUI_BlurStyle).
     ///
-    /// .value[1].i32: color mode. The value is an enum of [`ArkUI_ColorMode`].
+    /// .value[1].i32: color mode. The value is an enum of [`ArkUI_ColorMode`](crate::native_type::ArkUI_ColorMode).
     ///
-    /// .value[2].i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`].
+    /// .value[2].i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor).
     ///
     /// .value[3].f32: blur degree. The value range is [0.0, 1.0].
     ///
@@ -911,7 +899,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_BACKGROUND_BLUR_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(32);
     /// Defines the transform center attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0]?.f32: X coordinate of the center point, in vp.
     ///
@@ -930,7 +918,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: X coordinate of the center point, in vp.
     ///
@@ -943,43 +931,43 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TRANSFORM_CENTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(33);
     /// Defines the transition opacity attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: opacity values of the start and end points.
     ///
     /// .value[1].i32: animation duration, in milliseconds.
     ///
-    /// .value[2].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`].
+    /// .value[2].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     ///
     /// .value[3]?.i32: animation delay duration, in milliseconds.
     ///
     /// .value[4]?.i32: number of times that the animation is played.
     ///
-    /// .value[5]?.i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
+    /// .value[5]?.i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`](crate::native_type::ArkUI_AnimationPlayMode).
     ///
     /// .value[6]?.f32: animation playback speed.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: opacity values of the start and end points.
     ///
     /// .value[1].i32: animation duration, in milliseconds.
     ///
-    /// .value[2].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`].
+    /// .value[2].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     ///
     /// .value[3].i32: animation delay duration, in milliseconds.
     ///
     /// .value[4].i32: number of times that the animation is played.
     ///
-    /// .value[5].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
+    /// .value[5].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`](crate::native_type::ArkUI_AnimationPlayMode).
     ///
     /// .value[6].f32: animation playback speed.
     pub const NODE_OPACITY_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(34);
     /// Defines the transition rotation attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: X-component of the rotation vector.
     ///
@@ -993,20 +981,20 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[5].i32: animation duration, in milliseconds.
     ///
-    /// .value[6].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`].
+    /// .value[6].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     ///
     ///
     /// .value[7]?.i32: animation delay duration, in milliseconds.
     ///
     /// .value[8]?.i32: number of times that the animation is played.
     ///
-    /// .value[9]?.i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
+    /// .value[9]?.i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`](crate::native_type::ArkUI_AnimationPlayMode).
     ///
     /// .value[10]?.f32: animation playback speed.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: X-component of the rotation vector.
     ///
@@ -1020,20 +1008,20 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[5].i32: animation duration, in milliseconds.
     ///
-    /// .value[6].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`].
+    /// .value[6].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     ///
     ///
     /// .value[7].i32: animation delay duration, in milliseconds.
     ///
     /// .value[8].i32: number of times that the animation is played.
     ///
-    /// .value[9].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
+    /// .value[9].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`](crate::native_type::ArkUI_AnimationPlayMode).
     ///
     /// .value[10].f32: animation playback speed.
     pub const NODE_ROTATE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(35);
     /// Defines the transition scaling attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: scale factor along the x-axis.
     ///
@@ -1043,20 +1031,20 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].i32: animation duration, in milliseconds.
     ///
-    /// .value[4].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`].
+    /// .value[4].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     ///
     ///
     /// .value[5]?.i32: animation delay duration, in milliseconds.
     ///
     /// .value[6]?.i32: number of times that the animation is played.
     ///
-    /// .value[7]?.i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
+    /// .value[7]?.i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`](crate::native_type::ArkUI_AnimationPlayMode).
     ///
     /// .value[8]?.f32: animation playback speed.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: scale factor along the x-axis.
     ///
@@ -1066,21 +1054,21 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[3].i32: animation duration, in milliseconds.
     ///
-    /// .value[4].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`].
+    /// .value[4].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     ///
     ///
     /// .value[5].i32: animation delay duration, in milliseconds.
     ///
     /// .value[6].i32: number of times that the animation is played.
     ///
-    /// .value[7].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
+    /// .value[7].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`](crate::native_type::ArkUI_AnimationPlayMode).
     ///
     /// .value[8].f32: animation playback speed.
     pub const NODE_SCALE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(36);
     /// Defines the transition translation attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// value[0].f32: translation distance along the x-axis, in vp.
     ///
@@ -1090,20 +1078,20 @@ impl ArkUI_NodeAttributeType {
     ///
     /// value[3].i32: animation duration, in milliseconds.
     ///
-    /// value[4].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`].
+    /// value[4].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     ///
     ///
     /// value[5]?.i32: animation delay duration, in milliseconds.
     ///
     /// value[6]?.i32: number of times that the animation is played.
     ///
-    /// value[7]?.i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
+    /// value[7]?.i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`](crate::native_type::ArkUI_AnimationPlayMode).
     ///
     /// value[8]?.f32: animation playback speed.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].f32: translation distance along the x-axis, in vp.
     ///
@@ -1113,79 +1101,79 @@ impl ArkUI_NodeAttributeType {
     ///
     /// value[3].i32: animation duration, in milliseconds.
     ///
-    /// value[4].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`].
+    /// value[4].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     ///
     ///
     /// value[5].i32: animation delay duration, in milliseconds.
     ///
     /// value[6].i32: number of times that the animation is played.
     ///
-    /// value[7].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
+    /// value[7].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`](crate::native_type::ArkUI_AnimationPlayMode).
     ///
     /// value[8].f32: animation playback speed.
     pub const NODE_TRANSLATE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(37);
     /// Defines the slide-in and slide-out of the component from the screen edge during transition.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: The parameter type is [`ArkUI_TransitionEdge`].
+    /// .value[0].i32: The parameter type is [`ArkUI_TransitionEdge`](crate::native_type::ArkUI_TransitionEdge).
     ///
     /// .value[1].i32: animation duration, in milliseconds.
     ///
-    /// .value[2].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`].
+    /// .value[2].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     ///
     /// .value[3]?.i32: animation delay duration, in milliseconds.
     ///
     /// .value[4]?.i32: number of times that the animation is played.
     ///
-    /// .value[5]?.i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
+    /// .value[5]?.i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`](crate::native_type::ArkUI_AnimationPlayMode).
     ///
     /// .value[6]?.f32: animation playback speed.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: The parameter type is [`ArkUI_TransitionEdge`].
+    /// .value[0].i32: The parameter type is [`ArkUI_TransitionEdge`](crate::native_type::ArkUI_TransitionEdge).
     ///
     /// .value[1].i32: animation duration, in milliseconds.
     ///
-    /// .value[2].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`].
+    /// .value[2].i32: animation curve type. The value is an enum of [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     ///
     /// .value[3].i32: animation delay duration, in milliseconds.
     ///
     /// .value[4].i32: number of times that the animation is played.
     ///
-    /// .value[5].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`].
+    /// .value[5].i32: animation playback mode. The value is an enum of [`ArkUI_AnimationPlayMode`](crate::native_type::ArkUI_AnimationPlayMode).
     ///
     /// .value[6].f32: animation playback speed.
     pub const NODE_MOVE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(38);
     /// Defines the focus attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     pub const NODE_FOCUSABLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(39);
     /// Defines the default focus attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// value[0].i32: The parameter type is 1 or 0.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: The parameter type is 1 or 0.
     pub const NODE_DEFAULT_FOCUS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(40);
     /// Defines the touch target attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .data[0].f32: X coordinate of the touch point relative to the upper left corner of the component, in vp.
     ///
@@ -1198,7 +1186,7 @@ impl ArkUI_NodeAttributeType {
     /// .data[4...].f32: Multiple touch targets can be set. The sequence of the parameters is the same as the preceding.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .data[0].f32: X coordinate of the touch point relative to the upper left corner of the component, in vp.
     ///
@@ -1212,13 +1200,13 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_RESPONSE_REGION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(41);
     /// Defines the overlay attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// You can set the overlay content through .string or .object as follow, and .string has higher priority.
     /// .string: mask text.
     ///
     /// .value[0]?.i32: position of the overlay relative to the component. Optional.
-    /// The parameter type is [`ArkUI_Alignment`].
+    /// The parameter type is [`ArkUI_Alignment`](crate::native_type::ArkUI_Alignment).
     /// The default value is <b>ARKUI_ALIGNMENT_TOP_START.</b>
     ///
     /// .value[1]?.f32: offset of the overlay relative to the upper left corner of itself on the x-axis, in vp. Optional.
@@ -1227,7 +1215,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     /// .value[3]?.i32: the layout direction.
-    /// The parameter type is [`ArkUI_Direction`], supported since API 21.
+    /// The parameter type is [`ArkUI_Direction`](crate::native_type::ArkUI_Direction), supported since API 21.
     /// The default value is <b>ARKUI_DIRECTION_LTR.</b>
     ///
     /// In most cases, this parameter should be set to Auto, this allowing the system to handle
@@ -1236,25 +1224,25 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     /// .object: the node tree used as the overlay.
-    /// The parameter type is [`ArkUI_NodeHandle`].
+    /// The parameter type is [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle).
     /// The default value is <b>nullptr.</b>
     ///
     /// this parameter is conflict with .string, and it has lower priority than .string.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: mask text.
     ///
     /// .value[0].i32: position of the overlay relative to the component.
-    /// The parameter type is [`ArkUI_Alignment`].
+    /// The parameter type is [`ArkUI_Alignment`](crate::native_type::ArkUI_Alignment).
     /// The default value is <b>ARKUI_ALIGNMENT_TOP_START.</b>
     ///
     /// .value[1].f32: offset of the overlay relative to the upper left corner of itself on the x-axis, in vp.
     ///
     /// .value[2].f32: offset of the overlay relative to the upper left corner of itself on the y-axis, in vp.
     /// .value[3].i32: the layout direction.
-    /// The parameter type is [`ArkUI_Direction`], supported since API 21.
+    /// The parameter type is [`ArkUI_Direction`](crate::native_type::ArkUI_Direction), supported since API 21.
     /// The default value is <b>ARKUI_DIRECTION_LTR.</b>
     ///
     /// .object: the overlay node handle.
@@ -1262,7 +1250,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the sweep gradient effect.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0]?.f32: X coordinate of the sweep gradient center relative to the upper left corner of the component.
     ///
@@ -1288,7 +1276,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: X coordinate of the sweep gradient center relative to the upper left corner of the component.
     ///
@@ -1315,7 +1303,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the radial gradient effect.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0]?.f32: X coordinate of the radial gradient center relative to the upper left corner of the component.
     ///
@@ -1337,7 +1325,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: X coordinate of the radial gradient center relative to the upper left corner of the component.
     ///
@@ -1360,7 +1348,7 @@ impl ArkUI_NodeAttributeType {
     /// Adds a mask of the specified shape to the component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute, which supports five types of
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute, which supports five types of
     /// shapes:
     ///
     /// 1. Rectangle:
@@ -1371,7 +1359,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: stroke width, in vp.
     ///
-    /// .value[3].i32: mask type. The parameter type is [`ArkUI_MaskType`].
+    /// .value[3].i32: mask type. The parameter type is [`ArkUI_MaskType`](crate::native_type::ArkUI_MaskType).
     /// The value is <b>ARKUI_MASK_TYPE_RECTANGLE</b> for the rectangle shape.
     ///
     /// .value[4].f32: width of the rectangle.
@@ -1398,7 +1386,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: stroke width, in vp.
     ///
-    /// .value[3].i32: mask type. The parameter type is [`ArkUI_MaskType`].
+    /// .value[3].i32: mask type. The parameter type is [`ArkUI_MaskType`](crate::native_type::ArkUI_MaskType).
     /// The value is <b>ARKUI_MASK_TYPE_CIRCLE</b> for the circle shape.
     ///
     /// .value[4].f32: width of the circle.
@@ -1413,7 +1401,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: stroke width, in vp.
     ///
-    /// .value[3].i32: mask type. The parameter type is [`ArkUI_MaskType`].
+    /// .value[3].i32: mask type. The parameter type is [`ArkUI_MaskType`](crate::native_type::ArkUI_MaskType).
     /// The value is <b>ARKUI_MASK_TYPE_ELLIPSE</b> for the ellipse shape.
     ///
     /// .value[4].f32: width of the ellipse.
@@ -1428,7 +1416,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2].f32: stroke width, in vp.
     ///
-    /// .value[3].i32: mask type. The parameter type is [`ArkUI_MaskType`].
+    /// .value[3].i32: mask type. The parameter type is [`ArkUI_MaskType`](crate::native_type::ArkUI_MaskType).
     /// The value is <b>ARKUI_MASK_TYPE_PATH</b> for the path shape.
     ///
     /// .value[4].f32: width of the path.
@@ -1439,7 +1427,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 5. Progress:
     ///
-    /// .value[0].i32: mask type. The parameter type is [`ArkUI_MaskType`].
+    /// .value[0].i32: mask type. The parameter type is [`ArkUI_MaskType`](crate::native_type::ArkUI_MaskType).
     /// The value is <b>ARKUI_MASK_TYPE_PROGRESS</b> for the progress shape.
     ///
     /// .value[1].f32: current value of the progress indicator.
@@ -1450,7 +1438,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`], which supports five types of shapes:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem), which supports five types of shapes:
     ///
     /// 1. Rectangle:
     ///
@@ -1535,45 +1523,45 @@ impl ArkUI_NodeAttributeType {
     /// Blends the component's background with the content of the component's child node.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: blend mode. The parameter type is [`ArkUI_BlendMode`]. The default value is
+    /// .value[0].i32: blend mode. The parameter type is [`ArkUI_BlendMode`](crate::native_type::ArkUI_BlendMode). The default value is
     /// <b>ARKUI_BLEND_MODE_NONE</b>.
     ///
-    /// .value[1].?i32: how the specified blend mode is applied. The parameter type is [`ArkUI_BlendApplyType`].
+    /// .value[1].?i32: how the specified blend mode is applied. The parameter type is [`ArkUI_BlendApplyType`](crate::native_type::ArkUI_BlendApplyType).
     /// The default value is <b>BLEND_APPLY_TYPE_FAST</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: blend mode. The parameter type is [`ArkUI_BlendMode`]. The default value is
+    /// .value[0].i32: blend mode. The parameter type is [`ArkUI_BlendMode`](crate::native_type::ArkUI_BlendMode). The default value is
     /// <b>ARKUI_BLEND_MODE_NONE</b>.
     ///
-    /// .value[1].i32: how the specified blend mode is applied. The parameter type is [`ArkUI_BlendApplyType`].
+    /// .value[1].i32: how the specified blend mode is applied. The parameter type is [`ArkUI_BlendApplyType`](crate::native_type::ArkUI_BlendApplyType).
     /// The default value is <b>BLEND_APPLY_TYPE_FAST</b>.
     pub const NODE_BLEND_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(46);
     /// Sets the direction of the main axis.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: direction of the main axis.
     ///
-    /// The parameter type is [`ArkUI_Direction`]. The default value is <b>ARKUI_DIRECTION_AUTO</b>.
+    /// The parameter type is [`ArkUI_Direction`](crate::native_type::ArkUI_Direction). The default value is <b>ARKUI_DIRECTION_AUTO</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: direction of the main axis.
     ///
-    /// The parameter type is [`ArkUI_Direction`]. The default value is <b>ARKUI_DIRECTION_AUTO</b>.
+    /// The parameter type is [`ArkUI_Direction`](crate::native_type::ArkUI_Direction). The default value is <b>ARKUI_DIRECTION_AUTO</b>.
     pub const NODE_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(47);
     /// Defines the size constraints.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: minimum width, in vp.
     ///
@@ -1585,7 +1573,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: minimum width, in vp.
     ///
@@ -1598,76 +1586,76 @@ impl ArkUI_NodeAttributeType {
     /// Defines the grayscale effect.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: grayscale conversion ratio. The value ranges from 0 to 1.
     /// For example, 0.5 indicates a 50% grayscale conversion ratio.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: grayscale conversion ratio. The value ranges from 0 to 1.
     pub const NODE_GRAY_SCALE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(49);
     /// Inverts the image.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: image inversion ratio. The value ranges from 0 to 1.
     /// For example, 0.5 indicates a 50% image inversion ratio.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: image inversion ratio. The value ranges from 0 to 1.
     pub const NODE_INVERT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(50);
     /// Defines the sepia conversion ratio.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: sepia conversion ratio. The value ranges from 0 to 1.
     /// For example, 0.5 indicates that a 50% sepia conversion ratio.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: sepia conversion ratio. The value ranges from 0 to 1.
     pub const NODE_SEPIA: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(51);
     /// Defines the contrast attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: contrast. If the value is <b>1</b>, the source image is displayed.
     /// A larger value indicates a higher contrast. Value range: [0, 10).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: contrast. Value range: [0, 10).
     pub const NODE_CONTRAST: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(52);
     /// Defines the foreground color attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// There are two formats of [`ArkUI_AttributeItem`] for setting the attribute value:
+    /// There are two formats of [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) for setting the attribute value:
     ///
     /// 1: .value[0].u32: color value, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
-    /// 2: .value[0].i32: color enum [`ArkUI_ColoringStrategy`].
+    /// 2: .value[0].i32: color enum `ArkUI_ColoringStrategy`.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_FOREGROUND_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(53);
     /// Defines the offset of the component's child relative to the component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32 : offset along the x-axis, in vp.
     ///
@@ -1675,7 +1663,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32 : offset along the x-axis, in vp.
     ///
@@ -1684,7 +1672,7 @@ impl ArkUI_NodeAttributeType {
     /// Sets the anchor for locating the component's child.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: X coordinate of the anchor, in vp.
     ///
@@ -1692,7 +1680,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: X coordinate of the anchor, in vp.
     ///
@@ -1701,105 +1689,105 @@ impl ArkUI_NodeAttributeType {
     /// Defines the position of the background image in the component, that is, the coordinates relative to
     /// the upper left corner of the component. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: position along the x-axis, in px.
     ///
     /// .value[1].f32: position along the y-axis, in px.
     ///
-    /// .value[2].?i32: the alignment mode. The data type is [`ArkUI_Alignment`], and supported since API 21.
+    /// .value[2].?i32: the alignment mode. The data type is [`ArkUI_Alignment`](crate::native_type::ArkUI_Alignment), and supported since API 21.
     /// The default value is <b>ARKUI_ALIGNMENT_TOP_START</b>.
     ///
-    /// .value[3].?i32: the direction. The type is [`ArkUI_Direction`], and supported since API 21.
+    /// .value[3].?i32: the direction. The type is [`ArkUI_Direction`](crate::native_type::ArkUI_Direction), and supported since API 21.
     /// The default value is <b>ARKUI_DIRECTION_AUTO</b>.
     ///
     /// In most cases, this parameter should be set to Auto, this allowing the system to handle
     /// the layout direction automatically. If you need to keep a specific direction in any situation, set it to
     /// either LTR (Left-to-Right) or RTL (Right-to-Left). Optional.
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: position along the x-axis, in px.
     ///
     /// .value[1].f32: position along the y-axis, in px.
     ///
-    /// .value[2].i32: the alignment mode. The data type is [`ArkUI_Alignment`], and supported since API 21.
+    /// .value[2].i32: the alignment mode. The data type is [`ArkUI_Alignment`](crate::native_type::ArkUI_Alignment), and supported since API 21.
     /// The default value is <b>ARKUI_ALIGNMENT_TOP_START</b>.
     ///
-    /// .value[3].i32: the direction. The type is [`ArkUI_Direction`], and supported since API 21.
+    /// .value[3].i32: the direction. The type is [`ArkUI_Direction`](crate::native_type::ArkUI_Direction), and supported since API 21.
     /// The default value is <b>ARKUI_DIRECTION_AUTO</b>.
     pub const NODE_BACKGROUND_IMAGE_POSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(56);
     /// Sets the alignment rules in the relative container.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: Use the [`ArkUI_AlignmentRuleOption`] object as the component’s alignment rule.
+    /// .object: Use the [`ArkUI_AlignmentRuleOption`](crate::native_type::ArkUI_AlignmentRuleOption) object as the component’s alignment rule.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: Use the [`ArkUI_AlignmentRuleOption`] object as the component’s alignment rule.
+    /// .object: Use the [`ArkUI_AlignmentRuleOption`](crate::native_type::ArkUI_AlignmentRuleOption) object as the component’s alignment rule.
     pub const NODE_ALIGN_RULES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(57);
     /// Sets the alignment mode of the child components along the cross axis of the parent container.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: alignment mode of the child components along the cross axis of the parent container.
     ///
-    /// The parameter type is [`ArkUI_ItemAlignment`]. The default value is <b>ARKUI_ITEM_ALIGNMENT_AUTO</b>.
+    /// The parameter type is [`ArkUI_ItemAlignment`](crate::native_type::ArkUI_ItemAlignment). The default value is <b>ARKUI_ITEM_ALIGNMENT_AUTO</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: alignment mode of the child components along the cross axis of the parent container.
     ///
-    /// The parameter type is [`ArkUI_ItemAlignment`]. The default value is <b>ARKUI_ITEM_ALIGNMENT_AUTO</b>.
+    /// The parameter type is [`ArkUI_ItemAlignment`](crate::native_type::ArkUI_ItemAlignment). The default value is <b>ARKUI_ITEM_ALIGNMENT_AUTO</b>.
     pub const NODE_ALIGN_SELF: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(58);
     /// Sets the percentage of the parent container's remaining space that is allocated to the component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: percentage of the parent container's remaining space that is allocated to the component.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: percentage of the parent container's remaining space that is allocated to the component.
     pub const NODE_FLEX_GROW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(59);
     /// Sets the percentage of the parent container's shrink size that is allocated to the component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: percentage of the parent container's shrink size that is allocated to the component.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: percentage of the parent container's shrink size that is allocated to the component.
     pub const NODE_FLEX_SHRINK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(60);
     /// Sets the base size of the component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: percentage of the parent container's remaining space that is allocated to the component.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: percentage of the parent container's remaining space that is allocated to the component.
     pub const NODE_FLEX_BASIS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(61);
     /// Sets the accessibility group. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Accessibility group. The value <b>1</b> means that the component and all its child components
     /// form an entire selectable component.
@@ -1807,7 +1795,7 @@ impl ArkUI_NodeAttributeType {
     /// The value is <b>1</b> or <b>0</b>.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Accessibility group. The value <b>1</b> means that the component and all its child components
     /// form an entire selectable component.
@@ -1816,35 +1804,35 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_ACCESSIBILITY_GROUP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(62);
     /// Sets the accessibility text. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: accessibility text.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: accessibility text.
     pub const NODE_ACCESSIBILITY_TEXT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(63);
     /// Sets the accessibility service model. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: accessibility service model. The parameter type is [`ArkUI_AccessibilityMode`].
+    /// .value[0].i32: accessibility service model. The parameter type is [`ArkUI_AccessibilityMode`](crate::native_type::ArkUI_AccessibilityMode).
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: accessibility service model. The parameter type is [`ArkUI_AccessibilityMode`].
+    /// .value[0].i32: accessibility service model. The parameter type is [`ArkUI_AccessibilityMode`](crate::native_type::ArkUI_AccessibilityMode).
     pub const NODE_ACCESSIBILITY_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(64);
     /// Sets the accessibility description.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: accessibility description.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: accessibility description.
     pub const NODE_ACCESSIBILITY_DESCRIPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(65);
@@ -1853,24 +1841,24 @@ impl ArkUI_NodeAttributeType {
     /// **Note:** Setting the parameter to <b>0</b> shifts focus from the currently focused component on the current level
     /// of the page to the root container.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     pub const NODE_FOCUS_STATUS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(66);
     /// Defines the aspect ratio attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: aspect ratio of the component, in width/height format.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: aspect ratio of the component, in width/height format.
     pub const NODE_ASPECT_RATIO: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(67);
@@ -1878,32 +1866,32 @@ impl ArkUI_NodeAttributeType {
     /// distribution of available space within the container.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: weight of the component along the main axis.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: weight of the component along the main axis.
     pub const NODE_LAYOUT_WEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(68);
     /// Sets the display priority for the component in the row, column, or flex (single-line) container.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: display priority of the component in the container.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: display priority of the component in the container.
     pub const NODE_DISPLAY_PRIORITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(69);
     /// Sets the thickness of an element's outline.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: thickness of the left outline.
     ///
@@ -1915,7 +1903,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: thickness of the left outline.
     ///
@@ -1927,31 +1915,31 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_OUTLINE_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(70);
     /// Defines the width attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: width, in percentage.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: width, in percentage.
     pub const NODE_WIDTH_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(71);
     /// Defines the height attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: height, in percentage.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: height, in percentage.
     pub const NODE_HEIGHT_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(72);
     /// Defines the padding attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// There are two formats of [`ArkUI_AttributeItem`] for setting the attribute value:
+    /// There are two formats of [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) for setting the attribute value:
     ///
     /// 1: Specify the same padding for the four directions.
     ///
@@ -1969,7 +1957,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: top padding, in percentage.
     ///
@@ -1981,7 +1969,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_PADDING_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(73);
     /// Defines the margin attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// There are two formats of [`ArkUI_AttributeItem`] for setting the attribute value:
+    /// There are two formats of [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) for setting the attribute value:
     ///
     /// 1: Specify the same margin for the four directions.
     ///
@@ -1999,7 +1987,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: top margin, in percentage.
     ///
@@ -2012,7 +2000,7 @@ impl ArkUI_NodeAttributeType {
     /// The implicit shared element transition within the component supports attribute setting,
     /// attribute reset, and attribute acquisition interfaces.
     ///
-    /// Attribute setting method parameter [`ArkUI_AttributeItem`] format:
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0]?.i32: The parameter type is 1 or 0. 2 components that share element bindings,
     /// Whether to continue to participate in the shared element animation when the appearance element is not deleted,
@@ -2027,7 +2015,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Attribute acquisition method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute acquisition method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].i32: The parameter type is 1 or 0. 2 components that share element bindings,
     /// Whether to continue to participate in the shared element animation when the appearance element is not deleted,
@@ -2045,36 +2033,36 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Only takes effect when the parent container is RelativeContainer
     ///
-    /// Attribute setting method parameter [`ArkUI_AttributeItem`] format:
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
-    /// .value[0].i32: The direction of the chain. Enum [`ArkUI_Axis`].
+    /// .value[0].i32: The direction of the chain. Enum [`ArkUI_Axis`](crate::native_type::ArkUI_Axis).
     ///
-    /// .value[1].i32: Chain style. Enum [`ArkUI_RelativeLayoutChainStyle`].
+    /// .value[1].i32: Chain style. Enum [`ArkUI_RelativeLayoutChainStyle`](crate::native_type::ArkUI_RelativeLayoutChainStyle).
     ///
     ///
     ///
-    /// .value[0].i32: The direction of the chain. Enum [`ArkUI_Axis`].
+    /// .value[0].i32: The direction of the chain. Enum [`ArkUI_Axis`](crate::native_type::ArkUI_Axis).
     ///
-    /// .value[1].i32: Chain style. Enum [`ArkUI_RelativeLayoutChainStyle`].
+    /// .value[1].i32: Chain style. Enum [`ArkUI_RelativeLayoutChainStyle`](crate::native_type::ArkUI_RelativeLayoutChainStyle).
     pub const NODE_RELATIVE_LAYOUT_CHAIN_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(76);
     /// Set the component content filling method in the process of width and height animation,
     /// support property setting, property reset, property acquisition interface.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32 Content filling mode [`ArkUI_RenderFit`].
+    /// .value[0].i32 Content filling mode [`ArkUI_RenderFit`](crate::native_type::ArkUI_RenderFit).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32 Content filling mode [`ArkUI_RenderFit`].
+    /// .value[0].i32 Content filling mode [`ArkUI_RenderFit`](crate::native_type::ArkUI_RenderFit).
     pub const NODE_RENDER_FIT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(77);
     /// External stroke color properties, support property setting,
     /// property reset and property acquisition interface.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// 1: .value[0].u32: Set the border color of the four sides uniformly, using 0xargb, such as 0xFFFF11FF.
     ///
@@ -2088,7 +2076,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: Set the top border color, represented by 0xargb, such as 0xFFFF11FF.
     ///
@@ -2101,7 +2089,7 @@ impl ArkUI_NodeAttributeType {
     /// Set the height and width dimensions, support property setting,
     /// property reset and property acquisition interface.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: Width value, unit is vp;
     ///
@@ -2109,7 +2097,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: Width value, unit is vp;
     ///
@@ -2119,42 +2107,42 @@ impl ArkUI_NodeAttributeType {
     /// rendered off the screen first and then fused with the parent control,
     /// supporting property setting, property reset and property acquisition.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     pub const NODE_RENDER_GROUP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(80);
     /// Add color overlay effect to components, support property setting,
     /// property reset and property acquisition interface.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: The color of the overlay is represented by 0xargb, such as 0xFFFF11FF.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: The color of the overlay is represented by 0xargb, such as 0xFFFF11FF.
     pub const NODE_COLOR_BLEND: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(81);
     /// Provide content ambiguity capability for the current component,
     /// support property setting, property reset, property acquisition interface.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32 Represents the content blurring style, and uses the [`ArkUI_BlurStyle`] enumeration value.
+    /// .value[0].i32 Represents the content blurring style, and uses the [`ArkUI_BlurStyle`](crate::native_type::ArkUI_BlurStyle) enumeration value.
     ///
     /// .value[1]?.i32 Represents the dark and light mode used by the content blur effect,
     ///
-    /// with the [`ArkUI_ThemeColorMode`] enumeration value.
+    /// with the `ArkUI_ThemeColorMode` enumeration value.
     ///
     /// .value[2]?.i32 The color extraction mode used to represent the content blur effect takes
     ///
-    /// the [`ArkUI_AdaptiveColor`] enumeration value.
+    /// the [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor) enumeration value.
     ///
     /// .value[3]?.f32: blur degree. The value range is [0.0, 1.0].
     ///
@@ -2164,17 +2152,17 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32 Represents the content blurring style, and uses the [`ArkUI_BlurStyle`] enumeration value.
+    /// .value[0].i32 Represents the content blurring style, and uses the [`ArkUI_BlurStyle`](crate::native_type::ArkUI_BlurStyle) enumeration value.
     ///
     /// .value[1].i32 Represents the dark and light mode used by the content blur effect,
     ///
-    /// with the [`ArkUI_ThemeColorMode`] enumeration value.
+    /// with the `ArkUI_ThemeColorMode` enumeration value.
     ///
     /// .value[2].i32 The color extraction mode used to represent the content blur effect takes
     ///
-    /// the [`ArkUI_AdaptiveColor`] enumeration value.
+    /// the [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor) enumeration value.
     ///
     /// .value[3].f32: blur degree. The value range is [0.0, 1.0].
     ///
@@ -2185,7 +2173,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the component size and position for layout.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: X coordinate of the component, in px.
     ///
@@ -2197,7 +2185,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: X coordinate of the component, in px.
     ///
@@ -2210,18 +2198,18 @@ impl ArkUI_NodeAttributeType {
     /// Whether the current component supports click-to-focus capability,
     /// which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     pub const NODE_FOCUS_ON_TOUCH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(84);
     /// Defines the border width attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// 1: .value[0].f32: width of the four borders, in percentage.
     ///
@@ -2235,7 +2223,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: width of the top border, in percentage.
     ///
@@ -2247,7 +2235,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_BORDER_WIDTH_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(85);
     /// Defines the border corner radius attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// 1: .value[0].f32: radius of the four corners, in percentage.
     ///
@@ -2261,7 +2249,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: radius of the upper left corner, in percentage.
     ///
@@ -2273,73 +2261,73 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_BORDER_RADIUS_PERCENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(86);
     /// Accessible ID, which can be obtained as required through APIs.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32：Accessible ID。
     pub const NODE_ACCESSIBILITY_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(87);
     /// Define accessible actions, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].u32：accessible action types，and uses the [`ArkUI_AccessibilityActionType`] enumeration value.
+    /// .value[0].u32：accessible action types，and uses the [`ArkUI_AccessibilityActionType`](crate::native_type::ArkUI_AccessibilityActionType) enumeration value.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].u32：accessible action types，and uses the [`ArkUI_AccessibilityActionType`] enumeration value.
+    /// .value[0].u32：accessible action types，and uses the [`ArkUI_AccessibilityActionType`](crate::native_type::ArkUI_AccessibilityActionType) enumeration value.
     pub const NODE_ACCESSIBILITY_ACTIONS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(88);
     /// Define accessible role, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].u32：accessible role type，and uses the [`ArkUI_NodeType`] enumeration value.
+    /// .value[0].u32：accessible role type，and uses the [`ArkUI_NodeType`](crate::native_node::ArkUI_NodeType) enumeration value.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].u32：accessible role type，and uses the [`ArkUI_NodeType`] enumeration value.
+    /// .value[0].u32：accessible role type，and uses the [`ArkUI_NodeType`](crate::native_node::ArkUI_NodeType) enumeration value.
     pub const NODE_ACCESSIBILITY_ROLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(89);
     /// Define accessible state, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object：the parameter type is [`ArkUI_AccessibilityState`].
+    /// .object：the parameter type is [`ArkUI_AccessibilityState`](crate::native_type::ArkUI_AccessibilityState).
     ///
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object：the parameter type is [`ArkUI_AccessibilityState`].
+    /// .object：the parameter type is [`ArkUI_AccessibilityState`](crate::native_type::ArkUI_AccessibilityState).
     pub const NODE_ACCESSIBILITY_STATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(90);
     /// Define accessible value, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object：the parameter type is [`ArkUI_AccessibilityValue`].
+    /// .object：the parameter type is [`ArkUI_AccessibilityValue`](crate::native_type::ArkUI_AccessibilityValue).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object：the parameter type is [`ArkUI_AccessibilityValue`].
+    /// .object：the parameter type is [`ArkUI_AccessibilityValue`](crate::native_type::ArkUI_AccessibilityValue).
     pub const NODE_ACCESSIBILITY_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(91);
     /// defines control components to extend their security zones,
     /// supporting property setting, property reset, and property fetching.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
-    /// .value[0]? .u32: Set of extended security zone enumerated values [`ArkUI_SafeAreaType`],
+    /// .value[0]? .u32: Set of extended security zone enumerated values [`ArkUI_SafeAreaType`](crate::native_type::ArkUI_SafeAreaType),
     /// For example, ARKUI_SAFE_AREA_TYPE_SYSTEM | ARKUI_SAFE_AREA_TYPE_CUTOUT;
     ///
-    /// .value[1]? .u32: set of directional enum values for extended security zones [`ArkUI_SafeAreaEdge`];
+    /// .value[1]? .u32: set of directional enum values for extended security zones [`ArkUI_SafeAreaEdge`](crate::native_type::ArkUI_SafeAreaEdge);
     ///
     /// For example: ARKUI_SAFE_AREA_EDGE_TOP | ARKUI_SAFE_AREA_EDGE_BOTTOM;
     ///
     ///
     ///
-    /// Attribute fetch method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute fetch method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].u32: extends the security zone.
     /// .
@@ -2350,12 +2338,12 @@ impl ArkUI_NodeAttributeType {
     /// Defines the visible area ratio (visible area/total area of the component) threshold for invoking the
     /// visible area change event of the component.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[...].f32: threshold array. The value range is 0 to 1.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[...].f32: threshold array.
     ///
@@ -2366,19 +2354,19 @@ impl ArkUI_NodeAttributeType {
     /// Defines the visible area ratio (visible area/total area of the component) threshold for invoking the
     /// visible area change event of the component, this enum extends the configuration capbility.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[...].f32: threshold array. The value range is 0 to 1.
-    /// .?object: pass in one [`ArkUI_VisibleAreaEventOptions`] objcet for configging the ratio or other options.
+    /// .?object: pass in one [`ArkUI_VisibleAreaEventOptions`](crate::native_type::ArkUI_VisibleAreaEventOptions) objcet for configging the ratio or other options.
     /// Please note, when use this param, the ratios set through .value[...].f32 will be ignored, and the update
     /// interval from it is always ignored too.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[...].f32: threshold array.
     ///
-    /// .object: the [`ArkUI_VisibleAreaEventOptions`] objcet.
+    /// .object: the [`ArkUI_VisibleAreaEventOptions`](crate::native_type::ArkUI_VisibleAreaEventOptions) objcet.
     ///
     ///
     /// Available since API-level: 22
@@ -2388,20 +2376,20 @@ impl ArkUI_NodeAttributeType {
     /// Sets the transition effect when the component is inserted or deleted.
     /// This attribute can be set, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: transition effect. The parameter type is [`ArkUI_TransitionEffect`].
+    /// .object: transition effect. The parameter type is [`ArkUI_TransitionEffect`](crate::native_animate::ArkUI_TransitionEffect).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: transition effect. The parameter type is [`ArkUI_TransitionEffect`].
+    /// .object: transition effect. The parameter type is [`ArkUI_TransitionEffect`](crate::native_animate::ArkUI_TransitionEffect).
     pub const NODE_TRANSITION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(94);
     /// Defines the component ID.
     /// This attribute can be obtained through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for obtaining the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for obtaining the attribute:
     ///
     /// .value[0].i32: component ID.
     ///
@@ -2414,7 +2402,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_UNIQUE_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(95);
     /// Set the current component system focus box style.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: The distance between the focus box and the edge of the component.
     ///
@@ -2429,19 +2417,19 @@ impl ArkUI_NodeAttributeType {
     /// Defines the moving distance limit for the component-bound tap gesture.
     /// This attribute can be set as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: allowed moving distance of a finger, in vp.
     pub const NODE_CLICK_DISTANCE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(97);
     /// Sets whether the focus can be placed on this component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the focus can be placed on the current component. The parameter type is 1 or 0.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the focus can be placed on the current component. The parameter type is 1 or 0.
     ///
@@ -2452,7 +2440,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TAB_STOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(98);
     /// Defines the backdrop blur attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32：backdrop blur radius, in px. The value range is [0, +∞).
     ///
@@ -2466,7 +2454,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32：backdrop blur radius, in px. The value range is [0, +∞).
     ///
@@ -2487,7 +2475,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the background image resizable attribute, which can be set, reset,
     /// and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: width of the left edge. The unit is vp.
     ///
@@ -2499,7 +2487,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: width of the left edge. The unit is vp.
     ///
@@ -2518,10 +2506,10 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(100);
     /// Sets the next focus node.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: focus movement direction, as defined in [`ArkUI_FocusMove`].
-    /// .object: next focus node. The parameter type is [`ArkUI_NodeHandle`].
+    /// .value[0].i32: focus movement direction, as defined in [`ArkUI_FocusMove`](crate::native_type::ArkUI_FocusMove).
+    /// .object: next focus node. The parameter type is [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle).
     ///
     ///
     ///
@@ -2541,17 +2529,17 @@ impl ArkUI_NodeAttributeType {
     /// By default, the interval threshold of the visible area change callback includes 0. This means that,
     /// if the provided threshold is [0.5], the effective threshold will be [0.0, 0.5].
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .object: parameters for visible area change events.
-    /// The parameter type is [`ArkUI_VisibleAreaEventOptions`].
+    /// The parameter type is [`ArkUI_VisibleAreaEventOptions`](crate::native_type::ArkUI_VisibleAreaEventOptions).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .object: parameters for visible area change events.
-    /// The parameter type is [`ArkUI_VisibleAreaEventOptions`].
+    /// The parameter type is [`ArkUI_VisibleAreaEventOptions`](crate::native_type::ArkUI_VisibleAreaEventOptions).
     ///
     ///
     ///
@@ -2564,7 +2552,7 @@ impl ArkUI_NodeAttributeType {
     /// and obtained as required through APIs.
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: distance to translate along the x-axis. The default unit is percentage.
     /// The unit is vp only if value[3] exists and value[3] is 0. The default value of value[0] is <b>0</b>.
@@ -2586,7 +2574,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: distance to translate along the x-axis. The unit depends on value[3].
     ///
@@ -2611,7 +2599,7 @@ impl ArkUI_NodeAttributeType {
     /// Sets component rotation with multi-axis angle control. This attribute can be set, reset,
     /// and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: x-axis rotation angle. The default value is <b>0</b>.
     ///
@@ -2623,7 +2611,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: x-axis rotation angle. The default value is <b>0</b>.
     /// .value[1].f32: y-axis rotation angle. The default value is <b>0</b>.
@@ -2641,19 +2629,19 @@ impl ArkUI_NodeAttributeType {
     /// Defines the width attribute with param type LayoutPolicy, which can be set, reset, and obtained
     /// as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: the LayoutPolicy that the width of the component follows.
     ///
-    /// The parameter type is [`ArkUI_LayoutPolicy`].
+    /// The parameter type is [`ArkUI_LayoutPolicy`](crate::native_type::ArkUI_LayoutPolicy).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: the LayoutPolicy that the width of the component follows.
     ///
-    /// The parameter type is [`ArkUI_LayoutPolicy`].
+    /// The parameter type is [`ArkUI_LayoutPolicy`](crate::native_type::ArkUI_LayoutPolicy).
     ///
     ///
     ///
@@ -2664,19 +2652,19 @@ impl ArkUI_NodeAttributeType {
     /// Defines the height attribute with param type LayoutPolicy, which can be set, reset, and obtained
     /// as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: the LayoutPolicy that the height of the component follows.
     ///
-    /// The parameter type is [`ArkUI_LayoutPolicy`].
+    /// The parameter type is [`ArkUI_LayoutPolicy`](crate::native_type::ArkUI_LayoutPolicy).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: the LayoutPolicy that the height of the component follows.
     ///
-    /// The parameter type is [`ArkUI_LayoutPolicy`].
+    /// The parameter type is [`ArkUI_LayoutPolicy`](crate::native_type::ArkUI_LayoutPolicy).
     ///
     ///
     ///
@@ -2688,15 +2676,15 @@ impl ArkUI_NodeAttributeType {
     /// by the distance relative to the parent container's four edges. This attribute can be set, reset, and obtained as
     /// required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object indicates struct of edges for position. The parameter type is [`ArkUI_PositionEdges`].
+    /// .object indicates struct of edges for position. The parameter type is [`ArkUI_PositionEdges`](crate::native_type::ArkUI_PositionEdges).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object indicates struct of edges for position. The parameter type is [`ArkUI_PositionEdges`].
+    /// .object indicates struct of edges for position. The parameter type is [`ArkUI_PositionEdges`](crate::native_type::ArkUI_PositionEdges).
     ///
     ///
     ///
@@ -2707,7 +2695,7 @@ impl ArkUI_NodeAttributeType {
     /// Set whether the component enables the ability to invert colors.
     /// This attribute can be set , and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     ///
@@ -2719,15 +2707,15 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_ALLOW_FORCE_DARK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(108);
     /// Defines the pixelRound attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object indicates struct of policy for pixelRound. The parameter type is [`ArkUI_PixelRoundPolicy`].
+    /// .object indicates struct of policy for pixelRound. The parameter type is [`ArkUI_PixelRoundPolicy`](crate::native_type::ArkUI_PixelRoundPolicy).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object indicates struct of policy for pixelRound. The parameter type is [`ArkUI_PixelRoundPolicy`].
+    /// .object indicates struct of policy for pixelRound. The parameter type is [`ArkUI_PixelRoundPolicy`](crate::native_type::ArkUI_PixelRoundPolicy).
     ///
     ///
     ///
@@ -2737,17 +2725,17 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_PIXEL_ROUND: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(109);
     /// Defines the motion path attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .object indicates a pointer to the ArkUI_MotionPathOptions. The parameter type is
-    /// [`ArkUI_MotionPathOptions`].
+    /// [`ArkUI_MotionPathOptions`](crate::native_type::ArkUI_MotionPathOptions).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .object indicates a pointer to the ArkUI_MotionPathOptions. The parameter type is
-    /// [`ArkUI_MotionPathOptions`].
+    /// [`ArkUI_MotionPathOptions`](crate::native_type::ArkUI_MotionPathOptions).
     ///
     ///
     ///
@@ -2757,17 +2745,17 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_MOTION_PATH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(111);
     /// Defines the hover effect applied when the component is hovered over. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Hover effect applied when the component is hovered over.
-    /// The parameter type is [`ArkUI_HoverEffect`]. The default value is <b>ARKUI_HOVER_EFFECT_AUTO</b>.
+    /// The parameter type is [`ArkUI_HoverEffect`](crate::native_type::ArkUI_HoverEffect). The default value is <b>ARKUI_HOVER_EFFECT_AUTO</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Hover effect applied when the component is hovered over.
-    /// The parameter type is [`ArkUI_HoverEffect`].
+    /// The parameter type is [`ArkUI_HoverEffect`](crate::native_type::ArkUI_HoverEffect).
     ///
     ///
     ///
@@ -2777,7 +2765,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_HOVER_EFFECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(112);
     /// Configures the container as a focus group with the specified identifier. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: focus scope identifier.
     ///
@@ -2788,7 +2776,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: focus scope identifier.
     ///
@@ -2805,20 +2793,20 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_FOCUS_SCOPE_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(113);
     /// Sets the component focus priority within a specific focus scope. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: focus scope identifier.
     ///
-    /// .value[0]?.i32: focus priority within the focus scope. The parameter type is [`ArkUI_FocusPriority`].
+    /// .value[0]?.i32: focus priority within the focus scope. The parameter type is [`ArkUI_FocusPriority`](crate::native_type::ArkUI_FocusPriority).
     /// The default value is <b>ARKUI_FOCUS_PRIORITY_AUTO</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: focus scope identifier.
     ///
-    /// .value[0]?.i32: focus priority within the focus scope. The parameter type is [`ArkUI_FocusPriority`].
+    /// .value[0]?.i32: focus priority within the focus scope. The parameter type is [`ArkUI_FocusPriority`](crate::native_type::ArkUI_FocusPriority).
     ///
     ///
     ///
@@ -2831,12 +2819,12 @@ impl ArkUI_NodeAttributeType {
     ///
     /// **Note:** If finger movement exceeds the preset distance limit, click event recognition will fail.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: distance threshold for click events.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: distance threshold for click events.
     ///
@@ -2849,9 +2837,9 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(115);
     /// Defines the component event response region. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .data[0].i32: input tool type for the response region, specified using the [`ArkUI_ResponseRegionSupportedTool`] enum. Default value: <b>ARKUI_RESPONSE_REGIN_SUPPORTED_TOOL_ALL</b>.
+    /// .data[0].i32: input tool type for the response region, specified using the [`ArkUI_ResponseRegionSupportedTool`](crate::native_type::ArkUI_ResponseRegionSupportedTool) enum. Default value: <b>ARKUI_RESPONSE_REGIN_SUPPORTED_TOOL_ALL</b>.
     /// .data[1].f32: x-coordinate of the pointer position relative to the upper left corner of the component, in vp.
     ///
     /// .data[2].f32: y-coordinate of the pointer position relative to the upper left corner of the component, in vp.
@@ -2864,9 +2852,9 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .data[0].i32: input tool type for the response region, specified using the [`ArkUI_ResponseRegionSupportedTool`] enum. Default value: <b>ARKUI_RESPONSE_REGIN_SUPPORTED_TOOL_ALL</b>.
+    /// .data[0].i32: input tool type for the response region, specified using the [`ArkUI_ResponseRegionSupportedTool`](crate::native_type::ArkUI_ResponseRegionSupportedTool) enum. Default value: <b>ARKUI_RESPONSE_REGIN_SUPPORTED_TOOL_ALL</b>.
     /// .data[1].f32: x-coordinate of the pointer position relative to the upper left corner of the component, in vp.
     ///
     /// .data[2].f32: y-coordinate of the pointer position relative to the upper left corner of the component, in vp.
@@ -2884,12 +2872,12 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_RESPONSE_REGION_LIST: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(116);
     /// Defines the event monopolization attribute. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Boolean value (1 or 0).
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Boolean value (1 or 0).
     ///
@@ -2901,7 +2889,7 @@ impl ArkUI_NodeAttributeType {
     /// Sets the weight of the component in a chain, which is used to re-lay out components that form the chain.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: Horizontal ChainWeight.
     ///
@@ -2909,7 +2897,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: Horizontal ChainWeight.
     ///
@@ -2924,18 +2912,18 @@ impl ArkUI_NodeAttributeType {
     /// Expands the layout safe area of a component.,
     /// supporting property setting, property reset, and property fetching.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
-    /// .value[0].u32: The region type to expand the component's layout safe area into. The default value is LayoutSafeAreaType.SYSTEM. [`ArkUI_LayoutSafeAreaType`],
+    /// .value[0].u32: The region type to expand the component's layout safe area into. The default value is LayoutSafeAreaType.SYSTEM. [`ArkUI_LayoutSafeAreaType`](crate::native_type::ArkUI_LayoutSafeAreaType),
     /// For example, ARKUI_LAYOUT_SAFE_AREA_TYPE_SYSTEM;
     ///
-    /// .value[1].u32: The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL. [`ArkUI_LayoutSafeAreaEdge`];
+    /// .value[1].u32: The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL. [`ArkUI_LayoutSafeAreaEdge`](crate::native_type::ArkUI_LayoutSafeAreaEdge);
     ///
     /// For example: ARKUI_LAYOUT_SAFE_AREA_EDGE_TOP | ARKUI_LAYOUT_SAFE_AREA_EDGE_START;
     ///
     ///
     ///
-    /// Attribute fetch method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute fetch method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].u32: The region type to expand the component's layout safe area into.
     ///
@@ -2949,7 +2937,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_IGNORE_LAYOUT_SAFE_AREA: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(119);
     /// Defines the length of dash when BorderStyle is dashed, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: The length of dash on the top border.
     ///
@@ -2961,7 +2949,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: The length of dash on the top border.
     ///
@@ -2979,7 +2967,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_DASH_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(120);
     /// Defines the gap of dash when BorderStyle is dashed, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: The gap of dash on the top border.
     ///
@@ -2991,7 +2979,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: The gap of dash on the top border.
     ///
@@ -3012,14 +3000,14 @@ impl ArkUI_NodeAttributeType {
     /// The default value is <b>ARKUI_LOCALIZED_ALIGNMENT_CENTER</b>.
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: LocalizedAlignment mode. The data type is [`ArkUI_LocalizedAlignment`].
+    /// .value[0].i32: LocalizedAlignment mode. The data type is [`ArkUI_LocalizedAlignment`](crate::native_type::ArkUI_LocalizedAlignment).
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: LocalizedAlignment mode. The data type is [`ArkUI_LocalizedAlignment`].
+    /// .value[0].i32: LocalizedAlignment mode. The data type is [`ArkUI_LocalizedAlignment`](crate::native_type::ArkUI_LocalizedAlignment).
     ///
     ///
     ///
@@ -3029,16 +3017,16 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_LAYOUT_GRAVITY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(122);
     /// Defines the render types for drawing rounded corners when the radius of the border rounded corners is set, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: Render types for drawing rounded corners. The data type is [`ArkUI_RenderStrategy`].
+    /// .value[0].i32: Render types for drawing rounded corners. The data type is [`ArkUI_RenderStrategy`](crate::native_type::ArkUI_RenderStrategy).
     /// The default value is <b>ARKUI_RENDERSTRATEGY_FAST</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: Render types for drawing rounded corners. The data type is [`ArkUI_RenderStrategy`].
+    /// .value[0].i32: Render types for drawing rounded corners. The data type is [`ArkUI_RenderStrategy`](crate::native_type::ArkUI_RenderStrategy).
     ///
     ///
     ///
@@ -3048,121 +3036,121 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_BORDER_RADIUS_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(123);
     /// Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: text content.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: text content.
     pub const NODE_TEXT_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1000);
     /// Defines the font color attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: font color, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: font color value, in 0xARGB format.
     pub const NODE_FONT_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001);
     /// Defines the font size attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: font size, in fp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: font size, in fp.
     pub const NODE_FONT_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002);
     /// Defines the font style attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: font style [`ArkUI_FontStyle`]. The default value is <b>ARKUI_FONT_STYLE_NORMAL</b>.
+    /// .value[0].i32: font style [`ArkUI_FontStyle`](crate::native_type::ArkUI_FontStyle). The default value is <b>ARKUI_FONT_STYLE_NORMAL</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: font style [`ArkUI_FontStyle`].
+    /// .value[0].i32: font style [`ArkUI_FontStyle`](crate::native_type::ArkUI_FontStyle).
     pub const NODE_FONT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003);
     /// Defines the font weight attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: font weight [`ArkUI_FontWeight`]. The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
+    /// .value[0].i32: font weight [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight). The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: font weight [`ArkUI_FontWeight`].
+    /// .value[0].i32: font weight [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight).
     pub const NODE_FONT_WEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1004);
     /// Defines the text line height attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: line height, in fp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: line height, in fp.
     pub const NODE_TEXT_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1005);
     /// Defines the text decoration style and color.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: text decoration type [`ArkUI_TextDecorationType`].
+    /// .value[0].i32: text decoration type [`ArkUI_TextDecorationType`](crate::native_type::ArkUI_TextDecorationType).
     /// The default value is <b>ARKUI_TEXT_DECORATION_TYPE_NONE</b>.
     ///
     /// .value[1]?.u32: text decoration color, in 0xARGB format. For example, 0xFFFF0000 indicates red. Optional.
     ///
-    /// .value[2]?.i32: text decoration style [`ArkUI_TextDecorationStyle`].
+    /// .value[2]?.i32: text decoration style [`ArkUI_TextDecorationStyle`](crate::native_type::ArkUI_TextDecorationStyle).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: text decoration type [`ArkUI_TextDecorationType`].
+    /// .value[0].i32: text decoration type [`ArkUI_TextDecorationType`](crate::native_type::ArkUI_TextDecorationType).
     ///
     /// .value[1].u32: text decoration color, in 0xARGB format.
     ///
-    /// .value[2].i32: text decoration style [`ArkUI_TextDecorationStyle`].
+    /// .value[2].i32: text decoration style [`ArkUI_TextDecorationStyle`](crate::native_type::ArkUI_TextDecorationStyle).
     ////**
     /// Defines the text decoration style and color.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: text decoration type [`ArkUI_TextDecorationType`].
+    /// .value[0].i32: text decoration type [`ArkUI_TextDecorationType`](crate::native_type::ArkUI_TextDecorationType).
     /// The default value is <b>ARKUI_TEXT_DECORATION_TYPE_NONE</b>.
     ///
     /// .value[1]?.u32: text decoration color, in 0xARGB format. For example, 0xFFFF0000 indicates red. Optional.
     ///
-    /// .value[2]?.i32: text decoration style [`ArkUI_TextDecorationStyle`].
+    /// .value[2]?.i32: text decoration style [`ArkUI_TextDecorationStyle`](crate::native_type::ArkUI_TextDecorationStyle).
     ///
     /// .value[3]?.f32: text decoration thickness scale.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: text decoration type [`ArkUI_TextDecorationType`].
+    /// .value[0].i32: text decoration type [`ArkUI_TextDecorationType`](crate::native_type::ArkUI_TextDecorationType).
     ///
     /// .value[1].u32: text decoration color, in 0xARGB format.
     ///
-    /// .value[2].i32: text decoration style [`ArkUI_TextDecorationStyle`].
+    /// .value[2].i32: text decoration style [`ArkUI_TextDecorationStyle`](crate::native_type::ArkUI_TextDecorationStyle).
     ///
     /// .value[3].f32: text decoration thickness scale.
     ///
@@ -3171,109 +3159,109 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_DECORATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1006);
     /// Defines the text case attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: text case.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: text case.
     pub const NODE_TEXT_CASE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1007);
     /// Defines the letter spacing attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: letter spacing, in fp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: letter spacing, in fp.
     pub const NODE_TEXT_LETTER_SPACING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1008);
     /// Sets the maximum number of lines in the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: maximum number of lines in the text.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: maximum number of lines in the text.
     pub const NODE_TEXT_MAX_LINES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1009);
     /// Horizontal alignment mode of the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: horizontal alignment mode of the text. The value is an enum of [`ArkUI_TextAlignment`].
+    /// .value[0].i32: horizontal alignment mode of the text. The value is an enum of [`ArkUI_TextAlignment`](crate::native_type::ArkUI_TextAlignment).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: horizontal alignment mode of the text. The value is an enum of [`ArkUI_TextAlignment`].
+    /// .value[0].i32: horizontal alignment mode of the text. The value is an enum of [`ArkUI_TextAlignment`](crate::native_type::ArkUI_TextAlignment).
     pub const NODE_TEXT_ALIGN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1010);
     /// Defines the text overflow attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: display mode when the text is too long. [`ArkUI_TextOverflow`]
+    /// .value[0].i32: display mode when the text is too long. [`ArkUI_TextOverflow`](crate::native_type::ArkUI_TextOverflow)
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: display mode when the text is too long. [`ArkUI_TextOverflow`]
+    /// .value[0].i32: display mode when the text is too long. [`ArkUI_TextOverflow`](crate::native_type::ArkUI_TextOverflow)
     pub const NODE_TEXT_OVERFLOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1011);
     /// Defines the font family attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: fonts, separated by commas (,).
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: fonts, separated by commas (,).
     pub const NODE_FONT_FAMILY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1012);
     /// Defines the copy option attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: copy option [`ArkUI_CopyOptions`]. The default value is <b>ARKUI_COPY_OPTIONS_NONE</b>.
+    /// .value[0].i32: copy option [`ArkUI_CopyOptions`](crate::native_type::ArkUI_CopyOptions). The default value is <b>ARKUI_COPY_OPTIONS_NONE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: copy option [`ArkUI_CopyOptions`].
+    /// .value[0].i32: copy option [`ArkUI_CopyOptions`](crate::native_type::ArkUI_CopyOptions).
     pub const NODE_TEXT_COPY_OPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013);
     /// Defines the text baseline offset attribute
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: baseline offset, in fp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: baseline offset, in fp.
     pub const NODE_TEXT_BASELINE_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1014);
     /// Defines the text shadow attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: blur radius of the shadow, in vp.
     ///
-    /// .value[1].i32: shadow type [`ArkUI_ShadowType`]. The default value is <b>ARKUI_SHADOW_TYPE_COLOR</b>.
+    /// .value[1].i32: shadow type [`ArkUI_ShadowType`](crate::native_type::ArkUI_ShadowType). The default value is <b>ARKUI_SHADOW_TYPE_COLOR</b>.
     ///
     /// .value[2].u32: shadow color, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
@@ -3283,11 +3271,11 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: blur radius of the shadow, in vp.
     ///
-    /// .value[1].i32: shadow type [`ArkUI_ShadowType`].
+    /// .value[1].i32: shadow type [`ArkUI_ShadowType`](crate::native_type::ArkUI_ShadowType).
     ///
     /// .value[2].u32: shadow color, in 0xARGB format.
     ///
@@ -3297,114 +3285,114 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_TEXT_SHADOW: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1015);
     /// Defines the minimum font size attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: minimum font size, in fp.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: minimum font size, in fp.
     pub const NODE_TEXT_MIN_FONT_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1016);
     /// Defines the maximum font size attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: maximum font size, in fp.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: maximum font size, in fp.
     pub const NODE_TEXT_MAX_FONT_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1017);
     /// Defines the text style attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string?: font family. Optional. Use commas (,) to separate multiple fonts.
     ///
     /// .value[0].f32: font size, in fp.
     ///
-    /// .value[1]?.i32: font weight. Optional. The parameter type is [`ArkUI_FontWeight`].
+    /// .value[1]?.i32: font weight. Optional. The parameter type is [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight).
     /// The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
     ///
-    /// .value[2]?.i32: font style. Optional. The parameter type is [`ArkUI_FontStyle`].
+    /// .value[2]?.i32: font style. Optional. The parameter type is [`ArkUI_FontStyle`](crate::native_type::ArkUI_FontStyle).
     /// The default value is <b>ARKUI_FONT_STYLE_NORMAL</b>.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: font family. Use commas (,) to separate multiple fonts.
     ///
     /// .value[0].f32: font size, in fp.
     ///
-    /// .value[1].i32: font weight. The parameter type is [`ArkUI_FontWeight`].
+    /// .value[1].i32: font weight. The parameter type is [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight).
     /// The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
     ///
-    /// .value[2].i32: font style. The parameter type is [`ArkUI_FontStyle`].
+    /// .value[2].i32: font style. The parameter type is [`ArkUI_FontStyle`](crate::native_type::ArkUI_FontStyle).
     /// The default value is <b>ARKUI_FONT_STYLE_NORMAL</b>.
     pub const NODE_TEXT_FONT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1018);
     /// Defines how the adaptive height is determined for the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: how the adaptive height is determined for the text.
-    /// The parameter type is [`ArkUI_TextHeightAdaptivePolicy`].
+    /// The parameter type is [`ArkUI_TextHeightAdaptivePolicy`](crate::native_type::ArkUI_TextHeightAdaptivePolicy).
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: how the adaptive height is determined for the text.
-    /// The parameter type is [`ArkUI_TextHeightAdaptivePolicy`]
+    /// The parameter type is [`ArkUI_TextHeightAdaptivePolicy`](crate::native_type::ArkUI_TextHeightAdaptivePolicy)
     pub const NODE_TEXT_HEIGHT_ADAPTIVE_POLICY: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1019);
     /// Defines the indentation of the first line.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: indentation of the first line.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: indentation of the first line.
     pub const NODE_TEXT_INDENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1020);
     /// Defines the line break rule. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`].
+    /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`](crate::native_type::ArkUI_WordBreak).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`].
+    /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`](crate::native_type::ArkUI_WordBreak).
     pub const NODE_TEXT_WORD_BREAK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1021);
     /// Defines the ellipsis position. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: The parameter type is [`ArkUI_EllipsisMode`].
+    /// .value[0].i32: The parameter type is [`ArkUI_EllipsisMode`](crate::native_type::ArkUI_EllipsisMode).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: The parameter type is [`ArkUI_EllipsisMode`].
+    /// .value[0].i32: The parameter type is [`ArkUI_EllipsisMode`](crate::native_type::ArkUI_EllipsisMode).
     pub const NODE_TEXT_ELLIPSIS_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1022);
     /// Defines the text line spacing attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: line spacing, in fp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: line spacing, in fp.
     pub const NODE_TEXT_LINE_SPACING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1023);
@@ -3416,7 +3404,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Interfaces for setting, resetting, and obtaining attributes are supported.
     ///
-    /// Attribute setting method parameter [`ArkUI_AttributeItem`] format:
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .string: complies with the text feature format. The format is normal |
     ///
@@ -3428,46 +3416,46 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute obtaining method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .string indicates the content of the text feature. Multiple text features are separated by commas (,).
     pub const NODE_FONT_FEATURE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1024);
     /// Setting Enable Text Recognition.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32:Enable text recognition, default value false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32：Enable Text Recognition
     pub const NODE_TEXT_ENABLE_DATA_DETECTOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1025);
     /// Set the text recognition configuration.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0...].i32: Array of entity types, parameter types[`ArkUI_TextDataDetectorType`]。
+    /// .value[0...].i32: Array of entity types, parameter types[`ArkUI_TextDataDetectorType`](crate::native_type::ArkUI_TextDataDetectorType)。
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0...].i32：Array of entity types, parameter types[`ArkUI_TextDataDetectorType`]。
+    /// .value[0...].i32：Array of entity types, parameter types[`ArkUI_TextDataDetectorType`](crate::native_type::ArkUI_TextDataDetectorType)。
     pub const NODE_TEXT_ENABLE_DATA_DETECTOR_CONFIG: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1026);
     /// Defines the background color of the selected text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color value, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_TEXT_SELECTED_BACKGROUND_COLOR: ArkUI_NodeAttributeType =
@@ -3475,41 +3463,41 @@ impl ArkUI_NodeAttributeType {
     /// The text component uses a formatted string object to set text content properties,
     /// and supports property setting, property reset, and property acquisition interfaces.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object indicates ArkUI_StyledString formatted string data. The parameter type is [`ArkUI_StyledString`].
+    /// .object indicates ArkUI_StyledString formatted string data. The parameter type is [`ArkUI_StyledString`](crate::styled_string::ArkUI_StyledString).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object indicates ArkUI_StyledString formatted string data. The parameter type is [`ArkUI_StyledString`].
+    /// .object indicates ArkUI_StyledString formatted string data. The parameter type is [`ArkUI_StyledString`](crate::styled_string::ArkUI_StyledString).
     pub const NODE_TEXT_CONTENT_WITH_STYLED_STRING: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1028);
     /// Sets whether to center text vertically in the text component.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to center text vertically. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to center text vertically.
     pub const NODE_TEXT_HALF_LEADING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1029);
     /// Defines the font weight attribute, which can be set, reset, and obtained as required through APIs.
     /// The font weight specified by this API is not affected by any changes in the system font weight settings.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: font weight [`ArkUI_FontWeight`]. The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
+    /// .value[0].i32: font weight [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight). The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: font weight [`ArkUI_FontWeight`].
+    /// .value[0].i32: font weight [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight).
     ///
     ///
     ///
@@ -3519,7 +3507,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_IMMUTABLE_FONT_WEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1030);
     /// Defines the text line count attribute, which can only be obtained as required through APIs.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: line count of the node.
     ///
@@ -3531,14 +3519,14 @@ impl ArkUI_NodeAttributeType {
     /// Sets whether to optimize the trailing spaces at the end of each line during text layout.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// value[0].i32: whether to optimize trailing spaces at the end of each line during text layout.
     /// The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: whether to optimize trailing spaces at the end of each line during text layout.
     ///
@@ -3552,7 +3540,7 @@ impl ArkUI_NodeAttributeType {
     /// Sets a linear gradient effect for text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: start angle of the linear gradient.
     /// The setting takes effect only when <b>direction</b> is set to <b>ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM</b>.
@@ -3560,11 +3548,11 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[1].i32: direction of the linear gradient. When a direction other than
     /// <b>ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM</b> is set, the <b>angle</b> property is ignored.
-    /// The parameter type is [`ArkUI_LinearGradientDirection`].
+    /// The parameter type is [`ArkUI_LinearGradientDirection`](crate::native_type::ArkUI_LinearGradientDirection).
     ///
     /// .value[2].i32: whether the colors are repeated. The default value is <b>false</b>.
     /// .object: array of color stops, each of which consists of a color and its stop position.
-    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    /// The parameter type is [`ArkUI_ColorStop`](crate::native_type::ArkUI_ColorStop). Invalid colors are automatically skipped.
     ///
     ///
     /// colors: colors of the color stops.
@@ -3575,7 +3563,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: start angle of the linear gradient.
     /// When <b>direction</b> is set to <b>ARKUI_LINEAR_GRADIENT_DIRECTION_CUSTOM</b>, <b>angle</b> at the set value;
@@ -3586,7 +3574,7 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].i32: whether the colors are repeated.
     ///
     /// .object: array of color stops, each of which consists of a color and its stop position.
-    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    /// The parameter type is [`ArkUI_ColorStop`](crate::native_type::ArkUI_ColorStop). Invalid colors are automatically skipped.
     ///
     ///
     /// colors: colors of the color stops.
@@ -3604,7 +3592,7 @@ impl ArkUI_NodeAttributeType {
     /// Sets a radial gradient effect for text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0]?.f32: X-coordinate of the radial gradient center relative to the upper left corner of the text.
     ///
@@ -3617,7 +3605,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     /// .object: array of color stops, each of which consists of a color and its stop position.
-    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    /// The parameter type is [`ArkUI_ColorStop`](crate::native_type::ArkUI_ColorStop). Invalid colors are automatically skipped.
     ///
     /// colors: colors of the color stops.
     ///
@@ -3627,7 +3615,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: X-coordinate of the radial gradient center relative to the upper left corner of the text.
     ///
@@ -3639,7 +3627,7 @@ impl ArkUI_NodeAttributeType {
     /// The value <b>1</b> means that the colors are repeated, and <b>0</b> means the opposite.
     ///
     /// .object: array of color stops, each of which consists of a color and its stop position.
-    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    /// The parameter type is [`ArkUI_ColorStop`](crate::native_type::ArkUI_ColorStop). Invalid colors are automatically skipped.
     ///
     /// colors: colors of the color stops.
     ///
@@ -3656,16 +3644,16 @@ impl ArkUI_NodeAttributeType {
     /// Sets the vertical alignment of the text content.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: vertical alignment of the text content, specified using the [`ArkUI_TextVerticalAlignment`]
+    /// .value[0].i32: vertical alignment of the text content, specified using the [`ArkUI_TextVerticalAlignment`](crate::native_type::ArkUI_TextVerticalAlignment)
     /// enum. The default value is <b>ARKUI_TEXT_VERTICAL_ALIGNMENT_BASELINE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: vertical alignment of the text content, specified using the [`ArkUI_TextVerticalAlignment`]
+    /// .value[0].i32: vertical alignment of the text content, specified using the [`ArkUI_TextVerticalAlignment`](crate::native_type::ArkUI_TextVerticalAlignment)
     /// enum.
     ///
     ///
@@ -3677,16 +3665,16 @@ impl ArkUI_NodeAttributeType {
     /// Sets the content align of the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: content align of the text, specified using the [`ArkUI_TextContentAlign`]
+    /// .value[0].i32: content align of the text, specified using the [`ArkUI_TextContentAlign`](crate::native_type::ArkUI_TextContentAlign)
     /// enum. The default value is <b>ARKUI_TEXT_CONTENT_ALIGN_CENTER</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: content align of the text, specified using the [`ArkUI_TextContentAlign`]
+    /// .value[0].i32: content align of the text, specified using the [`ArkUI_TextContentAlign`](crate::native_type::ArkUI_TextContentAlign)
     /// enum.
     ///
     ///
@@ -3698,13 +3686,13 @@ impl ArkUI_NodeAttributeType {
     /// Sets the minimum number of lines in the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: minimum number of lines in the text.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: minimum number of lines in the text.
     ///
@@ -3716,13 +3704,13 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_MIN_LINES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1037);
     /// Enables the selected data detector.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Enable selected text recognition, default value true.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether selected text recognition is enabled.
     ///
@@ -3735,13 +3723,13 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1038);
     /// Defines the minimum text line height attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: minimum line height.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: minimum line height.
     ///
@@ -3753,13 +3741,13 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_MIN_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1040);
     /// Defines the maximum text line height attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: maximum line height.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: maximum line height.
     ///
@@ -3771,13 +3759,13 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_MAX_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1041);
     /// Defines line height multiple value of text, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: line height multiple value of text.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: line height multiple value of text.
     ///
@@ -3790,9 +3778,9 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1042);
     /// Get the text layout manager of the text.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: the layout manager of text. The parameter type is [`ArkUI_TextLayoutManager`].
+    /// .object: the layout manager of text. The parameter type is [`ArkUI_TextLayoutManager`](crate::styled_string::ArkUI_TextLayoutManager).
     ///
     ///
     ///
@@ -3802,9 +3790,9 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_LAYOUT_MANAGER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1043);
     /// Set the edit menu options of the text.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: the edit menu options of text. The parameter type is [`ArkUI_TextEditMenuOptions`].
+    /// .object: the edit menu options of text. The parameter type is [`ArkUI_TextEditMenuOptions`](crate::native_type::ArkUI_TextEditMenuOptions).
     ///
     ///
     ///
@@ -3814,10 +3802,10 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_EDIT_MENU_OPTIONS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1044);
     /// Bind the selection menu for text.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .object: the custom selection menu of text.
-    /// The parameter type is [`ArkUI_SelectionMenuOptions`].
+    /// The parameter type is `ArkUI_SelectionMenuOptions`.
     ///
     ///
     ///
@@ -3829,25 +3817,25 @@ impl ArkUI_NodeAttributeType {
     /// Sets the text selection area, which will be highlighted.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: start position of the text selection.
     ///
     /// .value[1].i32: end position of the text selection.
     ///
     /// .object: selection options including the menu popup policy.
-    /// The parameter type is [`ArkUI_SelectionOptions`].
+    /// The parameter type is [`ArkUI_SelectionOptions`](crate::native_type::ArkUI_SelectionOptions).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: start position of the text selection.
     ///
     /// .value[1].i32: end position of the text selection.
     ///
     /// .object: selection options including the menu popup policy.
-    /// The parameter type is [`ArkUI_SelectionOptions`].
+    /// The parameter type is [`ArkUI_SelectionOptions`](crate::native_type::ArkUI_SelectionOptions).
     ///
     ///
     ///
@@ -3857,14 +3845,14 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_TEXT_SELECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1046);
     /// Whether to compress punctuation at the beginning of line.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
     /// The default value is false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether compress punctuation at the beginning of line.
     ///
@@ -3877,14 +3865,14 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1048);
     /// Determines whether the layout adds extra padding at the top and bottom to make space for characters.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Enable include the font padding, true means enable this feature, false means disable.
     /// The default value is false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether include the font padding.
     ///
@@ -3897,14 +3885,14 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1049);
     /// Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
     /// The default value is false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether fallback line spacing.
     ///
@@ -3917,15 +3905,15 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1050);
     /// Set the marquee options of text.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: the marquee options of text. The parameter type is [`ArkUI_TextMarqueeOptions`].
+    /// .object: the marquee options of text. The parameter type is [`ArkUI_TextMarqueeOptions`](crate::native_type::ArkUI_TextMarqueeOptions).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: the marquee options of text. The parameter type is [`ArkUI_TextMarqueeOptions`].
+    /// .object: the marquee options of text. The parameter type is [`ArkUI_TextMarqueeOptions`](crate::native_type::ArkUI_TextMarqueeOptions).
     ///
     ///
     ///
@@ -3936,15 +3924,15 @@ impl ArkUI_NodeAttributeType {
     /// Writing direction of the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: writing direction of the text. The value is an enum of [`ArkUI_TextDirection`].
+    /// .value[0].i32: writing direction of the text. The value is an enum of [`ArkUI_TextDirection`](crate::native_type::ArkUI_TextDirection).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: writing direction the text. The value is an enum of [`ArkUI_TextDirection`].
+    /// .value[0].i32: writing direction the text. The value is an enum of [`ArkUI_TextDirection`](crate::native_type::ArkUI_TextDirection).
     ///
     ///
     ///
@@ -3954,19 +3942,19 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1052);
     /// Used to set the selected drag preview style.
     ///
-    /// Format of the [`Arkui_AttributeItem`] parameter for setting the attribute:
+    /// Format of the `Arkui_AttributeItem` parameter for setting the attribute:
     ///
     /// .object: selected drag preview style configuration.
     ///
-    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    /// The parameter type is `Arkui_SelectedDragPreviewStyle`.
     ///
     ///
     ///
-    /// Format of the return value [`Arkui_AttributeItem`]:
+    /// Format of the return value `Arkui_AttributeItem`:
     ///
     /// .object: selected drag preview style configuration.
     ///
-    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    /// The parameter type is `Arkui_SelectedDragPreviewStyle`.
     ///
     ///
     ///
@@ -3977,20 +3965,20 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1053);
     /// Defines the text content attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: content of the text span.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: content of the text span.
     pub const NODE_SPAN_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(2000);
     /// Defines the text background style.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color of the text background, in 0xARGB format, for example, <b>0xFFFF0000</b> indicating red.
     ///
@@ -4008,7 +3996,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color of the text background, in 0xARGB format.
     ///
@@ -4024,65 +4012,65 @@ impl ArkUI_NodeAttributeType {
     /// Defines the text baseline offset attribute
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: baseline offset, in fp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: baseline offset, in fp.
     pub const NODE_SPAN_BASELINE_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(2002);
     /// Defines the image source of the image span.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: image address of the image span.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`]. Either .string or .object must be set.
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor). Either .string or .object must be set.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: image address of the image span.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor).
     pub const NODE_IMAGE_SPAN_SRC: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3000);
     /// Defines the alignment mode of the image with the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: alignment mode of the image with the text.
-    /// The value is an enum of [`ArkUI_ImageSpanAlignment`].
+    /// The value is an enum of [`ArkUI_ImageSpanAlignment`](crate::native_type::ArkUI_ImageSpanAlignment).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: alignment mode of the image with the text.
-    /// The value is an enum of [`ArkUI_ImageSpanAlignment`].
+    /// The value is an enum of [`ArkUI_ImageSpanAlignment`](crate::native_type::ArkUI_ImageSpanAlignment).
     pub const NODE_IMAGE_SPAN_VERTICAL_ALIGNMENT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(3001);
     /// Defines the placeholder image source.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: placeholder image source.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`]. Either .string or .object must be set.
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor). Either .string or .object must be set.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: placeholder image source.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor).
     pub const NODE_IMAGE_SPAN_ALT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3002);
     /// Defines the baseline offset attribute of the <b>ImageSpan</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
@@ -4090,13 +4078,13 @@ impl ArkUI_NodeAttributeType {
     /// The default value is <b>0</b>, and the unit is fp.
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: baseline offset, in fp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: baseline offset, in fp.
     ///
@@ -4110,7 +4098,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the color filter of the image span.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value [0].f32 to . value [19].f32: filter matrix array.
     ///
@@ -4137,13 +4125,13 @@ impl ArkUI_NodeAttributeType {
     /// Set the range of SVG parsing capabilities supported through enable switch.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether color fliter support svg. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: enable switch.
     ///
@@ -4156,63 +4144,63 @@ impl ArkUI_NodeAttributeType {
     /// Defines the image source of the <Image> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: image source.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`]. Either .string or .object must be set.
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor). Either .string or .object must be set.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: image source.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor).
     pub const NODE_IMAGE_SRC: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4000);
     /// Defines how the image is resized to fit its container.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: how the image is resized to fit its container. The value is an enum of [`ArkUI_ObjectFit`].
+    /// .value[0].i32: how the image is resized to fit its container. The value is an enum of [`ArkUI_ObjectFit`](crate::native_type::ArkUI_ObjectFit).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: how the image is resized to fit its container. The value is an enum of [`ArkUI_ObjectFit`].
+    /// .value[0].i32: how the image is resized to fit its container. The value is an enum of [`ArkUI_ObjectFit`](crate::native_type::ArkUI_ObjectFit).
     pub const NODE_IMAGE_OBJECT_FIT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4001);
     /// Defines the interpolation effect of the image.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: interpolation effect of the image. The value is an enum of [`ArkUI_ImageInterpolation`].
+    /// .value[0].i32: interpolation effect of the image. The value is an enum of [`ArkUI_ImageInterpolation`](crate::native_type::ArkUI_ImageInterpolation).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: interpolation effect of the image. The value is an enum of [`ArkUI_ImageInterpolation`].
+    /// .value[0].i32: interpolation effect of the image. The value is an enum of [`ArkUI_ImageInterpolation`](crate::native_type::ArkUI_ImageInterpolation).
     pub const NODE_IMAGE_INTERPOLATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4002);
     /// Defines how the image is repeated.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: how the image is repeated. The value is an enum of [`ArkUI_ImageRepeat`].
+    /// .value[0].i32: how the image is repeated. The value is an enum of [`ArkUI_ImageRepeat`](crate::native_type::ArkUI_ImageRepeat).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: how the image is repeated. The value is an enum of [`ArkUI_ImageRepeat`].
+    /// .value[0].i32: how the image is repeated. The value is an enum of [`ArkUI_ImageRepeat`](crate::native_type::ArkUI_ImageRepeat).
     pub const NODE_IMAGE_OBJECT_REPEAT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4003);
     /// Defines the color filter of the image.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32 to .value[19].f32: filter matrix array.
     ///
@@ -4222,7 +4210,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32 to .value[19].f32: filter matrix array.
     ///
@@ -4232,87 +4220,87 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_IMAGE_COLOR_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4004);
     /// Defines the auto resize attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32 : whether to resize the image source.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32 : whether to resize the image source.
     pub const NODE_IMAGE_AUTO_RESIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4005);
     /// Defines the placeholder image source.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: placeholder image source.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`]. Either .string or .object must be set.
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor). Either .string or .object must be set.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: placeholder image source.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor).
     pub const NODE_IMAGE_ALT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4006);
     /// Defines whether the image is draggable.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the image is draggable. The value <b>true</b> means that the image is draggable.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the image is draggable.
     pub const NODE_IMAGE_DRAGGABLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4007);
     /// Defines the image rendering mode. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: The parameter type is [`ArkUI_ImageRenderMode`].
+    /// .value[0].i32: The parameter type is [`ArkUI_ImageRenderMode`](crate::native_type::ArkUI_ImageRenderMode).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: The parameter type is [`ArkUI_ImageRenderMode`].
+    /// .value[0].i32: The parameter type is [`ArkUI_ImageRenderMode`](crate::native_type::ArkUI_ImageRenderMode).
     pub const NODE_IMAGE_RENDER_MODE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4008);
     /// Defines whether the image display size follows the image source size.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: wheter to follow, true means to follow.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: wheter to follow, true means to follow.
     pub const NODE_IMAGE_FIT_ORIGINAL_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4009);
     /// Defines the fill color of the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: fill color, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: fill color, in 0xARGB format.
     pub const NODE_IMAGE_FILL_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4010);
     /// Sets the resizable image options.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: width of the left edge. The unit is vp.
     ///
@@ -4324,7 +4312,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: width of the left edge. The unit is vp.
     ///
@@ -4337,13 +4325,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the synchronous image loading attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to load the image synchronously.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to load the image synchronously.
     ///
@@ -4356,7 +4344,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the image decoding size attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: width of the image decoding, in px.
     ///
@@ -4364,7 +4352,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: width of the image decoding, in px.
     ///
@@ -4379,13 +4367,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the display tranformation matrix for an image.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0...15].f32: 16 floating-point numbers.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0...15].f32: 16 floating-point numbers.
     ///
@@ -4398,13 +4386,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the image follow text direction attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to follows the text direction.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to follows the text direction.
     ///
@@ -4418,15 +4406,15 @@ impl ArkUI_NodeAttributeType {
     /// Defines the image copy attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: copy option [`ArkUI_CopyOptions`]. The default value is <b>ARKUI_COPY_OPTIONS_NONE</b>.
+    /// .value[0].i32: copy option [`ArkUI_CopyOptions`](crate::native_type::ArkUI_CopyOptions). The default value is <b>ARKUI_COPY_OPTIONS_NONE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: copy option [`ArkUI_CopyOptions`].
+    /// .value[0].i32: copy option [`ArkUI_CopyOptions`](crate::native_type::ArkUI_CopyOptions).
     ///
     ///
     ///
@@ -4437,13 +4425,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the image AI analysis enable attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable AI analysis for the image.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable AI analysis for the image.
     ///
@@ -4456,16 +4444,16 @@ impl ArkUI_NodeAttributeType {
     /// Defines the image dynamic display range attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: dynamic range mode [`ArkUI_DynamicRangeMode`].
+    /// .value[0].i32: dynamic range mode [`ArkUI_DynamicRangeMode`](crate::native_type::ArkUI_DynamicRangeMode).
     /// The default value is <b>ARKUI_DYNAMIC_RANGE_MODE_STANDARD</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: dynamic range mode [`ArkUI_DynamicRangeMode`].
+    /// .value[0].i32: dynamic range mode [`ArkUI_DynamicRangeMode`](crate::native_type::ArkUI_DynamicRangeMode).
     ///
     ///
     ///
@@ -4477,13 +4465,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the image dynamic display brightness attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: hdr brightness. value range [0, 1]
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: hdr brightness. value range [0, 1]
     ///
@@ -4496,16 +4484,16 @@ impl ArkUI_NodeAttributeType {
     /// Defines the image display direction attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: orientation [`ArkUI_Orientation`].
+    /// .value[0].i32: orientation `ArkUI_Orientation`.
     /// The default value is <b>ARKUI_ORIENTATION_UP</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: orientation [`ArkUI_Orientation`].
+    /// .value[0].i32: orientation `ArkUI_Orientation`.
     ///
     ///
     ///
@@ -4516,13 +4504,13 @@ impl ArkUI_NodeAttributeType {
     /// Set the range of SVG parsing capabilities supported through enable switch.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: enable switch.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: enable switch.
     ///
@@ -4535,14 +4523,14 @@ impl ArkUI_NodeAttributeType {
     /// Set the animation effect for the image content transformation.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: The parameter type is [`ArkUI_ContentTransitionEffect`].
+    /// .object: The parameter type is [`ArkUI_ContentTransitionEffect`](crate::native_type::ArkUI_ContentTransitionEffect).
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: The parameter type is [`ArkUI_ContentTransitionEffect`].
+    /// .object: The parameter type is [`ArkUI_ContentTransitionEffect`](crate::native_type::ArkUI_ContentTransitionEffect).
     ///
     ///
     ///
@@ -4554,19 +4542,19 @@ impl ArkUI_NodeAttributeType {
     /// Defines the placeholder image during loading process.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: placeholder image source.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`]. Either .string or .object must be set.
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor). Either .string or .object must be set.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: placeholder image source.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor).
     ///
     ///
     ///
@@ -4577,19 +4565,19 @@ impl ArkUI_NodeAttributeType {
     /// Defines the placeholder image when loading fails.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: placeholder image source.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`]. Either .string or .object must be set.
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor). Either .string or .object must be set.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: placeholder image source.
     ///
-    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`].
+    /// .object: The parameter type is [`ArkUI_DrawableDescriptor`](ohos_sys_opaque_types::ArkUI_DrawableDescriptor).
     ///
     ///
     ///
@@ -4600,13 +4588,13 @@ impl ArkUI_NodeAttributeType {
     /// Configure image edge anti-aliasing via an enable switch.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: enable switch,the default value is false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: enable switch.
     ///
@@ -4619,79 +4607,79 @@ impl ArkUI_NodeAttributeType {
     /// Defines the color of the component when it is selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: background color, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: background color, in 0xARGB format.
     pub const NODE_TOGGLE_SELECTED_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5000);
     /// Defines the color of the circular slider for the component of the switch type.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color of the circular slider, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color of the circular slider, in 0xARGB format.
     pub const NODE_TOGGLE_SWITCH_POINT_COLOR: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(5001);
     /// Defines the toggle switch value. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable the toggle. The value <b>true</b> means to enable the toggle.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable the toggle.
     pub const NODE_TOGGLE_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5002);
     /// Defines the color of the component when it is deselected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: background color, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: background color, in 0xARGB format.
     pub const NODE_TOGGLE_UNSELECTED_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(5003);
     /// Defines the foreground color of the loading progress bar.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: foreground color, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: foreground color, in 0xARGB format.
     pub const NODE_LOADING_PROGRESS_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(6000);
     /// Defines whether to show the loading animation for the <LoadingProgress> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to show the loading animation.
     /// The value <b>true</b> means to show the loading animation, and <b>false</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The value <b>1</b> means to show the loading animation, and <b>0</b> means the opposite.
     pub const NODE_LOADING_PROGRESS_ENABLE_LOADING: ArkUI_NodeAttributeType =
@@ -4699,66 +4687,66 @@ impl ArkUI_NodeAttributeType {
     /// Defines the default placeholder text of the single-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: default placeholder text.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: default placeholder text.
     pub const NODE_TEXT_INPUT_PLACEHOLDER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7000);
     /// Defines the default text content of the single-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: default text content.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: default text content.
     pub const NODE_TEXT_INPUT_TEXT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7001);
     /// Defines the caret color attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: caret color, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: caret color, in 0xARGB format.
     pub const NODE_TEXT_INPUT_CARET_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7002);
     /// Defines the caret style attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: caret width, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: caret width, in vp.
     pub const NODE_TEXT_INPUT_CARET_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7003);
     /// Defines the underline attribute of the single-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to show an underline.
     /// The value <b>true</b> means to show an underline, and <b>false</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The value <b>1</b> means to show an underline, and <b>0</b> means the opposite.
     pub const NODE_TEXT_INPUT_SHOW_UNDERLINE: ArkUI_NodeAttributeType =
@@ -4766,40 +4754,40 @@ impl ArkUI_NodeAttributeType {
     /// Defines the maximum number of characters in the text input.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: maximum number of characters in the text input, without a unit.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: maximum number of characters in the text input.
     pub const NODE_TEXT_INPUT_MAX_LENGTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7005);
     /// Defines the type of the Enter key.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`]. The default value is <b>ARKUI_ENTER_KEY_TYPE_DONE</b>.
+    /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`](crate::native_type::ArkUI_EnterKeyType). The default value is <b>ARKUI_ENTER_KEY_TYPE_DONE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`].
+    /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`](crate::native_type::ArkUI_EnterKeyType).
     pub const NODE_TEXT_INPUT_ENTER_KEY_TYPE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7006);
     /// Defines the placeholder text color.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color value, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_TEXT_INPUT_PLACEHOLDER_COLOR: ArkUI_NodeAttributeType =
@@ -4807,14 +4795,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines the placeholder text font.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0]?.f32: font size, in fp. Optional. The default value is <b>16.0</b>.
     ///
-    /// .value[1]?.i32: font style [`ArkUI_FontStyle`]. Optional.
+    /// .value[1]?.i32: font style [`ArkUI_FontStyle`](crate::native_type::ArkUI_FontStyle). Optional.
     /// The default value is <b>ARKUI_FONT_STYLE_NORMAL</b>.
     ///
-    /// .value[2]?.i32: font weight [`ArkUI_FontWeight`]. Optional.
+    /// .value[2]?.i32: font weight [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight). Optional.
     /// The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
     ///
     /// ?.string: font family. Multiple font families are separated by commas (,).
@@ -4822,13 +4810,13 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: font size, in fp.
     ///
-    /// .value[1].i32: font style [`ArkUI_FontStyle`].
+    /// .value[1].i32: font style [`ArkUI_FontStyle`](crate::native_type::ArkUI_FontStyle).
     ///
-    /// .value[2].i32: font weight [`ArkUI_FontWeight`].
+    /// .value[2].i32: font weight [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight).
     ///
     /// .string: font family. Multiple font families are separated by commas (,).
     pub const NODE_TEXT_INPUT_PLACEHOLDER_FONT: ArkUI_NodeAttributeType =
@@ -4836,7 +4824,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to enable the input method when the component obtains focus.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable the input method when the component obtains focus.
     /// The value <b>true</b> means to enable the input method, and <b>false</b> means the opposite.
@@ -4844,7 +4832,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The value <b>1</b> means to enable the input method when the component obtains focus,
     /// and <b>0</b> means the opposite.
@@ -4852,27 +4840,27 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(7009);
     /// Defines the text box type. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: text box type [`ArkUI_TextInputType`].
+    /// .value[0].i32: text box type [`ArkUI_TextInputType`](crate::native_type::ArkUI_TextInputType).
     /// The default value is <b>ARKUI_TEXTINPUT_TYPE_NORMAL</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: text box type [`ArkUI_TextInputType`].
+    /// .value[0].i32: text box type [`ArkUI_TextInputType`](crate::native_type::ArkUI_TextInputType).
     pub const NODE_TEXT_INPUT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7010);
     /// Defines the background color of the selected text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color value, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_TEXT_INPUT_SELECTED_BACKGROUND_COLOR: ArkUI_NodeAttributeType =
@@ -4880,14 +4868,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to display the password icon at the end of the password text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to display the password icon at the end of the password text box.
     /// The value <b>true</b> means to display the password icon, and <b>false</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The value <b>1</b> means to display the password icon at the end of the password text box,
     /// and <b>0</b> means the opposite.
@@ -4896,23 +4884,23 @@ impl ArkUI_NodeAttributeType {
     /// Defines the editable state for the single-line text box.
     /// This attribute can be set as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to remain in the editable state. The value
     /// <b>true</b> means to remain in the editable state, and <b>false</b> means to exit the editable state.
     ///
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for obtaining the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for obtaining the attribute:
     /// .value[0].i32: whether to remain in the editable state. The value <b>true</b> means to remain in the editable
     /// state, and <b>false</b> means to exit the editable state.
     pub const NODE_TEXT_INPUT_EDITING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7013);
     /// Defines the style of the cancel button on the right of the single-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: button style [`ArkUI_CancelButtonStyle`].
+    /// .value[0].i32: button style [`ArkUI_CancelButtonStyle`](crate::native_type::ArkUI_CancelButtonStyle).
     /// The default value is <b>ARKUI_CANCELBUTTON_STYLE_INPUT</b>.
     ///
     /// .value[1]?.f32: button icon size, in vp.
@@ -4923,9 +4911,9 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: button style [`ArkUI_CancelButtonStyle`].
+    /// .value[0].i32: button style [`ArkUI_CancelButtonStyle`](crate::native_type::ArkUI_CancelButtonStyle).
     ///
     /// .value[1].f32: icon size, in vp.
     ///
@@ -4937,7 +4925,7 @@ impl ArkUI_NodeAttributeType {
     /// Sets the text selection area, which will be highlighted.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: start position of the text selection.
     ///
@@ -4945,7 +4933,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: start position of the text selection.
     ///
@@ -4956,7 +4944,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// The default underline color configured for the theme is <b>'0x33182431'</b>.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color of the underline applied to the text being typed in.
     /// The value is in 0xARGB format.
@@ -4972,7 +4960,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color of the underline applied to the text being typed in. The value is in 0xARGB format.
     ///
@@ -4986,52 +4974,52 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(7016);
     /// Sets whether to enable autofill.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable autofill. The default value is <b>true</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable autofill.
     pub const NODE_TEXT_INPUT_ENABLE_AUTO_FILL: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7017);
     /// Sets the autofill type.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`].
+    /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`](crate::native_type::ArkUI_TextInputContentType).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`].
+    /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`](crate::native_type::ArkUI_TextInputContentType).
     pub const NODE_TEXT_INPUT_CONTENT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7018);
     /// Defines the rules for generating passwords. When autofill is used, these rules are transparently
     /// transmitted to Password Vault for generating a new password.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: rules for generating passwords.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: rules for generating passwords.
     pub const NODE_TEXT_INPUT_PASSWORD_RULES: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7019);
     /// Sets whether to select all text in the initial state. The inline mode is not supported.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to select all text in the initial state. The default value is b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to select all text in the initial state.
     pub const NODE_TEXT_INPUT_SELECT_ALL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7020);
@@ -5040,13 +5028,13 @@ impl ArkUI_NodeAttributeType {
     /// Other inputs are filtered out. The specified regular expression can match single characters,
     /// but not strings.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: regular expression.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: regular expression.
     pub const NODE_TEXT_INPUT_INPUT_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7021);
@@ -5054,25 +5042,25 @@ impl ArkUI_NodeAttributeType {
     ///
     /// For the inline input style, only <b>InputType.Normal</b> is supported.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: text input style. The parameter type is [`ArkUI_TextInputStyle`].
+    /// .value[0].i32: text input style. The parameter type is [`ArkUI_TextInputStyle`](crate::native_type::ArkUI_TextInputStyle).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: text input style. The parameter type is [`ArkUI_TextInputStyle`].
+    /// .value[0].i32: text input style. The parameter type is [`ArkUI_TextInputStyle`](crate::native_type::ArkUI_TextInputStyle).
     pub const NODE_TEXT_INPUT_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7022);
     /// Sets or obtains the caret position.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// In the case of setting the caret position:
     /// .value[0].i32: character count from the beginning of a string to the caret position.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// In the case of obtaining the caret position: If this API is called when the caret position is updated in the
     /// current frame, it will not take effect.
@@ -5084,7 +5072,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_INPUT_CARET_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7023);
     /// Obtains the position of the edited text area relative to the component and its size.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: horizontal coordinate.
     ///
@@ -5096,7 +5084,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_INPUT_CONTENT_RECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7024);
     /// Obtains the number of lines of the edited text.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: number of lines of the edited text.
     pub const NODE_TEXT_INPUT_CONTENT_LINE_COUNT: ArkUI_NodeAttributeType =
@@ -5104,14 +5092,14 @@ impl ArkUI_NodeAttributeType {
     /// Sets whether to hide the text selection menu when the text box is long-pressed, double-click, or
     /// right-clicked. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click, or
     /// right-clicked. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click, or
     /// right-clicked.
@@ -5119,69 +5107,69 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(7026);
     /// Sets whether the text box loses focus after the Enter key is pressed to submit information.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the text box loses focus.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the text box loses focus.
     pub const NODE_TEXT_INPUT_BLUR_ON_SUBMIT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7027);
     /// Set up a custom keyboard.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object：custom keyboard,The parameter type is[`ArkUI_NodeHandle`]。
+    /// .object：custom keyboard,The parameter type is[`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle)。
     ///
     /// .value[0]?.i32：Sets whether the custom keyboard supports the avoidance feature, default value false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object:custom keyboard,The parameter type is[`ArkUI_NodeHandle`]。
+    /// .object:custom keyboard,The parameter type is[`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle)。
     ///
     /// .value[0].i32：Set whether the custom keyboard supports the avoidance function.
     pub const NODE_TEXT_INPUT_CUSTOM_KEYBOARD: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7028);
     /// Defines the line break rule. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`].
+    /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`](crate::native_type::ArkUI_WordBreak).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`].
+    /// .value[0].i32: The parameter type is [`ArkUI_WordBreak`](crate::native_type::ArkUI_WordBreak).
     pub const NODE_TEXT_INPUT_WORD_BREAK: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7029);
     /// Sets whether the keyboard pops up when the input box gains focus.
     /// It supports property setting, property reset and property acquisition interfaces.
     ///
-    /// Attribute setting method parameter [`ArkUI_AttributeItem`] format:
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].i32: Whether to pop up the keyboard.
     ///
     ///
     ///
-    /// Attribute acquisition method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute acquisition method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].i32: Whether to pop up the keyboard.
     pub const NODE_TEXT_INPUT_SHOW_KEYBOARD_ON_FOCUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(7030);
     /// When this property is set, the height of the textInput component is calculated using this property.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: set the value of numberOfLines.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: the value of numberOfLines.
     pub const NODE_TEXT_INPUT_NUMBER_OF_LINES: ArkUI_NodeAttributeType =
@@ -5189,13 +5177,13 @@ impl ArkUI_NodeAttributeType {
     /// Sets the letter spacing of the <b>TextInput</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: letter spacing. The default unit is fp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: letter spacing. The default unit is fp.
     ///
@@ -5209,13 +5197,13 @@ impl ArkUI_NodeAttributeType {
     /// Sets whether to enable preview text for the <b>TextInput</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable preview tex.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable preview tex.
     ///
@@ -5228,13 +5216,13 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(7033);
     /// Sets whether to center text vertically in the textInput component.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to center text vertically. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to center text vertically.
     ///
@@ -5246,15 +5234,15 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_INPUT_HALF_LEADING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7034);
     /// Set the keyboard style of textInput
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32：keyboard style，the parameter type is [`ArkUI_KeyboardAppearanceType`]。
+    /// .value[0].i32：keyboard style，the parameter type is `ArkUI_KeyboardAppearanceType`。
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]：
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem)：
     ///
-    /// .value[0].i32：keyboard style，the parameter type is [`ArkUI_KeyboardAppearanceType`]。
+    /// .value[0].i32：keyboard style，the parameter type is `ArkUI_KeyboardAppearanceType`。
     ///
     ///
     ///
@@ -5265,13 +5253,13 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(7035);
     /// Set whether to enable the auto fill animation or not.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Whether to enable the auto fill animation.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Get the flag of whether the auto fill animation is enabled.
     ///
@@ -5285,12 +5273,12 @@ impl ArkUI_NodeAttributeType {
     /// Set the line height of the input node.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: line height value.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: line height value
     ///
@@ -5301,13 +5289,13 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_INPUT_LINE_HEIGHT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7037);
     /// Enables selected data detector.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Enable selected text recognition, default value true.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether selected text recognition is enabled.
     ///
@@ -5320,7 +5308,7 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(7038);
     /// Defines the counter settings. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to show a character counter. The value <b>true</b> means to show a character counter.
     ///
@@ -5330,11 +5318,11 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2]?.i32: whether to highlight the border when the number of entered characters reaches the maximum.
     ///
-    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`].
+    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`](crate::native_type::ArkUI_ShowCounterConfig).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to show a character counter.
     ///
@@ -5345,7 +5333,7 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].i32: whether to highlight the border when the number of entered characters reaches the maximum.
     /// The default value is <b>true</b>.
     ///
-    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`].
+    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`](crate::native_type::ArkUI_ShowCounterConfig).
     ///
     ///
     ///
@@ -5355,15 +5343,15 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_INPUT_SHOW_COUNTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7040);
     /// Used to set or get the text content base controller.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`].
+    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`](crate::native_type::ArkUI_TextContentBaseController).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`].
+    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`](crate::native_type::ArkUI_TextContentBaseController).
     ///
     ///
     ///
@@ -5374,14 +5362,14 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(7041);
     /// Whether to compress punctuation at the beginning of line.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
     /// The default value is false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether compress punctuation at the beginning of line.
     ///
@@ -5394,14 +5382,14 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(7044);
     /// Determines whether the layout adds extra padding at the top and bottom to make space for characters.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Enable include the font padding, true means enable this feature, false means disable.
     /// The default value is false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether include the font padding.
     ///
@@ -5414,14 +5402,14 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(7045);
     /// Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
     /// The default value is false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether fallback line spacing.
     ///
@@ -5435,15 +5423,15 @@ impl ArkUI_NodeAttributeType {
     /// Writing direction of the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: writing direction of the text. The value is an enum of [`ArkUI_TextDirection`].
+    /// .value[0].i32: writing direction of the text. The value is an enum of [`ArkUI_TextDirection`](crate::native_type::ArkUI_TextDirection).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: writing direction the text. The value is an enum of [`ArkUI_TextDirection`].
+    /// .value[0].i32: writing direction the text. The value is an enum of [`ArkUI_TextDirection`](crate::native_type::ArkUI_TextDirection).
     ///
     ///
     ///
@@ -5453,18 +5441,18 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_INPUT_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(7047);
     /// Used to set the selected drag preview style.
     ///
-    /// Format of the [`Arkui_AttributeItem`] parameter for setting the attribute:
+    /// Format of the `Arkui_AttributeItem` parameter for setting the attribute:
     ///
     /// .object: selected drag preview style configuration.
-    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    /// The parameter type is `Arkui_SelectedDragPreviewStyle`.
     ///
     ///
     ///
-    /// Format of the return value [`Arkui_AttributeItem`]:
+    /// Format of the return value `Arkui_AttributeItem`:
     ///
     /// .object: selected drag preview style configuration.
     ///
-    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    /// The parameter type is `Arkui_SelectedDragPreviewStyle`.
     ///
     ///
     ///
@@ -5476,52 +5464,52 @@ impl ArkUI_NodeAttributeType {
     /// Defines the default placeholder text for the multi-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: default placeholder text.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: default placeholder text.
     pub const NODE_TEXT_AREA_PLACEHOLDER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8000);
     /// Defines the default text content for the multi-line text box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: default text content.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: default text content.
     pub const NODE_TEXT_AREA_TEXT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8001);
     /// Defines the maximum number of characters in the text input.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: maximum number of characters in the text input.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: maximum number of characters in the text input.
     pub const NODE_TEXT_AREA_MAX_LENGTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8002);
     /// Defines the placeholder text color.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color value, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_TEXT_AREA_PLACEHOLDER_COLOR: ArkUI_NodeAttributeType =
@@ -5529,25 +5517,25 @@ impl ArkUI_NodeAttributeType {
     /// Defines the placeholder text font.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0]?.f32: font size, in fp. Optional. The default value is <b>16.0</b>.
     ///
-    /// .value[1]?.i32: font style [`ArkUI_FontStyle`]. Optional. The default value is <b>ARKUI_FONT_STYLE_NORMAL</b>.
+    /// .value[1]?.i32: font style [`ArkUI_FontStyle`](crate::native_type::ArkUI_FontStyle). Optional. The default value is <b>ARKUI_FONT_STYLE_NORMAL</b>.
     ///
-    /// .value[2]?.i32: font weight [`ArkUI_FontWeight`]. Optional. The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
+    /// .value[2]?.i32: font weight [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight). Optional. The default value is <b>ARKUI_FONT_WEIGHT_NORMAL</b>.
     ///
     /// ?.string: font family. Multiple font families are separated by commas (,). For example, "font weight; font family 1, font family 2".
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: font size, in fp.
     ///
-    /// .value[1].i32: font style [`ArkUI_FontStyle`].
+    /// .value[1].i32: font style [`ArkUI_FontStyle`](crate::native_type::ArkUI_FontStyle).
     ///
-    /// .value[2].i32: font weight [`ArkUI_FontWeight`].
+    /// .value[2].i32: font weight [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight).
     ///
     /// .string: font family. Multiple font families are separated by commas (,).
     pub const NODE_TEXT_AREA_PLACEHOLDER_FONT: ArkUI_NodeAttributeType =
@@ -5555,20 +5543,20 @@ impl ArkUI_NodeAttributeType {
     /// Defines the caret color attribute.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: background color, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: background color, in 0xARGB format.
     pub const NODE_TEXT_AREA_CARET_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8005);
     /// Defines the editable state for the multi-line text box.
     /// This attribute can be set as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to remain in the editable state. The value <b>true</b> means to remain in the
     /// editable state, and <b>false</b> means to exit the editable state.
@@ -5576,26 +5564,26 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for obtaining the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for obtaining the attribute:
     /// .value[0].i32: whether to remain in the editable state. The value <b>true</b> means to remain in the editable
     /// state, and <b>false</b> means to exit the editable state.
     pub const NODE_TEXT_AREA_EDITING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8006);
     /// Defines the text box type. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: text box type [`ArkUI_TextAreaType`].
+    /// .value[0].i32: text box type [`ArkUI_TextAreaType`](crate::native_type::ArkUI_TextAreaType).
     /// The default value is <b>ARKUI_TEXTAREA_TYPE_NORMAL</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: text box type [`ArkUI_TextAreaType`].
+    /// .value[0].i32: text box type [`ArkUI_TextAreaType`](crate::native_type::ArkUI_TextAreaType).
     pub const NODE_TEXT_AREA_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8007);
     /// Defines the counter settings. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to show a character counter. The value <b>true</b> means to show a character counter.
     ///
@@ -5605,11 +5593,11 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2]?.i32: whether to highlight the border when the number of entered characters reaches the maximum.
     ///
-    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`].
+    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`](crate::native_type::ArkUI_ShowCounterConfig).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to show a character counter.
     ///
@@ -5620,19 +5608,19 @@ impl ArkUI_NodeAttributeType {
     /// .value[2].i32: whether to highlight the border when the number of entered characters reaches the maximum.
     /// The default value is <b>true</b>.
     ///
-    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`].
+    /// .object: counter configuration. The parameter type is [`ArkUI_ShowCounterConfig`](crate::native_type::ArkUI_ShowCounterConfig).
     pub const NODE_TEXT_AREA_SHOW_COUNTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8008);
     /// Sets whether to hide the text selection menu when the text box is long-pressed, double-click,
     /// or right-clicked. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click,
     /// or right-clicked. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to hide the text selection menu when the text box is long-pressed, double-click,
     /// or right-clicked.
@@ -5640,13 +5628,13 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8009);
     /// Sets whether the multi-line text box loses focus after the Enter key is pressed to submit information.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the text box loses focus.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the text box loses focus.
     pub const NODE_TEXT_AREA_BLUR_ON_SUBMIT: ArkUI_NodeAttributeType =
@@ -5656,26 +5644,26 @@ impl ArkUI_NodeAttributeType {
     /// Other inputs are filtered out. The specified regular expression can match single characters,
     /// but not strings.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: regular expression.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: regular expression.
     pub const NODE_TEXT_AREA_INPUT_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8011);
     /// Defines the background color of the selected text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color value, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_TEXT_AREA_SELECTED_BACKGROUND_COLOR: ArkUI_NodeAttributeType =
@@ -5683,21 +5671,21 @@ impl ArkUI_NodeAttributeType {
     /// Defines the type of the Enter key.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`]. The default value is <b>ARKUI_ENTER_KEY_TYPE_DONE</b>.
+    /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`](crate::native_type::ArkUI_EnterKeyType). The default value is <b>ARKUI_ENTER_KEY_TYPE_DONE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`].
+    /// .value[0].i32: type of the Enter key[`ArkUI_EnterKeyType`](crate::native_type::ArkUI_EnterKeyType).
     pub const NODE_TEXT_AREA_ENTER_KEY_TYPE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8013);
     /// Defines whether to enable the input method when the component obtains focus.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable the input method when the component obtains focus.
     /// The value <b>true</b> means to enable the input method, and <b>false</b> means the opposite.
@@ -5705,7 +5693,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The value <b>1</b> means to enable the input method when the component obtains focus,
     /// and <b>0</b> means the opposite.
@@ -5714,7 +5702,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to enable the input method when the component obtains focus.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable the input method when the component obtains focus.
     /// The value <b>true</b> means to enable the input method, and <b>false</b> means the opposite.
@@ -5722,14 +5710,14 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The value <b>1</b> means to enable the input method when the component obtains focus,
     /// and <b>0</b> means the opposite.
     pub const NODE_TEXT_AREA_CARET_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8015);
     /// Obtains the position of the edited text area relative to the component and its size.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: horizontal coordinate.
     ///
@@ -5741,7 +5729,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_AREA_CONTENT_RECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8016);
     /// Obtains the number of lines of the edited text.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: number of lines of the edited text.
     pub const NODE_TEXT_AREA_CONTENT_LINE_COUNT: ArkUI_NodeAttributeType =
@@ -5749,7 +5737,7 @@ impl ArkUI_NodeAttributeType {
     /// Sets the text selection area, which will be highlighted.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: start position of the text selection.
     ///
@@ -5757,7 +5745,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: start position of the text selection.
     ///
@@ -5766,52 +5754,52 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8018);
     /// Sets whether to enable autofill.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable autofill. The default value is <b>true</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable autofill.
     pub const NODE_TEXT_AREA_ENABLE_AUTO_FILL: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8019);
     /// Sets the autofill type.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`].
+    /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`](crate::native_type::ArkUI_TextInputContentType).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`].
+    /// .value[0].i32: autofill type. The parameter type is [`ArkUI_TextInputContentType`](crate::native_type::ArkUI_TextInputContentType).
     pub const NODE_TEXT_AREA_CONTENT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8020);
     /// Sets whether the keyboard pops up when the input box gains focus.
     /// It supports property setting, property reset and property acquisition interfaces.
     ///
-    /// Attribute setting method parameter [`ArkUI_AttributeItem`] format:
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].i32: Whether to pop up the keyboard.
     ///
     ///
     ///
-    /// Attribute acquisition method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute acquisition method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].i32: Whether to pop up the keyboard.
     pub const NODE_TEXT_AREA_SHOW_KEYBOARD_ON_FOCUS: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(8021);
     /// When this property is set, the height of the textArea component is calculated using this property.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: set the value of numberOfLines.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Set the value of numberOfLines
     pub const NODE_TEXT_AREA_NUMBER_OF_LINES: ArkUI_NodeAttributeType =
@@ -5819,13 +5807,13 @@ impl ArkUI_NodeAttributeType {
     /// Sets the letter spacing of the <b>TextArea</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: letter spacing. The default unit is fp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: letter spacing. The default unit is fp.
     ///
@@ -5839,13 +5827,13 @@ impl ArkUI_NodeAttributeType {
     /// Sets whether to enable preview text for the <b>TextArea</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable preview tex.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable preview tex.
     ///
@@ -5858,13 +5846,13 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8024);
     /// Sets whether to center text vertically in the textArea component.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to center text vertically. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to center text vertically.
     ///
@@ -5876,15 +5864,15 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_AREA_HALF_LEADING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8025);
     /// Set the keyboard style of textArea
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32：keyboard style，the parameter type is [`ArkUI_KeyboardAppearanceType`]。
+    /// .value[0].i32：keyboard style，the parameter type is `ArkUI_KeyboardAppearanceType`。
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]：
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem)：
     ///
-    /// .value[0].i32：keyboard style，the parameter type is [`ArkUI_KeyboardAppearanceType`]。
+    /// .value[0].i32：keyboard style，the parameter type is `ArkUI_KeyboardAppearanceType`。
     ///
     ///
     ///
@@ -5895,12 +5883,12 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8026);
     /// Set the max lines of the node. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: max lines count.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: max lines count.
     ///
@@ -5912,13 +5900,13 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_AREA_MAX_LINES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8027);
     /// Set line spacing of the node. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: line spacing value.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: line spacing value.
     ///
@@ -5930,12 +5918,12 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_AREA_LINE_SPACING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8028);
     /// Set the min lines of the node. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: min lines count.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: min line count.
     ///
@@ -5948,12 +5936,12 @@ impl ArkUI_NodeAttributeType {
     /// Set the max lines of the node with scroll.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: max lines count with scroll.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: max line count with scroll.
     ///
@@ -5966,12 +5954,12 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8030);
     /// Set the line height of the node. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: line height value.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: line height value
     ///
@@ -5983,16 +5971,16 @@ impl ArkUI_NodeAttributeType {
     /// Define bar state of the text area.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: bar state of the text area, specified using the [`ArkUI_BarState`] enum.
+    /// .value[0].i32: bar state of the text area, specified using the [`ArkUI_BarState`](crate::native_type::ArkUI_BarState) enum.
     /// The default value is <b>ARKUI_BAR_STATE_AUTO</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: bar state of the text area, specified using the [`ArkUI_BarState`] enum.
+    /// .value[0].i32: bar state of the text area, specified using the [`ArkUI_BarState`](crate::native_type::ArkUI_BarState) enum.
     ///
     ///
     ///
@@ -6002,13 +5990,13 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_AREA_BAR_STATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8032);
     /// Enables selected data detector.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Enable selected text recognition, default value true.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether selected text recognition is enabled.
     ///
@@ -6022,13 +6010,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the color of the scrollbar. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .data[0].u32: color of the scroll bar thumb, in 0xARGB format.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .data[0].u32: color of the scroll bar thumb, in 0xARGB format.
     ///
@@ -6041,17 +6029,17 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8035);
     /// Sets up a custom keyboard.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: custom keyboard,The parameter type is [`ArkUI_NodeHandle`].
+    /// .object: custom keyboard,The parameter type is [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle).
     ///
     /// .value[0]?.i32: Sets whether the custom keyboard supports the avoidance feature, default value false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object:custom keyboard,The parameter type is [`ArkUI_NodeHandle`].
+    /// .object:custom keyboard,The parameter type is [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle).
     ///
     /// .value[0].i32: Set whether the custom keyboard supports the avoidance function.
     ///
@@ -6064,15 +6052,15 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8036);
     /// Used to set or get the text content base controller.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`].
+    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`](crate::native_type::ArkUI_TextContentBaseController).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`].
+    /// .object: the text content base controller. The parameter type is [`ArkUI_TextContentBaseController`](crate::native_type::ArkUI_TextContentBaseController).
     ///
     ///
     ///
@@ -6083,14 +6071,14 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8037);
     /// Whether to compress punctuation at the beginning of line.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
     /// The default value is false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether compress punctuation at the beginning of line.
     ///
@@ -6103,14 +6091,14 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8040);
     /// Determines whether the layout adds extra padding at the top and bottom to make space for characters.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Enable include the font padding, true means enable this feature, false means disable.
     /// The default value is false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether include the font padding.
     ///
@@ -6123,14 +6111,14 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8041);
     /// Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: Whether enable the feature, true means enable this feature, false means disable.
     /// The default value is false.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: Whether fallback line spacing.
     ///
@@ -6144,15 +6132,15 @@ impl ArkUI_NodeAttributeType {
     /// Writing direction of the text.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: writing direction of the text. The value is an enum of [`ArkUI_TextDirection`].
+    /// .value[0].i32: writing direction of the text. The value is an enum of [`ArkUI_TextDirection`](crate::native_type::ArkUI_TextDirection).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: writing direction the text. The value is an enum of [`ArkUI_TextDirection`].
+    /// .value[0].i32: writing direction the text. The value is an enum of [`ArkUI_TextDirection`](crate::native_type::ArkUI_TextDirection).
     ///
     ///
     ///
@@ -6162,17 +6150,17 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_TEXT_AREA_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(8044);
     /// Used to set the selected drag preview style.
     ///
-    /// Format of the [`Arkui_AttributeItem`] parameter for setting the attribute:
+    /// Format of the `Arkui_AttributeItem` parameter for setting the attribute:
     ///
     /// .object: selected drag preview style configuration.
-    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    /// The parameter type is `Arkui_SelectedDragPreviewStyle`.
     ///
     ///
     ///
-    /// Format of the return value [`Arkui_AttributeItem`]:
+    /// Format of the return value `Arkui_AttributeItem`:
     ///
     /// .object: selected drag preview style configuration.
-    /// The parameter type is [`Arkui_SelectedDragPreviewStyle`].
+    /// The parameter type is `Arkui_SelectedDragPreviewStyle`.
     ///
     ///
     ///
@@ -6183,38 +6171,38 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(8045);
     /// Defines the button text content. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: default text content.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: default text content.
     pub const NODE_BUTTON_LABEL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(9000);
     /// Sets the button type. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: button type. The parameter type is [`ArkUI_ButtonType`].
+    /// .value[0].i32: button type. The parameter type is [`ArkUI_ButtonType`](crate::native_type::ArkUI_ButtonType).
     /// The default value is <b>ARKUI_BUTTON_TYPE_CAPSULE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: button type. The parameter type is [`ArkUI_ButtonType`].
+    /// .value[0].i32: button type. The parameter type is [`ArkUI_ButtonType`](crate::native_type::ArkUI_ButtonType).
     /// The default value is <b>ARKUI_BUTTON_TYPE_CAPSULE</b>.
     pub const NODE_BUTTON_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(9001);
     /// Defines the minimum font scale attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: minimum font scale, in fp.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: minimum font scale, in fp.
     ///
@@ -6225,12 +6213,12 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_BUTTON_MIN_FONT_SCALE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(9002);
     /// Defines the maximum font scale attribute, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: maximum font scale, in fp.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: maximum font scale, in fp.
     ///
@@ -6242,69 +6230,69 @@ impl ArkUI_NodeAttributeType {
     /// Defines the current value of the progress indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: current value of the progress indicator.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: current value of the progress indicator.
     pub const NODE_PROGRESS_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10000);
     /// Defines the total value of the progress indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: total value of the progress indicator.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: total value of the progress indicator.
     pub const NODE_PROGRESS_TOTAL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10001);
     /// Defines the color for the progress value on the progress indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color value, in 0xARGB format. For example, 0xFFFF0000 indicates red.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color value, in 0xARGB format.
     pub const NODE_PROGRESS_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10002);
     /// Defines the type of the progress indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: type of the progress indicator [`ArkUI_ProgressType`].
+    /// .value[0].i32: type of the progress indicator [`ArkUI_ProgressType`](crate::native_type::ArkUI_ProgressType).
     /// The default value is <b>ARKUI_PROGRESS_TYPE_LINEAR</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: type of the progress indicator [`ArkUI_ProgressType`].
+    /// .value[0].i32: type of the progress indicator [`ArkUI_ProgressType`](crate::native_type::ArkUI_ProgressType).
     pub const NODE_PROGRESS_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(10003);
     /// Sets the style of the linear progress indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     /// If the progress indicator type is not linear, it will not take effect.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: Use the [`ArkUI_ProgressLinearStyleOption`] object to set the style.
+    /// .object: Use the [`ArkUI_ProgressLinearStyleOption`](crate::native_type::ArkUI_ProgressLinearStyleOption) object to set the style.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: Use the [`ArkUI_ProgressLinearStyleOption`] object to get the style.
+    /// .object: Use the [`ArkUI_ProgressLinearStyleOption`](crate::native_type::ArkUI_ProgressLinearStyleOption) object to get the style.
     ///
     ///
     ///
@@ -6315,40 +6303,40 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether the check box is selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the check box is selected.
     /// The value <b>1</b> means that the check box is selected, and <b>0</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The value <b>1</b> means that the check box is selected, and <b>0</b> means the opposite.
     pub const NODE_CHECKBOX_SELECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11000);
     /// Defines the color of the check box when it is selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color of the check box when it is selected, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color of the check box when it is selected, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     pub const NODE_CHECKBOX_SELECT_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11001);
     /// Defines the border color of the check box when it is not selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: border color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: border color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     pub const NODE_CHECKBOX_UNSELECT_COLOR: ArkUI_NodeAttributeType =
@@ -6356,7 +6344,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the internal icon style of the check box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: border color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
@@ -6366,7 +6354,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: border color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
@@ -6377,26 +6365,26 @@ impl ArkUI_NodeAttributeType {
     /// Defines the shape of the check box.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: component shape. The parameter type is [`ArkUI_CheckboxShape`].
+    /// .value[0].i32: component shape. The parameter type is [`ArkUI_CheckboxShape`](crate::native_type::ArkUI_CheckboxShape).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: component shape. The parameter type is [`ArkUI_CheckboxShape`].
+    /// .value[0].i32: component shape. The parameter type is [`ArkUI_CheckboxShape`](crate::native_type::ArkUI_CheckboxShape).
     pub const NODE_CHECKBOX_SHAPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(11004);
     /// Defines the name of the checkbox.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: component name.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: component name.
     ///
@@ -6409,13 +6397,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the name of the checkbox.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: component name.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: component name.
     ///
@@ -6428,31 +6416,31 @@ impl ArkUI_NodeAttributeType {
     /// Defines the ID of the <b><XComponent></b> component.
     /// This attribute can be set and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: component ID.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: component ID.
     pub const NODE_XCOMPONENT_ID: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12000);
     /// Specifies the type of the <b>XComponent</b> component. This attribute is read-only.
     ///
-    /// The type of the <b>XComponent</b> component must be explicitly set during creation using [`ARKUI_NODE_XCOMPONENT`] or [`ARKUI_NODE_XCOMPONENT_TEXTURE`], and cannot be modified afterward.
+    /// The type of the <b>XComponent</b> component must be explicitly set during creation using [`ARKUI_NODE_XCOMPONENT`](crate::native_node::ArkUI_NodeType::ARKUI_NODE_XCOMPONENT) or [`ARKUI_NODE_XCOMPONENT_TEXTURE`](crate::native_node::ArkUI_NodeType::ARKUI_NODE_XCOMPONENT_TEXTURE), and cannot be modified afterward.
     ///
-    /// Attempting to change the type through [`setAttribute`] will cause rendering exceptions.
+    /// Attempting to change the type through `setAttribute` will cause rendering exceptions.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: type [`ArkUI_XComponentType`].
+    /// .value[0].i32: type [`ArkUI_XComponentType`](crate::native_type::ArkUI_XComponentType).
     pub const NODE_XCOMPONENT_TYPE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(12001);
     /// Specifies the size of the <b>XComponent</b> component. This attribute is read-only.
     ///
-    /// Attempting to modify the size through [`setAttribute`] will have no effect.
+    /// Attempting to modify the size through `setAttribute` will have no effect.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: width, in px.
     ///
@@ -6462,7 +6450,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the rectangle information of surface created by the <b><XComponent></b> component.
     /// This attribute can be set and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The horizontal offset of the surface relative to XComponent, in pixels.
     ///
@@ -6474,9 +6462,9 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The horizontal offset of the surface relative to XComponent, in pixels.
     ///
@@ -6495,12 +6483,12 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to enable the AI analyzer for the <b><XComponent></b> component.
     /// This attribute can be set and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// value[0].i32: The parameter type is 1 or 0.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: The parameter type is 1 or 0.
     ///
@@ -6512,59 +6500,59 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to display the lunar calendar in the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to display the lunar calendar in the date picker. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to display the lunar calendar in the date picker.
     pub const NODE_DATE_PICKER_LUNAR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13000);
     /// Defines the start date of the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: date. The default value is <b>"1970-1-1"</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: date.
     pub const NODE_DATE_PICKER_START: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13001);
     /// Defines the end date of the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: date. The default value is <b>"2100-12-31"</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: date.
     pub const NODE_DATE_PICKER_END: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13002);
     /// Defines the selected date of the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: date. The default value is <b>"2024-01-22"</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: date.
     pub const NODE_DATE_PICKER_SELECTED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(13003);
     /// Defines the font color, font size, and font weight for the top and bottom items in the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6582,7 +6570,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6602,7 +6590,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight of all items except the top, bottom, and selected
     /// items in the date picker. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6620,7 +6608,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6639,7 +6627,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight of the selected item in the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6657,7 +6645,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6677,15 +6665,15 @@ impl ArkUI_NodeAttributeType {
     /// Defines the mode of the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// value[0].i32: the mode. The value is and enum of [`ArkUI_DatePickerMode`].
+    /// value[0].i32: the mode. The value is and enum of [`ArkUI_DatePickerMode`](crate::native_type::ArkUI_DatePickerMode).
     /// .
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// value[0].i32: the mode. The value is and enum of [`ArkUI_DatePickerMode`].
+    /// value[0].i32: the mode. The value is and enum of [`ArkUI_DatePickerMode`](crate::native_type::ArkUI_DatePickerMode).
     /// .
     ///
     ///
@@ -6696,14 +6684,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether haptic feedback.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to feedback. The value <b>true</b> means to feedback, and
     /// <b>false</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: whether to feedback.
     ///
@@ -6717,14 +6705,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to support scroll looping for the date picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to support scroll looping. The value <b>true</b> means to support scroll looping, and
     /// <b>false</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: The value <b>1</b> means to support scroll looping, and <b>0</b> means the opposite.
     ///
@@ -6737,26 +6725,26 @@ impl ArkUI_NodeAttributeType {
     /// Defines the time of the selected item. in the timer picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: time. The default value is the current system time.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: time.
     pub const NODE_TIME_PICKER_SELECTED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(14000);
     /// Defines whether the display time is in 24-hour format.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the display time is in 24-hour format. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the display time is in 24-hour format.
     pub const NODE_TIME_PICKER_USE_MILITARY_TIME: ArkUI_NodeAttributeType =
@@ -6764,7 +6752,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight for the top and bottom items in the time picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6782,7 +6770,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6802,7 +6790,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight of all items except the top, bottom, and selected items
     /// in the time picker. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6820,7 +6808,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6839,7 +6827,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight of the selected item in the time picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6857,7 +6845,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -6877,13 +6865,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the start time of the time picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: time. The default value is <b>"00:00:00"</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: time. The default value is <b>"00:00:00"</b>.
     ///
@@ -6896,13 +6884,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the end time of the time picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: time. The default value is <b>"23:59:59"</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: time. The default value is <b>"23:59:59"</b>.
     ///
@@ -6915,13 +6903,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable cascade. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable cascade.
     ///
@@ -6935,9 +6923,9 @@ impl ArkUI_NodeAttributeType {
     /// Defines the data selection range of the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: type of the text picker [`ArkUI_TextPickerRangeType`].
+    /// .value[0].i32: type of the text picker [`ArkUI_TextPickerRangeType`](crate::native_type::ArkUI_TextPickerRangeType).
     /// The default value is <b>ARKUI_TEXTPICKER_RANGETYPE_SINGLE</b>.
     ///
     /// ?.string: string input, whose format varies by picker type.
@@ -6949,15 +6937,15 @@ impl ArkUI_NodeAttributeType {
     ///
     /// ?.object: Object input, whose format varies by picker type.
     ///
-    /// 1: single-column picker with image support. The input structure is [`ARKUI_TextPickerRangeContent`].
+    /// 1: single-column picker with image support. The input structure is [`ARKUI_TextPickerRangeContent`](crate::native_type::ARKUI_TextPickerRangeContent).
     ///
-    /// 2: multi-column interconnected picker. The input structure is [`ARKUI_TextPickerCascadeRangeContent`].
+    /// 2: multi-column interconnected picker. The input structure is [`ARKUI_TextPickerCascadeRangeContent`](crate::native_type::ARKUI_TextPickerCascadeRangeContent).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: type of the text picker [`ArkUI_TextPickerRangeType`].
+    /// .value[0].i32: type of the text picker [`ArkUI_TextPickerRangeType`](crate::native_type::ArkUI_TextPickerRangeType).
     ///
     /// ?.string: string output, whose format varies by picker type.
     ///
@@ -6968,21 +6956,21 @@ impl ArkUI_NodeAttributeType {
     ///
     /// ?.string: Object output, whose format varies by picker type.
     ///
-    /// 1: single-column picker with image support. The output structure is [`ARKUI_TextPickerRangeContent`].
+    /// 1: single-column picker with image support. The output structure is [`ARKUI_TextPickerRangeContent`](crate::native_type::ARKUI_TextPickerRangeContent).
     ///
-    /// 2: multi-column interconnected picker. The output structure is [`ARKUI_TextPickerCascadeRangeContent`].
+    /// 2: multi-column interconnected picker. The output structure is [`ARKUI_TextPickerCascadeRangeContent`](crate::native_type::ARKUI_TextPickerCascadeRangeContent).
     pub const NODE_TEXT_PICKER_OPTION_RANGE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(15000);
     /// Defines the index of the default selected item in the data selection range of the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: index. If there are multiple index values, add them one by one.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: index. If there are multiple index values, add them one by one.
     pub const NODE_TEXT_PICKER_OPTION_SELECTED: ArkUI_NodeAttributeType =
@@ -6990,14 +6978,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines the value of the default selected item in the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: value of the selected item. If there are multiple values, add them one by one and
     /// separate them with semicolons (;).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: value of the selected item. If there are multiple values, add them one by one and
     /// separate them with semicolons (;).
@@ -7006,7 +6994,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight for the top and bottom items in the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -7024,7 +7012,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -7044,7 +7032,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight for all items except the top, bottom, and selected
     /// items in the text picker. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -7062,7 +7050,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -7081,7 +7069,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the font color, font size, and font weight for the selected item in the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -7099,7 +7087,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: array of five parameters of the string type, separated by semicolons (;).
     ///
@@ -7119,7 +7107,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the index of the default selected item in the data selection range of the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0...].i32: index of the default item in the data selection range.
     pub const NODE_TEXT_PICKER_SELECTED_INDEX: ArkUI_NodeAttributeType =
@@ -7127,7 +7115,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to support scroll looping for the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to support scroll looping. The value <b>true</b> means to support scroll looping, and
     /// <b>false</b> means the opposite.
@@ -7135,20 +7123,20 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: The value <b>1</b> means to support scroll looping, and <b>0</b> means the opposite.
     pub const NODE_TEXT_PICKER_CAN_LOOP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(15007);
     /// Defines the height of each item in the picker. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: item height, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].f32: item height, in vp.
     pub const NODE_TEXT_PICKER_DEFAULT_PICKER_ITEM_HEIGHT: ArkUI_NodeAttributeType =
@@ -7156,14 +7144,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether haptic feedback.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to feedback. The value <b>true</b> means to feedback, and
     /// <b>false</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: whether to feedback.
     ///
@@ -7177,7 +7165,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the background color and border radius of the selected items.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: background color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
@@ -7193,7 +7181,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: background color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     /// *
@@ -7215,7 +7203,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the style of the background in the selected state of the calendar picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: style of the background in the selected state of the calendar picker.
     /// The value range is [0, +∞). If the value is <b>0</b>, the background is a rectangle with square corners.
@@ -7224,7 +7212,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: style of the background in the selected state of the calendar picker. The value range is [0, +∞).
     /// If the value is <b>0</b>, the background is a rectangle with square corners.
@@ -7235,7 +7223,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the date of the selected item in the calendar picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: year of the selected date.
     ///
@@ -7245,7 +7233,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: year of the selected date.
     ///
@@ -7257,9 +7245,9 @@ impl ArkUI_NodeAttributeType {
     /// Defines how the calendar picker is aligned with the entry component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: alignment mode. The parameter type is [`ArkUI_CalendarAlignment`].
+    /// .value[0].i32: alignment mode. The parameter type is [`ArkUI_CalendarAlignment`](crate::native_type::ArkUI_CalendarAlignment).
     ///
     /// .value[1]?.f32: offset of the picker relative to the entry component along the x-axis after alignment based on
     /// the specified alignment mode.
@@ -7269,9 +7257,9 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: alignment mode. The parameter type is [`ArkUI_CalendarAlignment`].
+    /// .value[0].i32: alignment mode. The parameter type is [`ArkUI_CalendarAlignment`](crate::native_type::ArkUI_CalendarAlignment).
     ///
     /// .value[1]?.f32: offset of the picker relative to the entry component along the x-axis after alignment based on
     /// the specified alignment mode.
@@ -7282,35 +7270,35 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(16002);
     /// Defines the font color, font size, and font weight in the entry area of the calendar picker.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0]?.u32: font color of the entry area.
     ///
     /// .value[1]?.f32: font size of the entry area, in fp.
     ///
-    /// .value[2]?.i32: font weight of the entry area. The parameter type is [`ArkUI_FontWeight`].
+    /// .value[2]?.i32: font weight of the entry area. The parameter type is [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: font color of the entry area.
     ///
     /// .value[1].f32: font size of the entry area, in fp.
     ///
-    /// .value[2].i32: font weight of the entry area. The parameter type is [`ArkUI_FontWeight`].
+    /// .value[2].i32: font weight of the entry area. The parameter type is [`ArkUI_FontWeight`](crate::native_type::ArkUI_FontWeight).
     pub const NODE_CALENDAR_PICKER_TEXT_STYLE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(16003);
     /// Defines the start date of the calendar picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: date. The value like <b>"1970-1-1"</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: date.
     ///
@@ -7323,13 +7311,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the end date of the calendar picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: date. The value like <b>"2100-12-31"</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: date.
     ///
@@ -7341,61 +7329,61 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_CALENDAR_PICKER_END: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(16005);
     /// Defines the color of the slider. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color of the slider, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color of the slider, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     pub const NODE_SLIDER_BLOCK_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17000);
     /// Defines the background color of the slider. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: background color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: background color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     pub const NODE_SLIDER_TRACK_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17001);
     /// Defines the color of the selected part of the slider track. This attribute can be set, reset, and obtained
     /// as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color of the selected part of the slider track, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color of the selected part of the slider track, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     pub const NODE_SLIDER_SELECTED_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17002);
     /// Sets whether to display the stepping value. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to display the stepping value. The value <b>1</b> means to display the stepping value,
     /// and <b>0</b> (default value) means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to display the stepping value. The value <b>1</b> means to display the stepping value,
     /// and <b>0</b> (default value) means the opposite.
     pub const NODE_SLIDER_SHOW_STEPS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17003);
     /// Defines the slider shape, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: shape. The parameter type is [`ArkUI_SliderBlockStyle`].
+    /// .value[0].i32: shape. The parameter type is [`ArkUI_SliderBlockStyle`](crate::native_type::ArkUI_SliderBlockStyle).
     ///
     /// .string?: depending on the shape. Optional.
     ///
@@ -7407,7 +7395,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 1. Rectangle:
     ///
-    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`].
+    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`](crate::native_type::ArkUI_ShapeType).
     /// The value is <b>ARKUI_SHAPE_TYPE_RECTANGLE</b> for the rectangle shape.
     ///
     /// .value[2].f32: width of the rectangle.
@@ -7420,7 +7408,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 2. Circle:
     ///
-    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`].
+    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`](crate::native_type::ArkUI_ShapeType).
     /// The value is <b>ARKUI_SHAPE_TYPE_CIRCLE</b> for the circle shape.
     ///
     /// .value[2].f32: width of the circle.
@@ -7429,7 +7417,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 3.Ellipse:
     ///
-    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`].
+    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`](crate::native_type::ArkUI_ShapeType).
     /// The value is <b>ARKUI_SHAPE_TYPE_ELLIPSE</b> for the ellipse shape.
     ///
     /// .value[2].f32: width of the ellipse.
@@ -7438,7 +7426,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 4. Path:
     ///
-    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`].
+    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`](crate::native_type::ArkUI_ShapeType).
     /// The value is <b>ARKUI_SHAPE_TYPE_PATH</b> for the path shape.
     ///
     /// .value[2].f32: width of the path.
@@ -7449,9 +7437,9 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: shape. The parameter type is [`ArkUI_SliderBlockStyle`].
+    /// .value[0].i32: shape. The parameter type is [`ArkUI_SliderBlockStyle`](crate::native_type::ArkUI_SliderBlockStyle).
     ///
     /// .string?: depending on the shape. Optional.
     ///
@@ -7463,7 +7451,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 1. Rectangle:
     ///
-    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`].
+    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`](crate::native_type::ArkUI_ShapeType).
     /// The value is <b>ARKUI_SHAPE_TYPE_RECTANGLE</b> for the rectangle shape.
     ///
     /// .value[2].f32: width of the rectangle.
@@ -7476,7 +7464,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 2. Circle:
     ///
-    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`].
+    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`](crate::native_type::ArkUI_ShapeType).
     /// The value is <b>ARKUI_SHAPE_TYPE_CIRCLE</b> for the circle shape.
     ///
     /// .value[2].f32: width of the circle.
@@ -7485,7 +7473,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 3.Ellipse:
     ///
-    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`].
+    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`](crate::native_type::ArkUI_ShapeType).
     /// The value is <b>ARKUI_SHAPE_TYPE_ELLIPSE</b> for the ellipse shape.
     ///
     /// .value[2].f32: width of the ellipse.
@@ -7494,7 +7482,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// 4. Path:
     ///
-    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`].
+    /// .value[1].i32: type of shape. The parameter type is [`ArkUI_ShapeType`](crate::native_type::ArkUI_ShapeType).
     /// The value is <b>ARKUI_SHAPE_TYPE_PATH</b> for the path shape.
     ///
     /// .value[2].f32: width of the path.
@@ -7506,79 +7494,79 @@ impl ArkUI_NodeAttributeType {
     /// Defines the current value of the slider. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: current value.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: current value.
     pub const NODE_SLIDER_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17005);
     /// Defines the minimum value of the slider. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: minimum value.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: minimum value.
     pub const NODE_SLIDER_MIN_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17006);
     /// Defines the maximum value of the slider. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: maximum value.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: maximum value.
     pub const NODE_SLIDER_MAX_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17007);
     /// Defines the step of the slider. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: step. The value range is [0.01, 100].
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: step. The value range is [0.01, 100].
     pub const NODE_SLIDER_STEP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17008);
     /// Defines whether the slider moves horizontally or vertically. This attribute can be set, reset, and
     /// obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the slider moves horizontally or vertically.
-    /// The parameter type is [`ArkUI_SliderDirection`].
+    /// The parameter type is [`ArkUI_SliderDirection`](crate::native_type::ArkUI_SliderDirection).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the slider moves horizontally or vertically.
     pub const NODE_SLIDER_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17009);
     /// Defines whether the slider values are reversed. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the slider values are reversed. The value <b>1</b> means that the slider values are
     /// reversed, and <b>0</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the slider values are reversed. The value <b>1</b> means that the slider values are
     /// reversed, and <b>0</b> means the opposite.
@@ -7586,20 +7574,20 @@ impl ArkUI_NodeAttributeType {
     /// Defines the style of the slider thumb and track. This attribute can be set, reset, and obtained
     /// as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: style of the slider thumb and track. The parameter type is [`ArkUI_SliderStyle`].
+    /// .value[0].i32: style of the slider thumb and track. The parameter type is [`ArkUI_SliderStyle`](crate::native_type::ArkUI_SliderStyle).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: style of the slider thumb and track. The parameter type is [`ArkUI_SliderStyle`].
+    /// .value[0].i32: style of the slider thumb and track. The parameter type is [`ArkUI_SliderStyle`](crate::native_type::ArkUI_SliderStyle).
     pub const NODE_SLIDER_STYLE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17011);
     /// Sets the track thickness of the slider.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: track thickness of the slider, in vp. The default value is 4.0 vp when <b>NODE_SLIDER_STYLE</b>
     /// is set to <b>ARKUI_SLIDER_STYLE_OUT_SET</b> and 20.0 vp when <b>NODE_SLIDER_STYLE</b> is set to
@@ -7607,21 +7595,21 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: track thickness of the slider, in vp.
     pub const NODE_SLIDER_TRACK_THICKNESS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17012);
     /// Defines whether haptic feedback.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to feedback. The value <b>true</b> means to feedback, and
     /// <b>false</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: whether to feedback.
     ///
@@ -7637,9 +7625,9 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(17013);
     /// Sets a custom component on the leading side of the Slider component.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter format:
     ///
-    /// .object: Parameter type [`ArkUI_NodeHandle`].
+    /// .object: Parameter type [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle).
     ///
     /// The prefix component will be placed at the start position of the Slider，
     /// typically on the left side in LTR layouts.
@@ -7651,9 +7639,9 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SLIDER_PREFIX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17014);
     /// Sets a custom component on the trailing side of the Slider component.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter format:
     ///
-    /// .object: Parameter type [`ArkUI_NodeHandle`].
+    /// .object: Parameter type [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle).
     ///
     /// The suffix component will be placed at the end position of the Slider,
     /// typically on the right side in LTR layouts.
@@ -7665,10 +7653,10 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SLIDER_SUFFIX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17015);
     /// Defines the color of the slider block. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .object: array of color stops, each of which consists of a color and its stop position.
-    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    /// The parameter type is [`ArkUI_ColorStop`](crate::native_type::ArkUI_ColorStop). Invalid colors are automatically skipped.
     ///
     ///
     /// colors: colors of the color stops.
@@ -7679,10 +7667,10 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .object: array of color stops, each of which consists of a color and its stop position.
-    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    /// The parameter type is [`ArkUI_ColorStop`](crate::native_type::ArkUI_ColorStop). Invalid colors are automatically skipped.
     ///
     ///
     /// colors: colors of the color stops.
@@ -7701,10 +7689,10 @@ impl ArkUI_NodeAttributeType {
     /// Defines the background color of the slider. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .object: array of color stops, each of which consists of a color and its stop position.
-    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    /// The parameter type is [`ArkUI_ColorStop`](crate::native_type::ArkUI_ColorStop). Invalid colors are automatically skipped.
     ///
     ///
     /// colors: colors of the color stops.
@@ -7715,10 +7703,10 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .object: array of color stops, each of which consists of a color and its stop position.
-    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    /// The parameter type is [`ArkUI_ColorStop`](crate::native_type::ArkUI_ColorStop). Invalid colors are automatically skipped.
     ///
     ///
     /// colors: colors of the color stops.
@@ -7737,10 +7725,10 @@ impl ArkUI_NodeAttributeType {
     /// Defines the color of the selected part of the slider track. This attribute can be set, reset, and obtained
     /// as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .object: array of color stops, each of which consists of a color and its stop position.
-    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    /// The parameter type is [`ArkUI_ColorStop`](crate::native_type::ArkUI_ColorStop). Invalid colors are automatically skipped.
     ///
     ///
     /// colors: colors of the color stops.
@@ -7751,10 +7739,10 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .object: array of color stops, each of which consists of a color and its stop position.
-    /// The parameter type is [`ArkUI_ColorStop`]. Invalid colors are automatically skipped.
+    /// The parameter type is [`ArkUI_ColorStop`](crate::native_type::ArkUI_ColorStop). Invalid colors are automatically skipped.
     ///
     ///
     /// colors: colors of the color stops.
@@ -7772,16 +7760,16 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(17018);
     /// Set the selection status of an option button. Attribute setting,
     /// attribute resetting, and attribute obtaining are supported.
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .value[0].i32: check status of an option button. The default value is false.
-    /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute obtaining method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].i32: selection status of an option button.
     pub const NODE_RADIO_CHECKED: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18000);
     /// Set the styles of the selected and deselected states of the option button.
     /// The attribute setting, attribute resetting, and attribute obtaining are supported.
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .value[0]?. u32: color of the mother board in enabled state.
     ///
@@ -7795,7 +7783,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// The type is 0xARGB, and the default value is 0xFFFFFFFF.
     ///
-    /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute obtaining method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0]. u32: color of the mother board in enabled state.
     ///
@@ -7812,69 +7800,69 @@ impl ArkUI_NodeAttributeType {
     /// Sets the value of the current radio.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .string: radio value.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: radio value.
     pub const NODE_RADIO_VALUE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18002);
     /// Set the group name of the current Radio group, only one radio of the same group can be selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .string: name of the group to which the current option box belongs.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: name of the group to which the current option box belongs.
     pub const NODE_RADIO_GROUP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(18003);
     /// Set the image frames for the image animator. Dynamic updates is not supported.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .size: number of the images.
     ///
-    /// .object: array of the images, the type is [`ArkUI_ImageAnimatorFrameInfo`] array.
+    /// .object: array of the images, the type is [`ArkUI_ImageAnimatorFrameInfo`](crate::native_type::ArkUI_ImageAnimatorFrameInfo) array.
     ///
     ///
     ///
-    /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute obtaining method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .size: number of the images.
     ///
-    /// .object: array of the images, the type is [`ArkUI_ImageAnimatorFrameInfo`] array.
+    /// .object: array of the images, the type is [`ArkUI_ImageAnimatorFrameInfo`](crate::native_type::ArkUI_ImageAnimatorFrameInfo) array.
     pub const NODE_IMAGE_ANIMATOR_IMAGES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19000);
     /// Set the playback status of the animation for the image animator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
-    /// .value[0].i32: the playback status of the animation, the type is [`ArkUI_AnimationStatus`],
+    /// .value[0].i32: the playback status of the animation, the type is [`ArkUI_AnimationStatus`](crate::native_type::ArkUI_AnimationStatus),
     /// and the default value is ARKUI_ANIMATION_STATUS_INITIAL.
     ///
-    /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute obtaining method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
-    /// .value[0].i32: the playback status of the animation, the type is [`ArkUI_AnimationStatus`].
+    /// .value[0].i32: the playback status of the animation, the type is [`ArkUI_AnimationStatus`](crate::native_type::ArkUI_AnimationStatus).
     pub const NODE_IMAGE_ANIMATOR_STATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(19001);
     /// Set the playback duration for the image animator. When the duration is 0, no image is played.
     /// The value change takes effect only at the beginning of the next cycle.
     /// When a separate duration is set in images, the setting of this attribute is invalid.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .value[0].i32: the playback duration, the unit is ms and the default value is 1000.
     ///
     ///
-    /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute obtaining method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].i32: the playback duration, the unit is ms.
     pub const NODE_IMAGE_ANIMATOR_DURATION: ArkUI_NodeAttributeType =
@@ -7882,13 +7870,13 @@ impl ArkUI_NodeAttributeType {
     /// Set the playback direction for the image animator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .value[0].i32: the playback direction. 0 indicates that images are played from the first one to the last one,
     /// and 1 indicates that images are played from the last one to the first one.
     ///
     ///
-    /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute obtaining method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].i32: the playback direction. 0 indicates that images are played from the first one to the last one,
     /// and 1 indicates that images are played from the last one to the first one.
@@ -7896,7 +7884,7 @@ impl ArkUI_NodeAttributeType {
     /// Set whether the image size is the same as the component size.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .value[0].i32: whether the image size is the same as the component size.
     /// 1 indicates the image size is the same as the component size.
@@ -7904,7 +7892,7 @@ impl ArkUI_NodeAttributeType {
     /// 0 indicates the image size is customized.
     /// The width, height, top, and left attributes of each image must be set separately.
     ///
-    /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute obtaining method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].i32: whether the image size is the same as the component size.
     /// 1 indicates the image size is the same as the component size.
@@ -7914,13 +7902,13 @@ impl ArkUI_NodeAttributeType {
     /// Set the status before and after execution of the animation in the current playback direction.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .value[0].i32: the status before and after execution of the animation in the current playback direction,
     /// the type is {ArkUI_AnimationFillMode} and the default value is ARKUI_ANIMATION_FILL_MODE_FORWARDS.
     ///
     ///
-    /// Attribute obtaining method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute obtaining method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].i32: the status before and after execution of the animation in the current playback direction,
     /// the type is {ArkUI_AnimationFillMode}.
@@ -7929,12 +7917,12 @@ impl ArkUI_NodeAttributeType {
     /// Set the number of times that the animation is played.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .value[0].i32: the number of times that the animation is played.
     ///
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] Parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Parameter format:
     ///
     /// .value[0].i32: the number of times that the animation is played.
     pub const NODE_IMAGE_ANIMATOR_ITERATION: ArkUI_NodeAttributeType =
@@ -7942,13 +7930,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the name of the checkboxgroup.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: component name.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: component name.
     ///
@@ -7961,14 +7949,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether the checkboxgroup is selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the checkboxgroup is selected.
     /// The value <b>1</b> means that the checkboxgroup is selected, and <b>0</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The value <b>1</b> means that the checkboxgroup is selected, and <b>0</b> means the opposite.
     ///
@@ -7982,14 +7970,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines the color of the checkboxgroup when it is selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color of the checkboxgroup when it is selected, in 0xARGB format,
     /// for example, <b>0xFF1122FF</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color of the checkboxgroup when it is selected, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
@@ -8002,13 +7990,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the border color of the checkboxgroup when it is not selected.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: border color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: border color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
@@ -8021,7 +8009,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the internal icon style of the checkboxgroup.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: border color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
@@ -8031,7 +8019,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: border color, in 0xARGB format, for example, <b>0xFF1122FF</b>.
     ///
@@ -8048,15 +8036,15 @@ impl ArkUI_NodeAttributeType {
     /// Defines the shape of the checkboxgroup.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: component shape. The parameter type is [`ArkUI_CheckboxShape`].
+    /// .value[0].i32: component shape. The parameter type is [`ArkUI_CheckboxShape`](crate::native_type::ArkUI_CheckboxShape).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: component shape. The parameter type is [`ArkUI_CheckboxShape`].
+    /// .value[0].i32: component shape. The parameter type is [`ArkUI_CheckboxShape`](crate::native_type::ArkUI_CheckboxShape).
     ///
     ///
     /// Available since API-level: 15
@@ -8066,111 +8054,111 @@ impl ArkUI_NodeAttributeType {
     /// Defines the alignment mode of the child components in the container. This attribute can be set, reset,
     /// and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`].
+    /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`](crate::native_type::ArkUI_Alignment).
     /// The default value is <b>ARKUI_ALIGNMENT_CENTER</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`].
+    /// .value[0].i32: alignment mode. The data type is [`ArkUI_Alignment`](crate::native_type::ArkUI_Alignment).
     pub const NODE_STACK_ALIGN_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1000000);
     /// Defines the scrollbar status. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: scrollbar status. The parameter type is [`ArkUI_ScrollBarDisplayMode`]. The default value is
+    /// .value[0].i32: scrollbar status. The parameter type is [`ArkUI_ScrollBarDisplayMode`](crate::native_type::ArkUI_ScrollBarDisplayMode). The default value is
     /// <b>ARKUI_SCROLL_BAR_DISPLAY_MODE_AUTO</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: scrollbar status. The parameter type is [`ArkUI_ScrollBarDisplayMode`].
+    /// .value[0].i32: scrollbar status. The parameter type is [`ArkUI_ScrollBarDisplayMode`](crate::native_type::ArkUI_ScrollBarDisplayMode).
     pub const NODE_SCROLL_BAR_DISPLAY_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1002000);
     /// Defines the width of the scrollbar. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: width of the scrollbar, in vp. The default value is <b>4</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: width of the scrollbar, in vp.
     pub const NODE_SCROLL_BAR_WIDTH: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002001);
     /// Defines the color of the scrollbar. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .data[0].u32: color of the scrollbar, in 0xARGB format.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .data[0].u32: color of the scrollbar, in 0xARGB format.
     pub const NODE_SCROLL_BAR_COLOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002002);
     /// Defines the scroll direction. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: scroll direction. The parameter type is [`ArkUI_ScrollDirection`].
+    /// .value[0].i32: scroll direction. The parameter type is [`ArkUI_ScrollDirection`](crate::native_type::ArkUI_ScrollDirection).
     /// The default value is <b>ARKUI_SCROLL_DIRECTION_VERTICAL</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: scroll direction. The parameter type is [`ArkUI_ScrollDirection`].
+    /// .value[0].i32: scroll direction. The parameter type is [`ArkUI_ScrollDirection`](crate::native_type::ArkUI_ScrollDirection).
     pub const NODE_SCROLL_SCROLL_DIRECTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1002003);
     /// Defines the effect used at the edges of the component when the boundary of the scrollable content is
     /// reached. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: effect used at the edges of the component when the boundary of the scrollable content is reached.
-    /// The parameter type is [`ArkUI_EdgeEffect`]. The default value is <b>ARKUI_EDGE_EFFECT_NONE</b>.
+    /// The parameter type is [`ArkUI_EdgeEffect`](crate::native_type::ArkUI_EdgeEffect). The default value is <b>ARKUI_EDGE_EFFECT_NONE</b>.
     ///
     /// .value[1]?.i32: whether to enable the scroll effect when the component content size is smaller than the
     /// component itself. Optional. The value <b>1</b> means to enable the scroll effect, and <b>0</b> means the
     /// opposite. The default value for the List/Grid/WaterFlow component is <b>0</b>, and the default value for the
     /// Scroll component is <b>1</b>.
     ///
-    /// .value[2]?.i32: direction in which the effect takes effect. The parameter type is [`ArkUI_EffectEdge`].
+    /// .value[2]?.i32: direction in which the effect takes effect. The parameter type is [`ArkUI_EffectEdge`](crate::native_type::ArkUI_EffectEdge).
     /// The default value is <b>ARKUI_EFFECT_EDGE_START | ARKUI_EFFECT_EDGE_END</b>. This parameter is supported since
     /// API version 16.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: effect used at the edges of the component when the boundary of the scrollable content is reached.
-    /// The parameter type is [`ArkUI_EdgeEffect`].
+    /// The parameter type is [`ArkUI_EdgeEffect`](crate::native_type::ArkUI_EdgeEffect).
     ///
     /// .value[1].i32: whether to enable the scroll effect when the component content size is smaller than the component
     /// itself. Optional. The value <b>1</b> means to enable the scroll effect, and <b>0</b> means the opposite.
     ///
     /// .value[2].i32: edge for which the effect takes effect when the boundary of the scrollable content is reached.
-    /// The parameter type is [`ArkUI_EffectEdge`]. This parameter is supported since API version 16.
+    /// The parameter type is [`ArkUI_EffectEdge`](crate::native_type::ArkUI_EffectEdge). This parameter is supported since API version 16.
     pub const NODE_SCROLL_EDGE_EFFECT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002004);
     /// Defines whether to support scroll gestures. When this attribute is set to <b>false</b>, scrolling by
     /// finger or mouse is not supported, but the scroll controller API is not affected.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to support scroll gestures. The default value is <b>true</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to support scroll gestures.
     pub const NODE_SCROLL_ENABLE_SCROLL_INTERACTION: ArkUI_NodeAttributeType =
@@ -8178,22 +8166,22 @@ impl ArkUI_NodeAttributeType {
     /// Defines the friction coefficient. It applies only to gestures in the scrolling area, and it affects only
     /// indirectly the scroll chaining during the inertial scrolling process.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: friction coefficient. The default value is <b>0.6</b> for non-wearable devices and <b>0.9</b>
     /// for wearable devices.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: friction coefficient.
     pub const NODE_SCROLL_FRICTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002006);
     /// Defines the scroll snapping mode. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: alignment mode for the scroll snap position. The parameter type is [`ArkUI_ScrollSnapAlign`].
+    /// .value[0].i32: alignment mode for the scroll snap position. The parameter type is [`ArkUI_ScrollSnapAlign`](crate::native_type::ArkUI_ScrollSnapAlign).
     /// The default value is <b>ARKUI_SCROLL_SNAP_ALIGN_NONE</b>.
     ///
     /// .value[1].i32: whether to enable the snap to start feature. When scroll snapping is defined for the
@@ -8211,9 +8199,9 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: alignment mode for the scroll snap position. The parameter type is [`ArkUI_ScrollSnapAlign`].
+    /// .value[0].i32: alignment mode for the scroll snap position. The parameter type is [`ArkUI_ScrollSnapAlign`](crate::native_type::ArkUI_ScrollSnapAlign).
     ///
     /// .value[1].i32: whether to enable the snap to start feature. When scroll snapping is defined for the
     /// <b><Scroll></b> component, setting this attribute to <b>false</b> enables the component to scroll between the
@@ -8229,28 +8217,28 @@ impl ArkUI_NodeAttributeType {
     /// Defines the nested scrolling options. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: nested scrolling option when the component scrolls forward.
-    /// The parameter type is [`ArkUI_ScrollNestedMode`].
+    /// The parameter type is [`ArkUI_ScrollNestedMode`](crate::native_type::ArkUI_ScrollNestedMode).
     ///
     /// .value[1].i32: nested scrolling option when the component scrolls backward.
-    /// The parameter type is [`ArkUI_ScrollNestedMode`].
+    /// The parameter type is [`ArkUI_ScrollNestedMode`](crate::native_type::ArkUI_ScrollNestedMode).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: nested scrolling option when the component scrolls forward.
-    /// The parameter type is [`ArkUI_ScrollNestedMode`].
+    /// The parameter type is [`ArkUI_ScrollNestedMode`](crate::native_type::ArkUI_ScrollNestedMode).
     ///
     /// .value[1].i32: nested scrolling option when the component scrolls backward.
-    /// The parameter type is [`ArkUI_ScrollNestedMode`].
+    /// The parameter type is [`ArkUI_ScrollNestedMode`](crate::native_type::ArkUI_ScrollNestedMode).
     pub const NODE_SCROLL_NESTED_SCROLL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002008);
     /// Defines the specified position to scroll to. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: horizontal scrolling offset, in vp.
     ///
@@ -8258,7 +8246,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// .value[2]?.i32: scrolling duration, in milliseconds. Optional.
     ///
-    /// .value[3]?.i32: scrolling curve. Optional. The parameter type is [`ArkUI_AnimationCurve`].
+    /// .value[3]?.i32: scrolling curve. Optional. The parameter type is [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     /// The default value is <b>ARKUI_CURVE_EASE</b>.
     ///
     /// .value[4]?.i32: whether to enable the default spring animation. Optional.
@@ -8272,7 +8260,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: horizontal scrolling offset, in vp.
     ///
@@ -8280,16 +8268,16 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SCROLL_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002009);
     /// Defines the edge position to scroll to. This attribute can be set and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: edge position to scroll to. The parameter type is [`ArkUI_ScrollEdge`].
+    /// .value[0].i32: edge position to scroll to. The parameter type is [`ArkUI_ScrollEdge`](crate::native_type::ArkUI_ScrollEdge).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the container at the edge position. The value <b>-1</b> means that the container is not
-    /// at the edge position. If the container is at the edge position, the parameter type is [`ArkUI_ScrollEdge`].
+    /// at the edge position. If the container is at the edge position, the parameter type is [`ArkUI_ScrollEdge`](crate::native_type::ArkUI_ScrollEdge).
     pub const NODE_SCROLL_EDGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002010);
     /// Defines whether to enable the swipe-to-turn-pages feature. This attribute can be set, reset, and obtained
     /// as required through APIs.
@@ -8299,19 +8287,19 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable the swipe-to-turn-pages feature. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable the swipe-to-turn-pages feature.
     pub const NODE_SCROLL_ENABLE_PAGING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002011);
     /// Scroll to the next or previous page.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32 Indicates whether to scroll to next page. Value 0 indicates scroll to next page and value 1
     /// indicates scroll to previous page.
@@ -8320,7 +8308,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SCROLL_PAGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002012);
     /// Scroll a specified distance.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32：Horizontal scrolling distance in vp;
     ///
@@ -8328,7 +8316,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SCROLL_BY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002013);
     /// Performs inertial scrolling based on the initial velocity passed in.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: Initial velocity of inertial scrolling. Unit: vp/s. If the value specified is 0, it is
     /// considered as invalid, and the scrolling for this instance will not take effect. If the value is positive,
@@ -8342,12 +8330,12 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SCROLL_FLING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002014);
     /// Sets the fading effect for the edges of scrollable components.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     /// .value[0].i32: whether to enable the fading effect on edges. The value 0 means to disable the fading effect,
     /// and 1 means to enable it.
     /// .value[1]?.f32: length of the fading effect on edges, in vp. Default value: 32.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     /// .value[0].i32: whether the fading effect on edges is enabled. The value 0 means that the fading effect is
     /// disabled, and 1 means that it is enabled.
     /// .value[1].f32: length of the fading effect on edges, in vp.
@@ -8359,7 +8347,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SCROLL_FADING_EDGE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002015);
     /// Obtains the total size of all child components when fully expanded in the scrollable component.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: total width of all child components when fully expanded in the scrollable component.
     /// The default unit is vp.
@@ -8379,13 +8367,13 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SCROLL_SIZE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002016);
     /// Sets the offset from the start of the scrollable components content.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: offset from the start of the content, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: offset from the start of the content, in vp.
     ///
@@ -8398,13 +8386,13 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1002017);
     /// Sets the offset from the end of the scrollable components content.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: offset from the end of the content, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: offset from the end of the content, in vp.
     ///
@@ -8418,13 +8406,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the maximum starting fling speed of the scrollable when the fling animation starts.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: maximum starting fling speed, Unit: vp/s
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: maximum starting fling speed, Unit: vp/s
     ///
@@ -8438,15 +8426,15 @@ impl ArkUI_NodeAttributeType {
     /// Defines the clip mode of the scrollable.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: clip content mode, The parameter type is [`ArkUI_ContentClipMode`].
+    /// .value[0].i32: clip content mode, The parameter type is [`ArkUI_ContentClipMode`](crate::native_type::ArkUI_ContentClipMode).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: clip content mode, The parameter type is [`ArkUI_ContentClipMode`].
+    /// .value[0].i32: clip content mode, The parameter type is [`ArkUI_ContentClipMode`](crate::native_type::ArkUI_ContentClipMode).
     ///
     ///
     ///
@@ -8457,14 +8445,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether the scrollable scrolls back to top when status bar is clicked.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the scrollable scrolls back to top when status bar is clicked.
     /// The value <b>1</b> means to scroll back to top, and <b>0</b> means the opposite. The default value is <b>0/b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the scrollable scrolls back to top when status bar is clicked.
     ///
@@ -8477,7 +8465,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the margin of the scrollbar.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: start margin of the scrollbar, in vp. The default value is <b>0</b>.
     ///
@@ -8485,7 +8473,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: start margin of the scrollbar, in vp.
     ///
@@ -8499,13 +8487,13 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SCROLL_BAR_MARGIN: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002022);
     /// Sets the maximum zoom scale for scrollable content.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: maximum zoom scale to set.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: current maximum zoom scale.
     ///
@@ -8518,13 +8506,13 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1002023);
     /// Sets the minimum zoom scale for scrollable content.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: minimum zoom scale to set.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: current minimum zoom scale.
     ///
@@ -8537,13 +8525,13 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1002024);
     /// Sets the zoom scale for scrollable content.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: zoom scale to set.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: current zoom scale.
     ///
@@ -8555,14 +8543,14 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SCROLL_ZOOM_SCALE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1002025);
     /// Sets whether to enable the zoom bounce effect when the scaling exceeds the limits.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable the zoom bounce effect when the scaling exceeds the limits.
     /// The value <b>1</b> means to enable the effect, and <b>0</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable the zoom bounce effect when the scaling exceeds the limits.
     /// The value <b>1</b> means to enable the effect, and <b>0</b> means the opposite.
@@ -8577,57 +8565,57 @@ impl ArkUI_NodeAttributeType {
     /// Sets the direction in which the list items are arranged.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: direction in which the list items are arranged. The parameter type is [`ArkUI_Axis`].
+    /// .value[0].i32: direction in which the list items are arranged. The parameter type is [`ArkUI_Axis`](crate::native_type::ArkUI_Axis).
     /// The default value is <b>ARKUI_AXIS_VERTICAL</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: direction in which the list items are arranged. The parameter type is [`ArkUI_Axis`].
+    /// .value[0].i32: direction in which the list items are arranged. The parameter type is [`ArkUI_Axis`](crate::native_type::ArkUI_Axis).
     pub const NODE_LIST_DIRECTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003000);
     /// Defines whether to pin the header to the top or the footer to the bottom in the <b><ListItemGroup></b>
     /// component. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to pin the header to the top or the footer to the bottom in the <b><ListItemGroup></b>
     /// component. It is used together with the <b><ListItemGroup></b> component. The parameter type is
-    /// [`ArkUI_StickyStyle`]. The default value is <b>ARKUI_STICKY_STYLE_NONE</b>.
+    /// [`ArkUI_StickyStyle`](crate::native_type::ArkUI_StickyStyle). The default value is <b>ARKUI_STICKY_STYLE_NONE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to pin the header to the top or the footer to the bottom in the <b><ListItemGroup></b>
     /// component. It is used together with the <b><ListItemGroup></b> component. The parameter type is
-    /// [`ArkUI_StickyStyle`].
+    /// [`ArkUI_StickyStyle`](crate::native_type::ArkUI_StickyStyle).
     pub const NODE_LIST_STICKY: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003001);
     /// Defines the spacing between list items. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: spacing between list items along the main axis. The default value is <b>0</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: spacing between list items along the main axis.
     pub const NODE_LIST_SPACE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003002);
     /// Defines the list adapter. The attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: [`ArkUI_NodeAdapter`] object as the adapter.
+    /// .object: [`ArkUI_NodeAdapter`](crate::native_node::ArkUI_NodeAdapter) object as the adapter.
     pub const NODE_LIST_NODE_ADAPTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003003);
     /// Sets the number of cached items in the list adapter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: number of cached items in the list adapter.
     ///
@@ -8637,7 +8625,7 @@ impl ArkUI_NodeAttributeType {
     /// .value[2]?.i32: maximum cache count. This parameter is supported since API version 22.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: number of cached items in the list adapter.
     ///
@@ -8653,7 +8641,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32：The index value of the target element to be slid to in the current container.
     ///
@@ -8661,7 +8649,7 @@ impl ArkUI_NodeAttributeType {
     /// 1 indicates an action and 0 indicates no action. Default value: 0。
     ///
     /// .value[2]?.i32：Specify the alignment of the sliding element with the current container,The parameter type is
-    /// [`ArkUI_ScrollAlignment`], default value is ARKUI_SCROLL_ALIGNMENT_START.
+    /// [`ArkUI_ScrollAlignment`](crate::native_type::ArkUI_ScrollAlignment), default value is ARKUI_SCROLL_ALIGNMENT_START.
     ///
     /// .value[3]?.f32: extra offset, in vp. The default value is <b>0</b>.
     /// This parameter is supported since API version 15.
@@ -8670,42 +8658,42 @@ impl ArkUI_NodeAttributeType {
     /// greater than the cross-axis width of list items multiplied by the value of lanes.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: alignment mode of list items along the cross axis.
-    /// The parameter type is [`ArkUI_ListItemAlignment`].
+    /// The parameter type is [`ArkUI_ListItemAlignment`](crate::native_type::ArkUI_ListItemAlignment).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: alignment mode of list items along the cross axis.
-    /// The parameter type is [`ArkUI_ListItemAlignment`].
+    /// The parameter type is [`ArkUI_ListItemAlignment`](crate::native_type::ArkUI_ListItemAlignment).
     pub const NODE_LIST_ALIGN_LIST_ITEM: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003006);
     /// Set the default spindle size for the List subcomponent.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: The parameter format is [`ArkUI-ListChildrenMainSize`]
+    /// .object: The parameter format is `ArkUI-ListChildrenMainSize`
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: The parameter format is [`ArkUI-ListChildrenMainSize`]
+    /// .object: The parameter format is `ArkUI-ListChildrenMainSize`
     pub const NODE_LIST_CHILDREN_MAIN_SIZE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1003007);
     /// Set the index value of the item displayed at the start of the viewport
     /// when the current List is first loaded.This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: index value of the item displayed at
     /// the start of the viewport when the current List is loaded for the first time. Default value: 0.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: index value of the item displayed at
     /// the start of the viewport when the current List is loaded for the first time. Default value: 0.
@@ -8713,7 +8701,7 @@ impl ArkUI_NodeAttributeType {
     /// sets the ListItem splitter style. By default, there is no splitter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method parameter [`ArkUI_AttributeItem`] Format:
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Format:
     ///
     /// .value[0].u32: divider color, type 0xargb;
     ///
@@ -8725,7 +8713,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Attribute fetch method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute fetch method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .value[0].u32: divider color, type 0xargb;
     ///
@@ -8742,7 +8730,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: index of the target list item group in the current list.
     ///
@@ -8753,7 +8741,7 @@ impl ArkUI_NodeAttributeType {
     /// The default value is <b>0</b>.
     ///
     /// .value[3]?.i32: how the item to scroll to is aligned with the container. The parameter type is
-    /// [`ArkUI_ScrollAlignment`]. The default value is <b>ARKUI_SCROLL_ALIGNMENT_START</b>.
+    /// [`ArkUI_ScrollAlignment`](crate::native_type::ArkUI_ScrollAlignment). The default value is <b>ARKUI_SCROLL_ALIGNMENT_START</b>.
     ///
     ///
     ///
@@ -8765,7 +8753,7 @@ impl ArkUI_NodeAttributeType {
     /// Sets the number of lanes in the list.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: number of lanes in the list. If the maximum and minimum lane widths are set, setting the number
     /// of lanes will not take effect.
@@ -8778,7 +8766,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: number of lanes in the list.
     ///
@@ -8797,16 +8785,16 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_LIST_LANES: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1003011);
     /// Sets the list snap alignment mode.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: alignment mode for the list snap position. The parameter type is [`ArkUI_ScrollSnapAlign`].
+    /// .value[0].i32: alignment mode for the list snap position. The parameter type is [`ArkUI_ScrollSnapAlign`](crate::native_type::ArkUI_ScrollSnapAlign).
     /// The default value is <b>ARKUI_SCROLL_SNAP_ALIGN_NONE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: alignment mode for the list snap position. The parameter type is [`ArkUI_ScrollSnapAlign`].
+    /// .value[0].i32: alignment mode for the list snap position. The parameter type is [`ArkUI_ScrollSnapAlign`](crate::native_type::ArkUI_ScrollSnapAlign).
     ///
     ///
     ///
@@ -8818,7 +8806,7 @@ impl ArkUI_NodeAttributeType {
     /// Sets whether to maintain the visible content's position when data is inserted or deleted outside the
     /// display area of the <b>List</b> component.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to maintain the visible content's position when data is inserted or deleted outside the
     /// display area of the <b>List</b> component. The value <b>0</b> means not to maintain the visible content's
@@ -8826,7 +8814,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to maintain the visible content's position when data is inserted or deleted outside the
     /// display area of the <b>List</b> component. The value <b>0</b> means not to maintain the visible content's
@@ -8841,14 +8829,14 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1003013);
     /// Sets whether the <b>List</b> component starts layout from the end.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the <b>List</b> component starts layout from the end. The value <b>0</b> means layout
     /// starts from the top, and <b>1</b> means layout starts from the end. The default value is <b>0</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the <b>List</b> component starts layout from the end. The value <b>0</b> means layout
     /// starts from the top, and <b>1</b> means layout starts from the end. The default value is <b>0</b>.
@@ -8862,17 +8850,17 @@ impl ArkUI_NodeAttributeType {
     /// Defines the focus wrap mode for the <b>List</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: focus wrap mode of the <b>List</b> component.
-    /// The parameter type is [`ArkUI_FocusWrapMode`].
+    /// The parameter type is [`ArkUI_FocusWrapMode`](crate::native_type::ArkUI_FocusWrapMode).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: focus wrap mode of the <b>List</b> component.
-    /// The parameter type is [`ArkUI_FocusWrapMode`].
+    /// The parameter type is [`ArkUI_FocusWrapMode`](crate::native_type::ArkUI_FocusWrapMode).
     ///
     ///
     ///
@@ -8883,14 +8871,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether the <b>List</b> component loads child nodes synchronously.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the <b>List</b> component synchronously loads child nodes.
     /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the <b>List</b> component synchronously loads child nodes.
     /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
@@ -8904,18 +8892,18 @@ impl ArkUI_NodeAttributeType {
     /// Defines the scroll snap animation speed for the <b>List</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: scroll snap animation speed for the <b>List</b> component.
-    /// The parameter type is [`ArkUI_ScrollSnapAnimationSpeed`].
+    /// The parameter type is [`ArkUI_ScrollSnapAnimationSpeed`](crate::native_type::ArkUI_ScrollSnapAnimationSpeed).
     /// Default value: <b>ARKUI_SCROLL_SNAP_ANIMATION_NORMAL</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: scroll snap animation speed for the <b>List</b> component.
-    /// The parameter type is [`ArkUI_ScrollSnapAnimationSpeed`].
+    /// The parameter type is [`ArkUI_ScrollSnapAnimationSpeed`](crate::native_type::ArkUI_ScrollSnapAnimationSpeed).
     ///
     ///
     ///
@@ -8927,19 +8915,19 @@ impl ArkUI_NodeAttributeType {
     /// Specifies the responsive column layout policy for the <b>List</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: number of columns at different breakpoint specifications.
-    /// The data type is [`ArkUI_ItemFillPolicy`].
+    /// The data type is [`ArkUI_ItemFillPolicy`](crate::native_type::ArkUI_ItemFillPolicy).
     ///
     /// .value[1]?.f32: column spacing. unit: vp. Default value: <b>0</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: number of columns at different breakpoint specifications.
-    /// The data type is [`ArkUI_ItemFillPolicy`].
+    /// The data type is [`ArkUI_ItemFillPolicy`](crate::native_type::ArkUI_ItemFillPolicy).
     ///
     /// .value[1].f32: column spacing. unit: vp.
     ///
@@ -8956,7 +8944,7 @@ impl ArkUI_NodeAttributeType {
     /// which may affect the overall layout and scrolling behavior. This is typically used in scenarios where the
     /// data source may have gaps or when maintaining specific layout positions is required.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to support empty branch rendering in lazy loading mode.
     /// <b>0</b>: Disable empty branch support. Empty branches will not be rendered. <b>1</b>: Enable empty branch support.
@@ -8964,7 +8952,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether empty branch rendering is enabled. <b>0</b>: Disabled. <b>1</b>: Enabled.
     ///
@@ -8978,14 +8966,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to enable loop playback for the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable loop playback. The value <b>1</b> means to enable loop playback, and <b>0</b>
     /// means the opposite. The default value is <b>1/b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable loop playback. The value <b>1</b> means to enable loop playback, and <b>0</b>
     /// means the opposite. The default value is <b>1</b>.
@@ -8993,7 +8981,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to enable automatic playback for child component switching in the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable automatic playback for child component switching. The value <b>1</b>
     /// means to enable automatic playback, and <b>0</b> means the opposite. The default value is <b>0</b>.
@@ -9006,7 +8994,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable automatic playback for child component switching. The value <b>1</b> means
     /// to enable automatic playback, and <b>0</b> means the opposite. The default value is <b>0</b>.
@@ -9017,14 +9005,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to enable the navigation point indicator for the swiper. This attribute can be set,
     /// reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable the navigation point indicator. The value <b>1</b> means to enable the
     /// navigation point indicator, and <b>0</b> means the opposite. The default value is <b>1</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable the navigation point indicator. The value <b>1</b> means to enable the
     /// navigation point indicator, and <b>0</b> means the opposite. The default value is <b>1</b>.
@@ -9033,27 +9021,27 @@ impl ArkUI_NodeAttributeType {
     /// Defines the interval for automatic playback. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: interval for automatic playback, in milliseconds.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: interval for automatic playback, in milliseconds.
     pub const NODE_SWIPER_INTERVAL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001003);
     /// Defines whether vertical swiping is used for the swiper. This attribute can be set, reset, and obtained
     /// as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether vertical swiping is used. The value <b>1</b> means that vertical swiping is used, and
     /// <b>0</b> means the opposite. The default value is <b>0</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether vertical swiping is used. The value <b>1</b> means that vertical swiping is used, and
     /// <b>0</b> means the opposite. The default value is <b>0</b>.
@@ -9061,14 +9049,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines the duration of the animation for switching child components. This attribute can be set, reset,
     /// and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: duration of the animation for switching child components, in milliseconds. The default value is
     /// <b>400</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: duration of the animation for switching child components, in milliseconds. The default value is
     /// <b>400</b>.
@@ -9076,39 +9064,39 @@ impl ArkUI_NodeAttributeType {
     /// Defines the animation curve for the swiper. This attribute can be set, reset, and obtained as required
     /// through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: animation curve. The parameter type is [`ArkUI_AnimationCurve`].
+    /// .value[0].i32: animation curve. The parameter type is [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     /// The default value is <b>ARKUI_CURVE_LINEAR</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: animation curve. The parameter type is [`ArkUI_AnimationCurve`].
+    /// .value[0].i32: animation curve. The parameter type is [`ArkUI_AnimationCurve`](crate::native_type::ArkUI_AnimationCurve).
     /// The default value is <b>ARKUI_CURVE_LINEAR</b>.
     pub const NODE_SWIPER_CURVE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001006);
     /// Defines the spacing between child components in the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: spacing between child components.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: spacing between child components.
     pub const NODE_SWIPER_ITEM_SPACE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001007);
     /// Defines the index of the child component currently displayed in the swiper.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: index value of the child component.
     ///
-    /// .value[1]?.i32: animation mode, the parameter type is [`ArkUI_SwiperAnimationMode`].
+    /// .value[1]?.i32: animation mode, the parameter type is [`ArkUI_SwiperAnimationMode`](crate::native_type::ArkUI_SwiperAnimationMode).
     ///
     /// The default value is ARKUI_SWIPER_NO_ANIMATION. This parameter is valid only for the current call.
     ///
@@ -9116,14 +9104,14 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: index value of the child component.
     pub const NODE_SWIPER_INDEX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001008);
     /// Defines the number of elements to display per page.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: number of elements to display per page.
     ///
@@ -9135,7 +9123,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: number of elements to display per page.
     ///
@@ -9146,14 +9134,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to disable the swipe feature.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to disable the swipe feature. The value <b>1</b> means to disable
     /// the swipe feature, and <b>0</b> means the opposite. The default value is <b>0</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to disable the swipe feature. The value <b>1</b> means to disable the swipe
     /// feature, and <b>0</b> means the opposite. The default value is <b>0</b>.
@@ -9161,27 +9149,27 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to show the arrow when the mouse pointer hovers over the navigation point indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to show the arrow when the mouse pointer hovers over the navigation point indicator.
-    /// The parameter type is [`ArkUI_SwiperArrow`].
+    /// The parameter type is [`ArkUI_SwiperArrow`](crate::native_type::ArkUI_SwiperArrow).
     ///
     /// The default value is <b>ARKUI_SWIPER_ARROW_HIDE</b>.
     ///
-    /// .?object: arrow style. The parameter type is [`ArkUI_SwiperArrowStyle`].
+    /// .?object: arrow style. The parameter type is [`ArkUI_SwiperArrowStyle`](crate::native_type::ArkUI_SwiperArrowStyle).
     ///
     /// This parameter is supported since API version 19.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to show the arrow when the mouse pointer hovers over the navigation point indicator.
-    /// The parameter type is [`ArkUI_SwiperArrow`].
+    /// The parameter type is [`ArkUI_SwiperArrow`](crate::native_type::ArkUI_SwiperArrow).
     ///
     /// The default value is <b>ARKUI_SWIPER_ARROW_HIDE</b>.
     ///
-    /// .object: arrow style. The parameter type is [`ArkUI_SwiperArrowStyle`].
+    /// .object: arrow style. The parameter type is [`ArkUI_SwiperArrowStyle`](crate::native_type::ArkUI_SwiperArrowStyle).
     ///
     /// This parameter is supported since API version 19.
     pub const NODE_SWIPER_SHOW_DISPLAY_ARROW: ArkUI_NodeAttributeType =
@@ -9189,31 +9177,31 @@ impl ArkUI_NodeAttributeType {
     /// Defines the effect used at the edges of the swiper when the boundary of the scrollable content is reached.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: effect used at the edges of the swiper when the boundary of the scrollable content is reached.
-    /// The parameter type is [`ArkUI_EdgeEffect`].
+    /// The parameter type is [`ArkUI_EdgeEffect`](crate::native_type::ArkUI_EdgeEffect).
     ///
     /// The default value is <b>ARKUI_EDGE_EFFECT_SPRING</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: effect used at the edges of the swiper when the boundary of the scrollable content is reached.
-    /// The parameter type is [`ArkUI_EdgeEffect`].
+    /// The parameter type is [`ArkUI_EdgeEffect`](crate::native_type::ArkUI_EdgeEffect).
     pub const NODE_SWIPER_EDGE_EFFECT_MODE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001012);
     /// Defines the swiper adapter. The attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: [`ArkUI_NodeAdapter`] object as the adapter.
+    /// .object: [`ArkUI_NodeAdapter`](crate::native_node::ArkUI_NodeAdapter) object as the adapter.
     pub const NODE_SWIPER_NODE_ADAPTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001013);
     /// Sets the number of cached items in the swiper adapter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: number of cached items in the swiper adapter.
     ///
@@ -9227,7 +9215,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: number of cached items in the swiper adapter.
     ///
@@ -9236,14 +9224,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines the front margin of the wiper.
     /// The attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: the front margin. The unit is vp. The default value is <b>0.0</b>
     ///
     /// .value[1]?.i32: whether to ignore blanks, the default value is 0.
     /// The value <b>1</b> means to ignore blank areas, and <b>0</b> means the opposite.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: the front margin, the unit is vp.
     ///
@@ -9253,14 +9241,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines the back margin of the wiper.
     /// The attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: the back margin. The unit is vp. The default value is <b>0.0</b>
     ///
     /// .value[1]?.i32: whether to ignore blanks, the default value is 0.
     /// The value <b>1</b> means to ignore blank areas, and <b>0</b> means the opposite.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: the back margin, the unit is vp.
     ///
@@ -9270,49 +9258,49 @@ impl ArkUI_NodeAttributeType {
     /// Defines the navigation indicator type of the swiper.
     /// The attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: navigation indicator type, the parameter type is [`ArkUI_SwiperIndicatorType`].
+    /// .value[0].i32: navigation indicator type, the parameter type is [`ArkUI_SwiperIndicatorType`](crate::native_type::ArkUI_SwiperIndicatorType).
     ///
-    /// .object: The parameter type is [`ArkUI_SwiperIndicator`] when the indicator type
+    /// .object: The parameter type is [`ArkUI_SwiperIndicator`](crate::native_type::ArkUI_SwiperIndicator) when the indicator type
     ///
-    /// is <b>ARKUI_SWIPER_INDICATOR_TYPE_DOT</b>. The parameter type is [`ArkUI_SwiperDigitIndicator`]
+    /// is <b>ARKUI_SWIPER_INDICATOR_TYPE_DOT</b>. The parameter type is [`ArkUI_SwiperDigitIndicator`](crate::native_type::ArkUI_SwiperDigitIndicator)
     /// when the indicator type is <b>ARKUI_SWIPER_INDICATOR_TYPE_DIGIT</b>.
     ///
-    /// [`ArkUI_SwiperDigitIndicator`] is supported since API version 19.
+    /// [`ArkUI_SwiperDigitIndicator`](crate::native_type::ArkUI_SwiperDigitIndicator) is supported since API version 19.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: navigation indicator type, the parameter type is [`ArkUI_SwiperIndicatorType`].
+    /// .value[0].i32: navigation indicator type, the parameter type is [`ArkUI_SwiperIndicatorType`](crate::native_type::ArkUI_SwiperIndicatorType).
     ///
-    /// .object: The parameter type is [`ArkUI_SwiperIndicator`] when the indicator type
+    /// .object: The parameter type is [`ArkUI_SwiperIndicator`](crate::native_type::ArkUI_SwiperIndicator) when the indicator type
     ///
-    /// is <b>ARKUI_SWIPER_INDICATOR_TYPE_DOT</b>. The parameter type is [`ArkUI_SwiperDigitIndicator`]
+    /// is <b>ARKUI_SWIPER_INDICATOR_TYPE_DOT</b>. The parameter type is [`ArkUI_SwiperDigitIndicator`](crate::native_type::ArkUI_SwiperDigitIndicator)
     /// when the indicator type is <b>ARKUI_SWIPER_INDICATOR_TYPE_DIGIT</b>.
     ///
-    /// [`ArkUI_SwiperDigitIndicator`] is supported since API version 19.
+    /// [`ArkUI_SwiperDigitIndicator`](crate::native_type::ArkUI_SwiperDigitIndicator) is supported since API version 19.
     pub const NODE_SWIPER_INDICATOR: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001017);
     /// Set the nested scrolling mode for the Swiper component and parent component.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32：Nested scrolling patterns for Swiper components and parent components. The parameter type is
-    /// [`ArkUI_SwiperNestedScrollMode`]
+    /// [`ArkUI_SwiperNestedScrollMode`](crate::native_type::ArkUI_SwiperNestedScrollMode)
     ///
     /// The default value is <b>ARKUI_SWIPER_NESTED_SRCOLL_SELF_ONLY<b>
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32：Nested scrolling patterns for Swiper components and parent components. The parameter type is
-    /// [`ArkUI_SwiperNestedScrollMode`]
+    /// [`ArkUI_SwiperNestedScrollMode`](crate::native_type::ArkUI_SwiperNestedScrollMode)
     pub const NODE_SWIPER_NESTED_SCROLL: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1001018);
     /// Set the switcher component to flip to the specified page.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32：Specify the index value of the page in Swiper.
     ///
@@ -9322,25 +9310,25 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1001019);
     /// Set to disable component navigation point interaction function。
     ///
-    /// Property setting method parameter [`ArkUI-AttributeItem`] format:
+    /// Property setting method parameter `ArkUI-AttributeItem` format:
     ///
     /// .value[0].i32：Set to disable the interaction function of component navigation points. When set to true, it
     /// indicates that the navigation points are interactive. The default value is true.
     ///
-    /// The return value of the attribute acquisition method is in the format of [`ArkUI-AttributeItem`]：
+    /// The return value of the attribute acquisition method is in the format of `ArkUI-AttributeItem`：
     ///
     /// .value[0].i32：Set to disable component navigation point interaction.
     pub const NODE_SWIPER_INDICATOR_INTERACTIVE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1001020);
     /// Sets the page flipping mode using the mouse wheel.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: page flipping mode using the mouse wheel. The parameter type is [`ArkUI_PageFlipMode`].
+    /// .value[0].i32: page flipping mode using the mouse wheel. The parameter type is [`ArkUI_PageFlipMode`](crate::native_type::ArkUI_PageFlipMode).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_PageFlipMode`]:
+    /// Format of the return value [`ArkUI_PageFlipMode`](crate::native_type::ArkUI_PageFlipMode):
     ///
     /// .value[0].i32: page flipping mode using the mouse wheel.
     ///
@@ -9354,7 +9342,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the minimum main axis size of child element for swiper to works out the display count.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: minimum main axis size of the child element, Unit: vp.
     ///
@@ -9363,7 +9351,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: minimum main axis size of the child element, Unit: vp.
     ///
@@ -9378,7 +9366,7 @@ impl ArkUI_NodeAttributeType {
     /// Sets whether to maintain the visible content's position when data is inserted or deleted outside
     /// the display area of the <b>Swiper</b> component.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to maintain the visible content's position when data is inserted or deleted outside
     /// the display area of the <b>Swiper</b> component. The value <b>0</b> means not to maintain the visible content's
@@ -9386,7 +9374,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to maintain the visible content's position when data is inserted or deleted outside
     /// the display area of the <b>Swiper</b> component. The value <b>0</b> means not to maintain the visible content's
@@ -9402,20 +9390,20 @@ impl ArkUI_NodeAttributeType {
     /// Specifies the responsive column layout policy for the <b>Swiper</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: number of columns at different breakpoint specifications.
-    /// The data type is [`ArkUI_ItemFillPolicy`].
+    /// The data type is [`ArkUI_ItemFillPolicy`](crate::native_type::ArkUI_ItemFillPolicy).
     ///
     /// .value[1]?.i32: whether to paginate by group. The value <b>0</b> means to paginate by individual child elements,
     /// and <b>1</b> means to paginate by groups of child elements displayed within the viewport.
     /// The default value is <b>0</b>.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: number of columns at different breakpoint specifications.
-    /// The data type is [`ArkUI_ItemFillPolicy`].
+    /// The data type is [`ArkUI_ItemFillPolicy`](crate::native_type::ArkUI_ItemFillPolicy).
     ///
     /// .value[1].i32: whether to paginate by group.
     ///
@@ -9429,49 +9417,49 @@ impl ArkUI_NodeAttributeType {
     /// Set the delineation component of the ListItem, supporting property settings, property resets, and
     /// property acquisition interfaces.
     ///
-    /// Attribute setting method parameter [`ArkUI_AttributeItem`] format:
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
-    /// .object: Construct using the [`ArkUI_ListitemSwipeActionOption`] object.
+    /// .object: Construct using the `ArkUI_ListitemSwipeActionOption` object.
     ///
     ///
     ///
-    /// The return value of the attribute acquisition method [`ArkUI_AttributeItem`] format:
+    /// The return value of the attribute acquisition method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
-    /// .object: Construct using the [`ArkUI_ListitemSwipeActionOption`] object.
+    /// .object: Construct using the `ArkUI_ListitemSwipeActionOption` object.
     pub const NODE_LIST_ITEM_SWIPE_ACTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1004000);
     /// Defines the header of the list item group.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: [`ArkUI_NodeHandle`] object to be used as the header of the list item group.
+    /// .object: [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle) object to be used as the header of the list item group.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: [`ArkUI_NodeHandle`] object to be used as the header of the list item group.
+    /// .object: [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle) object to be used as the header of the list item group.
     pub const NODE_LIST_ITEM_GROUP_SET_HEADER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005000);
     /// Defines the footer of the list item group. This attribute can be set, reset, and obtained as
     /// required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: [`ArkUI_NodeHandle`] object to be used as the footer of the list item group.
+    /// .object: [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle) object to be used as the footer of the list item group.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: [`ArkUI_NodeHandle`] object to be used as the footer of the list item group.
+    /// .object: [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle) object to be used as the footer of the list item group.
     pub const NODE_LIST_ITEM_GROUP_SET_FOOTER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005001);
     /// Defines the style of the divider for the list items. This attribute can be set, reset, and obtained
     /// as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: color of the divider, in 0xARGB format.
     ///
@@ -9484,7 +9472,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: color of the divider, in 0xARGB format.
     ///
@@ -9497,29 +9485,29 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1005002);
     /// Set the default spindle size for the ListItem Group subcomponent.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: The parameter format is [`ArkUI-ListChildrenMainSize`]
+    /// .object: The parameter format is `ArkUI-ListChildrenMainSize`
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: The parameter format is [`ArkUI-ListChildrenMainSize`]
+    /// .object: The parameter format is `ArkUI-ListChildrenMainSize`
     pub const NODE_LIST_ITEM_GROUP_CHILDREN_MAIN_SIZE: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1005003);
     /// Defines the list item group adapter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: [`ArkUI_NodeAdapter`] object as the adapter.
+    /// .object: [`ArkUI_NodeAdapter`](crate::native_node::ArkUI_NodeAdapter) object as the adapter.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: [`ArkUI_NodeAdapter`] object.
+    /// .object: [`ArkUI_NodeAdapter`](crate::native_node::ArkUI_NodeAdapter) object.
     ///
     ///
     ///
@@ -9531,45 +9519,45 @@ impl ArkUI_NodeAttributeType {
     /// Defines the horizontal alignment mode of child components in the column.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: horizontal alignment mode of child components.
-    /// The parameter type is [`ArkUI_HorizontalAlignment`].
+    /// The parameter type is [`ArkUI_HorizontalAlignment`](crate::native_type::ArkUI_HorizontalAlignment).
     ///
     /// Default value: <b>ARKUI_HORIZONTAL_ALIGNMENT_CENTER</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: horizontal alignment mode of child components.
-    /// The parameter type is [`ArkUI_HorizontalAlignment`].
+    /// The parameter type is [`ArkUI_HorizontalAlignment`](crate::native_type::ArkUI_HorizontalAlignment).
     pub const NODE_COLUMN_ALIGN_ITEMS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1006000);
     /// Defines the vertical alignment mode of child components in the column.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: vertical alignment mode of child components. The parameter type is [`ArkUI_FlexAlignment`].
+    /// .value[0].i32: vertical alignment mode of child components. The parameter type is [`ArkUI_FlexAlignment`](crate::native_type::ArkUI_FlexAlignment).
     ///
     /// Default value: <b>ARKUI_FLEX_ALIGNMENT_START</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: vertical alignment mode of child components. The parameter type is [`ArkUI_FlexAlignment`].
+    /// .value[0].i32: vertical alignment mode of child components. The parameter type is [`ArkUI_FlexAlignment`](crate::native_type::ArkUI_FlexAlignment).
     pub const NODE_COLUMN_JUSTIFY_CONTENT: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1006001);
     /// Defines Row constructor options or Column constructor options used for settting the spacing of child components, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: The space of child components, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: The space of child components, in vp.
     ///
@@ -9581,13 +9569,13 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_LINEAR_LAYOUT_SPACE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1006002);
     /// Defines whether the arrangement of child components along the main axis in a Column or Row is reversed, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The value that determines whether the arrangement of child components along the main axis is reversed.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The value that determines whether the arrangement of child components along the main axis is reversed.
     ///
@@ -9601,59 +9589,59 @@ impl ArkUI_NodeAttributeType {
     /// Defines the vertical alignment mode of child components in the row.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: vertical alignment mode of child components.
-    /// The parameter type is [`ArkUI_VerticalAlignment`].
+    /// The parameter type is [`ArkUI_VerticalAlignment`](crate::native_type::ArkUI_VerticalAlignment).
     ///
     /// Default value: <b>ARKUI_VERTICAL_ALIGNMENT_CENTER</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: vertical alignment mode of child components.
-    /// The parameter type is [`ArkUI_VerticalAlignment`].
+    /// The parameter type is [`ArkUI_VerticalAlignment`](crate::native_type::ArkUI_VerticalAlignment).
     pub const NODE_ROW_ALIGN_ITEMS: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1007000);
     /// Defines the horizontal alignment mode of child components in the row.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: horizontal alignment mode of child components.
-    /// The parameter type is [`ArkUI_FlexAlignment`].
+    /// The parameter type is [`ArkUI_FlexAlignment`](crate::native_type::ArkUI_FlexAlignment).
     ///
     /// Default value: <b>ARKUI_FLEX_ALIGNMENT_START</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: horizontal alignment mode of child components.
-    /// The parameter type is [`ArkUI_FlexAlignment`].
+    /// The parameter type is [`ArkUI_FlexAlignment`](crate::native_type::ArkUI_FlexAlignment).
     pub const NODE_ROW_JUSTIFY_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1007001);
     /// Defines the flex attribute. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0]?.i32: direction in which flex items are arranged. The parameter type is [`ArkUI_FlexDirection`].
+    /// .value[0]?.i32: direction in which flex items are arranged. The parameter type is [`ArkUI_FlexDirection`](crate::native_type::ArkUI_FlexDirection).
     /// The default value is <b>ARKUI_FLEX_DIRECTION_ROW</b>.
     ///
-    /// .value[1]?.i32: how the flex items are wrapped. The parameter type is [`ArkUI_FlexWrap`].
+    /// .value[1]?.i32: how the flex items are wrapped. The parameter type is [`ArkUI_FlexWrap`](crate::native_type::ArkUI_FlexWrap).
     /// The default value is <b>ARKUI_FLEX_WRAP_NO_WRAP</b>.
     ///
-    /// .value[2]?.i32: alignment mode along the main axis. The parameter type is [`ArkUI_FlexAlignment`].
+    /// .value[2]?.i32: alignment mode along the main axis. The parameter type is [`ArkUI_FlexAlignment`](crate::native_type::ArkUI_FlexAlignment).
     /// The default value is <b>ARKUI_FLEX_ALIGNMENT_START</b>.
     ///
-    /// .value[3]?.i32: alignment mode along the cross axis. The parameter type is [`ArkUI_ItemAlignment`].
+    /// .value[3]?.i32: alignment mode along the cross axis. The parameter type is [`ArkUI_ItemAlignment`](crate::native_type::ArkUI_ItemAlignment).
     /// The default value is <b>ARKUI_ITEM_ALIGNMENT_START</b>.
     ///
     /// .value[4]?.i32: alignment mode along the cross axis for multi-line content. The parameter type is
-    /// [`ArkUI_FlexAlignment`]. The default value is <b>ARKUI_FLEX_ALIGNMENT_START</b>.
+    /// [`ArkUI_FlexAlignment`](crate::native_type::ArkUI_FlexAlignment). The default value is <b>ARKUI_FLEX_ALIGNMENT_START</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: direction in which flex items are arranged.
     ///
@@ -9667,7 +9655,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_FLEX_OPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1008000);
     /// Defines Row constructor options used for settting the spacing of child components, which can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: Space on the main axis of the flex container., in vp.
     ///
@@ -9675,7 +9663,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: Space on the main axis of the flex container., in vp.
     ///
@@ -9690,31 +9678,31 @@ impl ArkUI_NodeAttributeType {
     /// Sets whether the component is being refreshed.
     /// This attribute can be set and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: The parameter type is 1 or 0.
     pub const NODE_REFRESH_REFRESHING: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1009000);
     /// Sets the custom content in the pull-down area.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: The parameter type is [`ArkUI_NodeHandle`].
+    /// .object: The parameter type is [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle).
     pub const NODE_REFRESH_CONTENT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1009001);
     /// Set the pull-down hand coefficient.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32：Pull-down hand coefficient, valid value between 0 and 1.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32：Pull-down hand coefficient, valid value between 0 and 1.
     pub const NODE_REFRESH_PULL_DOWN_RATIO: ArkUI_NodeAttributeType =
@@ -9722,25 +9710,25 @@ impl ArkUI_NodeAttributeType {
     /// Sets the pull-down offset that initiates a refresh.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: pull-down offset, in vp. The default value is <b>64vp</b>.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: pull-down offset, in vp. The default value is <b>64vp</b>.
     pub const NODE_REFRESH_OFFSET: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1009003);
     /// Sets whether to initiate a refresh when the pull-down distance exceeds the value of <b>refreshOffset</b>.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to initiate a refresh. The value <b>true</b> means to initiate a refresh, and
     /// <b>false</b> means the opposite.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to initiate a refresh. The value <b>1</b> means to initiate a refresh, and
     /// <b>0</b> means the opposite.
@@ -9749,12 +9737,12 @@ impl ArkUI_NodeAttributeType {
     /// Sets the maximum pull-down distance for refreshing.
     /// This attribute can be set, reset, and obtained through the API as required.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: maximum pull-down distance, in vp.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: maximum pull-down distance, in vp.
     ///
@@ -9767,13 +9755,13 @@ impl ArkUI_NodeAttributeType {
     /// Sets whether the pull-up gesture cancels refresh.
     /// This attribute can be set, reset, and obtained through the API as required.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the pull-up gesture cancels refresh. The value <b>1</b> means that the pull-up gesture
     /// cancels refresh, and <b>0</b> means the opposite. Default value: <b>1</b>.
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// * .value[0].i32: whether the pull-up gesture cancels refresh. The value <b>1</b> means that the pull-up gesture
     /// cancels refresh, and <b>0</b> means the opposite.
@@ -9787,14 +9775,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines the main axis direction of the <b><WaterFlow></b> component layout.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: main axis direction. The parameter type is [`ArkUI_FlexDirection`].
+    /// .value[0].i32: main axis direction. The parameter type is [`ArkUI_FlexDirection`](crate::native_type::ArkUI_FlexDirection).
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: main axis direction. The parameter type is [`ArkUI_FlexDirection`].
+    /// .value[0].i32: main axis direction. The parameter type is [`ArkUI_FlexDirection`](crate::native_type::ArkUI_FlexDirection).
     pub const NODE_WATER_FLOW_LAYOUT_DIRECTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010000);
     /// Sets the number of columns in the water flow layout. If this parameter is not set, one column is used
@@ -9806,13 +9794,13 @@ impl ArkUI_NodeAttributeType {
     /// <b>repeat</b> and <b>auto-fill</b> are keywords. The units for <b>track-size</b> can be px, vp (default), %,
     /// or a valid number.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: number of columns in the layout.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: number of columns in the layout.
     pub const NODE_WATER_FLOW_COLUMN_TEMPLATE: ArkUI_NodeAttributeType =
@@ -9826,13 +9814,13 @@ impl ArkUI_NodeAttributeType {
     /// <b>repeat</b> and <b>auto-fill</b> are keywords. The units for <b>track-size</b> can be px, vp (default), %,
     /// or a valid number.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: number of rows in the layout.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: number of rows in the layout.
     pub const NODE_WATER_FLOW_ROW_TEMPLATE: ArkUI_NodeAttributeType =
@@ -9840,13 +9828,13 @@ impl ArkUI_NodeAttributeType {
     /// Sets the gap between columns.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: gap between columns, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: gap between columns, in vp.
     pub const NODE_WATER_FLOW_COLUMN_GAP: ArkUI_NodeAttributeType =
@@ -9854,43 +9842,43 @@ impl ArkUI_NodeAttributeType {
     /// Sets the gap between rows.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: gap between lines, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: gap between lines, in vp.
     pub const NODE_WATER_FLOW_ROW_GAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1010004);
     /// Defines the water flow section configuration.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: An index calculated from 0 is converted to an integer,
     /// indicating that you want to start changing the position of the group.
-    /// .object: [`ArkUI_WaterFlowSectionOption`] object.
+    /// .object: [`ArkUI_WaterFlowSectionOption`](crate::native_type::ArkUI_WaterFlowSectionOption) object.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: [`ArkUI_WaterFlowSectionOption`] object.
+    /// .object: [`ArkUI_WaterFlowSectionOption`](crate::native_type::ArkUI_WaterFlowSectionOption) object.
     pub const NODE_WATER_FLOW_SECTION_OPTION: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010005);
     /// Defines the water flow adapter. The attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: [`ArkUI_NodeAdapter`] object as the adapter.
+    /// .object: [`ArkUI_NodeAdapter`](crate::native_node::ArkUI_NodeAdapter) object as the adapter.
     pub const NODE_WATER_FLOW_NODE_ADAPTER: ArkUI_NodeAttributeType =
         ArkUI_NodeAttributeType(1010006);
     /// Sets the number of cached items in the water flow adapter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// value[0].i32：number of cached items in the water flow adapter.
     ///
@@ -9899,7 +9887,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: number of cached items in the water flow adapter.
     ///
@@ -9909,9 +9897,9 @@ impl ArkUI_NodeAttributeType {
         ArkUI_NodeAttributeType(1010007);
     /// Set the custom display component at the end of the waterfall flow component.
     ///
-    /// Attribute setting method [`ArkUI_AttributeItem`] parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter format:
     ///
-    /// .object: Parameter type [`ArkUI_NodeHandle`].
+    /// .object: Parameter type [`ArkUI_NodeHandle`](ohos_sys_opaque_types::ArkUI_NodeHandle).
     pub const NODE_WATER_FLOW_FOOTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1010008);
     /// Scroll to the specified index.
     ///
@@ -9920,7 +9908,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The index value of the target element to be slid to in the current container.
     ///
@@ -9928,7 +9916,7 @@ impl ArkUI_NodeAttributeType {
     /// 1 indicates an action and 0 indicates no action. This parameter is optional, default value is 0.
     ///
     /// .value[2].i32: Specify the alignment of the sliding element with the current container, The parameter type is
-    /// [`ArkUI_ScrollAlignment`]. This parameter is optional, default value is </b>ARKUI_SCROLL_ALIGNMENT_START</b>.
+    /// [`ArkUI_ScrollAlignment`](crate::native_type::ArkUI_ScrollAlignment). This parameter is optional, default value is </b>ARKUI_SCROLL_ALIGNMENT_START</b>.
     ///
     /// .value[3].f32: Extra offset after scrolling to a specified index, in vp. This parameter is optional, the default
     /// value is <b>0</b>.
@@ -9940,7 +9928,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the size constraints to apply to water flow items.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: minimum width, in vp.
     ///
@@ -9952,7 +9940,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: minimum width, in vp.
     ///
@@ -9966,14 +9954,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines the layout mode of the <b><WaterFlow></b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: waterflow layout mode. The parameter type is [`ArkUI_WaterFlowLayoutMode`].
+    /// .value[0].i32: waterflow layout mode. The parameter type is [`ArkUI_WaterFlowLayoutMode`](crate::native_type::ArkUI_WaterFlowLayoutMode).
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: waterflow layout mode. The parameter type is [`ArkUI_WaterFlowLayoutMode`].
+    /// .value[0].i32: waterflow layout mode. The parameter type is [`ArkUI_WaterFlowLayoutMode`](crate::native_type::ArkUI_WaterFlowLayoutMode).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -9983,14 +9971,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether the <b>WaterFlow</b> component loads child nodes synchronously.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the <b>WaterFlow</b> component synchronously loads child nodes.
     /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the <b>WaterFlow</b> component synchronously loads child nodes.
     /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
@@ -10004,17 +9992,17 @@ impl ArkUI_NodeAttributeType {
     /// Specifies the responsive column layout policy for the <b>WaterFlow</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: number of columns at different breakpoint specifications.
-    /// The data type is [`ArkUI_ItemFillPolicy`].
+    /// The data type is [`ArkUI_ItemFillPolicy`](crate::native_type::ArkUI_ItemFillPolicy).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: number of columns at different breakpoint specifications.
-    /// The data type is [`ArkUI_ItemFillPolicy`].
+    /// The data type is [`ArkUI_ItemFillPolicy`](crate::native_type::ArkUI_ItemFillPolicy).
     ///
     ///
     ///
@@ -10026,13 +10014,13 @@ impl ArkUI_NodeAttributeType {
     /// Set the auxiliary line in the RelativeContaine container, supporting property setting,
     /// property reset and property acquisition interfaces.
     ///
-    /// Attribute setting method parameter [`ArkUI_AttributeItem`] format:
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .object: Auxiliary lines within the RelativeContaine container:
     ///
     ///
     ///
-    /// Attribute acquisition method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute acquisition method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .object: Auxiliary lines within the RelativeContaine container:
     pub const NODE_RELATIVE_CONTAINER_GUIDE_LINE: ArkUI_NodeAttributeType =
@@ -10040,13 +10028,13 @@ impl ArkUI_NodeAttributeType {
     /// Sets the barrier within the RelativeContaine container and supports property setting,
     /// property reset and property acquisition interfaces.
     ///
-    /// Attribute setting method parameter [`ArkUI_AttributeItem`] format:
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .object: Auxiliary lines within the RelativeContaine container:
     ///
     ///
     ///
-    /// Attribute acquisition method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute acquisition method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
     /// .object: Barrier within the RelativeContaine container:
     pub const NODE_RELATIVE_CONTAINER_BARRIER: ArkUI_NodeAttributeType =
@@ -10060,13 +10048,13 @@ impl ArkUI_NodeAttributeType {
     /// <b>repeat</b> and <b>auto-fill</b> are keywords. The units for <b>track-size</b> can be px, vp (default), %,
     /// or a valid number.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: number of columns in the layout.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: number of columns in the layout.
     pub const NODE_GRID_COLUMN_TEMPLATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013000);
@@ -10079,67 +10067,67 @@ impl ArkUI_NodeAttributeType {
     /// <b>repeat</b> and <b>auto-fill</b> are keywords. The units for <b>track-size</b> can be px, vp (default), %,
     /// or a valid number.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: number of rows in the layout.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: number of rows in the layout.
     pub const NODE_GRID_ROW_TEMPLATE: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013001);
     /// Sets the gap between columns. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: gap between columns, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: gap between columns, in vp.
     pub const NODE_GRID_COLUMN_GAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013002);
     /// Sets the gap between rows. This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: gap between lines, in vp.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].f32: gap between lines, in vp.
     pub const NODE_GRID_ROW_GAP: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013003);
     /// Defines the grid adapter. The attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: [`ArkUI_NodeAdapter`] object as the adapter.
+    /// .object: [`ArkUI_NodeAdapter`](crate::native_node::ArkUI_NodeAdapter) object as the adapter.
     pub const NODE_GRID_NODE_ADAPTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013004);
     /// Sets the number of cached items in the grid adapter.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: number of cached items in the grid adapter.
     pub const NODE_GRID_CACHED_COUNT: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013005);
     /// Defines the focus wrap mode for the <b>Grid</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: focus wrap mode of the <b>Grid</b> component.
-    /// The parameter type is [`ArkUI_FocusWrapMode`].
+    /// The parameter type is [`ArkUI_FocusWrapMode`](crate::native_type::ArkUI_FocusWrapMode).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: focus wrap mode of the <b>Grid</b> component.
-    /// The parameter type is [`ArkUI_FocusWrapMode`].
+    /// The parameter type is [`ArkUI_FocusWrapMode`](crate::native_type::ArkUI_FocusWrapMode).
     ///
     ///
     ///
@@ -10150,14 +10138,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether the <b>Grid</b> component loads child nodes synchronously.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the <b>Grid</b> component synchronously loads child nodes.
     /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the <b>Grid</b> component synchronously loads child nodes.
     /// The value <b>0</b> means loading by frames, and <b>1</b> means synchronous loading.
@@ -10171,21 +10159,21 @@ impl ArkUI_NodeAttributeType {
     /// Specifies the alignment of <b>GridItem</b> components in the parent <b>Grid</b> container.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: alignment of <b>GridItem</b> components in the parent <b>Grid</b> container,
     ///
-    /// specified using the [`ArkUI_GridItemAlignment`] enum.
+    /// specified using the [`ArkUI_GridItemAlignment`](crate::native_type::ArkUI_GridItemAlignment) enum.
     ///
     /// The default value is <b>GRID_ITEM_ALIGNMENT_DEFAULT</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: alignment of <b>GridItem</b> components in the parent <b>Grid</b> container,
     ///
-    /// specified using the [`ArkUI_GridItemAlignment`] enum.
+    /// specified using the [`ArkUI_GridItemAlignment`](crate::native_type::ArkUI_GridItemAlignment) enum.
     ///
     ///
     ///
@@ -10196,15 +10184,15 @@ impl ArkUI_NodeAttributeType {
     /// Specifies the layout options of the <b>Grid</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: layout options, with the parameter format of [`ArkUI_GridLayoutOptions`].
+    /// .object: layout options, with the parameter format of [`ArkUI_GridLayoutOptions`](crate::native_type::ArkUI_GridLayoutOptions).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .object: current [`ArkUI_GridLayoutOptions`] object.
+    /// .object: current [`ArkUI_GridLayoutOptions`](crate::native_type::ArkUI_GridLayoutOptions) object.
     ///
     ///
     ///
@@ -10215,17 +10203,17 @@ impl ArkUI_NodeAttributeType {
     /// Specifies the responsive column layout policy for the <b>Grid</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: number of columns at different breakpoint specifications.
-    /// The data type is [`ArkUI_ItemFillPolicy`].
+    /// The data type is [`ArkUI_ItemFillPolicy`](crate::native_type::ArkUI_ItemFillPolicy).
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: number of columns at different breakpoint specifications.
-    /// The data type is [`ArkUI_ItemFillPolicy`].
+    /// The data type is [`ArkUI_ItemFillPolicy`](crate::native_type::ArkUI_ItemFillPolicy).
     ///
     ///
     ///
@@ -10238,14 +10226,14 @@ impl ArkUI_NodeAttributeType {
     /// In edit mode, <b>GridItem</b> components can be dragged through the <b>NODE_GRID_ON_ITEM_DRAG_START</b> event.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable edit mode for the <b>Grid</b> component.
     /// </b>: Disable edit mode. <b>1</b>: Enable edit mode. Default value: <b>0</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable edit mode for the <b>Grid</b> component.
     /// <b>0</b>: Disable edit mode. <b>1</b>: Enable edit mode.
@@ -10262,14 +10250,14 @@ impl ArkUI_NodeAttributeType {
     /// <b>NODE_GRID_COLUMN_TEMPLATE</b> is set, but not both). Drag animations are only supported in regularly sized
     /// grid layouts; scenarios involving spanning across rows or columns are not supported.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable the drag animation for <b>GridItem</b> components in the <b>Grid</b> container.
     /// <b>0</b>: Disable the drag animation. <b>1</b>: Enable the drag animation. Default value: <b>0</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether to enable the drag animation for <b>GridItem</b> components in the <b>Grid</b> container.
     /// <b>0</b>: Disable the drag animation. <b>1</b>: Enable the drag animation.
@@ -10284,13 +10272,13 @@ impl ArkUI_NodeAttributeType {
     /// be set, reset, and obtained as required through APIs. When enabled, mouse-based multi-selection within the
     /// <b>Grid</b> area triggers the <b>NODE_GRID_ITEM_EVENT_ON_SELECT</b> event on <b>GridItem</b> components.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to enable mouse-based multi-selection.
     /// <b>0</b>: Disable mouse-based multi-selection. <b>1</b>: Enable mouse-based multi-selection. Default value:
     /// <b>0</b>.
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     /// .value[0].i32: whether to enable
     /// mouse-based multi-selection. <b>0</b>: Disable mouse-based multi-selection. <b>1</b>: Enable mouse-based
     /// multi-selection.
@@ -10309,7 +10297,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: The index value of the target element to be slid to in the current container.
     ///
@@ -10317,7 +10305,7 @@ impl ArkUI_NodeAttributeType {
     /// 1 indicates an animation and 0 indicates no animation. This parameter is optional. default value is 0.
     ///
     /// .value[2].i32: Specify the alignment of the target element with the current container. The parameter type is
-    /// [`ArkUI_ScrollAlignment`]. This parameter is optional, default value is </b>ARKUI_SCROLL_ALIGNMENT_AUTO</b>.
+    /// [`ArkUI_ScrollAlignment`](crate::native_type::ArkUI_ScrollAlignment). This parameter is optional, default value is </b>ARKUI_SCROLL_ALIGNMENT_AUTO</b>.
     ///
     /// .value[3].f32: Extra offset after scrolling to a specified index, in vp. This parameter is optional, the default
     /// value is <b>0</b>.
@@ -10336,7 +10324,7 @@ impl ArkUI_NodeAttributeType {
     /// which may affect the overall layout and scrolling behavior. This is typically used in scenarios where the
     /// data source may have gaps or when maintaining specific layout positions is required.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to support empty branch rendering in lazy loading mode.
     /// <b>0</b>: Disable empty branch support. Empty branches will not be rendered. <b>1</b>: Enable empty branch support.
@@ -10344,7 +10332,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether empty branch rendering is enabled. <b>0</b>: Disabled. <b>1</b>: Enabled.
     ///
@@ -10358,17 +10346,17 @@ impl ArkUI_NodeAttributeType {
     /// Sets the style of the <b>GridItem</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .value[0].i32: style of the <b>GridItem</b> component, specified using [`ArkUI_SliderStyle`].
+    /// .value[0].i32: style of the <b>GridItem</b> component, specified using [`ArkUI_SliderStyle`](crate::native_type::ArkUI_SliderStyle).
     ///
     /// The default value is <b>GRID_ITEM_STYLE_NONE</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
-    /// .value[0].i32: style of the <b>GridItem</b> component, specified using [`ArkUI_SliderStyle`].
+    /// .value[0].i32: style of the <b>GridItem</b> component, specified using [`ArkUI_SliderStyle`](crate::native_type::ArkUI_SliderStyle).
     ///
     ///
     ///
@@ -10379,14 +10367,14 @@ impl ArkUI_NodeAttributeType {
     /// Specifies whether the <b>GridItem</b> component can be selected using mouse-based multi-selection.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether the <b>GridItem</b> component can be selected using mouse-based multi-selection.
     /// <b>0</b>: not selectable. <b>1</b>: selectable. Default value: <b>1</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: whether the <b>GridItem</b> component can be selected using mouse-based multi-selection.
     /// <b>0</b>: not selectable. <b>1</b>: selectable.
@@ -10400,14 +10388,14 @@ impl ArkUI_NodeAttributeType {
     /// Sets the selected state of the <b>GridItem</b> component.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: selected state of the <b>GridItem</b> component.
     /// <b>0</b>: not selected. <b>1</b>: selected. Default value: <b>0</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].i32: selected state of the <b>GridItem</b> component. <b>0</b>: not selected. <b>1</b>: selected.
     ///
@@ -10420,7 +10408,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the column width of the text picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].f32: percentage of total width. The default value is that all colulmns are equal width.
     ///
@@ -10434,7 +10422,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].f32: percentage of total width.
     ///
@@ -10456,7 +10444,7 @@ impl ArkUI_NodeAttributeType {
     /// Defines the disabled date range of the calendar picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .string: A string of dates. The `1st start date`,`1st end date`,`2nd start date`,`2nd end date`,
     /// ...,`nth start date`,`nth end date` of the disabled date range.
@@ -10465,7 +10453,7 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .string: A string of dates.
     ///
@@ -10479,13 +10467,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether the calendar picker marks today.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// value[0].i32: whether the calendar picker marks today. The default value is <b>false</b>.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: whether the calendar picker marks today.
     ///
@@ -10499,9 +10487,9 @@ impl ArkUI_NodeAttributeType {
     /// Defines the want used to start EmbeddedAbility.
     /// This attribute can be set as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: The want of EmbeddedComponent, with parameter type [`AbilityBase_Want`].
+    /// .object: The want of EmbeddedComponent, with parameter type [`AbilityBase_Want`](crate::native_type::AbilityBase_Want).
     /// The default value is <b>nullptr</b>.
     ///
     ///
@@ -10514,9 +10502,9 @@ impl ArkUI_NodeAttributeType {
     /// Set onError and onTerminated callbacks for EMBEDDED_COMPONENT.
     /// This attribute can be set as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
-    /// .object: The option for EmbeddedComponent, with parameter type [`ArkUI_EmbeddedComponentOption`].
+    /// .object: The option for EmbeddedComponent, with parameter type [`ArkUI_EmbeddedComponentOption`](crate::native_type::ArkUI_EmbeddedComponentOption).
     ///
     ///
     ///
@@ -10528,13 +10516,13 @@ impl ArkUI_NodeAttributeType {
     /// Defines the index of the default selected item in the data selection range of the picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].u32: index.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// .value[0].u32: index.
     ///
@@ -10548,14 +10536,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether haptic feedback.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to feedback. The value <b>true</b> means to feedback, and
     /// <b>false</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: whether to feedback.
     ///
@@ -10569,14 +10557,14 @@ impl ArkUI_NodeAttributeType {
     /// Defines whether to support scroll looping for the picker.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Format of the [`ArkUI_AttributeItem`] parameter for setting the attribute:
+    /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter for setting the attribute:
     ///
     /// .value[0].i32: whether to support scroll looping. The value <b>true</b> means to support scroll looping, and
     /// <b>false</b> means the opposite.
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]:
+    /// Format of the return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem):
     ///
     /// value[0].i32: The value <b>1</b> means to support scroll looping, and <b>0</b> means the opposite.
     ///
@@ -10589,14 +10577,14 @@ impl ArkUI_NodeAttributeType {
     /// Sets the type and parameters of the selection indicator.
     /// This attribute can be set, reset, and obtained as required through APIs.
     ///
-    /// Attribute setting method parameter [`ArkUI_AttributeItem`] Format:
+    /// Attribute setting method parameter [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) Format:
     ///
-    /// .object: Parameter type [`ArkUI_PickerIndicatorStyle`].
+    /// .object: Parameter type [`ArkUI_PickerIndicatorStyle`](crate::native_type::ArkUI_PickerIndicatorStyle).
     ///
     ///
-    /// Attribute fetch method return value [`ArkUI_AttributeItem`] format:
+    /// Attribute fetch method return value [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) format:
     ///
-    /// .object: Parameter type [`ArkUI_PickerIndicatorStyle`].
+    /// .object: Parameter type [`ArkUI_PickerIndicatorStyle`](crate::native_type::ArkUI_PickerIndicatorStyle).
     ///
     ///
     /// Available since API-level: 23
@@ -10658,35 +10646,35 @@ pub struct ArkUI_TextChangeEvent {
 impl ArkUI_NodeEventType {
     /// Defines the gesture event type.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is [`ArkUI_UIInputEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent).
     pub const NODE_TOUCH_EVENT: ArkUI_NodeEventType = ArkUI_NodeEventType(0);
     /// Defines the mount event.
     ///
     /// This event is triggered when the component is mounted and displayed.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     pub const NODE_EVENT_ON_APPEAR: ArkUI_NodeEventType = ArkUI_NodeEventType(1);
     /// Defines the unmount event.
     ///
     /// This event is triggered when the component is unmounted and hidden.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     pub const NODE_EVENT_ON_DISAPPEAR: ArkUI_NodeEventType = ArkUI_NodeEventType(2);
     /// Defines the area change event.
     ///
     /// This event is triggered when the component's size, position, or any other attribute that may
     /// affect its display area changes.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains 12 parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains 12 parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: original width of the target element, in vp.
     /// The value type is number.
@@ -10726,28 +10714,28 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is triggered when the component obtains the focus.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     pub const NODE_ON_FOCUS: ArkUI_NodeEventType = ArkUI_NodeEventType(4);
     /// Defines the blur event.
     ///
     /// This event is triggered when the component loses the focus.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     pub const NODE_ON_BLUR: ArkUI_NodeEventType = ArkUI_NodeEventType(5);
     /// Defines the click event.
     ///
     /// This event is triggered when the component is clicked.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains 12 parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains 12 parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: X coordinate of the click relative to the upper left corner of the
     /// clicked component's original area, in vp.
@@ -10777,8 +10765,8 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is triggered when the component is touched.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_UIInputEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent).
     pub const NODE_ON_TOUCH_INTERCEPT: ArkUI_NodeEventType = ArkUI_NodeEventType(7);
     /// Defines the visible area change event.
     ///
@@ -10786,10 +10774,10 @@ impl ArkUI_NodeEventType {
     /// than the threshold.
     /// Before registering this event, you must set <b>NODE_VISIBLE_AREA_CHANGE_RATIO</b>.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: how the ratio of the component's visible area to its total area
     /// changes compared to the previous one. The value <b>1</b> indicates an increase, and <b>0</b> indicates a
@@ -10802,10 +10790,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: whether the mouse pointer is hovered over the component.
     /// The value <b>1</b> indicates that the mouse pointer is hovered over the component, and <b>0</b> indicates that
@@ -10816,101 +10804,101 @@ impl ArkUI_NodeEventType {
     /// This event is triggered when the component is clicked by a mouse device button or when the mouse pointer moves
     /// within the component.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_UIInputEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent).
     pub const NODE_ON_MOUSE: ArkUI_NodeEventType = ArkUI_NodeEventType(10);
     /// Defines the attach event.
     ///
     /// This event is triggered when the component is attached.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     pub const NODE_EVENT_ON_ATTACH: ArkUI_NodeEventType = ArkUI_NodeEventType(11);
     /// Defines the detach event.
     ///
     /// This event is triggered when the component is detached.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     pub const NODE_EVENT_ON_DETACH: ArkUI_NodeEventType = ArkUI_NodeEventType(12);
     /// Defines the accessibility action event.
     ///
     /// This event is triggered when The accessibility operation type has been set and
     /// corresponding operations have been carried out.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].u32</b>: accessibility action type，the union type is
-    /// [`ArkUI_AccessibilityActionType`]
+    /// [`ArkUI_AccessibilityActionType`](crate::native_type::ArkUI_AccessibilityActionType)
     pub const NODE_ON_ACCESSIBILITY_ACTIONS: ArkUI_NodeEventType = ArkUI_NodeEventType(13);
     /// Notifies the listener of the interaction state prior to a drop and drop operation.
     ///
     /// This event is triggered when a drag operation is about to start on a draggable item.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
-    /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: corresponds to [`ArkUI_PreDragStatus`].
+    /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: corresponds to [`ArkUI_PreDragStatus`](crate::drag_and_drop::ArkUI_PreDragStatus).
     pub const NODE_ON_PRE_DRAG: ArkUI_NodeEventType = ArkUI_NodeEventType(14);
     /// Called when the user starts to drag an ite
     ///
     /// A drag operation is recognized only when the dragged item is moved far enough.
     ///
-    /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
-    /// [`ArkUI_NodeEvent`] object.
+    /// When the event callback occurs, the [`ArkUI_DragEvent`](crate::drag_and_drop::ArkUI_DragEvent) object can be obtained from the
+    /// [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object.
     pub const NODE_ON_DRAG_START: ArkUI_NodeEventType = ArkUI_NodeEventType(15);
     /// Called when a dragged item enters the boundaries of the current component.
     ///
     /// The current component refers to the component that listens for this event.
     ///
-    /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
-    /// [`ArkUI_NodeEvent`] object.
+    /// When the event callback occurs, the [`ArkUI_DragEvent`](crate::drag_and_drop::ArkUI_DragEvent) object can be obtained from the
+    /// [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object.
     pub const NODE_ON_DRAG_ENTER: ArkUI_NodeEventType = ArkUI_NodeEventType(16);
     /// Called when a dragged item moves in the current component.
     ///
     /// The current component refers to the component that listens for this event.
     ///
-    /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
-    /// [`ArkUI_NodeEvent`] object.
+    /// When the event callback occurs, the [`ArkUI_DragEvent`](crate::drag_and_drop::ArkUI_DragEvent) object can be obtained from the
+    /// [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object.
     pub const NODE_ON_DRAG_MOVE: ArkUI_NodeEventType = ArkUI_NodeEventType(17);
     /// Called when a dragged item leaves the boundaries of the current component.
     ///
     /// The current component refers to the component that listens for this event.
     ///
-    /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
-    /// [`ArkUI_NodeEvent`] object.
+    /// When the event callback occurs, the [`ArkUI_DragEvent`](crate::drag_and_drop::ArkUI_DragEvent) object can be obtained from the
+    /// [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object.
     pub const NODE_ON_DRAG_LEAVE: ArkUI_NodeEventType = ArkUI_NodeEventType(18);
     /// Called when a dragged item is dropped on the current component.
     /// The component can obtain the drag data for processing through the callback.
     ///
     /// The current component refers to the component that listens for this event.
     ///
-    /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
-    /// [`ArkUI_NodeEvent`] object.
+    /// When the event callback occurs, the [`ArkUI_DragEvent`](crate::drag_and_drop::ArkUI_DragEvent) object can be obtained from the
+    /// [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object.
     pub const NODE_ON_DROP: ArkUI_NodeEventType = ArkUI_NodeEventType(19);
     /// Called when a drag operation ends.
     /// The drag source can obtain the drag result by registering this callback.
     ///
     /// A drag operation ends when the dragged item is released.
-    /// When the event callback occurs, the [`ArkUI_DragEvent`] object can be obtained from the
-    /// [`ArkUI_NodeEvent`] object.
+    /// When the event callback occurs, the [`ArkUI_DragEvent`](crate::drag_and_drop::ArkUI_DragEvent) object can be obtained from the
+    /// [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object.
     pub const NODE_ON_DRAG_END: ArkUI_NodeEventType = ArkUI_NodeEventType(20);
     /// Defines the event triggered when a key event occurs.
     ///
     /// The callback can be triggered during interactions with a focused window using an external keyboard or other input
     /// device.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
     ///
     ///
@@ -10926,8 +10914,8 @@ impl ArkUI_NodeEventType {
     /// The callback can be triggered during interactions with a focused window using an external keyboard or other input
     /// device.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
     ///
     ///
@@ -10939,8 +10927,8 @@ impl ArkUI_NodeEventType {
     ///
     /// The event callback is triggered by interactions with a joystick and a focused component.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_UIInputEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent).
     ///
     ///
     ///
@@ -10953,8 +10941,8 @@ impl ArkUI_NodeEventType {
     /// When the component node receives a key event, this callback will be triggered instead of dispatching event to its
     /// children.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
     ///
     ///
@@ -10964,8 +10952,8 @@ impl ArkUI_NodeEventType {
     pub const NODE_DISPATCH_KEY_EVENT: ArkUI_NodeEventType = ArkUI_NodeEventType(24);
     /// Defines the event triggered when the bound component receives an axis event.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_UIInputEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent).
     ///
     ///
     ///
@@ -10975,8 +10963,8 @@ impl ArkUI_NodeEventType {
     pub const NODE_ON_AXIS: ArkUI_NodeEventType = ArkUI_NodeEventType(25);
     /// Defines the event triggered when the bound component is clicked.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_UIInputEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent).
     ///
     ///
     ///
@@ -10988,8 +10976,8 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is triggered when the mouse pointer enters or leaves the component's bounding box.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_UIInputEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent).
     ///
     ///
     ///
@@ -11003,10 +10991,10 @@ impl ArkUI_NodeEventType {
     /// less than the threshold. Before registering the callback, you must configure the threshold and update interval
     /// using <b>NODE_VISIBLE_AREA_APPROXIMATE_CHANGE_RATIO</b>.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: how the ratio of the component's visible area to its total area
     /// changes compared to the previous one. The value <b>1</b> indicates an increase, and <b>0</b> indicates
@@ -11027,8 +11015,8 @@ impl ArkUI_NodeEventType {
     /// The event is triggered when the pointer is hovered by a pen device.
     /// within the component.
     ///
-    /// When the event callback occurs, the [`ArkUI_NodeEvent`] object can be obtained from the
-    /// [`ArkUI_UIInputEvent`] object.
+    /// When the event callback occurs, the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object can be obtained from the
+    /// [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent) object.
     ///
     ///
     /// Available since API-level: 15
@@ -11038,9 +11026,9 @@ impl ArkUI_NodeEventType {
     /// Defines the size change event.
     ///
     /// The event will be triggered when the component size changes.
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
-    /// [`ArkUI_NodeComponentEvent`] contains four parameters:
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains four parameters:
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: the width of the old rectangle.
     /// <b>ArkUI_NodeComponentEvent.data[1].f32</b>: the height of the old rectangle.
     /// <b>ArkUI_NodeComponentEvent.data[2].f32</b>: the width of the new rectangle.
@@ -11057,10 +11045,10 @@ impl ArkUI_NodeEventType {
     /// decay curve. You can listen for such events to handle the flick effect immediately after the
     /// regular axis events.
     ///
-    /// When the event callback occurs, the [`ArkUI_UIInputEvent`] object can be obtained from the
-    /// [`ArkUI_NodeEvent`] object through [`OH_ArkUI_NodeEvent_GetInputEvent`].
-    /// And the [`ArkUI_CoastingAxisEvent`] object can be obtained from the [`ArkUI_UIInputEvent`]
-    /// object through [`OH_ArkUI_UIInputEvent_GetCoastingAxisEvent`].
+    /// When the event callback occurs, the [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent) object can be obtained from the
+    /// [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object through [`OH_ArkUI_NodeEvent_GetInputEvent`](crate::native_node::OH_ArkUI_NodeEvent_GetInputEvent).
+    /// And the [`ArkUI_CoastingAxisEvent`](crate::ui_input_event::ArkUI_CoastingAxisEvent) object can be obtained from the [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent)
+    /// object through [`OH_ArkUI_UIInputEvent_GetCoastingAxisEvent`](crate::ui_input_event::OH_ArkUI_UIInputEvent_GetCoastingAxisEvent).
     ///
     ///
     ///
@@ -11072,8 +11060,8 @@ impl ArkUI_NodeEventType {
     ///
     /// The event is triggered when the component is touched.
     ///
-    /// When the event callback occurs, the [`ArkUI_NodeEvent`] object can be obtained from the
-    /// [`ArkUI_TouchTestInfo`] object.
+    /// When the event callback occurs, the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object can be obtained from the
+    /// [`ArkUI_TouchTestInfo`](crate::ui_input_event::ArkUI_TouchTestInfo) object.
     ///
     ///
     /// Available since API-level: 22
@@ -11085,18 +11073,18 @@ impl ArkUI_NodeEventType {
     ///
     /// Trigger this event when TextDataDetectorConfig is set and recognized successfully.
     ///
-    /// When the event callback occurs, the event parameter[`ArkUI_NodeEvent`]The union type in the object is
-    /// [`ArkUI_StringAsyncEvent`].
+    /// When the event callback occurs, the event parameter[`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent)The union type in the object is
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent).
     ///
-    /// [`ArkUI_StringAsyncEvent`]contains 1 parameter
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent)contains 1 parameter
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>：Indicates the result of text recognition, in Json format.
     pub const NODE_TEXT_ON_DETECT_RESULT_UPDATE: ArkUI_NodeEventType = ArkUI_NodeEventType(1000);
     /// Defines the long press event for span.
     ///
     /// The event is triggered when the span is long pressed.
-    /// When the event callback occurs, the [`ArkUI_NodeEvent`] object can be obtained from the
-    /// [`ArkUI_UIInputEvent`] object.
+    /// When the event callback occurs, the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object can be obtained from the
+    /// [`ArkUI_UIInputEvent`](crate::ui_input_event::ArkUI_UIInputEvent) object.
     ///
     ///
     /// Available since API-level: 20
@@ -11107,10 +11095,10 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is triggered when an image is successfully loaded or decoded.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains nine parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains nine parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: loading status. The value <b>0</b> indicates that the image is
     /// loaded successfully, and the value <b>1</b> indicates that the image is decoded successfully.
@@ -11137,10 +11125,10 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is triggered when an error occurs during image loading.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>error code:
     ///
@@ -11152,19 +11140,19 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is triggered when the animation playback in the loaded SVG image is complete.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     pub const NODE_IMAGE_ON_SVG_PLAY_FINISH: ArkUI_NodeEventType = ArkUI_NodeEventType(4002);
     /// Defines image download process event.
     ///
     /// This event is triggered when downloading webpage images from page components.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].u32</b>: the num of bytes downloaded.
     ///
@@ -11174,10 +11162,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: toggle status. <b>1</b>: on; <b>0</b>: off.
     pub const NODE_TOGGLE_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(5000);
@@ -11185,10 +11173,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_StringAsyncEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent).
     ///
-    /// [`ArkUI_StringAsyncEvent`] contains one parameter:
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent) contains one parameter:
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: text input.
     pub const NODE_TEXT_INPUT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(7000);
@@ -11196,10 +11184,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: Enter key type of the input method.
     pub const NODE_TEXT_INPUT_ON_SUBMIT: ArkUI_NodeEventType = ArkUI_NodeEventType(7001);
@@ -11208,10 +11196,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_StringAsyncEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent).
     ///
-    /// [`ArkUI_StringAsyncEvent`] contains one parameter:
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent) contains one parameter:
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: text that is cut.
     pub const NODE_TEXT_INPUT_ON_CUT: ArkUI_NodeEventType = ArkUI_NodeEventType(7002);
@@ -11220,10 +11208,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_StringAsyncEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent).
     ///
-    /// [`ArkUI_StringAsyncEvent`] contains one parameter:
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent) contains one parameter:
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: text that is pasted
     pub const NODE_TEXT_INPUT_ON_PASTE: ArkUI_NodeEventType = ArkUI_NodeEventType(7003);
@@ -11231,10 +11219,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: start position of the text selection area.
     ///
@@ -11245,10 +11233,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: <b>true</b> indicates that text input is in progress.
     pub const NODE_TEXT_INPUT_ON_EDIT_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(7005);
@@ -11257,9 +11245,9 @@ impl ArkUI_NodeEventType {
     /// Conditions for triggering this event: When the input content changes.
     ///
     /// When the event callback occurs, the union type in the event parameter
-    /// [`ArkUI_NodeEvent`] object is [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains 2 parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains 2 parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: Indicates the width of the text.
     ///
@@ -11271,10 +11259,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_StringAsyncEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent).
     ///
-    /// [`ArkUI_StringAsyncEvent`] contains one parameter:
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent) contains one parameter:
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: content that is filtered out when regular expression matching fails.
     pub const NODE_TEXT_INPUT_ON_INPUT_FILTER_ERROR: ArkUI_NodeEventType =
@@ -11283,10 +11271,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: Indicates the horizontal offset of the text in the content area.
     ///
@@ -11296,7 +11284,7 @@ impl ArkUI_NodeEventType {
     pub const NODE_TEXT_INPUT_ON_CONTENT_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(7008);
     /// Defines the event triggered when text is about to be entered.
     ///
-    /// The event parameter is [`ArkUI_NodeEvent`].
+    /// The event parameter is [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent).
     ///
     /// value.f32: position of the text, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
@@ -11311,7 +11299,7 @@ impl ArkUI_NodeEventType {
     pub const NODE_TEXT_INPUT_ON_WILL_INSERT: ArkUI_NodeEventType = ArkUI_NodeEventType(7009);
     /// Defines the event triggered when text is entered.
     ///
-    /// The event parameter is [`ArkUI_NodeEvent`].
+    /// The event parameter is [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent).
     ///
     /// value.f32: position of the text, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
@@ -11321,7 +11309,7 @@ impl ArkUI_NodeEventType {
     pub const NODE_TEXT_INPUT_ON_DID_INSERT: ArkUI_NodeEventType = ArkUI_NodeEventType(7010);
     /// Defines the event triggered when text is about to be deleted.
     ///
-    /// The event parameter is [`ArkUI_NodeEvent`].
+    /// The event parameter is [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent).
     ///
     /// value.f32: position of the text to delete, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
@@ -11341,7 +11329,7 @@ impl ArkUI_NodeEventType {
     pub const NODE_TEXT_INPUT_ON_WILL_DELETE: ArkUI_NodeEventType = ArkUI_NodeEventType(7011);
     /// Defines the event triggered when text is deleted.
     ///
-    /// The event parameter is [`ArkUI_NodeEvent`].
+    /// The event parameter is [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent).
     ///
     /// value.f32: position of the text deleted, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
@@ -11356,9 +11344,9 @@ impl ArkUI_NodeEventType {
     /// Defines the event triggered when content (including preview text) changes in the <b>TextInput</b>
     /// component.
     ///
-    /// When the event callback occurs, the union type [`ArkUI_NodeEvent`] is [`ArkUI_TextChangeEvent`].
+    /// When the event callback occurs, the union type [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) is [`ArkUI_TextChangeEvent`](crate::native_node::ArkUI_TextChangeEvent).
     ///
-    /// [`ArkUI_TextChangeEvent`] contains the following parameters:
+    /// [`ArkUI_TextChangeEvent`](crate::native_node::ArkUI_TextChangeEvent) contains the following parameters:
     ///
     /// <b>ArkUI_TextChangeEvent.pStr</b>: content in the <b>TextInput</b> component.
     /// <b>ArkUI_TextChangeEvent.pExtendStr</b>: content of the preview text in the <b>TextInput</b> component.
@@ -11372,9 +11360,9 @@ impl ArkUI_NodeEventType {
         ArkUI_NodeEventType(7013);
     /// Defines the event triggered before content changes
     ///
-    /// When the event callback occurs, the union type [`ArkUI_NodeEvent`] is [`ArkUI_TextChangeEvent`].
+    /// When the event callback occurs, the union type [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) is [`ArkUI_TextChangeEvent`](crate::native_node::ArkUI_TextChangeEvent).
     ///
-    /// [`ArkUI_TextChangeEvent`] contains the following parameters:
+    /// [`ArkUI_TextChangeEvent`](crate::native_node::ArkUI_TextChangeEvent) contains the following parameters:
     ///
     /// <b>ArkUI_TextChangeEvent.pStr</b>: content in the <b>TextInput</b> component.
     /// <b>ArkUI_TextChangeEvent.pExtendStr</b>: content of the preview text in the <b>TextInput</b> component.
@@ -11389,10 +11377,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_StringAsyncEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent).
     ///
-    /// [`ArkUI_StringAsyncEvent`] contains one parameter:
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent) contains one parameter:
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: text entered.
     pub const NODE_TEXT_AREA_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(8000);
@@ -11401,10 +11389,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_StringAsyncEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent).
     ///
-    /// [`ArkUI_StringAsyncEvent`] contains one parameter:
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent) contains one parameter:
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: text that is pasted
     pub const NODE_TEXT_AREA_ON_PASTE: ArkUI_NodeEventType = ArkUI_NodeEventType(8001);
@@ -11412,10 +11400,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: start position of the text selection area.
     ///
@@ -11427,10 +11415,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_StringAsyncEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent).
     ///
-    /// [`ArkUI_StringAsyncEvent`] contains one parameter:
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent) contains one parameter:
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>: content that is filtered out when regular expression matching fails.
     pub const NODE_TEXT_AREA_ON_INPUT_FILTER_ERROR: ArkUI_NodeEventType = ArkUI_NodeEventType(8003);
@@ -11438,10 +11426,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: Indicates the horizontal offset of the text in the content area.
     ///
@@ -11453,11 +11441,11 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: <b>true</b> indicates that text input is in progress.
     pub const NODE_TEXT_AREA_ON_EDIT_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(8005);
@@ -11465,11 +11453,11 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is not triggered when <b>keyType</b> is <b>ARKUI_ENTER_KEY_TYPE_NEW_LINE</b>.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: type of the Enter key.
     pub const NODE_TEXT_AREA_ON_SUBMIT: ArkUI_NodeEventType = ArkUI_NodeEventType(8006);
@@ -11477,11 +11465,11 @@ impl ArkUI_NodeEventType {
     ///
     /// Conditions for triggering this event: When the input content changes.
     ///
-    /// When the event callback occurs, the union type in the event parameter [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the event parameter [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains 2 parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains 2 parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: Indicates the width of the text.
     ///
@@ -11490,7 +11478,7 @@ impl ArkUI_NodeEventType {
         ArkUI_NodeEventType(8007);
     /// Defines the event triggered when text is about to be entered.
     ///
-    /// The event parameter is [`ArkUI_NodeEvent`].
+    /// The event parameter is [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent).
     ///
     /// value.f32: position of the text, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
@@ -11505,7 +11493,7 @@ impl ArkUI_NodeEventType {
     pub const NODE_TEXT_AREA_ON_WILL_INSERT: ArkUI_NodeEventType = ArkUI_NodeEventType(8008);
     /// Defines the event triggered when text is entered.
     ///
-    /// The event parameter is [`ArkUI_NodeEvent`].
+    /// The event parameter is [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent).
     ///
     /// value.f32: position of the text, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
@@ -11515,7 +11503,7 @@ impl ArkUI_NodeEventType {
     pub const NODE_TEXT_AREA_ON_DID_INSERT: ArkUI_NodeEventType = ArkUI_NodeEventType(8009);
     /// Defines the event triggered when text is about to be deleted.
     ///
-    /// The event parameter is [`ArkUI_NodeEvent`].
+    /// The event parameter is [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent).
     ///
     /// value.f32: position of the text to delete, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
@@ -11535,7 +11523,7 @@ impl ArkUI_NodeEventType {
     pub const NODE_TEXT_AREA_ON_WILL_DELETE: ArkUI_NodeEventType = ArkUI_NodeEventType(8010);
     /// Defines the event triggered when text is deleted.
     ///
-    /// The event parameter is [`ArkUI_NodeEvent`].
+    /// The event parameter is [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent).
     ///
     /// value.f32: position of the text deleted, with the index of <b>0</b>; obtained using
     /// <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
@@ -11550,9 +11538,9 @@ impl ArkUI_NodeEventType {
     /// Defines the event triggered when content (including preview text) changes in the <b>TextArea</b>
     /// component.
     ///
-    /// When the event callback occurs, the union type [`ArkUI_NodeEvent`] is [`ArkUI_TextChangeEvent`].
+    /// When the event callback occurs, the union type [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) is [`ArkUI_TextChangeEvent`](crate::native_node::ArkUI_TextChangeEvent).
     ///
-    /// [`ArkUI_TextChangeEvent`] contains the following parameters:
+    /// [`ArkUI_TextChangeEvent`](crate::native_node::ArkUI_TextChangeEvent) contains the following parameters:
     ///
     /// <b>ArkUI_TextChangeEvent.pStr</b>: content in the <b>TextArea</b> component.
     /// <b>ArkUI_TextChangeEvent.pExtendStr</b>: content of the preview text in the <b>TextArea</b> component.
@@ -11566,9 +11554,9 @@ impl ArkUI_NodeEventType {
         ArkUI_NodeEventType(8012);
     /// Defines the event triggered before content changes.
     ///
-    /// When the event callback occurs, the union type [`ArkUI_NodeEvent`] is [`ArkUI_TextChangeEvent`].
+    /// When the event callback occurs, the union type [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) is [`ArkUI_TextChangeEvent`](crate::native_node::ArkUI_TextChangeEvent).
     ///
-    /// [`ArkUI_TextChangeEvent`] contains the following parameters:
+    /// [`ArkUI_TextChangeEvent`](crate::native_node::ArkUI_TextChangeEvent) contains the following parameters:
     ///
     /// <b>ArkUI_TextChangeEvent.pStr</b>: content in the <b>TextArea</b> component.
     /// <b>ArkUI_TextChangeEvent.pExtendStr</b>: content of the preview text in the <b>TextArea</b> component.
@@ -11581,8 +11569,8 @@ impl ArkUI_NodeEventType {
     pub const NODE_TEXT_AREA_ON_WILL_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(8013);
     /// Defines the event triggered when the selected status of the <b>ARKUI_NODE_CHECKBOX</b> component changes.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b><b>1</b>: selected; <b>0</b>: not selected.
     pub const NODE_CHECKBOX_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(11000);
@@ -11590,10 +11578,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains three parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: year of the selected date.
     ///
@@ -11606,10 +11594,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: hour of the selected time. Value range: [0-23].
     ///
@@ -11619,20 +11607,20 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0...11].i32</b>: value of the selected item.
     pub const NODE_TEXT_PICKER_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(15000);
     /// Defines the event triggered when an item is selected and scrolling has stopped in the
     /// <b>ARKUI_NODE_TEXT_PICKER</b> component.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0...11].i32</b>: value of the selected item.
     ///
@@ -11645,8 +11633,8 @@ impl ArkUI_NodeEventType {
         ArkUI_NodeEventType(15001);
     /// Defines the event triggered when a date is selected in the <b>NODE_CALENDAR_PICKER</b>.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
     /// <b>ArkUI_NodeComponent.data[0].u32</b>: year of the selected date.
     ///
@@ -11657,69 +11645,69 @@ impl ArkUI_NodeEventType {
         ArkUI_NodeEventType(16000);
     /// Defines the event triggered when the <b>ARKUI_NODE_SLIDER</b> component is dragged or clicked.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: current slider value.
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: state triggered by the event.
     pub const NODE_SLIDER_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(17000);
     /// Defines the event callback function triggered when an object is dragged or clicked by ARKUI_NODE_RADIO.
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// ArkUI_NodeComponentEvent.data[0].i32: option button status.
     pub const NODE_RADIO_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(18000);
     /// Defines the event callback function triggered when the animation starts to play.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains no parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains no parameter:
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_START: ArkUI_NodeEventType = ArkUI_NodeEventType(19000);
     /// Defines the event callback function triggered when the animation playback is paused.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains no parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains no parameter:
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_PAUSE: ArkUI_NodeEventType = ArkUI_NodeEventType(19001);
     /// Defines the event callback function triggered when the animation playback is repeated.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains no parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains no parameter:
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_REPEAT: ArkUI_NodeEventType = ArkUI_NodeEventType(19002);
     /// Defines the event callback function when the animation playback returns to the initial state.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains no parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains no parameter:
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_CANCEL: ArkUI_NodeEventType = ArkUI_NodeEventType(19003);
     /// Defines the event callback function triggered when the animation playback is complete or stopped.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains no parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains no parameter:
     pub const NODE_IMAGE_ANIMATOR_EVENT_ON_FINISH: ArkUI_NodeEventType = ArkUI_NodeEventType(19004);
     /// Defines the callback triggered when the selected status of the <b>ARKUI_NODE_CHECKBOX_GROOUP</b>
     /// or checkbox changes.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_StringAsyncEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_StringAsyncEvent`](crate::native_node::ArkUI_StringAsyncEvent).
     ///
     /// <b>ArkUI_StringAsyncEvent.pStr</b>
     /// Name: The names of the selected checkboxes;
@@ -11737,19 +11725,19 @@ impl ArkUI_NodeEventType {
     /// Defines the event triggered when the index of the currently displayed element of this
     /// <b>ARKUI_NODE_SWIPER</b> instance changes.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the currently displayed element.
     pub const NODE_SWIPER_EVENT_ON_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(1001000);
     /// Defines the event triggered when the switching animation of this <b>ARKUI_NODE_SWIPER</b> instance starts.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains five parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains five parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the currently displayed element.
     ///
@@ -11766,10 +11754,10 @@ impl ArkUI_NodeEventType {
         ArkUI_NodeEventType(1001001);
     /// Defines the event triggered when the switching animation of this <b>ARKUI_NODE_SWIPER</b> instance ends.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the currently displayed element.
     ///
@@ -11780,10 +11768,10 @@ impl ArkUI_NodeEventType {
     /// Defines the event triggered on a frame-by-frame basis when the page is turned by a swipe in this
     /// <b>ARKUI_NODE_SWIPER</b> instance.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the currently displayed element.
     ///
@@ -11794,7 +11782,7 @@ impl ArkUI_NodeEventType {
     /// Define the <b>ARKUI_NODE_SWIPER</b> to listen for Swiper page slide events.
     /// Instruction:
     ///
-    /// 1. If the [`ArkUI_SwiperDisplayModeType`] attribute is set to
+    /// 1. If the `ArkUI_SwiperDisplayModeType` attribute is set to
     ///
     /// ARKUI_SWIPER_DISPLAY_MODE_AUTO_LINEAR, the interface does not take effect.
     ///
@@ -11816,10 +11804,10 @@ impl ArkUI_NodeEventType {
     ///
     /// A callback is triggered for all pages in the group.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains four parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains four parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b> : indicates the index of the Swiper component,
     ///
@@ -11844,10 +11832,10 @@ impl ArkUI_NodeEventType {
     /// 2. When the page is changed programmatically using either <b>NODE_SWIPER_INDEX</b> or
     /// <b>NODE_SWIPER_SWIPE_TO_INDEX</b>.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the currently selected element.
     ///
@@ -11867,10 +11855,10 @@ impl ArkUI_NodeEventType {
     /// 2. When the page is changed programmatically using either <b>NODE_SWIPER_INDEX</b> or
     /// <b>NODE_SWIPER_SWIPE_TO_INDEX</b>.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: the index of the element becomes unselected.
     ///
@@ -11884,10 +11872,10 @@ impl ArkUI_NodeEventType {
     /// Instructions: Before page scrolling, the </b>ContentWillScrollCallback</b> callback is invoked.
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains three parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: the index value of the current child page.
     ///
@@ -11907,13 +11895,13 @@ impl ArkUI_NodeEventType {
     /// Defines the <b>ARKUI_NODE_SWIPER</b> scroll state change event.
     /// This event is triggered when the scroll state of the <b>Swiper</b> component changes during user dragging,
     /// during the animation phase after the user lifts their finger, or upon stopping of scrolling.
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: current scroll state. The parameter type is
-    /// [`ArkUI_ScrollState`].
+    /// [`ArkUI_ScrollState`](crate::native_type::ArkUI_ScrollState).
     ///
     ///
     ///
@@ -11933,10 +11921,10 @@ impl ArkUI_NodeEventType {
     ///
     /// 3. The out-of-bounds bounce effect is supported.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: horizontal scrolling offset.
     ///
@@ -11953,10 +11941,10 @@ impl ArkUI_NodeEventType {
     ///
     /// 3. This event does not support the out-of-bounds bounce effect.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: amount to scroll by.
     ///
@@ -11979,10 +11967,10 @@ impl ArkUI_NodeEventType {
     ///
     /// 3. Cross boundary rebound.
     ///
-    /// When an event callback occurs, the union type in the event parameter [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When an event callback occurs, the union type in the event parameter [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains four parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains four parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: The offset for each frame of scrolling is positive when scrolling to
     /// the left and negative when scrolling to the right, measured in vp.
@@ -11992,11 +11980,11 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: Current sliding state,
     ///
-    /// parameter type is [`ArkUI_ScrollState`].
+    /// parameter type is [`ArkUI_ScrollState`](crate::native_type::ArkUI_ScrollState).
     ///
     /// <b>ArkUI_NodeComponentEvent.data[3].i32</b>: Current scroll source,
     ///
-    /// parameter type is [`ArkUI_ScrollSource`].
+    /// parameter type is [`ArkUI_ScrollSource`](crate::native_type::ArkUI_ScrollSource).
     ///
     ///
     /// # Returns
@@ -12014,10 +12002,10 @@ impl ArkUI_NodeEventType {
     ///
     /// 3. Cross boundary rebound.
     ///
-    /// When an event callback occurs, the union type in the event parameter [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When an event callback occurs, the union type in the event parameter [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains three parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: The offset for each frame of scrolling is positive when scrolling to
     /// the left and negative when scrolling to the right, measured in vp.
@@ -12027,7 +12015,7 @@ impl ArkUI_NodeEventType {
     ///
     /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: Current sliding state,
     ///
-    /// parameter type is [`ArkUI_ScrollState`].
+    /// parameter type is [`ArkUI_ScrollState`](crate::native_type::ArkUI_ScrollState).
     pub const NODE_SCROLL_EVENT_ON_DID_SCROLL: ArkUI_NodeEventType = ArkUI_NodeEventType(1002003);
     /// Defines the event triggered when scrolling starts in the <b>ARKUI_NODE_SCROLL</b> component.
     ///
@@ -12038,10 +12026,10 @@ impl ArkUI_NodeEventType {
     ///
     /// 2. This event is triggered when the controller API is called, accompanied by a transition animation.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     pub const NODE_SCROLL_EVENT_ON_SCROLL_START: ArkUI_NodeEventType = ArkUI_NodeEventType(1002004);
     /// Defines the event triggered when scrolling of the <b>ARKUI_NODE_SCROLL</b> component stops.
     ///
@@ -12052,10 +12040,10 @@ impl ArkUI_NodeEventType {
     ///
     /// 2. This event is triggered when the controller API is called, accompanied by a transition animation.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     pub const NODE_SCROLL_EVENT_ON_SCROLL_STOP: ArkUI_NodeEventType = ArkUI_NodeEventType(1002005);
     /// Defines the event triggered when scrolling of the <b>ARKUI_NODE_SCROLL</b> component reaches
     /// one of the edges.
@@ -12069,10 +12057,10 @@ impl ArkUI_NodeEventType {
     ///
     /// 3. The out-of-bounds bounce effect is supported.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter.
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: edge (top, bottom, left, or right) that the scrolling reaches.
     pub const NODE_SCROLL_EVENT_ON_SCROLL_EDGE: ArkUI_NodeEventType = ArkUI_NodeEventType(1002006);
@@ -12081,10 +12069,10 @@ impl ArkUI_NodeEventType {
     ///
     /// Triggered when the component reaches the start position.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains no parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains no parameters.
     pub const NODE_SCROLL_EVENT_ON_REACH_START: ArkUI_NodeEventType = ArkUI_NodeEventType(1002007);
     /// Define that a callback is triggered when the scrolling container component ends.
     ///
@@ -12092,19 +12080,19 @@ impl ArkUI_NodeEventType {
     ///
     /// Triggered when the component reaches the end.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains no parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains no parameters.
     pub const NODE_SCROLL_EVENT_ON_REACH_END: ArkUI_NodeEventType = ArkUI_NodeEventType(1002008);
     /// Defines the callback for when the user is about to release the drag on the scrollable container component.
     ///
     /// This event is triggered when the user is about to release the drag on the scrollable container component.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: speed at which the user releases the drag, in vp.
     ///
@@ -12118,10 +12106,10 @@ impl ArkUI_NodeEventType {
     /// Defines the callback for the <b>Scroll</b> component's zoom event,
     /// triggered at the end of each frame during zooming.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object
-    /// is [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object
+    /// is [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: current zoom scale.
     ///
@@ -12134,10 +12122,10 @@ impl ArkUI_NodeEventType {
     /// Defines the callback for the <b>Scroll</b> component's zoom start event,
     /// triggered when zooming begins.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object
-    /// is [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object
+    /// is [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     ///
     ///
     ///
@@ -12148,10 +12136,10 @@ impl ArkUI_NodeEventType {
     /// Defines the callback for the <b>Scroll</b> component's zoom end event,
     /// triggered when zooming ends.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object
-    /// is [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object
+    /// is [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters.
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters.
     ///
     ///
     ///
@@ -12163,10 +12151,10 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is triggered when the scrollable will start dragging.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains no parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains no parameters:
     ///
     ///
     /// Available since API-level: 21
@@ -12178,10 +12166,10 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is triggered when the scrollable did end dragging.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: whether start fling animation.
     ///
@@ -12196,10 +12184,10 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is triggered when the scrollable will start fling.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains no parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains no parameters:
     ///
     ///
     /// Available since API-level: 21
@@ -12211,10 +12199,10 @@ impl ArkUI_NodeEventType {
     ///
     /// This event is triggered when the scrollable did end fling.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains no parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains no parameters:
     ///
     ///
     /// Available since API-level: 21
@@ -12232,10 +12220,10 @@ impl ArkUI_NodeEventType {
     ///
     /// It is triggered when the index value of the first or last subcomponent in the list display area changes.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains three parameters:
     ///
     /// ArkUI_NodeComponentEvent.data[0].i32: List Displays the index value of
     ///
@@ -12262,11 +12250,11 @@ impl ArkUI_NodeEventType {
     ///
     /// Out-of-bounds rebound.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains three parameters:
     ///
     /// ArkUI_NodeComponentEvent.data[0].f32: offset of each frame scrolling.
     ///
@@ -12276,11 +12264,11 @@ impl ArkUI_NodeEventType {
     ///
     /// ArkUI_NodeComponentEvent.data[1].i32: Current sliding state.
     ///
-    /// parameter type is [`ArkUI_ScrollState`].
+    /// parameter type is [`ArkUI_ScrollState`](crate::native_type::ArkUI_ScrollState).
     ///
     /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: Current scroll source,
     ///
-    /// parameter type is [`ArkUI_ScrollSource`].
+    /// parameter type is [`ArkUI_ScrollSource`](crate::native_type::ArkUI_ScrollSource).
     ///
     ///
     /// # Returns
@@ -12298,11 +12286,11 @@ impl ArkUI_NodeEventType {
     ///
     /// Out-of-bounds rebound.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// ArkUI_NodeComponentEvent.data[0].f32: offset of each frame scrolling.
     ///
@@ -12321,15 +12309,15 @@ impl ArkUI_NodeEventType {
     /// During index calculation, the list item, header of the list item group, and footer of the list item group each
     /// are counted as a child component.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains six parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains six parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the first child component in the list display area.
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: area in the list item group where the list display area starts.
-    /// The type is [`ArkUI_ListItemGroupArea`].
+    /// The type is [`ArkUI_ListItemGroupArea`](crate::native_type::ArkUI_ListItemGroupArea).
     ///
     /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: index of the list item at the start of the list display area
     /// in the list item group.
@@ -12338,7 +12326,7 @@ impl ArkUI_NodeEventType {
     /// <b>ArkUI_NodeComponentEvent.data[3].i32</b>: index of the last child component in the list display area.
     ///
     /// <b>ArkUI_NodeComponentEvent.data[4].i32</b>: area in the list item group where the list display area ends.
-    /// The type is [`ArkUI_ListItemGroupArea`].
+    /// The type is [`ArkUI_ListItemGroupArea`](crate::native_type::ArkUI_ListItemGroupArea).
     ///
     /// <b>ArkUI_NodeComponentEvent.data[5].i32</b>: index of the list item at the end of the list display area in the
     /// list item group.
@@ -12353,26 +12341,26 @@ impl ArkUI_NodeEventType {
         ArkUI_NodeEventType(1003003);
     /// Defines the event triggered when the refresh state of the <b>ARKUI_NODE_REFRESH</b> object changes.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: refresh state.
     pub const NODE_REFRESH_STATE_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(1009000);
     /// Defines the event triggered when the <b>ARKUI_NODE_REFRESH</b> object enters the refresh state.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] does not contain parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) does not contain parameters:
     pub const NODE_REFRESH_ON_REFRESH: ArkUI_NodeEventType = ArkUI_NodeEventType(1009001);
     /// Defines the event that is triggered when the <b>ARKUI_NODE_REFRESH</b> drop-down distance changes.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: Pull-down distance.
     pub const NODE_REFRESH_ON_OFFSET_CHANGE: ArkUI_NodeEventType = ArkUI_NodeEventType(1009002);
@@ -12387,10 +12375,10 @@ impl ArkUI_NodeEventType {
     ///
     /// 3. The out-of-bounds bounce effect is supported.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains three parameters:
     ///
     /// ArkUI_NodeComponentEvent.data[0].f32: offset of each frame scrolling.
     ///
@@ -12400,11 +12388,11 @@ impl ArkUI_NodeEventType {
     ///
     /// ArkUI_NodeComponentEvent.data[1].i32: Current sliding state.
     ///
-    /// parameter type is [`ArkUI_ScrollState`].
+    /// parameter type is [`ArkUI_ScrollState`](crate::native_type::ArkUI_ScrollState).
     ///
     /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: Current scroll source,
     ///
-    /// parameter type is [`ArkUI_ScrollSource`].
+    /// parameter type is [`ArkUI_ScrollSource`](crate::native_type::ArkUI_ScrollSource).
     ///
     ///
     /// # Returns
@@ -12421,11 +12409,11 @@ impl ArkUI_NodeEventType {
     ///
     /// Out-of-bounds rebound.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// ArkUI_NodeComponentEvent.data[0].f32: offset of each frame scrolling.
     ///
@@ -12441,11 +12429,11 @@ impl ArkUI_NodeEventType {
     ///
     /// first or last subcomponent in the waterfall display area changes.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// ArkUI_NodeComponentEvent.data[0].i32: The index value of the
     ///
@@ -12463,11 +12451,11 @@ impl ArkUI_NodeEventType {
     ///
     /// last child component in the grid display area changes.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
     ///
-    /// [`ArkUI_NodeComponentEvent`].
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: index of the first child component in the grid display area.
     ///
@@ -12490,10 +12478,10 @@ impl ArkUI_NodeEventType {
     ///
     /// 3. The out-of-bounds bounce effect is supported.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains three parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>:
     /// Scroll offset of each frame. A positive offset indicates content scrolling upward,
@@ -12501,9 +12489,9 @@ impl ArkUI_NodeEventType {
     /// and a negative offset indicates content scrolling downward.
     ///
     /// <b>ArkUI_NodeComponentEvent.data[1].i32</b>: current scroll state. The parameter type is
-    /// [`ArkUI_ScrollState`].
+    /// [`ArkUI_ScrollState`](crate::native_type::ArkUI_ScrollState).
     ///
-    /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: scroll source. The parameter type is [`ArkUI_ScrollSource`].
+    /// <b>ArkUI_NodeComponentEvent.data[2].i32</b>: scroll source. The parameter type is [`ArkUI_ScrollSource`](crate::native_type::ArkUI_ScrollSource).
     ///
     ///
     /// # Returns
@@ -12526,10 +12514,10 @@ impl ArkUI_NodeEventType {
     ///
     /// 3. The out-of-bounds bounce effect is supported.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>:
     /// Scroll offset of each frame. A positive offset indicates content scrolling upward,
@@ -12547,7 +12535,7 @@ impl ArkUI_NodeEventType {
     /// Defines the event triggered at the end of each frame layout of the <b>ARKUI_NODE_GRID</b> component,
     /// which is used to set the position and length of the scrollbar.
     ///
-    /// The event parameter is [`ArkUI_NodeEvent`].
+    /// The event parameter is [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent).
     ///
     /// value.i32 at index 0:offset of the first visible grid item,
     /// obtained using <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
@@ -12580,7 +12568,7 @@ impl ArkUI_NodeEventType {
     ///
     /// 2. The user long-presses and drags a <b>Grid</b> child component with sufficient displacement.
     ///
-    /// The event parameter is [`ArkUI_NodeEvent`].
+    /// The event parameter is [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent).
     ///
     /// value.f32 at index 0: x-coordinate of the current drag point relative to the <b>Grid</b> component, in vp,
     /// obtained using <b>OH_ArkUI_NodeEvent_GetNumberValue</b>.
@@ -12615,10 +12603,10 @@ impl ArkUI_NodeEventType {
     /// A child component successfully dragged using <b>NODE_GRID_ON_ITEM_DRAG_START</b> enters the current <b>Grid</b>
     /// component's area.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains two parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains two parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: x-coordinate of the current drag point relative to the <b>Grid</b>
     /// component, in vp.
@@ -12639,10 +12627,10 @@ impl ArkUI_NodeEventType {
     /// A child component successfully dragged using <b>NODE_GRID_ON_ITEM_DRAG_START</b> moves within the current
     /// <b>Grid</b> component's area.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains four parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains four parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: x-coordinate of the current drag point relative to the <b>Grid</b>
     /// component, in vp.
@@ -12669,10 +12657,10 @@ impl ArkUI_NodeEventType {
     /// A child component successfully dragged using <b>NODE_GRID_ON_ITEM_DRAG_START</b> leaves the current <b>Grid</b>
     /// component's area.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains three parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains three parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: x-coordinate of the current drag point relative to the <b>Grid</b>
     /// component, in vp.
@@ -12695,10 +12683,10 @@ impl ArkUI_NodeEventType {
     ///
     /// A child component successfully dragged using <b>NODE_GRID_ON_ITEM_DRAG_START</b> is released.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains five parameters:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains five parameters:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].f32</b>: x-coordinate of the current drag point relative to the <b>Grid</b>
     /// component, in vp.
@@ -12725,10 +12713,10 @@ impl ArkUI_NodeEventType {
     pub const NODE_GRID_ON_ITEM_DROP: ArkUI_NodeEventType = ArkUI_NodeEventType(1013008);
     /// Defines the selected state change event of the <b>GridItem</b> component.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0].i32</b>: selected state. <b>0</b>: not selected. <b>1</b>: selected.
     ///
@@ -12742,10 +12730,10 @@ impl ArkUI_NodeEventType {
     ///
     ///
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0...11].i32</b>: value of the selected item.
     ///
@@ -12758,10 +12746,10 @@ impl ArkUI_NodeEventType {
     /// Defines the event triggered when an item is selected and scrolling has stopped in the
     /// <b>ARKUI_NODE_PICKER</b> component.
     ///
-    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`] object is
-    /// [`ArkUI_NodeComponentEvent`].
+    /// When the event callback occurs, the union type in the [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent) object is
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent).
     ///
-    /// [`ArkUI_NodeComponentEvent`] contains one parameter:
+    /// [`ArkUI_NodeComponentEvent`](crate::native_node::ArkUI_NodeComponentEvent) contains one parameter:
     ///
     /// <b>ArkUI_NodeComponentEvent.data[0...11].i32</b>: value of the selected item.
     ///
@@ -12931,7 +12919,7 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// Available since API-level: 12
     pub version: i32,
-    /// Creates a component based on [`ArkUI_NodeType`] and returns the pointer to the created component.
+    /// Creates a component based on [`ArkUI_NodeType`](crate::native_node::ArkUI_NodeType) and returns the pointer to the created component.
     ///
     /// # Arguments
     ///
@@ -12963,11 +12951,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed on
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns `ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE` if the following operations are not allowed on
     /// BuilderNode generated nodes: setting or resetting attributes, setting events, or adding or editing subnodes.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the child node has already been adopted. Add since api 22.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`](crate::native_type::ArkUiErrorCode::NODE_IS_ADOPTED) if the child node has already been adopted. Add since api 22.
     ///
     /// Available since API-level: 12
     pub addChild: ::core::option::Option<
@@ -12984,9 +12972,9 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns `ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE` if the following operations are not allowed
     /// on BuilderNode generated nodes:
     /// setting or resetting attributes, setting events, or adding or editing subnodes.
     ///
@@ -13008,11 +12996,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed on BuilderNode generated
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns `ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE` if the following operations are not allowed on BuilderNode generated
     /// nodes: setting or resetting attributes, setting events, or adding or editing subnodes.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the child node has already been adopted. Add since api 22.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`](crate::native_type::ArkUiErrorCode::NODE_IS_ADOPTED) if the child node has already been adopted. Add since api 22.
     ///
     /// Available since API-level: 12
     pub insertChildAfter: ::core::option::Option<
@@ -13036,11 +13024,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed on BuilderNode generated
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns `ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE` if the following operations are not allowed on BuilderNode generated
     /// nodes: setting or resetting attributes, setting events, or adding or editing subnodes.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the child node has already been adopted. Add since api 22.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`](crate::native_type::ArkUiErrorCode::NODE_IS_ADOPTED) if the child node has already been adopted. Add since api 22.
     ///
     /// Available since API-level: 12
     pub insertChildBefore: ::core::option::Option<
@@ -13064,11 +13052,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed on BuilderNode generated
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns `ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE` if the following operations are not allowed on BuilderNode generated
     /// nodes: setting or resetting attributes, setting events, or adding or editing subnodes.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the child node has already been adopted. Add since api 22.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`](crate::native_type::ArkUiErrorCode::NODE_IS_ADOPTED) if the child node has already been adopted. Add since api 22.
     ///
     /// Available since API-level: 12
     pub insertChildAt: ::core::option::Option<
@@ -13091,11 +13079,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] if the dynamic implementation library
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::ATTRIBUTE_OR_EVENT_NOT_SUPPORTED) if the dynamic implementation library
     /// of the native API was not found.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
+    /// Returns `ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE` if the following operations are not allowed
     /// on BuilderNode generated nodes:
     /// setting or resetting attributes, setting events, or adding or editing subnodes.
     ///
@@ -13140,11 +13128,11 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] if the dynamic implementation library
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::ATTRIBUTE_OR_EVENT_NOT_SUPPORTED) if the dynamic implementation library
     /// of the native API was not found.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
+    /// Returns `ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE` if the following operations are not allowed
     /// on BuilderNode generated nodes:
     /// setting or resetting attributes, setting events, or adding or editing subnodes.
     ///
@@ -13162,19 +13150,19 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// * `eventType` - Indicates the type of event to register.
     ///
-    /// * `targetId` - Indicates the custom event ID, which is passed in the callback of [`ArkUI_NodeEvent`]
+    /// * `targetId` - Indicates the custom event ID, which is passed in the callback of [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent)
     /// when the event is triggered.
     ///
-    /// * `userData` - Indicates the custom event parameter, which is passed in the callback of [`ArkUI_NodeEvent`]
+    /// * `userData` - Indicates the custom event parameter, which is passed in the callback of [`ArkUI_NodeEvent`](crate::native_node::ArkUI_NodeEvent)
     ///
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] if the dynamic implementation library
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::ATTRIBUTE_OR_EVENT_NOT_SUPPORTED) if the dynamic implementation library
     /// of the native API was not found.
-    /// Returns [`ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE`] if the following operations are not allowed
+    /// Returns `ARKUI_ERROR_CODE_NOT_SUPPROTED_FOR_ARKTS_NODE` if the following operations are not allowed
     /// on BuilderNode generated nodes:
     /// setting or resetting attributes, setting events, or adding or editing subnodes.
     ///
@@ -13333,18 +13321,18 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// * `eventType` - Indicates the type of event to register.
     ///
-    /// * `targetId` - Indicates the custom event ID, which is passed in the callback of [`ArkUI_NodeCustomEvent`]
+    /// * `targetId` - Indicates the custom event ID, which is passed in the callback of [`ArkUI_NodeCustomEvent`](crate::native_node::ArkUI_NodeCustomEvent)
     /// when the event is triggered.
     ///
     /// * `userData` - Indicates the custom event parameter, which is passed in the callback of
-    /// [`ArkUI_NodeCustomEvent`] when the event is triggered.
+    /// [`ArkUI_NodeCustomEvent`](crate::native_node::ArkUI_NodeCustomEvent) when the event is triggered.
     ///
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] if the dynamic implementation library
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::ATTRIBUTE_OR_EVENT_NOT_SUPPORTED) if the dynamic implementation library
     /// of the native API was not found.
     ///
     /// Available since API-level: 12
@@ -13410,8 +13398,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub setMeasuredSize: ::core::option::Option<
@@ -13430,8 +13418,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub setLayoutPosition: ::core::option::Option<
@@ -13474,8 +13462,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub measureNode: ::core::option::Option<
@@ -13499,8 +13487,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub layoutNode: ::core::option::Option<
@@ -13528,8 +13516,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub addNodeEventReceiver: ::core::option::Option<
@@ -13549,8 +13537,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub removeNodeEventReceiver: ::core::option::Option<
@@ -13581,8 +13569,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub addNodeCustomEventReceiver: ::core::option::Option<
@@ -13604,8 +13592,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub removeNodeCustomEventReceiver: ::core::option::Option<
@@ -13627,8 +13615,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub setUserData: ::core::option::Option<
@@ -13654,14 +13642,14 @@ pub struct ArkUI_NativeNodeAPI_1 {
     ///
     /// * `node` - Indicates the component for which you want to set the unit.
     ///
-    /// * `unit` - Indicates the unit, which is an enumerated value of [`ArkUI_LengthMetricUnit`].
+    /// * `unit` - Indicates the unit, which is an enumerated value of [`ArkUI_LengthMetricUnit`](crate::native_type::ArkUI_LengthMetricUnit).
     /// The default value is <b>ARKUI_LENGTH_METRIC_UNIT_DEFAULT</b>.
     ///
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub setLengthMetricUnit: ::core::option::Option<
@@ -13689,8 +13677,8 @@ pub struct ArkUI_NativeNodeAPI_1 {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     pub removeAllChildren:
@@ -13766,8 +13754,8 @@ extern "C" {
     pub fn OH_ArkUI_NodeEvent_GetEventType(event: *mut ArkUI_NodeEvent) -> ArkUI_NodeEventType;
     /// Obtains the custom ID of a component event.
     ///
-    /// The event ID is passed in as a parameter when the [`registerNodeEvent`] function is called and can be applied
-    /// to the dispatch logic of the same event entry function [`registerNodeEventReceiver`].
+    /// The event ID is passed in as a parameter when the `registerNodeEvent` function is called and can be applied
+    /// to the dispatch logic of the same event entry function `registerNodeEventReceiver`.
     ///
     /// # Arguments
     ///
@@ -13860,7 +13848,7 @@ extern "C" {
     ) -> *mut ArkUI_TextChangeEvent;
     /// Obtains the custom data in a component event.
     ///
-    /// This parameter is passed in [`registerNodeEvent`] and can be applied to the service logic when the event
+    /// This parameter is passed in `registerNodeEvent` and can be applied to the service logic when the event
     /// is triggered.
     ///
     /// # Arguments
@@ -13888,10 +13876,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE`] if the parameter length exceeds
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE`](crate::native_type::ArkUiErrorCode::NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE) if the parameter length exceeds
     /// the limit.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INVALID`] if the data does not exist in the component event.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::NODE_EVENT_PARAM_INVALID) if the data does not exist in the component event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -13917,10 +13905,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE`] if the parameter length exceeds
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE`](crate::native_type::ArkUiErrorCode::NODE_EVENT_PARAM_INDEX_OUT_OF_RANGE) if the parameter length exceeds
     /// the limit.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INVALID`] if the data does not exist in the component event.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::NODE_EVENT_PARAM_INVALID) if the data does not exist in the component event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -13944,9 +13932,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_NO_RETURN`] if the component event does not support return values.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INVALID`] if data does not exist in the component event.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_NO_RETURN`](crate::native_type::ArkUiErrorCode::NODE_EVENT_NO_RETURN) if the component event does not support return values.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_EVENT_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::NODE_EVENT_PARAM_INVALID) if data does not exist in the component event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14001,8 +13989,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14038,8 +14026,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14068,8 +14056,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14088,8 +14076,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14112,8 +14100,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14136,8 +14124,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14160,8 +14148,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14187,8 +14175,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14283,8 +14271,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14304,8 +14292,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14433,8 +14421,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
@@ -14455,8 +14443,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
@@ -14477,8 +14465,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     /// <br> Possible causes: Parameter verification failed, the parameter should not be nullptr.
     ///
     /// Available since API-level: 12
@@ -14499,8 +14487,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14552,8 +14540,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14589,9 +14577,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the node has already been adopted. add since api 22.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`](crate::native_type::ArkUiErrorCode::NODE_IS_ADOPTED) if the node has already been adopted. add since api 22.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14611,8 +14599,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14634,9 +14622,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the node has already been adopted. add since api 22.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`](crate::native_type::ArkUiErrorCode::NODE_IS_ADOPTED) if the node has already been adopted. add since api 22.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14658,8 +14646,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14680,8 +14668,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14702,8 +14690,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14724,8 +14712,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14746,8 +14734,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -14768,8 +14756,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14790,8 +14778,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -14846,8 +14834,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -14882,8 +14870,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -14930,7 +14918,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the type of the node.
-    /// For specific open types, refer to [`ArkUI_NodeType`]. For unopened nodes, return -1.
+    /// For specific open types, refer to [`ArkUI_NodeType`](crate::native_node::ArkUI_NodeType). For unopened nodes, return -1.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -14942,14 +14930,14 @@ extern "C" {
     ///
     /// * `node` - Target node object.
     ///
-    /// * `info` - Window info. Use [`OH_ArkUI_HostWindowInfo_Destroy`] to release memory.
+    /// * `info` - Window info. Use [`OH_ArkUI_HostWindowInfo_Destroy`](crate::native_type::OH_ArkUI_HostWindowInfo_Destroy) to release memory.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`] The node is not mounted.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`](crate::native_type::ArkUiErrorCode::NODE_NOT_ON_MAIN_TREE) The node is not mounted.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -14969,8 +14957,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -14990,8 +14978,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -15010,13 +14998,13 @@ extern "C" {
     ///
     /// * `subnode` - The pointer to the subnode.
     ///
-    /// * `expandMode` - Indicates the expand mode. [`ArkUI_ExpandMode`].
+    /// * `expandMode` - Indicates the expand mode. [`ArkUI_ExpandMode`](crate::native_type::ArkUI_ExpandMode).
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -15040,9 +15028,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`] The component does not support this event.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_ATTRIBUTE_OR_EVENT_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::ATTRIBUTE_OR_EVENT_NOT_SUPPORTED) The component does not support this event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -15081,8 +15069,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -15121,8 +15109,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -15190,8 +15178,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -15214,10 +15202,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
-    /// [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`] if the node has already been adopted. add since api 22.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NODE_IS_ADOPTED`](crate::native_type::ArkUiErrorCode::NODE_IS_ADOPTED) if the node has already been adopted. add since api 22.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -15240,8 +15228,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -15253,13 +15241,13 @@ extern "C" {
     ///
     /// * `node` - The target node handle.
     ///
-    /// * `option` - The cross-language option [`ArkUI_CrossLanguageOption`].
+    /// * `option` - The cross-language option [`ArkUI_CrossLanguageOption`](crate::native_type::ArkUI_CrossLanguageOption).
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -15274,13 +15262,13 @@ extern "C" {
     ///
     /// * `node` - The target node handle.
     ///
-    /// * `option` - The cross-language option [`ArkUI_CrossLanguageOption`].
+    /// * `option` - The cross-language option [`ArkUI_CrossLanguageOption`](crate::native_type::ArkUI_CrossLanguageOption).
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -15302,8 +15290,8 @@ extern "C" {
     /// # Returns
     ///
     /// * error code
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter is incorrect.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter is incorrect.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -15328,8 +15316,8 @@ extern "C" {
     /// # Returns
     ///
     /// * error code
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter is incorrect.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter is incorrect.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -15350,8 +15338,8 @@ extern "C" {
     /// # Returns
     ///
     /// * error code
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter is incorrect.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter is incorrect.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -15366,8 +15354,8 @@ extern "C" {
     /// # Returns
     ///
     /// * error code
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter is incorrect.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter is incorrect.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -15388,16 +15376,16 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_INTERNAL_ERROR`] if the snapshot taking failed will null pixelmap returned.
-    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_TIMEOUT`] if the snapshot taking is timeout.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INTERNAL_ERROR`](crate::native_type::ArkUiErrorCode::INTERNAL_ERROR) if the snapshot taking failed will null pixelmap returned.
+    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_TIMEOUT`](crate::native_type::ArkUiErrorCode::COMPONENT_SNAPSHOT_TIMEOUT) if the snapshot taking is timeout.
     ///
     /// Available since API-level: 15
     ////**
     /// Obtains a snapshot of a given component. If the node is not in the component tree or has not been rendered,
     /// the snapshot operation will fail. When the <b>Pixelmap</b> object created is no longer in use, it should be released
-    /// by calling [`OH_PixelmapNative_Release`].
+    /// by calling `OH_PixelmapNative_Release`.
     ///
     ///
     /// * `node` - Target node.
@@ -15406,18 +15394,18 @@ extern "C" {
     /// Snapshot settings include scaling, color space, and dynamic range configuration.
     /// Scaling: floating-point value greater than 0.
     /// Color space: <b>3</b> (DISPLAY_P3), <b>4</b> (SRGB), <b>27</b> (DISPLAY_BT2020_SRGB).
-    /// Dynamic range: [`ArkUI_DynamicRangeMode`].
+    /// Dynamic range: [`ArkUI_DynamicRangeMode`](crate::native_type::ArkUI_DynamicRangeMode).
     ///
     /// * `pixelmap` - Pointer to the <b>Pixelmap</b> object created by the system.
     ///
     /// * Result code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_INTERNAL_ERROR`] if the snapshot fails, returning a null pointer.
-    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_TIMEOUT`] if the snapshot operation times out.
-    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_MODE_NOT_SUPPORTED`] if the provided color space or
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_INTERNAL_ERROR`](crate::native_type::ArkUiErrorCode::INTERNAL_ERROR) if the snapshot fails, returning a null pointer.
+    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_TIMEOUT`](crate::native_type::ArkUiErrorCode::COMPONENT_SNAPSHOT_TIMEOUT) if the snapshot operation times out.
+    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_MODE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::COMPONENT_SNAPSHOT_MODE_NOT_SUPPORTED) if the provided color space or
     /// dynamic range mode is not supported.
-    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_AUTO_NOT_SUPPORTED`] if the isAuto parameter of the color
+    /// Returns [`ARKUI_ERROR_CODE_COMPONENT_SNAPSHOT_AUTO_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::COMPONENT_SNAPSHOT_AUTO_NOT_SUPPORTED) if the isAuto parameter of the color
     /// space or dynamic range mode is set to true for offscreen node snapshot.
     ///
     /// Available since API-level: 23
@@ -15439,8 +15427,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -15484,8 +15472,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -15511,8 +15499,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -15531,10 +15519,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
-    /// Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`] if the uiContext is invalid.
-    /// Returns [`ARKUI_ERROR_CODE_CALLBACK_INVALID`] if the callback function is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
+    /// Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`](crate::native_type::ArkUiErrorCode::UI_CONTEXT_INVALID) if the uiContext is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_CALLBACK_INVALID`](crate::native_type::ArkUiErrorCode::CALLBACK_INVALID) if the callback function is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -15555,9 +15543,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -15577,9 +15565,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -15597,9 +15585,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -15621,11 +15609,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
-    /// [`ARKUI_ERROR_CODE_NODE_HAS_PARENT`] The child already has a parent node.
-    /// [`ARKUI_ERROR_CODE_NODE_CAN_NOT_BE_ADOPTED`] The child can not be adopted.
-    /// [`ARKUI_ERROR_CODE_NODE_CAN_NOT_ADOPT_TO`] The node can not adopt children.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NODE_HAS_PARENT`](crate::native_type::ArkUiErrorCode::NODE_HAS_PARENT) The child already has a parent node.
+    /// [`ARKUI_ERROR_CODE_NODE_CAN_NOT_BE_ADOPTED`](crate::native_type::ArkUiErrorCode::NODE_CAN_NOT_BE_ADOPTED) The child can not be adopted.
+    /// [`ARKUI_ERROR_CODE_NODE_CAN_NOT_ADOPT_TO`](crate::native_type::ArkUiErrorCode::NODE_CAN_NOT_ADOPT_TO) The node can not adopt children.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -15643,9 +15631,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
-    /// [`ARKUI_ERROR_CODE_NODE_IS_NOT_IN_ADOPTED_CHILDREN`] This child node is not adopted by the parent node.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NODE_IS_NOT_IN_ADOPTED_CHILDREN`](crate::native_type::ArkUiErrorCode::NODE_IS_NOT_IN_ADOPTED_CHILDREN) This child node is not adopted by the parent node.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -15671,9 +15659,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// Returns [`ARKUI_ERROR_CODE_FORCE_DARK_CONFIG_INVALID`] if force dark config is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// Returns [`ARKUI_ERROR_CODE_FORCE_DARK_CONFIG_INVALID`](crate::native_type::ArkUiErrorCode::FORCE_DARK_CONFIG_INVALID) if force dark config is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -15699,9 +15687,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function params is invalid.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_UNSUPPORTED_EVENT_TYPE`] Function parameter eventType is not supported.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function params is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_UNSUPPORTED_EVENT_TYPE`](crate::native_type::ArkUiErrorCode::NODE_UNSUPPORTED_EVENT_TYPE) Function parameter eventType is not supported.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -15723,9 +15711,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function params is invalid.
-    /// Returns [`ARKUI_ERROR_CODE_NODE_UNSUPPORTED_EVENT_TYPE`] Function parameter eventType is not supported.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function params is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_NODE_UNSUPPORTED_EVENT_TYPE`](crate::native_type::ArkUiErrorCode::NODE_UNSUPPORTED_EVENT_TYPE) Function parameter eventType is not supported.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -15753,8 +15741,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function params is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function params is invalid.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -15776,8 +15764,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function params is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function params is invalid.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -15799,9 +15787,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`] The target node is not on main tree.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`](crate::native_type::ArkUiErrorCode::NODE_NOT_ON_MAIN_TREE) The target node is not on main tree.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -15825,9 +15813,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`] The target node is not on main tree.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE`](crate::native_type::ArkUiErrorCode::NODE_NOT_ON_MAIN_TREE) The target node is not on main tree.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -15846,8 +15834,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -15868,8 +15856,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if context or asyncUITask is nullptr.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if context or asyncUITask is nullptr.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -15897,8 +15885,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if context or task is nullptr.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if context or task is nullptr.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -15920,8 +15908,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`] if the uiContext is invalid.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_UI_CONTEXT_INVALID`](crate::native_type::ArkUiErrorCode::UI_CONTEXT_INVALID) if the uiContext is invalid.
     /// for example, 1.uiContext is nullptr 2.can not get container by uiContext.
     /// 3. the uiContext is not belong to atomic service.
     ///
@@ -15945,8 +15933,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if context or task is nullptr.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if context or task is nullptr.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -15971,8 +15959,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -15993,8 +15981,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -16016,8 +16004,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -16034,8 +16022,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -16051,8 +16039,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -16067,8 +16055,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

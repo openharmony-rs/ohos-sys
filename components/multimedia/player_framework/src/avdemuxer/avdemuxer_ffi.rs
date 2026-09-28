@@ -90,8 +90,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] an invalid demuxer instance pointer is passed to parameter demuxer,
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) an invalid demuxer instance pointer is passed to parameter demuxer,
     /// including a null pointer;
     ///
     /// Available since API-level: 10
@@ -112,9 +112,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] demuxer is not properly initialized.
-    /// [`AV_ERR_INVALID_VAL`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) demuxer is not properly initialized.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
     /// 1. an invalid demuxer instance pointer is passed to parameter demuxer, including a null pointer;
     /// 2. trackIndex is out of range;
     /// 3. track is not supported to be read.
@@ -140,9 +140,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] demuxer is not properly initialized.
-    /// [`AV_ERR_INVALID_VAL`] the input demuxer pointer is non demuxer instance or NULL.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) demuxer is not properly initialized.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the input demuxer pointer is non demuxer instance or NULL.
     ///
     /// Available since API-level: 10
     pub fn OH_AVDemuxer_UnselectTrackByID(
@@ -167,18 +167,18 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
     /// 1. an invalid demuxer instance pointer is passed to parameter demuxer, including a null pointer;
     /// 2. a null pointer is passed to parameter sample;
     /// 3. trackIndex is out of range;
     /// 4. the input sample is empty.
     /// 5. the input info is empty.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`]
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT)
     /// 1. trackIndex has not been selected;
     /// 2. demuxer is not properly initialized.
-    /// [`AV_ERR_NO_MEMORY`] capability of sample is not enough to store frame data.
-    /// [`AV_ERR_UNKNOWN`] failed to read or parse frame from file.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) capability of sample is not enough to store frame data.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN) failed to read or parse frame from file.
     ///
     /// **Deprecated** since 11
     ///
@@ -208,17 +208,17 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
     /// 1. an invalid demuxer instance pointer is passed to parameter demuxer, including a null pointer;
     /// 2. a null pointer is passed to parameter sample;
     /// 3. trackIndex is out of range;
     /// 4. the input sample is empty.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`]
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT)
     /// 1. trackIndex has not been selected;
     /// 2. demuxer is not properly initialized.
-    /// [`AV_ERR_NO_MEMORY`] capability of sample is not enough to store frame data.
-    /// [`AV_ERR_UNKNOWN`] failed to read or parse frame from file.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) capability of sample is not enough to store frame data.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN) failed to read or parse frame from file.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -238,20 +238,20 @@ extern "C" {
     /// * `millisecond` - The millisecond for seeking, the timestamp is the position of
     /// the file relative to the start of the file.
     ///
-    /// * `mode` - The mode for seeking. See [`OH_AVSeekMode`].
+    /// * `mode` - The mode for seeking. See [`OH_AVSeekMode`](crate::avcodec_base::OH_AVSeekMode).
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
     /// 1. an invalid demuxer instance pointer is passed to parameter demuxer, including a null pointer;
     /// 2. the millisecond value is out of range.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`]
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT)
     /// 1. trackIndex has not been selected;
     /// 2. demuxer is not properly initialized;
     /// 3. resource is unseekable.
-    /// [`AV_ERR_UNKNOWN`]
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN)
     /// 1. seek failed;
     /// 2. selecting SEEK_MODE_CEXT_SYNC for OH_AVSeekMode and no I-frame after the time point may result in jump failure.
     ///
@@ -272,9 +272,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] 2 - If the demuxer engine is not inited or init failed.
-    /// [`AV_ERR_INVALID_VAL`] 3 - If the demuxer instance is nullptr or invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) 2 - If the demuxer engine is not inited or init failed.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If the demuxer instance is nullptr or invalid.
     ///
     /// **Deprecated** since 14
     ///
@@ -302,9 +302,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] 2 - If the demuxer engine is not inited or init failed.
-    /// [`AV_ERR_INVALID_VAL`] 3 - If the demuxer instance is nullptr or invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) 2 - If the demuxer engine is not inited or init failed.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If the demuxer instance is nullptr or invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -325,9 +325,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] 2 - If the demuxer engine is not inited or init failed.
-    /// [`AV_ERR_INVALID_VAL`] 3 - If the demuxer instance is nullptr or invalid
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) 2 - If the demuxer engine is not inited or init failed.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If the demuxer instance is nullptr or invalid
     /// or the mediaKeySystemInfo is nullptr.
     ///
     /// Available since API-level: 11

@@ -231,8 +231,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - Parameter is nullptr or
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - Parameter is nullptr or
     /// create OH_Pixelmap_InitializationOptions object failed.
     ///
     /// Available since API-level: 12
@@ -252,8 +252,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options or width is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options or width is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -273,8 +273,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -294,8 +294,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options or height is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options or height is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -315,8 +315,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -336,8 +336,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options or pixelFormat is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options or pixelFormat is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -357,8 +357,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -378,8 +378,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options or srcpixelFormat is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options or srcpixelFormat is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -399,8 +399,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -419,9 +419,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if rowStride is null.
-    /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error, maybe options is released.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if rowStride is null.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error, maybe options is released.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -440,9 +440,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if rowStride does not match width.
-    /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error, maybe options is released.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if rowStride does not match width.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error, maybe options is released.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -462,8 +462,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options or alphaType is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options or alphaType is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -483,8 +483,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -503,8 +503,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if options or editable is invalid.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if options or editable is invalid.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -523,8 +523,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if options is invalid.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if options is invalid.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -542,8 +542,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -560,8 +560,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - Parameter is nullptr or
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - Parameter is nullptr or
     /// create OH_Pixelmap_ImageInfo object failed.
     ///
     /// Available since API-level: 12
@@ -579,8 +579,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if info or width is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if info or width is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -600,8 +600,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if info or height is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if info or height is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -621,8 +621,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`] if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] info is nullptr, or alphaMode is nullptr.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or alphaMode is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -642,8 +642,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if info or rowStride is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if info or rowStride is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -663,8 +663,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if info or pixelFormat is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if info or pixelFormat is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -684,8 +684,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if info or alphaType is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if info or alphaType is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -705,8 +705,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if info or isHdr is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if info or isHdr is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -724,8 +724,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if info is null.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if info is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -746,8 +746,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - Possible causes:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - Possible causes:
     /// if data or options is null or failed to create pixelmap due to invalid options.
     ///
     /// Available since API-level: 12
@@ -759,8 +759,8 @@ extern "C" {
         options: *mut OH_Pixelmap_InitializationOptions,
         pixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
-    /// Creates a pixelmap based on options [`OH_Pixelmap_InitializationOptions`], the memory type used by the
-    /// pixelmap can be specified by allocatorType [`IMAGE_ALLOCATOR_MODE`]. By default, the system selects the memory
+    /// Creates a pixelmap based on options [`OH_Pixelmap_InitializationOptions`](crate::native_image::pixelmap::OH_Pixelmap_InitializationOptions), the memory type used by the
+    /// pixelmap can be specified by allocatorType [`IMAGE_ALLOCATOR_MODE`](crate::native_image::common::IMAGE_ALLOCATOR_MODE). By default, the system selects the memory
     /// type based on the image type, image size, platform capability, etc. When processing the pixelmap returned by this
     /// interface, please always consider the impact of stride.
     ///
@@ -779,12 +779,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If the param is nullptr or invalid.
-    /// [`IMAGE_TOO_LARGE`] too large data or image.
-    /// [`IMAGE_UNSUPPORTED_OPERATION`] unsupported operations.
-    /// [`IMAGE_DMA_OPERATION_FAILED`] DMA operation failed.
-    /// [`IMAGE_ALLOCATOR_MODE_UNSUPPORTED`] unsupported allocator mode, e.g.,
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If the param is nullptr or invalid.
+    /// [`IMAGE_TOO_LARGE`](crate::native_image::common::ImageResult::TOO_LARGE) too large data or image.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) unsupported operations.
+    /// [`IMAGE_DMA_OPERATION_FAILED`](crate::native_image::common::ImageResult::DMA_OPERATION_FAILED) DMA operation failed.
+    /// [`IMAGE_ALLOCATOR_MODE_UNSUPPORTED`](crate::native_image::common::ImageResult::ALLOCATOR_MODE_UNSUPPORTED) unsupported allocator mode, e.g.,
     /// use share memory to create a HDR image as only DMA supported hdr metadata.
     ///
     /// Available since API-level: 20
@@ -810,8 +810,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`] if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] pixelmapNative is nullptr
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) pixelmapNative is nullptr
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -834,8 +834,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`] if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] pixelmapNative is nullptr, or pixelmapNapi is not a PixelMap
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) pixelmapNative is nullptr, or pixelmapNapi is not a PixelMap
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -859,12 +859,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] Parameter error. Possible causes:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) Parameter error. Possible causes:
     /// 1.Parameter is nullptr
     /// 2.pixelmap's inner pixelmap is nullptr.
     /// 3.Parameter bufferSize is less than the actual data size.
-    /// [`IMAGE_UNKNOWN_ERROR`] Internal unknown error, e.g.
+    /// [`IMAGE_UNKNOWN_ERROR`](crate::native_image::common::ImageResult::UNKNOWN_ERROR) Internal unknown error, e.g.
     /// memory copy failed or pixelmap's attributes are incorrect.
     ///
     /// Available since API-level: 12
@@ -888,13 +888,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] Parameter error. Possible causes:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) Parameter error. Possible causes:
     /// 1.Parameter is nullptr
     /// 2.pixelmap's inner pixelmap is nullptr.
     /// 3.Parameter bufferSize is less than the actual data size.
-    /// [`IMAGE_UNSUPPORTED_OPERATION`] If the pixelmap is not editable.
-    /// [`IMAGE_UNKNOWN_ERROR`] Internal unknown error, e.g.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) If the pixelmap is not editable.
+    /// [`IMAGE_UNKNOWN_ERROR`](crate::native_image::common::ImageResult::UNKNOWN_ERROR) Internal unknown error, e.g.
     /// memory copy failed or pixelmap's attributes are incorrect.
     ///
     /// Available since API-level: 12
@@ -916,11 +916,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or area is incorrect.
-    /// [`IMAGE_UNKNOWN_ERROR`] Internal unknown error, e.g. unsupported pixel format.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If any parameter is invalid, e.g. pixelmap or area is incorrect.
+    /// [`IMAGE_UNKNOWN_ERROR`](crate::native_image::common::ImageResult::UNKNOWN_ERROR) Internal unknown error, e.g. unsupported pixel format.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -940,12 +940,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or area is incorrect.
-    /// [`IMAGE_UNSUPPORTED_OPERATION`] If the PixelMap is not editable.
-    /// [`IMAGE_UNKNOWN_ERROR`] Internal unknown error, e.g. unsupported pixel format.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If any parameter is invalid, e.g. pixelmap or area is incorrect.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) If the PixelMap is not editable.
+    /// [`IMAGE_UNKNOWN_ERROR`](crate::native_image::common::ImageResult::UNKNOWN_ERROR) Internal unknown error, e.g. unsupported pixel format.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -967,13 +967,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, destination and bufferSize are incorrect.
-    /// [`IMAGE_UNSUPPORTED_CONVERSION`] If format does not support conversion to argb or conversion failed.
-    /// [`IMAGE_ALLOC_FAILED`] If device has no memory.
-    /// [`IMAGE_COPY_FAILED`] If memory copy failed.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If invalid parameter, destination and bufferSize are incorrect.
+    /// [`IMAGE_UNSUPPORTED_CONVERSION`](crate::native_image::common::ImageResult::UNSUPPORTED_CONVERSION) If format does not support conversion to argb or conversion failed.
+    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) If device has no memory.
+    /// [`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) If memory copy failed.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -983,7 +983,7 @@ extern "C" {
         destination: *mut u8,
         bufferSize: *mut usize,
     ) -> ImageResult;
-    /// Convert [`OH_PixelmapNative`] to standard dynamic range.
+    /// Convert [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative) to standard dynamic range.
     ///
     /// # Arguments
     ///
@@ -991,9 +991,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - The operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
-    /// returns [`Image_ErrorCode`] IMAGE_UNSUPPORTED_OPERATION - Unsupported operation.Pixelmap can't be converted.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - The operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNSUPPORTED_OPERATION - Unsupported operation.Pixelmap can't be converted.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1010,8 +1010,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - The operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - Parameter error.Possible causes:
     /// 1.pixelmap is nullptr.
     /// 2.pixelmap's inner pixelmap is nullptr.
     /// 3.imageInfo is nullptr.
@@ -1034,8 +1034,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - The operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - Parameter error.Possible causes:
     /// 1.pixelmap is nullptr.
     /// 2.pixelmap's inner pixelmap is nullptr.
     ///
@@ -1056,8 +1056,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - The operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - Parameter error.Possible causes:
     /// 1.pixelmap is nullptr.
     /// 2.pixelmap's inner pixelmap is nullptr.
     ///
@@ -1083,13 +1083,13 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, x and y are incorrect.
-    /// returns [`Image_ErrorCode`] IMAGE_TOO_LARGE - if image is too large.
-    /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if device has no memory.
-    /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error, maybe source pixelmap is released.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if invalid parameter, x and y are incorrect.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_TOO_LARGE - if image is too large.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if device has no memory.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error, maybe source pixelmap is released.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1115,10 +1115,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If the param is nullptr or invalid.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If the param is nullptr or invalid.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1146,12 +1146,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If the param is nullptr or invalid.
-    /// [`IMAGE_TOO_LARGE`] If image is too large.
-    /// [`IMAGE_ALLOC_FAILED`] If device has no memory.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If the param is nullptr or invalid.
+    /// [`IMAGE_TOO_LARGE`](crate::native_image::common::ImageResult::TOO_LARGE) If image is too large.
+    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) If device has no memory.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1176,8 +1176,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - The operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - Parameter error.Possible causes:
     /// 1.pixelmap is nullptr.
     /// 2.pixelmap's inner pixelmap is nullptr.
     ///
@@ -1200,10 +1200,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. srcPixelmap or dstPixelmap is incorrect.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If any parameter is invalid, e.g. srcPixelmap or dstPixelmap is incorrect.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1223,14 +1223,14 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. srcPixelmap or dstPixelmap is incorrect.
-    /// [`IMAGE_UNSUPPORTED_DATA_FORMAT`] If the pixel format is unsupported.
-    /// [`IMAGE_TOO_LARGE`] If the PixelMap size is too large.
-    /// [`IMAGE_INIT_FAILED`] If the PixelMap initialization failed.
-    /// [`IMAGE_ALLOC_FAILED`] If the copying of PixelMap data failed.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If any parameter is invalid, e.g. srcPixelmap or dstPixelmap is incorrect.
+    /// [`IMAGE_UNSUPPORTED_DATA_FORMAT`](crate::native_image::common::ImageResult::UNSUPPORTED_DATA_FORMAT) If the pixel format is unsupported.
+    /// [`IMAGE_TOO_LARGE`](crate::native_image::common::ImageResult::TOO_LARGE) If the PixelMap size is too large.
+    /// [`IMAGE_INIT_FAILED`](crate::native_image::common::ImageResult::INIT_FAILED) If the PixelMap initialization failed.
+    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) If the copying of PixelMap data failed.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1256,15 +1256,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. srcPixelmap, region, scale, or dstPixelmap is
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If any parameter is invalid, e.g. srcPixelmap, region, scale, or dstPixelmap is
     /// incorrect.
-    /// [`IMAGE_UNSUPPORTED_DATA_FORMAT`] If the pixel format is unsupported.
-    /// [`IMAGE_TOO_LARGE`] If the PixelMap size is too large.
-    /// [`IMAGE_INIT_FAILED`] If the PixelMap initialization failed.
-    /// [`IMAGE_ALLOC_FAILED`] If the copying of PixelMap data failed.
+    /// [`IMAGE_UNSUPPORTED_DATA_FORMAT`](crate::native_image::common::ImageResult::UNSUPPORTED_DATA_FORMAT) If the pixel format is unsupported.
+    /// [`IMAGE_TOO_LARGE`](crate::native_image::common::ImageResult::TOO_LARGE) If the PixelMap size is too large.
+    /// [`IMAGE_INIT_FAILED`](crate::native_image::common::ImageResult::INIT_FAILED) If the PixelMap initialization failed.
+    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) If the copying of PixelMap data failed.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1287,8 +1287,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - The operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - Parameter error.Possible causes:
     /// 1.pixelmap is nullptr.
     /// 2.pixelmap's inner pixelmap is nullptr.
     ///
@@ -1309,8 +1309,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - The operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - Parameter error.Possible causes:
     /// 1.pixelmap is nullptr.
     /// 2.pixelmap's inner pixelmap is nullptr.
     ///
@@ -1333,8 +1333,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - The operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - Parameter error.Possible causes:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - The operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - Parameter error.Possible causes:
     /// 1.pixelmap is nullptr.
     /// 2.region is nullptr.
     /// 3.pixelmap's inner pixelmap is nullptr.
@@ -1355,8 +1355,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if either:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if either:
     /// 1.Pixelmap is nullptr.
     /// 2.It's inner pixelmap is nullptr.
     /// 3.Pixelmap is not allowed to release.
@@ -1373,8 +1373,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if pixelmap is null or *pixelmap is null.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if pixelmap is null or *pixelmap is null.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1393,8 +1393,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if either:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if either:
     /// 1.srcpixelmap or dstpixelmap is null pointer.
     /// 2.Their inner pixelmap structures are unavailable.
     ///
@@ -1417,8 +1417,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] - if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] - if options is null or
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) - if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) - if options is null or
     /// failed to create pixelmap due to invalid options.
     ///
     /// Available since API-level: 12
@@ -1428,8 +1428,8 @@ extern "C" {
         options: *mut OH_Pixelmap_InitializationOptions,
         pixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
-    /// Creates a empty pixelmap based on options [`OH_Pixelmap_InitializationOptions`], the memory type used
-    /// by the pixelmap can be specified by allocatorType [`IMAGE_ALLOCATOR_MODE`]. By default,
+    /// Creates a empty pixelmap based on options [`OH_Pixelmap_InitializationOptions`](crate::native_image::pixelmap::OH_Pixelmap_InitializationOptions), the memory type used
+    /// by the pixelmap can be specified by allocatorType [`IMAGE_ALLOCATOR_MODE`](crate::native_image::common::IMAGE_ALLOCATOR_MODE). By default,
     /// the system selects the memory type based on the image type, image size, platform capability, etc. When processing
     /// the pixelmap returned by this interface, please always consider the impact of stride.
     ///
@@ -1444,11 +1444,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If the param is nullptr or invalid.
-    /// [`IMAGE_TOO_LARGE`] too large data or image.
-    /// [`IMAGE_UNSUPPORTED_OPERATION`] unsupported operations.
-    /// [`IMAGE_ALLOCATOR_MODE_UNSUPPORTED`] unsupported allocator mode, e.g., use
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If the param is nullptr or invalid.
+    /// [`IMAGE_TOO_LARGE`](crate::native_image::common::ImageResult::TOO_LARGE) too large data or image.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) unsupported operations.
+    /// [`IMAGE_ALLOCATOR_MODE_UNSUPPORTED`](crate::native_image::common::ImageResult::ALLOCATOR_MODE_UNSUPPORTED) unsupported allocator mode, e.g., use
     /// share memory to create a HDR image as only DMA supported hdr metadata.
     ///
     /// Available since API-level: 20
@@ -1472,11 +1472,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. surfaceId or pixelmap is incorrect.
-    /// [`IMAGE_CREATE_PIXELMAP_FAILED`] If the PixelMap creation failed.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If any parameter is invalid, e.g. surfaceId or pixelmap is incorrect.
+    /// [`IMAGE_CREATE_PIXELMAP_FAILED`](crate::native_image::common::ImageResult::CREATE_PIXELMAP_FAILED) If the PixelMap creation failed.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1503,13 +1503,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] Operation is successful.
-    /// [`IMAGE_INVALID_PARAMETER`] Invalid parameter, e.g. surfaceId or pixelmap is incorrect.
-    /// [`IMAGE_UNSUPPORTED_OPERATION`] Unsupported operation, e.g. on cross-platform.
-    /// [`IMAGE_GET_IMAGE_DATA_FAILED`] Failed to get the data from Surface.
-    /// [`IMAGE_CREATE_PIXELMAP_FAILED`] Failed to create the PixelMap.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) Operation is successful.
+    /// [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) Invalid parameter, e.g. surfaceId or pixelmap is incorrect.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation, e.g. on cross-platform.
+    /// [`IMAGE_GET_IMAGE_DATA_FAILED`](crate::native_image::common::ImageResult::GET_IMAGE_DATA_FAILED) Failed to get the data from Surface.
+    /// [`IMAGE_CREATE_PIXELMAP_FAILED`](crate::native_image::common::ImageResult::CREATE_PIXELMAP_FAILED) Failed to create the PixelMap.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1531,11 +1531,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. nativeBuffer or pixelmap is incorrect.
-    /// [`IMAGE_CREATE_PIXELMAP_FAILED`] If the PixelMap creation failed.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If any parameter is invalid, e.g. nativeBuffer or pixelmap is incorrect.
+    /// [`IMAGE_CREATE_PIXELMAP_FAILED`](crate::native_image::common::ImageResult::CREATE_PIXELMAP_FAILED) If the PixelMap creation failed.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1556,12 +1556,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, key and value are incorrect.
-    /// returns [`Image_ErrorCode`] IMAGE_DMA_NOT_EXIST - if DMA memory does not exist.
-    /// returns [`Image_ErrorCode`] IMAGE_COPY_FAILED - if memory copy failed.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if invalid parameter, key and value are incorrect.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_DMA_NOT_EXIST - if DMA memory does not exist.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_COPY_FAILED - if memory copy failed.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1583,12 +1583,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, key and value are incorrect.
-    /// returns [`Image_ErrorCode`] IMAGE_DMA_NOT_EXIST - if DMA memory does not exist.
-    /// returns [`Image_ErrorCode`] IMAGE_COPY_FAILED - if memory copy failed.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if invalid parameter, key and value are incorrect.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_DMA_NOT_EXIST - if DMA memory does not exist.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_COPY_FAILED - if memory copy failed.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1608,12 +1608,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_RESULT_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, pixelmap or nativeBuffer is null.
-    /// returns [`Image_ErrorCode`] IMAGE_DMA_NOT_EXIST - if DMA memory dose not exist.
-    /// returns [`Image_ErrorCode`] IMAGE_DMA_OPERATION_FAILED - if operations related to DMA memory has failed.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_RESULT_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if invalid parameter, pixelmap or nativeBuffer is null.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_DMA_NOT_EXIST - if DMA memory dose not exist.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_DMA_OPERATION_FAILED - if operations related to DMA memory has failed.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1633,10 +1633,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] The param of pixelmap or colorSpaceNative is nullptr or invalid.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) The param of pixelmap or colorSpaceNative is nullptr or invalid.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1656,10 +1656,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] The param of pixelmap or colorSpaceNative is nullptr or invalid.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) The param of pixelmap or colorSpaceNative is nullptr or invalid.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1681,11 +1681,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, name and size are incorrect.
-    /// [`IMAGE_UNSUPPORTED_MEMORY_FORMAT`] If memory format is unsupported.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If invalid parameter, name and size are incorrect.
+    /// [`IMAGE_UNSUPPORTED_MEMORY_FORMAT`](crate::native_image::common::ImageResult::UNSUPPORTED_MEMORY_FORMAT) If memory format is unsupported.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1706,10 +1706,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap or byteCount are invalid.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If invalid parameter, pixelmap or byteCount are invalid.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1729,10 +1729,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap or allocationByteCount are invalid.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If invalid parameter, pixelmap or allocationByteCount are invalid.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1743,7 +1743,7 @@ extern "C" {
     ) -> ImageResult;
     /// Obtains the memory address of a PixelMap and locks the memory.
     /// When the memory is locked, any operation that modifies or releases the PixelMap will fail and return
-    /// [`IMAGE_BAD_PARAMETER`].
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER).
     ///
     /// # Arguments
     ///
@@ -1754,11 +1754,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap or addr are invalid.
-    /// [`IMAGE_LOCK_UNLOCK_FAILED`] If memory failed to be locked.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If invalid parameter, pixelmap or addr are invalid.
+    /// [`IMAGE_LOCK_UNLOCK_FAILED`](crate::native_image::common::ImageResult::LOCK_UNLOCK_FAILED) If memory failed to be locked.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1768,7 +1768,7 @@ extern "C" {
         addr: *mut *mut ::core::ffi::c_void,
     ) -> ImageResult;
     /// Unlocks the memory of the PixelMap data.
-    /// This function is used with [`OH_PixelmapNative_AccessPixels`] in pairs.
+    /// This function is used with [`OH_PixelmapNative_AccessPixels`](crate::native_image::pixelmap::OH_PixelmapNative_AccessPixels) in pairs.
     ///
     /// # Arguments
     ///
@@ -1777,11 +1777,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap is invalid.
-    /// [`IMAGE_LOCK_UNLOCK_FAILED`] If memory failed to be unlocked.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If invalid parameter, pixelmap is invalid.
+    /// [`IMAGE_LOCK_UNLOCK_FAILED`](crate::native_image::common::ImageResult::LOCK_UNLOCK_FAILED) If memory failed to be unlocked.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1798,10 +1798,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or uniqueId is incorrect.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If any parameter is invalid, e.g. pixelmap or uniqueId is incorrect.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1821,10 +1821,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`IMAGE_SUCCESS`] If the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or released is incorrect.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) If the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) If any parameter is invalid, e.g. pixelmap or released is incorrect.
     ///
-    /// **See also:** [`OH_PixelmapNative`]
+    /// **See also:** [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

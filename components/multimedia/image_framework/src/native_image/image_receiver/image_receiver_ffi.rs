@@ -52,9 +52,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if alloc failed.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -62,18 +62,18 @@ extern "C" {
     pub fn OH_ImageReceiverOptions_Create(
         options: *mut *mut OH_ImageReceiverOptions,
     ) -> ImageResult;
-    /// Get size of an [`OH_ImageReceiverOptions`] object.
+    /// Get size of an [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions) object.
     ///
     /// # Arguments
     ///
-    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
+    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions) object.
     ///
-    /// * `size` - Indicates the value of the [`Image_Size`] object will be obtained.
+    /// * `size` - Indicates the value of the [`Image_Size`](crate::native_image::common::Image_Size) object will be obtained.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -82,18 +82,18 @@ extern "C" {
         options: *mut OH_ImageReceiverOptions,
         size: *mut Image_Size,
     ) -> ImageResult;
-    /// Set size of an [`OH_ImageReceiverOptions`] object.
+    /// Set size of an [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions) object.
     ///
     /// # Arguments
     ///
-    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
+    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions) object.
     ///
-    /// * `size` - Indicates the value of the [`Image_Size`] object will be seted.
+    /// * `size` - Indicates the value of the [`Image_Size`](crate::native_image::common::Image_Size) object will be seted.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -102,18 +102,18 @@ extern "C" {
         options: *mut OH_ImageReceiverOptions,
         size: Image_Size,
     ) -> ImageResult;
-    /// Get capacity from an [`OH_ImageReceiverOptions`] object.
+    /// Get capacity from an [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions) object.
     ///
     /// # Arguments
     ///
-    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
+    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions) object.
     ///
     /// * `capacity` - Indicates the pointer to capacity will be obtained.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -122,18 +122,18 @@ extern "C" {
         options: *mut OH_ImageReceiverOptions,
         capacity: *mut i32,
     ) -> ImageResult;
-    /// Set capacity of an [`OH_ImageReceiverOptions`] object.
+    /// Set capacity of an [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions) object.
     ///
     /// # Arguments
     ///
-    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
+    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions) object.
     ///
     /// * `capacity` - Indicates the value of capacity will be seted.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -142,19 +142,19 @@ extern "C" {
         options: *mut OH_ImageReceiverOptions,
         capacity: i32,
     ) -> ImageResult;
-    /// Releases an [`OH_ImageReceiverOptions`] object.
-    /// It is used to release the object [`OH_ImageReceiverOptions`].
+    /// Releases an [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions) object.
+    /// It is used to release the object [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions).
     ///
     /// # Arguments
     ///
-    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`] object.
+    /// * `options` - Indicates the pointer to an [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions) object.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
-    /// **See also:** [`OH_ImageReceiverOptions`]
+    /// **See also:** [`OH_ImageReceiverOptions`](crate::native_image::image_receiver::OH_ImageReceiverOptions)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -170,9 +170,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if alloc failed.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -181,21 +181,21 @@ extern "C" {
         options: *mut OH_ImageReceiverOptions,
         receiver: *mut *mut OH_ImageReceiverNative,
     ) -> ImageResult;
-    /// Obtains the receiver ID through an [`OH_ImageReceiverNative`] object.
+    /// Obtains the receiver ID through an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// # Arguments
     ///
-    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// * `surfaceId` - Indicates the pointer to the surfaceID will be obtained.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error.
     ///
-    /// **See also:** [`OH_ImageReceiverNative`]
+    /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -204,22 +204,22 @@ extern "C" {
         receiver: *mut OH_ImageReceiverNative,
         surfaceId: *mut u64,
     ) -> ImageResult;
-    /// Obtains the latest image through an [`OH_ImageReceiverNative`] object.
+    /// Obtains the latest image through an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// # Arguments
     ///
-    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// * `image` - Indicates the pointer to an <b>OH_ImageNative</b> object at the application layer.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
-    /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if alloc failed.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
     ///
-    /// **See also:** [`OH_ImageReceiverNative`], [`OH_ImageNative`]
+    /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative), [`OH_ImageNative`](crate::native_image::image::OH_ImageNative)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -228,22 +228,22 @@ extern "C" {
         receiver: *mut OH_ImageReceiverNative,
         image: *mut *mut OH_ImageNative,
     ) -> ImageResult;
-    /// Obtains the next image through an [`OH_ImageReceiverNative`] object.
+    /// Obtains the next image through an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// # Arguments
     ///
-    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// * `image` - Indicates the pointer to an <b>OH_ImageNative</b> object at the application layer.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
-    /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if alloc failed.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_ALLOC_FAILED - if alloc failed.
     ///
-    /// **See also:** [`OH_ImageReceiverNative`], [`OH_ImageNative`]
+    /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative), [`OH_ImageNative`](crate::native_image::image::OH_ImageNative)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -252,22 +252,22 @@ extern "C" {
         receiver: *mut OH_ImageReceiverNative,
         image: *mut *mut OH_ImageNative,
     ) -> ImageResult;
-    /// Registers an [`OH_ImageReceiver_OnCallback`] callback event.
+    /// Registers an [`OH_ImageReceiver_OnCallback`](crate::native_image::image_receiver::OH_ImageReceiver_OnCallback) callback event.
     ///
     /// This callback event is triggered whenever a new image is received.
     ///
     /// # Arguments
     ///
-    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
-    /// * `callback` - Indicates the [`OH_ImageReceiver_OnCallback`] callback event to register.
+    /// * `callback` - Indicates the [`OH_ImageReceiver_OnCallback`](crate::native_image::image_receiver::OH_ImageReceiver_OnCallback) callback event to register.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
-    /// **See also:** [`OH_ImageReceiverNative`], [`OH_ImageReceiver_OnCallback`]
+    /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative), [`OH_ImageReceiver_OnCallback`](crate::native_image::image_receiver::OH_ImageReceiver_OnCallback)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -276,26 +276,26 @@ extern "C" {
         receiver: *mut OH_ImageReceiverNative,
         callback: OH_ImageReceiver_OnCallback,
     ) -> ImageResult;
-    /// Unregisters the [`OH_ImageReceiver_OnCallback`] callback event.
+    /// Unregisters the [`OH_ImageReceiver_OnCallback`](crate::native_image::image_receiver::OH_ImageReceiver_OnCallback) callback event.
     ///
-    /// Turn off the callback witch triggered by [`OH_ImageReceiverNative_On`].
+    /// Turn off the callback witch triggered by [`OH_ImageReceiverNative_On`](crate::native_image::image_receiver::OH_ImageReceiverNative_On).
     ///
     /// # Arguments
     ///
-    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
-    /// **See also:** [`OH_ImageReceiverNative`], [`OH_ImageReceiverNative_On`]
+    /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative), [`OH_ImageReceiverNative_On`](crate::native_image::image_receiver::OH_ImageReceiverNative_On)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageReceiverNative_Off(receiver: *mut OH_ImageReceiverNative) -> ImageResult;
-    /// Registers an [`OH_ImageReceiver_ImageArriveCallback`] callback.
+    /// Registers an [`OH_ImageReceiver_ImageArriveCallback`](crate::native_image::image_receiver::OH_ImageReceiver_ImageArriveCallback) callback.
     ///
     /// # Arguments
     ///
@@ -307,8 +307,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Result code. [`Image_ErrorCode`] IMAGE_SUCCESS is returned if the operation is successful.
-    /// [`Image_ErrorCode`] IMAGE_RECEIVER_INVALID_PARAMETER is returned if receiver or callback is null.
+    /// * Result code. [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS is returned if the operation is successful.
+    /// [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_RECEIVER_INVALID_PARAMETER is returned if receiver or callback is null.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -318,7 +318,7 @@ extern "C" {
         callback: OH_ImageReceiver_ImageArriveCallback,
         userData: *mut ::core::ffi::c_void,
     ) -> ImageResult;
-    /// Unregisters an [`OH_ImageReceiver_ImageArriveCallback`] callback.
+    /// Unregisters an [`OH_ImageReceiver_ImageArriveCallback`](crate::native_image::image_receiver::OH_ImageReceiver_ImageArriveCallback) callback.
     ///
     /// # Arguments
     ///
@@ -328,8 +328,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`Image_ErrorCode`] IMAGE_SUCCESS - Operation succeeded.
-    /// [`Image_ErrorCode`] IMAGE_RECEIVER_INVALID_PARAMETER - <b>receiver</b> is empty or <b>callback</b> is not
+    /// * [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - Operation succeeded.
+    /// [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_RECEIVER_INVALID_PARAMETER - <b>receiver</b> is empty or <b>callback</b> is not
     /// registered.
     ///
     /// Available since API-level: 20
@@ -339,20 +339,20 @@ extern "C" {
         receiver: *mut OH_ImageReceiverNative,
         callback: OH_ImageReceiver_ImageArriveCallback,
     ) -> ImageResult;
-    /// Obtains the size of the image receiver through an [`OH_ImageReceiverNative`] object.
+    /// Obtains the size of the image receiver through an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// # Arguments
     ///
-    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
-    /// * `size` - Indicates the pointer to the [`Image_Size`] object will be obtained.
+    /// * `size` - Indicates the pointer to the [`Image_Size`](crate::native_image::common::Image_Size) object will be obtained.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
-    /// **See also:** [`OH_ImageReceiverNative`], [`Image_Size`]
+    /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative), [`Image_Size`](crate::native_image::common::Image_Size)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -361,20 +361,20 @@ extern "C" {
         receiver: *mut OH_ImageReceiverNative,
         size: *mut Image_Size,
     ) -> ImageResult;
-    /// Obtains the capacity of the image receiver through an [`OH_ImageReceiverNative`] object.
+    /// Obtains the capacity of the image receiver through an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// # Arguments
     ///
-    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// * `capacity` - Indicates the pointer to the capacity will be obtained.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
-    /// **See also:** [`OH_ImageReceiverNative`]
+    /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -383,20 +383,20 @@ extern "C" {
         receiver: *mut OH_ImageReceiverNative,
         capacity: *mut i32,
     ) -> ImageResult;
-    /// Releases an [`OH_ImageReceiverNative`] object.
+    /// Releases an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// This API is not used to release an <b>ImageReceiver2</b> object at the application layer.
     ///
     /// # Arguments
     ///
-    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`] object.
+    /// * `receiver` - Indicates the pointer to an [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative) object.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
-    /// **See also:** [`OH_ImageReceiverNative`]
+    /// **See also:** [`OH_ImageReceiverNative`](crate::native_image::image_receiver::OH_ImageReceiverNative)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

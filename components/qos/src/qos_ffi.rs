@@ -145,14 +145,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `level` - Indicates the level to set. Specific level can be referenced [`QoS_Level`].
+    /// * `level` - Indicates the level to set. Specific level can be referenced [`QoS_Level`](crate::QoS_Level).
     ///
     /// # Returns
     ///
     /// * Returns 0 if the operation is successful; returns -1 if level is out of range or
     /// internal error failed.
     ///
-    /// **See also:** [`QoS_Level`]
+    /// **See also:** [`QoS_Level`](crate::QoS_Level)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -166,7 +166,7 @@ extern "C" {
     /// * Returns 0 if the operation is successful; returns -1 if not set QoS for current thread
     /// or internal error failed.
     ///
-    /// **See also:** [`QoS_Level`]
+    /// **See also:** [`QoS_Level`](crate::QoS_Level)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -177,14 +177,14 @@ extern "C" {
     /// # Arguments
     ///
     /// * `level` - This parameter is the output parameter,
-    /// and the QoS level of the thread as a [`QoS_Level`] is written to this variable.
+    /// and the QoS level of the thread as a [`QoS_Level`](crate::QoS_Level) is written to this variable.
     ///
     /// # Returns
     ///
     /// * Returns 0 if the operation is successful; returns -1 if level is null, not
     /// set QoS for current thread or internal error failed.
     ///
-    /// **See also:** [`QoS_Level`]
+    /// **See also:** [`QoS_Level`](crate::QoS_Level)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

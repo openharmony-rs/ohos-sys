@@ -177,6 +177,7 @@ dependencies = [
  "doxygen-rs",
  "env_logger",
  "log",
+ "syn 2.0.87",
  "thiserror",
 ]
 

@@ -15,25 +15,25 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance.
+    /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance.
     /// The caller needs to manage the lifecycle of textEditorProxy.
     /// If the call succeeds, caller cannot release textEditorProxy until the next attach or detach call.
     ///
-    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`] instance.
+    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions) instance.
     /// The options when attaching input method.
     ///
-    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`](crate::inputmethod_proxy::InputMethod_InputMethodProxy) instance.
     /// Lifecycle is maintained until the next attach or detach call.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
-    /// [`IME_ERR_IMCLIENT`] - input method client error.
-    /// [`IME_ERR_IMMS`] - input method manager service error.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
+    /// [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
+    /// [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -49,25 +49,25 @@ extern "C" {
     ///
     /// * `context` - UIContext pointer of the page where the attach will be performed.
     ///
-    /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance.
+    /// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance.
     /// The caller needs to manage the lifecycle of textEditorProxy.
     /// If the call succeeds, caller cannot release textEditorProxy until the next attach or detach call.
     ///
-    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`] instance.
+    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions) instance.
     /// The options when attaching input method.
     ///
-    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`](crate::inputmethod_proxy::InputMethod_InputMethodProxy) instance.
     /// Lifecycle is maintained until the next attach or detach call.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
-    /// [`IME_ERR_IMCLIENT`] - input method client error.
-    /// [`IME_ERR_IMMS`] - input method manager service error.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
+    /// [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
+    /// [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -82,17 +82,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`] instance.
-    /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`].
+    /// * `inputMethodProxy` - Represents a pointer to an [`InputMethod_InputMethodProxy`](crate::inputmethod_proxy::InputMethod_InputMethodProxy) instance.
+    /// The inputMethodProxy is obtained from [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach).
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_IMCLIENT`] - input method client error.
-    /// [`IME_ERR_IMMS`] - input method manager service error.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_IMCLIENT`](crate::types::InputMethodErrorCode::IMCLIENT) - input method client error.
+    /// [`IME_ERR_IMMS`](crate::types::InputMethodErrorCode::IMMS) - input method manager service error.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

@@ -37,7 +37,7 @@ pub struct RawFile64 {
 }
 /// Represent the raw file descriptor's info.
 ///
-/// The RawFileDescriptor is an output parameter in the [`OH_ResourceManager_GetRawFileDescriptor`],
+/// The RawFileDescriptor is an output parameter in the [`OH_ResourceManager_GetRawFileDescriptor`](crate::raw_file::OH_ResourceManager_GetRawFileDescriptor),
 /// and describes the raw file's file descriptor, start position and the length in the HAP.
 ///
 ///
@@ -56,7 +56,7 @@ pub struct RawFileDescriptor {
 }
 /// Represent the raw file descriptor's info.
 ///
-/// The RawFileDescriptor64 is an output parameter in the [`OH_ResourceManager_GetRawFileDescriptor64`],
+/// The RawFileDescriptor64 is an output parameter in the [`OH_ResourceManager_GetRawFileDescriptor64`](crate::raw_file::OH_ResourceManager_GetRawFileDescriptor64),
 /// and describes the raw file's file descriptor, start position and the length in the HAP.
 ///
 ///

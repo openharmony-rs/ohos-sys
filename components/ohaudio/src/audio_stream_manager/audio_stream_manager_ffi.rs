@@ -26,12 +26,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `streamManager` - output parameter to get the [`#OH_AudioStreamManager`].
+    /// * `streamManager` - output parameter to get the [`OH_AudioStreamManager`](crate::audio_stream_manager::OH_AudioStreamManager).
     ///
     /// # Returns
     ///
-    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
-    /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] if system state error
+    /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) if system state error
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -43,21 +43,21 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioStreamManager` - the [`OH_AudioStreamManager`] handle provided by
-    /// [`OH_AudioManager_GetAudioStreamManager`].
+    /// * `audioStreamManager` - the [`OH_AudioStreamManager`](crate::audio_stream_manager::OH_AudioStreamManager) handle provided by
+    /// [`OH_AudioManager_GetAudioStreamManager`](crate::audio_stream_manager::OH_AudioManager_GetAudioStreamManager).
     ///
-    /// * `streamInfo` - the [`OH_AudioStreamInfo`].
+    /// * `streamInfo` - the [`OH_AudioStreamInfo`](crate::audiostream_base::OH_AudioStreamInfo).
     ///
-    /// * `usage` - the [`OH_AudioStream_Usage`].
+    /// * `usage` - the [`OH_AudioStream_Usage`](crate::audiostream_base::OH_AudioStream_Usage).
     ///
-    /// * `directPlaybackMode` - the [`OH_AudioStream_DirectPlaybackMode`] pointer to a variable which receives the
+    /// * `directPlaybackMode` - the [`OH_AudioStream_DirectPlaybackMode`](crate::audiostream_base::OH_AudioStream_DirectPlaybackMode) pointer to a variable which receives the
     /// result.
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The param of audioStreamManager is nullptr;
     /// 2.The param of streamInfo is nullptr;
     /// 3.The param of usage invalid;
@@ -76,8 +76,8 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `streamManager` - The [`OH_AudioStreamManager`] handle provided
-    /// by [`OH_AudioManager_GetAudioStreamManager`].
+    /// * `streamManager` - The [`OH_AudioStreamManager`](crate::audio_stream_manager::OH_AudioStreamManager) handle provided
+    /// by [`OH_AudioManager_GetAudioStreamManager`](crate::audio_stream_manager::OH_AudioManager_GetAudioStreamManager).
     ///
     /// * `sourceType` - Related source type.
     ///
@@ -86,8 +86,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The input param streamManager is nullptr;
     /// 2.Source type is invalid.
     /// 3.The input param supported is nullptr.
@@ -105,8 +105,8 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `streamManager` - [`OH_AudioStreamManager`] handle
-    /// provided by [`OH_AudioManager_GetAudioStreamManager`].
+    /// * `streamManager` - [`OH_AudioStreamManager`](crate::audio_stream_manager::OH_AudioStreamManager) handle
+    /// provided by [`OH_AudioManager_GetAudioStreamManager`](crate::audio_stream_manager::OH_AudioManager_GetAudioStreamManager).
     ///
     /// * `streamInfo` - reference of stream info structure to describe basic audio format.
     ///
@@ -129,8 +129,8 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `streamManager` - [`OH_AudioStreamManager`] handle
-    /// provided by [`OH_AudioManager_GetAudioStreamManager`].
+    /// * `streamManager` - [`OH_AudioStreamManager`](crate::audio_stream_manager::OH_AudioStreamManager) handle
+    /// provided by [`OH_AudioManager_GetAudioStreamManager`](crate::audio_stream_manager::OH_AudioManager_GetAudioStreamManager).
     ///
     /// * `streamInfo` - reference of stream info structure to describe basic audio format.
     ///
@@ -152,8 +152,8 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `streamManager` - [`OH_AudioStreamManager`] handle
-    /// provided by [`OH_AudioManager_GetAudioStreamManager`].
+    /// * `streamManager` - [`OH_AudioStreamManager`](crate::audio_stream_manager::OH_AudioStreamManager) handle
+    /// provided by [`OH_AudioManager_GetAudioStreamManager`](crate::audio_stream_manager::OH_AudioManager_GetAudioStreamManager).
     ///
     /// * `source` - stream source type used to decide the audio device and pipe type selection result.
     ///

@@ -19,15 +19,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -46,9 +46,9 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the areaMode is null.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the areaMode is null.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -65,15 +65,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -92,15 +92,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 16
     #[cfg(feature = "api-16")]
@@ -119,15 +119,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 16
     #[cfg(feature = "api-16")]
@@ -146,15 +146,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 16
     #[cfg(feature = "api-16")]
@@ -173,15 +173,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 16
     #[cfg(feature = "api-16")]
@@ -200,15 +200,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 16
     #[cfg(feature = "api-16")]
@@ -227,15 +227,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 16
     #[cfg(feature = "api-16")]
@@ -254,15 +254,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 16
     #[cfg(feature = "api-16")]
@@ -283,15 +283,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -309,28 +309,28 @@ extern "C" {
     /// # Arguments
     ///
     /// * `want` - The arguments passed to start self UIAbility.
-    /// For details, see [`AbilityBase_Want`].
+    /// For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
     ///
     /// # Returns
     ///
-    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the call is successful.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`] if the caller has no correct permission.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the arguments provided is invalid.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`] if the device does not support starting self uiability.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`] if the target ability does not exist.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`] if the ability type is incorrect.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`] if the crowdtesting application expires.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`] if the ability cannot be started in Wukong mode.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`] if the app is controlled.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`] if the app is controlled by EDM.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`] if the caller tries to start a different application.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`] if internal error occurs.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`] if the caller is not top ability.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`]
+    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the call is successful.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`](crate::runtime::AbilityRuntimeErrorCode::PERMISSION_DENIED) if the caller has no correct permission.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::NOT_SUPPORTED) if the device does not support starting self uiability.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NO_SUCH_ABILITY) if the target ability does not exist.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`](crate::runtime::AbilityRuntimeErrorCode::INCORRECT_ABILITY_TYPE) if the ability type is incorrect.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`](crate::runtime::AbilityRuntimeErrorCode::CROWDTEST_EXPIRED) if the crowdtesting application expires.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`](crate::runtime::AbilityRuntimeErrorCode::WUKONG_MODE) if the ability cannot be started in Wukong mode.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::CONTROLLED) if the app is controlled.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::EDM_CONTROLLED) if the app is controlled by EDM.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`](crate::runtime::AbilityRuntimeErrorCode::CROSS_APP) if the caller tries to start a different application.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if internal error occurs.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NOT_TOP_ABILITY) if the caller is not top ability.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`](crate::runtime::AbilityRuntimeErrorCode::UPPER_LIMIT_REACHED)
     /// if the number of app instances reached the limit (since 17).
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`]
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::APP_INSTANCE_KEY_NOT_SUPPORTED)
     /// if the APP_INSTANCE_KEY cannot be specified (since 17).
-    /// For details, see [`AbilityRuntime_ErrorCode`].
+    /// For details, see [`AbilityRuntime_ErrorCode`](crate::runtime::AbilityRuntimeResult).
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -345,35 +345,35 @@ extern "C" {
     /// # Arguments
     ///
     /// * `want` - The arguments passed to start self UIAbility.
-    /// For details, see [`AbilityBase_Want`].
+    /// For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
     ///
     /// * `options` - The start options passed to start self UIAbility.
-    /// For details, see [`AbilityRuntime_StartOptions`].
+    /// For details, see [`AbilityRuntime_StartOptions`](crate::runtime::start_options::AbilityRuntime_StartOptions).
     ///
     /// # Returns
     ///
-    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the call is successful.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`] if the caller has no correct permission.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the arguments provided is invalid.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`] if the device does not support starting self uiability.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`] if the target ability does not exist.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`] if the ability type is incorrect.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`] if the crowdtesting application expires.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`] if the ability cannot be started in Wukong mode.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`] if the app is controlled.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`] if the app is controlled by EDM.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`] if the caller tries to start a different application.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`] if internal error occurs.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`] if the caller is not foreground process.
-    /// Returns [`ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED`] if setting visibility is disabled.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_MULTI_APP_NOT_SUPPORTED`]
+    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the call is successful.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`](crate::runtime::AbilityRuntimeErrorCode::PERMISSION_DENIED) if the caller has no correct permission.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::NOT_SUPPORTED) if the device does not support starting self uiability.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NO_SUCH_ABILITY) if the target ability does not exist.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`](crate::runtime::AbilityRuntimeErrorCode::INCORRECT_ABILITY_TYPE) if the ability type is incorrect.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`](crate::runtime::AbilityRuntimeErrorCode::CROWDTEST_EXPIRED) if the crowdtesting application expires.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`](crate::runtime::AbilityRuntimeErrorCode::WUKONG_MODE) if the ability cannot be started in Wukong mode.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::CONTROLLED) if the app is controlled.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::EDM_CONTROLLED) if the app is controlled by EDM.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`](crate::runtime::AbilityRuntimeErrorCode::CROSS_APP) if the caller tries to start a different application.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if internal error occurs.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NOT_TOP_ABILITY) if the caller is not foreground process.
+    /// Returns [`ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED) if setting visibility is disabled.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_MULTI_APP_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::MULTI_APP_NOT_SUPPORTED)
     /// if the app clone or multi-instance is not supported.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INVALID_APP_INSTANCE_KEY`] if the app instance key is invalid.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`] if the number of app instances reached the limit.
-    /// Returns [`ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED`] if the multi-instance is not supported.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`]
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INVALID_APP_INSTANCE_KEY`](crate::runtime::AbilityRuntimeErrorCode::INVALID_APP_INSTANCE_KEY) if the app instance key is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`](crate::runtime::AbilityRuntimeErrorCode::UPPER_LIMIT_REACHED) if the number of app instances reached the limit.
+    /// Returns [`ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED) if the multi-instance is not supported.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::APP_INSTANCE_KEY_NOT_SUPPORTED)
     /// if the APP_INSTANCE_KEY cannot be specified.
-    /// For details, see [`AbilityRuntime_ErrorCode`].
+    /// For details, see [`AbilityRuntime_ErrorCode`](crate::runtime::AbilityRuntimeResult).
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -391,10 +391,10 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the versionCode is null.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_GET_APPLICATION_INFO_FAILED`] if the application info does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the versionCode is null.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_GET_APPLICATION_INFO_FAILED`](crate::runtime::AbilityRuntimeErrorCode::GET_APPLICATION_INFO_FAILED) if the application info does not exist.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -411,15 +411,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -438,15 +438,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -463,40 +463,40 @@ extern "C" {
     /// # Arguments
     ///
     /// * `want` - The arguments passed to start self UIAbility.
-    /// For details, see [`AbilityBase_Want`].
+    /// For details, see [`AbilityBase_Want`](crate::base::want::AbilityBase_Want).
     ///
     /// * `options` - The start options passed to start self UIAbility.
-    /// For details, see [`AbilityRuntime_StartOptions`].
+    /// For details, see [`AbilityRuntime_StartOptions`](crate::runtime::start_options::AbilityRuntime_StartOptions).
     ///
     /// * `targetPid` - The process ID of the started UIAbility.
     ///
     /// # Returns
     ///
-    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the call is successful.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`] if the caller has no correct permission.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the arguments provided is invalid.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`] if the device does not support starting self uiability.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`] if the target ability does not exist.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`] if the ability type is incorrect.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`] if the crowdtesting application expires.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`] if the ability cannot be started in Wukong mode.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`] if the app is controlled.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`] if the app is controlled by EDM.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`] if the caller tries to start a different application.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`] if internal error occurs. such as connect system service failed.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`] if the caller is not foreground process.
-    /// Returns [`ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED`] if setting visibility is disabled.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_MULTI_APP_NOT_SUPPORTED`]
+    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the call is successful.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PERMISSION_DENIED`](crate::runtime::AbilityRuntimeErrorCode::PERMISSION_DENIED) if the caller has no correct permission.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the arguments provided is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::NOT_SUPPORTED) if the device does not support starting self uiability.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_SUCH_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NO_SUCH_ABILITY) if the target ability does not exist.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INCORRECT_ABILITY_TYPE`](crate::runtime::AbilityRuntimeErrorCode::INCORRECT_ABILITY_TYPE) if the ability type is incorrect.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROWDTEST_EXPIRED`](crate::runtime::AbilityRuntimeErrorCode::CROWDTEST_EXPIRED) if the crowdtesting application expires.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_WUKONG_MODE`](crate::runtime::AbilityRuntimeErrorCode::WUKONG_MODE) if the ability cannot be started in Wukong mode.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::CONTROLLED) if the app is controlled.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_EDM_CONTROLLED`](crate::runtime::AbilityRuntimeErrorCode::EDM_CONTROLLED) if the app is controlled by EDM.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_CROSS_APP`](crate::runtime::AbilityRuntimeErrorCode::CROSS_APP) if the caller tries to start a different application.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL) if internal error occurs. such as connect system service failed.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_NOT_TOP_ABILITY`](crate::runtime::AbilityRuntimeErrorCode::NOT_TOP_ABILITY) if the caller is not foreground process.
+    /// Returns [`ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_RUNTIME_ERROR_VISIBILITY_SETTING_DISABLED) if setting visibility is disabled.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_MULTI_APP_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::MULTI_APP_NOT_SUPPORTED)
     /// if the app clone or multi-instance is not supported.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INVALID_APP_INSTANCE_KEY`] if the app instance key is invalid.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`] if the number of app instances reached the limit.
-    /// Returns [`ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED`] if the multi-instance is not supported.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`]
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INVALID_APP_INSTANCE_KEY`](crate::runtime::AbilityRuntimeErrorCode::INVALID_APP_INSTANCE_KEY) if the app instance key is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_UPPER_LIMIT_REACHED`](crate::runtime::AbilityRuntimeErrorCode::UPPER_LIMIT_REACHED) if the number of app instances reached the limit.
+    /// Returns [`ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::ABILITY_RUNTIME_ERROR_MULTI_INSTANCE_NOT_SUPPORTED) if the multi-instance is not supported.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_APP_INSTANCE_KEY_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::APP_INSTANCE_KEY_NOT_SUPPORTED)
     /// if the APP_INSTANCE_KEY cannot be specified.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_START_TIMEOUT`] if starting UIAbility time out.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_MAIN_THREAD_NOT_SUPPORTED`]
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_START_TIMEOUT`](crate::runtime::AbilityRuntimeErrorCode::START_TIMEOUT) if starting UIAbility time out.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_MAIN_THREAD_NOT_SUPPORTED`](crate::runtime::AbilityRuntimeErrorCode::MAIN_THREAD_NOT_SUPPORTED)
     /// if the API is called in the main thread of the app.
-    /// For details, see [`AbilityRuntime_ErrorCode`].
+    /// For details, see [`AbilityRuntime_ErrorCode`](crate::runtime::AbilityRuntimeResult).
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -515,15 +515,15 @@ extern "C" {
     /// * `bufferSize` - The length of the buffer.
     ///
     /// * `writeLength` - The string length actually written to the buffer,
-    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`].
+    /// when returning [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult).
     ///
     /// # Returns
     ///
     /// * The error code.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if the buffer or writeLength is null,
+    /// [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if the buffer or writeLength is null,
     /// or the buffer size is less than the minimum buffer size.
-    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`] if the application context does not exist.
+    /// [`ABILITY_RUNTIME_ERROR_CODE_CONTEXT_NOT_EXIST`](crate::runtime::AbilityRuntimeErrorCode::CONTEXT_NOT_EXIST) if the application context does not exist.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -546,9 +546,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`] if targetPageName is null or windowId is invalid.
-    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`]
+    /// * Returns [`ABILITY_RUNTIME_ERROR_CODE_NO_ERROR`](crate::runtime::AbilityRuntimeResult) if the operation is successful.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_PARAM_INVALID`](crate::runtime::AbilityRuntimeErrorCode::PARAM_INVALID) if targetPageName is null or windowId is invalid.
+    /// Returns [`ABILITY_RUNTIME_ERROR_CODE_INTERNAL`](crate::runtime::AbilityRuntimeErrorCode::INTERNAL)
     /// if internal error occurs, such as failed to access dependency module.
     ///
     /// Available since API-level: 23

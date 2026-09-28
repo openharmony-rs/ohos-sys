@@ -71,11 +71,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`BatteryInfo_BatteryPluggedType#PLUGGED_TYPE_NONE`] if the power source is unplugged.
-    /// [`PLUGGED_TYPE_AC`] if the power source is an AC charger.
-    /// [`PLUGGED_TYPE_USB`] if the power source is an USB DC charger.
-    /// [`PLUGGED_TYPE_WIRELESS`] if the power source is wireless charger.
-    /// [`PLUGGED_TYPE_BUTT`] if the type is unknown.
+    /// * [`BatteryInfo_BatteryPluggedType#PLUGGED_TYPE_NONE`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_NONE) if the power source is unplugged.
+    /// [`PLUGGED_TYPE_AC`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_AC) if the power source is an AC charger.
+    /// [`PLUGGED_TYPE_USB`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_USB) if the power source is an USB DC charger.
+    /// [`PLUGGED_TYPE_WIRELESS`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_WIRELESS) if the power source is wireless charger.
+    /// [`PLUGGED_TYPE_BUTT`](crate::battery_info::BatteryInfo_BatteryPluggedType::PLUGGED_TYPE_BUTT) if the type is unknown.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]

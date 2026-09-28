@@ -25,9 +25,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `style` - A pointer to OH_Drawing_TypographyStyle, obtained by [`OH_Drawing_CreateTypographyStyle`].
+    /// * `style` - A pointer to OH_Drawing_TypographyStyle, obtained by [`OH_Drawing_CreateTypographyStyle`](ohos_drawing_sys::text_typography::OH_Drawing_CreateTypographyStyle).
     ///
-    /// * `collection` - A pointer to OH_Drawing_FontCollection, obtained by [`OH_Drawing_CreateFontCollection`].
+    /// * `collection` - A pointer to OH_Drawing_FontCollection, obtained by [`OH_Drawing_CreateFontCollection`](ohos_drawing_sys::font_collection::OH_Drawing_CreateFontCollection).
     ///
     /// # Returns
     ///
@@ -111,8 +111,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -140,8 +140,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -165,8 +165,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

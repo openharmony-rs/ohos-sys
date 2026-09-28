@@ -4,8 +4,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::cparcel::{OHIPCRemoteStub, OH_IPC_MemAllocator};
-#[cfg(doc)]
-use crate::error_code::*;
 use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteProxy};
 
 /// Defines an <b>OHIPCDeathRecipient</b> object, which is used to receive a notification
@@ -38,11 +36,11 @@ pub struct OHIPCDeathRecipient {
 ///
 /// # Returns
 ///
-/// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+/// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
 ///
 /// Returns a custom error code in the range [1909001, 1909999] or a system error code otherwise.
 ///
-/// Returns [`OH_IPC_ErrorCode#OH_IPC_INVALID_USER_ERROR_CODE`] if the custom error code is out of the value range.
+/// Returns [`OH_IPC_ErrorCode#OH_IPC_INVALID_USER_ERROR_CODE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INVALID_USER_ERROR_CODE) if the custom error code is out of the value range.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -193,15 +191,15 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`] if the <b>OHIPCRemoteStub</b> object is dead.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_DEAD_REMOTE_OBJECT) if the <b>OHIPCRemoteStub</b> object is dead.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CODE_OUT_OF_RANGE`] if the error code is out of the value range.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CODE_OUT_OF_RANGE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CODE_OUT_OF_RANGE) if the error code is out of the value range.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`] or a custom error code in other cases.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) or a custom error code in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -234,15 +232,15 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if incorrect parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`] if the <b>OHIPCRemoteStub</b> object is dead.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_DEAD_REMOTE_OBJECT`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_DEAD_REMOTE_OBJECT) if the <b>OHIPCRemoteStub</b> object is dead.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`] if memory allocation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_MEM_ALLOCATOR_ERROR) if memory allocation fails.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`] if the data in the serialized object failed to be read.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the data in the serialized object failed to be read.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -306,11 +304,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if incorrect parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`] in other cases.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -333,11 +331,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if incorrect parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`] in other cases.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

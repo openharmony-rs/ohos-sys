@@ -183,16 +183,16 @@ pub struct Location_Info {
 ///
 /// # Arguments
 ///
-/// * `location` - - Pointer to the [`Location_Info`] instance. Carry the latest location information.
+/// * `location` - - Pointer to the [`Location_Info`](crate::location_type::Location_Info) instance. Carry the latest location information.
 ///
-/// The memory of the location instance is recycled at the end of [`Location_InfoCallback`].
+/// The memory of the location instance is recycled at the end of [`Location_InfoCallback`](crate::location_type::Location_InfoCallback).
 ///
-/// Before that, call [`OH_LocationInfo_GetBasicInfo`] and other interfaces to obtain location information.
+/// Before that, call [`OH_LocationInfo_GetBasicInfo`](crate::location_type::OH_LocationInfo_GetBasicInfo) and other interfaces to obtain location information.
 ///
 ///
 /// * `userData` - - Pointer to an application data structure, this parameter is passed in
 ///
-/// through [`OH_LocationRequestConfig_SetCallback`].
+/// through [`OH_LocationRequestConfig_SetCallback`](crate::location_type::OH_LocationRequestConfig_SetCallback).
 ///
 ///
 /// Available since API-level: 13
@@ -217,14 +217,14 @@ extern "C" {
     ///
     /// * `location` - - Pointer to the location information structure.
     ///
-    /// A non-null pointer is required. The pointer can be obtained from [`Location_InfoCallback`].
+    /// A non-null pointer is required. The pointer can be obtained from [`Location_InfoCallback`](crate::location_type::Location_InfoCallback).
     ///
     ///
     /// # Returns
     ///
     /// * Return the basic information structure of the location.
     ///
-    /// For a detailed definition, please refer to [`Location_BasicInfo`].
+    /// For a detailed definition, please refer to [`Location_BasicInfo`](crate::location_type::Location_BasicInfo).
     ///
     ///
     /// Available since API-level: 13
@@ -237,7 +237,7 @@ extern "C" {
     ///
     /// * `location` - - Pointer to the location information structure.
     ///
-    /// A non-null pointer is required. The pointer can be obtained from [`Location_InfoCallback`].
+    /// A non-null pointer is required. The pointer can be obtained from [`Location_InfoCallback`](crate::location_type::Location_InfoCallback).
     ///
     ///
     /// * `additionalInfo` - - Non null pointers of char type; This variable is used to store additional
@@ -257,11 +257,11 @@ extern "C" {
     ///
     /// * Location functions result code.
     ///
-    /// For a detailed definition, please refer to [`Location_ResultCode`].
+    /// For a detailed definition, please refer to [`Location_ResultCode`](crate::location_type::Location_ResultCode).
     ///
-    /// [`LOCAION_SUCCESS`] Successfully obtained additional information.
+    /// `LOCAION_SUCCESS` Successfully obtained additional information.
     ///
-    /// [`LOCATION_INVALID_PARAM`] 1.The input parameter location or additionalInfo is a null pointer.
+    /// [`LOCATION_INVALID_PARAM`](crate::location_type::Location_ResultCodeError::INVALID_PARAM) 1.The input parameter location or additionalInfo is a null pointer.
     ///
     /// 2.The input parameter length is too small to store additional information.
     ///
@@ -279,7 +279,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Return a pointer to the [`Location_RequestConfig`] instance.
+    /// * Return a pointer to the [`Location_RequestConfig`](crate::location_type::Location_RequestConfig) instance.
     ///
     /// If NULL is returned, it indicates that the creation failed.
     ///
@@ -296,9 +296,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `requestConfig` - - Pointer to [`Location_RequestConfig`] instance.
+    /// * `requestConfig` - - Pointer to [`Location_RequestConfig`](crate::location_type::Location_RequestConfig) instance.
     ///
-    /// The instance was created by [`OH_Location_CreateRequestConfig`].
+    /// The instance was created by [`OH_Location_CreateRequestConfig`](crate::location_type::OH_Location_CreateRequestConfig).
     ///
     ///
     /// Available since API-level: 13
@@ -307,7 +307,7 @@ extern "C" {
     pub fn OH_Location_DestroyRequestConfig(requestConfig: *mut Location_RequestConfig);
     /// Set the use scenario in the location request parameter.
     ///
-    /// Prioritize useScene in the location request parameter [`Location_RequestConfig`].
+    /// Prioritize useScene in the location request parameter [`Location_RequestConfig`](crate::location_type::Location_RequestConfig).
     ///
     /// If useScene is set, powerConsumptionScene becomes invalid.
     ///
@@ -315,23 +315,23 @@ extern "C" {
     ///
     /// If both parameters are not set, the default useScene is
     ///
-    /// [`LOCATION_USE_SCENE_DAILY_LIFE_SERVICE`],
+    /// [`LOCATION_USE_SCENE_DAILY_LIFE_SERVICE`](crate::location_type::Location_UseScene::LOCATION_USE_SCENE_DAILY_LIFE_SERVICE),
     ///
     /// and the powerConsumptionCenario parameter is invalid.
     ///
     ///
     /// # Arguments
     ///
-    /// * `requestConfig` - - Pointer to the [`Location_RequestConfig`] instance.
+    /// * `requestConfig` - - Pointer to the [`Location_RequestConfig`](crate::location_type::Location_RequestConfig) instance.
     ///
-    /// The instance was created by [`OH_Location_CreateRequestConfig`].
+    /// The instance was created by [`OH_Location_CreateRequestConfig`](crate::location_type::OH_Location_CreateRequestConfig).
     ///
     ///
     /// * `useScene` - - Representing the use scenario during location requests.
     ///
-    /// The default value is [`LOCATION_USE_SCENE_DAILY_LIFE_SERVICE`]
+    /// The default value is [`LOCATION_USE_SCENE_DAILY_LIFE_SERVICE`](crate::location_type::Location_UseScene::LOCATION_USE_SCENE_DAILY_LIFE_SERVICE)
     /// .
-    /// For a detailed definition, please refer to [`Location_UseScene`].
+    /// For a detailed definition, please refer to [`Location_UseScene`](crate::location_type::Location_UseScene).
     ///
     ///
     /// Available since API-level: 13
@@ -345,16 +345,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `requestConfig` - - Pointer to the [`Location_RequestConfig`] instance.
+    /// * `requestConfig` - - Pointer to the [`Location_RequestConfig`](crate::location_type::Location_RequestConfig) instance.
     ///
-    /// The instance was created by [`OH_Location_CreateRequestConfig`].
+    /// The instance was created by [`OH_Location_CreateRequestConfig`](crate::location_type::OH_Location_CreateRequestConfig).
     ///
     ///
     /// * `powerConsumptionScene` - - Represents the power consumption scenario for location requests.
     ///
-    /// The recognition value is [`LOCATION_LOW_POWER_CONSUMPTION`].
+    /// The recognition value is [`LOCATION_LOW_POWER_CONSUMPTION`](crate::location_type::Location_PowerConsumptionScene::LOCATION_LOW_POWER_CONSUMPTION).
     ///
-    /// For a detailed definition, please refer to [`Location_PowerConsumptionScene`].
+    /// For a detailed definition, please refer to [`Location_PowerConsumptionScene`](crate::location_type::Location_PowerConsumptionScene).
     ///
     ///
     /// Available since API-level: 13
@@ -368,9 +368,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `requestConfig` - - Pointer to the [`Location_RequestConfig`] instance.
+    /// * `requestConfig` - - Pointer to the [`Location_RequestConfig`](crate::location_type::Location_RequestConfig) instance.
     ///
-    /// The instance was created by [`OH_Location_CreateRequestConfig`].
+    /// The instance was created by [`OH_Location_CreateRequestConfig`](crate::location_type::OH_Location_CreateRequestConfig).
     ///
     ///
     /// * `interval` - - Indicates the time interval for location reporting, in seconds.
@@ -389,14 +389,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `requestConfig` - - Pointer to the [`Location_RequestConfig`] instance.
+    /// * `requestConfig` - - Pointer to the [`Location_RequestConfig`](crate::location_type::Location_RequestConfig) instance.
     ///
-    /// The instance was created by [`OH_Location_CreateRequestConfig`].
+    /// The instance was created by [`OH_Location_CreateRequestConfig`](crate::location_type::OH_Location_CreateRequestConfig).
     ///
     ///
     /// * `callback` - - Pointer to the callback function for receiving the location.
     ///
-    /// For details, see [`Location_InfoCallback`].
+    /// For details, see [`Location_InfoCallback`](crate::location_type::Location_InfoCallback).
     ///
     ///
     /// * `userData` - - Pointer to the application data structure, which will be

@@ -6,8 +6,6 @@
 #![allow(deprecated)]
 #[allow(unused_imports)]
 use crate::avbuffer_info::OH_AVCodecBufferAttr;
-#[cfg(doc)]
-use crate::avcodec_base::*;
 #[allow(unused_imports)]
 use crate::avcodec_base::{OH_AVCodec, OH_AVCodecAsyncCallback};
 #[allow(unused_imports)]
@@ -21,7 +19,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.AudioEncoder
     /// # Arguments
     ///
-    /// * `mime` - mime type description string, refer to [`AVCODEC_MIME_TYPE`]
+    /// * `mime` - mime type description string, refer to `AVCODEC_MIME_TYPE`
     ///
     /// # Returns
     ///
@@ -67,7 +65,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -86,14 +84,14 @@ extern "C" {
     ///
     /// * `codec` - Pointer to an OH_AVCodec instance
     ///
-    /// * `callback` - A collection of all callback functions, see [`OH_AVCodecAsyncCallback`]
+    /// * `callback` - A collection of all callback functions, see [`OH_AVCodecAsyncCallback`](crate::avcodec_base::OH_AVCodecAsyncCallback)
     ///
     /// * `userData` - User specific data
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -121,7 +119,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -146,7 +144,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -168,7 +166,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -189,7 +187,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -212,7 +210,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -234,7 +232,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -245,7 +243,7 @@ extern "C" {
     /// Version: 1.0
     #[deprecated(since = "11", note = "Use instead: OH_AudioCodec_Reset")]
     pub fn OH_AudioEncoder_Reset(codec: *mut OH_AVCodec) -> OH_AVErrCode;
-    /// Get the description information of the output data of the encoder, refer to [`OH_AVFormat`] for details.
+    /// Get the description information of the output data of the encoder, refer to [`OH_AVFormat`](ohos_sys_opaque_types::OH_AVFormat) for details.
     /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs to
     /// be manually released by the caller.
     ///
@@ -281,7 +279,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -295,7 +293,7 @@ extern "C" {
         codec: *mut OH_AVCodec,
         format: *mut OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// Submit the input buffer filled with data to the audio encoder. The [`OH_AVCodecOnNeedInputData`]
+    /// Submit the input buffer filled with data to the audio encoder. The [`OH_AVCodecOnNeedInputData`](crate::avcodec_base::OH_AVCodecOnNeedInputData)
     /// callback will report the available input buffer and the corresponding index value. Once the buffer with the
     /// specified index is submitted to the audio encoder, the buffer cannot be accessed again until the
     /// callback is received again reporting that the buffer with the same index is available
@@ -312,7 +310,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -339,7 +337,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///
@@ -364,7 +362,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
     ///
     /// **Deprecated** since 11
     ///

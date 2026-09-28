@@ -6,16 +6,12 @@
 #![allow(deprecated)]
 #[allow(unused_imports)]
 use crate::avbuffer::OH_AVBuffer;
-#[cfg(doc)]
-use crate::avcodec_base::*;
 #[allow(unused_imports)]
 use crate::avcodec_base::{OH_AVCodec, OH_AVCodecCallback};
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 #[allow(unused_imports)]
 use crate::avformat::OH_AVFormat;
-#[cfg(doc)]
-use crate::avformat::*;
 
 /// MediaKeySession field.
 ///
@@ -32,7 +28,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.AudioCodec
     /// # Arguments
     ///
-    /// * `mime` - mime type description string, refer to [`AVCODEC_MIME_TYPE`]
+    /// * `mime` - mime type description string, refer to `AVCODEC_MIME_TYPE`
     ///
     /// * `isEncoder` - true indicates the need to create an encoder, while false indicates the need to create a decoder.
     ///
@@ -73,11 +69,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the codec is nullptr or invalid.
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
-    /// [`AV_ERR_NO_MEMORY`], inner resource has already released.
-    /// [`AV_ERR_UNKNOWN`], internal error occurred, it is recommended to check the logs.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the codec is nullptr or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), inner resource has already released.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), internal error occurred, it is recommended to check the logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -91,16 +87,16 @@ extern "C" {
     ///
     /// * `codec` - Pointer to an OH_AVCodec instance
     ///
-    /// * `callback` - A collection of all callback functions, see [`OH_AVCodecCallback`]
+    /// * `callback` - A collection of all callback functions, see [`OH_AVCodecCallback`](crate::avcodec_base::OH_AVCodecCallback)
     ///
     /// * `userData` - User specific data
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], input parameter is empty or invalid.
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), input parameter is empty or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -123,12 +119,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], input parameter is empty or invalid.
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), input parameter is empty or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), operation not permitted.
     /// This could be due to an incorrect state or an unsupported operation.
-    /// [`AV_ERR_UNKNOWN`], internal error occurred, it is recommended to check the logs.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), internal error occurred, it is recommended to check the logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -148,12 +144,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the codec is nullptr or invalid.
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the codec is nullptr or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), operation not permitted.
     /// This could be due to an incorrect state or an unsupported operation.
-    /// [`AV_ERR_UNKNOWN`], internal error occurred, it is recommended to check the logs.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), internal error occurred, it is recommended to check the logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -170,12 +166,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the codec is nullptr or invalid.
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the codec is nullptr or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), operation not permitted.
     /// This could be due to an incorrect state or an unsupported operation.
-    /// [`AV_ERR_UNKNOWN`], internal error occurred, it is recommended to check the logs.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), internal error occurred, it is recommended to check the logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -193,12 +189,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the codec is nullptr or invalid.
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the codec is nullptr or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), operation not permitted.
     /// This could be due to an incorrect state or an unsupported operation.
-    /// [`AV_ERR_UNKNOWN`], internal error occurred, it is recommended to check the logs.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), internal error occurred, it is recommended to check the logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -216,12 +212,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the codec is nullptr or invalid.
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the codec is nullptr or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), operation not permitted.
     /// This could be due to an incorrect state or an unsupported operation.
-    /// [`AV_ERR_UNKNOWN`], internal error occurred, it is recommended to check the logs.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), internal error occurred, it is recommended to check the logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -238,17 +234,17 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the codec is nullptr or invalid.
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the codec is nullptr or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AudioCodec_Reset(codec: *mut OH_AVCodec) -> OH_AVErrCode;
-    /// Get the description information of the output data of the codec, refer to [`OH_AVFormat`] for details.
+    /// Get the description information of the output data of the codec, refer to [`OH_AVFormat`](ohos_sys_opaque_types::OH_AVFormat) for details.
     /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs to
-    /// be manually released by calling [`OH_AVFormat_Destroy`].
+    /// be manually released by calling [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy).
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.AudioCodec
     /// # Arguments
@@ -258,7 +254,7 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the OH_AVFormat handle pointer, the life cycle is refreshed with
-    /// the next [`OH_AudioCodec_GetOutputDescription`], or destroyed with OH_AVCodec;
+    /// the next [`OH_AudioCodec_GetOutputDescription`](crate::avcodec_audiocodec::OH_AudioCodec_GetOutputDescription), or destroyed with OH_AVCodec;
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -277,12 +273,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], input parameter is empty or invalid.
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), input parameter is empty or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), operation not permitted.
     /// This could be due to an incorrect state or an unsupported operation.
-    /// [`AV_ERR_UNKNOWN`], internal error occurred, it is recommended to check the logs.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), internal error occurred, it is recommended to check the logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -291,9 +287,9 @@ extern "C" {
         codec: *mut OH_AVCodec,
         format: *const OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// Submit the input buffer filled with data to the audio codec. The [`OH_AVCodecOnNeedInputBuffer`] callback
+    /// Submit the input buffer filled with data to the audio codec. The [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer) callback
     /// will report the available input buffer and the corresponding index value. Once the buffer with the specified index
-    /// is submitted to the audio codec, the buffer cannot be accessed again until the [`OH_AVCodecOnNeedInputBuffer`]
+    /// is submitted to the audio codec, the buffer cannot be accessed again until the [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer)
     /// callback is received again reporting that the buffer with the same index is available. In addition, for some
     /// codecs, it is required to input Codec-Specific-Data to the codec at the beginning to initialize the encoding or
     /// decoding process of the codec.
@@ -308,13 +304,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], input parameter is empty or invalid. Buffer index
-    /// should be given by [`OH_AVCodecOnNeedInputBuffer`].
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), input parameter is empty or invalid. Buffer index
+    /// should be given by [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer).
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), operation not permitted.
     /// This could be due to an incorrect state or an unsupported operation.
-    /// [`AV_ERR_UNKNOWN`], internal error occurred, it is recommended to check the logs.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), internal error occurred, it is recommended to check the logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -332,13 +328,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], input parameter is empty or invalid. Buffer index
-    /// should be given by [`OH_AVCodecOnNewOutputBuffer`].
-    /// [`AV_ERR_INVALID_STATE`], the interface was called in an invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), input parameter is empty or invalid. Buffer index
+    /// should be given by [`OH_AVCodecOnNewOutputBuffer`](crate::avcodec_base::OH_AVCodecOnNewOutputBuffer).
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), the interface was called in an invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), operation not permitted.
     /// This could be due to an incorrect state or an unsupported operation.
-    /// [`AV_ERR_UNKNOWN`], internal error occurred, it is recommended to check the logs.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), internal error occurred, it is recommended to check the logs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -358,8 +354,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], input parameter is empty or invalid.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), input parameter is empty or invalid.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -378,11 +374,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_INVALID_VAL`] 3 - If the codec instance is nullptr or invalid,
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If the codec instance is nullptr or invalid,
     /// the mediaKeySession is nullptr or invalid.
-    /// [`AV_ERR_INVALID_STATE`] 8 - If the codec service is invalid.
-    /// [`AV_ERR_NO_MEMORY`], failed to request memory.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE) 8 - If the codec service is invalid.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), failed to request memory.
     ///
     /// Available since API-level: 12
     ///
@@ -396,8 +392,8 @@ extern "C" {
     ) -> OH_AVErrCode;
     /// Queries the index of the next available input buffer.
     ///
-    /// This API must be followed by calling [`OH_AudioCodec_GetInputBuffer`] to obtain the buffer handle,
-    /// which should then be passed to the codec via [`OH_AudioCodec_PushInputBuffer`].
+    /// This API must be followed by calling [`OH_AudioCodec_GetInputBuffer`](crate::avcodec_audiocodec::OH_AudioCodec_GetInputBuffer) to obtain the buffer handle,
+    /// which should then be passed to the codec via [`OH_AudioCodec_PushInputBuffer`](crate::avcodec_audiocodec::OH_AudioCodec_PushInputBuffer).
     ///
     /// Note: This operation is only supported in synchronous mode.
     ///
@@ -415,11 +411,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`], input parameter is empty or invalid.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permitted in asynchronous mode.
-    /// [`AV_ERR_TRY_AGAIN_LATER`], query failed, recommended retry after delay.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), input parameter is empty or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permitted in asynchronous mode.
+    /// [`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER), query failed, recommended retry after delay.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -440,7 +436,7 @@ extern "C" {
     ///
     /// * `codec` - Pointer to an OH_AVCodec instance
     ///
-    /// * `index` - Buffer index obtained via [`OH_AudioCodec_QueryInputBuffer`].
+    /// * `index` - Buffer index obtained via [`OH_AudioCodec_QueryInputBuffer`](crate::avcodec_audiocodec::OH_AudioCodec_QueryInputBuffer).
     ///
     /// # Returns
     ///
@@ -453,8 +449,8 @@ extern "C" {
     pub fn OH_AudioCodec_GetInputBuffer(codec: *mut OH_AVCodec, index: u32) -> *mut OH_AVBuffer;
     /// Queries the index of the next available output buffer.
     ///
-    /// The obtained buffer handle through [`OH_AudioCodec_GetOutputBuffer`] must be
-    /// return to the audio codec via [`OH_AudioCodec_FreeOutputBuffer`].
+    /// The obtained buffer handle through [`OH_AudioCodec_GetOutputBuffer`](crate::avcodec_audiocodec::OH_AudioCodec_GetOutputBuffer) must be
+    /// return to the audio codec via [`OH_AudioCodec_FreeOutputBuffer`](crate::avcodec_audiocodec::OH_AudioCodec_FreeOutputBuffer).
     ///
     /// Note: This operation is only supported in synchronous mode.
     ///
@@ -472,13 +468,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`], input parameter is empty or invalid.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permitted in asynchronous mode.
-    /// [`AV_ERR_STREAM_CHANGED`], stream format changed, call [`OH_AudioCodec_GetOutputDescription`] to
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), input parameter is empty or invalid.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permitted in asynchronous mode.
+    /// [`AV_ERR_STREAM_CHANGED`](crate::averrors::OH_AVErrCode::AV_ERR_STREAM_CHANGED), stream format changed, call [`OH_AudioCodec_GetOutputDescription`](crate::avcodec_audiocodec::OH_AudioCodec_GetOutputDescription) to
     /// retrieve new steam information.
-    /// [`AV_ERR_TRY_AGAIN_LATER`], query failed, recommended retry after delay.
+    /// [`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER), query failed, recommended retry after delay.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -500,7 +496,7 @@ extern "C" {
     /// * `codec` - Pointer to an OH_AVCodec instance
     ///
     /// * `index` - The index value corresponding to the output buffer,
-    /// should be given by [`OH_AudioCodec_QueryOutputBuffer`].
+    /// should be given by [`OH_AudioCodec_QueryOutputBuffer`](crate::avcodec_audiocodec::OH_AudioCodec_QueryOutputBuffer).
     ///
     /// # Returns
     ///

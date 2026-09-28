@@ -386,9 +386,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -407,9 +407,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the parameter env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the parameter env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -425,9 +425,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -443,9 +443,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -463,9 +463,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -481,9 +481,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -499,9 +499,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -519,9 +519,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -543,9 +543,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -563,9 +563,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -583,9 +583,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -603,9 +603,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -625,9 +625,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, str and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, str and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -652,9 +652,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, str and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, str and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -683,9 +683,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) result is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) result is nullptr;
     ///
     /// If the param description is not nullptr and is not an ArkTS String.
     ///
@@ -715,11 +715,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, cb and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, cb and(or) result is nullptr.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 10
@@ -746,9 +746,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, msg or result is nullptr, code is not string and number type or msg is
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, msg or result is nullptr, code is not string and number type or msg is
     ///
     /// not a string type.
     ///
@@ -775,9 +775,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, msg or result is nullptr, code is not string and number type or msg is
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, msg or result is nullptr, code is not string and number type or msg is
     ///
     /// not a string type.
     ///
@@ -804,9 +804,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, msg or result is nullptr, code is not string and number type or msg is
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, msg or result is nullptr, code is not string and number type or msg is
     ///
     /// not a string type.
     ///
@@ -831,9 +831,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -855,11 +855,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
-    /// [`napi_number_expected`] If a non-number ArkTS value passed in it.
+    /// [`napi_number_expected`](crate::napi::napi_status::napi_number_expected) If a non-number ArkTS value passed in it.
     ///
     ///
     /// Available since API-level: 10
@@ -878,11 +878,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
-    /// [`napi_number_expected`] If a non-number ArkTS value passed in it.
+    /// [`napi_number_expected`](crate::napi::napi_status::napi_number_expected) If a non-number ArkTS value passed in it.
     ///
     ///
     /// Available since API-level: 10
@@ -900,11 +900,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
-    /// [`napi_number_expected`] If a non-number ArkTS value passed in it.
+    /// [`napi_number_expected`](crate::napi::napi_status::napi_number_expected) If a non-number ArkTS value passed in it.
     ///
     ///
     /// Available since API-level: 10
@@ -923,11 +923,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
-    /// [`napi_number_expected`] If a non-number ArkTS value passed in it.
+    /// [`napi_number_expected`](crate::napi::napi_status::napi_number_expected) If a non-number ArkTS value passed in it.
     ///
     ///
     /// Available since API-level: 10
@@ -945,11 +945,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
-    /// [`napi_boolean_expected`] If a non-boolean ArkTS value passed in it.
+    /// [`napi_boolean_expected`](crate::napi::napi_status::napi_boolean_expected) If a non-boolean ArkTS value passed in it.
     ///
     ///
     /// Available since API-level: 10
@@ -971,13 +971,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) value is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) value is nullptr;
     ///
     /// If the param buf and result both are nullptr.
     ///
-    /// [`napi_string_expected`] If a non-string ArkTS value passed in it.
+    /// [`napi_string_expected`](crate::napi::napi_status::napi_string_expected) If a non-string ArkTS value passed in it.
     ///
     ///
     /// Available since API-level: 10
@@ -1005,13 +1005,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) value is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) value is nullptr;
     ///
     /// If the param buf and result both are nullptr.
     ///
-    /// [`napi_string_expected`] If a non-string ArkTS value passed in it.
+    /// [`napi_string_expected`](crate::napi::napi_status::napi_string_expected) If a non-string ArkTS value passed in it.
     ///
     ///
     /// Available since API-level: 10
@@ -1042,9 +1042,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -1066,9 +1066,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -1090,9 +1090,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -1114,9 +1114,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -1138,11 +1138,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object or result is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object or result is nullptr;
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1165,11 +1165,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
     ///
     /// Available since API-level: 10
@@ -1193,13 +1193,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object, key and(or) value is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object, key and(or) value is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1224,13 +1224,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object, key and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object, key and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1255,13 +1255,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object, key and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object, key and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1286,13 +1286,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object and(or) key is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object and(or) key is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1317,13 +1317,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object, key and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object, key and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurs in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurs in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1348,13 +1348,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object, utf8name and(or) value is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object, utf8name and(or) value is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1379,13 +1379,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object, utf8name and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object, utf8name and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1410,13 +1410,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object, utf8name and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object, utf8name and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1441,13 +1441,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object and(or) value is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object and(or) value is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1472,13 +1472,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1503,13 +1503,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1534,13 +1534,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object and(or) key is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object and(or) key is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1565,13 +1565,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object and(or) properties is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object and(or) properties is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1594,9 +1594,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -1614,11 +1614,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr;
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1639,9 +1639,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -1670,15 +1670,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) func is nullptr. If argv is nullptr but argc greater
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) func is nullptr. If argv is nullptr but argc greater
     ///
     /// than 0.
     ///
-    /// [`napi_function_expected`] If the param func is not an ArkTS Function.
+    /// [`napi_function_expected`](crate::napi::napi_status::napi_function_expected) If the param func is not an ArkTS Function.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1708,15 +1708,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) func is nullptr. If argv is nullptr but argc greater
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) func is nullptr. If argv is nullptr but argc greater
     ///
     /// than 0.
     ///
-    /// [`napi_function_expected`] If the param func is not an ArkTS Function.
+    /// [`napi_function_expected`](crate::napi::napi_status::napi_function_expected) If the param func is not an ArkTS Function.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1742,15 +1742,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, object, constructor and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, object, constructor and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param object is not an ArkTS object value.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS object value.
     ///
-    /// [`napi_function_expected`] If the param constructor is not an ArkTS function value.
+    /// [`napi_function_expected`](crate::napi::napi_status::napi_function_expected) If the param constructor is not an ArkTS function value.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1781,9 +1781,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) cbinfo is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) cbinfo is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -1808,9 +1808,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, cbinfo and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, cbinfo and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -1842,15 +1842,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     /// execution.
     ///
-    /// [`napi_invalid_arg`] If the param env, utf8name and(or) result is nullptr. If napi_property_descriptor
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, utf8name and(or) result is nullptr. If napi_property_descriptor
     /// is nullptr but property_count greater than 0.
     ///
-    /// [`napi_function_expected`] If the param func is not an ArkTS Function.
+    /// [`napi_function_expected`](crate::napi::napi_status::napi_function_expected) If the param func is not an ArkTS Function.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurs in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurs in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1884,13 +1884,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, js_object, native_object and(or) finalize_cb is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, js_object, native_object and(or) finalize_cb is nullptr.
     ///
-    /// [`napi_object_expected`] If the param js_object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param js_object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1915,13 +1915,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, js_object and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, js_object and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param js_object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param js_object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1944,13 +1944,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, js_object and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, js_object and(or) result is nullptr.
     ///
-    /// [`napi_object_expected`] If the param js_object is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param js_object is not an ArkTS Object.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurred in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
     ///
     ///
     /// Available since API-level: 10
@@ -1977,11 +1977,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env or result is nullptr.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 10
@@ -2005,11 +2005,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value or result is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value or result is nullptr;
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 10
@@ -2033,9 +2033,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2056,9 +2056,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or ref is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or ref is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2076,9 +2076,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or ref is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or ref is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2096,9 +2096,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or ref is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or ref is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2116,9 +2116,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, ref or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, ref or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2138,9 +2138,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2156,11 +2156,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or scope is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or scope is nullptr.
     ///
-    /// [`napi_handle_scope_mismatch`] If there is no scope still existed.
+    /// [`napi_handle_scope_mismatch`](crate::napi::napi_status::napi_handle_scope_mismatch) If there is no scope still existed.
     ///
     ///
     /// Available since API-level: 10
@@ -2176,9 +2176,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2197,11 +2197,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or scope is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or scope is nullptr.
     ///
-    /// [`napi_handle_scope_mismatch`] If there is no scope still existed.
+    /// [`napi_handle_scope_mismatch`](crate::napi::napi_status::napi_handle_scope_mismatch) If there is no scope still existed.
     ///
     ///
     /// Available since API-level: 10
@@ -2224,9 +2224,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, scope, escapee or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, scope, escapee or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2247,9 +2247,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or error is nullptr, or error is not an error object.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or error is nullptr, or error is not an error object.
     ///
     ///
     /// Available since API-level: 10
@@ -2267,9 +2267,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or msg is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or msg is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2291,9 +2291,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or msg is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or msg is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2315,9 +2315,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or msg is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or msg is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2339,9 +2339,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2357,9 +2357,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2375,9 +2375,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2396,9 +2396,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2418,11 +2418,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, data and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, data and(or) result is nullptr.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 10
@@ -2452,11 +2452,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, external_data, finalize_cb and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, external_data, finalize_cb and(or) result is nullptr.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 10
@@ -2483,13 +2483,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, arraybuffer and(or) byte_length is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, arraybuffer and(or) byte_length is nullptr.
     ///
-    /// [`napi_arraybuffer_expected`] If the param is neither ArkTS TypedArray nor SendableArrayBuffer.
+    /// [`napi_arraybuffer_expected`](crate::napi::napi_status::napi_arraybuffer_expected) If the param is neither ArkTS TypedArray nor SendableArrayBuffer.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 10
@@ -2512,9 +2512,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2538,15 +2538,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, arraybuffer and(or) result is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, arraybuffer and(or) result is nullptr;
     ///
     /// If param type is not a valid napi_typedarray_type.
     ///
-    /// [`napi_arraybuffer_expected`] If a non-arraybuffer ArkTS value passed in it.
+    /// [`napi_arraybuffer_expected`](crate::napi::napi_status::napi_arraybuffer_expected) If a non-arraybuffer ArkTS value passed in it.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 10
@@ -2579,9 +2579,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) typedarray is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) typedarray is nullptr;
     ///
     /// If the param typedarray is neither ArkTS TypedArray nor SendableTypedArray.
     ///
@@ -2613,13 +2613,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, arraybuffer and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, arraybuffer and(or) result is nullptr.
     ///
-    /// [`napi_arraybuffer_expected`] If a non-arraybuffer ArkTS value passed in it.
+    /// [`napi_arraybuffer_expected`](crate::napi::napi_status::napi_arraybuffer_expected) If a non-arraybuffer ArkTS value passed in it.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     /// If the sum of byte_length and length is greater than the byte length of
     ///
@@ -2647,9 +2647,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value and(or) result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value and(or) result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2673,9 +2673,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) dataview is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) dataview is nullptr;
     ///
     /// If non-dataview ArkTS value passed in.
     ///
@@ -2703,13 +2703,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, deferred or resolution is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, deferred or resolution is nullptr.
     ///
-    /// [`napi_pending_exception`] If an ArkTS exception existed when the function was called.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If an ArkTS exception existed when the function was called.
     ///
-    /// [`napi_generic_failure`] If create promise failed.
+    /// [`napi_generic_failure`](crate::napi::napi_status::napi_generic_failure) If create promise failed.
     ///
     ///
     /// Available since API-level: 10
@@ -2730,11 +2730,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, deferred or resolution is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, deferred or resolution is nullptr.
     ///
-    /// [`napi_pending_exception`] If an ArkTS exception existed when the function was called.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If an ArkTS exception existed when the function was called.
     ///
     ///
     /// Available since API-level: 10
@@ -2755,11 +2755,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, deferred or rejection is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, deferred or rejection is nullptr.
     ///
-    /// [`napi_pending_exception`] If an ArkTS exception existed when the function was called.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If an ArkTS exception existed when the function was called.
     ///
     ///
     /// Available since API-level: 10
@@ -2780,9 +2780,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or is_promise is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or is_promise is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2809,11 +2809,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or result is nullptr.
     ///
-    /// [`napi_pending_exception`] If an ArkTS exception existed when the function was called.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If an ArkTS exception existed when the function was called.
     ///
     ///
     /// Available since API-level: 10
@@ -2831,9 +2831,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or is_date is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or is_date is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2851,13 +2851,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or result is nullptr.
     ///
-    /// [`napi_pending_exception`] If an ArkTS exception existed when the function was called.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If an ArkTS exception existed when the function was called.
     ///
-    /// [`napi_date_expected`] If the 'value' is not a 'Date' object.
+    /// [`napi_date_expected`](crate::napi::napi_status::napi_date_expected) If the 'value' is not a 'Date' object.
     ///
     ///
     /// Available since API-level: 10
@@ -2908,9 +2908,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2932,9 +2932,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -2960,11 +2960,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, words or result is nullptr or word_count is larger than 2147483647.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, words or result is nullptr or word_count is larger than 2147483647.
     ///
-    /// [`napi_pending_exception`] If an ArkTS exception existed when the function was called.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If an ArkTS exception existed when the function was called.
     ///
     ///
     /// Available since API-level: 10
@@ -2991,13 +2991,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value, result or lossless is nullptr or word_count is larger than
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value, result or lossless is nullptr or word_count is larger than
     ///
     /// 2147483647.
     ///
-    /// [`napi_bigint_expected`] If the 'value' is not an ArkTS bigint object.
+    /// [`napi_bigint_expected`](crate::napi::napi_status::napi_bigint_expected) If the 'value' is not an ArkTS bigint object.
     ///
     ///
     /// Available since API-level: 10
@@ -3023,13 +3023,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value, result or lossless is nullptr or word_count is larger than
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value, result or lossless is nullptr or word_count is larger than
     ///
     /// 2147483647.
     ///
-    /// [`napi_bigint_expected`] If the 'value' is not an ArkTS bigint object.
+    /// [`napi_bigint_expected`](crate::napi::napi_status::napi_bigint_expected) If the 'value' is not an ArkTS bigint object.
     ///
     ///
     /// Available since API-level: 10
@@ -3056,11 +3056,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or word_count is nullptr or word_count is larger than 2147483647.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or word_count is nullptr or word_count is larger than 2147483647.
     ///
-    /// [`napi_bigint_expected`] If the 'value' is not an ArkTS bigint object.
+    /// [`napi_bigint_expected`](crate::napi::napi_status::napi_bigint_expected) If the 'value' is not an ArkTS bigint object.
     ///
     ///
     /// Available since API-level: 10
@@ -3094,17 +3094,17 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, object or result is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, object or result is nullptr;
     ///
     /// key_mode is not enumeration value of napi_key_collection_mode;
     ///
     /// key_conversion is not enumeration value of napi_key_conversion.
     ///
-    /// [`napi_pending_exception`] If an ArkTS exception existed when the function was called.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If an ArkTS exception existed when the function was called.
     ///
-    /// [`napi_object_expected`] If object is not object type and function type.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If object is not object type and function type.
     ///
     ///
     /// Available since API-level: 10
@@ -3175,11 +3175,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or arraybuffer is nullptr, if 'arraybuffer' is not an ArrayBuffer object.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or arraybuffer is nullptr, if 'arraybuffer' is not an ArrayBuffer object.
     ///
-    /// [`napi_object_expected`] If the 'arraybuffer' is not an ArkTS object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the 'arraybuffer' is not an ArkTS object.
     ///
     ///
     /// Available since API-level: 10
@@ -3197,9 +3197,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -3230,11 +3230,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or object is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or object is nullptr.
     ///
-    /// [`napi_pending_exception`] If an ArkTS exception existed when the function was called.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If an ArkTS exception existed when the function was called.
     ///
     ///
     /// Available since API-level: 10
@@ -3251,11 +3251,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or object is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or object is nullptr.
     ///
-    /// [`napi_pending_exception`] If an ArkTS exception existed when the function was called.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If an ArkTS exception existed when the function was called.
     ///
     ///
     /// Available since API-level: 10
@@ -3354,17 +3354,17 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, func and(or) recv is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, func and(or) recv is nullptr;
     ///
     /// If the param argc is greater than 0 but argv is nullptr.
     ///
-    /// [`napi_object_expected`] If the param recv is not an ArkTS Object.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param recv is not an ArkTS Object.
     ///
-    /// [`napi_function_expected`] If the param func is not an ArkTS Function.
+    /// [`napi_function_expected`](crate::napi::napi_status::napi_function_expected) If the param func is not an ArkTS Function.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 11
@@ -3394,9 +3394,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, data or result is nullptr, or length is larger than 2097152,
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, data or result is nullptr, or length is larger than 2097152,
     /// or length is less than zero.
     ///
     ///
@@ -3427,12 +3427,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, data or result is nullptr, or length is larger than 2097152,
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, data or result is nullptr, or length is larger than 2097152,
     /// or length is less than or equal to zero.
     ///
-    /// [`napi_pending_exception`] If an ArkTS exception existed when the function was called.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If an ArkTS exception existed when the function was called.
     ///
     ///
     /// Available since API-level: 10
@@ -3461,9 +3461,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, data or result is nullptr, or length is larger than 2097152,
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, data or result is nullptr, or length is larger than 2097152,
     /// or length is less than or equal to zero.
     ///
     ///
@@ -3488,9 +3488,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -3510,11 +3510,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or result is nullptr.
     ///
-    /// [`napi_arraybuffer_expected`] If the 'value' is not an ArkTS array buffer object.
+    /// [`napi_arraybuffer_expected`](crate::napi::napi_status::napi_arraybuffer_expected) If the 'value' is not an ArkTS array buffer object.
     ///
     ///
     /// Available since API-level: 10
@@ -3548,9 +3548,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, async_resource_name, execute, complete and(or) result is
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, async_resource_name, execute, complete and(or) result is
     ///
     /// nullptr.
     ///
@@ -3576,9 +3576,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) work is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) work is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -3595,9 +3595,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) work is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) work is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -3616,9 +3616,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) work is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) work is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -3637,11 +3637,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or loop is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or loop is nullptr.
     ///
-    /// [`napi_generic_failure`] If env is invalid.
+    /// [`napi_generic_failure`](crate::napi::napi_status::napi_generic_failure) If env is invalid.
     ///
     ///
     /// Available since API-level: 10
@@ -3657,13 +3657,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env and(or) err is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env and(or) err is nullptr;
     ///
     /// If the param err is not an ArkTS Error value.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before execution.
     ///
     ///
     /// Available since API-level: 12
@@ -3789,15 +3789,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, async_resource_name or result is nullptr; max_queue_size is less than 0;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, async_resource_name or result is nullptr; max_queue_size is less than 0;
     ///
     /// initial_thread_count is greater than 128 or less than 0; func and call_js_cb are
     ///
     /// nullptr at same time.
     ///
-    /// [`napi_generic_failure`] If create thread-safe function failed.
+    /// [`napi_generic_failure`](crate::napi::napi_status::napi_generic_failure) If create thread-safe function failed.
     ///
     ///
     /// Available since API-level: 10
@@ -3824,9 +3824,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If func or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If func or result is nullptr.
     ///
     ///
     /// Available since API-level: 10
@@ -3847,15 +3847,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If func is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If func is nullptr.
     ///
-    /// [`napi_queue_full`] If event queue is full.
+    /// [`napi_queue_full`](crate::napi::napi_status::napi_queue_full) If event queue is full.
     ///
-    /// [`napi_closing`] If the thread-safe function is closing.
+    /// [`napi_closing`](crate::napi::napi_status::napi_closing) If the thread-safe function is closing.
     ///
-    /// [`napi_generic_failure`] If call thread-safe function failed.
+    /// [`napi_generic_failure`](crate::napi::napi_status::napi_generic_failure) If call thread-safe function failed.
     ///
     ///
     /// Available since API-level: 10
@@ -3872,11 +3872,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If func is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If func is nullptr.
     ///
-    /// [`napi_generic_failure`] If acquire thread-safe function failed.
+    /// [`napi_generic_failure`](crate::napi::napi_status::napi_generic_failure) If acquire thread-safe function failed.
     ///
     ///
     /// Available since API-level: 10
@@ -3894,11 +3894,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If func is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If func is nullptr.
     ///
-    /// [`napi_generic_failure`] If release thread-safe function failed.
+    /// [`napi_generic_failure`](crate::napi::napi_status::napi_generic_failure) If release thread-safe function failed.
     ///
     ///
     /// Available since API-level: 10
@@ -3917,11 +3917,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or func is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or func is nullptr.
     ///
-    /// [`napi_generic_failure`] If unref thread-safe function failed.
+    /// [`napi_generic_failure`](crate::napi::napi_status::napi_generic_failure) If unref thread-safe function failed.
     ///
     ///
     /// Available since API-level: 10
@@ -3940,11 +3940,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or func is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or func is nullptr.
     ///
-    /// [`napi_generic_failure`] If ref thread-safe function failed.
+    /// [`napi_generic_failure`](crate::napi::napi_status::napi_generic_failure) If ref thread-safe function failed.
     ///
     ///
     /// Available since API-level: 10
@@ -4648,13 +4648,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, js_object or native_object is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, js_object or native_object is nullptr.
     ///
-    /// [`napi_object_expected`] If the param js_object is not an ArkTS Object or Function.
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param js_object is not an ArkTS Object or Function.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before(in) execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before(in) execution.
     ///
     ///
     /// Available since API-level: 18
@@ -4681,11 +4681,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env is nullptr.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurs in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurs in execution.
     ///
     ///
     /// Available since API-level: 20
@@ -4701,11 +4701,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env is nullptr.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurs in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurs in execution.
     ///
     ///
     /// Available since API-level: 20
@@ -4721,11 +4721,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env is nullptr.
     ///
-    /// [`napi_pending_exception`] If have uncaught exception, or exception occurs in execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurs in execution.
     ///
     ///
     /// Available since API-level: 20
@@ -4743,9 +4743,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param scope is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param scope is nullptr.
     ///
     ///
     /// Available since API-level: 21
@@ -4763,9 +4763,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param scope is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param scope is nullptr.
     ///
     ///
     /// Available since API-level: 21
@@ -4787,9 +4787,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, value, buffer and length is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, value, buffer and length is nullptr.
     ///
     ///
     /// Available since API-level: 21
@@ -4815,9 +4815,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or result is nullptr.
     ///
     ///
     /// Available since API-level: 21
@@ -4839,9 +4839,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or ref is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or ref is nullptr.
     ///
     ///
     /// Available since API-level: 21
@@ -4861,9 +4861,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, ref or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, ref or result is nullptr.
     ///
     ///
     /// Available since API-level: 21
@@ -4893,9 +4893,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, str and(or) result is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, str and(or) result is nullptr;
     ///
     /// If the param length is not equal with NAPI_AUTO_LENGTH and
     ///
@@ -4932,9 +4932,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If the param env, str and(or) result is nullptr;
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If the param env, str and(or) result is nullptr;
     ///
     /// If the param length is not equal with NAPI_AUTO_LENGTH and
     ///
@@ -4966,9 +4966,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, value or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, value or result is nullptr.
     ///
     ///
     /// Available since API-level: 22
@@ -4990,9 +4990,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or ref is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or ref is nullptr.
     ///
     ///
     /// Available since API-level: 22
@@ -5015,9 +5015,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env, ref or result is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, ref or result is nullptr.
     ///
     ///
     /// Available since API-level: 22
@@ -5041,11 +5041,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the function execution status.
-    /// [`napi_ok`] If the function executed successfully.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
     ///
-    /// [`napi_invalid_arg`] If env or msg is nullptr.
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or msg is nullptr.
     ///
-    /// [`napi_pending_exception`] There is an uncaught exception occurred before execution.
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) There is an uncaught exception occurred before execution.
     ///
     ///
     /// Available since API-level: 23

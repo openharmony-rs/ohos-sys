@@ -12,20 +12,20 @@ extern "C" {
     ///
     /// * `duration` - - Vibration duration, in milliseconds.
     ///
-    /// * `attribute` - - Vibration attribute. For details, see [`Vibrator_Attribute`].
+    /// * `attribute` - - Vibration attribute. For details, see [`Vibrator_Attribute`](crate::vibrator_type::Vibrator_Attribute).
     ///
     /// # Returns
     ///
     /// * Returns <b>0</b> if the operation is successful; returns the following error code otherwise.
-    /// [`PERMISSION_DENIED`] Permission verification failed.
+    /// [`PERMISSION_DENIED`](crate::vibrator_type::Vibrator_ErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`PARAMETER_ERROR`] Parameter check failed. For example, the parameter is invalid,
+    /// [`PARAMETER_ERROR`](crate::vibrator_type::Vibrator_ErrorCode::PARAMETER_ERROR) Parameter check failed. For example, the parameter is invalid,
     /// or the parameter type passed in is incorrect.
     ///
-    /// [`UNSUPPORTED`] The API is not supported on the device. The device supports the corresponding SysCap,
+    /// [`UNSUPPORTED`](crate::vibrator_type::Vibrator_ErrorCode::UNSUPPORTED) The API is not supported on the device. The device supports the corresponding SysCap,
     /// but does not support certain APIs in this SysCap.
     ///
-    /// [`DEVICE_OPERATION_FAILED`] The operation on the device failed.
+    /// [`DEVICE_OPERATION_FAILED`](crate::vibrator_type::Vibrator_ErrorCode::DEVICE_OPERATION_FAILED) The operation on the device failed.
     ///
     ///
     /// Required Permissions: ohos.permission.VIBRATE
@@ -40,22 +40,22 @@ extern "C" {
     /// # Arguments
     ///
     /// * `fileDescription` - - File descriptor of the custom vibration effect.
-    /// For details, see [`Vibrator_FileDescription`].
+    /// For details, see [`Vibrator_FileDescription`](crate::vibrator_type::Vibrator_FileDescription).
     ///
-    /// * `vibrateAttribute` - - Vibration attribute. For details, see [`Vibrator_Attribute`].
+    /// * `vibrateAttribute` - - Vibration attribute. For details, see [`Vibrator_Attribute`](crate::vibrator_type::Vibrator_Attribute).
     ///
     /// # Returns
     ///
     /// * Returns <b>0</b> if the operation is successful; returns the following error code otherwise.
-    /// [`PERMISSION_DENIED`] Permission verification failed.
+    /// [`PERMISSION_DENIED`](crate::vibrator_type::Vibrator_ErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`PARAMETER_ERROR`] Parameter check failed. For example, the parameter is invalid,
+    /// [`PARAMETER_ERROR`](crate::vibrator_type::Vibrator_ErrorCode::PARAMETER_ERROR) Parameter check failed. For example, the parameter is invalid,
     /// or the parameter type passed in is incorrect.
     ///
-    /// [`UNSUPPORTED`] The API is not supported on the device. The device supports the corresponding SysCap,
+    /// [`UNSUPPORTED`](crate::vibrator_type::Vibrator_ErrorCode::UNSUPPORTED) The API is not supported on the device. The device supports the corresponding SysCap,
     /// but does not support certain APIs in this SysCap.
     ///
-    /// [`DEVICE_OPERATION_FAILED`] The operation on the device failed.
+    /// [`DEVICE_OPERATION_FAILED`](crate::vibrator_type::Vibrator_ErrorCode::DEVICE_OPERATION_FAILED) The operation on the device failed.
     ///
     ///
     /// Required Permissions: ohos.permission.VIBRATE
@@ -76,12 +76,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns <b>0</b> if the operation is successful; returns the following error code otherwise.
-    /// [`PERMISSION_DENIED`] Permission verification failed.
+    /// [`PERMISSION_DENIED`](crate::vibrator_type::Vibrator_ErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`UNSUPPORTED`] The API is not supported on the device. The device supports the corresponding SysCap,
+    /// [`UNSUPPORTED`](crate::vibrator_type::Vibrator_ErrorCode::UNSUPPORTED) The API is not supported on the device. The device supports the corresponding SysCap,
     /// but does not support certain APIs in this SysCap.
     ///
-    /// [`DEVICE_OPERATION_FAILED`] The operation on the device failed.
+    /// [`DEVICE_OPERATION_FAILED`](crate::vibrator_type::Vibrator_ErrorCode::DEVICE_OPERATION_FAILED) The operation on the device failed.
     ///
     ///
     /// Required Permissions: ohos.permission.VIBRATE

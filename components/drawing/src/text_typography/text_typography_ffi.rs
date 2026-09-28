@@ -857,10 +857,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`] if the value corresponding to the attribute id
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if the value corresponding to the attribute id
     /// exceeds the allowable range.
     ///
     /// Available since API-level: 21
@@ -884,9 +884,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -909,10 +909,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`] if the value corresponding to the attribute id
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if the value corresponding to the attribute id
     /// exceeds the allowable range.
     ///
     /// Available since API-level: 21
@@ -936,9 +936,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -961,10 +961,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`] if the value corresponding to the attribute id
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if the value corresponding to the attribute id
     /// exceeds the allowable range.
     ///
     /// Available since API-level: 21
@@ -988,9 +988,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1013,10 +1013,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`] if the value corresponding to the attribute id
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if the value corresponding to the attribute id
     /// exceeds the allowable range.
     ///
     /// Available since API-level: 21
@@ -1040,9 +1040,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -1065,9 +1065,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if the style is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if the style is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1090,9 +1090,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if the style or value is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`] if the attribute id is not recognized or supported.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if the style or value is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH`](crate::error_code::DrawingErrorCode::ATTRIBUTE_ID_MISMATCH) if the attribute id is not recognized or supported.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1770,7 +1770,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to an <b>OH_Drawing_Typography</b> object, which is obtained by
-    /// [`OH_Drawing_CreateTypography`].
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///
@@ -1789,7 +1789,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `typography` - Pointer to an <b>OH_Drawing_Typography</b> object, which is obtained by
-    /// [`OH_Drawing_CreateTypography`].
+    /// [`OH_Drawing_CreateTypography`](crate::text_typography::OH_Drawing_CreateTypography).
     ///
     /// # Returns
     ///

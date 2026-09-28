@@ -17,11 +17,11 @@ pub struct OH_VBucket {
     pub id: i64,
     /// Indicates the capability of OH_VBucket.
     pub capability: u16,
-    /// Put the const char * value to this [`OH_VBucket`] object for the given column name.
+    /// Put the const char * value to this [`OH_VBucket`](crate::values_bucket::OH_VBucket) object for the given column name.
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// * `field` - Indicates the name of the column.
     ///
@@ -31,7 +31,7 @@ pub struct OH_VBucket {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 10
     pub putText: ::core::option::Option<
@@ -41,11 +41,11 @@ pub struct OH_VBucket {
             value: *const ::core::ffi::c_char,
         ) -> ::core::ffi::c_int,
     >,
-    /// Put the int64 value to this [`OH_VBucket`] object for the given column name.
+    /// Put the int64 value to this [`OH_VBucket`](crate::values_bucket::OH_VBucket) object for the given column name.
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// * `field` - Indicates the name of the column.
     ///
@@ -55,7 +55,7 @@ pub struct OH_VBucket {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 10
     pub putInt64: ::core::option::Option<
@@ -65,11 +65,11 @@ pub struct OH_VBucket {
             value: i64,
         ) -> ::core::ffi::c_int,
     >,
-    /// Put the double value to this [`OH_VBucket`] object for the given column name.
+    /// Put the double value to this [`OH_VBucket`](crate::values_bucket::OH_VBucket) object for the given column name.
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// * `field` - Indicates the name of the column.
     ///
@@ -79,7 +79,7 @@ pub struct OH_VBucket {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 10
     pub putReal: ::core::option::Option<
@@ -89,11 +89,11 @@ pub struct OH_VBucket {
             value: f64,
         ) -> ::core::ffi::c_int,
     >,
-    /// Put the const uint8_t * value to this [`OH_VBucket`] object for the given column name.
+    /// Put the const uint8_t * value to this [`OH_VBucket`](crate::values_bucket::OH_VBucket) object for the given column name.
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// * `field` - Indicates the name of the column.
     ///
@@ -105,7 +105,7 @@ pub struct OH_VBucket {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 10
     pub putBlob: ::core::option::Option<
@@ -116,11 +116,11 @@ pub struct OH_VBucket {
             size: u32,
         ) -> ::core::ffi::c_int,
     >,
-    /// Put NULL to this [`OH_VBucket`] object for the given column name.
+    /// Put NULL to this [`OH_VBucket`](crate::values_bucket::OH_VBucket) object for the given column name.
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// * `field` - Indicates the name of the column.
     ///
@@ -128,7 +128,7 @@ pub struct OH_VBucket {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 10
     pub putNull: ::core::option::Option<
@@ -137,55 +137,55 @@ pub struct OH_VBucket {
             field: *const ::core::ffi::c_char,
         ) -> ::core::ffi::c_int,
     >,
-    /// Clear the [`OH_VBucket`] object's values.
+    /// Clear the [`OH_VBucket`](crate::values_bucket::OH_VBucket) object's values.
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 10
     pub clear:
         ::core::option::Option<unsafe extern "C" fn(bucket: *mut OH_VBucket) -> ::core::ffi::c_int>,
-    /// Destroy the [`OH_VBucket`] object and reclaim the memory occupied by the object.
+    /// Destroy the [`OH_VBucket`](crate::values_bucket::OH_VBucket) object and reclaim the memory occupied by the object.
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 10
     pub destroy:
         ::core::option::Option<unsafe extern "C" fn(bucket: *mut OH_VBucket) -> ::core::ffi::c_int>,
 }
 extern "C" {
-    /// Put the [`Data_Asset`] * value to this [`OH_VBucket`] object for the given column name.
+    /// Put the [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) * value to this [`OH_VBucket`](crate::values_bucket::OH_VBucket) object for the given column name.
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// * `field` - Indicates the name of the column.
     ///
-    /// * `value` - Indicates the const [`Data_Asset`] * value.
+    /// * `value` - Indicates the const [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) * value.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -195,25 +195,25 @@ extern "C" {
         field: *const ::core::ffi::c_char,
         value: *mut Data_Asset,
     ) -> ::core::ffi::c_int;
-    /// Put the [`Data_Asset`] * value of given count to this [`OH_VBucket`] object for the given column name.
+    /// Put the [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) * value of given count to this [`OH_VBucket`](crate::values_bucket::OH_VBucket) object for the given column name.
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// * `field` - Indicates the name of the column.
     ///
-    /// * `value` - Indicates the [`Data_Asset`] value of given count.
+    /// * `value` - Indicates the [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) value of given count.
     ///
     /// * `count` - Indicates the count of value.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -228,7 +228,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// * `field` - Represents the name of the column.
     ///
@@ -239,10 +239,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -257,7 +257,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `bucket` - Represents a pointer to an [`OH_VBucket`] instance.
+    /// * `bucket` - Represents a pointer to an [`OH_VBucket`](crate::values_bucket::OH_VBucket) instance.
     ///
     /// * `field` - Represents the name of the column.
     ///
@@ -270,10 +270,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

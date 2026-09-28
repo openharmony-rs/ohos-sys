@@ -3,8 +3,6 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(doc)]
-use crate::error_code::*;
 use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteProxy};
 
 /// Defines an IPC remote service object.
@@ -165,9 +163,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -188,9 +186,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -211,11 +209,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -233,11 +231,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`] if the read operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -255,11 +253,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -277,11 +275,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`] if the read operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -302,11 +300,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -324,11 +322,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`] if the read operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -349,11 +347,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -371,11 +369,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`] if the read operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -396,11 +394,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -418,11 +416,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`] if the read operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -443,11 +441,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -465,11 +463,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`] if the read operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -490,11 +488,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -534,11 +532,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -579,11 +577,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -621,11 +619,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -663,11 +661,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -688,11 +686,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`] if the read operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -713,11 +711,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -738,11 +736,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`] if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -770,11 +768,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if invalid parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`] if the read operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

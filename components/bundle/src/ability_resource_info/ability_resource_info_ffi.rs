@@ -28,8 +28,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`] if the abilityResourceInfo is invalid.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -49,8 +49,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`] if the abilityResourceInfo is invalid.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -70,8 +70,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`] if the abilityResourceInfo is invalid.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -91,8 +91,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`] if the abilityResourceInfo is invalid.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -112,8 +112,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`] if the abilityResourceInfo is invalid.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -133,8 +133,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`] if the abilityResourceInfo is invalid.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -154,8 +154,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`] if the abilityResourceInfo is invalid.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -187,8 +187,8 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`] if the abilityResourceInfo is invalid.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
+    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]

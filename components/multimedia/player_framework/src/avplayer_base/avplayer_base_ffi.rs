@@ -8,8 +8,6 @@
 use crate::averrors::OH_AVErrCode;
 #[cfg(feature = "api-12")]
 use crate::avformat::OH_AVFormat;
-#[cfg(all(doc, feature = "api-11"))]
-use crate::avplayer::*;
 
 #[repr(C)]
 pub struct OH_AVPlayer {
@@ -73,7 +71,7 @@ impl AVPlayerSeekMode {
     pub const AV_SEEK_CLOSEST: AVPlayerSeekMode = AVPlayerSeekMode(2);
     /// Seek in continuous mode, which can provide a smoother dragging experience, but the device needs to support
     /// the current stream to execute seek continuous. Before calling seek continuous,
-    /// check whether it is supported, see [`#OH_AVPlayer_IsSeekContinuousSupported`].
+    /// check whether it is supported, see [`OH_AVPlayer_IsSeekContinuousSupported`](crate::avplayer::OH_AVPlayer_IsSeekContinuousSupported).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -174,13 +172,13 @@ impl AVPlayerOnInfoType {
     pub const AV_INFO_TYPE_TRACK_INFO_UPDATE: AVPlayerOnInfoType = AVPlayerOnInfoType(15);
     pub const AV_INFO_TYPE_SUBTITLE_UPDATE: AVPlayerOnInfoType = AVPlayerOnInfoType(16);
     /// Return the reason when the audio output device changes. When this info is reported, the extra param of
-    /// [`OH_AVPlayerOnInfo`] is the same as [`OH_AudioStream_DeviceChangeReason`] in audio framework.
+    /// [`OH_AVPlayerOnInfo`](crate::avplayer_base::OH_AVPlayerOnInfo) is the same as `OH_AudioStream_DeviceChangeReason` in audio framework.
     pub const AV_INFO_TYPE_AUDIO_OUTPUT_DEVICE_CHANGE: AVPlayerOnInfoType = AVPlayerOnInfoType(17);
     /// Event type indicating playback rate configuration completed.
     ///
     /// Triggered when playback rate are successfully applied,
     /// notifying the application of the actual effective value.
-    /// Use defined key [`OH_PLAYER_PLAYBACK_RATE`] to retrieve value from the event data.
+    /// Use defined key [`OH_PLAYER_PLAYBACK_RATE`](crate::avplayer_base::OH_PLAYER_PLAYBACK_RATE) to retrieve value from the event data.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -255,7 +253,7 @@ pub struct AVPlayerTrackSwitchMode(pub ::core::ffi::c_uint);
 ///
 /// * `player` - The pointer to an OH_AVPlayer instance.
 ///
-/// * `type` - Indicates the information type. For details, see [`AVPlayerOnInfoType`].
+/// * `type` - Indicates the information type. For details, see [`AVPlayerOnInfoType`](crate::avplayer_base::AVPlayerOnInfoType).
 ///
 /// * `extra` - Indicates other information, for example, the start time position of a playing file.
 ///
@@ -263,7 +261,7 @@ pub struct AVPlayerTrackSwitchMode(pub ::core::ffi::c_uint);
 ///
 /// **Deprecated** since 12
 ///
-/// **Use instead:** [`OH_AVPlayerOnInfoCallback`]
+/// **Use instead:** [`OH_AVPlayerOnInfoCallback`](crate::avplayer_base::OH_AVPlayerOnInfoCallback)
 ///
 /// Version: 1.0
 #[cfg(feature = "api-11")]
@@ -279,7 +277,7 @@ pub type OH_AVPlayerOnInfo = ::core::option::Option<
 ///
 /// * `player` - The pointer to an OH_AVPlayer instance.
 ///
-/// * `type` - Indicates the information type. For details, see [`AVPlayerOnInfoType`].
+/// * `type` - Indicates the information type. For details, see [`AVPlayerOnInfoType`](crate::avplayer_base::AVPlayerOnInfoType).
 ///
 /// * `infoBody` - Indicates the information parameters, only valid in callback function.
 ///
@@ -311,7 +309,7 @@ pub type OH_AVPlayerOnInfoCallback = ::core::option::Option<
 ///
 /// **Deprecated** since 12
 ///
-/// **Use instead:** [`OH_AVPlayerOnInfoCallback`] [`OH_AVPlayerOnError`]
+/// **Use instead:** [`OH_AVPlayerOnInfoCallback`](crate::avplayer_base::OH_AVPlayerOnInfoCallback) [`OH_AVPlayerOnError`](crate::avplayer_base::OH_AVPlayerOnError)
 ///
 /// Version: 1.0
 #[cfg(feature = "api-11")]
@@ -407,15 +405,15 @@ pub type OH_AVPlayerOnSeiMessageReceivedCallback = ::core::option::Option<
 /// Required System Capabilities: SystemCapability.Multimedia.Media.AVPlayer
 /// # Arguments
 ///
-/// * `onInfo` - Monitor OH_AVPlayer operation information, refer to [`OH_AVPlayerOnInfo`]
+/// * `onInfo` - Monitor OH_AVPlayer operation information, refer to [`OH_AVPlayerOnInfo`](crate::avplayer_base::OH_AVPlayerOnInfo)
 ///
-/// * `onError` - Monitor OH_AVPlayer operation errors, refer to [`OH_AVPlayerOnError`]
+/// * `onError` - Monitor OH_AVPlayer operation errors, refer to [`OH_AVPlayerOnError`](crate::avplayer_base::OH_AVPlayerOnError)
 ///
 /// Available since API-level: 11
 ///
 /// **Deprecated** since 12
 ///
-/// **Use instead:** [`OH_AVPlayerOnInfoCallback`] [`OH_AVPlayerOnErrorCallback`]
+/// **Use instead:** [`OH_AVPlayerOnInfoCallback`](crate::avplayer_base::OH_AVPlayerOnInfoCallback) [`OH_AVPlayerOnErrorCallback`](crate::avplayer_base::OH_AVPlayerOnErrorCallback)
 ///
 /// Version: 1.0
 #[cfg(feature = "api-11")]
@@ -613,7 +611,7 @@ extern "C" {
     pub static mut OH_PLAYER_IS_LIVE_STREAM: *const ::core::ffi::c_char;
     /// Key to get the value whether the media resource contains video content,
     /// value type is int32_t. 1 means true and 0 means false.
-    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`]
+    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`](crate::avplayer::OH_AVPlayer_GetMediaDescription)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -621,7 +619,7 @@ extern "C" {
     pub static mut OH_PLAYER_MD_KEY_HAS_VIDEO: *const ::core::ffi::c_char;
     /// Key to get the value whether the media resource contains audio content,
     /// value type is int32_t. 1 means true and 0 means false.
-    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`]
+    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`](crate::avplayer::OH_AVPlayer_GetMediaDescription)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -629,14 +627,14 @@ extern "C" {
     pub static mut OH_PLAYER_MD_KEY_HAS_AUDIO: *const ::core::ffi::c_char;
     /// Key to get the value whether the media resource contains subtitle content,
     /// value type is int32_t. 1 means true and 0 means false.
-    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`]
+    /// Media description key, see [`OH_AVPlayer_GetMediaDescription`](crate::avplayer::OH_AVPlayer_GetMediaDescription)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub static mut OH_PLAYER_MD_KEY_HAS_SUBTITLE: *const ::core::ffi::c_char;
     /// Key to get is track index, value type is int32_t.
-    /// Track description key, see [`OH_AVPlayer_GetTrackDescription`]
+    /// Track description key, see [`OH_AVPlayer_GetTrackDescription`](crate::avplayer::OH_AVPlayer_GetTrackDescription)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

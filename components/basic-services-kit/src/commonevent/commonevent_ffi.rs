@@ -136,8 +136,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -157,8 +157,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -215,12 +215,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if the input parameter is invalid.
-    /// Returns [`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`] if IPC request failed to send.
-    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`] if ces not init done.
-    /// Returns [`COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED`] if the subscriber number is exceeded.
-    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`] if a memory allocation error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if the input parameter is invalid.
+    /// Returns [`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED) if IPC request failed to send.
+    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE) if ces not init done.
+    /// Returns [`COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED) if the subscriber number is exceeded.
+    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED) if a memory allocation error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -237,10 +237,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if the input parameter is invalid.
-    /// Returns [`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`] if IPC request failed to send.
-    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`] if ces not init done.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if the input parameter is invalid.
+    /// Returns [`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED) if IPC request failed to send.
+    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE) if ces not init done.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -361,8 +361,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -384,8 +384,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -406,8 +406,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -429,8 +429,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -451,8 +451,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -536,8 +536,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -584,9 +584,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`] if a memory allocation error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED) if a memory allocation error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -632,8 +632,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -680,9 +680,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`] if a memory allocation error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED) if a memory allocation error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -728,8 +728,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -776,9 +776,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`] if a memory allocation error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED) if a memory allocation error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -824,8 +824,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -872,8 +872,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -919,8 +919,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -967,9 +967,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`] if a memory allocation error occurs.
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED) if a memory allocation error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -989,12 +989,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`] if the common event sending frequency too high,
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED) if the common event sending frequency too high,
     /// add since api 20.
-    /// Returns [`COMMONEVENT_ERR_FAIL_SEND_REQUEST`] if IPC request failed to send.
-    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`] if ces not init done.
+    /// Returns `COMMONEVENT_ERR_FAIL_SEND_REQUEST` if IPC request failed to send.
+    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE) if ces not init done.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1011,12 +1011,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`] if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`] if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`] if the common event sending frequency too high,
+    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
+    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// Returns [`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED) if the common event sending frequency too high,
     /// add since api 20.
-    /// Returns [`COMMONEVENT_ERR_FAIL_SEND_REQUEST`] if IPC request failed to send.
-    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`] if ces not init done.
+    /// Returns `COMMONEVENT_ERR_FAIL_SEND_REQUEST` if IPC request failed to send.
+    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE) if ces not init done.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

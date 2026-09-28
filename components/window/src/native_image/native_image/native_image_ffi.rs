@@ -333,9 +333,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
-    /// [`NATIVE_ERROR_MEM_OPERATION_ERROR`] 30001000 - Memory operation error, failed to get transform matrix.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - image is NULL.
+    /// `NATIVE_ERROR_MEM_OPERATION_ERROR` 30001000 - Memory operation error, failed to get transform matrix.
     ///
     /// Available since API-level: 15
     ///
@@ -375,9 +375,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image, nativeWindowBuffer, fenceFd is NULL.
-    /// [`NATIVE_ERROR_NO_BUFFER`] 40601000 - No buffer for consume.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - image, nativeWindowBuffer, fenceFd is NULL.
+    /// `NATIVE_ERROR_NO_BUFFER` 40601000 - No buffer for consume.
     ///
     /// Available since API-level: 12
     ///
@@ -409,10 +409,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image, nativeWindowBuffer is NULL.
-    /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - nativeWindowBuffer state invalid.
-    /// [`NATIVE_ERROR_BUFFER_NOT_IN_CACHE`] 41210000 - nativeWindowBuffer not in cache.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - image, nativeWindowBuffer is NULL.
+    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - nativeWindowBuffer state invalid.
+    /// `NATIVE_ERROR_BUFFER_NOT_IN_CACHE` 41210000 - nativeWindowBuffer not in cache.
     ///
     /// Available since API-level: 12
     ///
@@ -470,8 +470,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - image is NULL.
     ///
     /// Available since API-level: 13
     ///
@@ -496,8 +496,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL or width, height less than or equal to 0.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - image is NULL or width, height less than or equal to 0.
     ///
     /// Available since API-level: 13
     ///
@@ -536,8 +536,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - image is NULL.
     ///
     /// Available since API-level: 17
     ///
@@ -618,8 +618,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - image is NULL.
     ///
     /// Available since API-level: 22
     ///
@@ -642,7 +642,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
     ///
     /// Available since API-level: 22
     ///
@@ -689,9 +689,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image, nativeWindowBuffer, fenceFd is NULL.
-    /// [`NATIVE_ERROR_NO_BUFFER`] 40601000 - No buffer for consume.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - image, nativeWindowBuffer, fenceFd is NULL.
+    /// `NATIVE_ERROR_NO_BUFFER` 40601000 - No buffer for consume.
     ///
     /// Available since API-level: 22
     ///
@@ -718,8 +718,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image or isReleased is NULL.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - image or isReleased is NULL.
     ///
     /// Available since API-level: 23
     ///
@@ -742,8 +742,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - image is NULL.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - image is NULL.
     ///
     /// Available since API-level: 23
     ///

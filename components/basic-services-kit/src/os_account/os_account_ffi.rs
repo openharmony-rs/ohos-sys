@@ -16,9 +16,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OS_ACCOUNT_ERR_OK`] Indicates successful;<br>
-    /// [`OS_ACCOUNT_ERR_INTERNAL_ERROR`] Indicates the internal error.<br>
-    /// [`OS_ACCOUNT_ERR_INVALID_PARAMETER`] Indicates the <i>buffer</i> is NULL pointer or the size of the name,
+    /// * [`OS_ACCOUNT_ERR_OK`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_OK) Indicates successful;<br>
+    /// [`OS_ACCOUNT_ERR_INTERNAL_ERROR`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_INTERNAL_ERROR) Indicates the internal error.<br>
+    /// [`OS_ACCOUNT_ERR_INVALID_PARAMETER`](crate::os_account_common::OsAccount_ErrCode::OS_ACCOUNT_ERR_INVALID_PARAMETER) Indicates the <i>buffer</i> is NULL pointer or the size of the name,
     /// including the terminating character ('\0'), is larger than <i>buffer_size</i>;
     ///
     /// Required System Capabilities: SystemCapability.Account.OsAccount

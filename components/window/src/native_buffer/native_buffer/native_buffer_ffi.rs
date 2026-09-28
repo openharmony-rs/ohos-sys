@@ -457,9 +457,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer is NULL.
-    /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect colorSpace state.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - buffer is NULL.
+    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect colorSpace state.
     ///
     /// Available since API-level: 12
     ///
@@ -489,10 +489,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer or metadata is NULL.
-    /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect metadata state.
-    /// [`NATIVE_ERROR_UNSUPPORTED`] 50102000 - Unsupported metadata key.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - buffer or metadata is NULL.
+    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect metadata state.
+    /// `NATIVE_ERROR_UNSUPPORTED` 50102000 - Unsupported metadata key.
     ///
     /// Available since API-level: 12
     ///
@@ -524,10 +524,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer, metadata, or size is NULL.
-    /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect metadata state.
-    /// [`NATIVE_ERROR_UNSUPPORTED`] 50102000 - Unsupported metadata key.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - buffer, metadata, or size is NULL.
+    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect metadata state.
+    /// `NATIVE_ERROR_UNSUPPORTED` 50102000 - Unsupported metadata key.
     ///
     /// Available since API-level: 12
     ///
@@ -559,9 +559,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer or virAddr is NULL or invalid fenceFd.
-    /// [`NATIVE_ERROR_UNKNOWN`] 50002000 - map failed.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - buffer or virAddr is NULL or invalid fenceFd.
+    /// `NATIVE_ERROR_UNKNOWN` 50002000 - map failed.
     ///
     /// Available since API-level: 23
     ///
@@ -587,9 +587,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer or parcel is NULL.
-    /// [`SURFACE_ERROR_BINDER_ERROR`] 50401000 - ipc send failed.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - buffer or parcel is NULL.
+    /// `SURFACE_ERROR_BINDER_ERROR` 50401000 - ipc send failed.
     ///
     /// Available since API-level: 23
     ///
@@ -617,9 +617,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - parcel or buffer is NULL.
-    /// [`NATIVE_ERROR_UNKNOWN`] 50002000 - deserialize failed.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - parcel or buffer is NULL.
+    /// `NATIVE_ERROR_UNKNOWN` 50002000 - deserialize failed.
     ///
     /// Available since API-level: 23
     ///
@@ -644,8 +644,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - isSupported is NULL.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - isSupported is NULL.
     ///
     /// Available since API-level: 23
     ///
@@ -673,9 +673,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - buffer or virAddr or config is NULL or invalid fenceFd.
-    /// [`NATIVE_ERROR_UNKNOWN`] 50002000 - map failed.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - buffer or virAddr or config is NULL or invalid fenceFd.
+    /// `NATIVE_ERROR_UNKNOWN` 50002000 - map failed.
     ///
     /// Available since API-level: 23
     ///

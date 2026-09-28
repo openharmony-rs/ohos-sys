@@ -3,8 +3,6 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(doc)]
-use crate::controller::*;
 use crate::private_command::InputMethod_PrivateCommand;
 use crate::text_config::InputMethod_TextConfig;
 use crate::types::*;
@@ -26,15 +24,15 @@ pub struct InputMethod_TextEditorProxy {
 }
 /// Defines the function called when input method getting text config.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetGetTextConfigFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetGetTextConfigFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetGetTextConfigFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance.
 ///
-/// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance. You can only access the memory when
+/// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance. You can only access the memory when
 /// this callback is called. After this callback returns, the memory will be released and you should not access this
 /// memory again.
 ///
@@ -49,13 +47,13 @@ pub type OH_TextEditorProxy_GetTextConfigFunc = ::core::option::Option<
 >;
 /// Defines the function called when input method inserting text.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetInsertTextFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetInsertTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetInsertTextFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`] instance which will be set
+/// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set
 /// in.
 ///
 /// * `text` - Represents a pointer to the text to be inserted. You can only access the memory when this callback
@@ -75,13 +73,13 @@ pub type OH_TextEditorProxy_InsertTextFunc = ::core::option::Option<
 >;
 /// Defines the function called when input method deleting text forward.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetDeleteForwardFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetDeleteForwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetDeleteForwardFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`] instance which will be set
+/// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set
 /// in.
 ///
 /// * `length` - Represents the length of the text to be deleted.
@@ -94,13 +92,13 @@ pub type OH_TextEditorProxy_DeleteForwardFunc = ::core::option::Option<
 >;
 /// Defines the function called when input method deleting text backward.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetDeleteForwardFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetDeleteForwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetDeleteForwardFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`] instance which will be set
+/// * `textEditorProxy` - Represents a pointer to the [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set
 /// in.
 ///
 /// * `length` - Represents the length of the text to be deleted.
@@ -113,15 +111,15 @@ pub type OH_TextEditorProxy_DeleteBackwardFunc = ::core::option::Option<
 >;
 /// Called when input method notifying keyboard status.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetSendKeyboardStatusFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetSendKeyboardStatusFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetSendKeyboardStatusFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
-/// * `keyboardStatus` - Keyboard status, which is defined in [`InputMethod_KeyboardStatus`].
+/// * `keyboardStatus` - Keyboard status, which is defined in [`InputMethod_KeyboardStatus`](crate::types::InputMethod_KeyboardStatus).
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -134,15 +132,15 @@ pub type OH_TextEditorProxy_SendKeyboardStatusFunc = ::core::option::Option<
 >;
 /// Called when input method sending enter key.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetSendEnterKeyFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetSendEnterKeyFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetSendEnterKeyFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
-/// * `enterKeyType` - Enter key type, which is defined in [`InputMethod_EnterKeyType`].
+/// * `enterKeyType` - Enter key type, which is defined in [`InputMethod_EnterKeyType`](crate::types::InputMethod_EnterKeyType).
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -155,15 +153,15 @@ pub type OH_TextEditorProxy_SendEnterKeyFunc = ::core::option::Option<
 >;
 /// Called when input method requesting to move cursor.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetMoveCursorFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetMoveCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetMoveCursorFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
-/// * `direction` - Represents the direction of the cursor movement, which is defined in [`InputMethod_Direction`].
+/// * `direction` - Represents the direction of the cursor movement, which is defined in [`InputMethod_Direction`](crate::types::InputMethod_Direction).
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -176,13 +174,13 @@ pub type OH_TextEditorProxy_MoveCursorFunc = ::core::option::Option<
 >;
 /// Called when input method requesting to set selection.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetHandleSetSelectionFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetHandleSetSelectionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetHandleSetSelectionFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
 /// * `start` - Represents the start position of the selection.
 ///
@@ -196,15 +194,15 @@ pub type OH_TextEditorProxy_HandleSetSelectionFunc = ::core::option::Option<
 >;
 /// Called when input method sending extend action.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetHandleExtendActionFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetHandleExtendActionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetHandleExtendActionFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
-/// * `action` - Represents the extend action, which is defined in [`InputMethod_ExtendAction`].
+/// * `action` - Represents the extend action, which is defined in [`InputMethod_ExtendAction`](crate::types::InputMethod_ExtendAction).
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -217,13 +215,13 @@ pub type OH_TextEditorProxy_HandleExtendActionFunc = ::core::option::Option<
 >;
 /// Called when input method requesting to get left text of cursor.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetGetLeftTextOfCursorFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetGetLeftTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetGetLeftTextOfCursorFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
 /// * `number` - Represents the number of characters to be get.
 ///
@@ -246,13 +244,13 @@ pub type OH_TextEditorProxy_GetLeftTextOfCursorFunc = ::core::option::Option<
 >;
 /// Called when input method requesting to get right text of cursor.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetGetRightTextOfCursorFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetGetRightTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetGetRightTextOfCursorFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
 /// * `number` - Represents the number of characters to be get.
 ///
@@ -275,13 +273,13 @@ pub type OH_TextEditorProxy_GetRightTextOfCursorFunc = ::core::option::Option<
 >;
 /// Called when input method requesting to get text index at cursor.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetGetTextIndexAtCursorFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetGetTextIndexAtCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetGetTextIndexAtCursorFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
 /// # Returns
 ///
@@ -295,13 +293,13 @@ pub type OH_TextEditorProxy_GetTextIndexAtCursorFunc = ::core::option::Option<
 >;
 /// Called when input method sending private command.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetReceivePrivateCommandFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetReceivePrivateCommandFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetReceivePrivateCommandFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
 /// * `privateCommand` - Private command from input method. You can only access the memory when this callback is called.
 /// After this callback returns, the memory will be released and you should not access this memory again.
@@ -324,13 +322,13 @@ pub type OH_TextEditorProxy_ReceivePrivateCommandFunc = ::core::option::Option<
 >;
 /// Called when input method setting preview text.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetReceivePrivateCommandFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetReceivePrivateCommandFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetReceivePrivateCommandFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
 /// * `text` - Represents text to be previewd. You can only access the memory when this callback is called.
 /// After this callback returns, the memory will be released and you should not access this memory again.
@@ -359,13 +357,13 @@ pub type OH_TextEditorProxy_SetPreviewTextFunc = ::core::option::Option<
 >;
 /// Called when input method finishing preview text.
 ///
-/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`] through [`OH_TextEditorProxy_SetReceivePrivateCommandFunc`], and use [`OH_InputMethodController_Attach`] to complete the
+/// You need to implement this function, set it to [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) through [`OH_TextEditorProxy_SetReceivePrivateCommandFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetReceivePrivateCommandFunc), and use [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) to complete the
 /// registration.
 ///
 ///
 /// # Arguments
 ///
-/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set in.
+/// * `textEditorProxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set in.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -373,42 +371,42 @@ pub type OH_TextEditorProxy_SetPreviewTextFunc = ::core::option::Option<
 pub type OH_TextEditorProxy_FinishTextPreviewFunc =
     ::core::option::Option<unsafe extern "C" fn(textEditorProxy: *mut InputMethod_TextEditorProxy)>;
 extern "C" {
-    /// Create a new [`InputMethod_TextEditorProxy`] instance.
+    /// Create a new [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance.
     ///
     ///
     /// # Returns
     ///
-    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_TextEditorProxy`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy)
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_TextEditorProxy_Create() -> *mut InputMethod_TextEditorProxy;
-    /// Destroy a [`InputMethod_TextEditorProxy`] instance.
+    /// Destroy a [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance.
     ///
     /// # Arguments
     ///
-    /// * `proxy` - The [`InputMethod_TextEditorProxy`] instance to be destroyed.
+    /// * `proxy` - The [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance to be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_TextEditorProxy_Destroy(proxy: *mut InputMethod_TextEditorProxy);
-    /// Set function [`OH_TextEditorProxy_GetTextConfigFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_GetTextConfigFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextConfigFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `getTextConfigFunc` - Represents function [`OH_TextEditorProxy_GetTextConfigFunc`] which will be set.
+    /// * `getTextConfigFunc` - Represents function [`OH_TextEditorProxy_GetTextConfigFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextConfigFunc) which will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -417,20 +415,20 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         getTextConfigFunc: OH_TextEditorProxy_GetTextConfigFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_InsertTextFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_InsertTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_InsertTextFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `insertTextFunc` - Represents function [`OH_TextEditorProxy_InsertTextFunc`] which will be set.
+    /// * `insertTextFunc` - Represents function [`OH_TextEditorProxy_InsertTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_InsertTextFunc) which will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -439,20 +437,20 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         insertTextFunc: OH_TextEditorProxy_InsertTextFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_SetDeleteForwardFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_SetDeleteForwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetDeleteForwardFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `deleteForwardFunc` - Represents function [`OH_TextEditorProxy_DeleteForwardFunc`] which will be set.
+    /// * `deleteForwardFunc` - Represents function [`OH_TextEditorProxy_DeleteForwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_DeleteForwardFunc) which will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -461,20 +459,20 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         deleteForwardFunc: OH_TextEditorProxy_DeleteForwardFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_DeleteBackwardFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_DeleteBackwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_DeleteBackwardFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `deleteBackwardFunc` - Represents function [`OH_TextEditorProxy_DeleteBackwardFunc`] which will be set.
+    /// * `deleteBackwardFunc` - Represents function [`OH_TextEditorProxy_DeleteBackwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_DeleteBackwardFunc) which will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -483,21 +481,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         deleteBackwardFunc: OH_TextEditorProxy_DeleteBackwardFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_SendKeyboardStatusFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_SendKeyboardStatusFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendKeyboardStatusFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `sendKeyboardStatusFunc` - Represents function [`OH_TextEditorProxy_SendKeyboardStatusFunc`] which will be
+    /// * `sendKeyboardStatusFunc` - Represents function [`OH_TextEditorProxy_SendKeyboardStatusFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendKeyboardStatusFunc) which will be
     /// set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -506,20 +504,20 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         sendKeyboardStatusFunc: OH_TextEditorProxy_SendKeyboardStatusFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_SendEnterKeyFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_SendEnterKeyFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendEnterKeyFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `sendEnterKeyFunc` - Represents function [`OH_TextEditorProxy_SendEnterKeyFunc`] which will be set.
+    /// * `sendEnterKeyFunc` - Represents function [`OH_TextEditorProxy_SendEnterKeyFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendEnterKeyFunc) which will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -528,20 +526,20 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         sendEnterKeyFunc: OH_TextEditorProxy_SendEnterKeyFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_MoveCursorFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_MoveCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_MoveCursorFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `moveCursorFunc` - Represents function [`OH_TextEditorProxy_MoveCursorFunc`] which will be set.
+    /// * `moveCursorFunc` - Represents function [`OH_TextEditorProxy_MoveCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_MoveCursorFunc) which will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -550,21 +548,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         moveCursorFunc: OH_TextEditorProxy_MoveCursorFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_HandleSetSelectionFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_HandleSetSelectionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleSetSelectionFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `handleSetSelectionFunc` - Represents function [`OH_TextEditorProxy_HandleSetSelectionFunc`] which will be
+    /// * `handleSetSelectionFunc` - Represents function [`OH_TextEditorProxy_HandleSetSelectionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleSetSelectionFunc) which will be
     /// set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -573,21 +571,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         handleSetSelectionFunc: OH_TextEditorProxy_HandleSetSelectionFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_HandleExtendActionFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_HandleExtendActionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleExtendActionFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `handleExtendActionFunc` - Represents function [`OH_TextEditorProxy_HandleExtendActionFunc`] which will be
+    /// * `handleExtendActionFunc` - Represents function [`OH_TextEditorProxy_HandleExtendActionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleExtendActionFunc) which will be
     /// set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -596,21 +594,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         handleExtendActionFunc: OH_TextEditorProxy_HandleExtendActionFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetLeftTextOfCursorFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `getLeftTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`] which will
+    /// * `getLeftTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetLeftTextOfCursorFunc) which will
     /// be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -619,21 +617,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         getLeftTextOfCursorFunc: OH_TextEditorProxy_GetLeftTextOfCursorFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetRightTextOfCursorFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `getRightTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`] which
+    /// * `getRightTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetRightTextOfCursorFunc) which
     /// will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -642,21 +640,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         getRightTextOfCursorFunc: OH_TextEditorProxy_GetRightTextOfCursorFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextIndexAtCursorFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `getTextIndexAtCursorFunc` - Represents function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`] which
+    /// * `getTextIndexAtCursorFunc` - Represents function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextIndexAtCursorFunc) which
     /// will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -665,21 +663,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         getTextIndexAtCursorFunc: OH_TextEditorProxy_GetTextIndexAtCursorFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`](crate::text_editor_proxy::OH_TextEditorProxy_ReceivePrivateCommandFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `receivePrivateCommandFunc` - Represents function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`] which
+    /// * `receivePrivateCommandFunc` - Represents function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`](crate::text_editor_proxy::OH_TextEditorProxy_ReceivePrivateCommandFunc) which
     /// will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -688,20 +686,20 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         receivePrivateCommandFunc: OH_TextEditorProxy_ReceivePrivateCommandFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_SetPreviewTextFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_SetPreviewTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetPreviewTextFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `setPreviewTextFunc` - Represents function [`OH_TextEditorProxy_SetPreviewTextFunc`] which will be set.
+    /// * `setPreviewTextFunc` - Represents function [`OH_TextEditorProxy_SetPreviewTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetPreviewTextFunc) which will be set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -710,21 +708,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         setPreviewTextFunc: OH_TextEditorProxy_SetPreviewTextFunc,
     ) -> InputMethodResult;
-    /// Set function [`OH_TextEditorProxy_FinishTextPreviewFunc`] into [`InputMethod_TextEditorProxy`].
+    /// Set function [`OH_TextEditorProxy_FinishTextPreviewFunc`](crate::text_editor_proxy::OH_TextEditorProxy_FinishTextPreviewFunc) into [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be set function in.
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be set function in.
     ///
-    /// * `finishTextPreviewFunc` - Represents function [`OH_TextEditorProxy_FinishTextPreviewFunc`] which will be
+    /// * `finishTextPreviewFunc` - Represents function [`OH_TextEditorProxy_FinishTextPreviewFunc`](crate::text_editor_proxy::OH_TextEditorProxy_FinishTextPreviewFunc) which will be
     /// set.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -733,21 +731,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         finishTextPreviewFunc: OH_TextEditorProxy_FinishTextPreviewFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_GetTextConfigFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_GetTextConfigFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextConfigFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `getTextConfigFunc` - Represents function [`OH_TextEditorProxy_GetTextConfigFunc`] which will be get.
+    /// * `getTextConfigFunc` - Represents function [`OH_TextEditorProxy_GetTextConfigFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextConfigFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -756,21 +754,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         getTextConfigFunc: *mut OH_TextEditorProxy_GetTextConfigFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_InsertTextFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_InsertTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_InsertTextFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `insertTextFunc` - Represents function [`OH_TextEditorProxy_InsertTextFunc`] which will be get.
+    /// * `insertTextFunc` - Represents function [`OH_TextEditorProxy_InsertTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_InsertTextFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -779,21 +777,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         insertTextFunc: *mut OH_TextEditorProxy_InsertTextFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_DeleteForwardFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_DeleteForwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_DeleteForwardFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `deleteForwardFunc` - Represents function [`OH_TextEditorProxy_DeleteForwardFunc`] which will be get.
+    /// * `deleteForwardFunc` - Represents function [`OH_TextEditorProxy_DeleteForwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_DeleteForwardFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -802,21 +800,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         deleteForwardFunc: *mut OH_TextEditorProxy_DeleteForwardFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_DeleteBackwardFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_DeleteBackwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_DeleteBackwardFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `deleteBackwardFunc` - Represents function [`OH_TextEditorProxy_DeleteBackwardFunc`] which will be get.
+    /// * `deleteBackwardFunc` - Represents function [`OH_TextEditorProxy_DeleteBackwardFunc`](crate::text_editor_proxy::OH_TextEditorProxy_DeleteBackwardFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -825,22 +823,22 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         deleteBackwardFunc: *mut OH_TextEditorProxy_DeleteBackwardFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_SendKeyboardStatusFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_SendKeyboardStatusFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendKeyboardStatusFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `sendKeyboardStatusFunc` - Represents function [`OH_TextEditorProxy_SendKeyboardStatusFunc`] which will be
+    /// * `sendKeyboardStatusFunc` - Represents function [`OH_TextEditorProxy_SendKeyboardStatusFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendKeyboardStatusFunc) which will be
     /// get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -849,21 +847,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         sendKeyboardStatusFunc: *mut OH_TextEditorProxy_SendKeyboardStatusFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_SendEnterKeyFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_SendEnterKeyFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendEnterKeyFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `sendEnterKeyFunc` - Represents function [`OH_TextEditorProxy_SendEnterKeyFunc`] which will be get.
+    /// * `sendEnterKeyFunc` - Represents function [`OH_TextEditorProxy_SendEnterKeyFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SendEnterKeyFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -872,21 +870,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         sendEnterKeyFunc: *mut OH_TextEditorProxy_SendEnterKeyFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_MoveCursorFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_MoveCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_MoveCursorFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `moveCursorFunc` - Represents function [`OH_TextEditorProxy_MoveCursorFunc`] which will be get.
+    /// * `moveCursorFunc` - Represents function [`OH_TextEditorProxy_MoveCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_MoveCursorFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -895,22 +893,22 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         moveCursorFunc: *mut OH_TextEditorProxy_MoveCursorFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_HandleSetSelectionFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_HandleSetSelectionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleSetSelectionFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `handleSetSelectionFunc` - Represents function [`OH_TextEditorProxy_HandleSetSelectionFunc`] which will be
+    /// * `handleSetSelectionFunc` - Represents function [`OH_TextEditorProxy_HandleSetSelectionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleSetSelectionFunc) which will be
     /// get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -919,22 +917,22 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         handleSetSelectionFunc: *mut OH_TextEditorProxy_HandleSetSelectionFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_HandleExtendActionFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_HandleExtendActionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleExtendActionFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `handleExtendActionFunc` - Represents function [`OH_TextEditorProxy_HandleExtendActionFunc`] which will be
+    /// * `handleExtendActionFunc` - Represents function [`OH_TextEditorProxy_HandleExtendActionFunc`](crate::text_editor_proxy::OH_TextEditorProxy_HandleExtendActionFunc) which will be
     /// get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -943,22 +941,22 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         handleExtendActionFunc: *mut OH_TextEditorProxy_HandleExtendActionFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetLeftTextOfCursorFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `getLeftTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`] which will
+    /// * `getLeftTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetLeftTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetLeftTextOfCursorFunc) which will
     /// be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -967,22 +965,22 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         getLeftTextOfCursorFunc: *mut OH_TextEditorProxy_GetLeftTextOfCursorFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetRightTextOfCursorFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `getRightTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`] which
+    /// * `getRightTextOfCursorFunc` - Represents function [`OH_TextEditorProxy_GetRightTextOfCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetRightTextOfCursorFunc) which
     /// will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -991,22 +989,22 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         getRightTextOfCursorFunc: *mut OH_TextEditorProxy_GetRightTextOfCursorFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextIndexAtCursorFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `getTextIndexAtCursorFunc` - Represents function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`] which
+    /// * `getTextIndexAtCursorFunc` - Represents function [`OH_TextEditorProxy_GetTextIndexAtCursorFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextIndexAtCursorFunc) which
     /// will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1015,22 +1013,22 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         getTextIndexAtCursorFunc: *mut OH_TextEditorProxy_GetTextIndexAtCursorFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`](crate::text_editor_proxy::OH_TextEditorProxy_ReceivePrivateCommandFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `receivePrivateCommandFunc` - Represents function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`] which
+    /// * `receivePrivateCommandFunc` - Represents function [`OH_TextEditorProxy_ReceivePrivateCommandFunc`](crate::text_editor_proxy::OH_TextEditorProxy_ReceivePrivateCommandFunc) which
     /// will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1039,21 +1037,21 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         receivePrivateCommandFunc: *mut OH_TextEditorProxy_ReceivePrivateCommandFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_SetPreviewTextFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_SetPreviewTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetPreviewTextFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `setPreviewTextFunc` - Represents function [`OH_TextEditorProxy_SetPreviewTextFunc`] which will be get.
+    /// * `setPreviewTextFunc` - Represents function [`OH_TextEditorProxy_SetPreviewTextFunc`](crate::text_editor_proxy::OH_TextEditorProxy_SetPreviewTextFunc) which will be get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1062,22 +1060,22 @@ extern "C" {
         proxy: *mut InputMethod_TextEditorProxy,
         setPreviewTextFunc: *mut OH_TextEditorProxy_SetPreviewTextFunc,
     ) -> InputMethodResult;
-    /// Get function [`OH_TextEditorProxy_FinishTextPreviewFunc`] from [`InputMethod_TextEditorProxy`].
+    /// Get function [`OH_TextEditorProxy_FinishTextPreviewFunc`](crate::text_editor_proxy::OH_TextEditorProxy_FinishTextPreviewFunc) from [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`] instance which will be get function
+    /// * `proxy` - Represents a pointer to an [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance which will be get function
     /// from.
     ///
-    /// * `finishTextPreviewFunc` - Represents function [`OH_TextEditorProxy_FinishTextPreviewFunc`] which will be
+    /// * `finishTextPreviewFunc` - Represents function [`OH_TextEditorProxy_FinishTextPreviewFunc`](crate::text_editor_proxy::OH_TextEditorProxy_FinishTextPreviewFunc) which will be
     /// get.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1087,15 +1085,15 @@ extern "C" {
         finishTextPreviewFunc: *mut OH_TextEditorProxy_FinishTextPreviewFunc,
     ) -> InputMethodResult;
     /// Configure the execution thread (main thread/IPC thread) for the callback functions of
-    /// [`InputMethod_TextEditorProxy`].
-    /// This interface only controls all callbacks in [`InputMethod_TextEditorProxy`] except
-    /// [`OH_TextEditorProxy_GetTextConfigFunc`].
-    /// The execution thread of [`OH_TextEditorProxy_GetTextConfigFunc`] is determined by the thread that calls
-    /// [`OH_InputMethodController_Attach`] and is not affected by this interface.
+    /// [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy).
+    /// This interface only controls all callbacks in [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) except
+    /// [`OH_TextEditorProxy_GetTextConfigFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextConfigFunc).
+    /// The execution thread of [`OH_TextEditorProxy_GetTextConfigFunc`](crate::text_editor_proxy::OH_TextEditorProxy_GetTextConfigFunc) is determined by the thread that calls
+    /// [`OH_InputMethodController_Attach`](crate::controller::OH_InputMethodController_Attach) and is not affected by this interface.
     ///
     /// # Arguments
     ///
-    /// * `proxy` - Pointer to the target [`InputMethod_TextEditorProxy`] instance.
+    /// * `proxy` - Pointer to the target [`InputMethod_TextEditorProxy`](crate::text_editor_proxy::InputMethod_TextEditorProxy) instance.
     ///
     /// * `isCallbackInMainThread` - Thread execution strategy
     /// - true: The callback function is switched to the main thread for execution (to avoid
@@ -1106,8 +1104,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Execution result.
-    /// [`IME_ERR_OK`] - Configuration succeeded.
-    /// [`IME_ERR_NULL_POINTER`] - Returned when proxy is NULL.
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - Configuration succeeded.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - Returned when proxy is NULL.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

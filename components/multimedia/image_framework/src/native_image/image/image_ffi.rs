@@ -36,19 +36,19 @@ pub struct OH_ImageBufferData {
     pub nativeBuffer: *mut OH_NativeBuffer,
 }
 extern "C" {
-    /// Obtains [`Image_Size`] of an [`OH_ImageNative`] object.
+    /// Obtains [`Image_Size`](crate::native_image::common::Image_Size) of an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
-    /// * `size` - Indicates the pointer to the [`Image_Size`] object obtained.
+    /// * `size` - Indicates the pointer to the [`Image_Size`](crate::native_image::common::Image_Size) object obtained.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter.
-    /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if invalid parameter.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_UNKNOWN_ERROR - inner unknown error.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -57,20 +57,20 @@ extern "C" {
         image: *mut OH_ImageNative,
         size: *mut Image_Size,
     ) -> ImageResult;
-    /// Get type arry from an [`OH_ImageNative`] object.
+    /// Get type arry from an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
-    /// * `types` - Indicates the pointer to an [`OH_ImageNative`] component arry obtained.
+    /// * `types` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) component arry obtained.
     ///
-    /// * `typeSize` - Indicates the pointer to the [`OH_ImageNative`] component arry size obtained.
+    /// * `typeSize` - Indicates the pointer to the [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) component arry size obtained.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -80,11 +80,11 @@ extern "C" {
         types: *mut *mut u32,
         typeSize: *mut usize,
     ) -> ImageResult;
-    /// Get byte buffer from an [`OH_ImageNative`] object by the component type.
+    /// Get byte buffer from an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object by the component type.
     ///
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// * `componentType` - Indicates the type of component.
     ///
@@ -92,8 +92,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -103,11 +103,11 @@ extern "C" {
         componentType: u32,
         nativeBuffer: *mut *mut OH_NativeBuffer,
     ) -> ImageResult;
-    /// Get size of buffer from an [`OH_ImageNative`] object by the component type.
+    /// Get size of buffer from an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object by the component type.
     ///
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// * `componentType` - Indicates the type of component.
     ///
@@ -115,8 +115,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -126,11 +126,11 @@ extern "C" {
         componentType: u32,
         size: *mut usize,
     ) -> ImageResult;
-    /// Get row stride from an [`OH_ImageNative`] object by the component type.
+    /// Get row stride from an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object by the component type.
     ///
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// * `componentType` - Indicates the type of component.
     ///
@@ -138,8 +138,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -149,11 +149,11 @@ extern "C" {
         componentType: u32,
         rowStride: *mut i32,
     ) -> ImageResult;
-    /// Get pixel stride from an [`OH_ImageNative`] object by the component type.
+    /// Get pixel stride from an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object by the component type.
     ///
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// * `componentType` - Indicates the type of component.
     ///
@@ -161,8 +161,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -172,19 +172,19 @@ extern "C" {
         componentType: u32,
         pixelStride: *mut i32,
     ) -> ImageResult;
-    /// Get timestamp from an [`OH_ImageNative`] object.
+    /// Get timestamp from an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// * `timestamp` - Indicates the pointer to the timestamp obtained.
     ///
     /// # Returns
     ///
     /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`] if the operation is successful.
-    /// [`IMAGE_BAD_PARAMETER`] if the input parameter is invalid.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the operation is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) if the input parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -193,35 +193,35 @@ extern "C" {
         image: *mut OH_ImageNative,
         timestamp: *mut i64,
     ) -> ImageResult;
-    /// Releases an [`OH_ImageNative`] object.
-    /// It is used to release the object [`OH_ImageNative`].
+    /// Releases an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
+    /// It is used to release the object [`OH_ImageNative`](crate::native_image::image::OH_ImageNative).
     ///
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
-    /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
+    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_SUCCESS - if the operation is successful.
+    /// returns [`Image_ErrorCode`](crate::native_image::common::ImageResult) IMAGE_BAD_PARAMETER - if bad parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImageNative_Release(image: *mut OH_ImageNative) -> ImageResult;
-    /// Obtains the color space from an [`OH_ImageNative`] object.
+    /// Obtains the color space from an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
-    /// * `colorSpaceName` - Indicates the pointer to the obtained color space name, see [`ColorSpaceName`].
+    /// * `colorSpaceName` - Indicates the pointer to the obtained color space name, see `ColorSpaceName`.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// [`IMAGE_SUCCESS`] if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] if bad parameter.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) if bad parameter.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -230,19 +230,19 @@ extern "C" {
         image: *mut OH_ImageNative,
         colorSpaceName: *mut i32,
     ) -> ImageResult;
-    /// Obtains the image buffer data from an [`OH_ImageNative`] object.
+    /// Obtains the image buffer data from an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an [`OH_ImageNative`] object.
+    /// * `image` - Indicates the pointer to an [`OH_ImageNative`](crate::native_image::image::OH_ImageNative) object.
     ///
     /// * `imageBufferData` - Indicates the pointer to the obtained image buffer data.
     ///
     /// # Returns
     ///
     /// * Returns one of the following result codes:
-    /// [`IMAGE_SUCCESS`] if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`] if bad parameter.
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) if bad parameter.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

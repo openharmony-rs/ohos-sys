@@ -8,8 +8,6 @@ use crate::avbuffer_info::OH_AVCodecBufferAttr;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 use crate::avformat::OH_AVFormat;
-#[cfg(doc)]
-use crate::avformat::*;
 use ohos_sys_opaque_types::OH_NativeBuffer;
 
 /// Forward declaration of OH_AVBuffer.
@@ -24,7 +22,7 @@ pub struct OH_AVBuffer {
 }
 extern "C" {
     /// Create an OH_AVBuffer instance, It should be noted that the life cycle of the OH_AVBuffer instance pointed
-    /// to by the return value * needs to be manually released by [`OH_AVBuffer_Destroy`].
+    /// to by the return value * needs to be manually released by [`OH_AVBuffer_Destroy`](crate::avbuffer::OH_AVBuffer_Destroy).
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
@@ -51,9 +49,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input buffer is nullptr or buffer's magic error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if input buffer is not user created.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input buffer is nullptr or buffer's magic error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if input buffer is not user created.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -67,13 +65,13 @@ extern "C" {
     /// * `buffer` - Encapsulate OH_AVBuffer structure instance pointer
     ///
     /// * `attr` - Encapsulate OH_AVCodecBufferAttr structure instance pointer, please refer to
-    /// [`OH_AVCodecBufferAttr`]
+    /// [`OH_AVCodecBufferAttr`](crate::avbuffer_info::OH_AVCodecBufferAttr)
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input buffer is nullptr, buffer's magic error,
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input buffer is nullptr, buffer's magic error,
     /// input buffer's buffer is nulllptr or attr is nullptr.
     ///
     /// Available since API-level: 11
@@ -91,13 +89,13 @@ extern "C" {
     /// * `buffer` - Encapsulate OH_AVBuffer structure instance pointer
     ///
     /// * `attr` - Encapsulate OH_AVCodecBufferAttr structure instance pointer, please refer to
-    /// [`OH_AVCodecBufferAttr`]
+    /// [`OH_AVCodecBufferAttr`](crate::avbuffer_info::OH_AVCodecBufferAttr)
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input buffer is nullptr, buffer's magic error,
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input buffer is nullptr, buffer's magic error,
     /// input buffer's buffer is nulllptr, attr is nullptr, the size or offset of input buffer's memory is invalid.
     ///
     /// Available since API-level: 11
@@ -108,7 +106,7 @@ extern "C" {
         attr: *const OH_AVCodecBufferAttr,
     ) -> OH_AVErrCode;
     /// Get the buffer's parameter. It should be noted that the life cycle of the OH_AVFormat instance pointed to
-    /// by the return value * needs to be manually released by [`OH_AVFormat_Destroy`].
+    /// by the return value * needs to be manually released by [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy).
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
@@ -137,8 +135,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input buffer is nullptr, buffer's magic error,
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input buffer is nullptr, buffer's magic error,
     /// input buffer's buffer is nulllptr, input format is nullptr or input meta is nullptr.
     ///
     /// Available since API-level: 11
@@ -183,7 +181,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AVBuffer_GetCapacity(buffer: *mut OH_AVBuffer) -> i32;
     /// Get the OH_NativeBuffer instance pointer,It should be noted that the life cycle of the OH_AVBuffer
-    /// instance pointed to by the return value * needs to be manually released by [`OH_NativeBuffer_Unreference`].
+    /// instance pointed to by the return value * needs to be manually released by `OH_NativeBuffer_Unreference`.
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments

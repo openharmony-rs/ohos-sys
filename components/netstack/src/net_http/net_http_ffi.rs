@@ -11,7 +11,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Http_Headers* Pointer to [`Http_Headers`].
+    /// * Http_Headers* Pointer to [`Http_Headers`](crate::net_http_type::Http_Headers).
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -23,7 +23,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `headers` - Pointer to the [`Http_Headers`] to be destroyed, headers ends with null.
+    /// * `headers` - Pointer to the [`Http_Headers`](crate::net_http_type::Http_Headers) to be destroyed, headers ends with null.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -35,7 +35,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `headers` - Pointer to the [`Http_Headers`] to be set.
+    /// * `headers` - Pointer to the [`Http_Headers`](crate::net_http_type::Http_Headers) to be set.
     ///
     /// * `name` - Key.
     ///
@@ -59,13 +59,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `headers` - Pointer to [`Http_Headers`].
+    /// * `headers` - Pointer to [`Http_Headers`](crate::net_http_type::Http_Headers).
     ///
     /// * `name` - Key.
     ///
     /// # Returns
     ///
-    /// * Http_HeaderValue* Pointer to the obtained [`Http_HeaderValue`].
+    /// * Http_HeaderValue* Pointer to the obtained [`Http_HeaderValue`](crate::net_http_type::Http_HeaderValue).
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -80,11 +80,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `headers` - Pointer to [`Http_Headersaders`].
+    /// * `headers` - Pointer to `Http_Headersaders`.
     ///
     /// # Returns
     ///
-    /// * Http_HeaderEntry* Pointers to all obtained key-value pairs [`Http_HeaderEntry`].
+    /// * Http_HeaderEntry* Pointers to all obtained key-value pairs [`Http_HeaderEntry`](crate::net_http_type::Http_HeaderEntry).
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -92,11 +92,11 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Http_GetHeaderEntries(headers: *mut Http_Headers) -> *mut Http_HeaderEntry;
-    /// Destroys all key-value pairs obtained in [`OH_Http_GetHeaderEntries`].
+    /// Destroys all key-value pairs obtained in [`OH_Http_GetHeaderEntries`](crate::net_http::OH_Http_GetHeaderEntries).
     ///
     /// # Arguments
     ///
-    /// * `headerEntry` - Pointer to the [`Http_HeaderEntry`] to be destroyed, headerEntry ends with null.
+    /// * `headerEntry` - Pointer to the [`Http_HeaderEntry`](crate::net_http_type::Http_HeaderEntry) to be destroyed, headerEntry ends with null.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -124,15 +124,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `request` - Pointer to [`Http_Request`].
+    /// * `request` - Pointer to [`Http_Request`](crate::net_http_type::Http_Request).
     ///
-    /// * `callback` - Http response info, pointer to [`Http_ResponseCallback`]
+    /// * `callback` - Http response info, pointer to [`Http_ResponseCallback`](crate::net_http_type::Http_ResponseCallback)
     ///
-    /// * `handler` - Callbacks to watch different events, pointer to [`Http_EventsHandler`].
+    /// * `handler` - Callbacks to watch different events, pointer to [`Http_EventsHandler`](crate::net_http_type::Http_EventsHandler).
     ///
     /// # Returns
     ///
-    /// * 0 if success; non-0 otherwise. For details about error codes, see [`Http_ErrCode`].
+    /// * 0 if success; non-0 otherwise. For details about error codes, see [`Http_ErrCode`](crate::net_http_type::Http_ErrCode).
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -150,7 +150,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `request` - Pointer to the http request [`Http_Request`].
+    /// * `request` - Pointer to the http request [`Http_Request`](crate::net_http_type::Http_Request).
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///

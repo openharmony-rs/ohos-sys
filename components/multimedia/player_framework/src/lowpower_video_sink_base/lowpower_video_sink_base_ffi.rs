@@ -60,7 +60,7 @@ pub type OH_LowPowerVideoSink_OnDataNeeded = ::core::option::Option<
 /// {OH_LowPowerVideoSink*} sink OH_LowPowerVideoSink instance
 ///
 /// {OH_AVErrCode} errorCode The error code returned when an error occurs during service operation.
-/// See the definition of [`OH_AVErrCode`]
+/// See the definition of [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
 ///
 /// {const char*} errorMsg string of Error description information returned when an error occurs
 /// during service operation

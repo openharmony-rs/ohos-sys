@@ -1056,7 +1056,7 @@ impl OH_AudioStream_PrivacyType {
     pub const AUDIO_STREAM_PRIVACY_TYPE_PRIVATE: OH_AudioStream_PrivacyType =
         OH_AudioStream_PrivacyType(1);
     /// Privacy type that stream can be safely captured and screen casting.
-    /// For example,[`OH_AudioStream_Usage#AUDIOSTREAM_USAGE_VOICE_COMMUNICATION`] will not be
+    /// For example,[`OH_AudioStream_Usage#AUDIOSTREAM_USAGE_VOICE_COMMUNICATION`](crate::audiostream_base::OH_AudioStream_Usage::AUDIOSTREAM_USAGE_VOICE_COMMUNICATION) will not be
     /// captured or screen casted by third party applications under AUDIO_STREAM_PRIVACY_TYPE_PUBLIC policy.
     /// However, the internal capture is allowed under the AUDIO_STREAM_PRIVACY_TYPE_SHARED policy.
     ///
@@ -1257,7 +1257,7 @@ impl OH_AudioStream_PlaybackCaptureStartState {
 }
 #[repr(transparent)]
 /// Defines the playback capture start state, which is returned asynchronously
-/// after calling [`#OH_AudioCapturer_RequestPlaybackCaptureStart`] function.
+/// after calling [`OH_AudioCapturer_RequestPlaybackCaptureStart`](crate::audiocapturer::OH_AudioCapturer_RequestPlaybackCaptureStart) function.
 ///
 ///
 /// Available since API-level: 23

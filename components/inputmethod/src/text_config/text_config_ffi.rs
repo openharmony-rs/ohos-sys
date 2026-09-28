@@ -20,23 +20,23 @@ pub struct InputMethod_TextConfig {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create a new [`InputMethod_TextConfig`] instance.
+    /// Create a new [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance.
     ///
     ///
     /// # Returns
     ///
-    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_TextConfig`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig)
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_TextConfig_Create() -> *mut InputMethod_TextConfig;
-    /// Destroy a [`InputMethod_TextConfig`] instance.
+    /// Destroy a [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance.
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be destroyed.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -46,16 +46,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be set.
     ///
-    /// * `inputType` - The text input type of text Editor, which is defined in [`InputMethod_TextInputType`].
+    /// * `inputType` - The text input type of text Editor, which is defined in [`InputMethod_TextInputType`](crate::types::InputMethod_TextInputType).
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -68,16 +68,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be set.
     ///
-    /// * `enterKeyType` - The enter key type of text Editor, which is defined in [`InputMethod_EnterKeyType`].
+    /// * `enterKeyType` - The enter key type of text Editor, which is defined in [`InputMethod_EnterKeyType`](crate::types::InputMethod_EnterKeyType).
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -90,16 +90,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be set.
     ///
     /// * `supported` - Indicates whether the preview text is supported.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -112,7 +112,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be set.
     ///
     /// * `start` - The start position of selection.
     ///
@@ -121,9 +121,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -137,16 +137,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be set.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be set.
     ///
     /// * `windowId` - The window ID of the application currently bound to the input method.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -173,9 +173,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -203,9 +203,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -219,17 +219,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be get from.
     ///
-    /// * `inputType` - Represents a pointer to an [`InputMethod_TextInputType`] instance.
+    /// * `inputType` - Represents a pointer to an [`InputMethod_TextInputType`](crate::types::InputMethod_TextInputType) instance.
     /// The text input type of text Editor
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -242,17 +242,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be get from.
     ///
-    /// * `enterKeyType` - Represents a pointer to an [`InputMethod_EnterKeyType`] instance.
+    /// * `enterKeyType` - Represents a pointer to an [`InputMethod_EnterKeyType`](crate::types::InputMethod_EnterKeyType) instance.
     /// Indicates the enter key type of text Editor
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -265,16 +265,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be get from.
     ///
     /// * `supported` - Indicates whether the preview text is supported.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -287,16 +287,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be get from.
     ///
-    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
+    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`](crate::cursor_info::InputMethod_CursorInfo) instance.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -316,9 +316,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -331,7 +331,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be get from.
     ///
     /// * `start` - Represents selection start position.
     ///
@@ -340,9 +340,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -356,16 +356,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`] instance which will be get from.
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be get from.
     ///
     /// * `windowId` - The window ID of the application currently bound to the input method.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -395,10 +395,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -429,10 +429,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_PARAMCHECK`] - parameter check failed.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_PARAMCHECK`](crate::types::InputMethodErrorCode::PARAMCHECK) - parameter check failed.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

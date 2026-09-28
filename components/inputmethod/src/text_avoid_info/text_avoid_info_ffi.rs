@@ -18,7 +18,7 @@ pub struct InputMethod_TextAvoidInfo {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create a new [`InputMethod_TextAvoidInfo`] instance.
+    /// Create a new [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo) instance.
     ///
     /// # Arguments
     ///
@@ -28,37 +28,37 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_TextAvoidInfo`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo)
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_TextAvoidInfo_Create(positionY: f64, height: f64) -> *mut InputMethod_TextAvoidInfo;
-    /// Destroy a [`InputMethod_TextAvoidInfo`] instance.
+    /// Destroy a [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo) instance.
     ///
     /// # Arguments
     ///
-    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be destroyed.
+    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo) instance which will be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_TextAvoidInfo_Destroy(info: *mut InputMethod_TextAvoidInfo);
-    /// Set positionY value into [`InputMethod_TextAvoidInfo`].
+    /// Set positionY value into [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo).
     ///
     /// # Arguments
     ///
-    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be set value.
+    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo) instance which will be set value.
     ///
     /// * `positionY` - Represents positionY value.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -67,20 +67,20 @@ extern "C" {
         info: *mut InputMethod_TextAvoidInfo,
         positionY: f64,
     ) -> InputMethodResult;
-    /// Set height value into [`InputMethod_TextAvoidInfo`].
+    /// Set height value into [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo).
     ///
     /// # Arguments
     ///
-    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be set value.
+    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo) instance which will be set value.
     ///
     /// * `height` - Represents height value.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -89,20 +89,20 @@ extern "C" {
         info: *mut InputMethod_TextAvoidInfo,
         height: f64,
     ) -> InputMethodResult;
-    /// Get positionY value from [`InputMethod_TextAvoidInfo`].
+    /// Get positionY value from [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo).
     ///
     /// # Arguments
     ///
-    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be get value from.
+    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo) instance which will be get value from.
     ///
     /// * `positionY` - Represents positionY value.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -111,20 +111,20 @@ extern "C" {
         info: *mut InputMethod_TextAvoidInfo,
         positionY: *mut f64,
     ) -> InputMethodResult;
-    /// Get height value into [`InputMethod_TextAvoidInfo`].
+    /// Get height value into [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo).
     ///
     /// # Arguments
     ///
-    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`] instance which will be get value from.
+    /// * `info` - Represents a pointer to an [`InputMethod_TextAvoidInfo`](crate::text_avoid_info::InputMethod_TextAvoidInfo) instance which will be get value from.
     ///
     /// * `height` - Represents height value.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

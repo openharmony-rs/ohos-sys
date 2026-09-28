@@ -3,14 +3,10 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(all(doc, feature = "api-13", feature = "image-processing"))]
-use crate::image_processing::*;
-#[cfg(doc)]
-use crate::video_processing::*;
 
 /// Define the video processing object.
 ///
-/// Define a null pointer of OH_VideoProcessing and call [`OH_VideoProcessing_Create`] to create a video processing
+/// Define a null pointer of OH_VideoProcessing and call [`OH_VideoProcessing_Create`](crate::video_processing::OH_VideoProcessing_Create) to create a video processing
 /// instance. The pointer should be null before creating instance.
 /// User can create multiple video processing instances for different processing types.
 ///
@@ -25,7 +21,7 @@ pub struct OH_VideoProcessing {
 /// Video color space information structure of querying if video color space conversion is supported.
 ///
 ///
-/// **See also:** [`OH_VideoProcessing_IsColorSpaceConversionSupported`]
+/// **See also:** [`OH_VideoProcessing_IsColorSpaceConversionSupported`](crate::video_processing::OH_VideoProcessing_IsColorSpaceConversionSupported)
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -33,11 +29,11 @@ pub struct OH_VideoProcessing {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VideoProcessing_ColorSpaceInfo {
-    /// The metadata type of the video, see [`OH_NativeBuffer_MetadataType`]
+    /// The metadata type of the video, see `OH_NativeBuffer_MetadataType`
     pub metadataType: i32,
-    /// The color space type of the video, see [`OH_NativeBuffer_ColorSpace`]
+    /// The color space type of the video, see `OH_NativeBuffer_ColorSpace`
     pub colorSpace: i32,
-    /// The pixel format of the video, see [`OH_NativeBuffer_Format`]
+    /// The pixel format of the video, see `OH_NativeBuffer_Format`
     pub pixelFormat: i32,
 }
 #[cfg(feature = "api-12")]
@@ -59,12 +55,12 @@ impl VideoDetailEnhancer_QualityLevel {
 #[repr(transparent)]
 /// The quality level is used for detail enhancement.
 ///
-/// It is the value of the key parameter [`VIDEO_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL`].
+/// It is the value of the key parameter [`VIDEO_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL`](crate::video_processing_types::VIDEO_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL).
 ///
 ///
-/// **See also:** [`OH_VideoProcessing_SetParameter`]
+/// **See also:** [`OH_VideoProcessing_SetParameter`](crate::video_processing::OH_VideoProcessing_SetParameter)
 ///
-/// **See also:** [`OH_VideoProcessing_GetParameter`]
+/// **See also:** [`OH_VideoProcessing_GetParameter`](crate::video_processing::OH_VideoProcessing_GetParameter)
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -84,14 +80,14 @@ impl VideoMetadataGeneratorStyleControl {
 #[repr(transparent)]
 /// The style control is used for video metadata generator.
 ///
-/// It is the value of the key parameter [`VIDEO_METADATA_GENERATOR_STYLE_CONTROL`].
+/// It is the value of the key parameter [`VIDEO_METADATA_GENERATOR_STYLE_CONTROL`](crate::video_processing_types::VIDEO_METADATA_GENERATOR_STYLE_CONTROL).
 ///
 ///
-/// **See also:** [`OH_AVFormat_SetIntValue`]
+/// **See also:** `OH_AVFormat_SetIntValue`
 ///
-/// **See also:** [`OH_VideoProcessing_SetParameter`]
+/// **See also:** [`OH_VideoProcessing_SetParameter`](crate::video_processing::OH_VideoProcessing_SetParameter)
 ///
-/// **See also:** [`OH_VideoProcessing_GetParameter`]
+/// **See also:** [`OH_VideoProcessing_GetParameter`](crate::video_processing::OH_VideoProcessing_GetParameter)
 ///
 /// Available since API-level: 22
 #[cfg(feature = "api-22")]
@@ -164,7 +160,7 @@ impl VideoProcessing_State {
 #[repr(transparent)]
 /// Video processing states.
 ///
-/// The state is reported to user by callback function [`OH_VideoProcessing_OnState`].
+/// The state is reported to user by callback function `OH_VideoProcessing_OnState`.
 ///
 ///
 /// Available since API-level: 12
@@ -174,9 +170,9 @@ impl VideoProcessing_State {
 pub struct VideoProcessing_State(pub ::core::ffi::c_uint);
 /// Video processing asynchronous callback object type.
 ///
-/// Define a null pointer of VideoProcessing_Callback and call [`OH_VideoProcessingCallback_Create`] to create a
+/// Define a null pointer of VideoProcessing_Callback and call [`OH_VideoProcessingCallback_Create`](crate::video_processing::OH_VideoProcessingCallback_Create) to create a
 /// callback object. The pointer should be null before creating the callback object.
-/// Register the callback to a video processing instance by calling [`OH_VideoProcessing_RegisterCallback`].
+/// Register the callback to a video processing instance by calling [`OH_VideoProcessing_RegisterCallback`](crate::video_processing::OH_VideoProcessing_RegisterCallback).
 ///
 ///
 /// Available since API-level: 12
@@ -190,17 +186,17 @@ pub struct VideoProcessing_Callback {
 ///
 /// Errors:
 ///
-/// [`VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`], the processing is not supported. For example, the
+/// [`VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING), the processing is not supported. For example, the
 /// color space conversion according to the source and destination videos' properties is not supported.
 ///
-/// [`VIDEO_PROCESSING_ERROR_INVALID_VALUE`], some property of the video is invalid. For example, the color space of
+/// [`VIDEO_PROCESSING_ERROR_INVALID_VALUE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_VALUE), some property of the video is invalid. For example, the color space of
 /// the video is invalid.
 ///
-/// [`VIDEO_PROCESSING_ERROR_NO_MEMORY`], out of memory.
+/// [`VIDEO_PROCESSING_ERROR_NO_MEMORY`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_NO_MEMORY), out of memory.
 ///
-/// [`VIDEO_PROCESSING_ERROR_PROCESS_FAILED`], some processing error occurs.
+/// [`VIDEO_PROCESSING_ERROR_PROCESS_FAILED`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_PROCESS_FAILED), some processing error occurs.
 ///
-/// For more errors, see [`VideoProcessing_ErrorCode`].
+/// For more errors, see [`VideoProcessing_ErrorCode`](crate::video_processing_types::VideoProcessing_ErrorCode).
 ///
 /// # Arguments
 ///
@@ -222,16 +218,16 @@ pub type OH_VideoProcessingCallback_OnError = ::core::option::Option<
 >;
 /// The callback function pointer definition for reporting video processing state.
 ///
-/// The state will be [`VIDEO_PROCESSING_STATE_RUNNING`] after [`OH_VideoProcessing_Start`] is called
+/// The state will be [`VIDEO_PROCESSING_STATE_RUNNING`](crate::video_processing_types::VideoProcessing_State::VIDEO_PROCESSING_STATE_RUNNING) after [`OH_VideoProcessing_Start`](crate::video_processing::OH_VideoProcessing_Start) is called
 /// successfully.
-/// The state will be [`VIDEO_PROCESSING_STATE_STOPPED`] after all the buffers cached before
-/// [`OH_VideoProcessing_Stop`] is called are processed.
+/// The state will be [`VIDEO_PROCESSING_STATE_STOPPED`](crate::video_processing_types::VideoProcessing_State::VIDEO_PROCESSING_STATE_STOPPED) after all the buffers cached before
+/// [`OH_VideoProcessing_Stop`](crate::video_processing::OH_VideoProcessing_Stop) is called are processed.
 ///
 /// # Arguments
 ///
 /// * `videoProcessor` - The video processing instance.
 ///
-/// * `state` - see [`VideoProcessing_State`].
+/// * `state` - see [`VideoProcessing_State`](crate::video_processing_types::VideoProcessing_State).
 ///
 /// * `userData` - User's custom data.
 ///
@@ -248,7 +244,7 @@ pub type OH_VideoProcessingCallback_OnState = ::core::option::Option<
 /// The callback function pointer definition for reporting a new output buffer is filled with processed data.
 ///
 /// Every new output buffer's index will report to user once the buffer is filled with processed data. Then call
-/// [`OH_VideoProcessing_RenderOutputBuffer`] with the buffer's index to send the output buffer out.
+/// [`OH_VideoProcessing_RenderOutputBuffer`](crate::video_processing::OH_VideoProcessing_RenderOutputBuffer) with the buffer's index to send the output buffer out.
 /// If this function is not registered, the output buffer is sent out as soon as the buffer is filled with processed
 /// data without reporting.
 ///
@@ -273,11 +269,11 @@ pub type OH_VideoProcessingCallback_OnNewOutputBuffer = ::core::option::Option<
 extern "C" {
     /// Used to create a video processing instance for color space conversion.
     ///
-    /// Some capabilities are supported by vendor. Use [`OH_VideoProcessing_IsColorSpaceConversionSupported`] to query if
+    /// Some capabilities are supported by vendor. Use [`OH_VideoProcessing_IsColorSpaceConversionSupported`](crate::video_processing::OH_VideoProcessing_IsColorSpaceConversionSupported) to query if
     /// the conversion is supported.
     ///
     ///
-    /// **See also:** [`OH_VideoProcessing_Create`]
+    /// **See also:** [`OH_VideoProcessing_Create`](crate::video_processing::OH_VideoProcessing_Create)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -286,10 +282,10 @@ extern "C" {
     /// Used to create a video processing instance for metadata generation.
     ///
     /// Generate HDR vivid metadata for video. The capability is supported by vendor. If the capability is not supported,
-    /// [`OH_VideoProcessing_Create`] returns [`VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`].
+    /// [`OH_VideoProcessing_Create`](crate::video_processing::OH_VideoProcessing_Create) returns [`VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING).
     ///
     ///
-    /// **See also:** [`OH_VideoProcessing_Create`]
+    /// **See also:** [`OH_VideoProcessing_Create`](crate::video_processing::OH_VideoProcessing_Create)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -301,7 +297,7 @@ extern "C" {
     /// resolution.
     ///
     ///
-    /// **See also:** [`OH_ImageProcessing_Create`]
+    /// **See also:** [`OH_ImageProcessing_Create`](crate::image_processing::OH_ImageProcessing_Create)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -309,14 +305,14 @@ extern "C" {
     pub static VIDEO_PROCESSING_TYPE_DETAIL_ENHANCER: i32;
     /// The key is used to specify the quality level for video detail enhancement.
     ///
-    /// See [`VideoDetailEnhancer_QualityLevel`] for its values.
-    /// Use [`OH_VideoProcessing_SetParameter`] to set the quality level.
-    /// Use [`OH_VideoProcessing_GetParameter`] to get the current quality level.
+    /// See [`VideoDetailEnhancer_QualityLevel`](crate::video_processing_types::VideoDetailEnhancer_QualityLevel) for its values.
+    /// Use [`OH_VideoProcessing_SetParameter`](crate::video_processing::OH_VideoProcessing_SetParameter) to set the quality level.
+    /// Use [`OH_VideoProcessing_GetParameter`](crate::video_processing::OH_VideoProcessing_GetParameter) to get the current quality level.
     ///
     ///
-    /// **See also:** [`OH_VideoProcessing_SetParameter`]
+    /// **See also:** [`OH_VideoProcessing_SetParameter`](crate::video_processing::OH_VideoProcessing_SetParameter)
     ///
-    /// **See also:** [`OH_VideoProcessing_GetParameter`]
+    /// **See also:** [`OH_VideoProcessing_GetParameter`](crate::video_processing::OH_VideoProcessing_GetParameter)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -324,10 +320,10 @@ extern "C" {
     pub static mut VIDEO_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL: *const ::core::ffi::c_char;
     /// The key is used to specify the style control for video metadata generator.
     ///
-    /// See [`VideoMetadataGeneratorStyleControl`] for its values.
-    /// Use [`OH_AVFormat_SetIntValue`] to set the mode value into AVFormat parameter.
-    /// Use [`OH_VideoProcessing_SetParameter`] to set parameter into video processing instance.
-    /// Use [`OH_VideoProcessing_GetParameter`] to get the current mode.
+    /// See [`VideoMetadataGeneratorStyleControl`](crate::video_processing_types::VideoMetadataGeneratorStyleControl) for its values.
+    /// Use `OH_AVFormat_SetIntValue` to set the mode value into AVFormat parameter.
+    /// Use [`OH_VideoProcessing_SetParameter`](crate::video_processing::OH_VideoProcessing_SetParameter) to set parameter into video processing instance.
+    /// Use [`OH_VideoProcessing_GetParameter`](crate::video_processing::OH_VideoProcessing_GetParameter) to get the current mode.
     ///
     ///
     /// Available since API-level: 22

@@ -3,8 +3,6 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(doc)]
-use crate::udmf_err_code::*;
 #[cfg(feature = "api-13")]
 use ohos_sys_opaque_types::OH_PixelmapNative;
 #[cfg(feature = "api-14")]
@@ -24,95 +22,95 @@ pub struct OH_UdsDetails {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Creation a pointer to the instance of the [`OH_UdsPlainText`].
+    /// Creation a pointer to the instance of the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsPlainText`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdsPlainText`]
+    /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsPlainText_Create() -> *mut OH_UdsPlainText;
-    /// Destroy a pointer that points to the [`OH_UdsPlainText`] instance.
+    /// Destroy a pointer that points to the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
-    /// **See also:** [`OH_UdsPlainText`]
+    /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsPlainText_Destroy(pThis: *mut OH_UdsPlainText);
-    /// Get type id from the [`OH_UdsPlainText`].
+    /// Get type id from the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsPlainText`]
+    /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsPlainText_GetType(pThis: *mut OH_UdsPlainText) -> *const ::core::ffi::c_char;
-    /// Get content from the [`OH_UdsPlainText`].
+    /// Get content from the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsPlainText`]
+    /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsPlainText_GetContent(pThis: *mut OH_UdsPlainText) -> *const ::core::ffi::c_char;
-    /// Get abstract from the [`OH_UdsPlainText`].
+    /// Get abstract from the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsPlainText`]
+    /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsPlainText_GetAbstract(pThis: *mut OH_UdsPlainText) -> *const ::core::ffi::c_char;
-    /// Get details from the [`OH_UdsPlainText`].
+    /// Get details from the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsPlainText`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -121,21 +119,21 @@ extern "C" {
         pThis: *mut OH_UdsPlainText,
         details: *mut OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Set content to the [`OH_UdsPlainText`].
+    /// Set content to the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// * `content` - Represents a new content string.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsPlainText`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -144,21 +142,21 @@ extern "C" {
         pThis: *mut OH_UdsPlainText,
         content: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set abstract to the [`OH_UdsPlainText`].
+    /// Set abstract to the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// * `abstract` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsPlainText`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -167,21 +165,21 @@ extern "C" {
         pThis: *mut OH_UdsPlainText,
         abstract_: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set details to the [`OH_UdsPlainText`].
+    /// Set details to the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsPlainText`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -190,75 +188,75 @@ extern "C" {
         pThis: *mut OH_UdsPlainText,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsHyperlink`].
+    /// Creation a pointer to the instance of the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of [`OH_UdsHyperlink`]
+    /// * If the operation is successful, a pointer to the instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdsHyperlink`]
+    /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsHyperlink_Create() -> *mut OH_UdsHyperlink;
-    /// Destroy a pointer that points to the [`OH_UdsHyperlink`] instance.
+    /// Destroy a pointer that points to the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
-    /// **See also:** [`OH_UdsHyperlink`]
+    /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsHyperlink_Destroy(pThis: *mut OH_UdsHyperlink);
-    /// Get type from the [`OH_UdsHyperlink`].
+    /// Get type from the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsHyperlink`]
+    /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsHyperlink_GetType(pThis: *mut OH_UdsHyperlink) -> *const ::core::ffi::c_char;
-    /// Get url from the [`OH_UdsHyperlink`].
+    /// Get url from the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsHyperlink`]
+    /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsHyperlink_GetUrl(pThis: *mut OH_UdsHyperlink) -> *const ::core::ffi::c_char;
-    /// Get description from the [`OH_UdsHyperlink`].
+    /// Get description from the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsHyperlink`]
+    /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -266,21 +264,21 @@ extern "C" {
     pub fn OH_UdsHyperlink_GetDescription(
         pThis: *mut OH_UdsHyperlink,
     ) -> *const ::core::ffi::c_char;
-    /// Get details from the [`OH_UdsHyperlink`].
+    /// Get details from the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsHyperlink`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -289,21 +287,21 @@ extern "C" {
         pThis: *mut OH_UdsHyperlink,
         details: *mut OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Set url to the [`OH_UdsHyperlink`].
+    /// Set url to the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// * `url` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsHyperlink`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -312,21 +310,21 @@ extern "C" {
         pThis: *mut OH_UdsHyperlink,
         url: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set description to the [`OH_UdsHyperlink`].
+    /// Set description to the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// * `description` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsHyperlink`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -335,141 +333,141 @@ extern "C" {
         pThis: *mut OH_UdsHyperlink,
         description: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set details to the [`OH_UdsHyperlink`].
+    /// Set details to the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsHyperlink`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsHyperlink_SetDetails(
         pThis: *mut OH_UdsHyperlink,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsHtml`].
+    /// Creation a pointer to the instance of the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsHtml`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdsHtml`]
+    /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsHtml_Create() -> *mut OH_UdsHtml;
-    /// Destroy a pointer that points to the [`OH_UdsHtml`] instance.
+    /// Destroy a pointer that points to the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
-    /// **See also:** [`OH_UdsHtml`]
+    /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsHtml_Destroy(pThis: *mut OH_UdsHtml);
-    /// Get html from the [`OH_UdsHtml`].
+    /// Get html from the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsHtml`]
+    /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsHtml_GetType(pThis: *mut OH_UdsHtml) -> *const ::core::ffi::c_char;
-    /// Get content from the [`OH_UdsHtml`].
+    /// Get content from the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsHtml`]
+    /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsHtml_GetContent(pThis: *mut OH_UdsHtml) -> *const ::core::ffi::c_char;
-    /// Get plain content from the [`OH_UdsHtml`].
+    /// Get plain content from the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsHtml`]
+    /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsHtml_GetPlainContent(pThis: *mut OH_UdsHtml) -> *const ::core::ffi::c_char;
-    /// Get details from the [`OH_UdsHtml`].
+    /// Get details from the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsHtml`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsHtml_GetDetails(
         pThis: *mut OH_UdsHtml,
         details: *mut OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Set content to the [`OH_UdsHtml`].
+    /// Set content to the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// * `content` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsHtml`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -478,21 +476,21 @@ extern "C" {
         pThis: *mut OH_UdsHtml,
         content: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set plain content to the [`OH_UdsHtml`].
+    /// Set plain content to the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// * `plainContent` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsHtml`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -501,205 +499,205 @@ extern "C" {
         pThis: *mut OH_UdsHtml,
         plainContent: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set details to the [`OH_UdsHtml`].
+    /// Set details to the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsHtml`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsHtml_SetDetails(
         pThis: *mut OH_UdsHtml,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsAppItem`].
+    /// Creation a pointer to the instance of the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsAppItem`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     /// structure is returned. sIf the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdsAppItem`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsAppItem_Create() -> *mut OH_UdsAppItem;
-    /// Destroy a pointer that points to the [`OH_UdsAppItem`] instance.
+    /// Destroy a pointer that points to the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
-    /// **See also:** [`OH_UdsAppItem`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsAppItem_Destroy(pThis: *mut OH_UdsAppItem);
-    /// Get type from the [`OH_UdsAppItem`].
+    /// Get type from the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsAppItem`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsAppItem_GetType(pThis: *mut OH_UdsAppItem) -> *const ::core::ffi::c_char;
-    /// Get app id from the [`OH_UdsAppItem`].
+    /// Get app id from the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsAppItem`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsAppItem_GetId(pThis: *mut OH_UdsAppItem) -> *const ::core::ffi::c_char;
-    /// Get app name from the [`OH_UdsAppItem`].
+    /// Get app name from the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsAppItem`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsAppItem_GetName(pThis: *mut OH_UdsAppItem) -> *const ::core::ffi::c_char;
-    /// Get app icon id from the [`OH_UdsAppItem`].
+    /// Get app icon id from the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsAppItem`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsAppItem_GetIconId(pThis: *mut OH_UdsAppItem) -> *const ::core::ffi::c_char;
-    /// Get app label id from the [`OH_UdsAppItem`].
+    /// Get app label id from the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsAppItem`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsAppItem_GetLabelId(pThis: *mut OH_UdsAppItem) -> *const ::core::ffi::c_char;
-    /// Get bundle name from the [`OH_UdsAppItem`].
+    /// Get bundle name from the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsAppItem`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsAppItem_GetBundleName(pThis: *mut OH_UdsAppItem) -> *const ::core::ffi::c_char;
-    /// Get ability name from the [`OH_UdsAppItem`].
+    /// Get ability name from the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsAppItem`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdsAppItem_GetAbilityName(pThis: *mut OH_UdsAppItem) -> *const ::core::ffi::c_char;
-    /// Get details from the [`OH_UdsAppItem`].
+    /// Get details from the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsAppItem`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsAppItem_GetDetails(
         pThis: *mut OH_UdsAppItem,
         details: *mut OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Set application id to the [`OH_UdsAppItem`].
+    /// Set application id to the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// * `appId` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -708,21 +706,21 @@ extern "C" {
         pThis: *mut OH_UdsAppItem,
         appId: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set application name to the [`OH_UdsAppItem`].
+    /// Set application name to the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// * `appName` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -731,21 +729,21 @@ extern "C" {
         pThis: *mut OH_UdsAppItem,
         appName: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set application icon id to the [`OH_UdsAppItem`].
+    /// Set application icon id to the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// * `appIconId` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -754,21 +752,21 @@ extern "C" {
         pThis: *mut OH_UdsAppItem,
         appIconId: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set application label id to the [`OH_UdsAppItem`].
+    /// Set application label id to the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// * `appLabelId` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -777,21 +775,21 @@ extern "C" {
         pThis: *mut OH_UdsAppItem,
         appLabelId: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set bundle name to the [`OH_UdsAppItem`].
+    /// Set bundle name to the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// * `bundleName` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -800,21 +798,21 @@ extern "C" {
         pThis: *mut OH_UdsAppItem,
         bundleName: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set ability name to the [`OH_UdsAppItem`].
+    /// Set ability name to the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// * `abilityName` - Represents a new string value.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -823,21 +821,21 @@ extern "C" {
         pThis: *mut OH_UdsAppItem,
         abilityName: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set details to the [`OH_UdsAppItem`].
+    /// Set details to the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsAppItem`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -846,118 +844,118 @@ extern "C" {
         pThis: *mut OH_UdsAppItem,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsFileUri`].
+    /// Creation a pointer to the instance of the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsFileUri`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri)
     /// structure is returned. If the memory is not enough, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdsFileUri`]
+    /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsFileUri_Create() -> *mut OH_UdsFileUri;
-    /// Destroy a pointer that points to the [`OH_UdsFileUri`] instance.
+    /// Destroy a pointer that points to the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
-    /// **See also:** [`OH_UdsFileUri`]
+    /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsFileUri_Destroy(pThis: *mut OH_UdsFileUri);
-    /// Get type id from the [`OH_UdsFileUri`].
+    /// Get type id from the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsFileUri`]
+    /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsFileUri_GetType(pThis: *mut OH_UdsFileUri) -> *const ::core::ffi::c_char;
-    /// Get file uri from the [`OH_UdsFileUri`].
+    /// Get file uri from the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsFileUri`]
+    /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsFileUri_GetFileUri(pThis: *mut OH_UdsFileUri) -> *const ::core::ffi::c_char;
-    /// Get file type from the [`OH_UdsFileUri`].
+    /// Get file type from the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsFileUri`]
+    /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsFileUri_GetFileType(pThis: *mut OH_UdsFileUri) -> *const ::core::ffi::c_char;
-    /// Get details from the [`OH_UdsFileUri`].
+    /// Get details from the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsFileUri`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsFileUri_GetDetails(
         pThis: *mut OH_UdsFileUri,
         details: *mut OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Set file uri to the [`OH_UdsFileUri`].
+    /// Set file uri to the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// * `fileUri` - Represents a new file uri string.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsFileUri`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -966,21 +964,21 @@ extern "C" {
         pThis: *mut OH_UdsFileUri,
         fileUri: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set file type to the [`OH_UdsFileUri`].
+    /// Set file type to the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// * `fileType` - Represents a new file type string.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsFileUri`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -989,21 +987,21 @@ extern "C" {
         pThis: *mut OH_UdsFileUri,
         fileType: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set details to the [`OH_UdsFileUri`].
+    /// Set details to the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsFileUri`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1012,57 +1010,57 @@ extern "C" {
         pThis: *mut OH_UdsFileUri,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsPixelMap`].
+    /// Creation a pointer to the instance of the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsPixelMap`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap)
     /// structure is returned. If the memory is not enough, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdsPixelMap`]
+    /// **See also:** [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsPixelMap_Create() -> *mut OH_UdsPixelMap;
-    /// Destroy a pointer that points to the [`OH_UdsPixelMap`] instance.
+    /// Destroy a pointer that points to the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
-    /// **See also:** [`OH_UdsPixelMap`]
+    /// **See also:** [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsPixelMap_Destroy(pThis: *mut OH_UdsPixelMap);
-    /// Get type id from the [`OH_UdsPixelMap`].
+    /// Get type id from the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsPixelMap`]
+    /// **See also:** [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsPixelMap_GetType(pThis: *mut OH_UdsPixelMap) -> *const ::core::ffi::c_char;
-    /// Get pixel map from the [`OH_UdsPixelMap`].
+    /// Get pixel map from the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
-    /// * `pixelmapNative` - Represents output params of [`OH_PixelmapNative`].
+    /// * `pixelmapNative` - Represents output params of [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative).
     ///
-    /// **See also:** [`OH_UdsPixelMap`]
+    /// **See also:** [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1071,44 +1069,44 @@ extern "C" {
         pThis: *mut OH_UdsPixelMap,
         pixelmapNative: *mut OH_PixelmapNative,
     );
-    /// Get details from the [`OH_UdsPixelMap`].
+    /// Get details from the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsPixelMap`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsPixelMap_GetDetails(
         pThis: *mut OH_UdsPixelMap,
         details: *mut OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Set pixel map to the [`OH_UdsPixelMap`].
+    /// Set pixel map to the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
-    /// * `pixelmapNative` - Represents a new [`OH_PixelmapNative`].
+    /// * `pixelmapNative` - Represents a new [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsPixelMap`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1117,66 +1115,66 @@ extern "C" {
         pThis: *mut OH_UdsPixelMap,
         pixelmapNative: *mut OH_PixelmapNative,
     ) -> ::core::ffi::c_int;
-    /// Set details to the [`OH_UdsPixelMap`].
+    /// Set details to the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
-    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`]. The pointer cannot be null.
+    /// * `details` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails). The pointer cannot be null.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsPixelMap`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap) [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsPixelMap_SetDetails(
         pThis: *mut OH_UdsPixelMap,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsArrayBuffer`].
+    /// Creation a pointer to the instance of the [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsArrayBuffer`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer)
     /// structure is returned. If the memory is not enough, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdsArrayBuffer`]
+    /// **See also:** [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsArrayBuffer_Create() -> *mut OH_UdsArrayBuffer;
-    /// Destroy a pointer that points to the [`OH_UdsArrayBuffer`] instance.
+    /// Destroy a pointer that points to the [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) instance.
     ///
     /// # Arguments
     ///
-    /// * `buffer` - Represents a pointer to an instance of [`OH_UdsArrayBuffer`].
+    /// * `buffer` - Represents a pointer to an instance of [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsArrayBuffer`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdsArrayBuffer_Destroy(buffer: *mut OH_UdsArrayBuffer) -> ::core::ffi::c_int;
-    /// Set array buffer data to the [`OH_UdsArrayBuffer`].
+    /// Set array buffer data to the [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer).
     ///
     /// # Arguments
     ///
-    /// * `buffer` - Represents a pointer to an instance of [`OH_UdsArrayBuffer`].
+    /// * `buffer` - Represents a pointer to an instance of [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer).
     ///
     /// * `data` - Represents the array buffer data.
     ///
@@ -1184,11 +1182,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsArrayBuffer`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1198,11 +1196,11 @@ extern "C" {
         data: *mut ::core::ffi::c_uchar,
         len: ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Get array buffer data from the [`OH_UdsArrayBuffer`].
+    /// Get array buffer data from the [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer).
     ///
     /// # Arguments
     ///
-    /// * `buffer` - Represents a pointer to an instance of [`OH_UdsArrayBuffer`].
+    /// * `buffer` - Represents a pointer to an instance of [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer).
     ///
     /// * `data` - Represents a pointer to array buffer data that is a output param.
     ///
@@ -1210,11 +1208,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsArrayBuffer`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1224,53 +1222,53 @@ extern "C" {
         data: *mut *mut ::core::ffi::c_uchar,
         len: *mut ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsContentForm`].
+    /// Creation a pointer to the instance of the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsContentForm`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdsContentForm`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_UdsContentForm_Create() -> *mut OH_UdsContentForm;
-    /// Destroy a pointer that points to the [`OH_UdsContentForm`] instance.
+    /// Destroy a pointer that points to the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
-    /// **See also:** [`OH_UdsContentForm`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_UdsContentForm_Destroy(pThis: *mut OH_UdsContentForm);
-    /// Get type id from the [`OH_UdsContentForm`].
+    /// Get type id from the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsContentForm`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_UdsContentForm_GetType(pThis: *mut OH_UdsContentForm) -> *const ::core::ffi::c_char;
-    /// Get thumb data from the [`OH_UdsContentForm`].
+    /// Get thumb data from the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// * `thumbData` - Represents a pointer to thumb data that is a output param.
     ///
@@ -1278,12 +1276,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     ///
-    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1293,17 +1291,17 @@ extern "C" {
         thumbData: *mut *mut ::core::ffi::c_uchar,
         len: *mut ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Get description from the [`OH_UdsContentForm`].
+    /// Get description from the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsContentForm`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1311,27 +1309,27 @@ extern "C" {
     pub fn OH_UdsContentForm_GetDescription(
         pThis: *mut OH_UdsContentForm,
     ) -> *const ::core::ffi::c_char;
-    /// Get title from the [`OH_UdsContentForm`].
+    /// Get title from the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsContentForm`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_UdsContentForm_GetTitle(pThis: *mut OH_UdsContentForm) -> *const ::core::ffi::c_char;
-    /// Get thumb data from the [`OH_UdsContentForm`].
+    /// Get thumb data from the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// * `appIcon` - Represents a pointer to app icon that is a output param.
     ///
@@ -1339,12 +1337,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     ///
-    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1354,17 +1352,17 @@ extern "C" {
         appIcon: *mut *mut ::core::ffi::c_uchar,
         len: *mut ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Get app name from the [`OH_UdsContentForm`].
+    /// Get app name from the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsContentForm`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1372,17 +1370,17 @@ extern "C" {
     pub fn OH_UdsContentForm_GetAppName(
         pThis: *mut OH_UdsContentForm,
     ) -> *const ::core::ffi::c_char;
-    /// Get link url from the [`OH_UdsContentForm`].
+    /// Get link url from the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdsContentForm`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1390,11 +1388,11 @@ extern "C" {
     pub fn OH_UdsContentForm_GetLinkUri(
         pThis: *mut OH_UdsContentForm,
     ) -> *const ::core::ffi::c_char;
-    /// Set thumb data to the [`OH_UdsContentForm`].
+    /// Set thumb data to the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// * `thumbData` - Represents the thumb data.
     ///
@@ -1402,11 +1400,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1416,21 +1414,21 @@ extern "C" {
         thumbData: *const ::core::ffi::c_uchar,
         len: ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Set description to the [`OH_UdsContentForm`].
+    /// Set description to the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// * `description` - Represents a description string.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1439,21 +1437,21 @@ extern "C" {
         pThis: *mut OH_UdsContentForm,
         description: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set title to the [`OH_UdsContentForm`].
+    /// Set title to the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// * `title` - Represents a title string.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1462,11 +1460,11 @@ extern "C" {
         pThis: *mut OH_UdsContentForm,
         title: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set thumb data to the [`OH_UdsContentForm`].
+    /// Set thumb data to the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// * `appIcon` - Represents the app icon.
     ///
@@ -1474,11 +1472,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1488,21 +1486,21 @@ extern "C" {
         appIcon: *const ::core::ffi::c_uchar,
         len: ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Set app name to the [`OH_UdsContentForm`].
+    /// Set app name to the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// * `appName` - Represents a app name string.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1511,21 +1509,21 @@ extern "C" {
         pThis: *mut OH_UdsContentForm,
         appName: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set link uri to the [`OH_UdsContentForm`].
+    /// Set link uri to the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// * `linkUri` - Represents a link uri string.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1534,37 +1532,37 @@ extern "C" {
         pThis: *mut OH_UdsContentForm,
         linkUri: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsDetails`].
+    /// Creation a pointer to the instance of the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsDetails`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsDetails`]
+    /// **See also:** [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_Create() -> *mut OH_UdsDetails;
-    /// Destroy a pointer that points to the [`OH_UdsDetails`] instance.
+    /// Destroy a pointer that points to the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsDetails`]
+    /// **See also:** [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_Destroy(pThis: *mut OH_UdsDetails);
-    /// Determine whether the [`OH_UdsDetails`] contain the specified key.
+    /// Determine whether the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) contain the specified key.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of the [`OH_UdsDetails`].
+    /// * `pThis` - Represents a pointer to an instance of the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// * `key` - Represents key in the details.
     ///
@@ -1574,7 +1572,7 @@ extern "C" {
     /// `false` Represents The details do not contain the key.
     /// `true` Represents The details contain the key.
     ///
-    /// **See also:** [`OH_UdsDetails`]
+    /// **See also:** [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1583,52 +1581,52 @@ extern "C" {
         pThis: *const OH_UdsDetails,
         key: *const ::core::ffi::c_char,
     ) -> bool;
-    /// Remove the value corresponding to this key from the [`OH_UdsDetails`].
+    /// Remove the value corresponding to this key from the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// * `key` - Represents key in the details.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_Remove(
         pThis: *mut OH_UdsDetails,
         key: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Clear all data in the [`OH_UdsDetails`].
+    /// Clear all data in the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_Clear(pThis: *mut OH_UdsDetails) -> ::core::ffi::c_int;
-    /// Set key-value data to the [`OH_UdsDetails`].
+    /// Set key-value data to the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// * `key` - Represents the key data to be written.
     ///
@@ -1636,13 +1634,13 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsDetails`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_SetValue(
@@ -1650,11 +1648,11 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Get the value from the [`OH_UdsDetails`] using the key.
+    /// Get the value from the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails) using the key.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// * `key` - Represents key in the details.
     ///
@@ -1664,18 +1662,18 @@ extern "C" {
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsDetails`]
+    /// **See also:** [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_GetValue(
         pThis: *const OH_UdsDetails,
         key: *const ::core::ffi::c_char,
     ) -> *const ::core::ffi::c_char;
-    /// Get the all keys from the [`OH_UdsDetails`].
+    /// Get the all keys from the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     /// * `count` - Represents the keys count.
     ///
@@ -1685,7 +1683,7 @@ extern "C" {
     ///
     /// Available since API-level: 22
     ///
-    /// **See also:** [`OH_UdsDetails`]
+    /// **See also:** [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails)
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_GetAllKeys(

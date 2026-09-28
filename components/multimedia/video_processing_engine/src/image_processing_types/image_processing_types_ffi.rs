@@ -3,14 +3,10 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(doc)]
-use crate::image_processing::*;
-#[cfg(all(doc, feature = "video-processing"))]
-use crate::video_processing::*;
 
 /// Define the object for image processing.
 ///
-/// Define a null pointer of OH_ImageProcessing and call [`OH_ImageProcessing_Create`] to create an image processing
+/// Define a null pointer of OH_ImageProcessing and call [`OH_ImageProcessing_Create`](crate::image_processing::OH_ImageProcessing_Create) to create an image processing
 /// instance. The pointer should be null before creating instance.
 /// User can create multiple image processing instances for different processing types.
 ///
@@ -25,11 +21,11 @@ pub struct OH_ImageProcessing {
 /// The color space information is used for color space conversion capability query.
 ///
 ///
-/// **See also:** [`OH_ImageProcessing_IsColorSpaceConversionSupported`]
+/// **See also:** [`OH_ImageProcessing_IsColorSpaceConversionSupported`](crate::image_processing::OH_ImageProcessing_IsColorSpaceConversionSupported)
 ///
-/// **See also:** [`OH_ImageProcessing_IsCompositionSupported`]
+/// **See also:** [`OH_ImageProcessing_IsCompositionSupported`](crate::image_processing::OH_ImageProcessing_IsCompositionSupported)
 ///
-/// **See also:** [`OH_ImageProcessing_IsDecompositionSupported`]
+/// **See also:** [`OH_ImageProcessing_IsDecompositionSupported`](crate::image_processing::OH_ImageProcessing_IsDecompositionSupported)
 ///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
@@ -37,11 +33,11 @@ pub struct OH_ImageProcessing {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ImageProcessing_ColorSpaceInfo {
-    /// define metadata type, [`OH_Pixelmap_HdrMetadataKey`]
+    /// define metadata type, `OH_Pixelmap_HdrMetadataKey`
     pub metadataType: i32,
-    /// define color space, [`ColorSpaceName`]
+    /// define color space, `ColorSpaceName`
     pub colorSpace: i32,
-    /// define pixel format, [`PIXEL_FORMAT`]
+    /// define pixel format, `PIXEL_FORMAT`
     pub pixelFormat: i32,
 }
 #[cfg(feature = "api-13")]
@@ -63,12 +59,12 @@ impl ImageDetailEnhancer_QualityLevel {
 #[repr(transparent)]
 /// The quality level is used for detail enhancement.
 ///
-/// It is the value of the key parameter [`IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL`].
+/// It is the value of the key parameter [`IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL`](crate::image_processing_types::IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL).
 ///
 ///
-/// **See also:** [`OH_ImageProcessing_SetParameter`]
+/// **See also:** [`OH_ImageProcessing_SetParameter`](crate::image_processing::OH_ImageProcessing_SetParameter)
 ///
-/// **See also:** [`OH_ImageProcessing_GetParameter`]
+/// **See also:** [`OH_ImageProcessing_GetParameter`](crate::image_processing::OH_ImageProcessing_GetParameter)
 ///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
@@ -135,11 +131,11 @@ extern "C" {
     ///
     /// Color space conversion includes the conversion of single-layer HDR images to SDR images, as well as
     /// the color space conversion of SDR images, and the conversion of SDR images to single-layer HDR images. Some
-    /// capabilities are supported by vendor. Use [`OH_ImageProcessing_IsColorSpaceConversionSupported`] to query if
+    /// capabilities are supported by vendor. Use [`OH_ImageProcessing_IsColorSpaceConversionSupported`](crate::image_processing::OH_ImageProcessing_IsColorSpaceConversionSupported) to query if
     /// the conversion is supported between single-layer images.
     ///
     ///
-    /// **See also:** [`OH_ImageProcessing_Create`]
+    /// **See also:** [`OH_ImageProcessing_Create`](crate::image_processing::OH_ImageProcessing_Create)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -148,11 +144,11 @@ extern "C" {
     /// Used to create an image processing instance for HDR image composition.
     ///
     /// HDR image compose includes the conversion from dual-layer HDR images to single-layer HDR images. Some
-    /// capabilities are supported by vendor. Use [`OH_ImageProcessing_IsCompositionSupported`] to
+    /// capabilities are supported by vendor. Use [`OH_ImageProcessing_IsCompositionSupported`](crate::image_processing::OH_ImageProcessing_IsCompositionSupported) to
     /// query if the composition is supported from dual-layer HDR image to single-layer HDR image.
     ///
     ///
-    /// **See also:** [`OH_ImageProcessing_Create`]
+    /// **See also:** [`OH_ImageProcessing_Create`](crate::image_processing::OH_ImageProcessing_Create)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -161,11 +157,11 @@ extern "C" {
     /// Used to create an image processing instance for HDR image decomposition.
     ///
     /// HDR image decompose includes the conversion from single-layer HDR images to dual-layer HDR images. Some
-    /// capabilities are supported by vendor. Use [`OH_ImageProcessing_IsDecompositionSupported`] to
+    /// capabilities are supported by vendor. Use [`OH_ImageProcessing_IsDecompositionSupported`](crate::image_processing::OH_ImageProcessing_IsDecompositionSupported) to
     /// query if the decomposition is supported from single-layer image to dual-layer HDR image.
     ///
     ///
-    /// **See also:** [`OH_ImageProcessing_Create`]
+    /// **See also:** [`OH_ImageProcessing_Create`](crate::image_processing::OH_ImageProcessing_Create)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -174,10 +170,10 @@ extern "C" {
     /// Used to create an image processing instance for metadata generation.
     ///
     /// Generate HDR Vivid metadata for single-layer image. The capability is supported by vendor. If the capability is not
-    /// supported, [`OH_ImageProcessing_Create`] returns [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`].
+    /// supported, [`OH_ImageProcessing_Create`](crate::image_processing::OH_ImageProcessing_Create) returns [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING).
     ///
     ///
-    /// **See also:** [`OH_ImageProcessing_Create`]
+    /// **See also:** [`OH_ImageProcessing_Create`](crate::image_processing::OH_ImageProcessing_Create)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -189,7 +185,7 @@ extern "C" {
     /// its resolution.
     ///
     ///
-    /// **See also:** [`OH_ImageProcessing_Create`]
+    /// **See also:** [`OH_ImageProcessing_Create`](crate::image_processing::OH_ImageProcessing_Create)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -197,14 +193,14 @@ extern "C" {
     pub static IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER: i32;
     /// The key is used to specify the quality level for image detail enhancement.
     ///
-    /// See [`ImageDetailEnhancer_QualityLevel`] for its value.
-    /// Use [`OH_ImageProcessing_SetParameter`] to set the quality level.
-    /// Use [`OH_ImageProcessing_GetParameter`] to get the current quality level.
+    /// See [`ImageDetailEnhancer_QualityLevel`](crate::image_processing_types::ImageDetailEnhancer_QualityLevel) for its value.
+    /// Use [`OH_ImageProcessing_SetParameter`](crate::image_processing::OH_ImageProcessing_SetParameter) to set the quality level.
+    /// Use [`OH_ImageProcessing_GetParameter`](crate::image_processing::OH_ImageProcessing_GetParameter) to get the current quality level.
     ///
     ///
-    /// **See also:** [`OH_VideoProcessing_SetParameter`]
+    /// **See also:** [`OH_VideoProcessing_SetParameter`](crate::video_processing::OH_VideoProcessing_SetParameter)
     ///
-    /// **See also:** [`OH_VideoProcessing_GetParameter`]
+    /// **See also:** [`OH_VideoProcessing_GetParameter`](crate::video_processing::OH_VideoProcessing_GetParameter)
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]

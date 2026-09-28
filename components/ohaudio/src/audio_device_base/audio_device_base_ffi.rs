@@ -4,8 +4,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::audio_common::OH_AudioCommon_Result;
-#[cfg(all(doc, feature = "api-12"))]
-use crate::audio_routing_manager::*;
 use crate::audiostream_base::OH_AudioStream_EncodingType;
 
 #[cfg(feature = "api-12")]
@@ -251,14 +249,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`] or
-    /// [`OH_AudioRouterManager_OnDeviceChangedCallback`].
+    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
+    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
-    /// * `deviceRole` - the pointer [`OH_AudioDevice_DeviceRole`] variable that will be set the device role value.
+    /// * `deviceRole` - the pointer `OH_AudioDevice_DeviceRole` variable that will be set the device role value.
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -271,15 +269,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`] or
-    /// [`OH_AudioRouterManager_OnDeviceChangedCallback`].
+    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
+    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
-    /// * `deviceType` - the pointer [`OH_AudioDevice_DeviceType`]
+    /// * `deviceType` - the pointer `OH_AudioDevice_DeviceType`
     /// pointer variable that will be set the device type value.
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -292,14 +290,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`] or
-    /// [`OH_AudioRouterManager_OnDeviceChangedCallback`].
+    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
+    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `id` - pointer variable that will be set the device id value.
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -312,17 +310,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`] or
-    /// [`OH_AudioRouterManager_OnDeviceChangedCallback`].
+    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
+    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `name` - pointer variable that will be set the device name value.
     /// Do not release the name pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
     /// when it is no use anymore.
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -335,17 +333,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`] or
-    /// [`OH_AudioRouterManager_OnDeviceChangedCallback`].
+    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
+    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `address` - pointer variable that will be set the device address value.
     /// Do not release the address pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
     /// when it is no use anymore.
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -358,19 +356,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`] or
-    /// [`OH_AudioRouterManager_OnDeviceChangedCallback`].
+    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
+    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `sampleRates` - array pointer variable that will be set the sample rate array value.
     /// Do not release the sampleRates pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
     /// when it is no use anymore.
     ///
     /// * `size` - pointer variable that will be set the sample rate size value.
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -384,19 +382,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`] or
-    /// [`OH_AudioRouterManager_OnDeviceChangedCallback`].
+    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
+    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `channelCounts` - array pointer variable that will be set the channel count array value.
     /// Do not release the channelCounts pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
     /// when it is no use anymore.
     ///
     /// * `size` - pointer variable that will be set the channel count size value.
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -410,17 +408,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`] or
-    /// [`OH_AudioRouterManager_OnDeviceChangedCallback`].
+    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
+    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
     /// * `displayName` - pointer variable that will be set the display name value.
     /// Do not release the displayName pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
     /// when it is no use anymore.
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -433,19 +431,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`] or
-    /// [`OH_AudioRouterManager_OnDeviceChangedCallback`].
+    /// * `audioDeviceDescriptor` - reference returned by [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices) or
+    /// `OH_AudioRouterManager_OnDeviceChangedCallback`.
     ///
-    /// * `encodingTypes` - the [`OH_AudioStream_EncodingType`]
+    /// * `encodingTypes` - the [`OH_AudioStream_EncodingType`](crate::audiostream_base::OH_AudioStream_EncodingType)
     /// Do not release the encodingTypes pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
     /// when it is no use anymore.
     ///
     /// * `size` - pointer variable that will be set the encoding type size value.
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] or [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`].
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

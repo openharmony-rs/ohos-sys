@@ -18,7 +18,7 @@ pub struct InputMethod_CursorInfo {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create a new [`InputMethod_CursorInfo`] instance.
+    /// Create a new [`InputMethod_CursorInfo`](crate::cursor_info::InputMethod_CursorInfo) instance.
     ///
     /// # Arguments
     ///
@@ -32,7 +32,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_CursorInfo`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_CursorInfo`](crate::cursor_info::InputMethod_CursorInfo)
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
@@ -44,11 +44,11 @@ extern "C" {
         width: f64,
         height: f64,
     ) -> *mut InputMethod_CursorInfo;
-    /// Destroy a [`InputMethod_CursorInfo`] instance.
+    /// Destroy a [`InputMethod_CursorInfo`](crate::cursor_info::InputMethod_CursorInfo) instance.
     ///
     /// # Arguments
     ///
-    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance which will be destroyed.
+    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`](crate::cursor_info::InputMethod_CursorInfo) instance which will be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -58,7 +58,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
+    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`](crate::cursor_info::InputMethod_CursorInfo) instance.
     ///
     /// * `left` - The left point of the cursor and must be absolute coordinate of the physical screen.
     ///
@@ -71,9 +71,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -89,7 +89,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`] instance.
+    /// * `cursorInfo` - Represents a pointer to an [`InputMethod_CursorInfo`](crate::cursor_info::InputMethod_CursorInfo) instance.
     ///
     /// * `left` - The left point of the cursor and must be absolute coordinate of the physical screen.
     ///
@@ -102,9 +102,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

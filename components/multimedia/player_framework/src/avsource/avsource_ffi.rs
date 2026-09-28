@@ -118,8 +118,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], an invalid source instance pointer is passed to parameter source,
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), an invalid source instance pointer is passed to parameter source,
     /// including a null pointer;
     ///
     /// Available since API-level: 10

@@ -119,8 +119,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_INVALID_VAL`] 3 - cencInfo is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - cencInfo is nullptr.
     ///
     /// Available since API-level: 12
     ///
@@ -140,8 +140,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_INVALID_VAL`] 3 - cencInfo is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - cencInfo is nullptr.
     ///
     /// Available since API-level: 12
     ///
@@ -170,8 +170,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_INVALID_VAL`] 3 - If cencInfo is nullptr, or keyId is nullptr, or keyIdLen != DRM_KEY_ID_SIZE,
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If cencInfo is nullptr, or keyId is nullptr, or keyIdLen != DRM_KEY_ID_SIZE,
     /// or iv is nullptr, or ivLen != DRM_KEY_IV_SIZE, or keyId copy fails, or iv copy fails.
     ///
     /// Available since API-level: 12
@@ -206,8 +206,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_INVALID_VAL`] 3 - If cencInfo is nullptr, or subsampleCount > DRM_KEY_MAX_SUB_SAMPLE_NUM,
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If cencInfo is nullptr, or subsampleCount > DRM_KEY_MAX_SUB_SAMPLE_NUM,
     /// or subsamples is nullptr.
     ///
     /// Available since API-level: 12
@@ -235,8 +235,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_INVALID_VAL`] 3 - cencInfo is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - cencInfo is nullptr.
     ///
     /// Available since API-level: 12
     ///
@@ -259,8 +259,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_INVALID_VAL`] 3 - If cencInfo is nullptr, or buffer is nullptr, or buffer->buffer_ is nullptr,
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If cencInfo is nullptr, or buffer is nullptr, or buffer->buffer_ is nullptr,
     /// or buffer->buffer_->meta_ is nullptr.
     ///
     /// Available since API-level: 12

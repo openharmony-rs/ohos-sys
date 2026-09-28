@@ -11,12 +11,8 @@ use crate::rdb_crypto_param::OH_Rdb_CryptoParam;
 use crate::rdb_transaction::{OH_RDB_TransOptions, OH_Rdb_Transaction};
 #[cfg(feature = "api-23")]
 use crate::rdb_types::OH_RDB_ReturningContext;
-#[cfg(doc)]
-use crate::rdb_types::*;
 #[cfg(feature = "api-18")]
 use crate::rdb_types::{OH_Data_Value, OH_Data_Values, Rdb_ConflictResolution};
-#[cfg(doc)]
-use crate::relational_store_error_code::*;
 use crate::value_object::OH_VObject;
 #[cfg(feature = "api-18")]
 use crate::values_bucket::OH_Data_VBuckets;
@@ -73,7 +69,7 @@ pub struct Rdb_SecurityArea(pub ::core::ffi::c_uint);
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Rdb_Config {
-    /// Indicates the size of the [`OH_Rdb_Config`]. It is mandatory.
+    /// Indicates the size of the [`OH_Rdb_Config`](crate::relational_store::OH_Rdb_Config). It is mandatory.
     pub selfSize: ::core::ffi::c_int,
     /// Indicates the directory of the database.
     pub dataBaseDir: *const ::core::ffi::c_char,
@@ -85,9 +81,9 @@ pub struct OH_Rdb_Config {
     pub moduleName: *const ::core::ffi::c_char,
     /// Indicates whether the database is encrypted.
     pub isEncrypt: bool,
-    /// Indicates the security level [`OH_Rdb_SecurityLevel`] of the database.
+    /// Indicates the security level [`OH_Rdb_SecurityLevel`](crate::relational_store::OH_Rdb_SecurityLevel) of the database.
     pub securityLevel: ::core::ffi::c_int,
-    /// Indicates the security area [`Rdb_SecurityArea`] of the database.
+    /// Indicates the security area [`Rdb_SecurityArea`](crate::relational_store::Rdb_SecurityArea) of the database.
     ///
     ///
     /// Available since API-level: 11
@@ -220,7 +216,7 @@ pub struct Rdb_ChangeType(pub ::core::ffi::c_uint);
 pub struct Rdb_KeyInfo {
     /// Indicates the count of the primary keys or row-ids.
     pub count: ::core::ffi::c_int,
-    /// Indicates data type [`OH_ColumnType`] of the key.
+    /// Indicates data type [`OH_ColumnType`](crate::rdb_types::OH_ColumnType) of the key.
     pub type_: ::core::ffi::c_int,
     pub data: *mut Rdb_KeyInfo_Rdb_KeyData,
 }
@@ -248,13 +244,13 @@ pub struct Rdb_ChangeInfo {
     pub version: ::core::ffi::c_int,
     /// The name of changed table.
     pub tableName: *const ::core::ffi::c_char,
-    /// The [`Rdb_ChangeType`] of changed table.
+    /// The [`Rdb_ChangeType`](crate::relational_store::Rdb_ChangeType) of changed table.
     pub ChangeType: ::core::ffi::c_int,
-    /// The [`Rdb_KeyInfo`] of inserted rows.
+    /// The [`Rdb_KeyInfo`](crate::relational_store::Rdb_KeyInfo) of inserted rows.
     pub inserted: Rdb_KeyInfo,
-    /// The [`Rdb_KeyInfo`] of updated rows.
+    /// The [`Rdb_KeyInfo`](crate::relational_store::Rdb_KeyInfo) of updated rows.
     pub updated: Rdb_KeyInfo,
-    /// The [`Rdb_KeyInfo`] of deleted rows.
+    /// The [`Rdb_KeyInfo`](crate::relational_store::Rdb_KeyInfo) of deleted rows.
     pub deleted: Rdb_KeyInfo,
 }
 #[cfg(feature = "api-11")]
@@ -306,11 +302,11 @@ pub type Rdb_BriefObserver = ::core::option::Option<
 ///
 /// * `context` - Represents the context of data observer.
 ///
-/// * `changeInfo` - Indicates the [`Rdb_ChangeInfo`] of changed tables.
+/// * `changeInfo` - Indicates the [`Rdb_ChangeInfo`](crate::relational_store::Rdb_ChangeInfo) of changed tables.
 ///
 /// * `count` - The count of changed tables.
 ///
-/// **See also:** [`Rdb_ChangeInfo`].
+/// **See also:** [`Rdb_ChangeInfo`](crate::relational_store::Rdb_ChangeInfo).
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -388,7 +384,7 @@ pub struct Rdb_Statistic {
     /// Describes the number of data remained to sync.
     pub remained: ::core::ffi::c_int,
 }
-/// Describes the [`Rdb_Statistic`] details of the table.
+/// Describes the [`Rdb_Statistic`](crate::relational_store::Rdb_Statistic) details of the table.
 ///
 ///
 /// Available since API-level: 11
@@ -399,9 +395,9 @@ pub struct Rdb_Statistic {
 pub struct Rdb_TableDetails {
     /// Indicates the name of changed table.
     pub table: *const ::core::ffi::c_char,
-    /// Describes the [`Rdb_Statistic`] details of the upload process.
+    /// Describes the [`Rdb_Statistic`](crate::relational_store::Rdb_Statistic) details of the upload process.
     pub upload: Rdb_Statistic,
-    /// Describes the [`Rdb_Statistic`] details of the download process.
+    /// Describes the [`Rdb_Statistic`](crate::relational_store::Rdb_Statistic) details of the download process.
     pub download: Rdb_Statistic,
 }
 #[cfg(feature = "api-11")]
@@ -461,9 +457,9 @@ pub struct Rdb_ProgressCode(pub ::core::ffi::c_uint);
 pub struct Rdb_ProgressDetails {
     /// The version used to uniquely identify the Rdb_ProgressDetails struct.
     pub version: ::core::ffi::c_int,
-    /// Describes the status of data sync progress. Defined in [`Rdb_Progress`].
+    /// Describes the status of data sync progress. Defined in [`Rdb_Progress`](crate::relational_store::Rdb_Progress).
     pub schedule: ::core::ffi::c_int,
-    /// Describes the code of data sync progress. Defined in [`Rdb_ProgressCode`].
+    /// Describes the code of data sync progress. Defined in [`Rdb_ProgressCode`](crate::relational_store::Rdb_ProgressCode).
     pub code: ::core::ffi::c_int,
     /// Describes the length of changed tables in data sync progress.
     pub tableLength: i32,
@@ -477,7 +473,7 @@ pub struct Rdb_ProgressDetails {
 ///
 /// * `progressDetails` - The details of the sync progress.
 ///
-/// **See also:** [`Rdb_ProgressDetails`].
+/// **See also:** [`Rdb_ProgressDetails`](crate::relational_store::Rdb_ProgressDetails).
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -494,7 +490,7 @@ pub type Rdb_ProgressCallback = ::core::option::Option<
 ///
 /// * `progressDetails` - The details of the sync progress.
 ///
-/// **See also:** [`Rdb_ProgressDetails`].
+/// **See also:** [`Rdb_ProgressDetails`](crate::relational_store::Rdb_ProgressDetails).
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -545,7 +541,7 @@ extern "C" {
     /// The possible cause is that the address space of the application is full, As a result, the space
     /// cannot be allocated.
     ///
-    /// **See also:** [`OH_Rdb_ConfigV2`]
+    /// **See also:** [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2)
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -555,14 +551,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -572,7 +568,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// * `databaseDir` - Indicates the directory of the database.
@@ -580,8 +576,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -594,7 +590,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// * `storeName` - Indicates the name of the database.
@@ -602,8 +598,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -616,7 +612,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// * `bundleName` - Indicates the bundle name of the application
@@ -624,8 +620,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -638,7 +634,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// * `moduleName` - Indicates the module name of the application.
@@ -646,8 +642,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -660,7 +656,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// * `isEncrypted` - Indicates whether the database is encrypted.
@@ -668,8 +664,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -682,16 +678,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
-    /// * `securityLevel` - Indicates the security level [`OH_Rdb_SecurityLevel`] of the database.
+    /// * `securityLevel` - Indicates the security level [`OH_Rdb_SecurityLevel`](crate::relational_store::OH_Rdb_SecurityLevel) of the database.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -704,7 +700,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store
     ///
     /// * `area` - Represents the security area of the database.
@@ -712,8 +708,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -725,16 +721,16 @@ extern "C" {
     /// Set property dbType into config
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     ///
-    /// * `dbType` - Indicates the dbType [`Rdb_DBType`] of the database
+    /// * `dbType` - Indicates the dbType [`Rdb_DBType`](crate::relational_store::Rdb_DBType) of the database
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`RDB_E_NOT_SUPPORTED`] - The error code for not support db types.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) - The error code for not support db types.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -754,8 +750,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -775,8 +771,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -795,8 +791,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -817,8 +813,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -830,16 +826,16 @@ extern "C" {
     /// Set property tokenizer into config
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     ///
-    /// * `tokenizer` - Indicates the tokenizer [`Rdb_Tokenizer`] of the database
+    /// * `tokenizer` - Indicates the tokenizer [`Rdb_Tokenizer`](crate::relational_store::Rdb_Tokenizer) of the database
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`RDB_E_NOT_SUPPORTED`] - The error code for not support tokenizer.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) - The error code for not support tokenizer.
     ///
     /// Available since API-level: 17
     #[cfg(feature = "api-17")]
@@ -852,7 +848,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// * `isPersistent` - Indicates whether the database need persistence.
@@ -860,8 +856,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -874,7 +870,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// * `enableSemanticIndex` - Indicates whether the database enable the capabilities for semantic indexing processing.
@@ -882,8 +878,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -896,15 +892,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `tokenizer` - the tokenizer type of [`Rdb_Tokenizer`].
+    /// * `tokenizer` - the tokenizer type of [`Rdb_Tokenizer`](crate::relational_store::Rdb_Tokenizer).
     ///
     /// * `isSupported` - Pointer to the Boolean value obtained.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] indicates the operation is successful.
-    /// [`RDB_E_INVALID_ARGS`] indicates invalid args are passed in.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) indicates the operation is successful.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) indicates invalid args are passed in.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -928,7 +924,7 @@ extern "C" {
     pub fn OH_Rdb_GetSupportedDbType(
         typeCount: *mut ::core::ffi::c_int,
     ) -> *const ::core::ffi::c_int;
-    /// Creates an [`OH_VObject`] instance.
+    /// Creates an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     ///
     /// # Returns
@@ -936,11 +932,11 @@ extern "C" {
     /// * If the creation is successful, a pointer to the instance of the OH_VObject} structure is returned,
     /// otherwise NULL is returned.
     ///
-    /// **See also:** [`OH_VObject`].
+    /// **See also:** [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_CreateValueObject() -> *mut OH_VObject;
-    /// Creates an [`OH_VBucket`] object.
+    /// Creates an [`OH_VBucket`](crate::values_bucket::OH_VBucket) object.
     ///
     ///
     /// # Returns
@@ -948,11 +944,11 @@ extern "C" {
     /// * If the creation is successful, a pointer to the instance of the OH_VBucket} structure is returned,
     /// otherwise NULL is returned.
     ///
-    /// **See also:** [`OH_VBucket`].
+    /// **See also:** [`OH_VBucket`](crate::values_bucket::OH_VBucket).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_CreateValuesBucket() -> *mut OH_VBucket;
-    /// Creates an [`OH_Predicates`] instance.
+    /// Creates an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// # Arguments
     ///
@@ -963,7 +959,7 @@ extern "C" {
     /// * If the creation is successful, a pointer to the instance of the OH_Predicates} structure is returned.
     /// If the table name is nullptr, Nullptr is returned.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_CreatePredicates(table: *const ::core::ffi::c_char) -> *mut OH_Predicates;
@@ -974,7 +970,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`OH_Rdb_Config`] instance.
+    /// * `config` - Represents a pointer to an [`OH_Rdb_Config`](crate::relational_store::OH_Rdb_Config) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// * `errCode` - This parameter is the output parameter,
@@ -986,7 +982,7 @@ extern "C" {
     /// If the Config is empty, config.size does not match, or errCode is empty.
     /// Get database path failed.Get RDB Store fail. Nullptr is returned.
     ///
-    /// **See also:** [`OH_Rdb_Config`], [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Config`](crate::relational_store::OH_Rdb_Config), [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_GetOrOpen(
@@ -1000,7 +996,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to an [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// * `errCode` - This parameter is the output parameter,
@@ -1012,7 +1008,7 @@ extern "C" {
     /// If the Config is empty, config.size does not match, or errCode is empty.
     /// Get database path failed.Get RDB Store fail. Nullptr is returned.
     ///
-    /// **See also:** [`OH_Rdb_ConfigV2`], [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2), [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1021,20 +1017,20 @@ extern "C" {
         config: *const OH_Rdb_ConfigV2,
         errCode: *mut ::core::ffi::c_int,
     ) -> *mut OH_Rdb_Store;
-    /// Close the [`OH_Rdb_Store`] object and reclaim the memory occupied by the object.
+    /// Close the [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) object and reclaim the memory occupied by the object.
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// while failure returns a specific error code. Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// while failure returns a specific error code. Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Rdb_ErrCode`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_CloseStore(store: *mut OH_Rdb_Store) -> ::core::ffi::c_int;
@@ -1042,17 +1038,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`OH_Rdb_Config`] instance.
+    /// * `config` - Represents a pointer to an [`OH_Rdb_Config`](crate::relational_store::OH_Rdb_Config) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// while failure returns a specific error code. Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// while failure returns a specific error code. Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_ErrCode`].
+    /// **See also:** [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_DeleteStore(config: *const OH_Rdb_Config) -> ::core::ffi::c_int;
@@ -1060,17 +1056,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `config` - Represents a pointer to an [`OH_Rdb_ConfigV2`] instance.
+    /// * `config` - Represents a pointer to an [`OH_Rdb_ConfigV2`](crate::relational_store::OH_Rdb_ConfigV2) instance.
     /// Indicates the configuration of the database related to this RDB store.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution. Successful execution returns RDB_OK,
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// while failure returns a specific error code. Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// while failure returns a specific error code. Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_ErrCode`].
+    /// **See also:** [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1080,20 +1076,20 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `table` - Indicates the target table.
     ///
-    /// * `valuesBucket` - Indicates the row of data [`OH_VBucket`] to be inserted into the table.
+    /// * `valuesBucket` - Indicates the row of data [`OH_VBucket`](crate::values_bucket::OH_VBucket) to be inserted into the table.
     ///
     /// # Returns
     ///
     /// * Returns the rowId if success, returns a specific error code.
-    /// [`RDB_ERR`] - Indicates that the function execution exception.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_VBucket`], [`OH_Rdb_ErrCode`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_VBucket`](crate::values_bucket::OH_VBucket), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Insert(
@@ -1118,22 +1114,22 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1155,7 +1151,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `table` - Represents the target table.
     ///
@@ -1168,22 +1164,22 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1199,21 +1195,21 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `valuesBucket` - Indicates the row of data [`OH__VBucket`] to be updated in the database
+    /// * `valuesBucket` - Indicates the row of data `OH__VBucket` to be updated in the database
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     /// Indicates the specified update condition.
     ///
     /// # Returns
     ///
     /// * Returns the number of rows changed if success, otherwise, returns a specific error code.
-    /// [`RDB_ERR`] - Indicates that the function execution exception.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Bucket`], [`OH_Predicates`], [`OH_Rdb_ErrCode`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), `OH_Bucket`, [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Update(
@@ -1238,22 +1234,22 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1269,19 +1265,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     /// Indicates the specified delete condition.
     ///
     /// # Returns
     ///
     /// * Returns the number of rows changed if success, otherwise, returns a specific error code.
-    /// [`RDB_ERR`] - Indicates that the function execution exception.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Rdb_ErrCode`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Delete(
@@ -1292,9 +1288,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     /// Indicates the specified query condition.
     ///
     /// * `columnNames` - Indicates the columns to query. If the value is empty array, the query applies to all columns.
@@ -1306,7 +1302,7 @@ extern "C" {
     /// * If the query is successful, a pointer to the instance of the OH_Cursor} structure is returned.
     /// If Get store failed or resultSet is nullptr, nullptr is returned.
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Cursor`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Query(
@@ -1319,9 +1315,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     /// Indicates the specified query condition.
     ///
     /// * `columns` - Indicates the columns to query. If the value is empty array, the query applies to all columns.
@@ -1330,10 +1326,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * If the query is successful, a pointer to the instance of the [`OH_Cursor`] structure is returned.
+    /// * If the query is successful, a pointer to the instance of the [`OH_Cursor`](crate::cursor::OH_Cursor) structure is returned.
     /// If Get store failed or resultSet is nullptr, nullptr is returned.
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Cursor`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1348,7 +1344,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `sql` - Indicates the SQL statement to execute.
     ///
@@ -1356,10 +1352,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * If the query is successful, a pointer to the instance of the [`OH_Cursor`] structure is returned.
+    /// * If the query is successful, a pointer to the instance of the [`OH_Cursor`](crate::cursor::OH_Cursor) structure is returned.
     /// If sql statement is invalid or the memory allocate failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1373,17 +1369,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `sql` - Indicates the SQL statement to execute.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Execute(
@@ -1394,7 +1390,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `sql` - Indicates the SQL statement to execute.
     ///
@@ -1406,23 +1402,23 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
     ///
-    /// **See also:** [`OH_Value_Destroy`].
+    /// **See also:** [`OH_Value_Destroy`](crate::data_value::OH_Value_Destroy).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1437,7 +1433,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `trxId` - The transaction ID of the specified transaction, must be greater than 0
     ///
@@ -1446,11 +1442,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`RDB_E_NOT_SUPPORTED`] - The error code for not support.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) - The error code for not support.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1464,7 +1460,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `sql` - Indicates the SQL statement to execute.
     ///
@@ -1473,7 +1469,7 @@ extern "C" {
     /// * If the query is successful, a pointer to the instance of the OH_Cursor} structure is returned.
     /// If Get store failed,sql is nullptr or resultSet is nullptr, nullptr is returned.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_ExecuteQuery(
@@ -1484,7 +1480,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `sql` - Indicates the SQL statement to execute.
     ///
@@ -1495,7 +1491,7 @@ extern "C" {
     /// * If the query is successful, a pointer to the instance of the OH_Cursor} structure is returned.
     /// If sql statement is invalid or the memory allocate failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1509,15 +1505,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_BeginTransaction(store: *mut OH_Rdb_Store) -> ::core::ffi::c_int;
@@ -1525,15 +1521,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_RollBack(store: *mut OH_Rdb_Store) -> ::core::ffi::c_int;
@@ -1541,15 +1537,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Commit(store: *mut OH_Rdb_Store) -> ::core::ffi::c_int;
@@ -1557,18 +1553,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `trxId` - The output parameter, which is used to receive the transaction ID corresponding to the transaction
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`RDB_E_NOT_SUPPORTED`] - The error code for not support.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) - The error code for not support.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1581,18 +1577,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `trxId` - The transaction ID of the specified transaction, must be greater than 0
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`RDB_E_NOT_SUPPORTED`] - The error code for not support.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) - The error code for not support.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1602,18 +1598,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `trxId` - The transaction ID of the specified transaction, must be greater than 0
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`RDB_E_NOT_SUPPORTED`] - The error code for not support.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) - The error code for not support.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1623,17 +1619,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `databasePath` - Indicates the database file path.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Backup(
@@ -1644,17 +1640,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `databasePath` - Indicates the database file path.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Restore(
@@ -1665,17 +1661,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `version` - Indicates the version number.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_GetVersion(
@@ -1686,17 +1682,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `version` - Indicates the version number.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_SetVersion(
@@ -1707,25 +1703,25 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `tables` - Indicates the table names you want to set.
     ///
     /// * `count` - Indicates the count of tables you want to set.
     ///
-    /// * `type` - Indicates the distributed type [`Rdb_DistributedType`].
+    /// * `type` - Indicates the distributed type [`Rdb_DistributedType`](crate::relational_store::Rdb_DistributedType).
     ///
-    /// * `config` - Indicates the distributed config of the tables. For details, see [`Rdb_DistributedConfig`].
+    /// * `config` - Indicates the distributed config of the tables. For details, see [`Rdb_DistributedConfig`](crate::relational_store::Rdb_DistributedConfig).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
-    /// **See also:** [`Rdb_DistributedConfig`].
+    /// **See also:** [`Rdb_DistributedConfig`](crate::relational_store::Rdb_DistributedConfig).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -1741,7 +1737,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `tableName` - Indicates the name of the table to check.
     ///
@@ -1757,11 +1753,11 @@ extern "C" {
     /// If Get store failed, NULL is returned.
     /// There are two columns, "data_key" and "timestamp". Otherwise NULL is returned.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
-    /// **See also:** [`OH_VObject`].
+    /// **See also:** [`OH_VObject`](crate::value_object::OH_VObject).
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -1777,23 +1773,23 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `type` - Indicates the subscription type, which is defined in [`Rdb_SubscribeType`].
+    /// * `type` - Indicates the subscription type, which is defined in [`Rdb_SubscribeType`](crate::relational_store::Rdb_SubscribeType).
     /// If its value is RDB_SUBSCRIBE_TYPE_LOCAL_DETAILS, the callback will be invoked for data changes
     /// in the local database.
     ///
-    /// * `observer` - The [`Rdb_DataObserver`] of change events in the database.
+    /// * `observer` - The [`Rdb_DataObserver`](crate::relational_store::Rdb_DataObserver) of change events in the database.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
-    /// **See also:** [`Rdb_DataObserver`].
+    /// **See also:** [`Rdb_DataObserver`](crate::relational_store::Rdb_DataObserver).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -1807,22 +1803,22 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `type` - Indicates the subscription type, which is defined in [`Rdb_SubscribeType`].
+    /// * `type` - Indicates the subscription type, which is defined in [`Rdb_SubscribeType`](crate::relational_store::Rdb_SubscribeType).
     ///
-    /// * `observer` - The [`Rdb_DataObserver`] of change events in the database.
+    /// * `observer` - The [`Rdb_DataObserver`](crate::relational_store::Rdb_DataObserver) of change events in the database.
     /// If this is nullptr, remove all observers of the type.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
-    /// **See also:** [`Rdb_DataObserver`].
+    /// **See also:** [`Rdb_DataObserver`](crate::relational_store::Rdb_DataObserver).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -1836,18 +1832,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `progress` - Represents a pointer to an [`Rdb_ProgressDetails`] instance.
+    /// * `progress` - Represents a pointer to an [`Rdb_ProgressDetails`](crate::relational_store::Rdb_ProgressDetails) instance.
     ///
-    /// * `version` - Indicates the version of current [`Rdb_ProgressDetails`].
+    /// * `version` - Indicates the version of current [`Rdb_ProgressDetails`](crate::relational_store::Rdb_ProgressDetails).
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`Rdb_TableDetails`]
+    /// * If the operation is successful, a pointer to the instance of the [`Rdb_TableDetails`](crate::relational_store::Rdb_TableDetails)
     /// structure is returned.If get details is failed, nullptr is returned.
     ///
-    /// **See also:** [`Rdb_ProgressDetails`]
+    /// **See also:** [`Rdb_ProgressDetails`](crate::relational_store::Rdb_ProgressDetails)
     ///
-    /// **See also:** [`Rdb_TableDetails`]
+    /// **See also:** [`Rdb_TableDetails`](crate::relational_store::Rdb_TableDetails)
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -1860,25 +1856,25 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `mode` - Represents the [`Rdb_SyncMode`] of sync progress.
+    /// * `mode` - Represents the [`Rdb_SyncMode`](crate::relational_store::Rdb_SyncMode) of sync progress.
     ///
     /// * `tables` - Indicates the names of tables to sync.
     ///
     /// * `count` - The count of tables to sync. If value equals 0, sync all tables of the store.
     ///
-    /// * `observer` - The [`Rdb_ProgressObserver`] of cloud sync progress.
+    /// * `observer` - The [`Rdb_ProgressObserver`](crate::relational_store::Rdb_ProgressObserver) of cloud sync progress.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
-    /// **See also:** [`Rdb_ProgressObserver`].
+    /// **See also:** [`Rdb_ProgressObserver`](crate::relational_store::Rdb_ProgressObserver).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -1895,20 +1891,20 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Indicates the pointer to the target [`OH_Rdb_Store`] instance.
+    /// * `store` - Indicates the pointer to the target [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `observer` - The [`Rdb_ProgressObserver`] for the automatic synchronization progress.
+    /// * `observer` - The [`Rdb_ProgressObserver`](crate::relational_store::Rdb_ProgressObserver) for the automatic synchronization progress.
     /// Indicates the callback invoked to return the automatic synchronization progress.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
-    /// **See also:** [`Rdb_ProgressObserver`].
+    /// **See also:** [`Rdb_ProgressObserver`](crate::relational_store::Rdb_ProgressObserver).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -1921,20 +1917,20 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Indicates the pointer to the target [`OH_Rdb_Store`] instance.
+    /// * `store` - Indicates the pointer to the target [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `observer` - Indicates the [`Rdb_ProgressObserver`] callback for the automatic synchronization progress.
+    /// * `observer` - Indicates the [`Rdb_ProgressObserver`](crate::relational_store::Rdb_ProgressObserver) callback for the automatic synchronization progress.
     /// If it is a null pointer, all callbacks for the automatic synchronization progress will be unregistered.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
-    /// **See also:** [`Rdb_ProgressObserver`].
+    /// **See also:** [`Rdb_ProgressObserver`](crate::relational_store::Rdb_ProgressObserver).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -1947,18 +1943,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     /// Indicates the specified lock condition.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Rdb_ErrCode`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1971,18 +1967,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     /// Indicates the specified unlock condition.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
-    /// [`RDB_OK`] - success.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) - success.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Rdb_ErrCode`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1995,9 +1991,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     /// Indicates the specified query condition.
     ///
     /// * `columnNames` - Indicates the columns to query. If the value is empty array, the query applies to all columns.
@@ -2009,7 +2005,7 @@ extern "C" {
     /// * If the query is successful, a pointer to the instance of the OH_Cursor} structure is returned.
     /// If Get store failed or resultSet is nullptr, nullptr is returned.
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Cursor`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -2035,20 +2031,20 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_DATABASE_BUSY`] database does not respond.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_CANT_OPEN`] SQLite: Unable to open the database file.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_DATABASE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATABASE_BUSY) database does not respond.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_CANT_OPEN`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CANT_OPEN) SQLite: Unable to open the database file.
     ///
-    /// **See also:** [`OH_RdbTrans_Destroy`].
+    /// **See also:** [`OH_RdbTrans_Destroy`](crate::rdb_transaction::OH_RdbTrans_Destroy).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -2075,23 +2071,23 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_NOT_SUPPORTED`] - The error code for not support.
-    /// Returns [`RDB_E_DATABASE_BUSY`] database does not respond.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) - The error code for not support.
+    /// Returns [`RDB_E_DATABASE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATABASE_BUSY) database does not respond.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2118,25 +2114,25 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_NOT_SUPPORTED`] - The error code for not support.
-    /// Returns [`RDB_E_DATABASE_BUSY`] database does not respond.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) - The error code for not support.
+    /// Returns [`RDB_E_DATABASE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATABASE_BUSY) database does not respond.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Rdb_ErrCode`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2151,22 +2147,22 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `locale` - Language related to the locale, for example, zh. The value complies with the ISO 639 standard.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`] if the execution is successful.
-    /// [`RDB_ERR`] - Indicates that the function execution exception.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// [`RDB_ERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_ERR) - Indicates that the function execution exception.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Store`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2188,12 +2184,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`] if the execution is successful.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`RDB_E_SUB_OVER_LIMIT`] - Indicates the number of subscriptions exceeds the limit.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// `RDB_E_SUB_OVER_LIMIT` - Indicates the number of subscriptions exceeds the limit.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_RegisterCorruptedHandler`].
+    /// **See also:** [`OH_Rdb_RegisterCorruptedHandler`](crate::relational_store::OH_Rdb_RegisterCorruptedHandler).
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -2216,11 +2212,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`RDB_OK`] if the execution is successful.
-    /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) - The error code for common invalid args.
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_UnregisterCorruptedHandler`].
+    /// **See also:** [`OH_Rdb_UnregisterCorruptedHandler`](crate::relational_store::OH_Rdb_UnregisterCorruptedHandler).
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -2233,24 +2229,24 @@ extern "C" {
     /// Change the encrypted database key.
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `param` - Represents a pointer to an instance of OH_Rdb_CryptoParam.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -2269,7 +2265,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `table` - Represents the target table.
     ///
@@ -2277,30 +2273,30 @@ extern "C" {
     ///
     /// * `resolution` - Represents the resolution when conflict occurs.
     ///
-    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_NOT_SUPPORTED`] The error code for not support.
-    /// Returns [`RDB_E_DATABASE_BUSY`] The error code for database busy.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
-    /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) The error code for not support.
+    /// Returns [`RDB_E_DATABASE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATABASE_BUSY) The error code for database busy.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_E_SQLITE_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_ERROR) SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Data_VBuckets`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Data_VBuckets`](ohos_sys_opaque_types::OH_Data_VBuckets), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode), [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -2316,7 +2312,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
     /// * `row` - Represents the row data to be updated into the table.
     ///
@@ -2324,31 +2320,31 @@ extern "C" {
     ///
     /// * `resolution` - Represents the resolution when conflict occurs.
     ///
-    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_NOT_SUPPORTED`] The error code for not support.
-    /// Returns [`RDB_E_EMPTY_VALUES_BUCKET`] The error code for a values bucket is empty.
-    /// Returns [`RDB_E_DATABASE_BUSY`] The error code for database busy.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
-    /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) The error code for not support.
+    /// Returns [`RDB_E_EMPTY_VALUES_BUCKET`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_EMPTY_VALUES_BUCKET) The error code for a values bucket is empty.
+    /// Returns [`RDB_E_DATABASE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATABASE_BUSY) The error code for database busy.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_E_SQLITE_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_ERROR) SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Data_VBuckets`], [`OH_Predicates`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Data_VBuckets`](ohos_sys_opaque_types::OH_Data_VBuckets), [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode), [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -2364,33 +2360,33 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`] instance.
+    /// * `store` - Represents a pointer to an [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store) instance.
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
-    /// * `context` - Represents a pointer to an [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to an [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_NOT_SUPPORTED`] The error code for not support.
-    /// Returns [`RDB_E_DATABASE_BUSY`] The error code for database busy.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) The error code for not support.
+    /// Returns [`RDB_E_DATABASE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATABASE_BUSY) The error code for database busy.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_ERROR) SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
+    /// **See also:** [`OH_Rdb_Store`](crate::relational_store::OH_Rdb_Store), [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode), [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

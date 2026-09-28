@@ -18,7 +18,7 @@ pub struct InputMethod_PrivateCommand {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create a new [`InputMethod_PrivateCommand`] instance.
+    /// Create a new [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance.
     ///
     /// # Arguments
     ///
@@ -28,7 +28,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_PrivateCommand`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand)
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
@@ -38,21 +38,21 @@ extern "C" {
         key: *mut ::core::ffi::c_char,
         keyLength: usize,
     ) -> *mut InputMethod_PrivateCommand;
-    /// Destroy a [`InputMethod_PrivateCommand`] instance.
+    /// Destroy a [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance.
     ///
     /// # Arguments
     ///
-    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be destroyed.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PrivateCommand_Destroy(command: *mut InputMethod_PrivateCommand);
-    /// Set key value into [`InputMethod_PrivateCommand`].
+    /// Set key value into [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand).
     ///
     /// # Arguments
     ///
-    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be set value.
     ///
     /// * `key` - Represents key value.
     ///
@@ -61,9 +61,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -73,20 +73,20 @@ extern "C" {
         key: *mut ::core::ffi::c_char,
         keyLength: usize,
     ) -> InputMethodResult;
-    /// Set bool data value into [`InputMethod_PrivateCommand`].
+    /// Set bool data value into [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand).
     ///
     /// # Arguments
     ///
-    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be set value.
     ///
     /// * `value` - Represents bool data value.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -95,20 +95,20 @@ extern "C" {
         command: *mut InputMethod_PrivateCommand,
         value: bool,
     ) -> InputMethodResult;
-    /// Set integer data value into [`InputMethod_PrivateCommand`].
+    /// Set integer data value into [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand).
     ///
     /// # Arguments
     ///
-    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be set value.
     ///
     /// * `value` - Represents integer data value.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -117,11 +117,11 @@ extern "C" {
         command: *mut InputMethod_PrivateCommand,
         value: i32,
     ) -> InputMethodResult;
-    /// Set string data value into [`InputMethod_PrivateCommand`].
+    /// Set string data value into [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand).
     ///
     /// # Arguments
     ///
-    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be set value.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be set value.
     ///
     /// * `value` - Represents string data value.
     ///
@@ -130,9 +130,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -142,11 +142,11 @@ extern "C" {
         value: *mut ::core::ffi::c_char,
         valueLength: usize,
     ) -> InputMethodResult;
-    /// Get key value from [`InputMethod_PrivateCommand`].
+    /// Get key value from [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand).
     ///
     /// # Arguments
     ///
-    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be get value from.
     ///
     /// * `key` - Represents key value.
     ///
@@ -155,9 +155,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -167,21 +167,21 @@ extern "C" {
         key: *mut *const ::core::ffi::c_char,
         keyLength: *mut usize,
     ) -> InputMethodResult;
-    /// Get value type from [`InputMethod_PrivateCommand`].
+    /// Get value type from [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand).
     ///
     /// # Arguments
     ///
-    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be get value from.
     ///
-    /// * `type` - Represents a pointer to a [`InputMethod_CommandValueType`] instance. Indicates the data type of the
+    /// * `type` - Represents a pointer to a [`InputMethod_CommandValueType`](crate::types::InputMethod_CommandValueType) instance. Indicates the data type of the
     /// value.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -190,21 +190,21 @@ extern "C" {
         command: *mut InputMethod_PrivateCommand,
         type_: *mut InputMethod_CommandValueType,
     ) -> InputMethodResult;
-    /// Get bool data value from [`InputMethod_PrivateCommand`].
+    /// Get bool data value from [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand).
     ///
     /// # Arguments
     ///
-    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be get value from.
     ///
     /// * `value` - Represents bool data value.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// [`IME_ERR_QUERY_FAILED`] - query failed, no bool value in command.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// [`IME_ERR_QUERY_FAILED`](crate::types::InputMethodErrorCode::QUERY_FAILED) - query failed, no bool value in command.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -213,21 +213,21 @@ extern "C" {
         command: *mut InputMethod_PrivateCommand,
         value: *mut bool,
     ) -> InputMethodResult;
-    /// Get integer data value from [`InputMethod_PrivateCommand`].
+    /// Get integer data value from [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand).
     ///
     /// # Arguments
     ///
-    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be get value from.
     ///
     /// * `value` - Represents integer data value.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// [`IME_ERR_QUERY_FAILED`] - query failed, no integer value in command.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// [`IME_ERR_QUERY_FAILED`](crate::types::InputMethodErrorCode::QUERY_FAILED) - query failed, no integer value in command.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -236,11 +236,11 @@ extern "C" {
         command: *mut InputMethod_PrivateCommand,
         value: *mut i32,
     ) -> InputMethodResult;
-    /// Get string data value from [`InputMethod_PrivateCommand`].
+    /// Get string data value from [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand).
     ///
     /// # Arguments
     ///
-    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`] instance which will be get value from.
+    /// * `command` - Represents a pointer to an [`InputMethod_PrivateCommand`](crate::private_command::InputMethod_PrivateCommand) instance which will be get value from.
     ///
     /// * `value` - Represents string data value.
     ///
@@ -249,10 +249,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// [`IME_ERR_QUERY_FAILED`] - query failed, no string value in command.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// [`IME_ERR_QUERY_FAILED`](crate::types::InputMethodErrorCode::QUERY_FAILED) - query failed, no string value in command.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

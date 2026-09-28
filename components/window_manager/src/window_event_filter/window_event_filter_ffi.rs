@@ -86,9 +86,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`OK`] if the operation is successful.
-    /// Returns [`INVAILD_WINDOW_ID`] if the window id is invalid.
-    /// Returns [`SERVICE_ERROR`] if the window manager service error occurs.
+    /// Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    /// Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
+    /// Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -106,9 +106,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`OK`] if the operation is successful.
-    /// Returns [`INVAILD_WINDOW_ID`] if the window id is invalid.
-    /// Returns [`SERVICE_ERROR`] if the window manager service error occurs.
+    /// Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    /// Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
+    /// Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -126,9 +126,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`OK`] if the operation is successful.
-    /// Returns [`INVAILD_WINDOW_ID`] if the window id is invalid.
-    /// Returns [`SERVICE_ERROR`] if the window manager service error occurs.
+    /// Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    /// Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
+    /// Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -146,9 +146,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`OK`] if the operation is successful.
-    /// Returns [`INVAILD_WINDOW_ID`] if the window id is invalid.
-    /// Returns [`SERVICE_ERROR`] if the window manager service error occurs.
+    /// Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    /// Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
+    /// Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]

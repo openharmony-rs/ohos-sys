@@ -16,7 +16,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
     ///
     /// * `buf` - Indicates the pointer to the buffer for receiving the data read.
     ///
@@ -39,7 +39,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
     ///
     /// * `offset` - Indicates the specified offset.
     ///
@@ -68,7 +68,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
     ///
     /// # Returns
     ///
@@ -82,7 +82,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
     ///
     /// # Returns
     ///
@@ -96,15 +96,15 @@ extern "C" {
     pub fn OH_ResourceManager_GetRawFileRemainingLength(
         rawFile: *const RawFile,
     ) -> ::core::ffi::c_long;
-    /// Closes an opened [`RawFile`] and releases all associated resources.
+    /// Closes an opened [`RawFile`](crate::RawFile) and releases all associated resources.
     ///
     ///
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
     ///
-    /// **See also:** [`OH_ResourceManager_OpenRawFile`]
+    /// **See also:** [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile)
     ///
     /// Available since API-level: 8
     ///
@@ -116,7 +116,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
     ///
     /// # Returns
     ///
@@ -132,7 +132,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
     ///
     /// * `descriptor` - Indicates the raw file's file descriptor, start position and the length in the HAP.
     ///
@@ -161,7 +161,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
     ///
     /// * `descriptor` - Indicates the raw file's file descriptor, start position and the length in the HAP.
     ///
@@ -230,7 +230,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
     ///
     /// * `buf` - Indicates the pointer to the buffer for receiving the data read.
     ///
@@ -255,7 +255,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
     ///
     /// * `offset` - Indicates the specified offset.
     ///
@@ -286,7 +286,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
     ///
     /// # Returns
     ///
@@ -302,7 +302,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
     ///
     /// # Returns
     ///
@@ -314,15 +314,15 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_ResourceManager_GetRawFileRemainingLength64(rawFile: *const RawFile64) -> i64;
-    /// Closes an opened [`RawFile64`] and releases all associated resources.
+    /// Closes an opened [`RawFile64`](crate::RawFile64) and releases all associated resources.
     ///
     ///
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
     ///
-    /// **See also:** [`OH_ResourceManager_OpenRawFile64`]
+    /// **See also:** [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64)
     ///
     /// Available since API-level: 11
     ///
@@ -336,7 +336,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
     ///
     /// # Returns
     ///
@@ -354,7 +354,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`].
+    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
     ///
     /// * `descriptor` - Indicates the raw file's file descriptor, start position and the length in the HAP.
     ///

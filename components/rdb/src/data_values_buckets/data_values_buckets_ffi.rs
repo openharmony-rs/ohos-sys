@@ -15,7 +15,7 @@ extern "C" {
     /// Otherwise, nullptr is returned. The memory must be released through the OH_VBuckets_Destroy
     /// interface after the use is complete.
     ///
-    /// **See also:** [`OH_VBuckets_Destroy`].
+    /// **See also:** [`OH_VBuckets_Destroy`](crate::data_values_buckets::OH_VBuckets_Destroy).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -30,8 +30,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -48,8 +48,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -69,8 +69,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -90,8 +90,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

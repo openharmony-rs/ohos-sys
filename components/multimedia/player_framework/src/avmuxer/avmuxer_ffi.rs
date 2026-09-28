@@ -34,7 +34,7 @@ extern "C" {
     ///
     /// * `fd` - Must be opened with read and write permission. Caller is responsible for closing fd.
     ///
-    /// * `format` - The output format is [`OH_AVOutputFormat`] .
+    /// * `format` - The output format is [`OH_AVOutputFormat`](crate::avcodec_base::OH_AVOutputFormat) .
     ///
     /// # Returns
     ///
@@ -55,9 +55,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the muxer or rotation invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permit to call the interface, it was called in invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer or rotation invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_SetRotation(muxer: *mut OH_AVMuxer, rotation: i32) -> OH_AVErrCode;
@@ -74,8 +74,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful
-    /// [`AV_ERR_INVALID_VAL`], the muxer or format is invalid
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permit to call the interface, it was called in invalid state
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer or format is invalid
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -98,12 +98,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the muxer or trackIndex or trackFormat invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permit to call the interface, it was called in invalid state.
-    /// [`AV_ERR_UNSUPPORT`], the mime type is not supported.
-    /// [`AV_ERR_NO_MEMORY`], failed to malloc memory.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer or trackIndex or trackFormat invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT), the mime type is not supported.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), failed to malloc memory.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_AddTrack(
@@ -122,10 +122,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the muxer invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permit to call the interface, it was called in invalid state.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Start(muxer: *mut OH_AVMuxer) -> OH_AVErrCode;
@@ -143,16 +143,16 @@ extern "C" {
     ///
     /// * `sample` - The encoded or demuxer sample
     ///
-    /// * `info` - The buffer information related to this sample [`OH_AVCodecBufferAttr`]
+    /// * `info` - The buffer information related to this sample [`OH_AVCodecBufferAttr`](crate::avbuffer_info::OH_AVCodecBufferAttr)
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the muxer or trackIndex or sample or info invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permit to call the interface, it was called in invalid state.
-    /// [`AV_ERR_NO_MEMORY`], failed to request memory.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer or trackIndex or sample or info invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), failed to request memory.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
     ///
     /// **Deprecated** since 11
     ///
@@ -183,11 +183,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the muxer or trackIndex or sample invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permit to call the interface, it was called in invalid state.
-    /// [`AV_ERR_NO_MEMORY`], failed to request memory.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer or trackIndex or sample invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), failed to request memory.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -208,9 +208,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the muxer invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permit to call the interface, it was called in invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Stop(muxer: *mut OH_AVMuxer) -> OH_AVErrCode;
@@ -224,8 +224,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`], the muxer invalid.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer invalid.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Destroy(muxer: *mut OH_AVMuxer) -> OH_AVErrCode;

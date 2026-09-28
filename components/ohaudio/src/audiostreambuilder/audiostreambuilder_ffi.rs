@@ -28,12 +28,12 @@ extern "C" {
     ///
     /// * `builder` - The builder reference to the created result.
     ///
-    /// * `type` - The stream type to be created. [`#AUDIOSTREAM_TYPE_RENDERER`] or [`#AUDIOSTREAM_TYPE_CAPTURER`]
+    /// * `type` - The stream type to be created. [`AUDIOSTREAM_TYPE_RENDERER`](crate::audiostream_base::OH_AudioStream_Type::AUDIOSTREAM_TYPE_RENDERER) or [`AUDIOSTREAM_TYPE_CAPTURER`](crate::audiostream_base::OH_AudioStream_Type::AUDIOSTREAM_TYPE_CAPTURER)
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
     pub fn OH_AudioStreamBuilder_Create(
         builder: *mut *mut OH_AudioStreamBuilder,
         type_: OH_AudioStream_Type,
@@ -52,9 +52,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] The param of builder is nullptr.
-    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`] Execution status exception.
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of builder is nullptr.
+    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Execution status exception.
     pub fn OH_AudioStreamBuilder_Destroy(
         builder: *mut OH_AudioStreamBuilder,
     ) -> OH_AudioStream_Result;
@@ -72,8 +72,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.The param of rate invalid.
     pub fn OH_AudioStreamBuilder_SetSamplingRate(
@@ -94,8 +94,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.The param of channelCount invalid.
     pub fn OH_AudioStreamBuilder_SetChannelCount(
@@ -116,8 +116,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] The param of builder is nullptr.
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of builder is nullptr.
     pub fn OH_AudioStreamBuilder_SetSampleFormat(
         builder: *mut OH_AudioStreamBuilder,
         format: OH_AudioStream_SampleFormat,
@@ -131,13 +131,13 @@ extern "C" {
     ///
     /// * `builder` - Reference provided by OH_AudioStreamBuilder_Create()
     ///
-    /// * `encodingType` - Encoding type for the stream client, [`#AUDIOSTREAM_ENCODING_PCM`]
+    /// * `encodingType` - Encoding type for the stream client, `AUDIOSTREAM_ENCODING_PCM`
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] The param of builder is nullptr.
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of builder is nullptr.
     pub fn OH_AudioStreamBuilder_SetEncodingType(
         builder: *mut OH_AudioStreamBuilder,
         encodingType: OH_AudioStream_EncodingType,
@@ -156,8 +156,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] The param of builder is nullptr.
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of builder is nullptr.
     pub fn OH_AudioStreamBuilder_SetLatencyMode(
         builder: *mut OH_AudioStreamBuilder,
         latencyMode: OH_AudioStream_LatencyMode,
@@ -176,8 +176,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] The param of builder is nullptr.
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of builder is nullptr.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AudioStreamBuilder_SetChannelLayout(
@@ -198,8 +198,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.The param of usage invalid.
     pub fn OH_AudioStreamBuilder_SetRendererInfo(
@@ -220,8 +220,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.The param of sourceType invalid.
     pub fn OH_AudioStreamBuilder_SetCapturerInfo(
@@ -250,8 +250,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.StreamType invalid.
     #[deprecated(
@@ -279,8 +279,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.StreamType invalid.
     #[cfg(feature = "api-11")]
@@ -304,8 +304,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.StreamType invalid.
     #[cfg(feature = "api-12")]
@@ -336,8 +336,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.StreamType invalid.
     #[deprecated(
@@ -378,8 +378,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.StreamType invalid;
     /// 3.Create OHAudioRenderer failed.
@@ -401,8 +401,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.StreamType invalid;
     /// 3.Create OHAudioCapturer failed.
@@ -427,8 +427,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] The param of builder is nullptr.
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of builder is nullptr.
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AudioStreamBuilder_SetFrameSizeInCallback(
@@ -451,8 +451,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.StreamType invalid.
     #[cfg(feature = "api-12")]
@@ -476,8 +476,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.The param of mode invalid;
     /// 3.StreamType invalid.
@@ -489,7 +489,7 @@ extern "C" {
     ) -> OH_AudioStream_Result;
     /// Set the callback of writing data to renderer client.
     ///
-    /// This function is similar with [`OH_AudioStreamBuilder_SetRendererCallback`]. Only the last callback set by
+    /// This function is similar with [`OH_AudioStreamBuilder_SetRendererCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetRendererCallback). Only the last callback set by
     /// OH_AudioStreamBuilder_SetRendererCallback or this function will become effective.
     ///
     /// # Arguments
@@ -503,8 +503,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`AUDIOSTREAM_SUCCESS`] Success.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] Parameter is invalid, e.g. builder is nullptr, e.t.c.
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) Success.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) Parameter is invalid, e.g. builder is nullptr, e.t.c.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -516,7 +516,7 @@ extern "C" {
     ) -> OH_AudioStream_Result;
     /// Set the callback of writing data to renderer client.
     ///
-    /// This function is similar with [`OH_AudioStreamBuilder_SetRendererWriteDataCallback`]. Only the last callback set
+    /// This function is similar with [`OH_AudioStreamBuilder_SetRendererWriteDataCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetRendererWriteDataCallback). Only the last callback set
     /// by OH_AudioStreamBuilder_SetRendererWriteDataCallback or this function will become effective. Different with
     /// OH_AudioStreamBuilder_SetRendererWriteDataCallback, the callback in this function can return audio data of any
     /// length.
@@ -532,8 +532,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`AUDIOSTREAM_SUCCESS`] Success.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] Parameter is invalid, e.g. builder is nullptr, e.t.c.
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) Success.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) Parameter is invalid, e.g. builder is nullptr, e.t.c.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -554,8 +554,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM):
     /// 1.The param of builder is nullptr;
     /// 2.The param of volumeMode invalid.
     ///
@@ -567,7 +567,7 @@ extern "C" {
         volumeMode: OH_AudioStream_VolumeMode,
     ) -> OH_AudioStream_Result;
     /// Sets a callback to handle interrupt events for an AudioRenderer instance. This function is similar to
-    /// [`OH_AudioStreamBuilder_SetRendererCallback`]. If both OH_AudioStreamBuilder_SetRendererCallback and this
+    /// [`OH_AudioStreamBuilder_SetRendererCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetRendererCallback). If both OH_AudioStreamBuilder_SetRendererCallback and this
     /// function are called, the most recently set callback takes effect.
     ///
     /// # Arguments
@@ -581,8 +581,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`AUDIOSTREAM_SUCCESS`] is returned if the operation is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] is returned if a parameter is invalid, for example, if builder
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) is returned if the operation is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) is returned if a parameter is invalid, for example, if builder
     /// is nullptr.
     ///
     /// Available since API-level: 20
@@ -594,7 +594,7 @@ extern "C" {
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AudioStream_Result;
     /// Sets a callback to handle error events for an AudioRenderer instance.
-    /// This function is similar to [`OH_AudioStreamBuilder_SetRendererCallback`]. If both
+    /// This function is similar to [`OH_AudioStreamBuilder_SetRendererCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetRendererCallback). If both
     /// OH_AudioStreamBuilder_SetRendererCallback and this function are called, the most recently set callback takes
     /// effect.
     ///
@@ -609,8 +609,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`AUDIOSTREAM_SUCCESS`] is returned if the operation is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] is returned if a parameter is invalid, for example, if builder
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) is returned if the operation is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) is returned if a parameter is invalid, for example, if builder
     /// is nullptr.
     ///
     /// Available since API-level: 20
@@ -622,7 +622,7 @@ extern "C" {
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AudioStream_Result;
     /// Sets a callback to handle audio data read events for an AudioCapturer instance. This function is
-    /// similar to [`OH_AudioStreamBuilder_SetCapturerCallback`]. If both [`OH_AudioStreamBuilder_SetCapturerCallback`] and this function are called, the most recently set callback takes
+    /// similar to [`OH_AudioStreamBuilder_SetCapturerCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetCapturerCallback). If both [`OH_AudioStreamBuilder_SetCapturerCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetCapturerCallback) and this function are called, the most recently set callback takes
     /// effect.
     ///
     /// # Arguments
@@ -636,8 +636,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`AUDIOSTREAM_SUCCESS`] is returned if the operation is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] is returned if a parameter is invalid, for example, if builder
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) is returned if the operation is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) is returned if a parameter is invalid, for example, if builder
     /// is nullptr.
     ///
     /// Available since API-level: 20
@@ -649,7 +649,7 @@ extern "C" {
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AudioStream_Result;
     /// Sets a callback to handle device change events for an AudioCapturer instance. This function is
-    /// similar to [`OH_AudioStreamBuilder_SetCapturerCallback`]. If both OH_AudioStreamBuilder_SetCapturerCallback
+    /// similar to [`OH_AudioStreamBuilder_SetCapturerCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetCapturerCallback). If both OH_AudioStreamBuilder_SetCapturerCallback
     /// and this function are called, the most recently set callback takes effect.
     ///
     /// # Arguments
@@ -663,8 +663,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`AUDIOSTREAM_SUCCESS`] is returned if the operation is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] is returned if a parameter is invalid, for example, if builder
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) is returned if the operation is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) is returned if a parameter is invalid, for example, if builder
     /// is nullptr.
     ///
     /// Available since API-level: 20
@@ -676,7 +676,7 @@ extern "C" {
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AudioStream_Result;
     /// Sets a callback to handle interrupt events for an AudioCapturer instance.
-    /// This function is similar to [`OH_AudioStreamBuilder_SetCapturerCallback`]. If both
+    /// This function is similar to [`OH_AudioStreamBuilder_SetCapturerCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetCapturerCallback). If both
     /// OH_AudioStreamBuilder_SetCapturerCallback and this function are called, the most recently set callback takes
     /// effect.
     ///
@@ -691,8 +691,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`AUDIOSTREAM_SUCCESS`] is returned if the operation is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] is returned if a parameter is invalid, for example, if builder
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) is returned if the operation is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) is returned if a parameter is invalid, for example, if builder
     /// is nullptr.
     ///
     /// Available since API-level: 20
@@ -704,7 +704,7 @@ extern "C" {
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AudioStream_Result;
     /// Sets a callback to handle error events for an AudioCapturer instance. This function is similar to
-    /// [`OH_AudioStreamBuilder_SetCapturerCallback`]. If both OH_AudioStreamBuilder_SetCapturerCallback and this
+    /// [`OH_AudioStreamBuilder_SetCapturerCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetCapturerCallback). If both OH_AudioStreamBuilder_SetCapturerCallback and this
     /// function are called, the most recently set callback takes effect.
     ///
     /// # Arguments
@@ -718,8 +718,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`AUDIOSTREAM_SUCCESS`] is returned if the operation is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] is returned if a parameter is invalid, for example, if builder
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) is returned if the operation is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) is returned if a parameter is invalid, for example, if builder
     /// is nullptr.
     ///
     /// Available since API-level: 20
@@ -741,8 +741,8 @@ extern "C" {
     /// # Returns
     ///
     /// * function result code:
-    /// [`AUDIOSTREAM_SUCCESS`] if the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] the param of builder is nullptr.
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) if the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) the param of builder is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -763,8 +763,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// *  [`AUDIOSTREAM_SUCCESS`] if the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] the param of builder or callback is nullptr.
+    /// *  [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) if the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) the param of builder or callback is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -786,8 +786,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// *  [`AUDIOSTREAM_SUCCESS`] if the execution is successful.
-    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] the param of builder or callback is nullptr.
+    /// *  [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) if the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) the param of builder or callback is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -798,9 +798,9 @@ extern "C" {
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AudioStream_Result;
     /// Sets target mode when using playback capture. Mode will decide what kind of streams to capture.
-    /// This function is only available for [`#AUDIOSTREAM_TYPE_CAPTURER`] type.
-    /// After setting playback capture mode, the [`#OH_AudioStream_SourceType`] will be ignored, so
-    /// caller do not need to use [`#OH_AudioStreamBuilder_SetCapturerInfo`] if you only want to capture
+    /// This function is only available for [`AUDIOSTREAM_TYPE_CAPTURER`](crate::audiostream_base::OH_AudioStream_Type::AUDIOSTREAM_TYPE_CAPTURER) type.
+    /// After setting playback capture mode, the [`OH_AudioStream_SourceType`](crate::audiostream_base::OH_AudioStream_SourceType) will be ignored, so
+    /// caller do not need to use [`OH_AudioStreamBuilder_SetCapturerInfo`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetCapturerInfo) if you only want to capture
     /// playback streams.
     /// Note that playback capture is only available for specific system applications currently, others do
     /// not have authorization.
@@ -810,13 +810,13 @@ extern "C" {
     /// * `builder` - Reference provided by OH_AudioStreamBuilder_Create().
     ///
     /// * `mode` - The playback capture mode to set. This can be a combination of the available
-    /// [`#OH_AudioStream_PlaybackCaptureMode`].
+    /// [`OH_AudioStream_PlaybackCaptureMode`](crate::audiostream_base::OH_AudioStream_PlaybackCaptureMode).
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`#AUDIOSTREAM_SUCCESS`] If the execution is successful.
-    /// [`#AUDIOSTREAM_ERROR_INVALID_PARAM`] 1.The param of builder is nullptr;
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) 1.The param of builder is nullptr;
     /// 2.The param of mode is invalid.
     ///
     /// Available since API-level: 23

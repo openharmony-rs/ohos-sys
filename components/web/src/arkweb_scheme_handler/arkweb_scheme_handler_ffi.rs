@@ -304,7 +304,7 @@ pub type ArkWeb_HttpBodyStreamAsyncReadCallback = ::core::option::Option<
 ///
 /// * `httpBodyStream` - The ArkWeb_HttpBodyStream.
 ///
-/// * `result` - [`ARKWEB_NET_OK`] on success otherwise refer to arkweb_net_error_list.h.
+/// * `result` - [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) on success otherwise refer to arkweb_net_error_list.h.
 ///
 ///
 /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -378,8 +378,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -522,8 +522,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -568,8 +568,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -596,8 +596,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Available since API-level: 20
@@ -620,8 +620,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -785,8 +785,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -899,10 +899,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_ERROR_UNKNOWN`] 17100100 - Unknown error.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
-    /// [`ARKWEB_SCHEME_REGISTER_FAILED`] 17100102 - Register custom schemes should be called
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_ERROR_UNKNOWN`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::ERROR_UNKNOWN) 17100100 - Unknown error.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
+    /// [`ARKWEB_SCHEME_REGISTER_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::SCHEME_REGISTER_FAILED) 17100102 - Register custom schemes should be called
     /// before create any ArkWeb.
     ///
     ///
@@ -975,7 +975,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -991,8 +991,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1035,8 +1035,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1075,8 +1075,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1097,8 +1097,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1143,8 +1143,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1182,8 +1182,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1220,8 +1220,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1258,8 +1258,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1298,8 +1298,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1338,8 +1338,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1382,8 +1382,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1425,8 +1425,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1444,8 +1444,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1468,8 +1468,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1489,8 +1489,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1510,8 +1510,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -1536,8 +1536,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ARKWEB_NET_OK`] 0 - Success.
-    /// [`ARKWEB_INVALID_PARAM`] 17100101 - Invalid param, the resourceHandler is nullptr.
+    /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param, the resourceHandler is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

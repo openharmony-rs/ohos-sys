@@ -51,7 +51,7 @@ extern "C" {
     /// Otherwise, nullptr is returned. The memory must be released through the OH_RDB_DestroyReturningContext
     /// interface after the use is complete.
     ///
-    /// **See also:** [`OH_RDB_DestroyReturningContext`].
+    /// **See also:** [`OH_RDB_DestroyReturningContext`](crate::rdb_types::OH_RDB_DestroyReturningContext).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -61,7 +61,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -71,7 +71,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// * `fields` - Indicates the columnNames to returning.
     ///
@@ -80,8 +80,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -95,15 +95,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// * `count` - Indicates the maximum entry of the returned result set.
     ///
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -116,11 +116,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// # Returns
     ///
-    /// * a pointer to the instance of the [`OH_Cursor`] structure is returned.
+    /// * a pointer to the instance of the [`OH_Cursor`](crate::cursor::OH_Cursor) structure is returned.
     /// If Get Cursor failed, nullptr is returned.
     ///
     /// Available since API-level: 23
@@ -131,7 +131,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// # Returns
     ///

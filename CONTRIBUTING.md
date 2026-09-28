@@ -104,6 +104,11 @@
    mod my_mod;
    ```
 10. Run cargo check for each feature-level, to make sure there are no errors.
+11. The generator resolves doc links to C names, like `` [`OH_Foo`] ``, to the Rust item and turns links it can't
+    resolve into plain code. Set `KEEP_UNRESOLVED_DOC_LINKS=1` to keep them, so that `cargo doc` reports each one,
+    and check that none of them should have been resolved. If a C item is replaced by a hand-written binding, add
+    it to `OVERRIDES` in `scripts/generator/src/doc_links.rs`. With `ONLY_MODULE`, links to items of other modules
+    may not be resolved, so always regenerate all bindings before committing.
 
 ## Link Smoke Tests
 

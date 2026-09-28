@@ -4,8 +4,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::native_type::*;
-#[cfg(doc)]
-use crate::ui_input_event::*;
 #[cfg(feature = "api-12")]
 use ohos_sys_opaque_types::ArkUI_ContextHandle;
 pub use ohos_sys_opaque_types::OH_PixelmapNative;
@@ -222,8 +220,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -243,8 +241,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -264,8 +262,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -285,8 +283,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -298,10 +296,10 @@ extern "C" {
     /// of the dragging operation for large amounts of data and the effectiveness of the drop data handling
     /// in the target application.
     ///
-    /// This method should be always prioritized over using [`OH_ArkUI_DragEvent_SetData`].
-    /// See [`OH_UdmfDataLoadParams_Create`] in <b>udmf.h</b> for how to create and prepare the data loading parameter.
+    /// This method should be always prioritized over using [`OH_ArkUI_DragEvent_SetData`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetData).
+    /// See `OH_UdmfDataLoadParams_Create` in <b>udmf.h</b> for how to create and prepare the data loading parameter.
     ///
-    /// [Note]: Please be awared this method is conflict with [`OH_ArkUI_DragEvent_SetData`], and the system always use
+    /// [Note]: Please be awared this method is conflict with [`OH_ArkUI_DragEvent_SetData`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetData), and the system always use
     /// the last called method as the final result.
     ///
     /// # Arguments
@@ -313,8 +311,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -330,13 +328,13 @@ extern "C" {
     /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
     /// * `data` - Indicates the pointer to an <b>OH_UdmfData</b> object. The application needs to create a pointer
-    /// for receiving data by using the [`OH_UdmfData_Create`] method.
+    /// for receiving data by using the `OH_UdmfData_Create` method.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -356,8 +354,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -373,16 +371,16 @@ extern "C" {
     /// * `eventTypeArray` - Indicates the list of the drag data types. You need to create a string array first.
     ///
     /// * `length` - Indicates the total length of the list array. It must be greater than or equal to the number obtained
-    /// by using [`OH_ArkUI_DragEvent_GetDataTypeCount`].
+    /// by using [`OH_ArkUI_DragEvent_GetDataTypeCount`](crate::drag_and_drop::OH_ArkUI_DragEvent_GetDataTypeCount).
     ///
     /// * `maxStrLen` - Indicates the max string length of drag data types.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`] if the giving buffer is not enough for string copy.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR`](crate::native_type::ArkUiErrorCode::BUFFER_SIZE_ERROR) if the giving buffer is not enough for string copy.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -404,8 +402,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -425,8 +423,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     /// Possible causes: 1. The given parameters are null or the given event is not a valid DragEvent.
     ///
     /// Available since API-level: 12
@@ -637,14 +635,14 @@ extern "C" {
     ///
     /// * `event` - Indicates the pointer to an <b>ArkUI_DragEvent</b> object.
     ///
-    /// * `keys` - [`ArkUI_ModifierKeyName`] Indicates the returned combination of modifier keys that are
+    /// * `keys` - [`ArkUI_ModifierKeyName`](crate::ui_input_event::ArkUI_ModifierKeyName) Indicates the returned combination of modifier keys that are
     /// currently pressed. The application can determine the pressed modifier keys through bitwise operations.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -664,8 +662,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -683,15 +681,15 @@ extern "C" {
     /// * `options` - Indicates the pointer to an <b>OH_UdmfGetDataParams</b> object.
     ///
     /// * `key` - Represents return value after set data to database successfully, it should be not
-    /// less than [`UDMF_KEY_BUFFER_LEN`].
+    /// less than `UDMF_KEY_BUFFER_LEN`.
     ///
     /// * `keyLen` - Represents the length of key string.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -708,13 +706,13 @@ extern "C" {
     ///
     /// * `uiContext` - Indicates the pointer to a UI instance.
     ///
-    /// * `key` - Represents the data key returned by [`OH_ArkUI_DragEvent_StartDataLoading`].
+    /// * `key` - Represents the data key returned by [`OH_ArkUI_DragEvent_StartDataLoading`](crate::drag_and_drop::OH_ArkUI_DragEvent_StartDataLoading).
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -726,9 +724,9 @@ extern "C" {
     /// Sets whether to disable data prefetch process before the onDrop callback executing.
     /// The system will retry to getting data until the max time limit (2.4s for now) reaches,
     /// this's useful for the cross device draging operation, as the system helps to eliminate
-    /// the communication instability, but it's redundant for [`OH_ArkUI_DragEvent_StartDataLoading`]
+    /// the communication instability, but it's redundant for [`OH_ArkUI_DragEvent_StartDataLoading`](crate::drag_and_drop::OH_ArkUI_DragEvent_StartDataLoading)
     /// method, as it will take care the data fetching with asynchronous mechanism, so must set this
-    /// field to true if using [`OH_ArkUI_DragEvent_StartDataLoading`] in onDrop to avoid the data is
+    /// field to true if using [`OH_ArkUI_DragEvent_StartDataLoading`](crate::drag_and_drop::OH_ArkUI_DragEvent_StartDataLoading) in onDrop to avoid the data is
     /// fetched before onDrop executing unexpectedly.
     ///
     /// # Arguments
@@ -740,8 +738,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -764,8 +762,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -787,8 +785,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -798,7 +796,7 @@ extern "C" {
         enabled: bool,
     ) -> i32;
     /// Sets the types of data that can be dropped to the specified component. This API resets the settings configured
-    /// through [`OH_ArkUI_DisallowNodeAnyDropDataTypes`] and [`OH_ArkUI_AllowNodeAllDropDataTypes`].
+    /// through [`OH_ArkUI_DisallowNodeAnyDropDataTypes`](crate::drag_and_drop::OH_ArkUI_DisallowNodeAnyDropDataTypes) and [`OH_ArkUI_AllowNodeAllDropDataTypes`](crate::drag_and_drop::OH_ArkUI_AllowNodeAllDropDataTypes).
     ///
     /// # Arguments
     ///
@@ -811,8 +809,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -823,7 +821,7 @@ extern "C" {
         count: i32,
     ) -> i32;
     /// Configures the specified component to disallow any data types. This API resets the settings configured through
-    /// [`OH_ArkUI_SetNodeAllowedDropDataTypes`].
+    /// [`OH_ArkUI_SetNodeAllowedDropDataTypes`](crate::drag_and_drop::OH_ArkUI_SetNodeAllowedDropDataTypes).
     ///
     /// # Arguments
     ///
@@ -832,15 +830,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_DisallowNodeAnyDropDataTypes(node: ArkUI_NodeHandle) -> i32;
     /// Configures the specified component to allow any data types. This API resets the settings configured through
-    /// [`OH_ArkUI_SetNodeAllowedDropDataTypes`].
+    /// [`OH_ArkUI_SetNodeAllowedDropDataTypes`](crate::drag_and_drop::OH_ArkUI_SetNodeAllowedDropDataTypes).
     ///
     /// # Arguments
     ///
@@ -849,8 +847,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -867,8 +865,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -885,8 +883,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -927,8 +925,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -949,8 +947,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -971,8 +969,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -993,8 +991,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1015,8 +1013,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1036,8 +1034,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1057,8 +1055,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1120,8 +1118,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1141,8 +1139,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1163,8 +1161,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1181,8 +1179,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1199,8 +1197,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1215,10 +1213,10 @@ extern "C" {
     /// of the dragging operation for large amounts of data and the effectiveness of the drop data handling
     /// in the target application.
     ///
-    /// It's recommanded to use this method instead of using [`OH_ArkUI_DragAction_SetData`].
-    /// See [`OH_UdmfDataLoadParams_Create`] in <b>udmf.h</b> for how to create and prepare the data loading parameter.
+    /// It's recommanded to use this method instead of using [`OH_ArkUI_DragAction_SetData`](crate::drag_and_drop::OH_ArkUI_DragAction_SetData).
+    /// See `OH_UdmfDataLoadParams_Create` in <b>udmf.h</b> for how to create and prepare the data loading parameter.
     ///
-    /// [Note]: Please be awared this method is conflict with [`OH_ArkUI_DragAction_SetData`], and the system always use
+    /// [Note]: Please be awared this method is conflict with [`OH_ArkUI_DragAction_SetData`](crate::drag_and_drop::OH_ArkUI_DragAction_SetData), and the system always use
     /// the last called method as the final result.
     ///
     /// # Arguments
@@ -1230,8 +1228,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1251,8 +1249,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1276,8 +1274,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1345,8 +1343,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1354,8 +1352,8 @@ extern "C" {
     pub fn OH_ArkUI_StartDrag(dragAction: *mut ArkUI_DragAction) -> i32;
     /// Request to delay the drop end handling for a while to wait until the process result
     /// is really conformed by application, the result need to be notified back to system through
-    /// [`OH_ArkUI_NotifyDragResult`] interface. And when all the handling done, the
-    /// [`OH_ArkUI_NotifyDragEndPendingDone`] should be called.
+    /// [`OH_ArkUI_NotifyDragResult`](crate::drag_and_drop::OH_ArkUI_NotifyDragResult) interface. And when all the handling done, the
+    /// [`OH_ArkUI_NotifyDragEndPendingDone`](crate::drag_and_drop::OH_ArkUI_NotifyDragEndPendingDone) should be called.
     /// Please be aware, the maximum pending time is 2 seconds;
     ///
     /// # Arguments
@@ -1368,9 +1366,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`] if current is not during the drop handing.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::native_type::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if current is not during the drop handing.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1380,21 +1378,21 @@ extern "C" {
         requestIdentify: *mut i32,
     ) -> i32;
     /// Notify the system final drag result, the request identify will be checked, it should be the same
-    /// as the one returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`] interface, if it's not,
+    /// as the one returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending) interface, if it's not,
     /// the calling will be ignored.
     ///
     /// # Arguments
     ///
-    /// * `requestIdentify` - The identify returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`] interface.
+    /// * `requestIdentify` - The identify returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending) interface.
     ///
     /// * `result` - Indicates the drag result.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`] if current is not during the drop handing.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::native_type::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if current is not during the drop handing.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1404,14 +1402,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `requestIdentify` - The identify returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`] interface.
+    /// * `requestIdentify` - The identify returned by [`OH_ArkUI_DragEvent_RequestDragEndPending`](crate::drag_and_drop::OH_ArkUI_DragEvent_RequestDragEndPending) interface.
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`] if current is not during the drop handing.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED`](crate::native_type::ArkUiErrorCode::DRAG_DROP_OPERATION_NOT_ALLOWED) if current is not during the drop handing.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1433,8 +1431,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1455,8 +1453,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1469,7 +1467,7 @@ extern "C" {
     ///
     /// Typically, when a component can receive or process data dragged by the user, or when it declares to the
     /// system that data should be processed in COPY way by setting ARKUI_DROP_OPERATION_COPY through
-    /// [`OH_ArkUI_DragEvent_SetSuggestedDropOperation`], the system will display
+    /// [`OH_ArkUI_DragEvent_SetSuggestedDropOperation`](crate::drag_and_drop::OH_ArkUI_DragEvent_SetSuggestedDropOperation), the system will display
     /// a plus sign together with the data number on the upper-left corner of the dragged object; if setting
     /// ARKUI_DROP_OPERATION_MOVE to the system to declare that data should be processed in CUT way, the system will only
     /// display the data number on the upper-left corner of the dragged object.
@@ -1489,8 +1487,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
