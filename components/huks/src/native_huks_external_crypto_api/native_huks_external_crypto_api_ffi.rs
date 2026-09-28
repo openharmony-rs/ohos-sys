@@ -9,7 +9,8 @@ use crate::native_huks_type::*;
 extern "C" {
     /// Register external key provider.
     ///
-    /// ohos.permission.CRYPTO_EXTENSION_REGISTER
+    ///
+    /// Required Permissions: ohos.permission.CRYPTO_EXTENSION_REGISTER
     /// # Arguments
     ///
     /// * `providerName` - Indicates the name of the provider.
@@ -42,7 +43,8 @@ extern "C" {
     ) -> OH_Huks_Result;
     /// Unregister external key provider.
     ///
-    /// ohos.permission.CRYPTO_EXTENSION_REGISTER
+    ///
+    /// Required Permissions: ohos.permission.CRYPTO_EXTENSION_REGISTER
     /// # Arguments
     ///
     /// * `providerName` - Indicates the name of the provider.

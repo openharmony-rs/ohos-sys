@@ -14,7 +14,9 @@ extern "C" {
     /// * Returns a pointer to OH_Data_Values instance when the execution is successful.
     /// Otherwise, nullptr is returned. The memory must be released through the OH_Values_Destroy
     /// interface after the use is complete.
-    /// [`OH_Values_Destroy.`]
+    ///
+    /// **See also:** [`OH_Values_Destroy`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -527,7 +529,9 @@ extern "C" {
     /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
     /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
     /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
-    /// [`OH_Values_GetAssetsCount.`]
+    ///
+    /// **See also:** [`OH_Values_GetAssetsCount`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -586,7 +590,9 @@ extern "C" {
     /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
     /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
     /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
-    /// [`OH_Values_GetFloatVectorCount.`]
+    ///
+    /// **See also:** [`OH_Values_GetFloatVectorCount`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -647,7 +653,9 @@ extern "C" {
     /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
     /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
     /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
-    /// [`OH_Values_GetUnlimitedIntBand.`]
+    ///
+    /// **See also:** [`OH_Values_GetUnlimitedIntBand`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]

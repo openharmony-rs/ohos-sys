@@ -14,7 +14,9 @@ extern "C" {
     /// * Returns a pointer to OH_Data_VBuckets instance when the execution is successful.
     /// Otherwise, nullptr is returned. The memory must be released through the OH_VBuckets_Destroy
     /// interface after the use is complete.
-    /// [`OH_VBuckets_Destroy.`]
+    ///
+    /// **See also:** [`OH_VBuckets_Destroy`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]

@@ -430,7 +430,7 @@ pub struct ArkUI_NativeGestureAPI_1 {
     /// * `fingersNum` - Indicates the minimum number of fingers to trigger a pan gesture. The value ranges from 1 to 10.
     /// If the value is less than 1 or is not set, the default value <b>1</b> is used.
     ///
-    /// * `directions` - Indicates the pan direction. The value supports the AND (&amp;) and OR (operations.
+    /// * `directions` - Indicates the pan direction. The value supports the AND (&amp;) and OR (\|) operations.
     ///
     /// * `distanceNum` - Indicates the minimum pan distance to trigger the gesture, in vp. If this parameter is
     /// set to a value less than or equal to 0, the default value <b>5</b> is used.

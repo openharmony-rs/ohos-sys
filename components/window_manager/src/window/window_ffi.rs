@@ -269,7 +269,8 @@ extern "C" {
     pub fn OH_WindowManager_SetWindowKeepScreenOn(windowId: i32, isKeepScreenOn: bool) -> i32;
     /// Sets whether is private mode or not.
     ///
-    /// ohos.permission.PRIVACY_WINDOW
+    ///
+    /// Required Permissions: ohos.permission.PRIVACY_WINDOW
     /// # Arguments
     ///
     /// * `windowId` - WindowId when window is created.
@@ -398,7 +399,8 @@ extern "C" {
     ) -> i32;
     /// Get all main window info on device.
     ///
-    /// ohos.permission.CUSTOM_SCREEN_CAPTURE
+    ///
+    /// Required Permissions: ohos.permission.CUSTOM_SCREEN_CAPTURE
     /// # Arguments
     ///
     /// * `infoList` - Indicates the pointer to a main window info list.
@@ -432,7 +434,8 @@ extern "C" {
     pub fn OH_WindowManager_ReleaseAllMainWindowInfo(infoList: *mut WindowManager_MainWindowInfo);
     /// Get snapshot of the specified windows.
     ///
-    /// ohos.permission.CUSTOM_SCREEN_CAPTURE
+    ///
+    /// Required Permissions: ohos.permission.CUSTOM_SCREEN_CAPTURE
     /// # Arguments
     ///
     /// * `windowIdList` - Main window id list for getting snapshot.
@@ -475,7 +478,8 @@ extern "C" {
     /// Lock the mouse cursor restricting it to a specified window area, and also control whether the cursor follows
     /// movement. Only supported by the focus window; the lock is automatically released when the window loses focus.
     ///
-    /// ohos.permission.LOCK_WINDOW_CURSOR
+    ///
+    /// Required Permissions: ohos.permission.LOCK_WINDOW_CURSOR
     /// # Arguments
     ///
     /// * `windowId` - WindowId when window is created.
@@ -499,7 +503,8 @@ extern "C" {
     pub fn OH_WindowManager_LockCursor(windowId: i32, isCursorFollowMovement: bool) -> i32;
     /// Clear the window mouse cursor status. Revert to mouse cursor free movement mode.
     ///
-    /// ohos.permission.LOCK_WINDOW_CURSOR
+    ///
+    /// Required Permissions: ohos.permission.LOCK_WINDOW_CURSOR
     /// # Arguments
     ///
     /// * `windowId` - WindowId when window is created.

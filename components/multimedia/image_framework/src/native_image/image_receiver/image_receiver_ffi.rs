@@ -153,7 +153,9 @@ extern "C" {
     ///
     /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// [`OH_ImageReceiverOptions`]
+    ///
+    /// **See also:** [`OH_ImageReceiverOptions`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -192,7 +194,9 @@ extern "C" {
     /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
-    /// [`OH_ImageReceiverNative`]
+    ///
+    /// **See also:** [`OH_ImageReceiverNative`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -214,7 +218,8 @@ extern "C" {
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
     /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if alloc failed.
-    /// [`OH_ImageReceiverNative,`] OH_ImageNative
+    ///
+    /// **See also:** [`OH_ImageReceiverNative`], [`OH_ImageNative`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -237,7 +242,8 @@ extern "C" {
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
     /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error.
     /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if alloc failed.
-    /// [`OH_ImageReceiverNative,`] OH_ImageNative
+    ///
+    /// **See also:** [`OH_ImageReceiverNative`], [`OH_ImageNative`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -260,7 +266,8 @@ extern "C" {
     ///
     /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// [`OH_ImageReceiverNative,`] OH_ImageReceiver_OnCallback
+    ///
+    /// **See also:** [`OH_ImageReceiverNative`], [`OH_ImageReceiver_OnCallback`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -281,7 +288,8 @@ extern "C" {
     ///
     /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// [`OH_ImageReceiverNative,`] OH_ImageReceiverNative_On
+    ///
+    /// **See also:** [`OH_ImageReceiverNative`], [`OH_ImageReceiverNative_On`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -343,7 +351,8 @@ extern "C" {
     ///
     /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// [`OH_ImageReceiverNative,`] Image_Size
+    ///
+    /// **See also:** [`OH_ImageReceiverNative`], [`Image_Size`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -364,7 +373,9 @@ extern "C" {
     ///
     /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// [`OH_ImageReceiverNative`]
+    ///
+    /// **See also:** [`OH_ImageReceiverNative`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -384,7 +395,9 @@ extern "C" {
     ///
     /// * Returns [`Image_ErrorCode`] IMAGE_SUCCESS - if the operation is successful.
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if bad parameter.
-    /// [`OH_ImageReceiverNative`]
+    ///
+    /// **See also:** [`OH_ImageReceiverNative`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]

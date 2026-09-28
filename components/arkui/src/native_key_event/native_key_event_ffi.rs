@@ -151,7 +151,7 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_LEFT_BRACKET: ArkUI_KeyCode = ArkUI_KeyCode(2059);
     /// Key ]
     pub const ARKUI_KEYCODE_RIGHT_BRACKET: ArkUI_KeyCode = ArkUI_KeyCode(2060);
-    /// Key
+    /// Key \\
     pub const ARKUI_KEYCODE_BACKSLASH: ArkUI_KeyCode = ArkUI_KeyCode(2061);
     /// Key ;
     pub const ARKUI_KEYCODE_SEMICOLON: ArkUI_KeyCode = ArkUI_KeyCode(2062);
@@ -159,7 +159,7 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_APOSTROPHE: ArkUI_KeyCode = ArkUI_KeyCode(2063);
     /// Key /
     pub const ARKUI_KEYCODE_SLASH: ArkUI_KeyCode = ArkUI_KeyCode(2064);
-    /// Key
+    /// Key @
     pub const ARKUI_KEYCODE_AT: ArkUI_KeyCode = ArkUI_KeyCode(2065);
     /// Key +
     pub const ARKUI_KEYCODE_PLUS: ArkUI_KeyCode = ArkUI_KeyCode(2066);

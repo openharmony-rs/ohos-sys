@@ -110,7 +110,8 @@ extern "C" {
     pub fn OH_Netstack_DestroyCertificatesContent(certs: *mut NetStack_Certificates);
     /// Checks whether the Cleartext traffic is permitted.
     ///
-    /// ohos.permission.INTERNET
+    ///
+    /// Required Permissions: ohos.permission.INTERNET
     ///
     /// # Returns
     ///
@@ -128,7 +129,8 @@ extern "C" {
     pub fn OH_Netstack_IsCleartextPermitted(isCleartextPermitted: *mut bool) -> i32;
     /// Checks whether the Cleartext traffic for a specified hostname is permitted.
     ///
-    /// ohos.permission.INTERNET
+    ///
+    /// Required Permissions: ohos.permission.INTERNET
     ///
     /// # Returns
     ///

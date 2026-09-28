@@ -300,7 +300,8 @@ extern "C" {
     ) -> OH_Huks_Result;
     /// Obtain the key certificate chain. This API can be called only by system applications.
     ///
-    /// ohos.permission.ATTEST_KEY
+    ///
+    /// Required Permissions: ohos.permission.ATTEST_KEY
     /// # Arguments
     ///
     /// * `keyAlias` - Indicates the pointer to the alias of the target key.
@@ -427,7 +428,12 @@ extern "C" {
     /// Available since API-level: 9
     ///
     /// Version: 1.0
-    /// [`OH_Huks_UpdateSession`] [`OH_Huks_FinishSession`] [`OH_Huks_AbortSession`]
+    ///
+    /// **See also:** [`OH_Huks_UpdateSession`]
+    ///
+    /// **See also:** [`OH_Huks_FinishSession`]
+    ///
+    /// **See also:** [`OH_Huks_AbortSession`]
     pub fn OH_Huks_InitSession(
         keyAlias: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ParamSet,
@@ -487,7 +493,12 @@ extern "C" {
     /// Available since API-level: 9
     ///
     /// Version: 1.0
-    /// [`OH_Huks_InitSession`] [`OH_Huks_FinishSession`] [`OH_Huks_AbortSession`]
+    ///
+    /// **See also:** [`OH_Huks_InitSession`]
+    ///
+    /// **See also:** [`OH_Huks_FinishSession`]
+    ///
+    /// **See also:** [`OH_Huks_AbortSession`]
     pub fn OH_Huks_UpdateSession(
         handle: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ParamSet,
@@ -547,7 +558,12 @@ extern "C" {
     /// Available since API-level: 9
     ///
     /// Version: 1.0
-    /// [`OH_Huks_InitSession`] [`OH_Huks_UpdateSession`] [`OH_Huks_AbortSession`]
+    ///
+    /// **See also:** [`OH_Huks_InitSession`]
+    ///
+    /// **See also:** [`OH_Huks_UpdateSession`]
+    ///
+    /// **See also:** [`OH_Huks_AbortSession`]
     pub fn OH_Huks_FinishSession(
         handle: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ParamSet,
@@ -588,7 +604,12 @@ extern "C" {
     /// Available since API-level: 9
     ///
     /// Version: 1.0
-    /// [`OH_Huks_InitSession`] [`OH_Huks_UpdateSession`] [`OH_Huks_FinishSession`]
+    ///
+    /// **See also:** [`OH_Huks_InitSession`]
+    ///
+    /// **See also:** [`OH_Huks_UpdateSession`]
+    ///
+    /// **See also:** [`OH_Huks_FinishSession`]
     pub fn OH_Huks_AbortSession(
         handle: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ParamSet,

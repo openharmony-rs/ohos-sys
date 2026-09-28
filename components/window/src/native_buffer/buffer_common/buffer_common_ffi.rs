@@ -515,38 +515,38 @@ pub struct OH_NativeBuffer_Format(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_NativeBuffer_TransformType {
-    /// < No rotation
+    /// No rotation
     pub const NATIVEBUFFER_ROTATE_NONE: OH_NativeBuffer_TransformType =
         OH_NativeBuffer_TransformType(0);
-    /// < Rotation by 90 degrees
+    /// Rotation by 90 degrees
     pub const NATIVEBUFFER_ROTATE_90: OH_NativeBuffer_TransformType =
         OH_NativeBuffer_TransformType(1);
-    /// < Rotation by 180 degrees
+    /// Rotation by 180 degrees
     pub const NATIVEBUFFER_ROTATE_180: OH_NativeBuffer_TransformType =
         OH_NativeBuffer_TransformType(2);
-    /// < Rotation by 270 degrees
+    /// Rotation by 270 degrees
     pub const NATIVEBUFFER_ROTATE_270: OH_NativeBuffer_TransformType =
         OH_NativeBuffer_TransformType(3);
-    /// < Flip horizontally
+    /// Flip horizontally
     pub const NATIVEBUFFER_FLIP_H: OH_NativeBuffer_TransformType = OH_NativeBuffer_TransformType(4);
-    /// < Flip vertically
+    /// Flip vertically
     pub const NATIVEBUFFER_FLIP_V: OH_NativeBuffer_TransformType = OH_NativeBuffer_TransformType(5);
-    /// < Flip horizontally and rotate 90 degrees
+    /// Flip horizontally and rotate 90 degrees
     pub const NATIVEBUFFER_FLIP_H_ROT90: OH_NativeBuffer_TransformType =
         OH_NativeBuffer_TransformType(6);
-    /// < Flip vertically and rotate 90 degrees
+    /// Flip vertically and rotate 90 degrees
     pub const NATIVEBUFFER_FLIP_V_ROT90: OH_NativeBuffer_TransformType =
         OH_NativeBuffer_TransformType(7);
-    /// < Flip horizontally and rotate 180 degrees
+    /// Flip horizontally and rotate 180 degrees
     pub const NATIVEBUFFER_FLIP_H_ROT180: OH_NativeBuffer_TransformType =
         OH_NativeBuffer_TransformType(8);
-    /// < Flip vertically and rotate 180 degrees
+    /// Flip vertically and rotate 180 degrees
     pub const NATIVEBUFFER_FLIP_V_ROT180: OH_NativeBuffer_TransformType =
         OH_NativeBuffer_TransformType(9);
-    /// < Flip horizontally and rotate 270 degrees
+    /// Flip horizontally and rotate 270 degrees
     pub const NATIVEBUFFER_FLIP_H_ROT270: OH_NativeBuffer_TransformType =
         OH_NativeBuffer_TransformType(10);
-    /// < Flip vertically and rotate 270 degrees
+    /// Flip vertically and rotate 270 degrees
     pub const NATIVEBUFFER_FLIP_V_ROT270: OH_NativeBuffer_TransformType =
         OH_NativeBuffer_TransformType(11);
 }

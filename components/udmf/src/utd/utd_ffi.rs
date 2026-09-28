@@ -17,7 +17,9 @@ extern "C" {
     /// * If the operation is successful, a pointer to the instance of the [`OH_Utd`]
     /// structure is returned.If the operation is failed, nullptr is returned.
     /// Must be destroyed with [`OH_Utd_DestroyTypeDescriptor`] when not needed.
-    /// [`OH_Utd.`]
+    ///
+    /// **See also:** [`OH_Utd`].
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -27,7 +29,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`].
-    /// [`OH_Utd.`]
+    ///
+    /// **See also:** [`OH_Utd`].
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -41,7 +45,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a string pointer when input args normally, otherwise return nullptr.
-    /// [`OH_Utd.`]
+    ///
+    /// **See also:** [`OH_Utd`].
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -55,7 +61,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a string pointer when input args normally, otherwise return nullptr.
-    /// [`OH_Utd.`]
+    ///
+    /// **See also:** [`OH_Utd`].
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -69,7 +77,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a string pointer when input args normally, otherwise return nullptr.
-    /// [`OH_Utd.`]
+    ///
+    /// **See also:** [`OH_Utd`].
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -83,7 +93,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a string pointer when input args normally, otherwise return nullptr.
-    /// [`OH_Utd.`]
+    ///
+    /// **See also:** [`OH_Utd`].
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -99,7 +111,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns string array when input args normally, otherwise return nullptr.
-    /// [`OH_Utd.`]
+    ///
+    /// **See also:** [`OH_Utd`].
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -118,7 +132,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns string array when input args normally, otherwise return nullptr.
-    /// [`OH_Utd.`]
+    ///
+    /// **See also:** [`OH_Utd`].
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -137,7 +153,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns string array when input args normally, otherwise return nullptr.
-    /// [`OH_Utd.`]
+    ///
+    /// **See also:** [`OH_Utd`].
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]

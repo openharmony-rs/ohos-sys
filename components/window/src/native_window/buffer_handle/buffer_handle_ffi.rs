@@ -40,29 +40,29 @@ impl<T> ::core::fmt::Debug for __IncompleteArrayField<T> {
 #[repr(C)]
 #[derive(Debug)]
 pub struct BufferHandle {
-    /// < buffer fd, -1 if not supported
+    /// buffer fd, -1 if not supported
     pub fd: i32,
-    /// < the width of memory
+    /// the width of memory
     pub width: i32,
-    /// < the stride of memory
+    /// the stride of memory
     pub stride: i32,
-    /// < the height of memory
+    /// the height of memory
     pub height: i32,
     pub size: i32,
-    /// < the format of memory
+    /// the format of memory
     pub format: i32,
-    /// < the usage of memory
+    /// the usage of memory
     pub usage: u64,
-    /// < Virtual address of memory
+    /// Virtual address of memory
     pub virAddr: *mut ::core::ffi::c_void,
-    /// < Shared memory key
+    /// Shared memory key
     pub key: i32,
-    /// < Physical address
+    /// Physical address
     pub phyAddr: u64,
-    /// < the number of reserved fd value
+    /// the number of reserved fd value
     pub reserveFds: u32,
-    /// < the number of reserved integer value
+    /// the number of reserved integer value
     pub reserveInts: u32,
-    /// < the data
+    /// the data
     pub reserve: __IncompleteArrayField<i32>,
 }

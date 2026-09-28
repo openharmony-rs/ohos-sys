@@ -113,7 +113,11 @@ pub struct Ability_ChildProcessConfigs {
 ///
 /// * `remoteProxy` - Pointer to the IPC object of the child process. If an exception occurs, the value may be nullptr.
 /// The object must be released by calling [`OH_IPCRemoteProxy_Destory`] when it is no longer needed.
-/// [`OH_Ability_CreateNativeChildProcess`] [`OH_IPCRemoteProxy_Destory`]
+///
+/// **See also:** [`OH_Ability_CreateNativeChildProcess`]
+///
+/// **See also:** [`OH_IPCRemoteProxy_Destory`]
+///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -350,7 +354,9 @@ extern "C" {
     /// Returns [`NCP_ERR_MAX_CHILD_PROCESSES_REACHED`] if the maximum number of native child processes is reached.
     ///
     /// For details, see [`Ability_NativeChildProcess_ErrCode`].
-    /// [`OH_Ability_OnNativeChildProcessStarted`]
+    ///
+    /// **See also:** [`OH_Ability_OnNativeChildProcessStarted`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -400,7 +406,9 @@ extern "C" {
     /// Returns [`NCP_ERR_ALREADY_IN_CHILD`] if it is not allowed to create another child process in the child process.
     /// Returns [`NCP_ERR_MAX_CHILD_PROCESSES_REACHED`] if the maximum number of native child processes is reached.
     /// For details, see [`Ability_NativeChildProcess_ErrCode`].
-    /// [`OH_Ability_OnNativeChildProcessStarted`]
+    ///
+    /// **See also:** [`OH_Ability_OnNativeChildProcessStarted`]
+    ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
@@ -459,7 +467,9 @@ extern "C" {
     /// Returns [`NCP_ERR_MAX_CHILD_PROCESSES_REACHED`] if the maximum number of native child processes is reached.
     ///
     /// For details, see [`Ability_NativeChildProcess_ErrCode`].
-    /// [`OH_Ability_OnNativeChildProcessStarted`]
+    ///
+    /// **See also:** [`OH_Ability_OnNativeChildProcessStarted`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]

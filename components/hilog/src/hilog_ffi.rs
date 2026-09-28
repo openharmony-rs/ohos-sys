@@ -35,19 +35,11 @@ impl LogLevel {
 ///
 /// You are advised to select log levels based on their respective usage scenarios:
 ///
-/// <ul><li><b>DEBUG</b>: used for debugging and disabled from commercial releases</li>
-///
-/// <li><b>INFO</b>: used for logging important system running status and steps in key processes</li>
-///
-/// <li><b>WARN</b>: used for logging unexpected exceptions that have little impact on user experience and can
-/// automatically recover. Logs at this level are generally output when such exceptions are detected and
-/// captured.</li>
-///
-/// <li><b>ERROR</b>: used for logging malfunction that affects user experience and cannot automatically
-/// recover</li>
-///
-/// <li><b>FATAL</b>: used for logging major exceptions that have severely affected user experience and should
-/// not occur.</li></ul>
+/// - <b>DEBUG</b>: used for debugging and disabled from commercial releases
+/// - <b>INFO</b>: used for logging important system running status and steps in key processes
+/// - <b>WARN</b>: used for logging unexpected exceptions that have little impact on user experience and can automatically recover. Logs at this level are generally output when such exceptions are detected and captured.
+/// - <b>ERROR</b>: used for logging malfunction that affects user experience and cannot automatically recover
+/// - <b>FATAL</b>: used for logging major exceptions that have severely affected user experience and should not occur.
 ///
 ///
 ///

@@ -405,6 +405,8 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
             );
             return None;
         }
+        // bindgen keeps the `<` of trailing member comments like `/**< No rotation */`.
+        let comment = comment.strip_prefix('<').unwrap_or(comment);
         // Replace manual linebreaks in doxygen with double linebreaks for markdown.
         let comment = comment.replace("\\n", "\n");
         Some(retarget_doc_links(doxygen_rs::transform(
@@ -848,6 +850,13 @@ mod tests {
 
     fn parse(comment: &str) -> Option<DeprecatedInfo> {
         parse_deprecated_info(comment).expect("parse failed")
+    }
+
+    #[test]
+    fn strips_trailing_member_comment_marker() {
+        let comment =
+            bindgen::callbacks::ParseCallbacks::process_comment(&DoxygenCommentCb, "< No rotation");
+        assert_eq!(comment.as_deref(), Some(" No rotation"));
     }
 
     #[test]

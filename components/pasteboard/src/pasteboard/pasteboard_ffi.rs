@@ -147,7 +147,9 @@ extern "C" {
     ///
     /// * Returns the pointer to the [`OH_PasteboardObserver`] instance created if the operation is successful.
     /// Returns nullptr if the operation is failed.
-    /// [`OH_PasteboardObserver.`]
+    ///
+    /// **See also:** [`OH_PasteboardObserver`].
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -163,7 +165,8 @@ extern "C" {
     /// * Returns the status code of the execution. For details, see [`PASTEBOARD_ErrCode`].
     /// Returns [`ERR_OK`] if the operation is successful.
     /// Returns [`ERR_INVALID_PARAMETER`] if invalid args are detected.
-    /// [`OH_PasteboardObserver`] PASTEBOARD_ErrCode.
+    ///
+    /// **See also:** [`OH_PasteboardObserver`] [`PASTEBOARD_ErrCode`].
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -189,7 +192,8 @@ extern "C" {
     /// * Returns the status code of the execution. For details, see [`PASTEBOARD_ErrCode`].
     /// Returns [`ERR_OK`] if the operation is successful.
     /// Returns [`ERR_INVALID_PARAMETER`] if invalid args are detected.
-    /// [`OH_PasteboardObserver`] Pasteboard_Notify PASTEBOARD_ErrCode.
+    ///
+    /// **See also:** [`OH_PasteboardObserver`] [`Pasteboard_Notify`] [`PASTEBOARD_ErrCode`].
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -207,7 +211,9 @@ extern "C" {
     ///
     /// * Returns the pointer to the [`OH_Pasteboard`] instance created if the operation is successful.
     /// Returns nullptr if the memory is not enough.
-    /// [`OH_Pasteboard.`]
+    ///
+    /// **See also:** [`OH_Pasteboard`].
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -217,7 +223,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `pasteboard` - Pointer to the [`OH_Pasteboard`] instance to destroy.
-    /// [`OH_Pasteboard.`]
+    ///
+    /// **See also:** [`OH_Pasteboard`].
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -239,7 +247,8 @@ extern "C" {
     /// * Returns the status code of the execution. For details, [`PASTEBOARD_ErrCode`].
     /// Returns [`ERR_OK`] if the operation is successful.
     /// Returns [`ERR_INVALID_PARAMETER`] if invalid args are detected.
-    /// [`OH_Pasteboard`] OH_PasteboardObserver Pasteboard_NotifyType PASTEBOARD_ErrCode.
+    ///
+    /// **See also:** [`OH_Pasteboard`] [`OH_PasteboardObserver`] [`Pasteboard_NotifyType`] [`PASTEBOARD_ErrCode`].
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -266,7 +275,8 @@ extern "C" {
     /// * Returns the status code of the execution. For details, [`PASTEBOARD_ErrCode`].
     /// Returns [`ERR_OK`] if the operation is successful.
     /// Returns [`ERR_INVALID_PARAMETER`] if invalid args are detected.
-    /// [`OH_Pasteboard`] OH_PasteboardObserver Pasteboard_NotifyType PASTEBOARD_ErrCode.
+    ///
+    /// **See also:** [`OH_Pasteboard`] [`OH_PasteboardObserver`] [`Pasteboard_NotifyType`] [`PASTEBOARD_ErrCode`].
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -287,7 +297,9 @@ extern "C" {
     /// * Returns a boolean value, which indicates whether the the data is from a remote device.
     /// The value `false` means Pasteboard data is not from a remote device.
     /// The value `true` means the opposite.
-    /// [`OH_Pasteboard.`]
+    ///
+    /// **See also:** [`OH_Pasteboard`].
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -307,7 +319,8 @@ extern "C" {
     /// * Returns the status code of the execution. For details, see [`PASTEBOARD_ErrCode`].
     /// Returns [`ERR_OK`] if the operation is successful.
     /// Returns [`ERR_INVALID_PARAMETER`] if invalid args are detected.
-    /// [`OH_Pasteboard`] PASTEBOARD_ErrCode.
+    ///
+    /// **See also:** [`OH_Pasteboard`] [`PASTEBOARD_ErrCode`].
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -330,7 +343,9 @@ extern "C" {
     /// * Returns a boolean value, which indicates whether the Pasteboard has the specified type of data.
     /// The value `true` means the Pasteboard has the specified type of data.
     /// The value `false` means the opposite.
-    /// [`OH_Pasteboard.`]
+    ///
+    /// **See also:** [`OH_Pasteboard`].
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -349,14 +364,17 @@ extern "C" {
     /// * Returns a boolean value, which indicates whether there is data in the Pasteboard.
     /// The value `true` means there is data in Pasteboard.
     /// The value `false` means the opposite.
-    /// [`OH_Pasteboard.`]
+    ///
+    /// **See also:** [`OH_Pasteboard`].
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_Pasteboard_HasData(pasteboard: *mut OH_Pasteboard) -> bool;
     /// Obtains data from the Pasteboard.
     ///
-    /// ohos.permission.READ_PASTEBOARD
+    ///
+    /// Required Permissions: ohos.permission.READ_PASTEBOARD
     /// # Arguments
     ///
     /// * `pasteboard` - Pointer to the [`OH_Pasteboard`] instance.
@@ -366,7 +384,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_UdmfData`] instance.
-    /// [`OH_Pasteboard`] OH_UdmfData PASTEBOARD_ErrCode.
+    ///
+    /// **See also:** [`OH_Pasteboard`] [`OH_UdmfData`] [`PASTEBOARD_ErrCode`].
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -388,7 +407,8 @@ extern "C" {
     /// * Returns the status code of the execution. For details, see [`PASTEBOARD_ErrCode`].
     /// Returns [`ERR_OK`] if the operation is successful.
     /// Returns [`ERR_INVALID_PARAMETER`] if invalid args are detected.
-    /// [`OH_Pasteboard`] OH_UdmfData PASTEBOARD_ErrCode.
+    ///
+    /// **See also:** [`OH_Pasteboard`] [`OH_UdmfData`] [`PASTEBOARD_ErrCode`].
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -408,7 +428,8 @@ extern "C" {
     /// * Returns the status code of the execution. For details, see [`PASTEBOARD_ErrCode`].
     /// Returns [`ERR_OK`] if the operation is successful.
     /// Returns [`ERR_INVALID_PARAMETER`] if invalid args are detected.
-    /// [`OH_Pasteboard`] PASTEBOARD_ErrCode.
+    ///
+    /// **See also:** [`OH_Pasteboard`] [`PASTEBOARD_ErrCode`].
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -426,7 +447,9 @@ extern "C" {
     ///
     /// * Returns char array of MIME types in the Pasteboard.
     /// Returns nullptr if the operation is failed.
-    /// [`OH_Pasteboard.`]
+    ///
+    /// **See also:** [`OH_Pasteboard`].
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -456,7 +479,9 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`Pasteboard_GetDataParams`]
     /// structure is returned. If the operation is failed, nullptr is returned.
-    /// [`Pasteboard_GetDataParams.`]
+    ///
+    /// **See also:** [`Pasteboard_GetDataParams`].
+    ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -466,7 +491,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
-    /// [`Pasteboard_GetDataParams.`]
+    ///
+    /// **See also:** [`Pasteboard_GetDataParams`].
+    ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -478,7 +505,8 @@ extern "C" {
     /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
     ///
     /// * `progressIndicator` - Represents to the progress indicator.
-    /// [`Pasteboard_GetDataParams`] Pasteboard_ProgressIndicator.
+    ///
+    /// **See also:** [`Pasteboard_GetDataParams`] [`Pasteboard_ProgressIndicator`].
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -496,7 +524,9 @@ extern "C" {
     /// * `destUri` - Pointer to a destination uri.
     ///
     /// * `destUriLen` - Indicates the length of destination uri.
-    /// [`Pasteboard_GetDataParams.`]
+    ///
+    /// **See also:** [`Pasteboard_GetDataParams`].
+    ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -512,7 +542,8 @@ extern "C" {
     /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
     ///
     /// * `option` - Represents to the file conflict options.
-    /// [`Pasteboard_GetDataParams`] Pasteboard_FileConflictOptions.
+    ///
+    /// **See also:** [`Pasteboard_GetDataParams`] [`Pasteboard_FileConflictOptions`].
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -528,7 +559,8 @@ extern "C" {
     /// * `params` - Represents a pointer to an instance of [`Pasteboard_GetDataParams`].
     ///
     /// * `listener` - Represents to the data progress listener.
-    /// [`Pasteboard_GetDataParams`] OH_Pasteboard_ProgressListener.
+    ///
+    /// **See also:** [`Pasteboard_GetDataParams`] [`OH_Pasteboard_ProgressListener`].
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -546,7 +578,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the progress.
-    /// [`Pasteboard_ProgressInfo.`]
+    ///
+    /// **See also:** [`Pasteboard_ProgressInfo`].
+    ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -558,14 +592,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `params` - Pointer to indicates the [`Pasteboard_GetDataParams`].
-    /// [`Pasteboard_GetDataParams.`]
+    ///
+    /// **See also:** [`Pasteboard_GetDataParams`].
+    ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_Pasteboard_ProgressCancel(params: *mut Pasteboard_GetDataParams);
     /// Obtains data from the Pasteboard with system progress indicator.
     ///
-    /// ohos.permission.READ_PASTEBOARD
+    ///
+    /// Required Permissions: ohos.permission.READ_PASTEBOARD
     /// # Arguments
     ///
     /// * `pasteboard` - Pointer to the [`OH_Pasteboard`] instance.
@@ -577,7 +614,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the pointer to the [`OH_PasteData`] instance.
-    /// [`OH_Pasteboard`] OH_PasteData PASTEBOARD_ErrCode.
+    ///
+    /// **See also:** [`OH_Pasteboard`] [`OH_PasteData`] [`PASTEBOARD_ErrCode`].
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]

@@ -10,7 +10,8 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `buffer` - The name character array which should have space for the name and the terminating character ('
+    /// * `buffer` - The name character array which should have space for the name and the terminating character ('\0').
+    ///
     /// * `buffer_size` - The size of the name character array.
     ///
     /// # Returns
@@ -18,7 +19,7 @@ extern "C" {
     /// * [`OS_ACCOUNT_ERR_OK`] Indicates successful;<br>
     /// [`OS_ACCOUNT_ERR_INTERNAL_ERROR`] Indicates the internal error.<br>
     /// [`OS_ACCOUNT_ERR_INVALID_PARAMETER`] Indicates the <i>buffer</i> is NULL pointer or the size of the name,
-    /// including the terminating character ('is larger than <i>buffer_size</i>;
+    /// including the terminating character ('\0'), is larger than <i>buffer_size</i>;
     ///
     /// Required System Capabilities: SystemCapability.Account.OsAccount
     ///

@@ -49,7 +49,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -71,7 +73,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -93,7 +97,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -115,7 +121,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -137,7 +145,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -159,7 +169,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -178,7 +190,8 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset,`] Data_AssetStatus
+    ///
+    /// **See also:** [`Data_Asset`], [`Data_AssetStatus`]
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -205,7 +218,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -232,7 +247,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -259,7 +276,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -284,7 +303,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -308,7 +329,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -332,7 +355,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`]
+    ///
+    /// **See also:** [`Data_Asset`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -352,7 +377,8 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset`] Data_AssetStatus.
+    ///
+    /// **See also:** [`Data_Asset`] [`Data_AssetStatus`].
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -368,7 +394,9 @@ extern "C" {
     ///
     /// * If the creation is successful, a pointer to the instance of the Data_Asset} structure is returned,
     /// otherwise NULL is returned.
-    /// [`Data_Asset.`]
+    ///
+    /// **See also:** [`Data_Asset`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -385,7 +413,8 @@ extern "C" {
     /// while failure returns a specific error code.
     /// [`RDB_OK`] - success.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset,`] OH_Rdb_ErrCode.
+    ///
+    /// **See also:** [`Data_Asset`], [`OH_Rdb_ErrCode`].
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -401,7 +430,9 @@ extern "C" {
     ///
     /// * If the creation is successful, a pointer to the instance of the [`Data_Asset`] structure is returned.
     /// If the creation is unsuccessful, NULL is returned.
-    /// [`Data_Asset.`]
+    ///
+    /// **See also:** [`Data_Asset`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -420,7 +451,8 @@ extern "C" {
     /// while failure returns a specific error code.
     /// [`RDB_OK`] - success.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`Data_Asset,`] OH_Rdb_ErrCode.
+    ///
+    /// **See also:** [`Data_Asset`], [`OH_Rdb_ErrCode`].
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

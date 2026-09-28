@@ -332,7 +332,8 @@ extern "C" {
     /// Sets whether to enable blankless page loading. This API must be used in pair with the
     /// OH_NativeArkWeb_GetBlanklessInfoWithKey API.
     ///
-    /// ohos.permission.INTERNET and ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.INTERNET and ohos.permission.GET_NETWORK_INFO
     /// # Arguments
     ///
     /// * `webTag` - webTag used when the webviewController is created.
@@ -385,7 +386,8 @@ extern "C" {
     /// This API applies to pages in an applet or web application whose URLs are not fixed or cannot be uniquely
     /// identified.
     ///
-    /// ohos.permission.INTERNET and ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.INTERNET and ohos.permission.GET_NETWORK_INFO
     /// # Arguments
     ///
     /// * `webTag` - webTag used when the webviewController is created.

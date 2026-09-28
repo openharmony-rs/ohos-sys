@@ -34,7 +34,9 @@ extern "C" {
     /// * Returns the name of the file according to the index,
     /// which can be passed to [`OH_ResourceManager_OpenRawFile`] as an input parameter;
     /// returns <b>NULL</b> if all files are returned.
-    /// [`OH_ResourceManager_OpenRawFile`]
+    ///
+    /// **See also:** [`OH_ResourceManager_OpenRawFile`]
+    ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
@@ -49,7 +51,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawDir` - Indicates the pointer to [`RawDir`].
-    /// [`OH_ResourceManager_GetRawFileName`]
+    ///
+    /// **See also:** [`OH_ResourceManager_GetRawFileName`]
+    ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
@@ -61,7 +65,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawDir` - Indicates the pointer to [`RawDir`].
-    /// [`OH_ResourceManager_OpenRawDir`]
+    ///
+    /// **See also:** [`OH_ResourceManager_OpenRawDir`]
+    ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0

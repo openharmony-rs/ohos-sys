@@ -76,7 +76,11 @@ extern "C" {
     ///
     /// * Returns the pointer to [`RawDir`]. If failed or mgr is nullptr also returns nullptr.
     /// After you finish using the pointer, call [`OH_ResourceManager_CloseRawDir`] to release it.
-    /// [`OH_ResourceManager_InitNativeResourceManager`] [`OH_ResourceManager_CloseRawDir`]
+    ///
+    /// **See also:** [`OH_ResourceManager_InitNativeResourceManager`]
+    ///
+    /// **See also:** [`OH_ResourceManager_CloseRawDir`]
+    ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
@@ -99,7 +103,11 @@ extern "C" {
     ///
     /// * Returns the pointer to [`RawFile`]. If failed or mgr and fileName is nullptr also returns nullptr.
     /// After you finish using the pointer, call [`OH_ResourceManager_CloseRawFile`] to release it.
-    /// [`OH_ResourceManager_InitNativeResourceManager`] [`OH_ResourceManager_CloseRawFile`]
+    ///
+    /// **See also:** [`OH_ResourceManager_InitNativeResourceManager`]
+    ///
+    /// **See also:** [`OH_ResourceManager_CloseRawFile`]
+    ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
@@ -122,7 +130,11 @@ extern "C" {
     ///
     /// * Returns the pointer to [`RawFile64`]. If failed or mgr and fileName is nullptr also returns nullptr.
     /// After you finish using the pointer, call [`OH_ResourceManager_CloseRawFile64`] to release it.
-    /// [`OH_ResourceManager_InitNativeResourceManager`] [`OH_ResourceManager_CloseRawFile64`]
+    ///
+    /// **See also:** [`OH_ResourceManager_InitNativeResourceManager`]
+    ///
+    /// **See also:** [`OH_ResourceManager_CloseRawFile64`]
+    ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0

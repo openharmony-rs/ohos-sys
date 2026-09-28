@@ -56,7 +56,8 @@ extern "C" {
     ///
     /// [`SENSOR_SERVICE_EXCEPTION`] The sensor service is abnormal.
     ///
-    /// ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or
+    ///
+    /// Required Permissions: ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or
     /// ohos.permission.ACTIVITY_MOTION or ohos.permission.READ_HEALTH_DATA
     ///
     /// Available since API-level: 11
@@ -91,7 +92,8 @@ extern "C" {
     ///
     /// [`SENSOR_SERVICE_EXCEPTION`] The sensor service is abnormal.
     ///
-    /// ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or
+    ///
+    /// Required Permissions: ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or
     /// ohos.permission.ACTIVITY_MOTION or ohos.permission.READ_HEALTH_DATA
     ///
     ///

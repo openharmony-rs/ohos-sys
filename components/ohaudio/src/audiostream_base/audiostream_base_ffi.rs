@@ -1113,7 +1113,9 @@ pub struct OH_AudioData_Callback_Result(pub ::core::ffi::c_int);
 /// # Returns
 ///
 /// * Audio Data callback result.
-/// [`OH_AudioRenderer_Callbacks_Struct.OH_AudioRenderer_OnWriteData`]
+///
+/// **See also:** OH_AudioRenderer_Callbacks_Struct.OH_AudioRenderer_OnWriteData
+///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]

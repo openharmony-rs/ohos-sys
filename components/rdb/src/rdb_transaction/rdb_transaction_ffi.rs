@@ -68,7 +68,9 @@ extern "C" {
     /// * Returns a pointer to OH_RDB_TransOptions instance when the execution is successful.
     /// Otherwise, nullptr is returned. The memory must be released through the OH_RdbTrans_DestroyOptions
     /// interface after the use is complete.
-    /// [`OH_RdbTrans_DestroyOptions.`]
+    ///
+    /// **See also:** [`OH_RdbTrans_DestroyOptions`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -545,7 +547,9 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
     /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
     /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// [`OH_Value_Destroy.`]
+    ///
+    /// **See also:** [`OH_Value_Destroy`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -611,7 +615,8 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Transaction,`] OH_Data_VBuckets, OH_Rdb_ErrCode, OH_RDB_ReturningContext.
+    ///
+    /// **See also:** [`OH_Rdb_Transaction`], [`OH_Data_VBuckets`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -658,7 +663,8 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Transaction,`] OH_Data_VBuckets, OH_Predicates, OH_Rdb_ErrCode, OH_RDB_ReturningContext.
+    ///
+    /// **See also:** [`OH_Rdb_Transaction`], [`OH_Data_VBuckets`], [`OH_Predicates`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -699,7 +705,8 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Transaction,`] OH_Predicates, OH_Rdb_ErrCode, OH_RDB_ReturningContext.
+    ///
+    /// **See also:** [`OH_Rdb_Transaction`], [`OH_Predicates`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

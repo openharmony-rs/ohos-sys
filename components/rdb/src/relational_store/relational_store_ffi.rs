@@ -309,7 +309,9 @@ pub type Rdb_BriefObserver = ::core::option::Option<
 /// * `changeInfo` - Indicates the [`Rdb_ChangeInfo`] of changed tables.
 ///
 /// * `count` - The count of changed tables.
-/// [`Rdb_ChangeInfo.`]
+///
+/// **See also:** [`Rdb_ChangeInfo`].
+///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -474,7 +476,9 @@ pub struct Rdb_ProgressDetails {
 /// which will be passed back into the function when invoked.
 ///
 /// * `progressDetails` - The details of the sync progress.
-/// [`Rdb_ProgressDetails.`]
+///
+/// **See also:** [`Rdb_ProgressDetails`].
+///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -489,7 +493,9 @@ pub type Rdb_ProgressCallback = ::core::option::Option<
 /// # Arguments
 ///
 /// * `progressDetails` - The details of the sync progress.
-/// [`Rdb_ProgressDetails.`]
+///
+/// **See also:** [`Rdb_ProgressDetails`].
+///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -538,7 +544,9 @@ extern "C" {
     /// * Returns the newly created OH_Rdb_ConfigV2 object. If NULL is returned, the creation fails.
     /// The possible cause is that the address space of the application is full, As a result, the space
     /// cannot be allocated.
-    /// [`OH_Rdb_ConfigV2`]
+    ///
+    /// **See also:** [`OH_Rdb_ConfigV2`]
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -927,7 +935,9 @@ extern "C" {
     ///
     /// * If the creation is successful, a pointer to the instance of the OH_VObject} structure is returned,
     /// otherwise NULL is returned.
-    /// [`OH_VObject.`]
+    ///
+    /// **See also:** [`OH_VObject`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_CreateValueObject() -> *mut OH_VObject;
     /// Creates an [`OH_VBucket`] object.
@@ -937,7 +947,9 @@ extern "C" {
     ///
     /// * If the creation is successful, a pointer to the instance of the OH_VBucket} structure is returned,
     /// otherwise NULL is returned.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_CreateValuesBucket() -> *mut OH_VBucket;
     /// Creates an [`OH_Predicates`] instance.
@@ -950,7 +962,9 @@ extern "C" {
     ///
     /// * If the creation is successful, a pointer to the instance of the OH_Predicates} structure is returned.
     /// If the table name is nullptr, Nullptr is returned.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_CreatePredicates(table: *const ::core::ffi::c_char) -> *mut OH_Predicates;
     /// Obtains an RDB store.
@@ -971,7 +985,8 @@ extern "C" {
     /// * If the creation is successful, a pointer to the instance of the OH_Rdb_Store} structure is returned.
     /// If the Config is empty, config.size does not match, or errCode is empty.
     /// Get database path failed.Get RDB Store fail. Nullptr is returned.
-    /// [`OH_Rdb_Config,`] OH_Rdb_Store.
+    ///
+    /// **See also:** [`OH_Rdb_Config`], [`OH_Rdb_Store`].
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_GetOrOpen(
@@ -996,7 +1011,8 @@ extern "C" {
     /// * If the creation is successful, a pointer to the instance of the OH_Rdb_Store} structure is returned.
     /// If the Config is empty, config.size does not match, or errCode is empty.
     /// Get database path failed.Get RDB Store fail. Nullptr is returned.
-    /// [`OH_Rdb_ConfigV2,`] OH_Rdb_Store.
+    ///
+    /// **See also:** [`OH_Rdb_ConfigV2`], [`OH_Rdb_Store`].
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1017,7 +1033,8 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// while failure returns a specific error code. Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Store,`] OH_Rdb_ErrCode.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Rdb_ErrCode`].
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_CloseStore(store: *mut OH_Rdb_Store) -> ::core::ffi::c_int;
@@ -1034,7 +1051,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// while failure returns a specific error code. Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_ErrCode.`]
+    ///
+    /// **See also:** [`OH_Rdb_ErrCode`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_DeleteStore(config: *const OH_Rdb_Config) -> ::core::ffi::c_int;
     /// Deletes the database with a specified path.
@@ -1050,7 +1069,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// while failure returns a specific error code. Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_ErrCode.`]
+    ///
+    /// **See also:** [`OH_Rdb_ErrCode`].
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1071,7 +1092,8 @@ extern "C" {
     /// [`RDB_ERR`] - Indicates that the function execution exception.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Store,`] OH_VBucket, OH_Rdb_ErrCode.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_VBucket`], [`OH_Rdb_ErrCode`].
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Insert(
@@ -1190,7 +1212,8 @@ extern "C" {
     /// [`RDB_ERR`] - Indicates that the function execution exception.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Store,`] OH_Bucket, OH_Predicates, OH_Rdb_ErrCode.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Bucket`], [`OH_Predicates`], [`OH_Rdb_ErrCode`].
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Update(
@@ -1257,7 +1280,8 @@ extern "C" {
     /// [`RDB_ERR`] - Indicates that the function execution exception.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Store,`] OH_Predicates, OH_Rdb_ErrCode.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Rdb_ErrCode`].
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Delete(
@@ -1281,7 +1305,8 @@ extern "C" {
     ///
     /// * If the query is successful, a pointer to the instance of the OH_Cursor} structure is returned.
     /// If Get store failed or resultSet is nullptr, nullptr is returned.
-    /// [`OH_Rdb_Store,`] OH_Predicates, OH_Cursor.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Cursor`].
     ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Query(
@@ -1307,7 +1332,8 @@ extern "C" {
     ///
     /// * If the query is successful, a pointer to the instance of the [`OH_Cursor`] structure is returned.
     /// If Get store failed or resultSet is nullptr, nullptr is returned.
-    /// [`OH_Rdb_Store,`] OH_Predicates, OH_Cursor.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Cursor`].
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -1332,7 +1358,9 @@ extern "C" {
     ///
     /// * If the query is successful, a pointer to the instance of the [`OH_Cursor`] structure is returned.
     /// If sql statement is invalid or the memory allocate failed, nullptr is returned.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
@@ -1354,7 +1382,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Execute(
         store: *mut OH_Rdb_Store,
@@ -1391,7 +1421,9 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
     /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
     /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// [`OH_Value_Destroy.`]
+    ///
+    /// **See also:** [`OH_Value_Destroy`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -1417,7 +1449,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// [`RDB_E_NOT_SUPPORTED`] - The error code for not support.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1438,7 +1472,9 @@ extern "C" {
     ///
     /// * If the query is successful, a pointer to the instance of the OH_Cursor} structure is returned.
     /// If Get store failed,sql is nullptr or resultSet is nullptr, nullptr is returned.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_ExecuteQuery(
         store: *mut OH_Rdb_Store,
@@ -1458,7 +1494,9 @@ extern "C" {
     ///
     /// * If the query is successful, a pointer to the instance of the OH_Cursor} structure is returned.
     /// If sql statement is invalid or the memory allocate failed, nullptr is returned.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -1478,7 +1516,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_BeginTransaction(store: *mut OH_Rdb_Store) -> ::core::ffi::c_int;
     /// Rolls back a transaction in EXCLUSIVE mode.
@@ -1492,7 +1532,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_RollBack(store: *mut OH_Rdb_Store) -> ::core::ffi::c_int;
     /// Commits a transaction in EXCLUSIVE mode.
@@ -1506,7 +1548,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Commit(store: *mut OH_Rdb_Store) -> ::core::ffi::c_int;
     /// Begin a transaction and the transaction ID corresponding to the transaction.
@@ -1523,7 +1567,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// [`RDB_E_NOT_SUPPORTED`] - The error code for not support.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1545,7 +1591,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// [`RDB_E_NOT_SUPPORTED`] - The error code for not support.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1564,7 +1612,9 @@ extern "C" {
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// [`RDB_E_NOT_SUPPORTED`] - The error code for not support.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1582,7 +1632,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Backup(
         store: *mut OH_Rdb_Store,
@@ -1601,7 +1653,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_Restore(
         store: *mut OH_Rdb_Store,
@@ -1620,7 +1674,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_GetVersion(
         store: *mut OH_Rdb_Store,
@@ -1639,7 +1695,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 10
     pub fn OH_Rdb_SetVersion(
         store: *mut OH_Rdb_Store,
@@ -1664,7 +1722,11 @@ extern "C" {
     /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`] [`Rdb_DistributedConfig.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
+    /// **See also:** [`Rdb_DistributedConfig`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -1694,7 +1756,13 @@ extern "C" {
     /// * If the operation is successful, a pointer to the instance of the OH_Cursor} structure is returned.
     /// If Get store failed, NULL is returned.
     /// There are two columns, "data_key" and "timestamp". Otherwise NULL is returned.
-    /// [`OH_Rdb_Store.`] [`OH_VObject.`] [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
+    /// **See also:** [`OH_VObject`].
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -1722,7 +1790,11 @@ extern "C" {
     /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`] [`Rdb_DataObserver.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
+    /// **See also:** [`Rdb_DataObserver`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -1747,7 +1819,11 @@ extern "C" {
     /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`] [`Rdb_DataObserver.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
+    /// **See also:** [`Rdb_DataObserver`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -1768,7 +1844,11 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`Rdb_TableDetails`]
     /// structure is returned.If get details is failed, nullptr is returned.
-    /// [`Rdb_ProgressDetails`] [`Rdb_TableDetails`]
+    ///
+    /// **See also:** [`Rdb_ProgressDetails`]
+    ///
+    /// **See also:** [`Rdb_TableDetails`]
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -1795,7 +1875,11 @@ extern "C" {
     /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`] [`Rdb_ProgressObserver.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
+    /// **See also:** [`Rdb_ProgressObserver`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -1821,7 +1905,11 @@ extern "C" {
     /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`] [`Rdb_ProgressObserver.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
+    /// **See also:** [`Rdb_ProgressObserver`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -1843,7 +1931,11 @@ extern "C" {
     /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store.`] [`Rdb_ProgressObserver.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
+    /// **See also:** [`Rdb_ProgressObserver`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -1865,7 +1957,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store,`] OH_Predicates, OH_Rdb_ErrCode.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Rdb_ErrCode`].
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1888,7 +1981,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`OH_Rdb_ErrCode`].
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_Rdb_Store,`] OH_Predicates, OH_Rdb_ErrCode.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Rdb_ErrCode`].
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1914,7 +2008,8 @@ extern "C" {
     ///
     /// * If the query is successful, a pointer to the instance of the OH_Cursor} structure is returned.
     /// If Get store failed or resultSet is nullptr, nullptr is returned.
-    /// [`OH_Rdb_Store,`] OH_Predicates, OH_Cursor.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Cursor`].
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1952,7 +2047,9 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
     /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
     /// Returns [`RDB_E_SQLITE_CANT_OPEN`] SQLite: Unable to open the database file.
-    /// [`OH_RdbTrans_Destroy.`]
+    ///
+    /// **See also:** [`OH_RdbTrans_Destroy`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -2038,7 +2135,8 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
     /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
     /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
-    /// [`OH_Rdb_Store,`] OH_Rdb_ErrCode.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Rdb_ErrCode`].
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2067,7 +2165,9 @@ extern "C" {
     /// [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
     /// [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Store.`]
+    ///
+    /// **See also:** [`OH_Rdb_Store`].
+    ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
@@ -2092,7 +2192,9 @@ extern "C" {
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// [`RDB_E_SUB_OVER_LIMIT`] - Indicates the number of subscriptions exceeds the limit.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_RegisterCorruptedHandler.`]
+    ///
+    /// **See also:** [`OH_Rdb_RegisterCorruptedHandler`].
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -2117,7 +2219,9 @@ extern "C" {
     /// [`RDB_OK`] if the execution is successful.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_UnregisterCorruptedHandler.`]
+    ///
+    /// **See also:** [`OH_Rdb_UnregisterCorruptedHandler`].
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -2195,7 +2299,8 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Store,`] OH_Data_VBuckets, OH_Rdb_ErrCode, OH_RDB_ReturningContext.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Data_VBuckets`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -2242,7 +2347,8 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Store,`] OH_Data_VBuckets, OH_Predicates, OH_Rdb_ErrCode, OH_RDB_ReturningContext.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Data_VBuckets`], [`OH_Predicates`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -2283,7 +2389,8 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
     /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
-    /// [`OH_Rdb_Store,`] OH_Predicates, OH_Rdb_ErrCode, OH_RDB_ReturningContext.
+    ///
+    /// **See also:** [`OH_Rdb_Store`], [`OH_Predicates`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

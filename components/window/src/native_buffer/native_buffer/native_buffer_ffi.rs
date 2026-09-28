@@ -93,37 +93,37 @@ pub struct OH_NativeBuffer_Usage(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_NativeBuffer_ColorGamut {
-    /// < Native or default
+    /// Native or default
     pub const NATIVEBUFFER_COLOR_GAMUT_NATIVE: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(0);
-    /// < Standard BT601
+    /// Standard BT601
     pub const NATIVEBUFFER_COLOR_GAMUT_STANDARD_BT601: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(1);
-    /// < Standard BT709
+    /// Standard BT709
     pub const NATIVEBUFFER_COLOR_GAMUT_STANDARD_BT709: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(2);
-    /// < DCI P3
+    /// DCI P3
     pub const NATIVEBUFFER_COLOR_GAMUT_DCI_P3: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(3);
-    /// < SRGB
+    /// SRGB
     pub const NATIVEBUFFER_COLOR_GAMUT_SRGB: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(4);
-    /// < Adobe RGB
+    /// Adobe RGB
     pub const NATIVEBUFFER_COLOR_GAMUT_ADOBE_RGB: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(5);
-    /// < Display P3
+    /// Display P3
     pub const NATIVEBUFFER_COLOR_GAMUT_DISPLAY_P3: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(6);
-    /// < BT2020
+    /// BT2020
     pub const NATIVEBUFFER_COLOR_GAMUT_BT2020: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(7);
-    /// < BT2100 PQ
+    /// BT2100 PQ
     pub const NATIVEBUFFER_COLOR_GAMUT_BT2100_PQ: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(8);
-    /// < BT2100 HLG
+    /// BT2100 HLG
     pub const NATIVEBUFFER_COLOR_GAMUT_BT2100_HLG: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(9);
-    /// < Display BT2020
+    /// Display BT2020
     pub const NATIVEBUFFER_COLOR_GAMUT_DISPLAY_BT2020: OH_NativeBuffer_ColorGamut =
         OH_NativeBuffer_ColorGamut(10);
 }
@@ -153,15 +153,15 @@ pub struct OH_NativeBuffer_ColorGamut(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeBuffer_Config {
-    /// < Width in pixels
+    /// Width in pixels
     pub width: i32,
-    /// < Height in pixels
+    /// Height in pixels
     pub height: i32,
-    /// < One of PixelFormat
+    /// One of PixelFormat
     pub format: i32,
-    /// < Combination of buffer usage
+    /// Combination of buffer usage
     pub usage: i32,
-    /// < the stride of memory in bytes
+    /// the stride of memory in bytes
     pub stride: i32,
 }
 /// Holds info for a single image plane.
@@ -178,11 +178,11 @@ pub struct OH_NativeBuffer_Config {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeBuffer_Plane {
-    /// < Offset in bytes of plane.
+    /// Offset in bytes of plane.
     pub offset: u64,
-    /// < Distance in bytes from the first value of one row of the image to the first value of the next row.
+    /// Distance in bytes from the first value of one row of the image to the first value of the next row.
     pub rowStride: u32,
-    /// < Distance in bytes from the first value of one column of the image to the first value of the next column.
+    /// Distance in bytes from the first value of one column of the image to the first value of the next column.
     pub columnStride: u32,
 }
 /// Holds all image planes.
@@ -199,9 +199,9 @@ pub struct OH_NativeBuffer_Plane {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_NativeBuffer_Planes {
-    /// < Number of distinct planes.
+    /// Number of distinct planes.
     pub planeCount: u32,
-    /// < Array of image planes.
+    /// Array of image planes.
     pub planes: [OH_NativeBuffer_Plane; 4usize],
 }
 extern "C" {

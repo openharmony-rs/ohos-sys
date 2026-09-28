@@ -72,7 +72,8 @@ extern "C" {
     /// # Returns
     ///
     /// * 0 if success; non-0 otherwise. For details about error codes, see [`OH_Websocket_ErrCode`].
-    /// ohos.permission.INTERNET
+    ///
+    /// Required Permissions: ohos.permission.INTERNET
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -99,7 +100,8 @@ extern "C" {
     /// # Returns
     ///
     /// * 0 if success; non-0 otherwise. For details about error codes, see [`OH_Websocket_ErrCode`].
-    /// ohos.permission.INTERNET
+    ///
+    /// Required Permissions: ohos.permission.INTERNET
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -124,7 +126,8 @@ extern "C" {
     /// # Returns
     ///
     /// * 0 if success; non-0 otherwise. For details about error codes, see [`OH_Websocket_ErrCode`].
-    /// ohos.permission.INTERNET
+    ///
+    /// Required Permissions: ohos.permission.INTERNET
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -146,7 +149,8 @@ extern "C" {
     /// # Returns
     ///
     /// * 0 if success; non-0 otherwise. For details about error codes, see [`OH_Websocket_ErrCode`].
-    /// ohos.permission.INTERNET
+    ///
+    /// Required Permissions: ohos.permission.INTERNET
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///

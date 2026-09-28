@@ -24,18 +24,24 @@ pub struct OH_ImageProcessing {
 }
 /// The color space information is used for color space conversion capability query.
 ///
-/// [`OH_ImageProcessing_IsColorSpaceConversionSupported`] [`OH_ImageProcessing_IsCompositionSupported`] [`OH_ImageProcessing_IsDecompositionSupported`]
+///
+/// **See also:** [`OH_ImageProcessing_IsColorSpaceConversionSupported`]
+///
+/// **See also:** [`OH_ImageProcessing_IsCompositionSupported`]
+///
+/// **See also:** [`OH_ImageProcessing_IsDecompositionSupported`]
+///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ImageProcessing_ColorSpaceInfo {
-    /// define metadata type, [`enum`]
+    /// define metadata type, [`OH_Pixelmap_HdrMetadataKey`]
     pub metadataType: i32,
-    /// define color space, [`enum`]
+    /// define color space, [`ColorSpaceName`]
     pub colorSpace: i32,
-    /// define pixel format, [`enum`]
+    /// define pixel format, [`PIXEL_FORMAT`]
     pub pixelFormat: i32,
 }
 #[cfg(feature = "api-13")]
@@ -59,7 +65,11 @@ impl ImageDetailEnhancer_QualityLevel {
 ///
 /// It is the value of the key parameter [`IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL`].
 ///
-/// [`OH_ImageProcessing_SetParameter`] [`OH_ImageProcessing_GetParameter`]
+///
+/// **See also:** [`OH_ImageProcessing_SetParameter`]
+///
+/// **See also:** [`OH_ImageProcessing_GetParameter`]
+///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -128,7 +138,9 @@ extern "C" {
     /// capabilities are supported by vendor. Use [`OH_ImageProcessing_IsColorSpaceConversionSupported`] to query if
     /// the conversion is supported between single-layer images.
     ///
-    /// [`OH_ImageProcessing_Create`]
+    ///
+    /// **See also:** [`OH_ImageProcessing_Create`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -139,7 +151,9 @@ extern "C" {
     /// capabilities are supported by vendor. Use [`OH_ImageProcessing_IsCompositionSupported`] to
     /// query if the composition is supported from dual-layer HDR image to single-layer HDR image.
     ///
-    /// [`OH_ImageProcessing_Create`]
+    ///
+    /// **See also:** [`OH_ImageProcessing_Create`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -150,7 +164,9 @@ extern "C" {
     /// capabilities are supported by vendor. Use [`OH_ImageProcessing_IsDecompositionSupported`] to
     /// query if the decomposition is supported from single-layer image to dual-layer HDR image.
     ///
-    /// [`OH_ImageProcessing_Create`]
+    ///
+    /// **See also:** [`OH_ImageProcessing_Create`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -160,7 +176,9 @@ extern "C" {
     /// Generate HDR Vivid metadata for single-layer image. The capability is supported by vendor. If the capability is not
     /// supported, [`OH_ImageProcessing_Create`] returns [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`].
     ///
-    /// [`OH_ImageProcessing_Create`]
+    ///
+    /// **See also:** [`OH_ImageProcessing_Create`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -170,7 +188,9 @@ extern "C" {
     /// Scale or resize images with the specified quality or just enhance details for rendering an image without changing
     /// its resolution.
     ///
-    /// [`OH_ImageProcessing_Create`]
+    ///
+    /// **See also:** [`OH_ImageProcessing_Create`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -181,7 +201,11 @@ extern "C" {
     /// Use [`OH_ImageProcessing_SetParameter`] to set the quality level.
     /// Use [`OH_ImageProcessing_GetParameter`] to get the current quality level.
     ///
-    /// [`OH_VideoProcessing_SetParameter`] [`OH_VideoProcessing_GetParameter`]
+    ///
+    /// **See also:** [`OH_VideoProcessing_SetParameter`]
+    ///
+    /// **See also:** [`OH_VideoProcessing_GetParameter`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]

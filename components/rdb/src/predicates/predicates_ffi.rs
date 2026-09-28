@@ -44,7 +44,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub equalTo: ::core::option::Option<
@@ -70,7 +71,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub notEqualTo: ::core::option::Option<
@@ -91,7 +93,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub beginWrap: ::core::option::Option<
         unsafe extern "C" fn(predicates: *mut OH_Predicates) -> *mut OH_Predicates,
@@ -107,7 +111,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub endWrap: ::core::option::Option<
         unsafe extern "C" fn(predicates: *mut OH_Predicates) -> *mut OH_Predicates,
@@ -123,7 +129,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub orOperate: ::core::option::Option<
         unsafe extern "C" fn(predicates: *mut OH_Predicates) -> *mut OH_Predicates,
@@ -139,7 +147,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub andOperate: ::core::option::Option<
         unsafe extern "C" fn(predicates: *mut OH_Predicates) -> *mut OH_Predicates,
@@ -157,7 +167,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub isNull: ::core::option::Option<
         unsafe extern "C" fn(
@@ -178,7 +190,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub isNotNull: ::core::option::Option<
         unsafe extern "C" fn(
@@ -201,7 +215,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub like: ::core::option::Option<
@@ -226,7 +241,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub between: ::core::option::Option<
@@ -252,7 +268,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub notBetween: ::core::option::Option<
@@ -278,7 +295,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub greaterThan: ::core::option::Option<
@@ -304,7 +322,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub lessThan: ::core::option::Option<
@@ -330,7 +349,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub greaterThanOrEqualTo: ::core::option::Option<
@@ -356,7 +376,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub lessThanOrEqualTo: ::core::option::Option<
@@ -382,7 +403,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_OrderType.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_OrderType`].
     ///
     /// Available since API-level: 10
     pub orderBy: ::core::option::Option<
@@ -403,7 +425,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub distinct: ::core::option::Option<
         unsafe extern "C" fn(predicates: *mut OH_Predicates) -> *mut OH_Predicates,
@@ -421,7 +445,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub limit: ::core::option::Option<
         unsafe extern "C" fn(
@@ -442,7 +468,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub offset: ::core::option::Option<
         unsafe extern "C" fn(
@@ -465,7 +493,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub groupBy: ::core::option::Option<
         unsafe extern "C" fn(
@@ -490,7 +520,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub in_: ::core::option::Option<
@@ -516,7 +547,8 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates,`] OH_VObject.
+    ///
+    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
     ///
     /// Available since API-level: 10
     pub notIn: ::core::option::Option<
@@ -535,7 +567,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the self.
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub clear: ::core::option::Option<
         unsafe extern "C" fn(predicates: *mut OH_Predicates) -> *mut OH_Predicates,
@@ -549,7 +583,9 @@ pub struct OH_Predicates {
     /// # Returns
     ///
     /// * Returns the status code of the execution..
-    /// [`OH_Predicates.`]
+    ///
+    /// **See also:** [`OH_Predicates`].
+    ///
     /// Available since API-level: 10
     pub destroy: ::core::option::Option<
         unsafe extern "C" fn(predicates: *mut OH_Predicates) -> ::core::ffi::c_int,

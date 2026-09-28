@@ -209,7 +209,7 @@ pub enum Input_KeyCode {
     KEYCODE_LEFT_BRACKET = 2059,
     /// Key ]
     KEYCODE_RIGHT_BRACKET = 2060,
-    /// Key
+    /// Key \
     KEYCODE_BACKSLASH = 2061,
     /// Key ;
     KEYCODE_SEMICOLON = 2062,
@@ -217,7 +217,7 @@ pub enum Input_KeyCode {
     KEYCODE_APOSTROPHE = 2063,
     /// Key /
     KEYCODE_SLASH = 2064,
-    /// Key
+    /// Key @
     KEYCODE_AT = 2065,
     /// Key +
     KEYCODE_PLUS = 2066,
