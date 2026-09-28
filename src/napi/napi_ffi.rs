@@ -1125,7 +1125,7 @@ extern "C" {
         value: napi_value,
         result: *mut napi_value,
     ) -> napi_status;
-    /// Obtains the prototype of an ArkTS object.
+    ///  Obtains the prototype of an ArkTS object.
     /// # Arguments
     ///
     /// * `env` - Current running virtual machine context.

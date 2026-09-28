@@ -804,7 +804,7 @@ extern "C" {
         count: u32,
         isClosed: bool,
     );
-    /// Adds a circle to the path, and wound in the specified direction.
+    ///  Adds a circle to the path, and wound in the specified direction.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing

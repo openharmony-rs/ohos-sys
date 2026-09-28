@@ -202,7 +202,7 @@ extern "C" {
     /// An example of json string of session attributes:
     /// ```json
     /// {
-    /// "model": "/data/storage/el2/base/files/qwen2/"
+    ///     "model": "/data/storage/el2/base/files/qwen2/"
     /// }
     /// ```
     ///
@@ -287,17 +287,17 @@ extern "C" {
     /// An example of completion request:
     /// ```json
     /// {
-    /// "messages": [
-    /// {
-    /// "role": "developer",
-    /// "content": "Your are a helpful assistant."
-    /// },
-    /// {
-    /// "role": "user",
-    /// "content": "What is OpenHarmony"
-    /// }
-    /// ],
-    /// "stream": true
+    ///      "messages": [
+    ///          {
+    ///              "role": "developer",
+    ///              "content": "Your are a helpful assistant."
+    ///          },
+    ///          {
+    ///              "role": "user",
+    ///              "content": "What is OpenHarmony"
+    ///          }
+    ///      ],
+    ///      "stream": true
     /// }
     /// ```
     ///

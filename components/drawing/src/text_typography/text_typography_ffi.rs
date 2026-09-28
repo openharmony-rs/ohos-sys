@@ -2745,7 +2745,7 @@ extern "C" {
         lineNumber: ::core::ffi::c_int,
         lineMetric: *mut OH_Drawing_LineMetrics,
     ) -> bool;
-    /// Sets the ellipsis of lines in a text file.
+    ///  Sets the ellipsis of lines in a text file.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing

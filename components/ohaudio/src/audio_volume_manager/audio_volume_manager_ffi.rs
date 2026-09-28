@@ -67,7 +67,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr
     ///
     ///
@@ -90,7 +90,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr or invalid
     /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
     ///
@@ -116,7 +116,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr or invalid
     /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
     ///
@@ -142,7 +142,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr or invalid
     /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
     ///
@@ -168,7 +168,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr or invalid
     /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
     ///
@@ -196,7 +196,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr or invalid
     /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
     ///
@@ -222,7 +222,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr
     /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
     ///
@@ -245,7 +245,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr
     /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
     ///
@@ -270,7 +270,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr
     /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
     ///
@@ -295,7 +295,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
+    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
     /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr
     /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
     ///

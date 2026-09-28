@@ -506,7 +506,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AUDIOSTREAM_SUCCESS`] if the execution is successful.
+    /// *  [`AUDIOSTREAM_SUCCESS`] if the execution is successful.
     /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`] the param of capturer is nullptr.
     /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`] function called in invalid state, only available before release state.
     ///
