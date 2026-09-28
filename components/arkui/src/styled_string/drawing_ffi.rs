@@ -4,11 +4,21 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 pub use super::ArkUI_StyledString;
+#[cfg(feature = "api-22")]
+use super::ArkUI_TextLayoutManager;
+#[cfg(feature = "api-22")]
+use crate::native_type::ArkUiResult;
 pub use ohos_drawing_sys::text_declaration::{
     OH_Drawing_FontCollection, OH_Drawing_TextStyle, OH_Drawing_Typography,
     OH_Drawing_TypographyStyle,
 };
 pub use ohos_drawing_sys::text_typography::OH_Drawing_PlaceholderSpan;
+#[cfg(feature = "api-22")]
+use ohos_drawing_sys::text_typography::{
+    OH_Drawing_LineMetrics, OH_Drawing_RectHeightStyle, OH_Drawing_RectWidthStyle,
+};
+#[cfg(feature = "api-22")]
+use ohos_sys_opaque_types::{OH_Drawing_PositionAndAffinity, OH_Drawing_TextBox};
 
 extern "C" {
     /// Creates a pointer to the ArkUI_StyledString object.
@@ -80,4 +90,90 @@ extern "C" {
         handle: *mut ArkUI_StyledString,
         placeholder: *mut OH_Drawing_PlaceholderSpan,
     );
+    /// Gets the rects for range.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Indicates the pointer to an <b>ArkUI_TextLayoutManager</b> object.
+    ///
+    /// * `start` - Indicates the start of range to set.
+    ///
+    /// * `end` - Indicates the end of range to set.
+    ///
+    /// * `widthStyle` - Indicates the width style to set.
+    /// For details, see the enum <b>OH_Drawing_RectWidthStyle</b>.
+    ///
+    /// * `heightStyle` - Indicates the height style to set.
+    /// For details, see the enum <b>OH_Drawing_RectHeightStyle</b>.
+    ///
+    /// * `outTextBoxes` - Returns the array of rects for range.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TextLayoutManager_GetRectsForRange(
+        layoutManager: *mut ArkUI_TextLayoutManager,
+        start: i32,
+        end: i32,
+        widthStyle: OH_Drawing_RectWidthStyle,
+        heightStyle: OH_Drawing_RectHeightStyle,
+        outTextBoxes: *mut *mut OH_Drawing_TextBox,
+    ) -> ArkUiResult;
+    /// Gets the glyph position at coordinate.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Indicates the pointer to an <b>ArkUI_TextLayoutManager</b> object.
+    ///
+    /// * `dx` - Indicates the positionX of typography to set.
+    ///
+    /// * `dy` - Indicates the positionY of typography to set.
+    ///
+    /// * `outPos` - Returns the glyph position at coordinate.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate(
+        layoutManager: *mut ArkUI_TextLayoutManager,
+        dx: f64,
+        dy: f64,
+        outPos: *mut *mut OH_Drawing_PositionAndAffinity,
+    ) -> ArkUiResult;
+    /// Get line metrics information.
+    ///
+    /// # Arguments
+    ///
+    /// * `layoutManager` - Indicates the pointer to a typography object <b>ArkUI_TextLayoutManager</b>.
+    ///
+    /// * `lineNumber` - Indicates the number of line.
+    ///
+    /// * `outMetrics` - Indicates the pointer to a line metrics object <b>OH_Drawing_LineMetrics</b>.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the result code.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    ///
+    /// Available since API-level: 22
+    #[cfg(feature = "api-22")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+    pub fn OH_ArkUI_TextLayoutManager_GetLineMetrics(
+        layoutManager: *mut ArkUI_TextLayoutManager,
+        lineNumber: i32,
+        outMetrics: *mut OH_Drawing_LineMetrics,
+    ) -> ArkUiResult;
 }
