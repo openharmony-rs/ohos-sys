@@ -258,7 +258,7 @@ fn strip_doxygen_links(raw: &str) -> String {
 /// punctuation, escape characters that would break the Rust string literal, and
 /// cap length so generated attributes stay readable.
 fn normalize_note(raw: &str) -> String {
-    let s = strip_doxygen_links(raw);
+    let s = strip_doxygen_links(raw).replace("[`", "").replace("`]", "");
 
     let mut collapsed = String::with_capacity(s.len());
     let mut prev_ws = false;
@@ -977,6 +977,13 @@ mod tests {
         assert!(OpenHarmonyApiLevel::try_from("26.1.0").is_err());
         let info = parse(" @deprecated since 26.0.0\n @since 12").expect("has deprecated");
         assert_eq!(info.since, Some(OpenHarmonyApiLevel::TwentySix));
+    }
+
+    #[test]
+    fn useinstead_strips_markdown_link() {
+        let info = parse("\n**Deprecated** since 23\n\n**Use instead:** [`OH_Foo`]\n\nAvailable since API-level: 12")
+            .expect("has deprecated");
+        assert_eq!(info.note.as_deref(), Some("Use instead: OH_Foo"));
     }
 
     #[test]

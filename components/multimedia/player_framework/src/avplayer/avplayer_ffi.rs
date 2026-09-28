@@ -694,7 +694,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     #[deprecated(
         since = "12",
-        note = "Use instead: [`OH_AVPlayer_SetPlayerOnInfoCallback`] [`OH_AVPlayer_SetPlayerOnErrorCallback`]"
+        note = "Use instead: OH_AVPlayer_SetPlayerOnInfoCallback OH_AVPlayer_SetPlayerOnErrorCallback"
     )]
     pub fn OH_AVPlayer_SetPlayerCallback(
         player: *mut OH_AVPlayer,
