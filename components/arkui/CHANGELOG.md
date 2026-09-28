@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add `MouseEventButton`, and `InputEventSourceType::KEY` and `InputEventSourceType::JOYSTICK`
+  (API-22), which were missing.
+
 ## 0.3.5
 
 - `ArkUI_DrawableDescriptor` is now re-exported from `ohos-sys-opaque-types`.

@@ -54,6 +54,18 @@ mod anon_enums {
         pub const MOUSE: Self = Self(bindgen_enums::UI_INPUT_EVENT_SOURCE_TYPE_MOUSE.0);
         pub const TOUCH_SCREEN: Self =
             Self(bindgen_enums::UI_INPUT_EVENT_SOURCE_TYPE_TOUCH_SCREEN.0);
+        /// The key type.
+        ///
+        /// Available since API-level: 22
+        #[cfg(feature = "api-22")]
+        #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+        pub const KEY: Self = Self(bindgen_enums::UI_INPUT_EVENT_SOURCE_TYPE_KEY.0);
+        /// The joystick type.
+        ///
+        /// Available since API-level: 22
+        #[cfg(feature = "api-22")]
+        #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
+        pub const JOYSTICK: Self = Self(bindgen_enums::UI_INPUT_EVENT_SOURCE_TYPE_JOYSTICK.0);
     }
 
     #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
@@ -75,5 +87,22 @@ mod anon_enums {
         #[cfg(feature = "api-18")]
         #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
         pub const CANCEL: Self = Self(bindgen_enums::UI_MOUSE_EVENT_ACTION_CANCEL.0);
+    }
+
+    #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+    #[repr(transparent)]
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    pub struct MouseEventButton(c_uint);
+
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    impl MouseEventButton {
+        pub const NONE: Self = Self(bindgen_enums::UI_MOUSE_EVENT_BUTTON_NONE.0);
+        pub const LEFT: Self = Self(bindgen_enums::UI_MOUSE_EVENT_BUTTON_LEFT.0);
+        pub const RIGHT: Self = Self(bindgen_enums::UI_MOUSE_EVENT_BUTTON_RIGHT.0);
+        pub const MIDDLE: Self = Self(bindgen_enums::UI_MOUSE_EVENT_BUTTON_MIDDLE.0);
+        pub const BACK: Self = Self(bindgen_enums::UI_MOUSE_EVENT_BUTTON_BACK.0);
+        pub const FORWARD: Self = Self(bindgen_enums::UI_MOUSE_EVENT_BUTTON_FORWARD.0);
     }
 }
