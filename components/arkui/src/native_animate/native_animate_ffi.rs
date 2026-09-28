@@ -968,7 +968,7 @@ extern "C" {
     ///
     /// * `option` - Indicates an animator parameter object.
     ///
-    /// * `time` - Indicates the keyframe time. Value range: [0,1].
+    /// * `time` - Indicates the keyframe time. Value range: \[0,1\].
     ///
     /// * `value` - Indicates the keyframe value.
     ///
@@ -1495,12 +1495,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `x1` - Indicates the X coordinate of the first point on the Bezier curve. Value range: [0, 1].
+    /// * `x1` - Indicates the X coordinate of the first point on the Bezier curve. Value range: \[0, 1\].
     /// A value less than 0 is handed as <b>0</b>. A value greater than 1 is handed as <b>1</b>.
     ///
     /// * `y1` - Indicates the Y coordinate of the first point on the Bezier curve.
     ///
-    /// * `x2` - Indicates the X coordinate of the second point on the Bezier curve. Value range: [0, 1].
+    /// * `x2` - Indicates the X coordinate of the second point on the Bezier curve. Value range: \[0, 1\].
     /// A value less than 0 is handed as <b>0</b>. A value greater than 1 is handed as <b>1</b>.
     ///
     /// * `y2` - Indicates the Y coordinate of the second point on the Bezier curve.
@@ -1665,8 +1665,8 @@ extern "C" {
     /// * `userData` - Indicates the custom data.
     ///
     /// * `interpolate` - Indicates the custom interpolation callback. <b>fraction</b> indicates the input x value for
-    /// interpolation when the animation starts; value range: [0,1].
-    /// The return value is the y value of the curve; value range: [0,1].
+    /// interpolation when the animation starts; value range: \[0,1\].
+    /// The return value is the y value of the curve; value range: \[0,1\].
     /// If <b>fraction</b> is <b>0</b>, the return value <b>0</b> corresponds to the animation start point; any other return
     /// value means that the animation jumps at the start point.
     /// If <b>fraction</b> is <b>1</b>, the return value <b>1</b> corresponds to the animation end point; any other return
@@ -1704,7 +1704,7 @@ extern "C" {
     /// the value <b>1</b> is used.
     /// # Arguments
     ///
-    /// * `opacity` - Indicates the opacity. Value range: [0, 1].
+    /// * `opacity` - Indicates the opacity. Value range: \[0, 1\].
     ///
     /// # Returns
     ///

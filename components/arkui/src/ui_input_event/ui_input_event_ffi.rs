@@ -870,7 +870,7 @@ extern "C" {
     /// * `event` - Pointer to the current UI input event.
     ///
     /// * `pointerIndex` - Index of the target touch point in the multi-touch data list.
-    /// Value range: [0, OH_ArkUI_PointerEvent_GetPointerCount() - 1]
+    /// Value range: \[0, OH_ArkUI_PointerEvent_GetPointerCount() - 1\]
     ///
     /// # Returns
     ///
@@ -910,7 +910,7 @@ extern "C" {
     /// * `event` - Pointer to the current UI input event.
     ///
     /// * `pointerIndex` - Index of the target touch point in the multi-touch data list.
-    /// Value range: [0, OH_ArkUI_PointerEvent_GetPointerCount() - 1]
+    /// Value range: \[0, OH_ArkUI_PointerEvent_GetPointerCount() - 1\]
     ///
     /// # Returns
     ///
@@ -943,7 +943,7 @@ extern "C" {
         pointerIndex: u32,
     ) -> f32;
     /// Obtains the tilt angle relative to the YZ plane from a pointer event.
-    /// The value range is [-90, 90], where positive values indicate a rightward tilt.
+    /// The value range is \[-90, 90\], where positive values indicate a rightward tilt.
     /// This API is applicable only to stylus-based touch events from devices that support tilt angle reporting.
     ///
     /// # Arguments
@@ -964,7 +964,7 @@ extern "C" {
         pointerIndex: u32,
     ) -> f32;
     /// Obtains the tilt angle relative to the XZ plane from a pointer event.
-    /// The value range is [-90, 90], where positive values indicate a rightward tilt.
+    /// The value range is \[-90, 90\], where positive values indicate a rightward tilt.
     /// This API is applicable only to stylus-based touch events from devices that support tilt angle reporting.
     ///
     /// # Arguments
@@ -1337,7 +1337,7 @@ extern "C" {
     /// * `event` - Pointer to the current UI input event.
     ///
     /// * `pointerIndex` - Index of the target touch point in the multi-touch data list.
-    /// Value range: [0, OH_ArkUI_PointerEvent_GetPointerCount() - 1]
+    /// Value range: \[0, OH_ArkUI_PointerEvent_GetPointerCount() - 1\]
     ///
     /// * `historyIndex` - Index of the historical value to return. It must be less than
     /// [`OH_ArkUI_PointerEvent_GetHistorySize`](crate::ui_input_event::OH_ArkUI_PointerEvent_GetHistorySize).
@@ -1364,7 +1364,7 @@ extern "C" {
     /// * `event` - Pointer to the current UI input event.
     ///
     /// * `pointerIndex` - Index of the target touch point in the multi-touch data list.
-    /// Value range: [0, OH_ArkUI_PointerEvent_GetPointerCount() - 1]
+    /// Value range: \[0, OH_ArkUI_PointerEvent_GetPointerCount() - 1\]
     ///
     /// * `historyIndex` - Index of the historical value to return. It must be less than
     /// [`OH_ArkUI_PointerEvent_GetHistorySize`](crate::ui_input_event::OH_ArkUI_PointerEvent_GetHistorySize).
@@ -1405,7 +1405,7 @@ extern "C" {
         historyIndex: u32,
     ) -> f32;
     /// Obtains the angle relative to the YZ plane in a specific historical event from a directional input event
-    /// (for example, a touch event). The value range is [-90, 90]. A positive value indicates a rightward tilt.
+    /// (for example, a touch event). The value range is \[-90, 90\]. A positive value indicates a rightward tilt.
     ///
     /// # Arguments
     ///
@@ -1428,7 +1428,7 @@ extern "C" {
         historyIndex: u32,
     ) -> f32;
     /// Obtains the angle relative to the XZ plane in a specific historical event from a directional input event
-    /// (for example, a touch event). The value range is [-90, 90]. A positive value indicates a downward tilt.
+    /// (for example, a touch event). The value range is \[-90, 90\]. A positive value indicates a downward tilt.
     ///
     /// # Arguments
     ///

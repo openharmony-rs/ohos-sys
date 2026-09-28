@@ -1283,9 +1283,9 @@ extern "C" {
     ///
     /// * `player` - Pointer to an OH_AVPlayer instance
     ///
-    /// * `width` - Width of the window. The value range is [320 - 1920], in px.
+    /// * `width` - Width of the window. The value range is \[320 - 1920\], in px.
     ///
-    /// * `height` - Height of the window. The value range is [320 - 1080], in px.
+    /// * `height` - Height of the window. The value range is \[320 - 1080\], in px.
     ///
     /// # Returns
     ///

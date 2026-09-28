@@ -812,7 +812,7 @@ extern "C" {
     ///
     /// char buffer should be at least as large as the size of the real id length plus 1.
     ///
-    /// It is recommended that the size of the char buffer be [OH_XCOMPONENT_ID_LEN_MAX + 1].
+    /// It is recommended that the size of the char buffer be \[OH_XCOMPONENT_ID_LEN_MAX + 1\].
     ///
     /// * `size` - Indicates the pointer to the length of <b>id</b>, which you can receive.
     ///

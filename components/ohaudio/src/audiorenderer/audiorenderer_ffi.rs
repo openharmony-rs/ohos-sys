@@ -98,7 +98,7 @@ pub type OH_AudioRenderer_OnFastStatusChange = ::core::option::Option<
 /// # Returns
 ///
 /// * Length of the valid data that has written into audioData buffer. The return value must be in range of
-/// [0, audioDataSize]. If the return value is less than 0, the system changes it to 0. And, if the return value is
+/// \[0, audioDataSize\]. If the return value is less than 0, the system changes it to 0. And, if the return value is
 /// greater than audioDataSize, the system changes it to audioDataSize. Note that the length of the returned buffer
 /// must be an integer multiple of the length of the single sample data. For example, for 2 channels and S16 format
 /// audio data, it must be an integer multiple of 4(2*16/8). Otherwise, it may cause noise during playback.

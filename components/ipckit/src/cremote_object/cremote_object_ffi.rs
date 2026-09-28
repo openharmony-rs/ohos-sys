@@ -25,7 +25,7 @@ pub struct OHIPCDeathRecipient {
 /// Required System Capabilities: SystemCapability.Communication.IPC.Core
 /// # Arguments
 ///
-/// * `code` - Custom command word for communication, in the range [0x01, 0x00ffffff].
+/// * `code` - Custom command word for communication, in the range \[0x01, 0x00ffffff\].
 ///
 /// * `data` - Pointer to the request data object. It cannot be NULL or released in the function.
 ///
@@ -38,7 +38,7 @@ pub struct OHIPCDeathRecipient {
 ///
 /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
 ///
-/// Returns a custom error code in the range [1909001, 1909999] or a system error code otherwise.
+/// Returns a custom error code in the range \[1909001, 1909999\] or a system error code otherwise.
 ///
 /// Returns [`OH_IPC_ErrorCode#OH_IPC_INVALID_USER_ERROR_CODE`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INVALID_USER_ERROR_CODE) if the custom error code is out of the value range.
 ///
@@ -180,7 +180,7 @@ extern "C" {
     ///
     /// * `proxy` - Pointer to the <b>OHIPCRemoteProxy</b> object. It cannot be NULL.
     ///
-    /// * `code` - Custom IPC command word, in the range [0x01, 0x00ffffff].
+    /// * `code` - Custom IPC command word, in the range \[0x01, 0x00ffffff\].
     ///
     /// * `data` - Pointer to the request data object. It cannot be NULL.
     ///

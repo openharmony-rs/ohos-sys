@@ -19,11 +19,11 @@ impl OH_IPC_ErrorCode {
     pub const OH_IPC_PARCEL_READ_ERROR: OH_IPC_ErrorCode = OH_IPC_ErrorCode(1901002);
     /// Failed to allocate memory.
     pub const OH_IPC_MEM_ALLOCATOR_ERROR: OH_IPC_ErrorCode = OH_IPC_ErrorCode(1901003);
-    /// The command word is out of the value range [0x01,0x00ffffff].
+    /// The command word is out of the value range \[0x01,0x00ffffff\].
     pub const OH_IPC_CODE_OUT_OF_RANGE: OH_IPC_ErrorCode = OH_IPC_ErrorCode(1901004);
     /// The remote object is dead.
     pub const OH_IPC_DEAD_REMOTE_OBJECT: OH_IPC_ErrorCode = OH_IPC_ErrorCode(1901005);
-    /// The custom error code is out of range [1900001, 1999999].
+    /// The custom error code is out of range \[1900001, 1999999\].
     pub const OH_IPC_INVALID_USER_ERROR_CODE: OH_IPC_ErrorCode = OH_IPC_ErrorCode(1901006);
     /// IPC internal error.
     pub const OH_IPC_INNER_ERROR: OH_IPC_ErrorCode = OH_IPC_ErrorCode(1901007);

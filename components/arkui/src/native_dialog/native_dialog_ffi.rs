@@ -635,7 +635,7 @@ pub struct ArkUI_NativeDialogAPI_3 {
     ///
     /// * `handle` - Indicates the pointer to the custom dialog box controller.
     ///
-    /// * `levelOrder` - Indicates the display order. The valid range is [-100000.0, 100000.0].
+    /// * `levelOrder` - Indicates the display order. The valid range is \[-100000.0, 100000.0\].
     ///
     /// # Returns
     ///
@@ -1060,19 +1060,19 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// * `backgroundBlurStyleOptions` - Background blur effect options.
     /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter:
     ///
-    /// .value[0].i32: color mode. The value is an enum of [`ArkUI_ColorMode`](crate::native_type::ArkUI_ColorMode).
+    /// .value\[0\].i32: color mode. The value is an enum of [`ArkUI_ColorMode`](crate::native_type::ArkUI_ColorMode).
     ///
-    /// .value[1]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor).
+    /// .value\[1\]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor).
     ///
-    /// .value[2]?.f32: blur degree. The value range is [0.0, 1.0].
+    /// .value\[2\]?.f32: blur degree. The value range is \[0.0, 1.0\].
     ///
-    /// .value[3]?.u32: brightness of black in the grayscale blur. The value range is [0, 127].
+    /// .value\[3\]?.u32: brightness of black in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value[4]?.u32: degree of darkening the white color in the grayscale blur. The value range is [0, 127].
+    /// .value\[4\]?.u32: degree of darkening the white color in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value[5]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
+    /// .value\[5\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
     ///
-    /// .value[6]?.u32: background color, in 0xARGB format, of the components within the window after the window
+    /// .value\[6\]?.u32: background color, in 0xARGB format, of the components within the window after the window
     /// loses focus (in which case, the blur effect on the components within the window is
     /// removed).
     ///
@@ -1101,23 +1101,23 @@ pub struct ArkUI_NativeDialogAPI_3 {
     /// * `backgroundEffect` - Background effect.
     /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter:
     ///
-    /// .value[0].f32: blur radius, in vp.
+    /// .value\[0\].f32: blur radius, in vp.
     ///
-    /// .value[1]?.f32: saturation.
+    /// .value\[1\]?.f32: saturation.
     ///
-    /// .value[2]?.f32: brightness.
+    /// .value\[2\]?.f32: brightness.
     ///
-    /// .value[3]?.u32: color, in 0xARGB format.
+    /// .value\[3\]?.u32: color, in 0xARGB format.
     ///
-    /// .value[4]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor).
+    /// .value\[4\]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor).
     ///
-    /// .value[5]?.u32: brightness of black in the grayscale blur. The value range is [0, 127].
+    /// .value\[5\]?.u32: brightness of black in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value[6]?.u32: degree of darkening the white color in the grayscale blur. The value range is [0, 127].
+    /// .value\[6\]?.u32: degree of darkening the white color in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value[7]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
+    /// .value\[7\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
     ///
-    /// .value[8]?.u32: background color, in 0xARGB format, of the components within the window after the window
+    /// .value\[8\]?.u32: background color, in 0xARGB format, of the components within the window after the window
     /// loses focus (in which case, the blur effect on the components within the window is
     /// removed).
     ///
@@ -1933,19 +1933,19 @@ extern "C" {
     /// * `backgroundBlurStyleOptions` - Background blur effect options of the dialog box.
     /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter:
     ///
-    /// .value[0].i32: color mode. The value is an enum of [`ArkUI_ColorMode`](crate::native_type::ArkUI_ColorMode).
+    /// .value\[0\].i32: color mode. The value is an enum of [`ArkUI_ColorMode`](crate::native_type::ArkUI_ColorMode).
     ///
-    /// .value[1]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor).
+    /// .value\[1\]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor).
     ///
-    /// .value[2]?.f32: blur degree. The value range is [0.0, 1.0].
+    /// .value\[2\]?.f32: blur degree. The value range is \[0.0, 1.0\].
     ///
-    /// .value[3]?.u32: brightness of black in the grayscale blur. The value range is [0, 127].
+    /// .value\[3\]?.u32: brightness of black in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value[4]?.u32: degree of darkening the white color in the grayscale blur. The value range is [0, 127].
+    /// .value\[4\]?.u32: degree of darkening the white color in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value[5]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
+    /// .value\[5\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
     ///
-    /// .value[6]?.u32: background color, in 0xARGB format, of the components within the window after the window loses
+    /// .value\[6\]?.u32: background color, in 0xARGB format, of the components within the window after the window loses
     /// focus (in which case, the blur effect on the components within the window is removed).
     ///
     ///
@@ -1971,23 +1971,23 @@ extern "C" {
     /// * `backgroundEffect` - Background effect of the dialog box.
     /// Format of the [`ArkUI_AttributeItem`](crate::native_node::ArkUI_AttributeItem) parameter:
     ///
-    /// .value[0].f32: blur radius, in vp.
+    /// .value\[0\].f32: blur radius, in vp.
     ///
-    /// .value[1]?.f32: saturation.
+    /// .value\[1\]?.f32: saturation.
     ///
-    /// .value[2]?.f32: brightness.
+    /// .value\[2\]?.f32: brightness.
     ///
-    /// .value[3]?.u32: color, in 0xARGB format.
+    /// .value\[3\]?.u32: color, in 0xARGB format.
     ///
-    /// .value[4]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor).
+    /// .value\[4\]?.i32: adaptive color mode. The value is an enum of [`ArkUI_AdaptiveColor`](crate::native_type::ArkUI_AdaptiveColor).
     ///
-    /// .value[5]?.u32: brightness of black in the grayscale blur. The value range is [0, 127].
+    /// .value\[5\]?.u32: brightness of black in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value[6]?.u32: degree of darkening the white color in the grayscale blur. The value range is [0, 127].
+    /// .value\[6\]?.u32: degree of darkening the white color in the grayscale blur. The value range is \[0, 127\].
     ///
-    /// .value[7]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
+    /// .value\[7\]?.i32: blur activation policy. The value is an enum of [`ArkUI_BlurStyleActivePolicy`](crate::native_type::ArkUI_BlurStyleActivePolicy).
     ///
-    /// .value[8]?.u32: background color, in 0xARGB format, of the components within the window after the window loses
+    /// .value\[8\]?.u32: background color, in 0xARGB format, of the components within the window after the window loses
     /// focus (in which case, the blur effect on the components within the window is removed).
     ///
     ///

@@ -100,7 +100,7 @@ extern "C" {
     ///
     /// * `recorder` - Pointer to an OH_AVRecorder instance
     ///
-    /// * `rotation` - angle, should be [0, 90, 180, 270]
+    /// * `rotation` - angle, should be \[0, 90, 180, 270\]
     ///
     /// # Returns
     ///

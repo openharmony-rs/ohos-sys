@@ -1248,7 +1248,7 @@ extern "C" {
     ///
     /// * `other` - Indicates the pointer to an <b>OH_Drawing_Path</b> object to be interpolated with path.
     ///
-    /// * `weight` - Indicates the interpolation weight, which must be in the range [0, 1].
+    /// * `weight` - Indicates the interpolation weight, which must be in the range \[0, 1\].
     ///
     /// * `success` - Indicates the interpolation is success or not.
     ///
@@ -1260,7 +1260,7 @@ extern "C" {
     /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
     /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if either path, other, success or interpolatedPath is
     /// nullptr.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if weight is outside the range [0, 1].
+    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) if weight is outside the range \[0, 1\].
     ///
     /// Available since API-level: 20
     ///

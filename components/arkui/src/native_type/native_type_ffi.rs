@@ -8429,7 +8429,7 @@ extern "C" {
     ///
     /// * `option` - Linear progress indicator style information.
     ///
-    /// * `strokeRadius` - Rounded corner radius of the progress indicator. Value range: [0, strokeWidth/2].
+    /// * `strokeRadius` - Rounded corner radius of the progress indicator. Value range: \[0, strokeWidth/2\].
     /// Default value: strokeWidth/2.
     ///
     /// Available since API-level: 15
@@ -8693,7 +8693,7 @@ extern "C" {
     ///
     /// * `value` - Array of threshold ratios. Each element represents the ratio of the visible area of a component to
     /// its total area. The visible area is calculated within the parent component's bounds; any area outside the parent
-    /// component is not considered. Each value must be within the [0.0, 1.0] range.
+    /// component is not considered. Each value must be within the \[0.0, 1.0\] range.
     /// Values outside this range will be handled as 0.0 or 1.0.
     ///
     /// * `size` - Size of the threshold array.
@@ -10283,7 +10283,7 @@ extern "C" {
         writeLength: *mut i32,
     ) -> ArkUiResult;
     /// Sets the starting progress in the ArkUI_MotionPathOptions. Progress refers to the ratio of the length of the
-    /// path that has been traveled to the total length of the entire path. The value range is [0.0, 1.0], and the
+    /// path that has been traveled to the total length of the entire path. The value range is \[0.0, 1.0\], and the
     /// "from" value should be less than or equal to the "to" value; otherwise, an ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE
     /// error code will be returned.
     ///
@@ -10330,7 +10330,7 @@ extern "C" {
         from: *mut f32,
     ) -> ArkUiResult;
     /// Sets the endpoint progress in the ArkUI_MotionPathOptions. Progress refers to the ratio of the length of the
-    /// path that has been traveled to the total length of the entire path. The value range is [0.0, 1.0], and the
+    /// path that has been traveled to the total length of the entire path. The value range is \[0.0, 1.0\], and the
     /// "from" value should be less than or equal to the "to" value; otherwise, an ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE
     /// error code will be returned.
     ///

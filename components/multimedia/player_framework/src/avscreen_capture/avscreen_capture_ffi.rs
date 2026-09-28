@@ -1026,11 +1026,11 @@ extern "C" {
     /// Excluded windows will not appear in the selection list.
     /// # Arguments
     ///
-    /// * `capture` - [in] Screen capture handle created via OH_AVScreenCapture_Create
+    /// * `capture` - \[in\] Screen capture handle created via OH_AVScreenCapture_Create
     ///
-    /// * `excludedWindowIDs` - [in] Array of window IDs to exclude (process-local)
+    /// * `excludedWindowIDs` - \[in\] Array of window IDs to exclude (process-local)
     ///
-    /// * `windowCount` - [in] Number of excluded windows
+    /// * `windowCount` - \[in\] Number of excluded windows
     ///
     /// # Returns
     ///
@@ -1055,9 +1055,9 @@ extern "C" {
     /// Mode changes take effect upon the next call to function PresentPicker.
     /// # Arguments
     ///
-    /// * `capture` - [in] Pointer to the screen capture instance created via OH_AVScreenCapture_Create
+    /// * `capture` - \[in\] Pointer to the screen capture instance created via OH_AVScreenCapture_Create
     ///
-    /// * `pickerMode` - [in] Picker display mode (see OH_CapturePickerMode enum)
+    /// * `pickerMode` - \[in\] Picker display mode (see OH_CapturePickerMode enum)
     ///
     /// # Returns
     ///
@@ -1081,7 +1081,7 @@ extern "C" {
     /// 2. Dynamic source switching: Change capture target during active capture
     /// # Arguments
     ///
-    /// * `capture` - [in] Initialized screen capture instance
+    /// * `capture` - \[in\] Initialized screen capture instance
     ///
     /// # Returns
     ///
