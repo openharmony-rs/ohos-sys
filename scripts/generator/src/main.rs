@@ -72,13 +72,24 @@ enum ApiLevelParseError {
     ParseIntError(#[from] ParseIntError),
     #[error("Unknown API level {0}! Perhaps we need an update")]
     UnknownApiVersion(u32),
+    #[error(
+        "API level {0} has a non-zero minor or patch version, which can't be mapped to a feature"
+    )]
+    UnsupportedMinorVersion(String),
 }
 
 impl TryFrom<&str> for OpenHarmonyApiLevel {
     type Error = ApiLevelParseError;
 
+    /// Parses `N`, or the `N.0.0` form used since API level 26.
     fn try_from(api_level: &str) -> Result<Self, ApiLevelParseError> {
-        let num: u32 = api_level.parse()?;
+        let (major, minor_patch) = api_level.split_once('.').unwrap_or((api_level, "0"));
+        if minor_patch.split('.').any(|part| part != "0") {
+            return Err(ApiLevelParseError::UnsupportedMinorVersion(
+                api_level.to_string(),
+            ));
+        }
+        let num: u32 = major.parse()?;
         let level = match num {
             8 => OpenHarmonyApiLevel::Eight,
             9 => OpenHarmonyApiLevel::Nine,
@@ -955,6 +966,17 @@ mod tests {
             .expect("has deprecated");
         assert_eq!(info.since, Some(OpenHarmonyApiLevel::Twenty));
         assert_eq!(info.note, None);
+    }
+
+    #[test]
+    fn parses_semver_api_level() {
+        assert_eq!(
+            OpenHarmonyApiLevel::try_from("26.0.0").unwrap(),
+            OpenHarmonyApiLevel::TwentySix
+        );
+        assert!(OpenHarmonyApiLevel::try_from("26.1.0").is_err());
+        let info = parse(" @deprecated since 26.0.0\n @since 12").expect("has deprecated");
+        assert_eq!(info.since, Some(OpenHarmonyApiLevel::TwentySix));
     }
 
     #[test]
