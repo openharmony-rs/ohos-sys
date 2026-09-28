@@ -3,12 +3,6 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(all(doc, feature = "api-11"))]
-use crate::avcodec_audiocodec::*;
-#[cfg(doc)]
-use crate::avcodec_videodecoder::*;
-#[cfg(doc)]
-use crate::avcodec_videoencoder::*;
 
 impl OH_AVErrCode {
     /// the operation completed successfully.
@@ -145,9 +139,9 @@ impl OH_AVErrCode {
     pub const AV_ERR_IO_CLEARTEXT_NOT_PERMITTED: OH_AVErrCode = OH_AVErrCode(5411012);
     /// Signals a stream format change in synchronous mode.
     /// Required follow-up actions:
-    /// - For video encoders: Call [`OH_VideoEncoder_GetOutputDescription`]
-    /// - For video decoders: Call [`OH_VideoDecoder_GetOutputDescription`]
-    /// - For audio decoders : Call [`OH_AudioCodec_GetOutputDescription`]
+    /// - For video encoders: Call [`OH_VideoEncoder_GetOutputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetOutputDescription)
+    /// - For video decoders: Call [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription)
+    /// - For audio decoders : Call [`OH_AudioCodec_GetOutputDescription`](crate::avcodec_audiocodec::OH_AudioCodec_GetOutputDescription)
     /// to retrieve updated stream configuration.
     ///
     /// Available since API-level: 20

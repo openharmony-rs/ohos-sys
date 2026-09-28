@@ -14,16 +14,16 @@ extern "C" {
     /// This function is optional.
     ///
     /// Typically, this function is called once when the host process is started to initialize the global environment for
-    /// image processing, which can reduce the time of [`OH_ImageProcessing_Create`].
+    /// image processing, which can reduce the time of [`OH_ImageProcessing_Create`](crate::image_processing::OH_ImageProcessing_Create).
     ///
-    /// To deinitialize global environment, call [`OH_ImageProcessing_DeinitializeEnvironment`].
+    /// To deinitialize global environment, call [`OH_ImageProcessing_DeinitializeEnvironment`](crate::image_processing::OH_ImageProcessing_DeinitializeEnvironment).
     ///
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if initialization is successful.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if initialization is successful.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INITIALIZE_FAILED`] if initialization is failed.
+    /// [`IMAGE_PROCESSING_ERROR_INITIALIZE_FAILED`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INITIALIZE_FAILED) if initialization is failed.
     ///
     /// You can check if the device GPU is working properly.
     ///
@@ -33,21 +33,21 @@ extern "C" {
     pub fn OH_ImageProcessing_InitializeEnvironment() -> ImageProcessing_ErrorCode;
     /// Deinitialize global environment for image processing.
     ///
-    /// This function is required if [`OH_ImageProcessing_InitializeEnvironment`] is called. Typically, this
+    /// This function is required if [`OH_ImageProcessing_InitializeEnvironment`](crate::image_processing::OH_ImageProcessing_InitializeEnvironment) is called. Typically, this
     /// function is called when the host process is about to exit to deinitialize the global environment, which is
-    /// initialized by calling [`OH_ImageProcessing_InitializeEnvironment`].
+    /// initialized by calling [`OH_ImageProcessing_InitializeEnvironment`](crate::image_processing::OH_ImageProcessing_InitializeEnvironment).
     ///
     /// If there is some image processing instance existing, this function should not be called.
     ///
-    /// If the [`OH_ImageProcessing_InitializeEnvironment`] is not called, this function should not be called.
+    /// If the [`OH_ImageProcessing_InitializeEnvironment`](crate::image_processing::OH_ImageProcessing_InitializeEnvironment) is not called, this function should not be called.
     ///
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if deinitialization is successful.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if deinitialization is successful.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`] if some image processing instance is not destroyed or
-    /// [`OH_ImageProcessing_InitializeEnvironment`] is not called.
+    /// [`IMAGE_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_OPERATION_NOT_PERMITTED) if some image processing instance is not destroyed or
+    /// [`OH_ImageProcessing_InitializeEnvironment`](crate::image_processing::OH_ImageProcessing_InitializeEnvironment) is not called.
     ///
     ///
     /// Available since API-level: 13
@@ -153,16 +153,16 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if creating an image processing successfully.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if creating an image processing successfully.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`] if the type is not supported. For example, if metadata
+    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING) if the type is not supported. For example, if metadata
     /// generation is not supported by vendor, it returns unsupported processing.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_CREATE_FAILED`] if failed to create an image processing.
+    /// [`IMAGE_PROCESSING_ERROR_CREATE_FAILED`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_CREATE_FAILED) if failed to create an image processing.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or <b>*</b>instance is <b>not</b> null.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or <b>*</b>instance is <b>not</b> null.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`] if type is invalid.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_PARAMETER) if type is invalid.
     ///
     ///
     /// Available since API-level: 13
@@ -181,9 +181,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if the instance is destroyed successfully.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if the instance is destroyed successfully.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not an image processing instance.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not an image processing instance.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -203,16 +203,16 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if setting parameter is successful.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if setting parameter is successful.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not an image processing instance.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not an image processing instance.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`] if the parameter is null.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_PARAMETER) if the parameter is null.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`] if some property of the parameter is invalid. For example, the parameter
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_VALUE) if some property of the parameter is invalid. For example, the parameter
     /// contains unsupported parameter key or value.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`] if memory allocation failed.
+    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_NO_MEMORY) if memory allocation failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -233,11 +233,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if getting parameter is successful.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if getting parameter is successful.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not an image processing instance.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not an image processing instance.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`] if the parameter is null.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_PARAMETER) if the parameter is null.
     ///
     ///
     /// Available since API-level: 13
@@ -255,7 +255,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. The instance should be created with
-    /// type [`IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION`].
+    /// type [`IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION).
     ///
     /// * `sourceImage` - Input image pointer.
     ///
@@ -263,20 +263,20 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if processing image is successful.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if processing image is successful.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not an image processing instance.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not an image processing instance.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`] if the image is null.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_PARAMETER) if the image is null.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`] if some property of image is invalid. For example, the color space
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_VALUE) if some property of image is invalid. For example, the color space
     /// of the image is unsupported.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`] if the processing is not supported.
+    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING) if the processing is not supported.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_PROCESS_FAILED`] if processing error occurs.
+    /// [`IMAGE_PROCESSING_ERROR_PROCESS_FAILED`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_PROCESS_FAILED) if processing error occurs.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`] if memory allocation failed.
+    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_NO_MEMORY) if memory allocation failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -293,7 +293,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. The instance should be created with
-    /// type [`IMAGE_PROCESSING_TYPE_COMPOSITION`].
+    /// type [`IMAGE_PROCESSING_TYPE_COMPOSITION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_COMPOSITION).
     ///
     /// * `sourceImage` - Input image pointer.
     ///
@@ -303,20 +303,20 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if processing image is successful.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if processing image is successful.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not an image processing instance.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not an image processing instance.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`] if the image is null.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_PARAMETER) if the image is null.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`] if some property of image is invalid. For example, the color space
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_VALUE) if some property of image is invalid. For example, the color space
     /// of the image is unsupported.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`] if the processing is not supported.
+    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING) if the processing is not supported.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_PROCESS_FAILED`] if processing error occurs.
+    /// [`IMAGE_PROCESSING_ERROR_PROCESS_FAILED`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_PROCESS_FAILED) if processing error occurs.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`] if memory allocation failed.
+    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_NO_MEMORY) if memory allocation failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -334,7 +334,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. The instance should be created with
-    /// type [`IMAGE_PROCESSING_TYPE_DECOMPOSITION`].
+    /// type [`IMAGE_PROCESSING_TYPE_DECOMPOSITION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_DECOMPOSITION).
     ///
     /// * `sourceImage` - Input image pointer.
     ///
@@ -344,20 +344,20 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if processing image is successful.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if processing image is successful.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not an image processing instance.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not an image processing instance.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`] if the image is null.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_PARAMETER) if the image is null.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`] if some property of image is invalid. For example, the color space
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_VALUE) if some property of image is invalid. For example, the color space
     /// of the image is unsupported.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`] if the processing is not supported.
+    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING) if the processing is not supported.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_PROCESS_FAILED`] if processing error occurs.
+    /// [`IMAGE_PROCESSING_ERROR_PROCESS_FAILED`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_PROCESS_FAILED) if processing error occurs.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`] if memory allocation failed.
+    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_NO_MEMORY) if memory allocation failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -375,26 +375,26 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. The instance should be created with
-    /// type [`IMAGE_PROCESSING_TYPE_METADATA_GENERATION`].
+    /// type [`IMAGE_PROCESSING_TYPE_METADATA_GENERATION`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_METADATA_GENERATION).
     ///
     /// * `sourceImage` - Input image pointer.
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if processing image is successful.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if processing image is successful.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not an image processing instance.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not an image processing instance.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`] if the image is null.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_PARAMETER) if the image is null.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`] if some property of image is invalid. For example, the color space
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_VALUE) if some property of image is invalid. For example, the color space
     /// of the image is unsupported.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`] if the processing is not supported.
+    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING) if the processing is not supported.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_PROCESS_FAILED`] if processing error occurs.
+    /// [`IMAGE_PROCESSING_ERROR_PROCESS_FAILED`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_PROCESS_FAILED) if processing error occurs.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`] if memory allocation failed.
+    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_NO_MEMORY) if memory allocation failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -412,7 +412,7 @@ extern "C" {
     /// # Arguments
     ///
     /// * `imageProcessor` - An image processing instance pointer. The instance should be created with
-    /// type [`IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER`].
+    /// type [`IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER`](crate::image_processing_types::IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER).
     ///
     /// * `sourceImage` - Input image pointer.
     ///
@@ -420,20 +420,20 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`IMAGE_PROCESSING_SUCCESS`] if processing image is successful.
+    /// * [`IMAGE_PROCESSING_SUCCESS`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_SUCCESS) if processing image is successful.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not an image processing instance.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_INSTANCE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not an image processing instance.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`] if the image is null.
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_PARAMETER`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_PARAMETER) if the image is null.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`] if some property of image is invalid. For example, the color space
+    /// [`IMAGE_PROCESSING_ERROR_INVALID_VALUE`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_INVALID_VALUE) if some property of image is invalid. For example, the color space
     /// of the image is unsupported.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`] if the processing is not supported.
+    /// [`IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING) if the processing is not supported.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_PROCESS_FAILED`] if processing error occurs.
+    /// [`IMAGE_PROCESSING_ERROR_PROCESS_FAILED`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_PROCESS_FAILED) if processing error occurs.
     ///
-    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`] if memory allocation failed.
+    /// [`IMAGE_PROCESSING_ERROR_NO_MEMORY`](crate::image_processing_types::ImageProcessing_ErrorCode::IMAGE_PROCESSING_ERROR_NO_MEMORY) if memory allocation failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]

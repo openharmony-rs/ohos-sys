@@ -13,11 +13,11 @@
 pub struct OH_VObject {
     /// The id used to uniquely identify the OH_VObject struct.
     pub id: i64,
-    /// Convert the int64 input parameter to a value of type [`OH_VObject`].
+    /// Convert the int64 input parameter to a value of type [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// # Arguments
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// * `value` - Represents a pointer to an int64_t input parameter or the array of type int64_t.
     ///
@@ -28,7 +28,7 @@ pub struct OH_VObject {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VObject`].
+    /// **See also:** [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub putInt64: ::core::option::Option<
@@ -38,11 +38,11 @@ pub struct OH_VObject {
             count: u32,
         ) -> ::core::ffi::c_int,
     >,
-    /// Convert the double input parameter to a value of type [`OH_VObject`].
+    /// Convert the double input parameter to a value of type [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// # Arguments
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// * `value` - Represents a pointer to an double input parameter or the array of type double.
     ///
@@ -53,7 +53,7 @@ pub struct OH_VObject {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VObject`].
+    /// **See also:** [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub putDouble: ::core::option::Option<
@@ -63,11 +63,11 @@ pub struct OH_VObject {
             count: u32,
         ) -> ::core::ffi::c_int,
     >,
-    /// Convert the char input parameter to a value of type [`OH_VObject`].
+    /// Convert the char input parameter to a value of type [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// # Arguments
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// * `value` - Indicates the const char * input parameter.
     ///
@@ -75,7 +75,7 @@ pub struct OH_VObject {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VObject`].
+    /// **See also:** [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub putText: ::core::option::Option<
@@ -84,11 +84,11 @@ pub struct OH_VObject {
             value: *const ::core::ffi::c_char,
         ) -> ::core::ffi::c_int,
     >,
-    /// Convert the char * array input parameter to a value of type [`OH_VObject`].
+    /// Convert the char * array input parameter to a value of type [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// # Arguments
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// * `value` - Indicates the const char * array input parameter.
     ///
@@ -98,7 +98,7 @@ pub struct OH_VObject {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VObject`].
+    /// **See also:** [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub putTexts: ::core::option::Option<
@@ -108,17 +108,17 @@ pub struct OH_VObject {
             count: u32,
         ) -> ::core::ffi::c_int,
     >,
-    /// Destroy the [`OH_VObject`] object and reclaim the memory occupied by the object.
+    /// Destroy the [`OH_VObject`](crate::value_object::OH_VObject) object and reclaim the memory occupied by the object.
     ///
     /// # Arguments
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_VObject`].
+    /// **See also:** [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub destroy: ::core::option::Option<

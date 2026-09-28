@@ -18,7 +18,7 @@ pub struct InputMethod_AttachOptions {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create a new [`InputMethod_AttachOptions`] instance.
+    /// Create a new [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions) instance.
     ///
     /// # Arguments
     ///
@@ -26,14 +26,14 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_AttachOptions`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions)
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AttachOptions_Create(showKeyboard: bool) -> *mut InputMethod_AttachOptions;
-    /// Create a new [`InputMethod_AttachOptions`] instance.
+    /// Create a new [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions) instance.
     ///
     /// # Arguments
     ///
@@ -43,7 +43,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_AttachOptions`]
+    /// * If the creation succeeds, a pointer to the newly created [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions)
     /// instance is returned. If the creation fails, NULL is returned, possible cause is insufficient memory.
     ///
     /// Available since API-level: 15
@@ -53,21 +53,21 @@ extern "C" {
         showKeyboard: bool,
         requestKeyboardReason: InputMethod_RequestKeyboardReason,
     ) -> *mut InputMethod_AttachOptions;
-    /// Delete a [`InputMethod_AttachOptions`] instance.
+    /// Delete a [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions) instance.
     ///
     /// # Arguments
     ///
-    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`] instance which will be destroyed.
+    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions) instance which will be destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AttachOptions_Destroy(options: *mut InputMethod_AttachOptions);
-    /// Get showKeyboard value from [`InputMethod_AttachOptions`].
+    /// Get showKeyboard value from [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions).
     ///
     /// # Arguments
     ///
-    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`] instance which will be get value from.
+    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions) instance which will be get value from.
     ///
     /// * `showKeyboard` - Represents showKeyboard value.
     /// true - need to show keyboard.
@@ -76,9 +76,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -87,21 +87,21 @@ extern "C" {
         options: *mut InputMethod_AttachOptions,
         showKeyboard: *mut bool,
     ) -> InputMethodResult;
-    /// Get showKeyboard value from [`InputMethod_AttachOptions`].
+    /// Get showKeyboard value from [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions).
     ///
     /// # Arguments
     ///
-    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`] instance which will be get value from.
+    /// * `options` - Represents a pointer to an [`InputMethod_AttachOptions`](crate::attach_options::InputMethod_AttachOptions) instance which will be get value from.
     ///
-    /// * `requestKeyboardReason` - Represents a pointer to an [`InputMethodRequestKeyboardReason`] instance which will
+    /// * `requestKeyboardReason` - Represents a pointer to an `InputMethodRequestKeyboardReason` instance which will
     /// be get value from.
     ///
     /// # Returns
     ///
     /// * Returns a specific error code.
-    /// [`IME_ERR_OK`] - success.
-    /// [`IME_ERR_NULL_POINTER`] - unexpected null pointer. If options is NULL, or requestKeyboardReason is NULL.
-    /// Specific error codes can be referenced [`InputMethod_ErrorCode`].
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer. If options is NULL, or requestKeyboardReason is NULL.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]

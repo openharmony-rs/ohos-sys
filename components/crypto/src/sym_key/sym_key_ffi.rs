@@ -36,11 +36,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`] 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`] 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
+    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
+    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
+    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
+    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
+    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -59,11 +59,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`] 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`] 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
+    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
+    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
+    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
+    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
+    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -84,11 +84,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`] 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`] 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
+    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
+    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
+    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
+    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
+    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -148,11 +148,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`] 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`] 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
+    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
+    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
+    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
+    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
+    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

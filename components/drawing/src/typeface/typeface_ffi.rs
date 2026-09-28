@@ -47,7 +47,7 @@ extern "C" {
     /// Creates an <b>OH_Drawing_Typeface</b> object with the specified font arguments from a file.
     /// If the <b>OH_Drawing_Typeface</b> object does not support the variations described in fontArguments,
     /// this function creates an <b>OH_Drawing_Typeface</b> object without font arguments.
-    /// In this case, this function provides the same capability as [`OH_Drawing_TypefaceCreateFromFile`].
+    /// In this case, this function provides the same capability as [`OH_Drawing_TypefaceCreateFromFile`](crate::typeface::OH_Drawing_TypefaceCreateFromFile).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -172,8 +172,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if either fontArguments or axis is nullptr,
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if either fontArguments or axis is nullptr,
     /// or the length of axis is not 4.
     ///
     /// Available since API-level: 13
@@ -197,8 +197,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if fontArguments is nullptr.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if fontArguments is nullptr.
     ///
     /// Available since API-level: 13
     ///
@@ -219,8 +219,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if typeface or isBold is nullptr.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if typeface or isBold is nullptr.
     ///
     /// Available since API-level: 23
     ///
@@ -242,8 +242,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`] if typeface or italic is nullptr.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if typeface or italic is nullptr.
     ///
     /// Available since API-level: 23
     ///

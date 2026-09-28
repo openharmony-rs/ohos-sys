@@ -701,8 +701,8 @@ pub struct ArkUI_NativeGestureAPI_1 {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     pub setInnerGestureParallelTo: ::core::option::Option<
         unsafe extern "C" fn(
             node: ArkUI_NodeHandle,
@@ -873,8 +873,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -910,8 +910,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1149,8 +1149,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1170,8 +1170,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1191,8 +1191,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1226,8 +1226,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1246,8 +1246,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1266,9 +1266,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER`] if the component is not a scroll container.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER`](crate::native_type::ArkUiErrorCode::NON_SCROLLABLE_CONTAINER) if the component is not a scroll container.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1287,9 +1287,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
-    /// Returns [`ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER`] if the component is not a scroll container.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NON_SCROLLABLE_CONTAINER`](crate::native_type::ArkUiErrorCode::NON_SCROLLABLE_CONTAINER) if the component is not a scroll container.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1308,8 +1308,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1346,9 +1346,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
-    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`] if the buffer is not large enough.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`](crate::native_type::ArkUiErrorCode::BUFFER_SIZE_NOT_ENOUGH) if the buffer is not large enough.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1373,9 +1373,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
-    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`] if the buffer is not large enough.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_BUFFER_SIZE_NOT_ENOUGH`](crate::native_type::ArkUiErrorCode::BUFFER_SIZE_NOT_ENOUGH) if the buffer is not large enough.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1445,8 +1445,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1468,8 +1468,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if success.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if success.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1490,8 +1490,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1511,8 +1511,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1532,8 +1532,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1553,8 +1553,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
     /// supported.
     ///
     /// Available since API-level: 18
@@ -1575,8 +1575,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
     /// supported.
     ///
     /// Available since API-level: 18
@@ -1597,8 +1597,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
     /// supported.
     ///
     /// Available since API-level: 18
@@ -1619,8 +1619,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
     /// supported.
     ///
     /// Available since API-level: 18
@@ -1641,8 +1641,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
     /// supported.
     ///
     /// Available since API-level: 18
@@ -1663,8 +1663,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
     /// supported.
     ///
     /// Available since API-level: 18
@@ -1685,9 +1685,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is
     /// not supported.
     ///
     /// Available since API-level: 22
@@ -1708,9 +1708,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is not
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is not
     /// supported.
     ///
     /// Available since API-level: 22
@@ -1735,9 +1735,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
-    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is
     /// not supported.
     ///
     /// Available since API-level: 19
@@ -1762,9 +1762,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter exception occurs.
-    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`] if the gesture recognizer type is
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
+    /// Returns [`ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED`](crate::native_type::ArkUiErrorCode::RECOGNIZER_TYPE_NOT_SUPPORTED) if the gesture recognizer type is
     /// not supported.
     ///
     /// Available since API-level: 19
@@ -1794,8 +1794,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`]: The operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`]: A parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult): The operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID): A parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1840,8 +1840,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Result code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`]: The operation is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`]: A parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult): The operation is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID): A parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

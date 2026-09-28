@@ -52,7 +52,7 @@ pub struct OH_AVTranscoder_State(pub ::core::ffi::c_uint);
 ///
 /// {OH_AVTranscoder*} transcoder The pointer to an OH_AVTranscoder instance.
 ///
-/// {OH_AVTranscoder_State} state Indicates the transcoder state. For details, see [`OH_AVTranscoder_State`].
+/// {OH_AVTranscoder_State} state Indicates the transcoder state. For details, see [`OH_AVTranscoder_State`](crate::avtranscoder_base::OH_AVTranscoder_State).
 ///
 /// {void*} userData Pointer to user specific data.
 ///
@@ -72,12 +72,12 @@ pub type OH_AVTranscoder_OnStateChange = ::core::option::Option<
 /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance.
 ///
 /// {int32_t} errorCode Error code.
-/// [`AV_ERR_NO_MEMORY`] if memory is insufficient.
-/// [`AV_ERR_IO`] if IO access failed.
-/// [`AV_ERR_INVALID_STATE`] if the current state does not support this operation.
-/// [`AV_ERR_UNSUPPORT`] if unsurpport function.
-/// [`AV_ERR_INVALID_VAL`] if the parameter check failed.
-/// [`AV_ERR_OPERATE_NOT_PERMIT`] if operation not allowed.
+/// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if memory is insufficient.
+/// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if IO access failed.
+/// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE) if the current state does not support this operation.
+/// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) if unsurpport function.
+/// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if the parameter check failed.
+/// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if operation not allowed.
 ///
 /// {const char*} errorMsg Error message.
 ///

@@ -6,8 +6,6 @@
 #![allow(deprecated)]
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
-#[cfg(all(doc, feature = "api-18"))]
-use crate::media_types::*;
 #[cfg(feature = "api-23")]
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
@@ -177,7 +175,7 @@ pub const OH_AVMETADATA_EXTRACTOR_VIDEO_WIDTH: &::core::ffi::CStr = c"videoWidth
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 pub const OH_AVMETADATA_EXTRACTOR_VIDEO_ORIENTATION: &::core::ffi::CStr = c"videoOrientation";
 /// Key to get the information whether the video is HDR video, value type is int32_t.
-/// For details of the value, see [`OH_Core_HdrType`] defined in [`media_types.h`].
+/// For details of the value, see [`OH_Core_HdrType`](crate::media_types::OH_Core_HdrType) defined in `media_types.h`.
 ///
 ///
 /// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor

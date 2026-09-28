@@ -228,8 +228,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -243,8 +243,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -261,9 +261,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -283,9 +283,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -307,9 +307,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -332,9 +332,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -355,9 +355,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -376,10 +376,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -397,8 +397,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] The function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) The function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -413,12 +413,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_STATE_ABNORMAL`] the PiP window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_CREATE_FAILED`] failed to create the PiP window.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_REPEATED_OPERATION`] repeated PiP operation.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_STATE_ABNORMAL) the PiP window state is abnormal.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_CREATE_FAILED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_CREATE_FAILED) failed to create the PiP window.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_REPEATED_OPERATION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_REPEATED_OPERATION) repeated PiP operation.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -433,12 +433,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_DESTROY_FAILED`] failed to destroy the PiP window.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_STATE_ABNORMAL`] the PiP window state is abnormal.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_REPEATED_OPERATION`] repeated PiP operation.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_DESTROY_FAILED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_DESTROY_FAILED) failed to destroy the PiP window.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_STATE_ABNORMAL`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_STATE_ABNORMAL) the PiP window state is abnormal.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_REPEATED_OPERATION`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_REPEATED_OPERATION) repeated PiP operation.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -457,9 +457,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -482,9 +482,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -507,9 +507,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -530,10 +530,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -556,9 +556,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -579,9 +579,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -598,10 +598,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -621,10 +621,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -642,10 +642,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -662,10 +662,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -685,10 +685,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -706,10 +706,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -726,10 +726,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -749,10 +749,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -770,10 +770,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -790,10 +790,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -813,10 +813,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -834,10 +834,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Return the result code.
-    /// [`OK`] the function call is successful.
-    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`] parameter error.
-    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`] capability not supported.
-    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`] pip internal error.
+    /// [`OK`](crate::window_comm::WindowManagerResult) the function call is successful.
+    /// [`WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM) parameter error.
+    /// [`WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED) capability not supported.
+    /// [`WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR) pip internal error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

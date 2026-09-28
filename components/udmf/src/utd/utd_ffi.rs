@@ -6,7 +6,7 @@
 pub use ohos_sys_opaque_types::OH_Utd;
 
 extern "C" {
-    /// Prouct a pointer to the instance of the [`OH_Utd`].
+    /// Prouct a pointer to the instance of the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Arguments
     ///
@@ -14,97 +14,97 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_Utd`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd)
     /// structure is returned.If the operation is failed, nullptr is returned.
-    /// Must be destroyed with [`OH_Utd_DestroyTypeDescriptor`] when not needed.
+    /// Must be destroyed with `OH_Utd_DestroyTypeDescriptor` when not needed.
     ///
-    /// **See also:** [`OH_Utd`].
+    /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Utd_Create(typeId: *const ::core::ffi::c_char) -> *mut OH_Utd;
-    /// Destroy a pointer that points to the [`OH_Utd`] instance.
+    /// Destroy a pointer that points to the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
-    /// **See also:** [`OH_Utd`].
+    /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Utd_Destroy(pThis: *mut OH_Utd);
-    /// Get type id from the [`OH_Utd`].
+    /// Get type id from the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Returns
     ///
     /// * Returns a string pointer when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_Utd`].
+    /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Utd_GetTypeId(pThis: *mut OH_Utd) -> *const ::core::ffi::c_char;
-    /// Get description from the [`OH_Utd`].
+    /// Get description from the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Returns
     ///
     /// * Returns a string pointer when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_Utd`].
+    /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Utd_GetDescription(pThis: *mut OH_Utd) -> *const ::core::ffi::c_char;
-    /// Get url from the [`OH_Utd`].
+    /// Get url from the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Returns
     ///
     /// * Returns a string pointer when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_Utd`].
+    /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Utd_GetReferenceUrl(pThis: *mut OH_Utd) -> *const ::core::ffi::c_char;
-    /// Get icon file from the [`OH_Utd`].
+    /// Get icon file from the [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Returns
     ///
     /// * Returns a string pointer when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_Utd`].
+    /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Utd_GetIconFile(pThis: *mut OH_Utd) -> *const ::core::ffi::c_char;
-    /// Get belong to type id of the current [`OH_Utd`].
+    /// Get belong to type id of the current [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// * `count` - Represents the return types count.
     ///
@@ -112,7 +112,7 @@ extern "C" {
     ///
     /// * Returns string array when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_Utd`].
+    /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -121,11 +121,11 @@ extern "C" {
         pThis: *mut OH_Utd,
         count: *mut ::core::ffi::c_uint,
     ) -> *mut *const ::core::ffi::c_char;
-    /// Get filename extensions of the current [`OH_Utd`].
+    /// Get filename extensions of the current [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// * `count` - Represents the return file extensions count.
     ///
@@ -133,7 +133,7 @@ extern "C" {
     ///
     /// * Returns string array when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_Utd`].
+    /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -142,11 +142,11 @@ extern "C" {
         pThis: *mut OH_Utd,
         count: *mut ::core::ffi::c_uint,
     ) -> *mut *const ::core::ffi::c_char;
-    /// Get mime types of the current [`OH_Utd`].
+    /// Get mime types of the current [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// * `count` - Represents the mime types count.
     ///
@@ -154,7 +154,7 @@ extern "C" {
     ///
     /// * Returns string array when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_Utd`].
+    /// **See also:** [`OH_Utd`](ohos_sys_opaque_types::OH_Utd).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -173,7 +173,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns string list of types. Must be destroyed with [`OH_Utd_DestroyStringList`] when not needed.
+    /// * Returns string list of types. Must be destroyed with [`OH_Utd_DestroyStringList`](crate::type_descriptor::OH_Utd_DestroyStringList) when not needed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -192,7 +192,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns string list of types. Must be destroyed with [`OH_Utd_DestroyStringList`] when not needed.
+    /// * Returns string list of types. Must be destroyed with [`OH_Utd_DestroyStringList`](crate::type_descriptor::OH_Utd_DestroyStringList) when not needed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -264,13 +264,13 @@ extern "C" {
         srcTypeId: *const ::core::ffi::c_char,
         destTypeId: *const ::core::ffi::c_char,
     ) -> bool;
-    /// Calculate two [`OH_Utd`]s are equal.
+    /// Calculate two [`OH_Utd`](ohos_sys_opaque_types::OH_Utd)s are equal.
     ///
     /// # Arguments
     ///
-    /// * `utd1` - Represents a pointer to [`OH_Utd`] instance.
+    /// * `utd1` - Represents a pointer to [`OH_Utd`](ohos_sys_opaque_types::OH_Utd) instance.
     ///
-    /// * `utd2` - Represents a pointer to [`OH_Utd`] instance.
+    /// * `utd2` - Represents a pointer to [`OH_Utd`](ohos_sys_opaque_types::OH_Utd) instance.
     ///
     /// # Returns
     ///

@@ -18,9 +18,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the initialization is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If the paramset is null.
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the initialization is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If the paramset is null.
     ///
     /// Available since API-level: 9
     ///
@@ -38,8 +38,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If params is null or paramSet is invalid.
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If params is null or paramSet is invalid.
     ///
     /// Available since API-level: 9
     ///
@@ -58,9 +58,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If paramSet is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet is invalid.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
     ///
     /// Available since API-level: 9
     ///
@@ -88,10 +88,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If fromParamSet or fromParamSetSize
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If fromParamSet or fromParamSetSize
     /// or paramSet is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
     ///
     /// Available since API-level: 9
     ///
@@ -113,8 +113,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful,
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If paramSet or param is invalid,
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet or param is invalid,
     /// or if the param doesn't exist in the pararmSet.
     ///
     /// Available since API-level: 9
@@ -137,9 +137,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If paramSet is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet is invalid.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
     ///
     /// Available since API-level: 9
     ///
@@ -153,8 +153,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the parameters in the parameter set are valid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If paramSet is invalid or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the parameters in the parameter set are valid.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet is invalid or
     /// the parameter set has invalid, duplicate, or incorrect tags.
     ///
     /// Available since API-level: 9
@@ -171,8 +171,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the parameter set is of the valid size.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If paramSet is invalid.
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the parameter set is of the valid size.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet is invalid.
     ///
     /// Available since API-level: 9
     ///
@@ -188,8 +188,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the two parameters are the same.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If one of the paramSet is invalid,
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the two parameters are the same.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If one of the paramSet is invalid,
     /// or if the params don't match, or if the tag inside is invalid.
     ///
     /// Available since API-level: 9

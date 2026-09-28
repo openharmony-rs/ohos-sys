@@ -364,9 +364,9 @@ pub struct ArkWeb_ControllerAPI {
     /// # Returns
     ///
     /// * Post web message result code.
-    /// [`ARKWEB_SUCCESS`] post web message success.
-    /// [`ARKWEB_INVALID_PARAM`] the parameter verification fails.
-    /// [`ARKWEB_INIT_ERROR`] no web associated with this webTag.
+    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) post web message success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) the parameter verification fails.
+    /// [`ARKWEB_INIT_ERROR`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INIT_ERROR) no web associated with this webTag.
     pub postWebMessage: ::core::option::Option<
         unsafe extern "C" fn(
             webTag: *const ::core::ffi::c_char,
@@ -498,9 +498,9 @@ pub struct ArkWeb_WebMessagePortAPI {
     /// # Returns
     ///
     /// * Post message result code.
-    /// [`ARKWEB_SUCCESS`] post message success.
-    /// [`ARKWEB_INVALID_PARAM`] the parameter verification fails.
-    /// [`ARKWEB_INIT_ERROR`] no web associated with this webTag.
+    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) post message success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) the parameter verification fails.
+    /// [`ARKWEB_INIT_ERROR`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INIT_ERROR) no web associated with this webTag.
     pub postMessage: ::core::option::Option<
         unsafe extern "C" fn(
             webMessagePort: ArkWeb_WebMessagePortPtr,
@@ -656,9 +656,9 @@ pub struct ArkWeb_CookieManagerAPI {
     /// # Returns
     ///
     /// * Fetch cookie result code.
-    /// [`ARKWEB_SUCCESS`] fetch cookie success.
-    /// [`ARKWEB_INVALID_URL`] invalid url.
-    /// [`ARKWEB_INVALID_PARAM`] cookieValue is nullptr.
+    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) fetch cookie success.
+    /// [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) cookieValue is nullptr.
     pub fetchCookieSync: ::core::option::Option<
         unsafe extern "C" fn(
             url: *const ::core::ffi::c_char,
@@ -683,9 +683,9 @@ pub struct ArkWeb_CookieManagerAPI {
     /// # Returns
     ///
     /// * Config cookie result code.
-    /// [`ARKWEB_SUCCESS`] config cookie success.
-    /// [`ARKWEB_INVALID_URL`] invalid url.
-    /// [`ARKWEB_INVALID_COOKIE_VALUE`] invalid cookie value.
+    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) config cookie success.
+    /// [`ARKWEB_INVALID_URL`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_URL) invalid url.
+    /// [`ARKWEB_INVALID_COOKIE_VALUE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_COOKIE_VALUE) invalid cookie value.
     pub configCookieSync: ::core::option::Option<
         unsafe extern "C" fn(
             url: *const ::core::ffi::c_char,

@@ -19,15 +19,15 @@ impl LogType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct LogType(pub ::core::ffi::c_uint);
 impl LogLevel {
-    /// Debug level to be used by [`OH_LOG_DEBUG`]
+    /// Debug level to be used by `OH_LOG_DEBUG`
     pub const LOG_DEBUG: LogLevel = LogLevel(3);
-    /// Informational level to be used by [`OH_LOG_INFO`]
+    /// Informational level to be used by `OH_LOG_INFO`
     pub const LOG_INFO: LogLevel = LogLevel(4);
-    /// Warning level to be used by [`OH_LOG_WARN`]
+    /// Warning level to be used by `OH_LOG_WARN`
     pub const LOG_WARN: LogLevel = LogLevel(5);
-    /// Error level to be used by [`OH_LOG_ERROR`]
+    /// Error level to be used by `OH_LOG_ERROR`
     pub const LOG_ERROR: LogLevel = LogLevel(6);
-    /// Fatal level to be used by [`OH_LOG_FATAL`]
+    /// Fatal level to be used by `OH_LOG_FATAL`
     pub const LOG_FATAL: LogLevel = LogLevel(7);
 }
 #[repr(transparent)]
@@ -60,7 +60,7 @@ impl PreferStrategy {
     pub const PREFER_OPEN_LOG: PreferStrategy = PreferStrategy(2);
 }
 #[repr(transparent)]
-/// Enumerates preference strategy to be used in [`OH_LOG_SetLogLevel`].
+/// Enumerates preference strategy to be used in [`OH_LOG_SetLogLevel`](crate::OH_LOG_SetLogLevel).
 ///
 /// You are advised to select preference strategy based on their respective usage scenarios.
 ///
@@ -74,7 +74,7 @@ pub struct PreferStrategy(pub ::core::ffi::c_uint);
 ///
 /// # Arguments
 ///
-/// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`].
+/// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`](crate::LogType::LOG_APP).
 ///
 /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
 /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
@@ -105,7 +105,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`].
+    /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`](crate::LogType::LOG_APP).
     ///
     /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
     /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
@@ -143,7 +143,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`].
+    /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`](crate::LogType::LOG_APP).
     ///
     /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
     /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
@@ -176,7 +176,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`].
+    /// * `type` - Indicates the log type. The type for third-party applications is defined by [`LOG_APP`](crate::LogType::LOG_APP).
     ///
     /// * `level` - Indicates the log level, which can be <b>LOG_DEBUG</b>, <b>LOG_INFO</b>, <b>LOG_WARN</b>,
     /// <b>LOG_ERROR</b>, and <b>LOG_FATAL</b>.
@@ -261,7 +261,7 @@ extern "C" {
     ///
     /// * `level` - log level.
     ///
-    /// * `prefer` - preference strategy. See [`PreferStrategy`].
+    /// * `prefer` - preference strategy. See [`PreferStrategy`](crate::PreferStrategy).
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]

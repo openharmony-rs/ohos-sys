@@ -35,17 +35,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub equalTo: ::core::option::Option<
@@ -62,17 +62,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub notEqualTo: ::core::option::Option<
@@ -88,13 +88,13 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub beginWrap: ::core::option::Option<
@@ -106,13 +106,13 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub endWrap: ::core::option::Option<
@@ -124,13 +124,13 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub orOperate: ::core::option::Option<
@@ -142,13 +142,13 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub andOperate: ::core::option::Option<
@@ -160,7 +160,7 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
@@ -168,7 +168,7 @@ pub struct OH_Predicates {
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub isNull: ::core::option::Option<
@@ -183,7 +183,7 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
@@ -191,7 +191,7 @@ pub struct OH_Predicates {
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub isNotNull: ::core::option::Option<
@@ -206,17 +206,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub like: ::core::option::Option<
@@ -232,17 +232,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub between: ::core::option::Option<
@@ -259,17 +259,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub notBetween: ::core::option::Option<
@@ -286,17 +286,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub greaterThan: ::core::option::Option<
@@ -313,17 +313,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub lessThan: ::core::option::Option<
@@ -340,17 +340,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub greaterThanOrEqualTo: ::core::option::Option<
@@ -367,17 +367,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub lessThanOrEqualTo: ::core::option::Option<
@@ -394,17 +394,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `type` - Indicates the sort [`OH_OrderType`] type.
+    /// * `type` - Indicates the sort [`OH_OrderType`](crate::predicates::OH_OrderType) type.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_OrderType`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_OrderType`](crate::predicates::OH_OrderType).
     ///
     /// Available since API-level: 10
     pub orderBy: ::core::option::Option<
@@ -420,13 +420,13 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub distinct: ::core::option::Option<
@@ -438,7 +438,7 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `value` - Indicates the maximum number of records.
     ///
@@ -446,7 +446,7 @@ pub struct OH_Predicates {
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub limit: ::core::option::Option<
@@ -461,7 +461,7 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `rowOffset` - Indicates the number of rows to offset from the beginning. The value is a positive integer.
     ///
@@ -469,7 +469,7 @@ pub struct OH_Predicates {
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub offset: ::core::option::Option<
@@ -484,7 +484,7 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `fields` - Indicates the column names that the grouping depends on.
     ///
@@ -494,7 +494,7 @@ pub struct OH_Predicates {
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub groupBy: ::core::option::Option<
@@ -511,17 +511,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub in_: ::core::option::Option<
@@ -538,17 +538,17 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// * `field` - Indicates the column name in the database table.
     ///
-    /// * `valueObject` - Represents a pointer to an [`OH_VObject`] instance.
+    /// * `valueObject` - Represents a pointer to an [`OH_VObject`](crate::value_object::OH_VObject) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`], [`OH_VObject`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_VObject`](crate::value_object::OH_VObject).
     ///
     /// Available since API-level: 10
     pub notIn: ::core::option::Option<
@@ -562,29 +562,29 @@ pub struct OH_Predicates {
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// # Returns
     ///
     /// * Returns the self.
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub clear: ::core::option::Option<
         unsafe extern "C" fn(predicates: *mut OH_Predicates) -> *mut OH_Predicates,
     >,
-    /// Destroy the [`OH_Predicates`] object and reclaim the memory occupied by the object.
+    /// Destroy the [`OH_Predicates`](crate::predicates::OH_Predicates) object and reclaim the memory occupied by the object.
     ///
     /// # Arguments
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution..
     ///
-    /// **See also:** [`OH_Predicates`].
+    /// **See also:** [`OH_Predicates`](crate::predicates::OH_Predicates).
     ///
     /// Available since API-level: 10
     pub destroy: ::core::option::Option<
@@ -606,8 +606,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -631,8 +631,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -656,8 +656,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -680,8 +680,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

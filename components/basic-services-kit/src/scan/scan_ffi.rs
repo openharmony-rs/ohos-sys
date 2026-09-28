@@ -3,8 +3,6 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(all(doc, feature = "print"))]
-use crate::print::*;
 
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -105,7 +103,7 @@ pub struct Scan_ScannerOptions {
     /// Number of parameter options that can be set.
     pub optionCount: i32,
 }
-/// Scanner devices discovery callback, register by [`OH_Scan_StartScannerDiscovery`].
+/// Scanner devices discovery callback, register by [`OH_Scan_StartScannerDiscovery`](crate::scan::OH_Scan_StartScannerDiscovery).
 /// The memory to which the pointer points will be released when the callback function ends.
 ///
 /// # Arguments
@@ -129,10 +127,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`Scan_ERROR_NONE`] Indicates the scanning service is successfully started.
-    /// [`SCAN_ERROR_NO_PERMISSION`] Indicates have no permission to use this interface.
-    /// [`SCAN_ERROR_RPC_FAILURE`] Indicates an RPC communication error.
-    /// [`SCAN_ERROR_SERVER_FAILURE`] Indicates An error occurs in the scan process.
+    /// * `Scan_ERROR_NONE` Indicates the scanning service is successfully started.
+    /// [`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION) Indicates have no permission to use this interface.
+    /// [`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE) Indicates an RPC communication error.
+    /// [`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE) Indicates An error occurs in the scan process.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -146,14 +144,14 @@ extern "C" {
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `callback` - The [`Scan_ScannerDiscoveryCallback`] of scanner discovery event.
+    /// * `callback` - The [`Scan_ScannerDiscoveryCallback`](crate::scan::Scan_ScannerDiscoveryCallback) of scanner discovery event.
     ///
     /// # Returns
     ///
-    /// * [`Scan_ERROR_NONE`] Indicates successful start of scanner search.
-    /// [`SCAN_ERROR_NO_PERMISSION`] Indicates have no permission to use this interface.
-    /// [`SCAN_ERROR_RPC_FAILURE`] Indicates an RPC communication error.
-    /// [`SCAN_ERROR_SERVER_FAILURE`] Indicates An error occurs in the scan process.
+    /// * `Scan_ERROR_NONE` Indicates successful start of scanner search.
+    /// [`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION) Indicates have no permission to use this interface.
+    /// [`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE) Indicates an RPC communication error.
+    /// [`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE) Indicates An error occurs in the scan process.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -171,14 +169,14 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`Scan_ERROR_NONE`] Indicates that the scanner was successfully connected.
-    /// [`SCAN_ERROR_NO_PERMISSION`] Indicates have no permission to use this interface.
-    /// [`SCAN_ERROR_RPC_FAILURE`] Indicates an RPC communication error.
-    /// [`SCAN_ERROR_SERVER_FAILURE`] Indicates An error occurs in the scan process.
-    /// [`SCAN_ERROR_DEVICE_BUSY`] Indicates that the scanner is busy.
-    /// [`SCAN_ERROR_INVALID_PARAMETER`] Indicates that the input parameter is invalid.
-    /// [`SCAN_ERROR_IO_ERROR`] Indicates an error occured while communicating with the device.
-    /// [`SCAN_ERROR_NO_MEMORY`] Indicates an insufficent amount of memory is available.
+    /// * `Scan_ERROR_NONE` Indicates that the scanner was successfully connected.
+    /// [`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION) Indicates have no permission to use this interface.
+    /// [`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE) Indicates an RPC communication error.
+    /// [`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE) Indicates An error occurs in the scan process.
+    /// [`SCAN_ERROR_DEVICE_BUSY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_DEVICE_BUSY) Indicates that the scanner is busy.
+    /// [`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER) Indicates that the input parameter is invalid.
+    /// [`SCAN_ERROR_IO_ERROR`](crate::scan::Scan_ErrorCode::SCAN_ERROR_IO_ERROR) Indicates an error occured while communicating with the device.
+    /// [`SCAN_ERROR_NO_MEMORY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_MEMORY) Indicates an insufficent amount of memory is available.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -196,11 +194,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`Scan_ERROR_NONE`] Indicates that the scanner connection was successfully closed.
-    /// [`SCAN_ERROR_NO_PERMISSION`] Indicates have no permission to use this interface.
-    /// [`SCAN_ERROR_RPC_FAILURE`] Indicates an RPC communication error.
-    /// [`SCAN_ERROR_SERVER_FAILURE`] Indicates An error occurs in the scan process.
-    /// [`SCAN_ERROR_INVALID_PARAMETER`] Indicates that the input parameter is invalid.
+    /// * `Scan_ERROR_NONE` Indicates that the scanner connection was successfully closed.
+    /// [`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION) Indicates have no permission to use this interface.
+    /// [`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE) Indicates an RPC communication error.
+    /// [`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE) Indicates An error occurs in the scan process.
+    /// [`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER) Indicates that the input parameter is invalid.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -209,7 +207,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Scan_CloseScanner(scannerId: *const ::core::ffi::c_char) -> i32;
     /// This API can be used to get a list of options that can be set by the scanner.
-    /// The returned struct pointer points to memory that is automatically freed when [`OH_Scan_Exit`],
+    /// The returned struct pointer points to memory that is automatically freed when [`OH_Scan_Exit`](crate::scan::OH_Scan_Exit),
     /// and only one copy will be stored in memory for each model.
     ///
     ///
@@ -218,16 +216,16 @@ extern "C" {
     ///
     /// * `scannerId` - The id used to obtain the scanner parameters.
     ///
-    /// * `errorCode` - The errorCode returns [`Scan_ErrorCode#Scan_ERROR_NONE`] if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`Print_ErrorCode`].
+    /// * `errorCode` - The errorCode returns `Scan_ErrorCode#Scan_ERROR_NONE` if the execution is successful,
+    /// otherwise returns a specific error code, refer to [`Print_ErrorCode`](crate::print::Print_ErrorCode).
     ///
     /// # Returns
     ///
-    /// * [`Scan_ERROR_NONE`] Indicates that the scanner parameter options are successfully obtained.
-    /// [`SCAN_ERROR_NO_PERMISSION`] Indicates have no permission to use this interface.
-    /// [`SCAN_ERROR_RPC_FAILURE`] Indicates an RPC communication error.
-    /// [`SCAN_ERROR_SERVER_FAILURE`] Indicates An error occurs in the scan process.
-    /// [`SCAN_ERROR_INVALID_PARAMETER`] Indicates invalid parameter.
+    /// * `Scan_ERROR_NONE` Indicates that the scanner parameter options are successfully obtained.
+    /// [`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION) Indicates have no permission to use this interface.
+    /// [`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE) Indicates an RPC communication error.
+    /// [`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE) Indicates An error occurs in the scan process.
+    /// [`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER) Indicates invalid parameter.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -239,7 +237,7 @@ extern "C" {
         errorCode: *mut i32,
     ) -> *mut Scan_ScannerOptions;
     /// This API can be used to set one of the scanner's option parameters.
-    /// The option and value passed in are obtained from [`OH_Scan_GetScannerParameter`].
+    /// The option and value passed in are obtained from [`OH_Scan_GetScannerParameter`](crate::scan::OH_Scan_GetScannerParameter).
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
@@ -247,19 +245,19 @@ extern "C" {
     ///
     /// * `scannerId` - This id is used to set the options for a specific scanner.
     ///
-    /// * `option` - Options number to be set.The value ranges from 0 to [`optionCount`] - 1,
-    /// be obtained from the [`Scan_ScannerOptions`].
+    /// * `option` - Options number to be set.The value ranges from 0 to `optionCount` - 1,
+    /// be obtained from the [`Scan_ScannerOptions`](crate::scan::Scan_ScannerOptions).
     ///
-    /// * `value` - Option value to be set, valid value is obtained from the [`ranges`],
-    /// be obtained from the [`Scan_ScannerOptions`].
+    /// * `value` - Option value to be set, valid value is obtained from the `ranges`,
+    /// be obtained from the [`Scan_ScannerOptions`](crate::scan::Scan_ScannerOptions).
     ///
     /// # Returns
     ///
-    /// * [`Scan_ERROR_NONE`] Indicates that the scanner parameters were successfully set.
-    /// [`SCAN_ERROR_NO_PERMISSION`] Indicates have no permission to use this interface.
-    /// [`SCAN_ERROR_RPC_FAILURE`] Indicates an RPC communication error.
-    /// [`SCAN_ERROR_SERVER_FAILURE`] Indicates an error occurs in the scan process.
-    /// [`SCAN_ERROR_INVALID_PARAMETER`] Indicates invalid parameter.
+    /// * `Scan_ERROR_NONE` Indicates that the scanner parameters were successfully set.
+    /// [`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION) Indicates have no permission to use this interface.
+    /// [`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE) Indicates an RPC communication error.
+    /// [`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE) Indicates an error occurs in the scan process.
+    /// [`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER) Indicates invalid parameter.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -283,17 +281,17 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`Scan_ERROR_NONE`] Indicates that the scanner has successfully canceled the scan job.
-    /// [`SCAN_ERROR_NO_PERMISSION`] Indicates have no permission to use this interface.
-    /// [`SCAN_ERROR_RPC_FAILURE`] Indicates an RPC communication error.
-    /// [`SCAN_ERROR_SERVER_FAILURE`] Indicates An error occurs in the scan process.
-    /// [`SCAN_ERROR_JAMMED`] Indicates the document feeder is jammed.
-    /// [`SCAN_ERROR_NO_DOCS`] Indicates the document feeder is out of documents.
-    /// [`SCAN_ERROR_COVER_OPEN`] Indicates the scanner cover is open.
-    /// [`SCAN_ERROR_IO_ERROR`] Indicates an error occurred while communicating with the device.
-    /// [`SCAN_ERROR_NO_MEMORY`] Indicates an insufficent amount of memory is available.
-    /// [`SCAN_ERROR_INVALID_PARAMETER`] Indicates that the input parameter is invalid.
-    /// [`SCAN_ERROR_DEVICE_BUSY`] Indicates the device is busy, the operation should be retried later.
+    /// * `Scan_ERROR_NONE` Indicates that the scanner has successfully canceled the scan job.
+    /// [`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION) Indicates have no permission to use this interface.
+    /// [`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE) Indicates an RPC communication error.
+    /// [`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE) Indicates An error occurs in the scan process.
+    /// [`SCAN_ERROR_JAMMED`](crate::scan::Scan_ErrorCode::SCAN_ERROR_JAMMED) Indicates the document feeder is jammed.
+    /// [`SCAN_ERROR_NO_DOCS`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_DOCS) Indicates the document feeder is out of documents.
+    /// [`SCAN_ERROR_COVER_OPEN`](crate::scan::Scan_ErrorCode::SCAN_ERROR_COVER_OPEN) Indicates the scanner cover is open.
+    /// [`SCAN_ERROR_IO_ERROR`](crate::scan::Scan_ErrorCode::SCAN_ERROR_IO_ERROR) Indicates an error occurred while communicating with the device.
+    /// [`SCAN_ERROR_NO_MEMORY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_MEMORY) Indicates an insufficent amount of memory is available.
+    /// [`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER) Indicates that the input parameter is invalid.
+    /// [`SCAN_ERROR_DEVICE_BUSY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_DEVICE_BUSY) Indicates the device is busy, the operation should be retried later.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -311,11 +309,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`Scan_ERROR_NONE`] Indicates that the scanner has successfully canceled the scan job.
-    /// [`SCAN_ERROR_NO_PERMISSION`] Indicates have no permission to use this interface.
-    /// [`SCAN_ERROR_INVALID_PARAMETER`] Indicates if the pointer is null or the character string is null.
-    /// [`SCAN_ERROR_RPC_FAILURE`] Indicates an RPC communication error.
-    /// [`SCAN_ERROR_SERVER_FAILURE`] Indicates An error occurs in the scan process.
+    /// * `Scan_ERROR_NONE` Indicates that the scanner has successfully canceled the scan job.
+    /// [`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION) Indicates have no permission to use this interface.
+    /// [`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER) Indicates if the pointer is null or the character string is null.
+    /// [`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE) Indicates an RPC communication error.
+    /// [`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE) Indicates An error occurs in the scan process.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -332,21 +330,21 @@ extern "C" {
     ///
     /// * `scannerId` - The id for querying the image scanning progress of the scanner.
     ///
-    /// * `prog` - The [`Scan_PictureScanProgress`] of scanning pictures, must be a non-null value.
+    /// * `prog` - The [`Scan_PictureScanProgress`](crate::scan::Scan_PictureScanProgress) of scanning pictures, must be a non-null value.
     ///
     /// # Returns
     ///
-    /// * [`Scan_ERROR_NONE`] Indicates the scanner has successfully queried the progress of the scanned image.
-    /// [`SCAN_ERROR_NO_PERMISSION`] Indicates have no permission to use this interface.
-    /// [`SCAN_ERROR_INVALID_PARAMETER`] Indicates if the pointer is null or the character string is null.
-    /// [`SCAN_ERROR_RPC_FAILURE`] Indicates an RPC communication error.
-    /// [`SCAN_ERROR_SERVER_FAILURE`] Indicates An error occurs in the scan process.
-    /// [`SCAN_ERROR_JAMMED`] Indicates the document feeder is jammed.
-    /// [`SCAN_ERROR_NO_DOCS`] Indicates the document feeder is out of documents.
-    /// [`SCAN_ERROR_COVER_OPEN`] Indicates the scanner cover is open.
-    /// [`SCAN_ERROR_IO_ERROR`] Indicates an error occurred while communicating with the scanner.
-    /// [`SCAN_ERROR_NO_MEMORY`] Indicates an insufficent amount of memory is available.
-    /// [`SCAN_ERROR_DEVICE_BUSY`] Indicates the device is busy, the operation should be retried later.
+    /// * `Scan_ERROR_NONE` Indicates the scanner has successfully queried the progress of the scanned image.
+    /// [`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION) Indicates have no permission to use this interface.
+    /// [`SCAN_ERROR_INVALID_PARAMETER`](crate::scan::Scan_ErrorCode::SCAN_ERROR_INVALID_PARAMETER) Indicates if the pointer is null or the character string is null.
+    /// [`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE) Indicates an RPC communication error.
+    /// [`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE) Indicates An error occurs in the scan process.
+    /// [`SCAN_ERROR_JAMMED`](crate::scan::Scan_ErrorCode::SCAN_ERROR_JAMMED) Indicates the document feeder is jammed.
+    /// [`SCAN_ERROR_NO_DOCS`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_DOCS) Indicates the document feeder is out of documents.
+    /// [`SCAN_ERROR_COVER_OPEN`](crate::scan::Scan_ErrorCode::SCAN_ERROR_COVER_OPEN) Indicates the scanner cover is open.
+    /// [`SCAN_ERROR_IO_ERROR`](crate::scan::Scan_ErrorCode::SCAN_ERROR_IO_ERROR) Indicates an error occurred while communicating with the scanner.
+    /// [`SCAN_ERROR_NO_MEMORY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_MEMORY) Indicates an insufficent amount of memory is available.
+    /// [`SCAN_ERROR_DEVICE_BUSY`](crate::scan::Scan_ErrorCode::SCAN_ERROR_DEVICE_BUSY) Indicates the device is busy, the operation should be retried later.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -365,10 +363,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`Scan_ERROR_NONE`] Indicates the scan service exit successfully.
-    /// [`SCAN_ERROR_NO_PERMISSION`] Indicates have no permission to use this interface.
-    /// [`SCAN_ERROR_RPC_FAILURE`] Indicates an RPC communication error.
-    /// [`SCAN_ERROR_SERVER_FAILURE`] Indicates An error occurs in the scan process.
+    /// * `Scan_ERROR_NONE` Indicates the scan service exit successfully.
+    /// [`SCAN_ERROR_NO_PERMISSION`](crate::scan::Scan_ErrorCode::SCAN_ERROR_NO_PERMISSION) Indicates have no permission to use this interface.
+    /// [`SCAN_ERROR_RPC_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_RPC_FAILURE) Indicates an RPC communication error.
+    /// [`SCAN_ERROR_SERVER_FAILURE`](crate::scan::Scan_ErrorCode::SCAN_ERROR_SERVER_FAILURE) Indicates An error occurs in the scan process.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///

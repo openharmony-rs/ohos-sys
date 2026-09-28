@@ -89,8 +89,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input mem is nullptr, mem's magic error or input mem is not user created.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input mem is nullptr, mem's magic error or input mem is not user created.
     ///
     /// **Deprecated** since 11
     ///

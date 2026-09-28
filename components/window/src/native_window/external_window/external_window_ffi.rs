@@ -79,19 +79,19 @@ pub mod NativeWindowOperation {
     pub const GET_BUFFER_GEOMETRY: Type = 1;
     /// get native window buffer format,
     /// variable parameter in function is
-    /// [out] int32_t *format, the enumeration value refers to [`OH_NativeBuffer_Format`].
+    /// [out] int32_t *format, the enumeration value refers to [`OH_NativeBuffer_Format`](crate::native_buffer::buffer_common::OH_NativeBuffer_Format).
     pub const GET_FORMAT: Type = 2;
     /// set native window buffer format,
     /// variable parameter in function is
-    /// [in] int32_t format, the enumeration value refers to [`OH_NativeBuffer_Format`].
+    /// [in] int32_t format, the enumeration value refers to [`OH_NativeBuffer_Format`](crate::native_buffer::buffer_common::OH_NativeBuffer_Format).
     pub const SET_FORMAT: Type = 3;
     /// get native window buffer usage,
     /// variable parameter in function is
-    /// [out] uint64_t *usage, the enumeration value refers to [`OH_NativeBuffer_Usage`].
+    /// [out] uint64_t *usage, the enumeration value refers to [`OH_NativeBuffer_Usage`](crate::native_buffer::native_buffer::OH_NativeBuffer_Usage).
     pub const GET_USAGE: Type = 4;
     /// set native window buffer usage,
     /// variable parameter in function is
-    /// [in] uint64_t usage, the enumeration value refers to [`OH_NativeBuffer_Usage`].
+    /// [in] uint64_t usage, the enumeration value refers to [`OH_NativeBuffer_Usage`](crate::native_buffer::native_buffer::OH_NativeBuffer_Usage).
     pub const SET_USAGE: Type = 5;
     /// set native window buffer stride,
     /// variable parameter in function is
@@ -106,8 +106,8 @@ pub mod NativeWindowOperation {
     ///
     /// **Deprecated** since 16
     ///
-    /// **Use instead:** Use [`OH_NativeWindow_GetBufferHandleFromNative`] to get a [`BufferHandleand`] from a buffer
-    /// and then retrieve the stride from the [`BufferHandle`].
+    /// **Use instead:** Use [`OH_NativeWindow_GetBufferHandleFromNative`](crate::native_window::OH_NativeWindow_GetBufferHandleFromNative) to get a `BufferHandleand` from a buffer
+    /// and then retrieve the stride from the [`BufferHandle`](crate::native_window::BufferHandle).
     #[deprecated(
         since = "16",
         note = "Use instead: Use OH_NativeWindow_GetBufferHandleFromNative to get a BufferHandleand from a buffer and then retrieve the stride from the BufferHandle"
@@ -133,19 +133,19 @@ pub mod NativeWindowOperation {
     pub const GET_TIMEOUT: Type = 11;
     /// set native window buffer colorGamut,
     /// variable parameter in function is
-    /// [in] int32_t colorGamut, the enumeration value refers to [`OH_NativeBuffer_ColorGamut`].
+    /// [in] int32_t colorGamut, the enumeration value refers to [`OH_NativeBuffer_ColorGamut`](crate::native_buffer::native_buffer::OH_NativeBuffer_ColorGamut).
     pub const SET_COLOR_GAMUT: Type = 12;
     /// get native window buffer colorGamut,
     /// variable parameter in function is
-    /// [out] int32_t *colorGamut, the enumeration value refers to [`OH_NativeBuffer_ColorGamut`].
+    /// [out] int32_t *colorGamut, the enumeration value refers to [`OH_NativeBuffer_ColorGamut`](crate::native_buffer::native_buffer::OH_NativeBuffer_ColorGamut).
     pub const GET_COLOR_GAMUT: Type = 13;
     /// set native window buffer transform,
     /// variable parameter in function is
-    /// [in] int32_t transform, the enumeration value refers to [`OH_NativeBuffer_TransformType`].
+    /// [in] int32_t transform, the enumeration value refers to [`OH_NativeBuffer_TransformType`](crate::native_buffer::buffer_common::OH_NativeBuffer_TransformType).
     pub const SET_TRANSFORM: Type = 14;
     /// get native window buffer transform,
     /// variable parameter in function is
-    /// [out] int32_t *transform, the enumeration value refers to [`OH_NativeBuffer_TransformType`].
+    /// [out] int32_t *transform, the enumeration value refers to [`OH_NativeBuffer_TransformType`](crate::native_buffer::buffer_common::OH_NativeBuffer_TransformType).
     pub const GET_TRANSFORM: Type = 15;
     /// set native window buffer uiTimestamp,
     /// variable parameter in function is
@@ -161,7 +161,7 @@ pub mod NativeWindowOperation {
     pub const GET_BUFFERQUEUE_SIZE: Type = 17;
     /// set surface source type,
     /// variable parameter in function is
-    /// [in] int32_t sourceType, the enumeration value refers to [`OHSurfaceSource`].
+    /// [in] int32_t sourceType, the enumeration value refers to [`OHSurfaceSource`](crate::native_window::OHSurfaceSource).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -169,7 +169,7 @@ pub mod NativeWindowOperation {
     pub const SET_SOURCE_TYPE: Type = 18;
     /// get surface source type,
     /// variable parameter in function is
-    /// [out] int32_t *sourceType, the enumeration value refers to [`OHSurfaceSource`].
+    /// [out] int32_t *sourceType, the enumeration value refers to [`OHSurfaceSource`](crate::native_window::OHSurfaceSource).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -996,8 +996,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - parcel is NULL or window is NULL.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - parcel is NULL or window is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -1023,8 +1023,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - parcel is NULL or parcel does not contain the window.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - parcel is NULL or parcel does not contain the window.
     ///
     /// Available since API-level: 12
     ///
@@ -1059,9 +1059,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window is NULL or buffer is NULL or fenceFd is NULL.
-    /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - buffer state is wrong.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL or buffer is NULL or fenceFd is NULL.
+    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - buffer state is wrong.
     ///
     /// Available since API-level: 12
     ///
@@ -1089,9 +1089,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window is NULL.
-    /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect colorSpace state.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
+    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect colorSpace state.
     ///
     /// Available since API-level: 12
     ///
@@ -1117,9 +1117,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window is NULL.
-    /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect colorSpace state.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
+    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect colorSpace state.
     ///
     /// Available since API-level: 12
     ///
@@ -1149,10 +1149,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window or metadata is NULL.
-    /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect metadata state.
-    /// [`NATIVE_ERROR_UNSUPPORTED`] 50102000 - Unsupported metadata key.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window or metadata is NULL.
+    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect metadata state.
+    /// `NATIVE_ERROR_UNSUPPORTED` 50102000 - Unsupported metadata key.
     ///
     /// Available since API-level: 12
     ///
@@ -1184,10 +1184,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window, metadata, or size is NULL.
-    /// [`NATIVE_ERROR_BUFFER_STATE_INVALID`] 41207000 - Incorrect metadata state.
-    /// [`NATIVE_ERROR_UNSUPPORTED`] 50102000 - Unsupported metadata key.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window, metadata, or size is NULL.
+    /// `NATIVE_ERROR_BUFFER_STATE_INVALID` 41207000 - Incorrect metadata state.
+    /// `NATIVE_ERROR_UNSUPPORTED` 50102000 - Unsupported metadata key.
     ///
     /// Available since API-level: 12
     ///
@@ -1212,10 +1212,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window is NULL.
-    /// [`NATIVE_ERROR_CONSUMER_DISCONNECTED`] 41211000 - the consumer is disconnected.
-    /// [`NATIVE_ERROR_BINDER_ERROR`] 50401000 - ipc send failed.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
+    /// `NATIVE_ERROR_CONSUMER_DISCONNECTED` 41211000 - the consumer is disconnected.
+    /// `NATIVE_ERROR_BINDER_ERROR` 50401000 - ipc send failed.
     ///
     /// Available since API-level: 19
     ///
@@ -1270,9 +1270,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window or buffer is NULL.
-    /// [`NATIVE_ERROR_UNKNOWN`] 50002000 - surface of window is NULL.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window or buffer is NULL.
+    /// `NATIVE_ERROR_UNKNOWN` 50002000 - surface of window is NULL.
     ///
     /// Available since API-level: 23
     ///
@@ -1298,9 +1298,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`NATIVE_ERROR_OK`] 0 - Success.
-    /// [`NATIVE_ERROR_INVALID_ARGUMENTS`] 40001000 - window is NULL.
-    /// [`NATIVE_ERROR_UNKNOWN`] 50002000 - surface of window is NULL.
+    /// * `NATIVE_ERROR_OK` 0 - Success.
+    /// `NATIVE_ERROR_INVALID_ARGUMENTS` 40001000 - window is NULL.
+    /// `NATIVE_ERROR_UNKNOWN` 50002000 - surface of window is NULL.
     ///
     /// Available since API-level: 23
     ///

@@ -494,9 +494,9 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetKeyState function result code.
-    /// [`INPUT_SUCCESS`] get KeyState success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) get KeyState success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] keyCode is invalid.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) keyCode is invalid.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -510,7 +510,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_KeyState`] pointer object if the operation is successful.
+    /// * Returns an [`Input_KeyState`](ohos_sys_opaque_types::Input_KeyState) pointer object if the operation is successful.
     /// Otherwise, a null pointer is returned. The possible cause is memory allocation failure.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -634,11 +634,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_InjectKeyEvent function result code.
-    /// [`INPUT_SUCCESS`] inject keyEvent success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) inject keyEvent success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] keyCode is less 0, can not process.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) keyCode is less 0, can not process.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -652,7 +652,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_KeyEvent`] pointer object if the operation is successful.
+    /// * Returns an [`Input_KeyEvent`](ohos_sys_opaque_types::Input_KeyEvent) pointer object if the operation is successful.
     /// Otherwise, a null pointer is returned. The possible cause is memory allocation failure.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -834,9 +834,9 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetKeyEventId function result code.
-    /// [`INPUT_SUCCESS`] Get the eventId of the keyEvent success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Get the eventId of the keyEvent success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] Parameter check failed.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Parameter check failed.
     ///
     ///
     /// Available since API-level: 21
@@ -858,19 +858,19 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_AddKeyEventHook function result code.
-    /// [`INPUT_SUCCESS`] Added hook function successfully.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Added hook function successfully.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] Failed to add the hook function. Reason: Parameter check failed.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Failed to add the hook function. Reason: Parameter check failed.
     ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Failed to add the hook function. Reason: Permission check failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Failed to add the hook function. Reason: Permission check failed.
     ///
-    /// [`INPUT_REPEAT_INTERCEPTOR`] Failed to add the hook function.
+    /// [`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR) Failed to add the hook function.
     ///
     /// Reason: Repeatedly set the hook function. A process can only have one key hook function.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to add the hook function.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the hook function.
     ///
     /// Reason: Input service exception, please try again.
     ///
@@ -888,13 +888,13 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_RemoveKeyEventHook function result code.
-    /// [`INPUT_SUCCESS`] Hook function removed successfully.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Hook function removed successfully.
     ///
     /// Even if the hook function has not been added before, it will return success when removed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] Failed to remove the hook function. Reason: Parameter check failed.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Failed to remove the hook function. Reason: Parameter check failed.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to remove the hook function.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to remove the hook function.
     ///
     /// Reason: Input service exception, please try again.
     ///
@@ -922,11 +922,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_DispatchToNextHandler function result code.
-    /// [`INPUT_SUCCESS`] Redistribution successful.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Redistribution successful.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] Redistribution failed. Reason: KeyEvent does not exist.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Redistribution failed. Reason: KeyEvent does not exist.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Redistribution failed.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Redistribution failed.
     ///
     /// Reason: Input service exception, it's recommended to reset the pending distribution status.
     ///
@@ -948,11 +948,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_InjectMouseEvent function result code.
-    /// [`INPUT_SUCCESS`] inject mouseEvent success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) inject mouseEvent success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] Parameter check failed.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Parameter check failed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -974,11 +974,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_InjectMouseEventGlobal function result code.
-    /// [`INPUT_SUCCESS`] inject mouseEvent success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) inject mouseEvent success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] Parameter check failed.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Parameter check failed.
     ///
     ///
     /// Available since API-level: 20
@@ -990,7 +990,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_MouseEvent`] pointer object if the operation is successful.
+    /// * Returns an [`Input_MouseEvent`](ohos_sys_opaque_types::Input_MouseEvent) pointer object if the operation is successful.
     /// Otherwise, a null pointer is returned. The possible cause is memory allocation failure.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1347,9 +1347,9 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_InjectTouchEvent function result code.
-    /// [`INPUT_SUCCESS`] inject touchEvent success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) inject touchEvent success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] Parameter check failed.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Parameter check failed.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1371,11 +1371,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_InjectTouchEventGlobal function result code.
-    /// [`INPUT_SUCCESS`] inject touchEvent success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) inject touchEvent success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] Parameter check failed.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) Parameter check failed.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
     ///
     /// Available since API-level: 20
@@ -1387,7 +1387,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_TouchEvent`] pointer object if the operation is successful.
+    /// * Returns an [`Input_TouchEvent`](ohos_sys_opaque_types::Input_TouchEvent) pointer object if the operation is successful.
     /// Otherwise, a null pointer is returned. The possible cause is memory allocation failure.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1688,21 +1688,21 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_RequestInjection function result code.
-    /// [`INPUT_SUCCESS`] Success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
     ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Service error.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Service error.
     ///
-    /// [`INPUT_INJECTION_AUTHORIZING`] Authorizing.
+    /// [`INPUT_INJECTION_AUTHORIZING`](crate::input_manager::InputErrorCode::INJECTION_AUTHORIZING) Authorizing.
     ///
-    /// [`INPUT_INJECTION_OPERATION_FREQUENT`] Too many operations.
+    /// [`INPUT_INJECTION_OPERATION_FREQUENT`](crate::input_manager::InputErrorCode::INJECTION_OPERATION_FREQUENT) Too many operations.
     ///
-    /// [`INPUT_INJECTION_AUTHORIZED`] Authorized.
+    /// [`INPUT_INJECTION_AUTHORIZED`](crate::input_manager::InputErrorCode::INJECTION_AUTHORIZED) Authorized.
     ///
-    /// [`INPUT_INJECTION_AUTHORIZED_OTHERS`] Authorized to other applications.
+    /// [`INPUT_INJECTION_AUTHORIZED_OTHERS`](crate::input_manager::InputErrorCode::INJECTION_AUTHORIZED_OTHERS) Authorized to other applications.
     ///
     ///
     /// Available since API-level: 20
@@ -1713,16 +1713,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `status` - Injection authorization status. For details, see [`Input_InjectionStatus`].
+    /// * `status` - Injection authorization status. For details, see [`Input_InjectionStatus`](crate::input_manager::Input_InjectionStatus).
     ///
     /// # Returns
     ///
     /// * OH_Input_QueryAuthorizedStatus function result code.
-    /// [`INPUT_SUCCESS`] Success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The status is NULL
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The status is NULL
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Service error.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Service error.
     ///
     ///
     /// Available since API-level: 20
@@ -1734,7 +1734,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a [`Input_AxisEvent`] object is returned.
+    /// * If the operation is successful, a [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent) object is returned.
     /// If the operation fails, null is returned.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1752,9 +1752,9 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_DestroyAxisEvent function result code.
-    /// [`INPUT_SUCCESS`] Destroys axisEvent success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Destroys axisEvent success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`]The axisEvent is NULL or the *axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR)The axisEvent is NULL or the *axisEvent is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1767,16 +1767,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
-    /// * `action` - Axis event action. The values are defined in [`InputEvent_AxisAction`].
+    /// * `action` - Axis event action. The values are defined in [`InputEvent_AxisAction`](crate::axis_type::InputEvent_AxisAction).
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventAction function result code.
-    /// [`INPUT_SUCCESS`] Sets the axis event action success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the axis event action success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1792,16 +1792,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
-    /// * `action` - Axis event action. The values are defined in [`InputEvent_AxisAction`].
+    /// * `action` - Axis event action. The values are defined in [`InputEvent_AxisAction`](crate::axis_type::InputEvent_AxisAction).
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventAction function result code.
-    /// [`INPUT_SUCCESS`] Obtains the axis event action success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the axis event action success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the action is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the action is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1817,16 +1817,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `displayX` - X coordinate of the axis event.
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventDisplayX function result code.
-    /// [`INPUT_SUCCESS`] Sets the X coordinate of the axis event success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the X coordinate of the axis event success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1842,16 +1842,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `displayX` - X coordinate of the axis event.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventDisplayX function result code.
-    /// [`INPUT_SUCCESS`] Obtains the X coordinate of the axis event success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the X coordinate of the axis event success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the displayX is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the displayX is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1867,16 +1867,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `displayY` - Y coordinate of the axis event.
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventDisplayY function result code.
-    /// [`INPUT_SUCCESS`] Sets the Y coordinate of the axis event success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the Y coordinate of the axis event success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1892,16 +1892,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `displayY` - Y coordinate of the axis event.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventDisplayY function result code.
-    /// [`INPUT_SUCCESS`] Obtains the Y coordinate of the axis event success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the Y coordinate of the axis event success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the displayY is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the displayY is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1917,18 +1917,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
-    /// * `axisType` - Axis type. The values are defined in [`InputEvent_AxisType`].
+    /// * `axisType` - Axis type. The values are defined in [`InputEvent_AxisType`](crate::axis_type::InputEvent_AxisType).
     ///
     /// * `axisValue` - Axis value.
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventAxisValue function result code.
-    /// [`INPUT_SUCCESS`] Sets the axis value of the axis event success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the axis value of the axis event success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1945,18 +1945,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
-    /// * `axisType` - Axis type. The values are defined in [`InputEvent_AxisType`].
+    /// * `axisType` - Axis type. The values are defined in [`InputEvent_AxisType`](crate::axis_type::InputEvent_AxisType).
     ///
     /// * `axisValue` - Axis value.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventAxisValue function result code.
-    /// [`INPUT_SUCCESS`] Obtains the axis value of the axis event success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the axis value of the axis event success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the axisValue is NULL,
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the axisValue is NULL,
     /// or the axisType not found in the axisEvent.
     ///
     ///
@@ -1974,16 +1974,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `actionTime` - Time when an axis event occurs.
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventActionTime function result code.
-    /// [`INPUT_SUCCESS`] Sets the time when an axis event occurs success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the time when an axis event occurs success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -1999,16 +1999,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `actionTime` - Time when an axis event occurs.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventActionTime function result code.
-    /// [`INPUT_SUCCESS`] Obtains the time when an axis event occurs success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the time when an axis event occurs success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the actionTime is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the actionTime is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2024,16 +2024,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
-    /// * `axisEventType` - Axis event type. The values are defined in [`InputEvent_AxisEventType`].
+    /// * `axisEventType` - Axis event type. The values are defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventType function result code.
-    /// [`INPUT_SUCCESS`] Sets the axis event type success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the axis event type success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2051,14 +2051,14 @@ extern "C" {
     ///
     /// * `axisEvent` - Axis event object.
     ///
-    /// * `axisEventType` - Axis event type. The values are defined in [`InputEvent_AxisEventType`].
+    /// * `axisEventType` - Axis event type. The values are defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventType function result code.
-    /// [`INPUT_SUCCESS`] Obtains the axis event type success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the axis event type success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the axisEventType is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the axisEventType is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2076,14 +2076,14 @@ extern "C" {
     ///
     /// * `axisEvent` - Axis event object.
     ///
-    /// * `sourceType` - Axis event source type. The values are defined in [`InputEvent_SourceType`].
+    /// * `sourceType` - Axis event source type. The values are defined in [`InputEvent_SourceType`](crate::input_manager::InputEvent_SourceType).
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventSourceType function result code.
-    /// [`INPUT_SUCCESS`] Sets the axis event source type success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the axis event source type success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2101,14 +2101,14 @@ extern "C" {
     ///
     /// * `axisEvent` - Axis event object.
     ///
-    /// * `sourceType` - Axis event source type. The values are defined in [`InputEvent_SourceType`].
+    /// * `sourceType` - Axis event source type. The values are defined in [`InputEvent_SourceType`](crate::input_manager::InputEvent_SourceType).
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventSourceType function result code.
-    /// [`INPUT_SUCCESS`] Obtains the axis event source type success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the axis event source type success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the sourceType is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the sourceType is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2124,16 +2124,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `windowId` - The windowId for the axis event.
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventWindowId function result code.
-    /// [`INPUT_SUCCESS`] Sets the Y coordinate of the axis event success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the Y coordinate of the axis event success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2149,16 +2149,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `windowId` - The windowId for the axis event.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventWindowId function result code.
-    /// [`INPUT_SUCCESS`] Obtains the Y coordinate of the axis event success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the Y coordinate of the axis event success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the displayY is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the displayY is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2174,16 +2174,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `displayId` - The displayId for the axis event.
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventDisplayId function result code.
-    /// [`INPUT_SUCCESS`] Sets the Y coordinate of the axis event success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Sets the Y coordinate of the axis event success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2199,16 +2199,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `displayId` - The displayId for the axis event.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventDisplayId function result code.
-    /// [`INPUT_SUCCESS`] Obtains the Y coordinate of the axis event success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Obtains the Y coordinate of the axis event success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the displayY is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the displayY is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2224,16 +2224,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `globalX` - Global X coordinate.
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventGlobalX function result code.
-    /// [`INPUT_SUCCESS`] Success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Available since API-level: 20
@@ -2247,16 +2247,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `globalX` - Global X coordinate.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventGlobalX function result code.
-    /// [`INPUT_SUCCESS`] Success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the globalX is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the globalX is NULL.
     ///
     ///
     /// Available since API-level: 20
@@ -2270,16 +2270,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `globalY` - Global Y coordinate.
     ///
     /// # Returns
     ///
     /// * OH_Input_SetAxisEventGlobalY function result code.
-    /// [`INPUT_SUCCESS`] Success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL.
     ///
     ///
     /// Available since API-level: 20
@@ -2293,16 +2293,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`].
+    /// * `axisEvent` - Axis event object. For details, see [`Input_AxisEvent`](ohos_sys_opaque_types::Input_AxisEvent).
     ///
     /// * `globalY` - Global Y coordinate.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetAxisEventGlobalY function result code.
-    /// [`INPUT_SUCCESS`] Success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Success.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The axisEvent is NULL or the globalY is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The axisEvent is NULL or the globalY is NULL.
     ///
     ///
     /// Available since API-level: 20
@@ -2323,13 +2323,13 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_AddKeyEventMonitor function result code.
-    /// [`INPUT_SUCCESS`] Adds a listener of key events success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a listener of key events success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to add the monitor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the monitor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2350,13 +2350,13 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_AddMouseEventMonitor function result code.
-    /// [`INPUT_SUCCESS`] Adds a listener of mouse events success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a listener of mouse events success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to add the monitor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the monitor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2376,13 +2376,13 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_AddTouchEventMonitor function result code.
-    /// [`INPUT_SUCCESS`] Adds a listener of touch events success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a listener of touch events success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to add the monitor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the monitor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2392,7 +2392,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Input_AddTouchEventMonitor(callback: Input_TouchEventCallback) -> Input_Result;
     /// Adds a listener for all types of axis events.
-    /// The axis event types are defined in [`InputEvent_AxisEventType`].
+    /// The axis event types are defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
     ///
     /// Required Permissions: ohos.permission.INPUT_MONITORING
@@ -2403,13 +2403,13 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_AddAxisEventMonitorForAll function result code.
-    /// [`INPUT_SUCCESS`] Adds a listener for all types of axis events success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a listener for all types of axis events success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to add the monitor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the monitor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2424,20 +2424,20 @@ extern "C" {
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `axisEventType` - - Axis event type. The values are defined in [`InputEvent_AxisEventType`].
+    /// * `axisEventType` - - Axis event type. The values are defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
     /// * `callback` - - Callback used to receive the specified type of axis events.
     ///
     /// # Returns
     ///
     /// * OH_Input_AddAxisEventMonitor function result code.
-    /// [`INPUT_SUCCESS`] Adds a listener for the specified types of axis events success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a listener for the specified types of axis events success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to add the monitor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the monitor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2460,13 +2460,13 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_RemoveKeyEventMonitor function result code.
-    /// [`INPUT_SUCCESS`] Removes a key event listener success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes a key event listener success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL or has not been added.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL or has not been added.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Fail to remove the monitor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Fail to remove the monitor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2486,13 +2486,13 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_RemoveMouseEventMonitor function result code.
-    /// [`INPUT_SUCCESS`] Removes a mouse event listener success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes a mouse event listener success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL or has not been added.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL or has not been added.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Fail to remove the monitor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Fail to remove the monitor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2512,13 +2512,13 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_RemoveTouchEventMonitor function result code.
-    /// [`INPUT_SUCCESS`] Removes a touch event listener success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes a touch event listener success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL or has not been added.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL or has not been added.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Fail to remove the monitor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Fail to remove the monitor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2538,13 +2538,13 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_RemoveAxisEventMonitorForAll function result code.
-    /// [`INPUT_SUCCESS`] Removes the listener for all types of axis events success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes the listener for all types of axis events success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL or has not been added.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL or has not been added.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Fail to remove the monitor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Fail to remove the monitor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2560,20 +2560,20 @@ extern "C" {
     /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
-    /// * `axisEventType` - - Axis event type. The axis event type is defined in [`InputEvent_AxisEventType`].
+    /// * `axisEventType` - - Axis event type. The axis event type is defined in [`InputEvent_AxisEventType`](crate::axis_type::InputEvent_AxisEventType).
     ///
     /// * `callback` - - Callback for the listener used to listen for the specified type of axis events.
     ///
     /// # Returns
     ///
     /// * OH_Input_RemoveAxisEventMonitor function result code.
-    /// [`INPUT_SUCCESS`] Removes the listener for the specified type of axis events success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes the listener for the specified type of axis events success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL or has not been added.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL or has not been added.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Fail to remove the monitor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Fail to remove the monitor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2598,15 +2598,15 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_AddKeyEventInterceptor function result code.
-    /// [`INPUT_SUCCESS`] Adds a key event interceptor success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds a key event interceptor success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
     ///
-    /// [`INPUT_REPEAT_INTERCEPTOR`] Interceptor repeatedly created for an application.
+    /// [`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR) Interceptor repeatedly created for an application.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to add the interceptor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the interceptor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2626,22 +2626,22 @@ extern "C" {
     /// # Arguments
     ///
     /// * `callback` - - Pointer to the structure of the callback for the input event interceptor.
-    /// For details, see [`Input_InterceptorEventCallback`].
+    /// For details, see [`Input_InterceptorEventCallback`](crate::input_manager::Input_InterceptorEventCallback).
     ///
     /// * `option` - - Options for event interception. If **null** is passed, the default value is used.
     ///
     /// # Returns
     ///
     /// * OH_Input_AddInputEventInterceptor function result code.
-    /// [`INPUT_SUCCESS`] Adds an interceptor for input events success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Adds an interceptor for input events success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The callback is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The callback is NULL.
     ///
-    /// [`INPUT_REPEAT_INTERCEPTOR`] Interceptor repeatedly created for an application.
+    /// [`INPUT_REPEAT_INTERCEPTOR`](crate::input_manager::InputErrorCode::REPEAT_INTERCEPTOR) Interceptor repeatedly created for an application.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to add the interceptor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to add the interceptor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2661,11 +2661,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_RemoveKeyEventInterceptor function result code.
-    /// [`INPUT_SUCCESS`]Removes a key event interceptor success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result)Removes a key event interceptor success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to remove the interceptor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to remove the interceptor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2682,11 +2682,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_RemoveInputEventInterceptor function result code.
-    /// [`INPUT_SUCCESS`] Removes an interceptor for input events success.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) Removes an interceptor for input events success.
     ///
-    /// [`INPUT_PERMISSION_DENIED`] Permission verification failed.
+    /// [`INPUT_PERMISSION_DENIED`](crate::input_manager::InputErrorCode::PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to remove the interceptor because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to remove the interceptor because the service is exception.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2704,11 +2704,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetIntervalSinceLastInput status code, specifically.
-    /// [`INPUT_SUCCESS`] if the Operation is successful.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the Operation is successful.
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] Failed to get the interval because the service is exception.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) Failed to get the interval because the service is exception.
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The timeInterval is NULL.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The timeInterval is NULL.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2722,7 +2722,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_Hotkey`] pointer object if the operation is successful. Otherwise, a null pointer is
+    /// * Returns an [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) pointer object if the operation is successful. Otherwise, a null pointer is
     /// returned. The possible cause is memory allocation failure.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2772,12 +2772,12 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetPreKeys status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The hotkey is NULL or the pressedKeys is NULL or the pressedKeyCount
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The hotkey is NULL or the pressedKeys is NULL or the pressedKeyCount
     /// is NULL;
     ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2815,11 +2815,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetFinalKey status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The hotkey is NULL or the finalKeyCode is NULL;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The hotkey is NULL or the finalKeyCode is NULL;
     ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2831,16 +2831,16 @@ extern "C" {
         hotkey: *const Input_Hotkey,
         finalKeyCode: *mut i32,
     ) -> Input_Result;
-    /// Creates an array of [`Input_Hotkey`] instances.
+    /// Creates an array of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances.
     ///
     /// # Arguments
     ///
-    /// * `count` - Number of [`Input_Hotkey`] instances to be created. The count must be the same as the number of
+    /// * `count` - Number of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances to be created. The count must be the same as the number of
     /// system shortcut keys.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an array of [`Input_Hotkey`] instances if the operation is successful. If the
+    /// * Returns a pointer to an array of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances if the operation is successful. If the
     /// operation fails, a null pointer is returned. The possible cause is memory allocation failure or count is not equal
     /// to the number of system hotkeys.
     ///
@@ -2850,12 +2850,12 @@ extern "C" {
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_Input_CreateAllSystemHotkeys(count: i32) -> *mut *mut Input_Hotkey;
-    /// Destroys an array of [`Input_Hotkey`] instances and reclaims memory.
+    /// Destroys an array of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances and reclaims memory.
     ///
     /// # Arguments
     ///
-    /// * `hotkeys` - Pointer to an array of [`Input_Hotkey`] instances created by the
-    /// [`OH_Input_CreateAllSystemHotkeys`] method.
+    /// * `hotkeys` - Pointer to an array of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances created by the
+    /// [`OH_Input_CreateAllSystemHotkeys`](crate::input_manager::OH_Input_CreateAllSystemHotkeys) method.
     ///
     /// * `count` - Count of the array to be destroyed, which must be the same as the number of system shortcut keys.
     ///
@@ -2869,7 +2869,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `hotkey` - Array of [`Input_Hotkey`] instances.
+    /// * `hotkey` - Array of [`Input_Hotkey`](ohos_sys_opaque_types::Input_Hotkey) instances.
     /// When calling this API for the first time, you can pass NULL to obtain the array length.
     ///
     /// * `count` - Number of hot keys supported by the system.
@@ -2877,11 +2877,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetAllSystemHotkeys status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
     ///
-    /// [`INPUT_PARAMETER_ERROR`] The hotkey or count is NULL, or the value of count does not match the number
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The hotkey or count is NULL, or the value of count does not match the number
     /// of system shortcut keys supported by the system;
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2919,11 +2919,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetRepeat status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
     ///
-    /// [`INPUT_PARAMETER_ERROR`] otherwise;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) otherwise;
     ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2943,15 +2943,15 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_AddHotkeyMonitor status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
     ///
-    /// [`INPUT_PARAMETER_ERROR`] if hotkey or callback is NULL;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if hotkey or callback is NULL;
     ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported;
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported;
     ///
-    /// [`INPUT_OCCUPIED_BY_SYSTEM`] The hotkey has been used by the system. You can call the [`GetAllSystemHotkeys`] interface to query all system shortcut keys.
+    /// [`INPUT_OCCUPIED_BY_SYSTEM`](crate::input_manager::InputErrorCode::OCCUPIED_BY_SYSTEM) The hotkey has been used by the system. You can call the `GetAllSystemHotkeys` interface to query all system shortcut keys.
     ///
-    /// [`INPUT_OCCUPIED_BY_OTHER`] The hotkey has been subscribed to by another.
+    /// [`INPUT_OCCUPIED_BY_OTHER`](crate::input_manager::InputErrorCode::OCCUPIED_BY_OTHER) The hotkey has been subscribed to by another.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -2974,11 +2974,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_RemoveHotkeyMonitor status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
     ///
-    /// [`INPUT_PARAMETER_ERROR`] if hotkey or callback is NULL;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if hotkey or callback is NULL;
     ///
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
     ///
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -3003,8 +3003,8 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetDeviceIds result code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if deviceIds or outSize is a null pointer or inSize is less than 0.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceIds or outSize is a null pointer or inSize is less than 0.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3022,14 +3022,14 @@ extern "C" {
     ///
     /// * `deviceId` - Device ID.
     ///
-    /// * `deviceInfo` - Pointer to an [`Input_DeviceInfo`] object.
+    /// * `deviceInfo` - Pointer to an [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo) object.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetDevice result code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if the deviceInfo is a null pointer or the deviceId is invalid.
-    /// You can use the [`OH_Input_GetDeviceIds`] interface to query the device IDs supported by the system.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the deviceInfo is a null pointer or the deviceId is invalid.
+    /// You can use the [`OH_Input_GetDeviceIds`](crate::input_manager::OH_Input_GetDeviceIds) interface to query the device IDs supported by the system.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3045,7 +3045,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Pointer to an [`Input_DeviceInfo`] object if the operation is successful;
+    /// * Pointer to an [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo) object if the operation is successful;
     /// a null pointer otherwise (possibly because of a memory allocation failure).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
@@ -3058,7 +3058,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`].
+    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3077,8 +3077,8 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetKeyboardType result code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if the device ID is invalid or keyboardType is a null pointer.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if the device ID is invalid or keyboardType is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3090,15 +3090,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`].
+    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `id` - Pointer to the ID of the input device.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetDeviceId result code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if deviceInfo or id is a null pointer.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or id is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3110,15 +3110,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`].
+    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `name` - Pointer to the name of the input device.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetDeviceName result code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if deviceInfo or name is a null pointer.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or name is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3133,15 +3133,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`].
+    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `capabilities` - Pointer to the capabilities of the input device.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetCapabilities result code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if deviceInfo or capabilities is a null pointer.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or capabilities is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3156,15 +3156,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`].
+    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `version` - Pointer to the version information of the input device.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetDeviceVersion result code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if deviceInfo or version is a null pointer.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or version is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3179,15 +3179,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`].
+    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `product` - Pointer to the product information of the input device.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetDeviceProduct result code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if deviceInfo or product is a null pointer.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or product is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3202,15 +3202,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`].
+    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `vendor` - Pointer to the vendor information of the input device.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetDeviceVendor result code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if deviceInfo or vendor is a null pointer.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or vendor is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3225,15 +3225,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`].
+    /// * `deviceInfo` - information object. For details, see [`Input_DeviceInfo`](crate::input_manager::Input_DeviceInfo).
     ///
     /// * `address` - Pointer to the physical address of the input device.
     ///
     /// # Returns
     ///
     /// * OH_Input_GetDeviceAddress result code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if deviceInfo or address is a null pointer.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if deviceInfo or address is a null pointer.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3248,15 +3248,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `listener` - Pointer to an [`Input_DeviceListener`] object.
+    /// * `listener` - Pointer to an [`Input_DeviceListener`](crate::input_manager::Input_DeviceListener) object.
     ///
     ///
     /// # Returns
     ///
     /// * OH_Input_RegisterDeviceListener status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
     ///
-    /// [`INPUT_PARAMETER_ERROR`] if listener is NULL;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if listener is NULL;
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3268,16 +3268,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `listener` - Pointer to the listener for device hot swap events. For details, see [`Input_DeviceListener`].
+    /// * `listener` - Pointer to the listener for device hot swap events. For details, see [`Input_DeviceListener`](crate::input_manager::Input_DeviceListener).
     ///
     ///
     /// # Returns
     ///
     /// * OH_Input_UnregisterDeviceListener status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
     ///
-    /// [`INPUT_PARAMETER_ERROR`] if listener is NULL or no listener is registered;
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is abnormal.
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if listener is NULL or no listener is registered;
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3291,9 +3291,9 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_UnregisterDeviceListeners status code, specifically,
-    /// [`INPUT_SUCCESS`] if the operation is successful;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
     ///
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is abnormal.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is abnormal.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3313,9 +3313,9 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetFunctionKeyState function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if keyCode is invalid or state is a null pointer.
-    /// [`INPUT_KEYBOARD_DEVICE_NOT_EXIST`] no keyboard device connected.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if keyCode is invalid or state is a null pointer.
+    /// [`INPUT_KEYBOARD_DEVICE_NOT_EXIST`](crate::input_manager::InputErrorCode::KEYBOARD_DEVICE_NOT_EXIST) no keyboard device connected.
     ///
     /// Required System Capabilities: SystemCapability.MultimodalInput.Input.Core
     ///
@@ -3333,8 +3333,8 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_QueryMaxTouchPoints function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if count is a null pointer.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if count is a null pointer.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -3353,11 +3353,11 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetPointerLocation function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null pointer;
-    /// [`INPUT_APP_NOT_FOCUSED`] if the app is not the focused app;
-    /// [`INPUT_DEVICE_NO_POINTER`] if the device has no pointer;
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null pointer;
+    /// [`INPUT_APP_NOT_FOCUSED`](crate::input_manager::InputErrorCode::APP_NOT_FOCUSED) if the app is not the focused app;
+    /// [`INPUT_DEVICE_NO_POINTER`](crate::input_manager::InputErrorCode::DEVICE_NO_POINTER) if the device has no pointer;
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -3372,7 +3372,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_CursorInfo`] cursor object if the operation is successful.
+    /// * Returns an [`Input_CursorInfo`](crate::input_manager::Input_CursorInfo) cursor object if the operation is successful.
     /// Otherwise, a null cursor is returned. The possible cause is memory allocation failure.
     ///
     /// Available since API-level: 22
@@ -3400,8 +3400,8 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_CursorInfo_IsVisible function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor;
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3421,8 +3421,8 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_CursorInfo_GetStyle function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor or the cursor is invisible;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor or the cursor is invisible;
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3442,8 +3442,8 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_CursorInfo_GetSizeLevel function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor or the cursor is invisible;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor or the cursor is invisible;
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3463,8 +3463,8 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_CursorInfo_GetColor function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor or the cursor is invisible;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor or the cursor is invisible;
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3484,8 +3484,8 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetMouseEventCursorInfo function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor;
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor;
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3506,9 +3506,9 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetCursorInfo function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null cursor;
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null cursor;
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3526,9 +3526,9 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_SetPointerVisible function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`] if the device is not supported.
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) if the device is not supported.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3545,9 +3545,9 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_GetPointerStyle function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if parameter is a null pointer or window ID is invalid;
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if parameter is a null pointer or window ID is invalid;
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3559,14 +3559,14 @@ extern "C" {
     ///
     /// * `windowId` - Window ID. The value is an integer greater than or equal to 0.
     ///
-    /// * `pointerStyle` - Pointer style.The value should be a member of the [`Input_PointerStyle`] enumeration.
+    /// * `pointerStyle` - Pointer style.The value should be a member of the [`Input_PointerStyle`](crate::pointer_style::Input_PointerStyle) enumeration.
     ///
     /// # Returns
     ///
     /// * OH_Input_SetPointerStyle function api result code
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if window ID is invalid or pointerStyle is invalid;
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if window ID is invalid or pointerStyle is invalid;
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3576,7 +3576,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `pixelMap` - Pointer to a [`OH_PixelmapNative`] object.
+    /// * `pixelMap` - Pointer to a [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative) object.
     ///
     /// * `anchorX` - Horizontal coordinate of the cursor focus.
     ///
@@ -3584,7 +3584,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_CustomCursor`] pointer object if the operation is successful.
+    /// * Returns an [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) pointer object if the operation is successful.
     /// returns a null pointer otherwise.
     ///
     /// Available since API-level: 22
@@ -3599,7 +3599,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `customCursor` - Pointer to a pointer to an [`Input_CustomCursor`] object.
+    /// * `customCursor` - Pointer to a pointer to an [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) object.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3609,15 +3609,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `customCursor` - Pointer to an [`Input_CustomCursor`] object.
+    /// * `customCursor` - Pointer to an [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) object.
     ///
-    /// * `pixelMap` - Pointer to a [`OH_PixelmapNative`] object.
+    /// * `pixelMap` - Pointer to a [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative) object.
     ///
     /// # Returns
     ///
     /// * OH_Input_CustomCursor_GetPixelMap function result code.
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] The customCursor is NULL.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The customCursor is NULL.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3630,7 +3630,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `customCursor` - Pointer to an [`Input_CustomCursor`] object.
+    /// * `customCursor` - Pointer to an [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) object.
     ///
     /// * `anchorX` - Pointer to horizontal coordinate of the cursor focus.
     ///
@@ -3639,8 +3639,8 @@ extern "C" {
     /// # Returns
     ///
     /// * OH_Input_CustomCursor_GetAnchor function result code.
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] The customCursor is NULL.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The customCursor is NULL.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3658,7 +3658,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns an [`Input_CursorConfig`] pointer object if the operation is successful.
+    /// * Returns an [`Input_CursorConfig`](crate::input_manager::Input_CursorConfig) pointer object if the operation is successful.
     /// returns a null pointer otherwise.
     ///
     /// Available since API-level: 22
@@ -3669,7 +3669,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `cursorConfig` - Pointer to a pointer to an [`cursorConfig`] object.
+    /// * `cursorConfig` - Pointer to a pointer to an `cursorConfig` object.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3679,15 +3679,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `cursorConfig` - Pointer to an [`Input_CursorConfig`] object.
+    /// * `cursorConfig` - Pointer to an [`Input_CursorConfig`](crate::input_manager::Input_CursorConfig) object.
     ///
     /// * `followSystem` - Pointer of the config whether to adjust the cursor size based on system settings
     ///
     /// # Returns
     ///
     /// * OH_Input_CursorConfig_IsFollowSystem function result code.
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] The cursorOptions or followSystem the is NULL.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) The cursorOptions or followSystem the is NULL.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -3702,18 +3702,18 @@ extern "C" {
     ///
     /// * `windowId` - Window ID. The value is an integer greater than or equal to 0.
     ///
-    /// * `customCursor` - Pointer to an [`Input_CustomCursor`] object.
+    /// * `customCursor` - Pointer to an [`Input_CustomCursor`](crate::input_manager::Input_CustomCursor) object.
     ///
-    /// * `cursorConfig` - Pointer to an [`cursorConfig`] object.
+    /// * `cursorConfig` - Pointer to an `cursorConfig` object.
     ///
     /// # Returns
     ///
     /// * OH_Input_SetCustomCursor function result code.
-    /// [`INPUT_SUCCESS`] if the operation is successful;
-    /// [`INPUT_PARAMETER_ERROR`] if window ID is abnormal or customCursor is invalid;
-    /// [`INPUT_INVALID_WINDOWID`] if window ID is invaild.
-    /// [`INPUT_DEVICE_NOT_SUPPORTED`] Capability not supported.
-    /// [`INPUT_SERVICE_EXCEPTION`] if the service is exception.
+    /// [`INPUT_SUCCESS`](crate::input_manager::Input_Result) if the operation is successful;
+    /// [`INPUT_PARAMETER_ERROR`](crate::input_manager::InputErrorCode::PARAMETER_ERROR) if window ID is abnormal or customCursor is invalid;
+    /// [`INPUT_INVALID_WINDOWID`](crate::input_manager::InputErrorCode::INVALID_WINDOWID) if window ID is invaild.
+    /// [`INPUT_DEVICE_NOT_SUPPORTED`](crate::input_manager::InputErrorCode::DEVICE_NOT_SUPPORTED) Capability not supported.
+    /// [`INPUT_SERVICE_EXCEPTION`](crate::input_manager::InputErrorCode::SERVICE_EXCEPTION) if the service is exception.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

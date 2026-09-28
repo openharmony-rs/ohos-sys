@@ -16,16 +16,16 @@ extern "C" {
     /// This function is optional.
     ///
     /// Typically, this function is called once when the host process is started to initialize the global environment for
-    /// video processing, which can reduce the time of [`OH_VideoProcessing_Create`].
+    /// video processing, which can reduce the time of [`OH_VideoProcessing_Create`](crate::video_processing::OH_VideoProcessing_Create).
     ///
-    /// To deinitialize global environment, call [`OH_VideoProcessing_DeinitializeEnvironment`].
+    /// To deinitialize global environment, call [`OH_VideoProcessing_DeinitializeEnvironment`](crate::video_processing::OH_VideoProcessing_DeinitializeEnvironment).
     ///
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if initialization is successful.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if initialization is successful.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INITIALIZE_FAILED`] if initialization is failed.
+    /// [`VIDEO_PROCESSING_ERROR_INITIALIZE_FAILED`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INITIALIZE_FAILED) if initialization is failed.
     ///
     /// You can check if the device GPU is working properly.
     ///
@@ -35,21 +35,21 @@ extern "C" {
     pub fn OH_VideoProcessing_InitializeEnvironment() -> VideoProcessing_ErrorCode;
     /// Deinitialize global environment for video processing.
     ///
-    /// This function is required if [`OH_VideoProcessing_InitializeEnvironment`] is called. Typically, this
+    /// This function is required if [`OH_VideoProcessing_InitializeEnvironment`](crate::video_processing::OH_VideoProcessing_InitializeEnvironment) is called. Typically, this
     /// function is called when the host process is about to exit to deinitialize the global environment, which is
-    /// initialized by calling [`OH_VideoProcessing_InitializeEnvironment`].
+    /// initialized by calling [`OH_VideoProcessing_InitializeEnvironment`](crate::video_processing::OH_VideoProcessing_InitializeEnvironment).
     ///
     /// If there is some video processing instance existing, this function should not be called.
     ///
-    /// If the [`OH_VideoProcessing_InitializeEnvironment`] is not called, this function should not be called.
+    /// If the [`OH_VideoProcessing_InitializeEnvironment`](crate::video_processing::OH_VideoProcessing_InitializeEnvironment) is not called, this function should not be called.
     ///
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if deinitialization is successful.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if deinitialization is successful.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`] if some video processing instance is not destroyed or
-    /// [`OH_VideoProcessing_InitializeEnvironment`] is not called.
+    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED) if some video processing instance is not destroyed or
+    /// [`OH_VideoProcessing_InitializeEnvironment`](crate::video_processing::OH_VideoProcessing_InitializeEnvironment) is not called.
     ///
     ///
     /// Available since API-level: 12
@@ -107,16 +107,16 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if creating a video processing instance successfully.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if creating a video processing instance successfully.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`] if the type is not supported. For example, if metadata
+    /// [`VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING) if the type is not supported. For example, if metadata
     /// generation is not supported by vendor, it returns unsupported processing.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_CREATE_FAILED`] if failed to create a video processing instance.
+    /// [`VIDEO_PROCESSING_ERROR_CREATE_FAILED`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_CREATE_FAILED) if failed to create a video processing instance.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or <b>*</b>instance is <b>not</b> null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or <b>*</b>instance is <b>not</b> null.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if type is invalid.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if type is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -127,7 +127,7 @@ extern "C" {
     ) -> VideoProcessing_ErrorCode;
     /// Destroy the video processing instance.
     ///
-    /// Stop the instance before destroying it. see [`OH_VideoProcessing_Stop`].
+    /// Stop the instance before destroying it. see [`OH_VideoProcessing_Stop`](crate::video_processing::OH_VideoProcessing_Stop).
     ///
     ///
     /// # Arguments
@@ -137,11 +137,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if the instance is destroyed successfully .
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if the instance is destroyed successfully .
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not a video processing instance.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not a video processing instance.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`] if the instance is still running.
+    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED) if the instance is still running.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -163,13 +163,13 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if callback is registered successfully.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if callback is registered successfully.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not a video processing instance.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not a video processing instance.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if callback is null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if callback is null.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`] if video processing instance is running.
+    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED) if video processing instance is running.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -191,11 +191,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if setting output surface successfully.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if setting output surface successfully.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not a video processing instance.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not a video processing instance.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if window is null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if window is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -207,7 +207,7 @@ extern "C" {
     /// Create an input surface.
     ///
     /// Create the input surface before starting video processing.
-    /// Call [`OH_NativeWindow_DestroyNativeWindow`] to destroy the input surface.
+    /// Call `OH_NativeWindow_DestroyNativeWindow` to destroy the input surface.
     ///
     /// # Arguments
     ///
@@ -217,13 +217,13 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if operation is successful.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if operation is successful.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not a video processing instance.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not a video processing instance.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if window is null or <b>*</b>window is <b>not</b> null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if window is null or <b>*</b>window is <b>not</b> null.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`] if creating surface failed, input surface is already created
+    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED) if creating surface failed, input surface is already created
     /// or video processing instance is running.
     ///
     /// Available since API-level: 12
@@ -245,16 +245,16 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if setting parameter is successful.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if setting parameter is successful.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not an video processing instance.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not an video processing instance.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if the parameter is null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if the parameter is null.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_VALUE`] if some property of the parameter is invalid. For example, the parameter
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_VALUE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_VALUE) if some property of the parameter is invalid. For example, the parameter
     /// contains unsupported parameter key or value.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_NO_MEMORY`] if memory allocation failed.
+    /// [`VIDEO_PROCESSING_ERROR_NO_MEMORY`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_NO_MEMORY) if memory allocation failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -275,11 +275,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if getting parameter is successful.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if getting parameter is successful.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not an video processing instance.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not an video processing instance.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if the parameter is null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if the parameter is null.
     ///
     ///
     /// Available since API-level: 12
@@ -291,8 +291,8 @@ extern "C" {
     ) -> VideoProcessing_ErrorCode;
     /// Start video processing instance.
     ///
-    /// After successfully calling this function, the state [`VIDEO_PROCESSING_STATE_RUNNING`] is reported by callback
-    /// function [`OH_VideoProcessingCallback_OnState`].
+    /// After successfully calling this function, the state [`VIDEO_PROCESSING_STATE_RUNNING`](crate::video_processing_types::VideoProcessing_State::VIDEO_PROCESSING_STATE_RUNNING) is reported by callback
+    /// function [`OH_VideoProcessingCallback_OnState`](crate::video_processing_types::OH_VideoProcessingCallback_OnState).
     ///
     /// # Arguments
     ///
@@ -300,11 +300,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if the operation is successful.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if the operation is successful.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not a video processing instance.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not a video processing instance.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`] if output surface is not set, input surface is not created or
+    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED) if output surface is not set, input surface is not created or
     /// instance is already running.
     ///
     /// Available since API-level: 12
@@ -315,8 +315,8 @@ extern "C" {
     ) -> VideoProcessing_ErrorCode;
     /// To stop video processing instance.
     ///
-    /// After the video processing instance is stopped successfully, the state [`VIDEO_PROCESSING_STATE_STOPPED`] is
-    /// reported by callback function [`OH_VideoProcessing_OnState`].
+    /// After the video processing instance is stopped successfully, the state [`VIDEO_PROCESSING_STATE_STOPPED`](crate::video_processing_types::VideoProcessing_State::VIDEO_PROCESSING_STATE_STOPPED) is
+    /// reported by callback function `OH_VideoProcessing_OnState`.
     ///
     /// # Arguments
     ///
@@ -324,11 +324,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if the operation is successful.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if the operation is successful.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not a video processing instance.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not a video processing instance.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`] if instance is already stopped.
+    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED) if instance is already stopped.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -338,7 +338,7 @@ extern "C" {
     ) -> VideoProcessing_ErrorCode;
     /// Send the output buffer out.
     ///
-    /// If the callback function [`OH_VideoProcessingCallback_OnNewOutputBuffer`] is set, the buffer's index is reported
+    /// If the callback function [`OH_VideoProcessingCallback_OnNewOutputBuffer`](crate::video_processing_types::OH_VideoProcessingCallback_OnNewOutputBuffer) is set, the buffer's index is reported
     /// to user by the callback function when an output buffer is ready.
     ///
     /// # Arguments
@@ -349,13 +349,13 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if the operation is successful.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if the operation is successful.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`] if instance is null or not a video processing instance.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_INSTANCE`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_INSTANCE) if instance is null or not a video processing instance.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if index is invalid.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if index is invalid.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`] if callback [`OH_VideoProcessing_OnNewOutputBuffer`] is
+    /// [`VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED) if callback `OH_VideoProcessing_OnNewOutputBuffer` is
     /// not set or instance is stopped.
     ///
     /// Available since API-level: 12
@@ -374,11 +374,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if callback object is created successfully.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if callback object is created successfully.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if callback is null or <b>*</b>callback is <b>not</b> null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if callback is null or <b>*</b>callback is <b>not</b> null.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_NO_MEMORY`] if out of memory.
+    /// [`VIDEO_PROCESSING_ERROR_NO_MEMORY`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_NO_MEMORY) if out of memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -397,9 +397,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if callback is successfully destroyed.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if callback is successfully destroyed.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if callback is null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if callback is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -407,7 +407,7 @@ extern "C" {
     pub fn OH_VideoProcessingCallback_Destroy(
         callback: *mut VideoProcessing_Callback,
     ) -> VideoProcessing_ErrorCode;
-    /// Bind the [`OH_VideoProcessingCallback_OnError`] callback function to callback object.
+    /// Bind the [`OH_VideoProcessingCallback_OnError`](crate::video_processing_types::OH_VideoProcessingCallback_OnError) callback function to callback object.
     ///
     /// # Arguments
     ///
@@ -417,9 +417,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if the function is bound to callback object successfully.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if the function is bound to callback object successfully.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if the callback is null or onError is null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if the callback is null or onError is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -428,7 +428,7 @@ extern "C" {
         callback: *mut VideoProcessing_Callback,
         onError: OH_VideoProcessingCallback_OnError,
     ) -> VideoProcessing_ErrorCode;
-    /// Bind the [`OH_VideoProcessingCallback_OnState`] callback function to callback object.
+    /// Bind the [`OH_VideoProcessingCallback_OnState`](crate::video_processing_types::OH_VideoProcessingCallback_OnState) callback function to callback object.
     ///
     /// # Arguments
     ///
@@ -438,9 +438,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if the function is bound to callback object successfully.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if the function is bound to callback object successfully.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if the callback is null or onState is null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if the callback is null or onState is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -449,7 +449,7 @@ extern "C" {
         callback: *mut VideoProcessing_Callback,
         onState: OH_VideoProcessingCallback_OnState,
     ) -> VideoProcessing_ErrorCode;
-    /// Bind the [`OH_VideoProcessingCallback_OnNewOutputBuffer`] callback function to callback object.
+    /// Bind the [`OH_VideoProcessingCallback_OnNewOutputBuffer`](crate::video_processing_types::OH_VideoProcessingCallback_OnNewOutputBuffer) callback function to callback object.
     ///
     /// # Arguments
     ///
@@ -459,9 +459,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`VIDEO_PROCESSING_SUCCESS`] if the function is bound to callback object successfully.
+    /// * [`VIDEO_PROCESSING_SUCCESS`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_SUCCESS) if the function is bound to callback object successfully.
     ///
-    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`] if the callback is null.
+    /// [`VIDEO_PROCESSING_ERROR_INVALID_PARAMETER`](crate::video_processing_types::VideoProcessing_ErrorCode::VIDEO_PROCESSING_ERROR_INVALID_PARAMETER) if the callback is null.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

@@ -210,8 +210,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`] if the call is successful.
-    /// Returns [`BUNDLE_MANAGER_ERROR_CODE_PERMISSION_DENIED`] if the caller has no correct permission.
+    /// * Returns [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the call is successful.
+    /// Returns [`BUNDLE_MANAGER_ERROR_CODE_PERMISSION_DENIED`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PERMISSION_DENIED) if the caller has no correct permission.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]

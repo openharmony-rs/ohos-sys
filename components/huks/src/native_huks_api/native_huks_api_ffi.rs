@@ -14,8 +14,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If sdkVersion or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If sdkVersion or
     /// sdkVersion->data is null, or if sdkVersion->size is too small.
     ///
     /// Available since API-level: 9
@@ -36,29 +36,29 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSetIn or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If keyAlias or paramSetIn or
     /// paramSetOut is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`] 12000004 - If failed to remove file,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL) 12000004 - If failed to remove file,
     /// or if failed to write file.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the base key file is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the base key file is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`] 12000015 - If Failed to obtain
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If crypto engine failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED) 12000015 - If Failed to obtain
     /// the security information via UserIAM.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET`] 12000016 - If device password is required
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET) 12000016 - If device password is required
     /// but not set.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`] 12000017 - If the key with same alias is
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED) 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST) 12000017 - If the key with same alias is
     /// already exist, added since api level 20.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
@@ -79,28 +79,28 @@ extern "C" {
     /// * `paramSet` - Indicates the pointer to the parameters of the key to import.
     ///
     /// * `key` - Indicates the pointer to the key to import. The key must be in the format required by the HUKS.
-    /// For details, see [`HuksTypeApi`].
+    /// For details, see `HuksTypeApi`.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSet or key is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If keyAlias or paramSet or key is invalid.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`] 12000004 - If failed to remove file,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL) 12000004 - If failed to remove file,
     /// or if failed to write file.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`] 12000015 - If Failed to obtain
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED) 12000015 - If Failed to obtain
     /// the security information via UserIAM.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`] 12000017 - If the key with same alias is
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED) 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST) 12000017 - If the key with same alias is
     /// already exist, added since api level 20.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
@@ -124,30 +124,30 @@ extern "C" {
     /// * `paramSet` - Indicates the pointer to the parameters of the wrapped key to import.
     ///
     /// * `wrappedKeyData` - Indicates the pointer to the wrapped key to import.
-    /// The key must be in the format required by the HUKS. For details, see [`OH_Huks_AlgSuite`].
+    /// The key must be in the format required by the HUKS. For details, see [`OH_Huks_AlgSuite`](crate::native_huks_type::OH_Huks_AlgSuite).
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or wrappingKeyAlias or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If keyAlias or wrappingKeyAlias or
     /// paramSet or wrappedKeyData is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`] 12000004 - If failed to remove file,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL) 12000004 - If failed to remove file,
     /// or if failed to write file.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`] 12000015 - If Failed to obtain
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If crypto engine failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED) 12000015 - If Failed to obtain
     /// the security information via UserIAM.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`] 12000017 - If the key with same alias is
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED) 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST) 12000017 - If the key with same alias is
     /// already exist, added since api level 20.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
@@ -172,20 +172,20 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If keyAlias or
     /// paramSet or key is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the key file is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED) 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
@@ -208,18 +208,18 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSet is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If keyAlias or paramSet is invalid.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the key file is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
@@ -242,20 +242,20 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSetIn or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If keyAlias or paramSetIn or
     /// paramSetOut is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the key file is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED) 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
@@ -277,18 +277,18 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSet is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If keyAlias or paramSet is invalid.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the key file is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
@@ -312,23 +312,23 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If keyAlias or
     /// paramSet or certChain is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the key file is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PERMISSION_FAIL`] 201 - If the permission check failed,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If crypto engine failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED) 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PERMISSION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PERMISSION_FAIL) 201 - If the permission check failed,
     /// please apply for the required permissions first.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
@@ -351,23 +351,23 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If keyAlias or
     /// paramSet or certChain is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the key file is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PERMISSION_FAIL`] 201 - If the permission check failed,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If crypto engine failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED) 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PERMISSION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PERMISSION_FAIL) 201 - If the permission check failed,
     /// please apply for the required permissions first.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 11
@@ -391,49 +391,49 @@ extern "C" {
     /// * `paramSet` - Indicates the pointer to the parameters for the initialization operation.
     ///
     /// * `handle` - Indicates the pointer to the handle of the key session obtained.
-    /// This handle is required for subsequent operations, including [`OH_Huks_UpdateSession`],
-    /// [`OH_Huks_FinishSession`], and [`OH_Huks_AbortSession`].
+    /// This handle is required for subsequent operations, including [`OH_Huks_UpdateSession`](crate::native_huks_api::OH_Huks_UpdateSession),
+    /// [`OH_Huks_FinishSession`](crate::native_huks_api::OH_Huks_FinishSession), and [`OH_Huks_AbortSession`](crate::native_huks_api::OH_Huks_AbortSession).
     ///
     /// * `token` - Indicates the pointer to the token value obtained.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If keyAlias or paramSet or handle or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If keyAlias or paramSet or handle or
     /// token is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the key file is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_SESSION_LIMIT`] 12000010 - If reached max session limit.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_SESSION_LIMIT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_SESSION_LIMIT) 12000010 - If reached max session limit.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If crypto engine
     /// the Ukey driver operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the aead length is invalid or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED) 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the aead length is invalid or
     /// the group id specified by the access group tag is invalid, added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`] 12000020 - If the provider operation failed,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_EXTERNAL_MODULE) 12000020 - If the provider operation failed,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_LOCKED`] 12000021 - If the UKey PIN is locked,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_LOCKED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PIN_LOCKED) 12000021 - If the UKey PIN is locked,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_NO_AUTH`] 12000023 - If the Ukey PIN not authenticated,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_NO_AUTH`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PIN_NO_AUTH) 12000023 - If the Ukey PIN not authenticated,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`] 12000024 - If the provider or Ukey is busy,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_BUSY) 12000024 - If the provider or Ukey is busy,
     /// added since api level 22.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     ///
-    /// **See also:** [`OH_Huks_UpdateSession`]
+    /// **See also:** [`OH_Huks_UpdateSession`](crate::native_huks_api::OH_Huks_UpdateSession)
     ///
-    /// **See also:** [`OH_Huks_FinishSession`]
+    /// **See also:** [`OH_Huks_FinishSession`](crate::native_huks_api::OH_Huks_FinishSession)
     ///
-    /// **See also:** [`OH_Huks_AbortSession`]
+    /// **See also:** [`OH_Huks_AbortSession`](crate::native_huks_api::OH_Huks_AbortSession)
     pub fn OH_Huks_InitSession(
         keyAlias: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ParamSet,
@@ -445,7 +445,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `handle` - Indicates the pointer to the key session handle, which is generated by [`OH_Huks_InitSession`].
+    /// * `handle` - Indicates the pointer to the key session handle, which is generated by [`OH_Huks_InitSession`](crate::native_huks_api::OH_Huks_InitSession).
     ///
     /// * `paramSet` - Indicates the pointer to the parameters required for the key operation.
     ///
@@ -456,49 +456,49 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If handle or paramSet or inData or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If handle or paramSet or inData or
     /// outData is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the key file is not exist,
     /// or if the handle is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST`] 12000013 - If credemtial is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST) 12000013 - If credemtial is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If crypto engine
     /// the Ukey driver operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED`] 12000008 - If auth token verify failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED`] 12000007 - If auth token info
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED) 12000008 - If auth token verify failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED) 12000007 - If auth token info
     /// verify failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_TIME_OUT`] 12000009 - If authentication token timed out.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET`] 12000016 - If device password is required
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_TIME_OUT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_AUTH_TIME_OUT) 12000009 - If authentication token timed out.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET) 12000016 - If device password is required
     /// but not set.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`] 12000020 - If the provider operation failed,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED) 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_EXTERNAL_MODULE) 12000020 - If the provider operation failed,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_LOCKED`] 12000021 - If the UKey PIN is locked,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_LOCKED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PIN_LOCKED) 12000021 - If the UKey PIN is locked,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_NO_AUTH`] 12000023 - If the Ukey PIN not authenticated,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_NO_AUTH`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PIN_NO_AUTH) 12000023 - If the Ukey PIN not authenticated,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`] 12000024 - If the provider or Ukey is busy,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_BUSY) 12000024 - If the provider or Ukey is busy,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     ///
-    /// **See also:** [`OH_Huks_InitSession`]
+    /// **See also:** [`OH_Huks_InitSession`](crate::native_huks_api::OH_Huks_InitSession)
     ///
-    /// **See also:** [`OH_Huks_FinishSession`]
+    /// **See also:** [`OH_Huks_FinishSession`](crate::native_huks_api::OH_Huks_FinishSession)
     ///
-    /// **See also:** [`OH_Huks_AbortSession`]
+    /// **See also:** [`OH_Huks_AbortSession`](crate::native_huks_api::OH_Huks_AbortSession)
     pub fn OH_Huks_UpdateSession(
         handle: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ParamSet,
@@ -509,7 +509,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `handle` - Indicates the pointer to the key session handle, which is generated by [`OH_Huks_InitSession`].
+    /// * `handle` - Indicates the pointer to the key session handle, which is generated by [`OH_Huks_InitSession`](crate::native_huks_api::OH_Huks_InitSession).
     ///
     /// * `paramSet` - Indicates the pointer to the parameters required for the key operation.
     ///
@@ -519,51 +519,51 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If handle or paramSet or inData or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If handle or paramSet or inData or
     /// outData is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the key file is not exist,
     /// or if the handle is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST`] 12000013 - If credemtial is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`] 12000006 - If crypto engine
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST) 12000013 - If credemtial is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CRYPTO_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CRYPTO_FAIL) 12000006 - If crypto engine
     /// or the Ukey driver operation failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED`] 12000008 - If auth token verify failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED`] 12000007 - If auth token info
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED) 12000008 - If auth token verify failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED) 12000007 - If auth token info
     /// verify failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_TIME_OUT`] 12000009 - If authentication token timed out.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET`] 12000016 - If device password is required
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_AUTH_TIME_OUT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_AUTH_TIME_OUT) 12000009 - If authentication token timed out.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET) 12000016 - If device password is required
     /// but not set.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`] 12000001 - If the feature is not support.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`] 12000017 - If the key with same alias is
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED) 12000001 - If the feature is not support.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST) 12000017 - If the key with same alias is
     /// already exist, added since api level 20.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`] 12000020 - If the provider operation failed,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_EXTERNAL_MODULE) 12000020 - If the provider operation failed,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_LOCKED`] 12000021 - If the UKey PIN is locked,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_LOCKED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PIN_LOCKED) 12000021 - If the UKey PIN is locked,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_NO_AUTH`] 12000023 - If the Ukey PIN not authenticated,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_PIN_NO_AUTH`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_PIN_NO_AUTH) 12000023 - If the Ukey PIN not authenticated,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`] 12000024 - If the provider or Ukey is busy,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_BUSY) 12000024 - If the provider or Ukey is busy,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     ///
-    /// **See also:** [`OH_Huks_InitSession`]
+    /// **See also:** [`OH_Huks_InitSession`](crate::native_huks_api::OH_Huks_InitSession)
     ///
-    /// **See also:** [`OH_Huks_UpdateSession`]
+    /// **See also:** [`OH_Huks_UpdateSession`](crate::native_huks_api::OH_Huks_UpdateSession)
     ///
-    /// **See also:** [`OH_Huks_AbortSession`]
+    /// **See also:** [`OH_Huks_AbortSession`](crate::native_huks_api::OH_Huks_AbortSession)
     pub fn OH_Huks_FinishSession(
         handle: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ParamSet,
@@ -574,42 +574,42 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `handle` - Indicates the pointer to the key session handle, which is generated by [`OH_Huks_InitSession`].
+    /// * `handle` - Indicates the pointer to the key session handle, which is generated by [`OH_Huks_InitSession`](crate::native_huks_api::OH_Huks_InitSession).
     ///
     /// * `paramSet` - Indicates the pointer to the parameters required for aborting the key session.
     /// By default, this parameter is a null pointer.
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If handle or paramSet or inData or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If handle or paramSet or inData or
     /// outData is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`] 12000003 - If the key argument
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT) 12000003 - If the key argument
     /// is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - or if the handle is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`] 12000002 - If failed to
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - or if the handle is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT) 12000002 - If failed to
     /// get key argument.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST`] 12000013 - If credemtial is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`] 12000020 - If the provider operation failed,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST) 12000013 - If credemtial is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_EXTERNAL_MODULE`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_EXTERNAL_MODULE) 12000020 - If the provider operation failed,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`] 12000024 - If the provider or Ukey is busy,
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_BUSY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_BUSY) 12000024 - If the provider or Ukey is busy,
     /// added since api level 22.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     ///
-    /// **See also:** [`OH_Huks_InitSession`]
+    /// **See also:** [`OH_Huks_InitSession`](crate::native_huks_api::OH_Huks_InitSession)
     ///
-    /// **See also:** [`OH_Huks_UpdateSession`]
+    /// **See also:** [`OH_Huks_UpdateSession`](crate::native_huks_api::OH_Huks_UpdateSession)
     ///
-    /// **See also:** [`OH_Huks_FinishSession`]
+    /// **See also:** [`OH_Huks_FinishSession`](crate::native_huks_api::OH_Huks_FinishSession)
     pub fn OH_Huks_AbortSession(
         handle: *const OH_Huks_Blob,
         paramSet: *const OH_Huks_ParamSet,
@@ -625,13 +625,13 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`] 401 - If paramSet or outData is invalid.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ILLEGAL_ARGUMENT) 401 - If paramSet or outData is invalid.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the group id specified by the
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the group id specified by the
     /// access group tag is invalid, added since api level 23.
     ///
     /// Available since API-level: 20
@@ -653,16 +653,16 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`] 801 - api is not supported
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`] 12000004 - If failed to remove file,
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_NOT_SUPPORTED_API) 801 - api is not supported
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL) 12000004 - If failed to remove file,
     /// or if failed to write file.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`] 12000011 - If the key file is not exist.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_ITEM_NOT_EXIST`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_ITEM_NOT_EXIST) 12000011 - If the key file is not exist.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the input parameter is invalid.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the input parameter is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -685,16 +685,16 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`] 0 - If the operation is successful.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`] 801 - api is not supported
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`] 12000004 - If failed to remove file,
+    /// * [`OH_Huks_ErrCode#OH_HUKS_SUCCESS`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_SUCCESS) 0 - If the operation is successful.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_NOT_SUPPORTED_API`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_NOT_SUPPORTED_API) 801 - api is not supported
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_FILE_OPERATION_FAIL) 12000004 - If failed to remove file,
     /// or if failed to write file.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`] 12000005 - If Ipc communication failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`] 12000012 - If Device environment or
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_COMMUNICATION_FAIL`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_COMMUNICATION_FAIL) 12000005 - If Ipc communication failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INTERNAL_ERROR`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INTERNAL_ERROR) 12000012 - If Device environment or
     /// input parameter abnormal.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`] 12000014 - If the memory is insufficient.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`] 12000015 - If connect userIam failed.
-    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`] 12000018 - If the input parameter is invalid.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INSUFFICIENT_MEMORY) 12000014 - If the memory is insufficient.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_CALL_SERVICE_FAILED) 12000015 - If connect userIam failed.
+    /// [`OH_Huks_ErrCode#OH_HUKS_ERR_CODE_INVALID_ARGUMENT`](crate::native_huks_type::OH_Huks_ErrCode::OH_HUKS_ERR_CODE_INVALID_ARGUMENT) 12000018 - If the input parameter is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

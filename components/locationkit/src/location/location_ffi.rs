@@ -23,13 +23,13 @@ extern "C" {
     ///
     /// * Location functions result code.
     ///
-    /// For a detailed definition, please refer to [`Location_ResultCode`].
+    /// For a detailed definition, please refer to [`Location_ResultCode`](crate::location_type::Location_ResultCode).
     ///
-    /// [`LOCAION_SUCCESS`] Successfully obtained the location switch status.
+    /// `LOCAION_SUCCESS` Successfully obtained the location switch status.
     ///
-    /// [`LOCATION_INVALID_PARAM`] The input parameter enabled is a null pointer.
+    /// [`LOCATION_INVALID_PARAM`](crate::location_type::Location_ResultCodeError::INVALID_PARAM) The input parameter enabled is a null pointer.
     ///
-    /// [`LOCATION_SERVICE_UNAVAILABLE`] Abnormal startup of location services.
+    /// [`LOCATION_SERVICE_UNAVAILABLE`](crate::location_type::Location_ResultCodeError::SERVICE_UNAVAILABLE) Abnormal startup of location services.
     ///
     ///
     /// Available since API-level: 13
@@ -42,32 +42,32 @@ extern "C" {
     ///
     /// * `requestConfig` - - Pointer to the locating request parameters.
     ///
-    /// For details, see [`Location_RequestConfig`].
+    /// For details, see [`Location_RequestConfig`](crate::location_type::Location_RequestConfig).
     ///
-    /// You can use [`OH_Location_CreateRequestConfig`] to create an instance.
+    /// You can use [`OH_Location_CreateRequestConfig`](crate::location_type::OH_Location_CreateRequestConfig) to create an instance.
     ///
     ///
     /// # Returns
     ///
     /// * Location functions result code.
     ///
-    /// For a detailed definition, please refer to [`Location_ResultCode`].
+    /// For a detailed definition, please refer to [`Location_ResultCode`](crate::location_type::Location_ResultCode).
     ///
-    /// [`LOCAION_SUCCESS`] Successfully start locating.
+    /// `LOCAION_SUCCESS` Successfully start locating.
     ///
-    /// [`LOCATION_INVALID_PARAM`] The input parameter requestConfig is a null pointer.
+    /// [`LOCATION_INVALID_PARAM`](crate::location_type::Location_ResultCodeError::INVALID_PARAM) The input parameter requestConfig is a null pointer.
     ///
-    /// [`LOCATION_PERMISSION_DENIED`] Permission verification failed. The application does not have the
+    /// [`LOCATION_PERMISSION_DENIED`](crate::location_type::Location_ResultCodeError::PERMISSION_DENIED) Permission verification failed. The application does not have the
     ///
     /// permission required to call the API.
     ///
-    /// [`LOCATION_NOT_SUPPORTED`] Capability not supported.
+    /// [`LOCATION_NOT_SUPPORTED`](crate::location_type::Location_ResultCodeError::NOT_SUPPORTED) Capability not supported.
     ///
     /// Failed to call function due to limited device capabilities.
     ///
-    /// [`LOCATION_SERVICE_UNAVAILABLE`] Abnormal startup of location services.
+    /// [`LOCATION_SERVICE_UNAVAILABLE`](crate::location_type::Location_ResultCodeError::SERVICE_UNAVAILABLE) Abnormal startup of location services.
     ///
-    /// [`LOCATION_SWITCH_OFF`] The location switch is off.
+    /// [`LOCATION_SWITCH_OFF`](crate::location_type::Location_ResultCodeError::SWITCH_OFF) The location switch is off.
     ///
     ///
     /// Required Permissions: ohos.permission.APPROXIMATELY_LOCATION
@@ -84,36 +84,36 @@ extern "C" {
     ///
     /// * `requestConfig` - - Pointer to the locating request parameters.
     ///
-    /// For details, see [`Location_RequestConfig`].
+    /// For details, see [`Location_RequestConfig`](crate::location_type::Location_RequestConfig).
     ///
     /// This parameter needs to be the same as the requestConfig pointer passed in
     ///
-    /// [`OH_Location_StartLocating`].
+    /// [`OH_Location_StartLocating`](crate::location::OH_Location_StartLocating).
     ///
     ///
     /// # Returns
     ///
     /// * Location functions result code.
     ///
-    /// For a detailed definition, please refer to [`Location_ResultCode`].
+    /// For a detailed definition, please refer to [`Location_ResultCode`](crate::location_type::Location_ResultCode).
     ///
-    /// [`LOCAION_SUCCESS`] Successfully stop locationg.
+    /// `LOCAION_SUCCESS` Successfully stop locationg.
     ///
-    /// [`LOCATION_INVALID_PARAM`] 1.The input parameter is a null pointer.
+    /// [`LOCATION_INVALID_PARAM`](crate::location_type::Location_ResultCodeError::INVALID_PARAM) 1.The input parameter is a null pointer.
     ///
-    /// 2.Different from the requestConfig pointer passed from [`OH_Location_StartLocating`].
+    /// 2.Different from the requestConfig pointer passed from [`OH_Location_StartLocating`](crate::location::OH_Location_StartLocating).
     ///
-    /// [`LOCATION_PERMISSION_DENIED`] Permission verification failed. The application does not have the
+    /// [`LOCATION_PERMISSION_DENIED`](crate::location_type::Location_ResultCodeError::PERMISSION_DENIED) Permission verification failed. The application does not have the
     ///
     /// permission required to call the API.
     ///
-    /// [`LOCATION_NOT_SUPPORTED`] Capability not supported.
+    /// [`LOCATION_NOT_SUPPORTED`](crate::location_type::Location_ResultCodeError::NOT_SUPPORTED) Capability not supported.
     ///
     /// Failed to call function due to limited device capabilities.
     ///
-    /// [`LOCATION_SERVICE_UNAVAILABLE`] Possible reasons: 1. Abnormal startup of location services.
+    /// [`LOCATION_SERVICE_UNAVAILABLE`](crate::location_type::Location_ResultCodeError::SERVICE_UNAVAILABLE) Possible reasons: 1. Abnormal startup of location services.
     ///
-    /// [`LOCATION_SWITCH_OFF`] The location switch is off.
+    /// [`LOCATION_SWITCH_OFF`](crate::location_type::Location_ResultCodeError::SWITCH_OFF) The location switch is off.
     ///
     ///
     /// Required Permissions: ohos.permission.APPROXIMATELY_LOCATION

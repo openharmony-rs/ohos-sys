@@ -283,8 +283,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// [`NETMANAGER_EXT_SUCCESS`] if the operation is successful.
-    /// [`NETMANAGER_ERR_PARAMETER_ERROR`] Parameter error. Please enter a correct parameter.
+    /// `NETMANAGER_EXT_SUCCESS` if the operation is successful.
+    /// `NETMANAGER_ERR_PARAMETER_ERROR` Parameter error. Please enter a correct parameter.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -492,12 +492,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * the result defines in [`NetConn_ErrorCode`].
-    /// [`NETCONN_SUCCESS`] Success.
-    /// [`NETCONN_PERMISSION_DENIED`] Permission denied.
-    /// [`NETCONN_PARAMETER_ERROR`] Parameter check failed.
-    /// [`NETCONN_OPERATION_FAILED`] Failed to connect to the service.
-    /// [`NETCONN_INTERNAL_ERROR`] System internal error.
+    /// * the result defines in [`NetConn_ErrorCode`](crate::net_connection_type::NetConn_ErrorCode).
+    /// [`NETCONN_SUCCESS`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_SUCCESS) Success.
+    /// [`NETCONN_PERMISSION_DENIED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PERMISSION_DENIED) Permission denied.
+    /// [`NETCONN_PARAMETER_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PARAMETER_ERROR) Parameter check failed.
+    /// [`NETCONN_OPERATION_FAILED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_OPERATION_FAILED) Failed to connect to the service.
+    /// [`NETCONN_INTERNAL_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_INTERNAL_ERROR) System internal error.
     ///
     /// Required Permissions: ohos.permission.SET_PAC_URL
     ///
@@ -513,11 +513,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * the result defines in [`NetConn_ErrorCode`].
-    /// [`NETCONN_SUCCESS`] Success.
-    /// [`NETCONN_PARAMETER_ERROR`] Parameter check failed.
-    /// [`NETCONN_OPERATION_FAILED`] Failed to connect to the service.
-    /// [`NETCONN_INTERNAL_ERROR`] System internal error.
+    /// * the result defines in [`NetConn_ErrorCode`](crate::net_connection_type::NetConn_ErrorCode).
+    /// [`NETCONN_SUCCESS`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_SUCCESS) Success.
+    /// [`NETCONN_PARAMETER_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_PARAMETER_ERROR) Parameter check failed.
+    /// [`NETCONN_OPERATION_FAILED`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_OPERATION_FAILED) Failed to connect to the service.
+    /// [`NETCONN_INTERNAL_ERROR`](crate::net_connection_type::NetConn_ErrorCode::NETCONN_INTERNAL_ERROR) System internal error.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]

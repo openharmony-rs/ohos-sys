@@ -4,8 +4,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::audio_common::OH_AudioCommon_Result;
-#[cfg(all(doc, feature = "api-12"))]
-use crate::audio_routing_manager::*;
 
 /// Declare the audio resource manager.
 /// Audio resource manager provides many functions for developer to manage system resources to avoid
@@ -40,12 +38,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `resourceManager` - output parameter to get [`#OH_AudioResourceManager`].
+    /// * `resourceManager` - output parameter to get [`OH_AudioResourceManager`](crate::audio_resource_manager::OH_AudioResourceManager).
     ///
     /// # Returns
     ///
-    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
-    /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr
+    /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -58,19 +56,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `resourceManager` - [`OH_AudioResourceManager`] handle
-    /// provided by [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `resourceManager` - [`OH_AudioResourceManager`](crate::audio_resource_manager::OH_AudioResourceManager) handle
+    /// provided by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
     /// * `name` - workgroup name
     ///
-    /// * `group` - [`OH_AudioWorkgroup`] handle for managing audio data processing threads.
+    /// * `group` - [`OH_AudioWorkgroup`](crate::audio_resource_manager::OH_AudioWorkgroup) handle for managing audio data processing threads.
     ///
     /// # Returns
     ///
-    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
-    /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr
-    /// [`#AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`] out of workgroup resources
-    /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
+    /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
+    /// [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) out of workgroup resources
+    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -84,16 +82,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `resourceManager` - [`OH_AudioResourceManager`] handle
-    /// provided by [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `resourceManager` - [`OH_AudioResourceManager`](crate::audio_resource_manager::OH_AudioResourceManager) handle
+    /// provided by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
-    /// * `group` - [`OH_AudioWorkgroup`] handle provided by [`OH_AudioResourceManager_CreateWorkgroup`].
+    /// * `group` - [`OH_AudioWorkgroup`](crate::audio_resource_manager::OH_AudioWorkgroup) handle provided by [`OH_AudioResourceManager_CreateWorkgroup`](crate::audio_resource_manager::OH_AudioResourceManager_CreateWorkgroup).
     ///
     /// # Returns
     ///
-    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
-    /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr
-    /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
+    /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
+    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -106,16 +104,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `group` - [`OH_AudioWorkgroup`] handle provided by [`OH_AudioResourceManager_CreateWorkgroup`].
+    /// * `group` - [`OH_AudioWorkgroup`](crate::audio_resource_manager::OH_AudioWorkgroup) handle provided by [`OH_AudioResourceManager_CreateWorkgroup`](crate::audio_resource_manager::OH_AudioResourceManager_CreateWorkgroup).
     ///
     /// * `tokenId` - a token id that represent the thread added.
     ///
     /// # Returns
     ///
-    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
-    /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr
-    /// [`#AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`] out of resources for the new thread
-    /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
+    /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
+    /// [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) out of resources for the new thread
+    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -128,15 +126,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `group` - [`OH_AudioWorkgroup`] handle provided by [`OH_AudioResourceManager_CreateWorkgroup`].
+    /// * `group` - [`OH_AudioWorkgroup`](crate::audio_resource_manager::OH_AudioWorkgroup) handle provided by [`OH_AudioResourceManager_CreateWorkgroup`](crate::audio_resource_manager::OH_AudioResourceManager_CreateWorkgroup).
     ///
     /// * `tokenId` - id for thread returned by {link OH_AudioWorkgroup_AddCurrentThread}
     ///
     /// # Returns
     ///
-    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
-    /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr or token id is invalid
-    /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
+    /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr or token id is invalid
+    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -149,7 +147,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `group` - [`OH_AudioWorkgroup`] handle provided by [`OH_AudioResourceManager_CreateWorkgroup`].
+    /// * `group` - [`OH_AudioWorkgroup`](crate::audio_resource_manager::OH_AudioWorkgroup) handle provided by [`OH_AudioResourceManager_CreateWorkgroup`](crate::audio_resource_manager::OH_AudioResourceManager_CreateWorkgroup).
     ///
     /// * `startTime` - the time when audio thread start working, using system time. The unit of time is milliseconds.
     ///
@@ -158,9 +156,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
-    /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr, or time is invalid
-    /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
+    /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr, or time is invalid
+    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -175,13 +173,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `group` - [`OH_AudioWorkgroup`] handle provided by [`OH_AudioResourceManager_CreateWorkgroup`].
+    /// * `group` - [`OH_AudioWorkgroup`](crate::audio_resource_manager::OH_AudioWorkgroup) handle provided by [`OH_AudioResourceManager_CreateWorkgroup`](crate::audio_resource_manager::OH_AudioResourceManager_CreateWorkgroup).
     ///
     /// # Returns
     ///
-    /// *  [`#AUDIOCOMMON_RESULT_SUCCESS`] if execution succeeds
-    /// [`#AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`] if input param is nullptr
-    /// [`#AUDIOCOMMON_RESULT_ERROR_SYSTEM`] system process error occurs
+    /// *  [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if input param is nullptr
+    /// [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) system process error occurs
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

@@ -54,10 +54,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input generator is nullptr or input param is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if operation not allowed.
-    /// [`AV_ERR_NO_MEMORY`] if internal memory allocation failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input generator is nullptr or input param is invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if operation not allowed.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if internal memory allocation failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -70,7 +70,7 @@ extern "C" {
     ) -> OH_AVErrCode;
     /// Fetch an image at the specific time from a video resource.
     ///
-    /// This function must be called after [`SetFDSource`].
+    /// This function must be called after `SetFDSource`.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.AVImageGenerator
@@ -81,18 +81,18 @@ extern "C" {
     /// * `timeUs` - The time expected to fetch picture from the video resource. The unit is microsecond(us).
     ///
     /// * `options` - The time options about the relationship between the given timeUs and a key frame,
-    /// see [`OH_AVImageGenerator_QueryOptions`].
+    /// see [`OH_AVImageGenerator_QueryOptions`](crate::avimage_generator_base::OH_AVImageGenerator_QueryOptions).
     ///
-    /// * `pixelMap` - The fetched output image from the video source. For details, see [`OH_PixelmapNative`].
+    /// * `pixelMap` - The fetched output image from the video source. For details, see [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative).
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input generator is nullptr or input param is invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if operation not allowed.
-    /// [`AV_ERR_UNSUPPORTED_FORMAT`] if format is unsupported.
-    /// [`AV_ERR_NO_MEMORY`] if internal memory allocation failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input generator is nullptr or input param is invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if operation not allowed.
+    /// [`AV_ERR_UNSUPPORTED_FORMAT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORTED_FORMAT) if format is unsupported.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if internal memory allocation failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -114,8 +114,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input generator is nullptr or input param is invalid.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input generator is nullptr or input param is invalid.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

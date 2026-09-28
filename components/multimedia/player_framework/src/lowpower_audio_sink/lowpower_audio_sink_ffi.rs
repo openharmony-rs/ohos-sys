@@ -22,7 +22,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// {const char*} mime mime type description string, refer to [`AVCODEC_MIME_TYPE`]
+    /// {const char*} mime mime type description string, refer to `AVCODEC_MIME_TYPE`
     ///
     /// # Returns
     ///
@@ -48,11 +48,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`] unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -74,11 +74,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`] unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -98,9 +98,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -119,11 +119,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`] unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -139,11 +139,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`] unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -159,10 +159,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -178,10 +178,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -197,10 +197,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -215,10 +215,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -233,10 +233,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -251,10 +251,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -271,10 +271,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -294,10 +294,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -317,10 +317,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -341,9 +341,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the gain is set successfully;
-    /// otherwise, returns a specific error code as defined in [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the sink is nullptr or loudnessGain is out of valid range.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
+    /// otherwise, returns a specific error code as defined in [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink is nullptr or loudnessGain is out of valid range.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -363,10 +363,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`] media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -396,8 +396,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the callback is nullptr or invalid.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -412,16 +412,16 @@ extern "C" {
     /// {OH_LowPowerAudioSinkCallback*} callback Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
     /// {OH_LowPowerAudioSink_OnPositionUpdated} onPositionUpdated OH_LowPowerAudioSink_OnPositionUpdated function,
-    /// refer to [`OH_LowPowerAudioSink_OnPositionUpdated`]
+    /// refer to [`OH_LowPowerAudioSink_OnPositionUpdated`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnPositionUpdated)
     ///
     /// * `userData` - User specific data
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -438,16 +438,16 @@ extern "C" {
     /// {OH_LowPowerAudioSinkCallback*} callback Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
     /// {OH_LowPowerAudioSink_OnDataNeeded} onDataNeeded OH_LowPowerAudioSink_OnDataNeeded function,
-    /// refer to [`OH_LowPowerAudioSink_OnDataNeeded`]
+    /// refer to [`OH_LowPowerAudioSink_OnDataNeeded`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnDataNeeded)
     ///
     /// {void*} userData User specific data
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -464,16 +464,16 @@ extern "C" {
     /// {OH_LowPowerAudioSinkCallback*} callback Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
     /// {OH_LowPowerAudioSink_OnError} onError OH_LowPowerAudioSink_OnError function,
-    /// refer to [`OH_LowPowerAudioSink_OnError`]
+    /// refer to [`OH_LowPowerAudioSink_OnError`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnError)
     ///
     /// {void*} userData User specific data
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -490,16 +490,16 @@ extern "C" {
     /// {OH_LowPowerAudioSinkCallback*} callback Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
     /// {OH_LowPowerAudioSink_OnEos} onEos OH_LowPowerAudioSink_OnEos function,
-    /// refer to [`OH_LowPowerAudioSink_OnEos`]
+    /// refer to [`OH_LowPowerAudioSink_OnEos`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnEos)
     ///
     /// {void*} userData User specific data
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`]
-    /// [`AV_ERR_INVALID_VAL`] the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] operation not permitted.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

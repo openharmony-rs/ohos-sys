@@ -36,10 +36,10 @@ extern "C" {
     /// # Returns
     ///
     /// * The error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE`] if the node is not focusable.
-    /// [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE_ANCESTOR`] if the node has unfocusable ancestor.
-    /// [`ARKUI_ERROR_CODE_FOCUS_NON_EXISTENT`] if the node is not exists.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE`](crate::native_type::ArkUiErrorCode::FOCUS_NON_FOCUSABLE) if the node is not focusable.
+    /// [`ARKUI_ERROR_CODE_FOCUS_NON_FOCUSABLE_ANCESTOR`](crate::native_type::ArkUiErrorCode::FOCUS_NON_FOCUSABLE_ANCESTOR) if the node has unfocusable ancestor.
+    /// [`ARKUI_ERROR_CODE_FOCUS_NON_EXISTENT`](crate::native_type::ArkUiErrorCode::FOCUS_NON_EXISTENT) if the node is not exists.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]

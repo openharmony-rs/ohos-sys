@@ -565,7 +565,7 @@ impl OH_Huks_TagType {
 #[repr(transparent)]
 /// Enumerates the tag types.
 ///
-/// **See also:** [`OH_Huks_Param`]
+/// **See also:** [`OH_Huks_Param`](crate::native_huks_type::OH_Huks_Param)
 ///
 ///
 /// Available since API-level: 9
@@ -692,7 +692,7 @@ impl OH_Huks_ChallengeType {
 #[repr(transparent)]
 /// Enumerates the types of the challenges generated when a key is used.
 ///
-/// **See also:** [`OH_Huks_ChallengePosition`]
+/// **See also:** [`OH_Huks_ChallengePosition`](crate::native_huks_type::OH_Huks_ChallengePosition)
 ///
 ///
 /// Available since API-level: 9
@@ -813,7 +813,7 @@ impl OH_Huks_Tag {
     pub const OH_HUKS_TAG_SALT: OH_Huks_Tag = OH_Huks_Tag(1342177292);
     /// Number of iterations for key derivation.
     pub const OH_HUKS_TAG_ITERATION: OH_Huks_Tag = OH_Huks_Tag(536870926);
-    /// Type of the generated key. For details, see [`OH_Huks_KeyGenerateType`].
+    /// Type of the generated key. For details, see [`OH_Huks_KeyGenerateType`](crate::native_huks_type::OH_Huks_KeyGenerateType).
     pub const OH_HUKS_TAG_KEY_GENERATE_TYPE: OH_Huks_Tag = OH_Huks_Tag(536870927);
     /// Algorithm used in key agreement.
     pub const OH_HUKS_TAG_AGREE_ALG: OH_Huks_Tag = OH_Huks_Tag(536870931);
@@ -827,11 +827,11 @@ impl OH_Huks_Tag {
     pub const OH_HUKS_TAG_KEY_ALIAS: OH_Huks_Tag = OH_Huks_Tag(1342177303);
     /// Size of the derived key.
     pub const OH_HUKS_TAG_DERIVE_KEY_SIZE: OH_Huks_Tag = OH_Huks_Tag(536870936);
-    /// Type of the key to import. For details, see [`OH_Huks_ImportKeyType`].
+    /// Type of the key to import. For details, see [`OH_Huks_ImportKeyType`](crate::native_huks_type::OH_Huks_ImportKeyType).
     pub const OH_HUKS_TAG_IMPORT_KEY_TYPE: OH_Huks_Tag = OH_Huks_Tag(536870937);
     /// Algorithm suite required for encrypted imports.
     pub const OH_HUKS_TAG_UNWRAP_ALGORITHM_SUITE: OH_Huks_Tag = OH_Huks_Tag(536870938);
-    /// Storage mode of derived or agree keys. For details, see [`OH_Huks_KeyStorageType`].
+    /// Storage mode of derived or agree keys. For details, see [`OH_Huks_KeyStorageType`](crate::native_huks_type::OH_Huks_KeyStorageType).
     pub const OH_HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG: OH_Huks_Tag = OH_Huks_Tag(536870941);
     /// Type of rsa pss salt length.
     pub const OH_HUKS_TAG_RSA_PSS_SALT_LEN_TYPE: OH_Huks_Tag = OH_Huks_Tag(536870942);
@@ -848,15 +848,15 @@ impl OH_Huks_Tag {
     pub const OH_HUKS_TAG_AUTH_TIMEOUT: OH_Huks_Tag = OH_Huks_Tag(536871217);
     /// Authentication token for the key.
     pub const OH_HUKS_TAG_AUTH_TOKEN: OH_Huks_Tag = OH_Huks_Tag(1342177586);
-    /// Access control type. For details, see [`OH_Huks_AuthAccessType`].
+    /// Access control type. For details, see [`OH_Huks_AuthAccessType`](crate::native_huks_type::OH_Huks_AuthAccessType).
     /// This parameter must be set together with the user authentication type.
     pub const OH_HUKS_TAG_KEY_AUTH_ACCESS_TYPE: OH_Huks_Tag = OH_Huks_Tag(536871219);
     /// Signature type for the key to be generated or imported.
     pub const OH_HUKS_TAG_KEY_SECURE_SIGN_TYPE: OH_Huks_Tag = OH_Huks_Tag(536871220);
-    /// Challenge type. For details, see [`OH_Huks_ChallengeType`].
+    /// Challenge type. For details, see [`OH_Huks_ChallengeType`](crate::native_huks_type::OH_Huks_ChallengeType).
     pub const OH_HUKS_TAG_CHALLENGE_TYPE: OH_Huks_Tag = OH_Huks_Tag(536871221);
     /// Position of the 8-byte valid value in a custom challenge.
-    /// For details, see [`OH_Huks_ChallengePosition`].
+    /// For details, see [`OH_Huks_ChallengePosition`](crate::native_huks_type::OH_Huks_ChallengePosition).
     pub const OH_HUKS_TAG_CHALLENGE_POS: OH_Huks_Tag = OH_Huks_Tag(536871222);
     /// Purpose of key authentication
     pub const OH_HUKS_TAG_KEY_AUTH_PURPOSE: OH_Huks_Tag = OH_Huks_Tag(536871223);
@@ -918,7 +918,7 @@ impl OH_Huks_Tag {
     /// Extended tags. The value range is 1001 to 9999.
     ////** Specifies whether it is a key alias.
     pub const OH_HUKS_TAG_IS_KEY_ALIAS: OH_Huks_Tag = OH_Huks_Tag(1073742825);
-    /// Key storage mode. For details, see [`OH_Huks_KeyStorageType`].
+    /// Key storage mode. For details, see [`OH_Huks_KeyStorageType`](crate::native_huks_type::OH_Huks_KeyStorageType).
     pub const OH_HUKS_TAG_KEY_STORAGE_FLAG: OH_Huks_Tag = OH_Huks_Tag(536871914);
     /// Specifies whether to allow the key to be wrapped.
     pub const OH_HUKS_TAG_IS_ALLOWED_WRAP: OH_Huks_Tag = OH_Huks_Tag(1073742827);
@@ -928,7 +928,7 @@ impl OH_Huks_Tag {
     pub const OH_HUKS_TAG_KEY_AUTH_ID: OH_Huks_Tag = OH_Huks_Tag(1342178285);
     /// Role of the key.
     pub const OH_HUKS_TAG_KEY_ROLE: OH_Huks_Tag = OH_Huks_Tag(536871918);
-    /// Key flag. For details, see [`OH_Huks_KeyFlag`].
+    /// Key flag. For details, see [`OH_Huks_KeyFlag`](crate::native_huks_type::OH_Huks_KeyFlag).
     pub const OH_HUKS_TAG_KEY_FLAG: OH_Huks_Tag = OH_Huks_Tag(536871919);
     /// Specifies whether this API is asynchronous.
     pub const OH_HUKS_TAG_IS_ASYNCHRONIZED: OH_Huks_Tag = OH_Huks_Tag(536871920);

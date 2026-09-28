@@ -11,8 +11,6 @@ use crate::predicates::OH_Predicates;
 use crate::rdb_types::OH_RDB_ReturningContext;
 #[cfg(feature = "api-18")]
 use crate::rdb_types::{OH_Data_Value, OH_Data_Values, Rdb_ConflictResolution};
-#[cfg(doc)]
-use crate::relational_store_error_code::*;
 #[cfg(feature = "api-18")]
 use crate::values_bucket::{OH_Data_VBuckets, OH_VBucket};
 
@@ -69,7 +67,7 @@ extern "C" {
     /// Otherwise, nullptr is returned. The memory must be released through the OH_RdbTrans_DestroyOptions
     /// interface after the use is complete.
     ///
-    /// **See also:** [`OH_RdbTrans_DestroyOptions`].
+    /// **See also:** [`OH_RdbTrans_DestroyOptions`](crate::rdb_transaction::OH_RdbTrans_DestroyOptions).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -84,8 +82,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -102,8 +100,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -121,17 +119,17 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -146,17 +144,17 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -177,21 +175,21 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
     ///
     ///
     /// Available since API-level: 18
@@ -220,22 +218,22 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -270,22 +268,22 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -312,21 +310,21 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -354,22 +352,22 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -394,21 +392,21 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -532,23 +530,23 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_READONLY`] SQLite: Attempt to write a readonly database.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_READONLY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_READONLY) SQLite: Attempt to write a readonly database.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
     ///
-    /// **See also:** [`OH_Value_Destroy`].
+    /// **See also:** [`OH_Value_Destroy`](crate::data_value::OH_Value_Destroy).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -568,8 +566,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -593,30 +591,30 @@ extern "C" {
     ///
     /// * `resolution` - Represents the resolution when conflict occurs.
     ///
-    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_NOT_SUPPORTED`] The error code for not support.
-    /// Returns [`RDB_E_DATABASE_BUSY`] The error code for database busy.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
-    /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) The error code for not support.
+    /// Returns [`RDB_E_DATABASE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATABASE_BUSY) The error code for database busy.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_E_SQLITE_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_ERROR) SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Transaction`], [`OH_Data_VBuckets`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
+    /// **See also:** [`OH_Rdb_Transaction`](crate::rdb_transaction::OH_Rdb_Transaction), [`OH_Data_VBuckets`](ohos_sys_opaque_types::OH_Data_VBuckets), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode), [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -640,31 +638,31 @@ extern "C" {
     ///
     /// * `resolution` - Represents the resolution when conflict occurs.
     ///
-    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_NOT_SUPPORTED`] The error code for not support.
-    /// Returns [`RDB_E_EMPTY_VALUES_BUCKET`] The error code for a values bucket is empty.
-    /// Returns [`RDB_E_DATABASE_BUSY`] The error code for database busy.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_CONSTRAINT`] SQLite: Abort due to constraint violation.
-    /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) The error code for not support.
+    /// Returns [`RDB_E_EMPTY_VALUES_BUCKET`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_EMPTY_VALUES_BUCKET) The error code for a values bucket is empty.
+    /// Returns [`RDB_E_DATABASE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATABASE_BUSY) The error code for database busy.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_CONSTRAINT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CONSTRAINT) SQLite: Abort due to constraint violation.
+    /// Returns [`RDB_E_SQLITE_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_ERROR) SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Transaction`], [`OH_Data_VBuckets`], [`OH_Predicates`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
+    /// **See also:** [`OH_Rdb_Transaction`](crate::rdb_transaction::OH_Rdb_Transaction), [`OH_Data_VBuckets`](ohos_sys_opaque_types::OH_Data_VBuckets), [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode), [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -682,31 +680,31 @@ extern "C" {
     ///
     /// * `trans` - Represents a pointer to an instance of OH_Rdb_Transaction.
     ///
-    /// * `predicates` - Represents a pointer to an [`OH_Predicates`] instance.
+    /// * `predicates` - Represents a pointer to an [`OH_Predicates`](crate::predicates::OH_Predicates) instance.
     ///
-    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`] instance.
+    /// * `context` - Represents a pointer to a pointer to an [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`] the WAL file size over default limit.
-    /// Returns [`RDB_E_NOT_SUPPORTED`] The error code for not support.
-    /// Returns [`RDB_E_DATABASE_BUSY`] The error code for database busy.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_SQLITE_FULL`] SQLite: The database is full.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// Returns [`RDB_E_SQLITE_ERROR`] SQLite error.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_WAL_SIZE_OVER_LIMIT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_WAL_SIZE_OVER_LIMIT) the WAL file size over default limit.
+    /// Returns [`RDB_E_NOT_SUPPORTED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_NOT_SUPPORTED) The error code for not support.
+    /// Returns [`RDB_E_DATABASE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATABASE_BUSY) The error code for database busy.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_SQLITE_FULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_FULL) SQLite: The database is full.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
+    /// Returns [`RDB_E_SQLITE_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_ERROR) SQLite error.
     /// Possible causes: syntax error, such as a table or column not existing.
-    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`].
+    /// Specific error codes can be referenced [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode).
     ///
-    /// **See also:** [`OH_Rdb_Transaction`], [`OH_Predicates`], [`OH_Rdb_ErrCode`], [`OH_RDB_ReturningContext`].
+    /// **See also:** [`OH_Rdb_Transaction`](crate::rdb_transaction::OH_Rdb_Transaction), [`OH_Predicates`](crate::predicates::OH_Predicates), [`OH_Rdb_ErrCode`](crate::relational_store_error_code::OH_Rdb_ErrCode), [`OH_RDB_ReturningContext`](crate::rdb_types::OH_RDB_ReturningContext).
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

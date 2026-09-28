@@ -20,7 +20,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `count` - This parameter is the output parameter, and the number of columns is written to this variable.
     ///
@@ -28,7 +28,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub getColumnCount: ::core::option::Option<
@@ -41,7 +41,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `columnIndex` - Indicates the zero-based index of the target column.
     ///
@@ -51,7 +51,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`], [`OH_ColumnType`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor), [`OH_ColumnType`](crate::rdb_types::OH_ColumnType).
     ///
     /// Available since API-level: 10
     pub getColumnType: ::core::option::Option<
@@ -65,7 +65,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `name` - Indicates the name of the column.
     ///
@@ -76,7 +76,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub getColumnIndex: ::core::option::Option<
@@ -90,7 +90,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
@@ -103,7 +103,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub getColumnName: ::core::option::Option<
@@ -118,7 +118,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `count` - This parameter is the output parameter,
     /// and the numbers of rows in the result set is written to this variable.
@@ -127,7 +127,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub getRowCount: ::core::option::Option<
@@ -140,13 +140,13 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub goToNextRow:
@@ -155,7 +155,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
@@ -166,7 +166,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub getSize: ::core::option::Option<
@@ -180,7 +180,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
@@ -193,7 +193,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub getText: ::core::option::Option<
@@ -208,7 +208,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
@@ -219,7 +219,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub getInt64: ::core::option::Option<
@@ -233,7 +233,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
@@ -244,7 +244,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub getReal: ::core::option::Option<
@@ -258,7 +258,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
@@ -271,7 +271,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub getBlob: ::core::option::Option<
@@ -286,7 +286,7 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
@@ -297,7 +297,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub isNull: ::core::option::Option<
@@ -311,33 +311,33 @@ pub struct OH_Cursor {
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 10
     pub destroy:
         ::core::option::Option<unsafe extern "C" fn(cursor: *mut OH_Cursor) -> ::core::ffi::c_int>,
-    /// Function pointer. Obtains the value of the requested column as an [`Data_Asset`] instance.
+    /// Function pointer. Obtains the value of the requested column as an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `value` - This parameter is the output parameter,
-    /// and the value of the requested column as an [`Data_Asset`] instance is written to this variable.
+    /// and the value of the requested column as an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance is written to this variable.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 11
     pub getAsset: ::core::option::Option<
@@ -347,16 +347,16 @@ pub struct OH_Cursor {
             value: *mut Data_Asset,
         ) -> ::core::ffi::c_int,
     >,
-    /// Function pointer. Obtains the value of the requested column as an [`Data_Asset`] instance.
+    /// Function pointer. Obtains the value of the requested column as an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance.
     ///
     /// # Arguments
     ///
-    /// * `cursor` - Represents a pointer to an [`OH_Cursor`] instance.
+    /// * `cursor` - Represents a pointer to an [`OH_Cursor`](crate::cursor::OH_Cursor) instance.
     ///
     /// * `columnIndex` - Indicates the zero-based column index.
     ///
     /// * `value` - This parameter is the output parameter,
-    /// and the value of the requested column as an [`Data_Asset`] instance is written to this variable.
+    /// and the value of the requested column as an [`Data_Asset`](ohos_sys_opaque_types::Data_Asset) instance is written to this variable.
     ///
     /// * `length` - Indicates the length of the value.
     ///
@@ -364,7 +364,7 @@ pub struct OH_Cursor {
     ///
     /// * Returns the status code of the execution.
     ///
-    /// **See also:** [`OH_Cursor`].
+    /// **See also:** [`OH_Cursor`](crate::cursor::OH_Cursor).
     ///
     /// Available since API-level: 11
     pub getAssets: ::core::option::Option<
@@ -390,19 +390,19 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_STEP_RESULT_CLOSED`] the result set has been closed.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_STEP_RESULT_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_STEP_RESULT_CLOSED) the result set has been closed.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -430,21 +430,21 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_ERROR`] database common error.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_SQLITE_CORRUPT`] database corrupted.
-    /// Returns [`RDB_E_STEP_RESULT_CLOSED`] the result set has been closed.
-    /// Returns [`RDB_E_ALREADY_CLOSED`] database already closed.
-    /// Returns [`RDB_E_SQLITE_PERM`] SQLite: Access permission denied.
-    /// Returns [`RDB_E_SQLITE_BUSY`] SQLite: The database file is locked.
-    /// Returns [`RDB_E_SQLITE_LOCKED`] SQLite: A table in the database is locked.
-    /// Returns [`RDB_E_SQLITE_NOMEM`] SQLite: The database is out of memory.
-    /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
-    /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
-    /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_ERROR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ERROR) database common error.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_SQLITE_CORRUPT`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_CORRUPT) database corrupted.
+    /// Returns [`RDB_E_STEP_RESULT_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_STEP_RESULT_CLOSED) the result set has been closed.
+    /// Returns [`RDB_E_ALREADY_CLOSED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_ALREADY_CLOSED) database already closed.
+    /// Returns [`RDB_E_SQLITE_PERM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_PERM) SQLite: Access permission denied.
+    /// Returns [`RDB_E_SQLITE_BUSY`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_BUSY) SQLite: The database file is locked.
+    /// Returns [`RDB_E_SQLITE_LOCKED`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_LOCKED) SQLite: A table in the database is locked.
+    /// Returns [`RDB_E_SQLITE_NOMEM`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_NOMEM) SQLite: The database is out of memory.
+    /// Returns [`RDB_E_SQLITE_IOERR`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_IOERR) SQLite: Some kind of disk I/O error occurred.
+    /// Returns [`RDB_E_SQLITE_TOO_BIG`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_TOO_BIG) SQLite: TEXT or BLOB exceeds size limit.
+    /// Returns [`RDB_E_SQLITE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_SQLITE_MISMATCH) SQLite: Data type mismatch.
     ///
-    /// **See also:** [`OH_Cursor_GetFloatVectorCount`].
+    /// **See also:** [`OH_Cursor_GetFloatVectorCount`](crate::cursor::OH_Cursor_GetFloatVectorCount).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

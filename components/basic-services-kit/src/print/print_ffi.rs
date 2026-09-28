@@ -630,10 +630,10 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`] Unable to connect to the print service.
-    /// [`PRINT_ERROR_SERVER_FAILURE`] The cups service cannot be started.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
+    /// [`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE) The cups service cannot be started.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -647,7 +647,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
     /// Currently no other error codes will be returned.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
@@ -662,15 +662,15 @@ extern "C" {
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `callback` - The [`Print_PrinterDiscoveryCallback`] of printer discovery event.
+    /// * `callback` - The [`Print_PrinterDiscoveryCallback`](crate::print::Print_PrinterDiscoveryCallback) of printer discovery event.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`] Unable to connect to the print service ability.
-    /// [`PRINT_ERROR_SERVER_FAILURE`] Failed to query print extension list from BMS.
-    /// [`PRINT_ERROR_INVALID_EXTENSION`] No available print extensions found.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service ability.
+    /// [`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE) Failed to query print extension list from BMS.
+    /// [`PRINT_ERROR_INVALID_EXTENSION`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_EXTENSION) No available print extensions found.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -687,9 +687,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`] Unable to connect to the print service.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -707,11 +707,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`] Unable to connect to the print service.
-    /// [`PRINT_ERROR_INVALID_PRINTER`] The printer should be in the list of discovered printers.
-    /// [`PRINT_ERROR_SERVER_FAILURE`] Unable to find an extension responsible for the printer.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
+    /// [`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER) The printer should be in the list of discovered printers.
+    /// [`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE) Unable to find an extension responsible for the printer.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -725,16 +725,16 @@ extern "C" {
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `printJob` - A pointer to a [`Print_PrintJob`] instance that specifies the information for the print job.
+    /// * `printJob` - A pointer to a [`Print_PrintJob`](crate::print::Print_PrintJob) instance that specifies the information for the print job.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`] Unable to connect to the print service.
-    /// [`PRINT_ERROR_INVALID_PRINTER`] The printer should be in the list of connected printers.
-    /// [`PRINT_ERROR_SERVER_FAILURE`] Unable to create print job in the print service.
-    /// [`PRINT_ERROR_INVALID_PRINT_JOB`] Unable to find the job int the job queue.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
+    /// [`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER) The printer should be in the list of connected printers.
+    /// [`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE) Unable to create print job in the print service.
+    /// [`PRINT_ERROR_INVALID_PRINT_JOB`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINT_JOB) Unable to find the job int the job queue.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -748,13 +748,13 @@ extern "C" {
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `callback` - The [`Print_PrinterChangeCallback`] to be registered.
+    /// * `callback` - The [`Print_PrinterChangeCallback`](crate::print::Print_PrinterChangeCallback) to be registered.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`] Unable to connect to the print service ability.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service ability.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -781,15 +781,15 @@ extern "C" {
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `printerIdList` - A pointer to a [`Print_StringList`] instance to store the queried printer id list.
+    /// * `printerIdList` - A pointer to a [`Print_StringList`](crate::print::Print_StringList) instance to store the queried printer id list.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_INVALID_PARAMETER`] printerIdList is NULL.
-    /// [`PRINT_ERROR_INVALID_PRINTER`] Unable to query any connected printers.
-    /// [`PRINT_ERROR_GENERIC_FAILURE`] Unable to copy the printer id list.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER) printerIdList is NULL.
+    /// [`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER) Unable to query any connected printers.
+    /// [`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE) Unable to copy the printer id list.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -817,15 +817,15 @@ extern "C" {
     ///
     /// * `printerId` - The id of the printer to be queried.
     ///
-    /// * `printerInfo` - A pointer to a [`Print_PrinterInfo`] pointer to store the printer infomation.
+    /// * `printerInfo` - A pointer to a [`Print_PrinterInfo`](crate::print::Print_PrinterInfo) pointer to store the printer infomation.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`] Unable to connect to the print service.
-    /// [`PRINT_ERROR_INVALID_PARAMETER`] printerId is NULL or printerInfo is NULL.
-    /// [`PRINT_ERROR_INVALID_PRINTER`] Unable to find the printer in the connected printer list.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
+    /// [`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER) printerId is NULL or printerInfo is NULL.
+    /// [`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER) Unable to find the printer in the connected printer list.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -853,8 +853,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_GENERIC_FAILURE`] Unable to launch the printer manager window.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE) Unable to launch the printer manager window.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -876,11 +876,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_INVALID_PARAMETER`] One of the params is NULL or the keyword list is empty.
-    /// [`PRINT_ERROR_INVALID_PRINTER`] The printer properties for the specified printer could not be found.
-    /// [`PRINT_ERROR_GENERIC_FAILURE`] Unable to copy the printer properties.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER) One of the params is NULL or the keyword list is empty.
+    /// [`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER) The printer properties for the specified printer could not be found.
+    /// [`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE) Unable to copy the printer properties.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -916,9 +916,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`] Unable to connect to the print service.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -941,9 +941,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`] Unable to connect to the print service.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -968,9 +968,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`] if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`] The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`] Unable to connect to the print service.
+    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
+    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
+    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///

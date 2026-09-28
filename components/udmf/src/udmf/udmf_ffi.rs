@@ -3,8 +3,6 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(doc)]
-use crate::udmf_err_code::*;
 use ohos_sys_opaque_types::*;
 
 pub const UDMF_KEY_BUFFER_LEN: u32 = 512;
@@ -197,9 +195,9 @@ pub type UdmfData_Finalize =
 ///
 /// # Arguments
 ///
-/// * `context` - Pointer to the context set by [`OH_UdmfRecordProvider_SetData`].
+/// * `context` - Pointer to the context set by [`OH_UdmfRecordProvider_SetData`](crate::data_management_framework::OH_UdmfRecordProvider_SetData).
 ///
-/// * `type` - Pointer to the type of data to obtain. For details, see [`udmf_meta.h`].
+/// * `type` - Pointer to the type of data to obtain. For details, see `udmf_meta.h`.
 ///
 /// # Returns
 ///
@@ -215,47 +213,47 @@ pub type OH_UdmfRecordProvider_GetData = ::core::option::Option<
     ) -> *mut ::core::ffi::c_void,
 >;
 extern "C" {
-    /// Creation a pointer to the instance of the [`OH_UdmfData`].
+    /// Creation a pointer to the instance of the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfData`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdmfData`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdmfData_Create() -> *mut OH_UdmfData;
-    /// Destroy a pointer that points to the [`OH_UdmfData`] instance.
+    /// Destroy a pointer that points to the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
-    /// **See also:** [`OH_UdmfData`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdmfData_Destroy(pThis: *mut OH_UdmfData);
-    /// Add one {OH_UdmfRecord} record to the [`OH_UdmfData`] data.
+    /// Add one {OH_UdmfRecord} record to the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
-    /// * `record` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `record` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfData`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -264,11 +262,11 @@ extern "C" {
         pThis: *mut OH_UdmfData,
         record: *mut OH_UdmfRecord,
     ) -> ::core::ffi::c_int;
-    /// Check whether the type exists in the [`OH_UdmfData`] data.
+    /// Check whether the type exists in the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// * `type` - Represents a string pointer of the type.
     ///
@@ -278,26 +276,26 @@ extern "C" {
     /// `false` is not existed.
     /// `true` is existed.
     ///
-    /// **See also:** [`OH_UdmfData`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdmfData_HasType(pThis: *mut OH_UdmfData, type_: *const ::core::ffi::c_char) -> bool;
-    /// Get all types in the [`OH_UdmfData`] data.
+    /// Get all types in the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// * `count` - Represents the types count that is a output param.
     ///
     /// # Returns
     ///
-    /// * Returns string array that in [`OH_UdmfData`] when input parameters valid,
+    /// * Returns string array that in [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) when input parameters valid,
     /// otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdmfData`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -306,19 +304,19 @@ extern "C" {
         pThis: *mut OH_UdmfData,
         count: *mut ::core::ffi::c_uint,
     ) -> *mut *mut ::core::ffi::c_char;
-    /// Get all records in the [`OH_UdmfData`] data.
+    /// Get all records in the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// * `count` - Represents the records count that is a output param.
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_UdmfRecord`] pointer array when input parameters valid, otherwise return nullptr.
+    /// * Returns [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) pointer array when input parameters valid, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdmfData`] [`OH_UdmfRecord`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -327,33 +325,33 @@ extern "C" {
         pThis: *mut OH_UdmfData,
         count: *mut ::core::ffi::c_uint,
     ) -> *mut *mut OH_UdmfRecord;
-    /// Creates an [`OH_UdmfRecordProvider`] instance.
+    /// Creates an [`OH_UdmfRecordProvider`](ohos_sys_opaque_types::OH_UdmfRecordProvider) instance.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the [`OH_UdmfRecordProvider`] instance created if the operation is successful.
+    /// * Returns the pointer to the [`OH_UdmfRecordProvider`](ohos_sys_opaque_types::OH_UdmfRecordProvider) instance created if the operation is successful.
     /// Returns nullptr if the memory is not enough.
     ///
-    /// **See also:** [`OH_UdmfRecordProvider`].
+    /// **See also:** [`OH_UdmfRecordProvider`](ohos_sys_opaque_types::OH_UdmfRecordProvider).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdmfRecordProvider_Create() -> *mut OH_UdmfRecordProvider;
-    /// Destroy an [`OH_UdmfRecordProvider`] instance.
+    /// Destroy an [`OH_UdmfRecordProvider`](ohos_sys_opaque_types::OH_UdmfRecordProvider) instance.
     ///
     /// # Arguments
     ///
-    /// * `provider` - Pointer to the [`OH_UdmfRecordProvider`] instance to destroy.
+    /// * `provider` - Pointer to the [`OH_UdmfRecordProvider`](ohos_sys_opaque_types::OH_UdmfRecordProvider) instance to destroy.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. For details, see [`Udmf_ErrCode`].
-    /// Returns [`UDMF_E_OK`] if the operation is successful.
-    /// Returns [`UDMF_E_INVALID_PARAM`] if invalid args are detected.
+    /// * Returns the status code of the execution. For details, see [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// Returns [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) if the operation is successful.
+    /// Returns [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) if invalid args are detected.
     ///
-    /// **See also:** [`OH_UdmfRecordProvider`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecordProvider`](ohos_sys_opaque_types::OH_UdmfRecordProvider) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -365,22 +363,22 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `provider` - Pointer to the [`OH_UdmfRecordProvider`] instance.
+    /// * `provider` - Pointer to the [`OH_UdmfRecordProvider`](ohos_sys_opaque_types::OH_UdmfRecordProvider) instance.
     ///
     /// * `context` - Pointer to the context set, which is the first parameter in OH_UdmfRecordProvider_GetData.
     ///
-    /// * `callback` - Callback to set. For details, see [`OH_UdmfRecordProvider_GetData`].
+    /// * `callback` - Callback to set. For details, see [`OH_UdmfRecordProvider_GetData`](crate::data_management_framework::OH_UdmfRecordProvider_GetData).
     ///
     /// * `finalize` - Optional callback that can free context when destroy provider.
-    /// For details, see [`UdmfData_Finalize`].
+    /// For details, see [`UdmfData_Finalize`](crate::data_management_framework::UdmfData_Finalize).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. For details, see [`Udmf_ErrCode`].
-    /// Returns [`UDMF_E_OK`] if the operation is successful.
-    /// Returns [`UDMF_E_INVALID_PARAM`] if invalid args are detected.
+    /// * Returns the status code of the execution. For details, see [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// Returns [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) if the operation is successful.
+    /// Returns [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) if invalid args are detected.
     ///
-    /// **See also:** [`OH_UdmfRecordProvider`] [`OH_UdmfRecordProvider_GetData`] [`UdmfData_Finalize`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecordProvider`](ohos_sys_opaque_types::OH_UdmfRecordProvider) [`OH_UdmfRecordProvider_GetData`](crate::data_management_framework::OH_UdmfRecordProvider_GetData) [`UdmfData_Finalize`](crate::data_management_framework::UdmfData_Finalize) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -391,37 +389,37 @@ extern "C" {
         callback: OH_UdmfRecordProvider_GetData,
         finalize: UdmfData_Finalize,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdmfRecord`], it's relate with UDS data.
+    /// Creation a pointer to the instance of the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord), it's relate with UDS data.
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfRecord`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdmfRecord`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdmfRecord_Create() -> *mut OH_UdmfRecord;
-    /// Destroy a pointer that points to an instance of [`OH_UdmfRecord`].
+    /// Destroy a pointer that points to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// **See also:** [`OH_UdmfRecord`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdmfRecord_Destroy(pThis: *mut OH_UdmfRecord);
-    /// Add one custom data to the [`OH_UdmfRecord`] record.
+    /// Add one custom data to the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// * `typeId` - Represents record type, reference udmf_meta.h.
     ///
@@ -431,11 +429,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -446,21 +444,21 @@ extern "C" {
         entry: *mut ::core::ffi::c_uchar,
         count: ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Add one {OH_UdsPlainText} data to the [`OH_UdmfRecord`] record.
+    /// Add one {OH_UdsPlainText} data to the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `plainText` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `plainText` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsPlainText`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -469,21 +467,21 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         plainText: *mut OH_UdsPlainText,
     ) -> ::core::ffi::c_int;
-    /// Add one {OH_UdsHyperlink} data to the [`OH_UdmfRecord`] record.
+    /// Add one {OH_UdsHyperlink} data to the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `hyperlink` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    /// * `hyperlink` - Represents a pointer to an instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsHyperlink`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -492,21 +490,21 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         hyperlink: *mut OH_UdsHyperlink,
     ) -> ::core::ffi::c_int;
-    /// Add one {OH_UdsHtml} data to the [`OH_UdmfRecord`] record.
+    /// Add one {OH_UdsHtml} data to the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `html` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `html` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsHtml`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -515,21 +513,21 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         html: *mut OH_UdsHtml,
     ) -> ::core::ffi::c_int;
-    /// Add one {OH_UdsAppItem} data to the [`OH_UdmfRecord`] record.
+    /// Add one {OH_UdsAppItem} data to the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `appItem` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `appItem` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsAppItem`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -538,21 +536,21 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         appItem: *mut OH_UdsAppItem,
     ) -> ::core::ffi::c_int;
-    /// Add one {OH_UdsFileUri} data to the [`OH_UdmfRecord`] record.
+    /// Add one {OH_UdsFileUri} data to the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `fileUri` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    /// * `fileUri` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsFileUri`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -561,21 +559,21 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         fileUri: *mut OH_UdsFileUri,
     ) -> ::core::ffi::c_int;
-    /// Add one {OH_UdsPixelMap} data to the [`OH_UdmfRecord`] record.
+    /// Add one {OH_UdsPixelMap} data to the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `pixelMap` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
+    /// * `pixelMap` - Represents a pointer to an instance of [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsPixelMap`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -584,23 +582,23 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         pixelMap: *mut OH_UdsPixelMap,
     ) -> ::core::ffi::c_int;
-    /// Add one [`OH_UdsArrayBuffer`] data to the [`OH_UdmfRecord`] record.
+    /// Add one [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) data to the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `record` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `record` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// * `type` - Represents record type, reference udmf_meta.h.
     ///
-    /// * `buffer` - Represents a pointer to an instance of [`OH_UdsArrayBuffer`].
+    /// * `buffer` - Represents a pointer to an instance of [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsArrayBuffer`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -610,21 +608,21 @@ extern "C" {
         type_: *const ::core::ffi::c_char,
         buffer: *mut OH_UdsArrayBuffer,
     ) -> ::core::ffi::c_int;
-    /// Add one [`OH_UdsContentForm`] data to the [`OH_UdmfRecord`] record.
+    /// Add one [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) data to the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `contentForm` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `contentForm` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsContentForm`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -633,20 +631,20 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         contentForm: *mut OH_UdsContentForm,
     ) -> ::core::ffi::c_int;
-    /// Get all types in the [`OH_UdmfRecord`] record.
+    /// Get all types in the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// * `count` - Represents the types count that is a output param.
     ///
     /// # Returns
     ///
-    /// * Returns string array that in [`OH_UdmfRecord`] when input parameters valid,
+    /// * Returns string array that in [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) when input parameters valid,
     /// otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdmfRecord`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -655,11 +653,11 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         count: *mut ::core::ffi::c_uint,
     ) -> *mut *mut ::core::ffi::c_char;
-    /// Get one entry data from the [`OH_UdmfRecord`] record.
+    /// Get one entry data from the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// * `typeId` - Represents record type, reference udmf_meta.h.
     ///
@@ -669,12 +667,12 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -685,22 +683,22 @@ extern "C" {
         entry: *mut *mut ::core::ffi::c_uchar,
         count: *mut ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Get one {OH_UdsPlainText} data from the [`OH_UdmfRecord`] record.
+    /// Get one {OH_UdsPlainText} data from the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `plainText` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `plainText` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsPlainText`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -709,22 +707,22 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         plainText: *mut OH_UdsPlainText,
     ) -> ::core::ffi::c_int;
-    /// Get one {OH_UdsHyperlink} data from the [`OH_UdmfRecord`] record.
+    /// Get one {OH_UdsHyperlink} data from the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `hyperlink` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
+    /// * `hyperlink` - Represents a pointer to an instance of [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsHyperlink`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -733,22 +731,22 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         hyperlink: *mut OH_UdsHyperlink,
     ) -> ::core::ffi::c_int;
-    /// Get one {OH_UdsHtml} data from the [`OH_UdmfRecord`] record.
+    /// Get one {OH_UdsHtml} data from the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `html` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `html` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsHtml`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -757,22 +755,22 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         html: *mut OH_UdsHtml,
     ) -> ::core::ffi::c_int;
-    /// Get one {OH_UdsAppItem} data from the [`OH_UdmfRecord`] record.
+    /// Get one {OH_UdsAppItem} data from the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `appItem` - Represents a pointer to an instance of [`OH_UdsAppItem`].
+    /// * `appItem` - Represents a pointer to an instance of [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsAppItem`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -781,21 +779,21 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         appItem: *mut OH_UdsAppItem,
     ) -> ::core::ffi::c_int;
-    /// Get one {OH_UdsFileUri} data from the [`OH_UdmfRecord`] record.
+    /// Get one {OH_UdsFileUri} data from the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `fileUri` - Represents a pointer to an instance of [`OH_UdsFileUri`].
+    /// * `fileUri` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsFileUri`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -804,21 +802,21 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         fileUri: *mut OH_UdsFileUri,
     ) -> ::core::ffi::c_int;
-    /// Get one {OH_UdsPixelMap} data from the [`OH_UdmfRecord`] record.
+    /// Get one {OH_UdsPixelMap} data from the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `pixelMap` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
+    /// * `pixelMap` - Represents a pointer to an instance of [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsPixelMap`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -831,21 +829,21 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// * `types` - Represents a pointer to a group of data types;
     ///
     /// * `count` - Represents the number of data types;
     ///
-    /// * `provider` - Represents a pointer an instance of [`OH_UdmfRecordProvider`].
+    /// * `provider` - Represents a pointer an instance of [`OH_UdmfRecordProvider`](ohos_sys_opaque_types::OH_UdmfRecordProvider).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdmfRecordProvider`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdmfRecordProvider`](ohos_sys_opaque_types::OH_UdmfRecordProvider) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -856,23 +854,23 @@ extern "C" {
         count: ::core::ffi::c_uint,
         provider: *mut OH_UdmfRecordProvider,
     ) -> ::core::ffi::c_int;
-    /// Get one [`OH_UdsArrayBuffer`] data from the [`OH_UdmfRecord`] record.
+    /// Get one [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) data from the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `record` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `record` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
     /// * `type` - Represents record type, reference udmf_meta.h.
     ///
-    /// * `buffer` - Represents a pointer to an instance of [`OH_UdsArrayBuffer`].
+    /// * `buffer` - Represents a pointer to an instance of [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsArrayBuffer`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -882,21 +880,21 @@ extern "C" {
         type_: *const ::core::ffi::c_char,
         buffer: *mut OH_UdsArrayBuffer,
     ) -> ::core::ffi::c_int;
-    /// Get one [`OH_UdsContentForm`] data from the [`OH_UdmfRecord`] record.
+    /// Get one [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) data from the [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) record.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord).
     ///
-    /// * `contentForm` - Represents a pointer to an instance of [`OH_UdsContentForm`].
+    /// * `contentForm` - Represents a pointer to an instance of [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfRecord`] [`OH_UdsContentForm`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -905,21 +903,21 @@ extern "C" {
         pThis: *mut OH_UdmfRecord,
         contentForm: *mut OH_UdsContentForm,
     ) -> ::core::ffi::c_int;
-    /// Get primary [`OH_UdsPlainText`] data from the [`OH_UdmfData`].
+    /// Get primary [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) data from the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// # Arguments
     ///
-    /// * `data` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `data` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
-    /// * `plainText` - Represents a pointer to an instance of [`OH_UdsPlainText`].
+    /// * `plainText` - Represents a pointer to an instance of [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfData`] [`OH_UdsPlainText`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -928,21 +926,21 @@ extern "C" {
         data: *mut OH_UdmfData,
         plainText: *mut OH_UdsPlainText,
     ) -> ::core::ffi::c_int;
-    /// Get one [`OH_UdsHtml`] data from the [`OH_UdmfData`].
+    /// Get one [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) data from the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// # Arguments
     ///
-    /// * `data` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `data` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
-    /// * `html` - Represents a pointer to an instance of [`OH_UdsHtml`].
+    /// * `html` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfData`] [`OH_UdsHtml`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -951,35 +949,35 @@ extern "C" {
         data: *mut OH_UdmfData,
         html: *mut OH_UdsHtml,
     ) -> ::core::ffi::c_int;
-    /// Get the count of [`OH_UdmfRecord`] in the [`OH_UdmfData`].
+    /// Get the count of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) in the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// # Arguments
     ///
-    /// * `data` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `data` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// # Returns
     ///
-    /// * Returns the count of [`OH_UdmfRecord`]
+    /// * Returns the count of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord)
     ///
-    /// **See also:** [`OH_UdmfData`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdmfData_GetRecordCount(data: *mut OH_UdmfData) -> ::core::ffi::c_int;
-    /// Get the record of the specified index from the [`OH_UdmfData`].
+    /// Get the record of the specified index from the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// # Arguments
     ///
-    /// * `data` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `data` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
-    /// * `index` - Represents the index of [`OH_UdmfRecord`] in the [`OH_UdmfData`].
+    /// * `index` - Represents the index of [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) in the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_UdmfRecord`] pointer when input parameters valid, otherwise return nullptr.
+    /// * Returns [`OH_UdmfRecord`](ohos_sys_opaque_types::OH_UdmfRecord) pointer when input parameters valid, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdmfData`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -992,7 +990,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `data` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `data` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// # Returns
     ///
@@ -1000,95 +998,95 @@ extern "C" {
     /// The value `true` means the data is from a local device.
     /// The value `false` means the opposite.
     ///
-    /// **See also:** [`OH_UdmfData`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_UdmfData_IsLocal(data: *mut OH_UdmfData) -> bool;
-    /// Creation a pointer to the instance of the [`OH_UdmfProperty`]
-    /// from a [`OH_UdmfData`] data.
+    /// Creation a pointer to the instance of the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty)
+    /// from a [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data.
     ///
     /// # Arguments
     ///
-    /// * `unifiedData` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `unifiedData` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfProperty`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdmfData`] [`OH_UdmfProperty`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdmfProperty_Create(unifiedData: *mut OH_UdmfData) -> *mut OH_UdmfProperty;
-    /// Destroy a pointer that points to the [`OH_UdmfProperty`] instance.
+    /// Destroy a pointer that points to the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty) instance.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
-    /// **See also:** [`OH_UdmfProperty`].
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdmfProperty_Destroy(pThis: *mut OH_UdmfProperty);
-    /// Get tag value from the [`OH_UdmfProperty`].
+    /// Get tag value from the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the tag value string when input parameters valid, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdmfProperty`].
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdmfProperty_GetTag(pThis: *mut OH_UdmfProperty) -> *const ::core::ffi::c_char;
-    /// Get timestamp value from the [`OH_UdmfProperty`].
+    /// Get timestamp value from the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Returns
     ///
     /// * Returns timestamp value.
     ///
-    /// **See also:** [`OH_UdmfProperty`]
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdmfProperty_GetTimestamp(pThis: *mut OH_UdmfProperty) -> i64;
-    /// Get share option value from the [`OH_UdmfProperty`].
+    /// Get share option value from the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Returns
     ///
-    /// * Returns [`Udmf_ShareOption`] value.
+    /// * Returns [`Udmf_ShareOption`](crate::data_management_framework::Udmf_ShareOption) value.
     ///
-    /// **See also:** [`OH_UdmfProperty`] [`Udmf_ShareOption`]
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty) [`Udmf_ShareOption`](crate::data_management_framework::Udmf_ShareOption)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_UdmfProperty_GetShareOption(pThis: *mut OH_UdmfProperty) -> Udmf_ShareOption;
-    /// Get integer value by key from the [`OH_UdmfProperty`].
+    /// Get integer value by key from the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// * `key` - Represents key-value pair's key
     ///
@@ -1098,7 +1096,7 @@ extern "C" {
     ///
     /// * Returns value associated with the key in successfully, otherwise return defaultValue.
     ///
-    /// **See also:** [`OH_UdmfProperty`].
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1108,11 +1106,11 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         defaultValue: ::core::ffi::c_int,
     ) -> ::core::ffi::c_int;
-    /// Get tag value from the [`OH_UdmfProperty`].
+    /// Get tag value from the [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// * `key` - Represents key-value pair's key.
     ///
@@ -1120,7 +1118,7 @@ extern "C" {
     ///
     /// * Returns a pointer of the key value string when input parameters valid, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdmfProperty`]
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty)
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1129,21 +1127,21 @@ extern "C" {
         pThis: *mut OH_UdmfProperty,
         key: *const ::core::ffi::c_char,
     ) -> *const ::core::ffi::c_char;
-    /// Set tag value to [`OH_UdmfProperty`] .
+    /// Set tag value to [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty) .
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// * `tag` - Represents new tag param.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfProperty`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1152,21 +1150,21 @@ extern "C" {
         pThis: *mut OH_UdmfProperty,
         tag: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Set Udmf_ShareOption value to [`OH_UdmfProperty`].
+    /// Set Udmf_ShareOption value to [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
-    /// * `option` - Represents new [`Udmf_ShareOption`] param.
+    /// * `option` - Represents new [`Udmf_ShareOption`](crate::data_management_framework::Udmf_ShareOption) param.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfProperty`] [`Udmf_ShareOption`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty) [`Udmf_ShareOption`](crate::data_management_framework::Udmf_ShareOption) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1175,11 +1173,11 @@ extern "C" {
         pThis: *mut OH_UdmfProperty,
         option: Udmf_ShareOption,
     ) -> ::core::ffi::c_int;
-    /// Set extras param to [`OH_UdmfProperty`].
+    /// Set extras param to [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// * `key` - Represents extras param's key value.
     ///
@@ -1187,11 +1185,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfProperty`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1201,11 +1199,11 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         param: ::core::ffi::c_int,
     ) -> ::core::ffi::c_int;
-    /// Set extras param to [`OH_UdmfProperty`].
+    /// Set extras param to [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty).
     ///
     /// * `key` - Represents extras param's key value.
     ///
@@ -1213,11 +1211,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfProperty`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1227,64 +1225,64 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         param: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdmfOptions`].
+    /// Creation a pointer to the instance of the [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfOptions`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdmfOptions`].
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_UdmfOptions_Create() -> *mut OH_UdmfOptions;
-    /// Destroy the heap memory pointed to by the pointer of [`OH_UdmfOptions`].
+    /// Destroy the heap memory pointed to by the pointer of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     /// Note that this function cannot be called repeatedly for the same pointer.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
-    /// **See also:** [`OH_UdmfOptions`].
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_UdmfOptions_Destroy(pThis: *mut OH_UdmfOptions);
-    /// Get key from the [`OH_UdmfOptions`].
+    /// Get key from the [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
     ///
-    /// **See also:** [`OH_UdmfOptions`]
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_UdmfOptions_GetKey(pThis: *mut OH_UdmfOptions) -> *const ::core::ffi::c_char;
-    /// Set the key to the [`OH_UdmfOptions`].
+    /// Set the key to the [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// * `key` - Represents a new string value of the key.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfOptions`] [`Udmf_ErrCode`]
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1293,37 +1291,37 @@ extern "C" {
         pThis: *mut OH_UdmfOptions,
         key: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Get intention from the [`OH_UdmfOptions`].
+    /// Get intention from the [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// # Returns
     ///
-    /// * Returns [`Udmf_Intention`] value.
+    /// * Returns [`Udmf_Intention`](crate::data_management_framework::Udmf_Intention) value.
     ///
-    /// **See also:** [`OH_UdmfOptions`] [`Udmf_Intention`]
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions) [`Udmf_Intention`](crate::data_management_framework::Udmf_Intention)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_UdmfOptions_GetIntention(pThis: *mut OH_UdmfOptions) -> Udmf_Intention;
-    /// Set intention value to [`OH_UdmfOptions`].
+    /// Set intention value to [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
-    /// * `intention` - Represents new [`Udmf_Intention`] param.
+    /// * `intention` - Represents new [`Udmf_Intention`](crate::data_management_framework::Udmf_Intention) param.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfOptions`] [`Udmf_Intention`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions) [`Udmf_Intention`](crate::data_management_framework::Udmf_Intention) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1332,55 +1330,55 @@ extern "C" {
         pThis: *mut OH_UdmfOptions,
         intention: Udmf_Intention,
     ) -> ::core::ffi::c_int;
-    /// Reset [`OH_UdmfOptions`] to default.
+    /// Reset [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions) to default.
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfOptions`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_UdmfOptions_Reset(pThis: *mut OH_UdmfOptions) -> ::core::ffi::c_int;
-    /// Get visibility from the [`OH_UdmfOptions`].
+    /// Get visibility from the [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// # Returns
     ///
-    /// * Returns [`Udmf_Visibility`] value.
+    /// * Returns [`Udmf_Visibility`](crate::data_management_framework::Udmf_Visibility) value.
     ///
-    /// **See also:** [`OH_UdmfOptions`] [`Udmf_Visibility`]
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions) [`Udmf_Visibility`](crate::data_management_framework::Udmf_Visibility)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_UdmfOptions_GetVisibility(pThis: *mut OH_UdmfOptions) -> Udmf_Visibility;
-    /// Set visibility value to [`OH_UdmfOptions`].
+    /// Set visibility value to [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
-    /// * `visibility` - Represents new [`Udmf_Visibility`] param.
+    /// * `visibility` - Represents new [`Udmf_Visibility`](crate::data_management_framework::Udmf_Visibility) param.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
     ///
-    /// **See also:** [`OH_UdmfOptions`] [`Udmf_Visibility`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions) [`Udmf_Visibility`](crate::data_management_framework::Udmf_Visibility) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1389,25 +1387,25 @@ extern "C" {
         pThis: *mut OH_UdmfOptions,
         visibility: Udmf_Visibility,
     ) -> ::core::ffi::c_int;
-    /// Get [`OH_UdmfData`] data from udmf database.
+    /// Get [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data from udmf database.
     ///
     /// # Arguments
     ///
     /// * `key` - Represents database store's key value.
     ///
-    /// * `intention` - Represents data type [`Udmf_Intention`]
+    /// * `intention` - Represents data type [`Udmf_Intention`](crate::data_management_framework::Udmf_Intention)
     ///
-    /// * `unifiedData` - Represents output params of [`OH_UdmfData`];
+    /// * `unifiedData` - Represents output params of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData);
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     /// The possible cause is that the server is faulty or the memory is insufficient.
     ///
-    /// **See also:** [`OH_UdmfProperty`] [`Udmf_Intention`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty) [`Udmf_Intention`](crate::data_management_framework::Udmf_Intention) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1417,27 +1415,27 @@ extern "C" {
         intention: Udmf_Intention,
         unifiedData: *mut OH_UdmfData,
     ) -> ::core::ffi::c_int;
-    /// Get [`OH_UdmfData`] data array from udmf database by intention.
+    /// Get [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data array from udmf database by intention.
     ///
     /// # Arguments
     ///
-    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
-    /// * `dataArray` - Represents output params of [`OH_UdmfData`].
-    /// It should be accessed using [`OH_UDMF_GetDataElementAt`] to retrieve elements by index.
-    /// This pointer needs to be released using the [`OH_Udmf_DestroyDataArray`] function.
+    /// * `dataArray` - Represents output params of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
+    /// It should be accessed using [`OH_UDMF_GetDataElementAt`](crate::data_management_framework::OH_UDMF_GetDataElementAt) to retrieve elements by index.
+    /// This pointer needs to be released using the [`OH_Udmf_DestroyDataArray`](crate::data_management_framework::OH_Udmf_DestroyDataArray) function.
     ///
     /// * `dataSize` - Represents the data count of output params.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     /// The possible cause is that the server is faulty or the memory is insufficient.
     ///
-    /// **See also:** [`OH_UdmfData`] [`Udmf_Intention`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`Udmf_Intention`](crate::data_management_framework::Udmf_Intention) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1447,28 +1445,28 @@ extern "C" {
         dataArray: *mut *mut OH_UdmfData,
         dataSize: *mut ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Set [`OH_UdmfData`] data to database.
+    /// Set [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data to database.
     ///
     /// # Arguments
     ///
-    /// * `intention` - Represents data type [`Udmf_Intention`].
+    /// * `intention` - Represents data type [`Udmf_Intention`](crate::data_management_framework::Udmf_Intention).
     ///
-    /// * `unifiedData` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `unifiedData` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// * `key` - Represents return value after set data to database successfully,
-    /// it's memory size not less than [`UDMF_KEY_BUFFER_LEN`].
+    /// it's memory size not less than [`UDMF_KEY_BUFFER_LEN`](crate::data_management_framework::UDMF_KEY_BUFFER_LEN).
     ///
     /// * `keyLen` - Represents size of key param.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     /// The possible cause is that the server is faulty or the memory is insufficient.
     ///
-    /// **See also:** [`OH_UdmfProperty`] [`Udmf_Intention`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfProperty`](ohos_sys_opaque_types::OH_UdmfProperty) [`Udmf_Intention`](crate::data_management_framework::Udmf_Intention) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1479,28 +1477,28 @@ extern "C" {
         key: *mut ::core::ffi::c_char,
         keyLen: ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Set [`OH_UdmfData`] data to database with options.
+    /// Set [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data to database with options.
     ///
     /// # Arguments
     ///
-    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
-    /// * `unifiedData` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `unifiedData` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// * `key` - Represents return value after set data to database successfully,
-    /// it's memory size not less than [`UDMF_KEY_BUFFER_LEN`].
+    /// it's memory size not less than [`UDMF_KEY_BUFFER_LEN`](crate::data_management_framework::UDMF_KEY_BUFFER_LEN).
     ///
     /// * `keyLen` - Represents size of key param.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     /// The possible cause is that the server is faulty or the memory is insufficient.
     ///
-    /// **See also:** [`OH_UdmfOptions`] [`OH_UdmfData`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions) [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1511,23 +1509,23 @@ extern "C" {
         key: *mut ::core::ffi::c_char,
         keyLen: ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Update [`OH_UdmfData`] data to database with options.
+    /// Update [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data to database with options.
     ///
     /// # Arguments
     ///
-    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
-    /// * `unifiedData` - Represents a pointer to an instance of [`OH_UdmfData`].
+    /// * `unifiedData` - Represents a pointer to an instance of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     /// The possible cause is that the server is faulty or the memory is insufficient.
     ///
-    /// **See also:** [`OH_UdmfOptions`] [`OH_UdmfData`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions) [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1536,27 +1534,27 @@ extern "C" {
         options: *mut OH_UdmfOptions,
         unifiedData: *mut OH_UdmfData,
     ) -> ::core::ffi::c_int;
-    /// Delete [`OH_UdmfData`] data of database with options.
+    /// Delete [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) data of database with options.
     ///
     /// # Arguments
     ///
-    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`].
+    /// * `options` - Represents a pointer to an instance of [`OH_UdmfOptions`](crate::data_management_framework::OH_UdmfOptions).
     ///
-    /// * `dataArray` - Represents output params of [`OH_UdmfData`].
-    /// It should be accessed using [`OH_UDMF_GetDataElementAt`] to retrieve elements by index.
-    /// This pointer needs to be released using the [`OH_Udmf_DestroyDataArray`] function.
+    /// * `dataArray` - Represents output params of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
+    /// It should be accessed using [`OH_UDMF_GetDataElementAt`](crate::data_management_framework::OH_UDMF_GetDataElementAt) to retrieve elements by index.
+    /// This pointer needs to be released using the [`OH_Udmf_DestroyDataArray`](crate::data_management_framework::OH_Udmf_DestroyDataArray) function.
     ///
     /// * `dataSize` - Represents the data count of output params.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
-    /// [`UDMF_E_OK`] success.
-    /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`UDMF_ERR`] Internal data error.
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    /// [`UDMF_ERR`](crate::Udmf_ErrCode::ERR) Internal data error.
     /// The possible cause is that the server is faulty or the memory is insufficient.
     ///
-    /// **See also:** [`OH_UdmfData`] [`Udmf_Intention`] [`Udmf_ErrCode`].
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) [`Udmf_Intention`](crate::data_management_framework::Udmf_Intention) [`Udmf_ErrCode`](crate::Udmf_ErrCode).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1570,15 +1568,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `dataArray` - A pointer to an array of [`OH_UdmfData`] pointers.
+    /// * `dataArray` - A pointer to an array of [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) pointers.
     ///
     /// * `index` - The index of the desired element. Note that the input index should not exceed the array range.
     ///
     /// # Returns
     ///
-    /// * A pointer to the [`OH_UdmfData`] element at the specified index; returns NULL if the array is NULL.
+    /// * A pointer to the [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData) element at the specified index; returns NULL if the array is NULL.
     ///
-    /// **See also:** [`OH_UdmfData`]
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -1591,11 +1589,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `dataArray` - Represents a point to [`OH_UdmfData`].
+    /// * `dataArray` - Represents a point to [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData).
     ///
     /// * `dataSize` - Represents data size in list.
     ///
-    /// **See also:** [`OH_UdmfData`]
+    /// **See also:** [`OH_UdmfData`](ohos_sys_opaque_types::OH_UdmfData)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1604,17 +1602,17 @@ extern "C" {
         dataArray: *mut *mut OH_UdmfData,
         dataSize: ::core::ffi::c_uint,
     );
-    /// Gets the progress from the [`OH_Udmf_ProgressInfo`].
+    /// Gets the progress from the [`OH_Udmf_ProgressInfo`](crate::data_management_framework::OH_Udmf_ProgressInfo).
     ///
     /// # Arguments
     ///
-    /// * `progressInfo` - Represents a pointer to an instance of [`OH_Udmf_ProgressInfo`].
+    /// * `progressInfo` - Represents a pointer to an instance of [`OH_Udmf_ProgressInfo`](crate::data_management_framework::OH_Udmf_ProgressInfo).
     ///
     /// # Returns
     ///
     /// * Returns the progress.
     ///
-    /// **See also:** [`OH_Udmf_ProgressInfo`]
+    /// **See also:** [`OH_Udmf_ProgressInfo`](crate::data_management_framework::OH_Udmf_ProgressInfo)
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1622,17 +1620,17 @@ extern "C" {
     pub fn OH_UdmfProgressInfo_GetProgress(
         progressInfo: *mut OH_Udmf_ProgressInfo,
     ) -> ::core::ffi::c_int;
-    /// Gets the status from the [`OH_Udmf_ProgressInfo`].
+    /// Gets the status from the [`OH_Udmf_ProgressInfo`](crate::data_management_framework::OH_Udmf_ProgressInfo).
     ///
     /// # Arguments
     ///
-    /// * `progressInfo` - Represents a pointer to an instance of [`OH_Udmf_ProgressInfo`].
+    /// * `progressInfo` - Represents a pointer to an instance of [`OH_Udmf_ProgressInfo`](crate::data_management_framework::OH_Udmf_ProgressInfo).
     ///
     /// # Returns
     ///
-    /// * Returns the status code. See [`Udmf_ListenerStatus`].
+    /// * Returns the status code. See [`Udmf_ListenerStatus`](crate::Udmf_ListenerStatus).
     ///
-    /// **See also:** [`OH_Udmf_ProgressInfo`] [`Udmf_ListenerStatus`]
+    /// **See also:** [`OH_Udmf_ProgressInfo`](crate::data_management_framework::OH_Udmf_ProgressInfo) [`Udmf_ListenerStatus`](crate::Udmf_ListenerStatus)
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1640,41 +1638,41 @@ extern "C" {
     pub fn OH_UdmfProgressInfo_GetStatus(
         progressInfo: *mut OH_Udmf_ProgressInfo,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdmfGetDataParams`].
+    /// Creation a pointer to the instance of the [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfGetDataParams`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdmfGetDataParams`]
+    /// **See also:** [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams)
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_UdmfGetDataParams_Create() -> *mut OH_UdmfGetDataParams;
-    /// Destroy a pointer that points to an instance of [`OH_UdmfGetDataParams`].
+    /// Destroy a pointer that points to an instance of [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
-    /// **See also:** [`OH_UdmfGetDataParams`]
+    /// **See also:** [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams)
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_UdmfGetDataParams_Destroy(pThis: *mut OH_UdmfGetDataParams);
-    /// Sets the destination uri to the [`OH_UdmfGetDataParams`].
+    /// Sets the destination uri to the [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     /// * `destUri` - Pointer to a destination uri.
     ///
-    /// **See also:** [`OH_UdmfGetDataParams`]
+    /// **See also:** [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams)
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1683,15 +1681,15 @@ extern "C" {
         params: *mut OH_UdmfGetDataParams,
         destUri: *const ::core::ffi::c_char,
     );
-    /// Sets the file conflict options to the [`OH_UdmfGetDataParams`].
+    /// Sets the file conflict options to the [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     /// * `options` - Represents to the file conflict options.
     ///
-    /// **See also:** [`OH_UdmfGetDataParams`] [`Udmf_FileConflictOptions`]
+    /// **See also:** [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams) [`Udmf_FileConflictOptions`](crate::data_management_framework::Udmf_FileConflictOptions)
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1700,15 +1698,15 @@ extern "C" {
         params: *mut OH_UdmfGetDataParams,
         options: Udmf_FileConflictOptions,
     );
-    /// Sets the progress indicator to the [`OH_UdmfGetDataParams`].
+    /// Sets the progress indicator to the [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     /// * `progressIndicator` - Represents to the progress indicator.
     ///
-    /// **See also:** [`OH_UdmfGetDataParams`] [`Udmf_ProgressIndicator`]
+    /// **See also:** [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams) [`Udmf_ProgressIndicator`](crate::data_management_framework::Udmf_ProgressIndicator)
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1717,15 +1715,15 @@ extern "C" {
         params: *mut OH_UdmfGetDataParams,
         progressIndicator: Udmf_ProgressIndicator,
     );
-    /// Sets the progress indicator to the [`OH_UdmfGetDataParams`].
+    /// Sets the progress indicator to the [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     /// * `dataProgressListener` - Represents to the data progress listener.
     ///
-    /// **See also:** [`OH_UdmfGetDataParams`] [`OH_Udmf_DataProgressListener`]
+    /// **See also:** [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams) [`OH_Udmf_DataProgressListener`](crate::data_management_framework::OH_Udmf_DataProgressListener)
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1734,15 +1732,15 @@ extern "C" {
         params: *mut OH_UdmfGetDataParams,
         dataProgressListener: OH_Udmf_DataProgressListener,
     );
-    /// Sets the acceptable info to the [`OH_UdmfGetDataParams`].
+    /// Sets the acceptable info to the [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`].
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams).
     ///
-    /// * `acceptableInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    /// * `acceptableInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
-    /// **See also:** [`OH_UdmfGetDataParams`] [`OH_UdmfDataLoadInfo`]
+    /// **See also:** [`OH_UdmfGetDataParams`](ohos_sys_opaque_types::OH_UdmfGetDataParams) [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1751,41 +1749,41 @@ extern "C" {
         params: *mut OH_UdmfGetDataParams,
         acceptableInfo: *mut OH_UdmfDataLoadInfo,
     );
-    /// Creation a pointer to the instance of the [`OH_UdmfDataLoadParams`].
+    /// Creation a pointer to the instance of the [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfDataLoadParams`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdmfDataLoadParams`]
+    /// **See also:** [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_UdmfDataLoadParams_Create() -> *mut OH_UdmfDataLoadParams;
-    /// Destroy a pointer that points to an instance of [`OH_UdmfDataLoadParams`].
+    /// Destroy a pointer that points to an instance of [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams).
     ///
     /// # Arguments
     ///
-    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfDataLoadParams`].
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams).
     ///
-    /// **See also:** [`OH_UdmfDataLoadParams`]
+    /// **See also:** [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_UdmfDataLoadParams_Destroy(pThis: *mut OH_UdmfDataLoadParams);
-    /// Sets the data load handler to the [`OH_UdmfDataLoadParams`].
+    /// Sets the data load handler to the [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams).
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`OH_UdmfDataLoadParams`].
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams).
     ///
     /// * `dataLoadHandler` - Represents to the data load handler.
     ///
-    /// **See also:** [`OH_UdmfDataLoadParams`] [`OH_Udmf_DataLoadHandler`]
+    /// **See also:** [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams) [`OH_Udmf_DataLoadHandler`](crate::data_management_framework::OH_Udmf_DataLoadHandler)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1794,15 +1792,15 @@ extern "C" {
         params: *mut OH_UdmfDataLoadParams,
         dataLoadHandler: OH_Udmf_DataLoadHandler,
     );
-    /// Sets the data load info to the [`OH_UdmfDataLoadParams`].
+    /// Sets the data load info to the [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams).
     ///
     /// # Arguments
     ///
-    /// * `params` - Represents a pointer to an instance of [`OH_UdmfDataLoadParams`].
+    /// * `params` - Represents a pointer to an instance of [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams).
     ///
-    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
-    /// **See also:** [`OH_UdmfDataLoadParams`] [`OH_UdmfDataLoadInfo`]
+    /// **See also:** [`OH_UdmfDataLoadParams`](ohos_sys_opaque_types::OH_UdmfDataLoadParams) [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1811,38 +1809,38 @@ extern "C" {
         params: *mut OH_UdmfDataLoadParams,
         dataLoadInfo: *mut OH_UdmfDataLoadInfo,
     );
-    /// Creation a pointer to the instance of the [`OH_UdmfDataLoadInfo`].
+    /// Creation a pointer to the instance of the [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
     ///
     /// # Returns
     ///
-    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfDataLoadInfo`]
+    /// * If the operation is successful, a pointer to the instance of the [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo)
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
-    /// **See also:** [`OH_UdmfDataLoadInfo`]
+    /// **See also:** [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_UdmfDataLoadInfo_Create() -> *mut OH_UdmfDataLoadInfo;
-    /// Destroy the heap memory pointed to by the pointer of [`OH_UdmfDataLoadInfo`].
+    /// Destroy the heap memory pointed to by the pointer of [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     /// Note that this function cannot be called repeatedly for the same pointer.
     ///
     /// # Arguments
     ///
-    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
-    /// **See also:** [`OH_UdmfDataLoadInfo`]
+    /// **See also:** [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_UdmfDataLoadInfo_Destroy(dataLoadInfo: *mut OH_UdmfDataLoadInfo);
-    /// Gets the types from the [`OH_UdmfDataLoadInfo`].
+    /// Gets the types from the [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
     /// # Arguments
     ///
-    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
     /// * `count` - the types count of data.
     ///
@@ -1850,7 +1848,7 @@ extern "C" {
     ///
     /// * Returns the types of data.
     ///
-    /// **See also:** [`OH_UdmfDataLoadInfo`]
+    /// **See also:** [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1859,15 +1857,15 @@ extern "C" {
         dataLoadInfo: *mut OH_UdmfDataLoadInfo,
         count: *mut ::core::ffi::c_uint,
     ) -> *mut *mut ::core::ffi::c_char;
-    /// Sets the data load info to the [`OH_UdmfDataLoadInfo`].
+    /// Sets the data load info to the [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
     /// # Arguments
     ///
-    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
     /// * `type` - Represents the type of data.
     ///
-    /// **See also:** [`OH_UdmfDataLoadInfo`]
+    /// **See also:** [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1876,17 +1874,17 @@ extern "C" {
         dataLoadInfo: *mut OH_UdmfDataLoadInfo,
         type_: *const ::core::ffi::c_char,
     );
-    /// Gets the record count from the [`OH_UdmfDataLoadInfo`].
+    /// Gets the record count from the [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
     /// # Arguments
     ///
-    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
     /// # Returns
     ///
     /// * Returns the record count.
     ///
-    /// **See also:** [`OH_UdmfDataLoadInfo`]
+    /// **See also:** [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1894,15 +1892,15 @@ extern "C" {
     pub fn OH_UdmfDataLoadInfo_GetRecordCount(
         dataLoadInfo: *mut OH_UdmfDataLoadInfo,
     ) -> ::core::ffi::c_int;
-    /// Sets the record count to the [`OH_UdmfDataLoadInfo`].
+    /// Sets the record count to the [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
     /// # Arguments
     ///
-    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`].
+    /// * `dataLoadInfo` - Represents a pointer to an instance of [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo).
     ///
     /// * `recordCount` - Represents the types of data.
     ///
-    /// **See also:** [`OH_UdmfDataLoadInfo`]
+    /// **See also:** [`OH_UdmfDataLoadInfo`](crate::data_management_framework::OH_UdmfDataLoadInfo)
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

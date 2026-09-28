@@ -216,13 +216,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`] The node is not a customNode.
-    /// [`ARKUI_ERROR_CODE_CHILD_EXISTED`] The node already has a child.
-    /// [`ARKUI_ERROR_CODE_RENDER_PARENT_EXISTED`] The child already has a parent node.
-    /// [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`] if the child is obtained from a FrameNode, and its
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`](crate::native_type::ArkUiErrorCode::NOT_CUSTOM_NODE) The node is not a customNode.
+    /// [`ARKUI_ERROR_CODE_CHILD_EXISTED`](crate::native_type::ArkUiErrorCode::CHILD_EXISTED) The node already has a child.
+    /// [`ARKUI_ERROR_CODE_RENDER_PARENT_EXISTED`](crate::native_type::ArkUiErrorCode::RENDER_PARENT_EXISTED) The child already has a parent node.
+    /// [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_HAS_INVALID_FRAME_NODE) if the child is obtained from a FrameNode, and its
     /// corresponding FrameNode is no longer in the adopted state. Add since api 22.
     ///
     /// Available since API-level: 20
@@ -243,10 +243,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`] The node is not a customNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`](crate::native_type::ArkUiErrorCode::NOT_CUSTOM_NODE) The node is not a customNode.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -264,10 +264,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`] The node is not a customNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NOT_CUSTOM_NODE`](crate::native_type::ArkUiErrorCode::NOT_CUSTOM_NODE) The node is not a customNode.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -283,9 +283,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -311,9 +311,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -330,12 +330,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
-    /// [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`] if the child is obtained from a FrameNode, and its
+    /// [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_HAS_INVALID_FRAME_NODE) if the child is obtained from a FrameNode, and its
     /// corresponding FrameNode is no longer in the adopted state. Add since api 22.
     ///
     /// Available since API-level: 20
@@ -359,12 +359,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
-    /// [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`] if the child is obtained from a FrameNode, and its
+    /// [`ARKUI_ERROR_CODE_RENDER_HAS_INVALID_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_HAS_INVALID_FRAME_NODE) if the child is obtained from a FrameNode, and its
     /// corresponding FrameNode is no longer in the adopted state. Add since api 22.
     ///
     /// Available since API-level: 20
@@ -386,10 +386,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -408,10 +408,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the RenderNode is obtained from a FrameNode. Add since api 22.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the RenderNode is obtained from a FrameNode. Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -430,11 +430,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`] The child does not exist.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the RenderNode is obtained from a FrameNode. Add since api 22.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::native_type::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) The child does not exist.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the RenderNode is obtained from a FrameNode. Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -455,11 +455,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`] The child does not exist.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::native_type::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) The child does not exist.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -480,10 +480,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`] The child does not exist.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::native_type::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) The child does not exist.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -503,10 +503,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`] The child does not exist.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_CHILD_NOT_EXIST`](crate::native_type::ArkUiErrorCode::RENDER_CHILD_NOT_EXIST) The child does not exist.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -530,10 +530,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode. Add since api 22.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode. Add since api 22.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -554,10 +554,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -583,10 +583,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -612,10 +612,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -636,11 +636,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::native_type::ArkUiErrorCode::PARAM_OUT_OF_RANGE) Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -661,10 +661,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -685,11 +685,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::native_type::ArkUiErrorCode::PARAM_OUT_OF_RANGE) Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -710,10 +710,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -734,11 +734,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::native_type::ArkUiErrorCode::PARAM_OUT_OF_RANGE) Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -756,10 +756,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -782,11 +782,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::native_type::ArkUiErrorCode::PARAM_OUT_OF_RANGE) Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -810,10 +810,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -837,10 +837,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -864,10 +864,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -891,10 +891,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -914,10 +914,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -941,10 +941,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -964,10 +964,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -991,10 +991,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1018,10 +1018,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1047,10 +1047,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1077,10 +1077,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1130,10 +1130,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1159,10 +1159,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1186,10 +1186,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1212,10 +1212,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1239,10 +1239,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1264,11 +1264,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::native_type::ArkUiErrorCode::PARAM_OUT_OF_RANGE) Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1287,10 +1287,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1311,11 +1311,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::native_type::ArkUiErrorCode::PARAM_OUT_OF_RANGE) Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1336,10 +1336,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1360,11 +1360,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::native_type::ArkUiErrorCode::PARAM_OUT_OF_RANGE) Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1385,10 +1385,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1409,10 +1409,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1433,10 +1433,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1457,10 +1457,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1481,10 +1481,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1505,10 +1505,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1529,10 +1529,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1550,10 +1550,10 @@ extern "C" {
     ///
     /// * `borderRadius` - Handle to border radius option.
     /// eturn Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1574,10 +1574,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1598,10 +1598,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1622,10 +1622,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1646,10 +1646,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1676,11 +1676,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`] Parameter out of range.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_PARAM_OUT_OF_RANGE`](crate::native_type::ArkUiErrorCode::PARAM_OUT_OF_RANGE) Parameter out of range.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1710,10 +1710,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1743,10 +1743,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1765,15 +1765,15 @@ extern "C" {
     ///
     /// * `node` - Handle to the target render node.
     ///
-    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`] The content modifier handle.
+    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`](crate::native_render::ArkUI_RenderContentModifierHandle) The content modifier handle.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`] if the node is obtained from a FrameNode.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_IS_FROM_FRAME_NODE`](crate::native_type::ArkUiErrorCode::RENDER_IS_FROM_FRAME_NODE) if the node is obtained from a FrameNode.
     /// Add since api 22.
     ///
     /// Available since API-level: 20
@@ -1788,7 +1788,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`ArkUI_RenderContentModifierHandle`] A content modifier handle.
+    /// * [`ArkUI_RenderContentModifierHandle`](crate::native_render::ArkUI_RenderContentModifierHandle) A content modifier handle.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1798,7 +1798,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`] Handle to the content modifier.
+    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`](crate::native_render::ArkUI_RenderContentModifierHandle) Handle to the content modifier.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1810,16 +1810,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`] Set float property to the target content modifier.
+    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`](crate::native_render::ArkUI_RenderContentModifierHandle) Set float property to the target content modifier.
     ///
-    /// * `property` - [`ArkUI_FloatPropertyHandle`] Handle to the float property.
+    /// * `property` - [`ArkUI_FloatPropertyHandle`](crate::native_render::ArkUI_FloatPropertyHandle) Handle to the float property.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1832,16 +1832,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`] Set vector2 property to the target content modifier.
+    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`](crate::native_render::ArkUI_RenderContentModifierHandle) Set vector2 property to the target content modifier.
     ///
-    /// * `property` - [`ArkUI_Vector2PropertyHandle`] Handle to the vector2 property.
+    /// * `property` - [`ArkUI_Vector2PropertyHandle`](crate::native_render::ArkUI_Vector2PropertyHandle) Handle to the vector2 property.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1854,16 +1854,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`] Set color property to the target content modifier.
+    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`](crate::native_render::ArkUI_RenderContentModifierHandle) Set color property to the target content modifier.
     ///
-    /// * `property` - [`ArkUI_ColorPropertyHandle`] Handle to the color property.
+    /// * `property` - [`ArkUI_ColorPropertyHandle`](crate::native_render::ArkUI_ColorPropertyHandle) Handle to the color property.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1876,17 +1876,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`] Set float animatable property to the target content
+    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`](crate::native_render::ArkUI_RenderContentModifierHandle) Set float animatable property to the target content
     /// modifier.
     ///
-    /// * `property` - [`ArkUI_FloatAnimatablePropertyHandle`] Handle to the float animatable property.
+    /// * `property` - [`ArkUI_FloatAnimatablePropertyHandle`](crate::native_render::ArkUI_FloatAnimatablePropertyHandle) Handle to the float animatable property.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1899,17 +1899,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`] Set vector2 animatable property to the target content
+    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`](crate::native_render::ArkUI_RenderContentModifierHandle) Set vector2 animatable property to the target content
     /// modifier.
     ///
-    /// * `property` - [`ArkUI_Vector2AnimatablePropertyHandle`] Handle to the vector2 animatable property.
+    /// * `property` - [`ArkUI_Vector2AnimatablePropertyHandle`](crate::native_render::ArkUI_Vector2AnimatablePropertyHandle) Handle to the vector2 animatable property.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1922,17 +1922,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`] Set color animatable property to the target content
+    /// * `modifier` - [`ArkUI_RenderContentModifierHandle`](crate::native_render::ArkUI_RenderContentModifierHandle) Set color animatable property to the target content
     /// modifier.
     ///
-    /// * `property` - [`ArkUI_ColorAnimatablePropertyHandle`] Handle to the color animatable property.
+    /// * `property` - [`ArkUI_ColorAnimatablePropertyHandle`](crate::native_render::ArkUI_ColorAnimatablePropertyHandle) Handle to the color animatable property.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1959,16 +1959,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_FloatPropertyHandle`] The float property handle.
+    /// * `property` - [`ArkUI_FloatPropertyHandle`](crate::native_render::ArkUI_FloatPropertyHandle) The float property handle.
     ///
     /// * `value` - The property value.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -1981,16 +1981,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_FloatPropertyHandle`] The float property handle.
+    /// * `property` - [`ArkUI_FloatPropertyHandle`](crate::native_render::ArkUI_FloatPropertyHandle) The float property handle.
     ///
     /// * `value` - The pointer to receive property value.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2003,7 +2003,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_FloatPropertyHandle`] Handle to the float property.
+    /// * `property` - [`ArkUI_FloatPropertyHandle`](crate::native_render::ArkUI_FloatPropertyHandle) Handle to the float property.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2032,7 +2032,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_Vector2PropertyHandle`] The vector2 property handle.
+    /// * `property` - [`ArkUI_Vector2PropertyHandle`](crate::native_render::ArkUI_Vector2PropertyHandle) The vector2 property handle.
     ///
     /// * `x` - X-coordinate value of the property.
     ///
@@ -2041,9 +2041,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2057,7 +2057,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_Vector2PropertyHandle`] The Vector2 property handle.
+    /// * `property` - [`ArkUI_Vector2PropertyHandle`](crate::native_render::ArkUI_Vector2PropertyHandle) The Vector2 property handle.
     ///
     /// * `x` - The pointer to receive x-coordinate value of the property.
     ///
@@ -2066,9 +2066,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2082,7 +2082,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_Vector2PropertyHandle`] Handle to the vector2 property.
+    /// * `property` - [`ArkUI_Vector2PropertyHandle`](crate::native_render::ArkUI_Vector2PropertyHandle) Handle to the vector2 property.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2106,16 +2106,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_ColorPropertyHandle`] The color property handle.
+    /// * `property` - [`ArkUI_ColorPropertyHandle`](crate::native_render::ArkUI_ColorPropertyHandle) The color property handle.
     ///
     /// * `value` - The property value.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2128,16 +2128,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_ColorPropertyHandle`] The color property handle.
+    /// * `property` - [`ArkUI_ColorPropertyHandle`](crate::native_render::ArkUI_ColorPropertyHandle) The color property handle.
     ///
     /// * `value` - The pointer to receive property value.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2150,7 +2150,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_ColorPropertyHandle`] Handle to the color property.
+    /// * `property` - [`ArkUI_ColorPropertyHandle`](crate::native_render::ArkUI_ColorPropertyHandle) Handle to the color property.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2176,16 +2176,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_FloatAnimatablePropertyHandle`] The float animatable property handle.
+    /// * `property` - [`ArkUI_FloatAnimatablePropertyHandle`](crate::native_render::ArkUI_FloatAnimatablePropertyHandle) The float animatable property handle.
     ///
     /// * `value` - The property value.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2198,16 +2198,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_FloatAnimatablePropertyHandle`] The float animatable property handle.
+    /// * `property` - [`ArkUI_FloatAnimatablePropertyHandle`](crate::native_render::ArkUI_FloatAnimatablePropertyHandle) The float animatable property handle.
     ///
     /// * `value` - The pointer to receive property value.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2220,7 +2220,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_FloatAnimatablePropertyHandle`] Handle to the float animatable property.
+    /// * `property` - [`ArkUI_FloatAnimatablePropertyHandle`](crate::native_render::ArkUI_FloatAnimatablePropertyHandle) Handle to the float animatable property.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2251,7 +2251,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_Vector2AnimatablePropertyHandle`] The vector2 animatable property handle.
+    /// * `property` - [`ArkUI_Vector2AnimatablePropertyHandle`](crate::native_render::ArkUI_Vector2AnimatablePropertyHandle) The vector2 animatable property handle.
     ///
     /// * `x` - X-coordinate value of the property.
     ///
@@ -2260,9 +2260,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2276,7 +2276,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_Vector2AnimatablePropertyHandle`] The Vector2 animatable property handle.
+    /// * `property` - [`ArkUI_Vector2AnimatablePropertyHandle`](crate::native_render::ArkUI_Vector2AnimatablePropertyHandle) The Vector2 animatable property handle.
     ///
     /// * `x` - The pointer to receive x-coordinate value of the property.
     ///
@@ -2285,9 +2285,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2301,7 +2301,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_Vector2AnimatablePropertyHandle`] Handle to the vector2 animatable property.
+    /// * `property` - [`ArkUI_Vector2AnimatablePropertyHandle`](crate::native_render::ArkUI_Vector2AnimatablePropertyHandle) Handle to the vector2 animatable property.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2329,16 +2329,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_ColorAnimatablePropertyHandle`] The color animatable property handle.
+    /// * `property` - [`ArkUI_ColorAnimatablePropertyHandle`](crate::native_render::ArkUI_ColorAnimatablePropertyHandle) The color animatable property handle.
     ///
     /// * `value` - The property value.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2351,16 +2351,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_ColorAnimatablePropertyHandle`] The color animatable property handle.
+    /// * `property` - [`ArkUI_ColorAnimatablePropertyHandle`](crate::native_render::ArkUI_ColorAnimatablePropertyHandle) The color animatable property handle.
     ///
     /// * `value` - The pointer to receive property value.
     ///
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2373,7 +2373,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `property` - [`ArkUI_ColorAnimatablePropertyHandle`] Handle to the color animatable property.
+    /// * `property` - [`ArkUI_ColorAnimatablePropertyHandle`](crate::native_render::ArkUI_ColorAnimatablePropertyHandle) Handle to the color animatable property.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2394,9 +2394,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if CAPI init error.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if CAPI init error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2440,7 +2440,7 @@ extern "C" {
     ///
     /// * `edgeValue` - The edge value of the RectShape.
     ///
-    /// * `direction` - [`ArkUI_EdgeDirection`] The direction of the edge.
+    /// * `direction` - [`ArkUI_EdgeDirection`](crate::native_type::ArkUI_EdgeDirection) The direction of the edge.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2479,9 +2479,9 @@ extern "C" {
     ///
     /// * `option` - Pointer to the NodeBorderStyle option.
     ///
-    /// * `edgeStyle` - [`ArkUI_BorderStyle`] The edge border style value of the NodeBorderStyle option.
+    /// * `edgeStyle` - [`ArkUI_BorderStyle`](crate::native_type::ArkUI_BorderStyle) The edge border style value of the NodeBorderStyle option.
     ///
-    /// * `direction` - [`ArkUI_EdgeDirection`] The direction of the edge.
+    /// * `direction` - [`ArkUI_EdgeDirection`](crate::native_type::ArkUI_EdgeDirection) The direction of the edge.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2522,7 +2522,7 @@ extern "C" {
     ///
     /// * `edgeWidth` - The edge width value of the NodeBorderWidth option.
     ///
-    /// * `direction` - [`ArkUI_EdgeDirection`] The direction of the edge.
+    /// * `direction` - [`ArkUI_EdgeDirection`](crate::native_type::ArkUI_EdgeDirection) The direction of the edge.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2563,7 +2563,7 @@ extern "C" {
     ///
     /// * `edgeColor` - The edge color value of the NodeBorderColor option.
     ///
-    /// * `direction` - [`ArkUI_EdgeDirection`] The direction of the edge.
+    /// * `direction` - [`ArkUI_EdgeDirection`](crate::native_type::ArkUI_EdgeDirection) The direction of the edge.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2605,7 +2605,7 @@ extern "C" {
     ///
     /// * `cornerRadius` - The corner radius value of the NodeBorderRadius option.
     ///
-    /// * `direction` - [`ArkUI_CornerDirection`] The direction of the corner.
+    /// * `direction` - [`ArkUI_CornerDirection`](crate::native_type::ArkUI_CornerDirection) The direction of the corner.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2712,7 +2712,7 @@ extern "C" {
     ///
     /// * `edgeValue` - The edge value of the RoundRectShape.
     ///
-    /// * `direction` - [`ArkUI_EdgeDirection`] The direction of the edge.
+    /// * `direction` - [`ArkUI_EdgeDirection`](crate::native_type::ArkUI_EdgeDirection) The direction of the edge.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2732,7 +2732,7 @@ extern "C" {
     ///
     /// * `y` - Y-coordinate of the target corner (in pixels).
     ///
-    /// * `direction` - [`ArkUI_CornerDirection`] The direction of the corner.
+    /// * `direction` - [`ArkUI_CornerDirection`](crate::native_type::ArkUI_CornerDirection) The direction of the corner.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2783,7 +2783,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `shape` - [`ArkUI_RectShapeOption`] Pointer to the RectShape option.
+    /// * `shape` - [`ArkUI_RectShapeOption`](crate::native_render::ArkUI_RectShapeOption) Pointer to the RectShape option.
     ///
     /// # Returns
     ///
@@ -2799,7 +2799,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `shape` - [`ArkUI_RoundRectShapeOption`] Pointer to the RoundRectShape option.
+    /// * `shape` - [`ArkUI_RoundRectShapeOption`](crate::native_render::ArkUI_RoundRectShapeOption) Pointer to the RoundRectShape option.
     ///
     /// # Returns
     ///
@@ -2815,7 +2815,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `shape` - [`ArkUI_CircleShapeOption`] Pointer to the CircleShape option.
+    /// * `shape` - [`ArkUI_CircleShapeOption`](crate::native_render::ArkUI_CircleShapeOption) Pointer to the CircleShape option.
     ///
     /// # Returns
     ///
@@ -2831,7 +2831,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `shape` - [`ArkUI_RectShapeOption`] Pointer to the OvalShape option.
+    /// * `shape` - [`ArkUI_RectShapeOption`](crate::native_render::ArkUI_RectShapeOption) Pointer to the OvalShape option.
     ///
     /// # Returns
     ///
@@ -2847,7 +2847,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `path` - [`ArkUI_CommandPathOption`] Pointer to the CommandPath option.
+    /// * `path` - [`ArkUI_CommandPathOption`](crate::native_render::ArkUI_CommandPathOption) Pointer to the CommandPath option.
     ///
     /// # Returns
     ///
@@ -2920,7 +2920,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `shape` - [`ArkUI_RectShapeOption`] Pointer to the RectShape option.
+    /// * `shape` - [`ArkUI_RectShapeOption`](crate::native_render::ArkUI_RectShapeOption) Pointer to the RectShape option.
     ///
     /// # Returns
     ///
@@ -2936,7 +2936,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `shape` - [`ArkUI_RoundRectShapeOption`] Pointer to the RoundRectShape option.
+    /// * `shape` - [`ArkUI_RoundRectShapeOption`](crate::native_render::ArkUI_RoundRectShapeOption) Pointer to the RoundRectShape option.
     ///
     /// # Returns
     ///
@@ -2952,7 +2952,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `shape` - [`ArkUI_CircleShapeOption`] Pointer to the CircleShape option.
+    /// * `shape` - [`ArkUI_CircleShapeOption`](crate::native_render::ArkUI_CircleShapeOption) Pointer to the CircleShape option.
     ///
     /// # Returns
     ///
@@ -2968,7 +2968,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `shape` - [`ArkUI_RectShapeOption`] Pointer to the OvalShape option.
+    /// * `shape` - [`ArkUI_RectShapeOption`](crate::native_render::ArkUI_RectShapeOption) Pointer to the OvalShape option.
     ///
     /// # Returns
     ///
@@ -2984,7 +2984,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `path` - [`ArkUI_CommandPathOption`] Pointer to the CommandPath option.
+    /// * `path` - [`ArkUI_CommandPathOption`](crate::native_render::ArkUI_CommandPathOption) Pointer to the CommandPath option.
     ///
     /// # Returns
     ///
@@ -3019,10 +3019,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Error code.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] Success.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] Function parameter exception.
-    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`] if the CAPI init error.
-    /// [`ARKUI_ERROR_CODE_RENDER_NOT_ADOPTED_NODE`] The node is not adopted.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) Success.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) Function parameter exception.
+    /// [`ARKUI_ERROR_CODE_CAPI_INIT_ERROR`](crate::native_type::ArkUiErrorCode::CAPI_INIT_ERROR) if the CAPI init error.
+    /// [`ARKUI_ERROR_CODE_RENDER_NOT_ADOPTED_NODE`](crate::native_type::ArkUiErrorCode::RENDER_NOT_ADOPTED_NODE) The node is not adopted.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

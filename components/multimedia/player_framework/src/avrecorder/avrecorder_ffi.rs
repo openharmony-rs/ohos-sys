@@ -33,13 +33,13 @@ extern "C" {
     ///
     /// * `recorder` - Pointer to an OH_AVRecorder instance
     ///
-    /// * `config` - Pointer to an OH_AVRecorder_Config instance, see [`OH_AVRecorder_Config`]
+    /// * `config` - Pointer to an OH_AVRecorder_Config instance, see [`OH_AVRecorder_Config`](crate::avrecorder_base::OH_AVRecorder_Config)
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or recorder Prepare failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or recorder Prepare failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -55,14 +55,14 @@ extern "C" {
     ///
     /// * `recorder` - Pointer to an OH_AVRecorder instance
     ///
-    /// * `config` - Pointer to an OH_AVRecorder_Config instance, see [`OH_AVRecorder_Config`]
+    /// * `config` - Pointer to an OH_AVRecorder_Config instance, see [`OH_AVRecorder_Config`](crate::avrecorder_base::OH_AVRecorder_Config)
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or config is null.
-    /// [`AV_ERR_NO_MEMORY`] failed to malloc memory.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or config is null.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) failed to malloc memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -78,13 +78,13 @@ extern "C" {
     ///
     /// * `recorder` - Pointer to an OH_AVRecorder instance
     ///
-    /// * `window` - Pointer to an OHNativeWindow instance, see [`OHNativeWindow`]
+    /// * `window` - Pointer to an OHNativeWindow instance, see [`OHNativeWindow`](ohos_sys_opaque_types::OHNativeWindow)
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -105,8 +105,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or update rotation failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or update rotation failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -125,8 +125,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or recorder start failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or recorder start failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -142,8 +142,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or recorder pause failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or recorder pause failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -159,8 +159,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or recorder resume failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or recorder resume failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -176,8 +176,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or recorder stop failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or recorder stop failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -193,8 +193,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or recorder reset failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or recorder reset failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -210,8 +210,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or recorder release failed.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or recorder release failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -224,16 +224,16 @@ extern "C" {
     ///
     /// * `recorder` - Pointer to an OH_AVRecorder instance
     ///
-    /// * `info` - Pointer to an OH_AVRecorder_EncoderInfo instance, see [`OH_AVRecorder_EncoderInfo`]
+    /// * `info` - Pointer to an OH_AVRecorder_EncoderInfo instance, see [`OH_AVRecorder_EncoderInfo`](crate::avrecorder_base::OH_AVRecorder_EncoderInfo)
     ///
     /// * `length` - Length of available encoders
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr.
-    /// [`AV_ERR_NO_MEMORY`] failed to malloc memory.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) failed to malloc memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -251,15 +251,15 @@ extern "C" {
     ///
     /// * `recorder` - Pointer to an OH_AVRecorder instance
     ///
-    /// * `callback` - State callback function, see [`OH_AVRecorder_OnStateChange`]
+    /// * `callback` - State callback function, see [`OH_AVRecorder_OnStateChange`](crate::avrecorder_base::OH_AVRecorder_OnStateChange)
     ///
     /// * `userData` - Pointer to user specific data
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or input callback is nullptr.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or input callback is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -277,15 +277,15 @@ extern "C" {
     ///
     /// * `recorder` - Pointer to an OH_AVRecorder instance
     ///
-    /// * `callback` - Error callback function, see [`OH_AVRecorder_OnError`]
+    /// * `callback` - Error callback function, see [`OH_AVRecorder_OnError`](crate::avrecorder_base::OH_AVRecorder_OnError)
     ///
     /// * `userData` - Pointer to user specific data
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr or input callback is nullptr.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr or input callback is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -306,9 +306,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input recorder is nullptr.
-    /// [`AV_ERR_INVALID_STATE`] function called in invalid state, only available before prepare state.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input recorder is nullptr.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE) function called in invalid state, only available before prepare state.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

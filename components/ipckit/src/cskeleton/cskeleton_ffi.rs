@@ -4,8 +4,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 use crate::cparcel::OH_IPC_MemAllocator;
-#[cfg(doc)]
-use crate::error_code::*;
 
 extern "C" {
     /// Joints this thread to the IPC worker thread pool.
@@ -118,11 +116,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if incorrect parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`] in other cases.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -147,13 +145,13 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if incorrect parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`] if memory allocation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_MEM_ALLOCATOR_ERROR) if memory allocation fails.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`] in other cases.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -174,11 +172,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`] if the operation is successful.
+    /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`] if incorrect parameters are found.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
     ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`] in other cases.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

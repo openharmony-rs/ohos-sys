@@ -49,9 +49,9 @@ pub type NativeArkWeb_OnDestroyCallback =
 /// Defines the callback of save cookie.
 /// # Arguments
 ///
-/// * `errorCode` - [`ARKWEB_SUCCESS`] Save cookie success.
-/// [`ARKWEB_COOKIE_MANAGER_INITIALIZE_FAILED`] Cookie manager initialize failed.
-/// [`ARKWEB_COOKIE_SAVE_FAILED`] Save cookie failed.
+/// * `errorCode` - [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) Save cookie success.
+/// [`ARKWEB_COOKIE_MANAGER_INITIALIZE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_INITIALIZE_FAILED) Cookie manager initialize failed.
+/// [`ARKWEB_COOKIE_SAVE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_SAVE_FAILED) Save cookie failed.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -283,12 +283,12 @@ extern "C" {
     /// # Returns
     ///
     /// * LoadData result code.
-    /// [`ARKWEB_SUCCESS`] load data success.
-    /// [`ARKWEB_INVALID_PARAM`] Mandatory parameters are left unspecified or
+    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) load data success.
+    /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) Mandatory parameters are left unspecified or
     /// Incorrect parameter types or Parameter verification failed.
-    /// [`ARKWEB_INIT_ERROR`] Initialization error, can't get a valid Web for the webTag.
-    /// [`ARKWEB_LIBRARY_OPEN_FAILURE`] Failed to open the library.
-    /// [`ARKWEB_LIBRARY_SYMBOL_NOT_FOUND`] The required symbol was not found in the library.
+    /// [`ARKWEB_INIT_ERROR`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INIT_ERROR) Initialization error, can't get a valid Web for the webTag.
+    /// [`ARKWEB_LIBRARY_OPEN_FAILURE`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_OPEN_FAILURE) Failed to open the library.
+    /// [`ARKWEB_LIBRARY_SYMBOL_NOT_FOUND`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::LIBRARY_SYMBOL_NOT_FOUND) The required symbol was not found in the library.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Web.Webview.Core
@@ -434,10 +434,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Save cookie result code.
-    /// [`ARKWEB_SUCCESS`] Save cookie success.
-    /// [`ARKWEB_COOKIE_SAVE_FAILED`] Save cookie failed.
-    /// [`ARKWEB_COOKIE_MANAGER_INITIALIZE_FAILED`] The CookieManager initialize failed.
-    /// [`ARKWEB_COOKIE_MANAGER_NOT_INITIALIZED`] It is not allowed to call on a non-UI thread without
+    /// [`ARKWEB_SUCCESS`](crate::arkweb_error_code::ArkWeb_ErrorCode) Save cookie success.
+    /// [`ARKWEB_COOKIE_SAVE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_SAVE_FAILED) Save cookie failed.
+    /// [`ARKWEB_COOKIE_MANAGER_INITIALIZE_FAILED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_INITIALIZE_FAILED) The CookieManager initialize failed.
+    /// [`ARKWEB_COOKIE_MANAGER_NOT_INITIALIZED`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::COOKIE_MANAGER_NOT_INITIALIZED) It is not allowed to call on a non-UI thread without
     /// initializing the CookieManager interface. please
     /// initialize the CookieManager interface using
     /// OH_ArkWeb_GetNativeAPI first.

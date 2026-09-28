@@ -37,9 +37,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`TIMESERVICE_ERR_OK`] if the operation is successful.
-    /// Returns [`TIMESERVICE_ERR_INTERNAL_ERROR`] if obtaining the system parameters fails.
-    /// Returns [`TIMESERVICE_ERR_INVALID_PARAMETER`] if <b>timeZone</b> is a null pointer or the length of the
+    /// * Returns [`TIMESERVICE_ERR_OK`](crate::time_service::TimeService_ErrCode::TIMESERVICE_ERR_OK) if the operation is successful.
+    /// Returns [`TIMESERVICE_ERR_INTERNAL_ERROR`](crate::time_service::TimeService_ErrCode::TIMESERVICE_ERR_INTERNAL_ERROR) if obtaining the system parameters fails.
+    /// Returns [`TIMESERVICE_ERR_INVALID_PARAMETER`](crate::time_service::TimeService_ErrCode::TIMESERVICE_ERR_INVALID_PARAMETER) if <b>timeZone</b> is a null pointer or the length of the
     /// time zone ID (excluding the terminating character ('\0')) is greater than or equal to <b>len</b>.
     ///
     /// Required System Capabilities: SystemCapability.MiscServices.Time

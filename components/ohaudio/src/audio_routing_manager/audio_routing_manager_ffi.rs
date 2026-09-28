@@ -29,12 +29,12 @@ pub struct OH_AudioRoutingManager {
 ///
 /// # Arguments
 ///
-/// * `type` - the [`OH_AudioDevice_ChangeType`] is connect or disconnect.
+/// * `type` - the [`OH_AudioDevice_ChangeType`](crate::audio_device_base::OH_AudioDevice_ChangeType) is connect or disconnect.
 ///
-/// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`]
+/// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray)
 /// pointer variable which will be set the audio device descriptors value.
 /// Do not release the audioDeviceDescriptorArray pointer separately
-/// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+/// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
 /// when it is no use anymore.
 ///
 /// Available since API-level: 12
@@ -50,12 +50,12 @@ pub type OH_AudioRoutingManager_OnDeviceChangedCallback = ::core::option::Option
 ///
 /// # Arguments
 ///
-/// * `audioDeviceDescriptorArray` - The [`OH_AudioDeviceDescriptorArray`]
+/// * `audioDeviceDescriptorArray` - The [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray)
 /// pointer variable which will be set the audio device descriptors value.
 /// Do not release the audioDeviceDescriptorArray pointer separately instead of calling
-/// [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array when it is no use anymore.
+/// [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array when it is no use anymore.
 ///
-/// * `status` - The [`OH_AudioDevice_BlockStatus`] is the block status.
+/// * `status` - The [`OH_AudioDevice_BlockStatus`](crate::audio_device_base::OH_AudioDevice_BlockStatus) is the block status.
 ///
 /// * `userData` - User data which is passed by user.
 ///
@@ -75,13 +75,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`]
-    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager)
+    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -93,27 +93,27 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`]
-    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager)
+    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
-    /// * `deviceFlag` - the [`OH_AudioDevice_DeviceFlag`] which is used as
+    /// * `deviceFlag` - the `OH_AudioDevice_DeviceFlag` which is used as
     /// the filter parameter for selecting the target devices.
     ///
-    /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`]
+    /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray)
     /// pointer variable which will be set the audio device descriptors value
     /// Do not release the audioDeviceDescriptorArray pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
     /// when it is no use anymore.
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The param of audioRoutingManager is nullptr;
     /// 2.The param of deviceFlag invalid;
     /// 3.The param of audioDeviceDescriptorArray is nullptr.
-    /// [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`] The param of audioDeviceDescriptorArray is nullptr.
+    /// [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) The param of audioDeviceDescriptorArray is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -127,26 +127,26 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`] handle returned
-    /// by [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager) handle returned
+    /// by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
-    /// * `deviceUsage` - the [`OH_AudioDevice_Usage`].
+    /// * `deviceUsage` - the [`OH_AudioDevice_Usage`](crate::audio_device_base::OH_AudioDevice_Usage).
     ///
-    /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`]
+    /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray)
     /// pointer variable which will be set the audio device descriptors value
     /// Do not release the audioDeviceDescriptorArray pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
     /// when it is no use anymore.
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The param of audioRoutingManager is nullptr;
     /// 2.The param of deviceUsage is invalid;
     /// 3.The param of audioDeviceDescriptorArray is nullptr.
-    /// [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`] No memory error.
+    /// [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) No memory error.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -160,26 +160,26 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`] handle returned
-    /// by [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager) handle returned
+    /// by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
-    /// * `streamUsage` - the [`OH_AudioStream_Usage`].
+    /// * `streamUsage` - the [`OH_AudioStream_Usage`](crate::audiostream_base::OH_AudioStream_Usage).
     ///
-    /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`]
+    /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray)
     /// pointer variable which will be set the audio device descriptors value
     /// Do not release the audioDeviceDescriptorArray pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
     /// when it is no use anymore.
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The param of audioRoutingManager is nullptr;
     /// 2.The param of streamUsage is invalid;
     /// 3.The param of audioDeviceDescriptorArray is nullptr.
-    /// [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`] No memory error.
+    /// [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) No memory error.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -192,26 +192,26 @@ extern "C" {
     /// Get preferred input devices by audio source type.
     /// # Arguments
     ///
-    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`] handle returned
-    /// by [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager) handle returned
+    /// by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
-    /// * `sourceType` - the [`OH_AudioStream_SourceType`].
+    /// * `sourceType` - the [`OH_AudioStream_SourceType`](crate::audiostream_base::OH_AudioStream_SourceType).
     ///
-    /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`]
+    /// * `audioDeviceDescriptorArray` - the [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray)
     /// pointer variable which will be set the audio device descriptors value
     /// Do not release the audioDeviceDescriptorArray pointer separately
-    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`] to release the DeviceDescriptor array
+    /// instead call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the DeviceDescriptor array
     /// when it is no use anymore.
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The param of audioRoutingManager is nullptr;
     /// 2.The param of sourceType is invalid;
     /// 3.The param of audioDeviceDescriptorArray is nullptr.
-    /// [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`] No memory error.
+    /// [`AUDIOCOMMON_RESULT_ERROR_NO_MEMORY`](crate::audio_common::OH_AudioCommonErrorCode::NO_MEMORY) No memory error.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -225,19 +225,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`]
-    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager)
+    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
-    /// * `deviceFlag` - the [`OH_AudioDevice_DeviceFlag`] which is used to register callback.
+    /// * `deviceFlag` - the `OH_AudioDevice_DeviceFlag` which is used to register callback.
     ///
-    /// * `callback` - the [`OH_AudioRoutingManager_OnDeviceChangedCallback`]
+    /// * `callback` - the [`OH_AudioRoutingManager_OnDeviceChangedCallback`](crate::audio_routing_manager::OH_AudioRoutingManager_OnDeviceChangedCallback)
     /// Callback function which will be called when devices changed.
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The param of audioRoutingManager is nullptr;
     /// 2.The param of deviceFlag invalid;
     /// 3.The param of callback is nullptr.
@@ -254,17 +254,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`]
-    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager)
+    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
-    /// * `callback` - the [`OH_AudioRoutingManager_OnDeviceChangedCallback`]
+    /// * `callback` - the [`OH_AudioRoutingManager_OnDeviceChangedCallback`](crate::audio_routing_manager::OH_AudioRoutingManager_OnDeviceChangedCallback)
     /// Callback function which will be called when devices changed.
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The param of audioRoutingManager is nullptr;
     /// 2.The param of callback is nullptr.
     ///
@@ -279,17 +279,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`]
-    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager)
+    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
     /// * `audioDeviceDescriptorArray` - Audio device descriptors should be released.
-    /// and get from [`OH_AudioRoutingManager_GetDevices`]
+    /// and get from [`OH_AudioRoutingManager_GetDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_GetDevices)
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The param of audioRoutingManager is nullptr;
     /// 2.The param of audioDeviceDescriptorArray is nullptr.
     ///
@@ -304,16 +304,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`] handle returned by
-    /// [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager) handle returned by
+    /// [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
     /// * `supported` - query result.
     ///
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The param of audioRoutingManager is nullptr;
     /// 2.The param of supported is nullptr.
     ///
@@ -331,8 +331,8 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `audioRoutingManager` - The [`OH_AudioRoutingManager`] handle returned by
-    /// [`OH_AudioManager_GetAudioRoutingManager`].
+    /// * `audioRoutingManager` - The [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager) handle returned by
+    /// [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
     ///
     /// * `callback` - The function pointer will point to the callback function that is used to receive the block status.
     ///
@@ -341,8 +341,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code:
-    /// [`AUDIOCOMMON_RESULT_SUCCESS`] If the execution is successful.
-    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`]:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM):
     /// 1.The param of audioRoutingManager is nullptr;
     /// 2.The param of callback is nullptr.
     ///

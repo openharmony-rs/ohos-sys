@@ -25,17 +25,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `rawDir` - Indicates the pointer to [`RawDir`].
+    /// * `rawDir` - Indicates the pointer to [`RawDir`](crate::raw_dir::RawDir).
     ///
-    /// * `index` - Indicates the file index in [`RawDir`].
+    /// * `index` - Indicates the file index in [`RawDir`](crate::raw_dir::RawDir).
     ///
     /// # Returns
     ///
     /// * Returns the name of the file according to the index,
-    /// which can be passed to [`OH_ResourceManager_OpenRawFile`] as an input parameter;
+    /// which can be passed to [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile) as an input parameter;
     /// returns <b>NULL</b> if all files are returned.
     ///
-    /// **See also:** [`OH_ResourceManager_OpenRawFile`]
+    /// **See also:** [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile)
     ///
     /// Available since API-level: 8
     ///
@@ -44,29 +44,29 @@ extern "C" {
         rawDir: *mut RawDir,
         index: ::core::ffi::c_int,
     ) -> *const ::core::ffi::c_char;
-    /// get the count of the raw files in [`RawDir`].
+    /// get the count of the raw files in [`RawDir`](crate::raw_dir::RawDir).
     ///
-    /// You can use this method to get the valid index of [`OH_ResourceManager_GetRawFileName`].
+    /// You can use this method to get the valid index of [`OH_ResourceManager_GetRawFileName`](crate::raw_dir::OH_ResourceManager_GetRawFileName).
     ///
     /// # Arguments
     ///
-    /// * `rawDir` - Indicates the pointer to [`RawDir`].
+    /// * `rawDir` - Indicates the pointer to [`RawDir`](crate::raw_dir::RawDir).
     ///
-    /// **See also:** [`OH_ResourceManager_GetRawFileName`]
+    /// **See also:** [`OH_ResourceManager_GetRawFileName`](crate::raw_dir::OH_ResourceManager_GetRawFileName)
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_ResourceManager_GetRawFileCount(rawDir: *mut RawDir) -> ::core::ffi::c_int;
-    /// Closes an opened [`RawDir`] and releases all associated resources.
+    /// Closes an opened [`RawDir`](crate::raw_dir::RawDir) and releases all associated resources.
     ///
     ///
     ///
     /// # Arguments
     ///
-    /// * `rawDir` - Indicates the pointer to [`RawDir`].
+    /// * `rawDir` - Indicates the pointer to [`RawDir`](crate::raw_dir::RawDir).
     ///
-    /// **See also:** [`OH_ResourceManager_OpenRawDir`]
+    /// **See also:** [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir)
     ///
     /// Available since API-level: 8
     ///

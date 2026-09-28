@@ -15,7 +15,7 @@ extern "C" {
     /// Otherwise, nullptr is returned. The memory must be released through the OH_Values_Destroy
     /// interface after the use is complete.
     ///
-    /// **See also:** [`OH_Values_Destroy`].
+    /// **See also:** [`OH_Values_Destroy`](crate::data_values::OH_Values_Destroy).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -30,8 +30,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -48,8 +48,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -67,8 +67,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -85,8 +85,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -103,8 +103,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -121,8 +121,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -144,8 +144,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -166,8 +166,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -189,8 +189,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -213,8 +213,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -239,8 +239,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -262,8 +262,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -282,8 +282,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -307,8 +307,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -332,8 +332,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -356,10 +356,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -382,10 +382,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -410,10 +410,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -440,10 +440,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -468,10 +468,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -494,10 +494,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -525,12 +525,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
-    /// **See also:** [`OH_Values_GetAssetsCount`].
+    /// **See also:** [`OH_Values_GetAssetsCount`](crate::data_values::OH_Values_GetAssetsCount).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -555,10 +555,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -586,12 +586,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
-    /// **See also:** [`OH_Values_GetFloatVectorCount`].
+    /// **See also:** [`OH_Values_GetFloatVectorCount`](crate::data_values::OH_Values_GetFloatVectorCount).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -616,10 +616,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -649,12 +649,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`RDB_OK`] if the execution is successful.
-    /// Returns [`RDB_E_INVALID_ARGS`] if invalid input parameter.
-    /// Returns [`RDB_E_DATA_TYPE_NULL`] the content stored in parameter value is null.
-    /// Returns [`RDB_E_TYPE_MISMATCH`] storage data type mismatch.
+    /// Returns [`RDB_OK`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_OK) if the execution is successful.
+    /// Returns [`RDB_E_INVALID_ARGS`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_INVALID_ARGS) if invalid input parameter.
+    /// Returns [`RDB_E_DATA_TYPE_NULL`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_DATA_TYPE_NULL) the content stored in parameter value is null.
+    /// Returns [`RDB_E_TYPE_MISMATCH`](crate::relational_store_error_code::OH_Rdb_ErrCode::RDB_E_TYPE_MISMATCH) storage data type mismatch.
     ///
-    /// **See also:** [`OH_Values_GetUnlimitedIntBand`].
+    /// **See also:** [`OH_Values_GetUnlimitedIntBand`](crate::data_values::OH_Values_GetUnlimitedIntBand).
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

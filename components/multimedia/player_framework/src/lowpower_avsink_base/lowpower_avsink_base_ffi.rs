@@ -41,10 +41,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`], the samplesBuffer or the avBuffer or data pointer is nullptr or invalid.
-    /// [`AV_ERR_NO_MEMORY`], the framePacketBuffer has no enough remained capacity to append one OH_AVBuffer.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the samplesBuffer or the avBuffer or data pointer is nullptr or invalid.
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), the framePacketBuffer has no enough remained capacity to append one OH_AVBuffer.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

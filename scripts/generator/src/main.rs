@@ -1,13 +1,11 @@
+mod c_names;
 mod dir_conf;
-mod doc_imports;
 mod doc_links;
 mod enum_prefix;
 mod header_conf;
 mod opaque_types;
 
 use crate::dir_conf::get_module_bindings_config;
-use crate::doc_imports::apply_doc_imports;
-use crate::doc_links::retarget_doc_links;
 use crate::header_conf::get_bindings_config;
 use anyhow::{anyhow, bail, Context};
 use bindgen::callbacks::EnumVariantValue;
@@ -354,13 +352,26 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
         &self,
         enum_name: Option<&str>,
         original_variant_name: &str,
-        _variant_value: EnumVariantValue,
+        variant_value: EnumVariantValue,
     ) -> Option<String> {
         let enum_name = enum_name?.trim_start_matches("enum ");
-        enum_prefix::ENUM_PREFIX_MAP
+        let new_name = enum_prefix::ENUM_PREFIX_MAP
             .get(enum_name)
             .and_then(|prefix| original_variant_name.strip_prefix(prefix))
-            .map(|stripped| stripped.to_string())
+            .map(|stripped| stripped.to_string());
+        let is_zero = matches!(
+            variant_value,
+            EnumVariantValue::Signed(0)
+                | EnumVariantValue::Unsigned(0)
+                | EnumVariantValue::Boolean(false)
+        );
+        c_names::record_enumerator(
+            enum_name,
+            original_variant_name,
+            new_name.as_deref().unwrap_or(original_variant_name),
+            is_zero,
+        );
+        new_name
     }
 
     fn process_comment(&self, comment: &str) -> Option<String> {
@@ -375,9 +386,7 @@ impl bindgen::callbacks::ParseCallbacks for DoxygenCommentCb {
         let comment = comment.strip_prefix('<').unwrap_or(comment);
         // Replace manual linebreaks in doxygen with double linebreaks for markdown.
         let comment = comment.replace("\\n", "\n");
-        Some(retarget_doc_links(doxygen_rs::transform(
-            comment.trim_end_matches("\n"),
-        )))
+        Some(doxygen_rs::transform(comment.trim_end_matches("\n")))
     }
 
     fn parse_comments_for_attributes(&self, comment: &str) -> Vec<CodeGenAttributes> {
@@ -498,7 +507,7 @@ fn generate_opaque_types_bindings(
     root_dir: &Path,
     builder: bindgen::Builder,
     _sysroot_include_dir: &Path,
-) -> anyhow::Result<()> {
+) -> anyhow::Result<PathBuf> {
     let mut builder = builder
         .header(
             root_dir
@@ -516,13 +525,15 @@ fn generate_opaque_types_bindings(
         builder = builder.allowlist_type(ty_name)
     }
     let binding = builder.generate().context("Bindgen failed")?;
+    let output = root_dir.join("components/opaque-types/src/opaque_types.rs");
     binding
-        .write_to_file(root_dir.join("components/opaque-types/src/opaque_types.rs"))
+        .write_to_file(&output)
         .context("Failed to write bindings to file")?;
-    Ok(())
+    Ok(output)
 }
 
-fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<()> {
+/// Generate all bindings and return the paths of the written files.
+fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<Vec<PathBuf>> {
     let base_builder = base_bindgen_builder(&sdk_native_dir.join("sysroot"))?;
     let base_builder = base_builder
         .clang_arg("-D")
@@ -537,7 +548,11 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
         .canonicalize()
         .context("Could not canonicalize root directory")?;
 
-    generate_opaque_types_bindings(&root_dir, base_builder.clone(), &sysroot_include_dir)?;
+    let mut written = vec![generate_opaque_types_bindings(
+        &root_dir,
+        base_builder.clone(),
+        &sysroot_include_dir,
+    )?];
 
     let mut base_builder = base_builder;
     for ty_name in opaque_types::OPAQUE_TYPES {
@@ -560,12 +575,13 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
         // Transitively pulled in.
         let builder = builder.blocklist_file(r".*/info/application_target_sdk_version\.h");
         let builder = (binding.set_builder_opts)(builder);
-        let builder = apply_doc_imports(builder, &format!("{}_ffi.rs", binding.output_prefix));
         let bindings = builder.generate().context("Bindgen failed")?;
 
+        let output = root_dir.join(format!("{}_ffi.rs", binding.output_prefix));
         bindings
-            .write_to_file(root_dir.join(format!("{}_ffi.rs", binding.output_prefix)))
+            .write_to_file(&output)
             .context("Failed to write bindings to file")?;
+        written.push(output);
     }
 
     for binding in &get_module_bindings_config() {
@@ -635,11 +651,6 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
                 .header(header_filename_str)
                 .allowlist_file(header_filename_str);
             let builder = (binding.set_builder_opts)(&file_stem, file_path.as_path(), builder);
-            let output_rel = format!(
-                "{}/{file_stem}/{file_stem}_ffi.rs",
-                binding.output_dir
-            );
-            let builder = apply_doc_imports(builder, &output_rel);
 
             let bindings = builder.generate().context("Bindgen failed")?;
             let base_path = root_dir.join(&binding.output_dir).join(&file_stem);
@@ -652,13 +663,15 @@ fn generate_bindings(sdk_native_dir: &Path, api_version: u32) -> anyhow::Result<
                     .context("Failed to create target directory for bindings")?;
             }
 
+            let output = base_path.join(format!("{file_stem}_ffi.rs"));
             bindings
-                .write_to_file(base_path.join(format!("{file_stem}_ffi.rs")))
+                .write_to_file(&output)
                 .context("Failed to write bindings to file")?;
+            written.push(output);
         }
     }
 
-    Ok(())
+    Ok(written)
 }
 
 /// Run `cargo +nightly fmt` against the workspace at `root_dir` until it
@@ -791,7 +804,7 @@ fn main() -> anyhow::Result<()> {
     );
     std::env::set_var("LIBCLANG_PATH", libclang_path);
     std::env::set_var("CLANG_PATH", clang_path);
-    generate_bindings(&sdk_native_dir, api_version)?;
+    let written = generate_bindings(&sdk_native_dir, api_version)?;
 
     let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let root_dir = manifest_dir
@@ -802,6 +815,8 @@ fn main() -> anyhow::Result<()> {
         .context("Could not canonicalize root directory")?;
     run_cargo_fmt(&root_dir)?;
     apply_patches(&root_dir, &manifest_dir.join("patches"))?;
+    let keep_unresolved = std::env::var_os("KEEP_UNRESOLVED_DOC_LINKS").is_some();
+    doc_links::resolve_doc_links(&root_dir, &written, keep_unresolved)?;
 
     Ok(())
 }

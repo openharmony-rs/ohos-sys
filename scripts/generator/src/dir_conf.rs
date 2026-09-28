@@ -2,6 +2,7 @@
 //!
 //! Add new bindings to `get_module_bindings_config()` by appending a new `DirBindingsConf`.
 
+use crate::c_names::record_type_rename;
 use crate::DirBindingsConf;
 use std::default::Default;
 use std::fmt::{Debug, Formatter};
@@ -48,7 +49,9 @@ impl Debug for ResultEnumParseCallbacks {
 
 impl bindgen::callbacks::ParseCallbacks for ResultEnumParseCallbacks {
     fn item_name(&self, original_item_name: &str) -> Option<String> {
-        (self.rename_item)(original_item_name)
+        let new_name = (self.rename_item)(original_item_name)?;
+        record_type_rename(original_item_name, &new_name);
+        Some(new_name)
     }
 }
 

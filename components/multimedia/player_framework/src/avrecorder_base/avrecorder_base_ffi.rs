@@ -292,9 +292,9 @@ pub struct OH_AVRecorder_EncoderInfo {
 ///
 /// * `recorder` - The pointer to an OH_AVRecorder instance.
 ///
-/// * `state` - Indicates the recorder state. For details, see [`OH_AVRecorder_State`].
+/// * `state` - Indicates the recorder state. For details, see [`OH_AVRecorder_State`](crate::avrecorder_base::OH_AVRecorder_State).
 ///
-/// * `reason` - Reason for recorder state change. For details, see [`OH_AVRecorder_StateChangeReason`].
+/// * `reason` - Reason for recorder state change. For details, see [`OH_AVRecorder_StateChangeReason`](crate::avrecorder_base::OH_AVRecorder_StateChangeReason).
 ///
 /// * `userData` - Pointer to user specific data.
 ///

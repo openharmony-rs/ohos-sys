@@ -12,8 +12,6 @@ use crate::avbuffer_info::OH_AVCodecBufferAttr;
 #[cfg(feature = "api-11")]
 #[allow(unused_imports)]
 use crate::avcodec_base::OH_AVCodecCallback;
-#[cfg(doc)]
-use crate::avcodec_base::*;
 #[allow(unused_imports)]
 use crate::avcodec_base::{OH_AVCodec, OH_AVCodecAsyncCallback};
 #[allow(unused_imports)]
@@ -38,7 +36,7 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Multimedia.Media.VideoDecoder
     /// # Arguments
     ///
-    /// * `mime` - mime type description string, refer to [`AVCODEC_MIME_TYPE`]
+    /// * `mime` - mime type description string, refer to `AVCODEC_MIME_TYPE`
     ///
     /// # Returns
     ///
@@ -72,11 +70,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if succeed,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], inner resource has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), inner resource has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Destroy(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -88,18 +86,18 @@ extern "C" {
     ///
     /// * `codec` - Pointer to an OH_AVCodec instance
     ///
-    /// * `callback` - A collection of all callback functions, see [`OH_AVCodecAsyncCallback`]
+    /// * `callback` - A collection of all callback functions, see [`OH_AVCodecAsyncCallback`](crate::avcodec_base::OH_AVCodecAsyncCallback)
     ///
     /// * `userData` - User specific data
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], inner resource has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), inner resource has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
     ///
     /// **Deprecated** since 11
     ///
@@ -120,18 +118,18 @@ extern "C" {
     ///
     /// * `codec` - Pointer to an OH_AVCodec instance
     ///
-    /// * `callback` - A collection of all callback functions, see [`OH_AVCodecCallback`]
+    /// * `callback` - A collection of all callback functions, see [`OH_AVCodecCallback`](crate::avcodec_base::OH_AVCodecCallback)
     ///
     /// * `userData` - User specific data
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], inner resource has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), inner resource has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -149,19 +147,19 @@ extern "C" {
     ///
     /// * `codec` - Pointer to an OH_AVCodec instance
     ///
-    /// * `window` - A pointer to a OHNativeWindow instance, see [`OHNativeWindow`]
+    /// * `window` - A pointer to a OHNativeWindow instance, see [`OHNativeWindow`](ohos_sys_opaque_types::OHNativeWindow)
     ///
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], inner resource has already released.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permit to call the interface in buffer mode.
-    /// [`AV_ERR_INVALID_VAL`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), inner resource has already released.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface in buffer mode.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
     /// 1. an invalid decoder instance pointer is passed to parameter codec, including a null pointer;
     /// 2. a null pointer is passed to parameter window.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_SetSurface(
@@ -181,16 +179,16 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
     /// 1. an invalid decoder instance pointer is passed to parameter codec, including a null pointer;
     /// 2. an invalid pointer is passed to parameter format, including a null pointer.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state, must be called before Prepare.
-    /// [`AV_ERR_UNSUPPORT`], unsupported features.
-    /// [`AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION`], video unsupported color space conversion.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state, must be called before Prepare.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT), unsupported features.
+    /// [`AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION`](crate::averrors::OH_AVErrCode::AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION), video unsupported color space conversion.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Configure(
@@ -208,12 +206,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT)
     /// 1. internal execution error;
     /// 2. decoder is in Buffer mode and color space conversion is configured.
     ///
@@ -230,12 +228,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT)
     /// 1. internal execution error;
     /// 2. video color space conversion is configured but decoder is not Prepared.
     ///
@@ -252,12 +250,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Stop(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -273,12 +271,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Flush(codec: *mut OH_AVCodec) -> OH_AVErrCode;
@@ -293,15 +291,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_Reset(codec: *mut OH_AVCodec) -> OH_AVErrCode;
-    /// Get the description information of the output data of the decoder, refer to [`OH_AVFormat`]
+    /// Get the description information of the output data of the decoder, refer to [`OH_AVFormat`](ohos_sys_opaque_types::OH_AVFormat)
     /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
     /// to be manually released by the caller.
     ///
@@ -330,23 +328,23 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
     /// 1. an invalid decoder instance pointer is passed to parameter codec, including a null pointer;
     /// 2. an invalid pointer is passed to parameter format, including a null pointer.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
     ///
     /// Available since API-level: 9
     pub fn OH_VideoDecoder_SetParameter(
         codec: *mut OH_AVCodec,
         format: *mut OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// Submit the input buffer filled with data to the video decoder. The [`OH_AVCodecOnNeedInputData`] callback
+    /// Submit the input buffer filled with data to the video decoder. The [`OH_AVCodecOnNeedInputData`](crate::avcodec_base::OH_AVCodecOnNeedInputData) callback
     /// will report the available input buffer and the corresponding index value. Once the buffer with the specified index
-    /// is submitted to the video decoder, the buffer cannot be accessed again until the [`OH_AVCodecOnNeedInputData`]
+    /// is submitted to the video decoder, the buffer cannot be accessed again until the [`OH_AVCodecOnNeedInputData`](crate::avcodec_base::OH_AVCodecOnNeedInputData)
     /// callback is received again reporting that the buffer with the same index is available. In addition, for some
     /// decoders, it is required to input Codec-Specific-Data to the decoder at the beginning to initialize the decoding
     /// process of the decoder, such as PPS/SPS data in H264 format.
@@ -363,13 +361,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// Buffer index should be given by [`OH_AVCodecOnNeedInputData`].
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// Buffer index should be given by [`OH_AVCodecOnNeedInputData`](crate::avcodec_base::OH_AVCodecOnNeedInputData).
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
     ///
     /// **Deprecated** since 11
     ///
@@ -396,13 +394,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// Buffer index should be given by [`OH_AVCodecOnNewOutputData`].
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// Buffer index should be given by [`OH_AVCodecOnNewOutputData`](crate::avcodec_base::OH_AVCodecOnNewOutputData).
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
     ///
     /// **Deprecated** since 11
     ///
@@ -423,13 +421,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// Buffer index should be given by [`OH_AVCodecOnNewOutputData`].
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// Buffer index should be given by [`OH_AVCodecOnNewOutputData`](crate::avcodec_base::OH_AVCodecOnNewOutputData).
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
     ///
     /// **Deprecated** since 11
     ///
@@ -438,10 +436,10 @@ extern "C" {
     /// Available since API-level: 9
     #[deprecated(since = "11", note = "Use instead: OH_VideoDecoder_FreeOutputBuffer")]
     pub fn OH_VideoDecoder_FreeOutputData(codec: *mut OH_AVCodec, index: u32) -> OH_AVErrCode;
-    /// Submit the input buffer filled with data to the video decoder. The [`OH_AVCodecOnNeedInputBuffer`]
+    /// Submit the input buffer filled with data to the video decoder. The [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer)
     /// callback will report the available input buffer and the corresponding index value. Once the buffer with the
     /// specified index is submitted to the video decoder, the buffer cannot be accessed again until the
-    /// [`OH_AVCodecOnNeedInputBuffer`] callback is received again reporting that the buffer with the same index is
+    /// [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer) callback is received again reporting that the buffer with the same index is
     /// available. In addition, for some decoders, it is required to input Codec-Specific-Data to the decoder at the
     /// beginning to initialize the decoding process of the decoder, such as PPS/SPS data in H264 format.
     ///
@@ -455,14 +453,14 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// Buffer index should be given by [`OH_AVCodecOnNeedInputBuffer`].
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
-    /// [`AV_ERR_DRM_DECRYPT_FAILED`], the drm-protected video buffer is decrypted failed,
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// Buffer index should be given by [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer).
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
+    /// [`AV_ERR_DRM_DECRYPT_FAILED`](crate::averrors::OH_AVErrCode::AV_ERR_DRM_DECRYPT_FAILED), the drm-protected video buffer is decrypted failed,
     /// it is recommended to check the logs.
     ///
     /// Available since API-level: 11
@@ -483,13 +481,13 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// Buffer index should be given by [`OH_AVCodecOnNewOutputBuffer`].
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// Buffer index should be given by [`OH_AVCodecOnNewOutputBuffer`](crate::avcodec_base::OH_AVCodecOnNewOutputBuffer).
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -515,7 +513,7 @@ extern "C" {
     ///
     /// * `codec` - Pointer to an OH_AVCodec instance
     ///
-    /// * `index` - The index value corresponding to the output buffer, should be given by [`OH_AVCodecOnNewOutputBuffer`]
+    /// * `index` - The index value corresponding to the output buffer, should be given by [`OH_AVCodecOnNewOutputBuffer`](crate::avcodec_base::OH_AVCodecOnNewOutputBuffer)
     ///
     /// * `renderTimestampNs` - The timestamp is associated with the output buffer when it is sent to the surface. The unit
     /// is nanosecond
@@ -523,12 +521,12 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], the codec has already released.
-    /// [`AV_ERR_INVALID_VAL`], the parameter is invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), the codec has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the parameter is invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -550,15 +548,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], instance has already released.
-    /// [`AV_ERR_INVALID_VAL`]
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL)
     /// 1. an invalid decoder instance pointer is passed to parameter codec, including a null pointer;
     /// 2. invalid index or consecutive assignment to the same index,
     /// the error does not affect the subsequent decode process.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], internal execution error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), internal execution error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -566,8 +564,8 @@ extern "C" {
     pub fn OH_VideoDecoder_FreeOutputBuffer(codec: *mut OH_AVCodec, index: u32) -> OH_AVErrCode;
     /// Queries the index of the next available input buffer.
     ///
-    /// This API must be followed by calling [`OH_VideoDecoder_GetInputBuffer`] to obtain the buffer handle,
-    /// which should then be passed to the decoder via [`OH_VideoDecoder_PushInputBuffer`].
+    /// This API must be followed by calling [`OH_VideoDecoder_GetInputBuffer`](crate::avcodec_videodecoder::OH_VideoDecoder_GetInputBuffer) to obtain the buffer handle,
+    /// which should then be passed to the decoder via [`OH_VideoDecoder_PushInputBuffer`](crate::avcodec_videodecoder::OH_VideoDecoder_PushInputBuffer).
     ///
     /// Note: This operation is only supported in synchronous mode.
     ///
@@ -585,14 +583,14 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], internal errors in the input decode instance, such as an abnormal NULL.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal errors in the input decode instance, such as an abnormal NULL.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
     ///
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permitted in asynchronous mode.
-    /// [`AV_ERR_TRY_AGAIN_LATER`], query failed, recommended retry after delay.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permitted in asynchronous mode.
+    /// [`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER), query failed, recommended retry after delay.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -613,7 +611,7 @@ extern "C" {
     ///
     /// * `codec` - Pointer to an OH_AVCodec instance
     ///
-    /// * `index` - Buffer index obtained via [`OH_VideoDecoder_QueryInputBuffer`].
+    /// * `index` - Buffer index obtained via [`OH_VideoDecoder_QueryInputBuffer`](crate::avcodec_videodecoder::OH_VideoDecoder_QueryInputBuffer).
     ///
     /// # Returns
     ///
@@ -626,10 +624,10 @@ extern "C" {
     pub fn OH_VideoDecoder_GetInputBuffer(codec: *mut OH_AVCodec, index: u32) -> *mut OH_AVBuffer;
     /// Queries the index of the next available output buffer.
     ///
-    /// The obtained buffer handle through [`OH_VideoDecoder_GetOutputBuffer`] must be:
-    /// - Return to the decoder via [`OH_VideoDecoder_FreeOutputBuffer`], or
-    /// - Rendered using [`OH_VideoDecoder_RenderOutputBuffer`], or
-    /// - Scheduled for rendering with [`OH_VideoDecoder_RenderOutputBufferAtTime`]
+    /// The obtained buffer handle through [`OH_VideoDecoder_GetOutputBuffer`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputBuffer) must be:
+    /// - Return to the decoder via [`OH_VideoDecoder_FreeOutputBuffer`](crate::avcodec_videodecoder::OH_VideoDecoder_FreeOutputBuffer), or
+    /// - Rendered using [`OH_VideoDecoder_RenderOutputBuffer`](crate::avcodec_videodecoder::OH_VideoDecoder_RenderOutputBuffer), or
+    /// - Scheduled for rendering with [`OH_VideoDecoder_RenderOutputBufferAtTime`](crate::avcodec_videodecoder::OH_VideoDecoder_RenderOutputBufferAtTime)
     ///
     /// Note: This operation is only supported in synchronous mode.
     ///
@@ -647,15 +645,15 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_NO_MEMORY`], internal errors in the input decode instance, such as an abnormal NULL.
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
-    /// [`AV_ERR_UNKNOWN`], unknown error.
-    /// [`AV_ERR_INVALID_STATE`], this interface was called in invalid state.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`], not permitted in asynchronous mode.
-    /// [`AV_ERR_STREAM_CHANGED`], stream format changed, call [`OH_VideoDecoder_GetOutputDescription`] to
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), internal errors in the input decode instance, such as an abnormal NULL.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
+    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE), this interface was called in invalid state.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permitted in asynchronous mode.
+    /// [`AV_ERR_STREAM_CHANGED`](crate::averrors::OH_AVErrCode::AV_ERR_STREAM_CHANGED), stream format changed, call [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription) to
     /// retrieve new stream information.
-    /// [`AV_ERR_TRY_AGAIN_LATER`], query failed, recommended retry after delay.
+    /// [`AV_ERR_TRY_AGAIN_LATER`](crate::averrors::OH_AVErrCode::AV_ERR_TRY_AGAIN_LATER), query failed, recommended retry after delay.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -676,7 +674,7 @@ extern "C" {
     ///
     /// * `codec` - Pointer to an OH_AVCodec instance
     ///
-    /// * `index` - Buffer index obtained via [`OH_VideoDecoder_QueryOutputBuffer`].
+    /// * `index` - Buffer index obtained via [`OH_VideoDecoder_QueryOutputBuffer`](crate::avcodec_videodecoder::OH_VideoDecoder_QueryOutputBuffer).
     ///
     /// # Returns
     ///
@@ -701,8 +699,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`].
-    /// [`AV_ERR_INVALID_VAL`], the decoder is nullptr or invalid.
+    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the decoder is nullptr or invalid.
     ///
     /// Available since API-level: 10
     pub fn OH_VideoDecoder_IsValid(codec: *mut OH_AVCodec, isValid: *mut bool) -> OH_AVErrCode;
@@ -720,11 +718,11 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`] 0 - Success
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] 2 - If the codec service or the media key session
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) 2 - If the codec service or the media key session
     /// service is in wrong status.
-    /// [`AV_ERR_NO_MEMORY`], instance has already released or no memory.
-    /// [`AV_ERR_INVALID_VAL`] 3 - If the codec instance is nullptr or invalid,
+    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), instance has already released or no memory.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If the codec instance is nullptr or invalid,
     /// the mediaKeySession is nullptr or invalid.
     ///
     /// Available since API-level: 11

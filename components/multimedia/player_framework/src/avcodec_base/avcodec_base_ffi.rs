@@ -6,20 +6,10 @@
 #![allow(deprecated)]
 #[cfg(feature = "api-11")]
 use crate::avbuffer::OH_AVBuffer;
-#[cfg(all(doc, feature = "api-11"))]
-use crate::avbuffer::*;
 use crate::avbuffer_info::OH_AVCodecBufferAttr;
-#[cfg(all(doc, feature = "api-10"))]
-use crate::avcapability::*;
-#[cfg(doc)]
-use crate::avcodec_videodecoder::*;
-#[cfg(doc)]
-use crate::avcodec_videoencoder::*;
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 use crate::avformat::OH_AVFormat;
-#[cfg(doc)]
-use crate::avformat::*;
 use crate::avmemory::OH_AVMemory;
 
 /// Forward declaration of OH_AVCodec.
@@ -117,7 +107,7 @@ pub type OH_AVCodecOnNeedInputData = ::core::option::Option<
 ///
 /// * `data` - Buffer containing the new output data
 ///
-/// * `attr` - The description of the new output Buffer, please refer to [`OH_AVCodecBufferAttr`]
+/// * `attr` - The description of the new output Buffer, please refer to [`OH_AVCodecBufferAttr`](crate::avbuffer_info::OH_AVCodecBufferAttr)
 ///
 /// * `userData` - specified data
 ///
@@ -196,13 +186,13 @@ pub type OH_AVCodecOnNewOutputBuffer = ::core::option::Option<
 /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
-/// * `onError` - Monitor OH_AVCodec operation errors, refer to [`OH_AVCodecOnError`]
+/// * `onError` - Monitor OH_AVCodec operation errors, refer to [`OH_AVCodecOnError`](crate::avcodec_base::OH_AVCodecOnError)
 ///
-/// * `onStreamChanged` - Monitor codec stream information, refer to [`OH_AVCodecOnStreamChanged`]
+/// * `onStreamChanged` - Monitor codec stream information, refer to [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged)
 ///
-/// * `onNeedInputData` - Monitoring codec requires input data, refer to [`OH_AVCodecOnNeedInputData`]
+/// * `onNeedInputData` - Monitoring codec requires input data, refer to [`OH_AVCodecOnNeedInputData`](crate::avcodec_base::OH_AVCodecOnNeedInputData)
 ///
-/// * `onNeedOutputData` - Monitor codec to generate output data, refer to [`OH_AVCodecOnNewOutputData`]
+/// * `onNeedOutputData` - Monitor codec to generate output data, refer to [`OH_AVCodecOnNewOutputData`](crate::avcodec_base::OH_AVCodecOnNewOutputData)
 ///
 /// **Deprecated** since 11
 ///
@@ -226,13 +216,13 @@ pub struct OH_AVCodecAsyncCallback {
 /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
 /// # Arguments
 ///
-/// * `onError` - Monitor OH_AVCodec operation errors, refer to [`OH_AVCodecOnError`]
+/// * `onError` - Monitor OH_AVCodec operation errors, refer to [`OH_AVCodecOnError`](crate::avcodec_base::OH_AVCodecOnError)
 ///
-/// * `onStreamChanged` - Monitor codec stream information, refer to [`OH_AVCodecOnStreamChanged`]
+/// * `onStreamChanged` - Monitor codec stream information, refer to [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged)
 ///
-/// * `onNeedInputBuffer` - Monitoring codec requires input buffer, refer to [`OH_AVCodecOnNeedInputBuffer`]
+/// * `onNeedInputBuffer` - Monitoring codec requires input buffer, refer to [`OH_AVCodecOnNeedInputBuffer`](crate::avcodec_base::OH_AVCodecOnNeedInputBuffer)
 ///
-/// * `onNewOutputBuffer` - Monitor codec to generate output buffer, refer to [`OH_AVCodecOnNewOutputBuffer`]
+/// * `onNewOutputBuffer` - Monitor codec to generate output buffer, refer to [`OH_AVCodecOnNewOutputBuffer`](crate::avcodec_base::OH_AVCodecOnNewOutputBuffer)
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -1479,8 +1469,8 @@ extern "C" {
     /// Key for specifying the number of bytes per audio packet. The value type is int32_t.
     ///
     /// This key is required only for Windows Media audio decoders. The supported decoder MIME types
-    /// include [`OH_AVCODEC_MIMETYPE_AUDIO_WMAV1`], [`OH_AVCODEC_MIMETYPE_AUDIO_WMAV2`],
-    /// and [`OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO`].
+    /// include [`OH_AVCODEC_MIMETYPE_AUDIO_WMAV1`](crate::avcodec_base::OH_AVCODEC_MIMETYPE_AUDIO_WMAV1), [`OH_AVCODEC_MIMETYPE_AUDIO_WMAV2`](crate::avcodec_base::OH_AVCODEC_MIMETYPE_AUDIO_WMAV2),
+    /// and [`OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO`](crate::avcodec_base::OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO).
     ///
     ///
     /// Available since API-level: 22
@@ -1681,7 +1671,7 @@ extern "C" {
     /// Available since API-level: 9
     #[deprecated(since = "14")]
     pub static mut OH_ED_KEY_EOS: *const ::core::ffi::c_char;
-    /// Key for track type, value type is int32_t, see [`OH_MediaType`].
+    /// Key for track type, value type is int32_t, see [`OH_MediaType`](crate::avcodec_base::OH_MediaType).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -1730,14 +1720,14 @@ extern "C" {
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_HEIGHT: *const ::core::ffi::c_char;
-    /// Key for video pixel format, value type is int32_t, see [`OH_AVPixelFormat`].
+    /// Key for video pixel format, value type is int32_t, see [`OH_AVPixelFormat`](crate::avformat::OH_AVPixelFormat).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_PIXEL_FORMAT: *const ::core::ffi::c_char;
-    /// key for audio raw format, value type is int32_t , see [`OH_BitsPerSample`].
+    /// key for audio raw format, value type is int32_t , see [`OH_BitsPerSample`](crate::avcodec_base::OH_BitsPerSample).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -1751,15 +1741,15 @@ extern "C" {
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_FRAME_RATE: *const ::core::ffi::c_char;
-    /// video encode bitrate mode, the value type is int32_t, see [`OH_VideoEncodeBitrateMode`].
+    /// video encode bitrate mode, the value type is int32_t, see [`OH_VideoEncodeBitrateMode`](crate::avcodec_videoencoder::OH_VideoEncodeBitrateMode).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_VIDEO_ENCODE_BITRATE_MODE: *const ::core::ffi::c_char;
-    /// encode profile, the value type is int32_t. see [`OH_AVCProfile`], [`OH_HEVCProfile`],
-    /// [`OH_AACProfile`].
+    /// encode profile, the value type is int32_t. see [`OH_AVCProfile`](crate::avcodec_base::OH_AVCProfile), [`OH_HEVCProfile`](crate::avcodec_base::OH_HEVCProfile),
+    /// [`OH_AACProfile`](crate::avcodec_base::OH_AACProfile).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -1795,19 +1785,19 @@ extern "C" {
     ///
     /// Available since API-level: 9
     pub static mut OH_MD_KEY_ROTATION: *const ::core::ffi::c_char;
-    /// Key for video transform type, value type is int32_t, see [`OH_NativeBuffer_TransformType`].
+    /// Key for video transform type, value type is int32_t, see `OH_NativeBuffer_TransformType`.
     ///
     /// This key is used to set the surface transform for video decoders (surface mode).
-    /// If not specified, the default value is 0 ([`NATIVEBUFFER_ROTATE_NONE`]).
-    /// This key and [`OH_MD_KEY_ROTATION`] are mutually exclusive. If both are provided,
+    /// If not specified, the default value is 0 (`NATIVEBUFFER_ROTATE_NONE`).
+    /// This key and [`OH_MD_KEY_ROTATION`](crate::avcodec_base::OH_MD_KEY_ROTATION) are mutually exclusive. If both are provided,
     /// OH_MD_KEY_VIDEO_TRANSFORM_TYPE takes precedence.
-    /// Note that the degrees specified in [`OH_NativeBuffer_TransformType`] represent counter-clockwise rotation,
-    /// which are opposite to the direction of rotation defined by [`OH_MD_KEY_ROTATION`].
+    /// Note that the degrees specified in `OH_NativeBuffer_TransformType` represent counter-clockwise rotation,
+    /// which are opposite to the direction of rotation defined by [`OH_MD_KEY_ROTATION`](crate::avcodec_base::OH_MD_KEY_ROTATION).
     /// The correspondence is:
-    /// - [`NATIVEBUFFER_ROTATE_NONE`] => same as OH_MD_KEY_ROTATION = 0
-    /// - [`NATIVEBUFFER_ROTATE_90`] => same as OH_MD_KEY_ROTATION = 270
-    /// - [`NATIVEBUFFER_ROTATE_180`] => same as OH_MD_KEY_ROTATION = 180
-    /// - [`NATIVEBUFFER_ROTATE_270`] => same as OH_MD_KEY_ROTATION = 90
+    /// - `NATIVEBUFFER_ROTATE_NONE` => same as OH_MD_KEY_ROTATION = 0
+    /// - `NATIVEBUFFER_ROTATE_90` => same as OH_MD_KEY_ROTATION = 270
+    /// - `NATIVEBUFFER_ROTATE_180` => same as OH_MD_KEY_ROTATION = 180
+    /// - `NATIVEBUFFER_ROTATE_270` => same as OH_MD_KEY_ROTATION = 90
     ///
     ///
     /// Available since API-level: 22
@@ -1821,21 +1811,21 @@ extern "C" {
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_RANGE_FLAG: *const ::core::ffi::c_char;
-    /// Key for video color primaries, value type is int32_t, see [`OH_ColorPrimary`].
+    /// Key for video color primaries, value type is int32_t, see [`OH_ColorPrimary`](crate::avcodec_base::OH_ColorPrimary).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_COLOR_PRIMARIES: *const ::core::ffi::c_char;
-    /// Key for video transfer characteristics, value type is int32_t, see [`OH_TransferCharacteristic`].
+    /// Key for video transfer characteristics, value type is int32_t, see [`OH_TransferCharacteristic`](crate::avcodec_base::OH_TransferCharacteristic).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_TRANSFER_CHARACTERISTICS: *const ::core::ffi::c_char;
-    /// Key for video matrix coefficients, value type is int32_t, see [`OH_MatrixCoefficient`].
+    /// Key for video matrix coefficients, value type is int32_t, see [`OH_MatrixCoefficient`](crate::avcodec_base::OH_MatrixCoefficient).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -1956,7 +1946,7 @@ extern "C" {
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_CHANNEL_LAYOUT: *const ::core::ffi::c_char;
     /// Key for bits per coded sample, value type is int32_t, supported for flac encoder,
-    /// see [`OH_BitsPerSample`].
+    /// see [`OH_BitsPerSample`](crate::avcodec_base::OH_BitsPerSample).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -1998,7 +1988,7 @@ extern "C" {
     ///
     /// Available since API-level: 10
     pub static mut OH_MD_KEY_SETUP_HEADER: *const ::core::ffi::c_char;
-    /// Key for video scale type, value type is int32_t, see [`OH_ScalingMode`].
+    /// Key for video scale type, value type is int32_t, see [`OH_ScalingMode`](crate::avcodec_base::OH_ScalingMode).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -2064,8 +2054,8 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub static mut OH_MD_KEY_AUDIO_VIVID_METADATA: *const ::core::ffi::c_char;
     /// Key for querying the maximum long-term reference count of video encoder, value type is int32_t.
-    /// You should query the count through interface [`OH_AVCapability_GetFeatureProperties`]
-    /// with enum [`VIDEO_ENCODER_LONG_TERM_REFERENCE`].
+    /// You should query the count through interface [`OH_AVCapability_GetFeatureProperties`](crate::avcapability::OH_AVCapability_GetFeatureProperties)
+    /// with enum [`VIDEO_ENCODER_LONG_TERM_REFERENCE`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_LONG_TERM_REFERENCE).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -2076,8 +2066,8 @@ extern "C" {
     pub static mut OH_FEATURE_PROPERTY_KEY_VIDEO_ENCODER_MAX_LTR_FRAME_COUNT:
         *const ::core::ffi::c_char;
     /// Key for enable the temporal scalability mode, value type is int32_t (0 or 1): 1 is enabled, 0 otherwise.
-    /// The default value is 0. To query supported, you should use the interface [`OH_AVCapability_IsFeatureSupported`]
-    /// with enum [`VIDEO_ENCODER_TEMPORAL_SCALABILITY`]. This is an optional key that applies only to video encoder.
+    /// The default value is 0. To query supported, you should use the interface [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported)
+    /// with enum [`VIDEO_ENCODER_TEMPORAL_SCALABILITY`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_TEMPORAL_SCALABILITY). This is an optional key that applies only to video encoder.
     /// It is used in configure.
     ///
     ///
@@ -2098,7 +2088,7 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_SIZE: *const ::core::ffi::c_char;
     /// Key for describing the reference mode in temporal group of picture, value type is int32_t, see enum
-    /// [`OH_TemporalGopReferenceMode`]. It takes effect only when temporal level scale is enabled.
+    /// [`OH_TemporalGopReferenceMode`](crate::avcodec_base::OH_TemporalGopReferenceMode). It takes effect only when temporal level scale is enabled.
     /// This is an optional key that applies only to video encoder. It is used in configure.
     ///
     ///
@@ -2110,7 +2100,7 @@ extern "C" {
     pub static mut OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_REFERENCE_MODE: *const ::core::ffi::c_char;
     /// Key for describing the count of used long-term reference frames, value type is int32_t, must be within the
     /// supported range. To get supported range, you should query whether the capability is supported through the interface
-    /// [`OH_AVCapability_GetFeatureProperties`] with enum [`VIDEO_ENCODER_LONG_TERM_REFERENCE`], otherwise, not set
+    /// [`OH_AVCapability_GetFeatureProperties`](crate::avcapability::OH_AVCapability_GetFeatureProperties) with enum [`VIDEO_ENCODER_LONG_TERM_REFERENCE`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_LONG_TERM_REFERENCE), otherwise, not set
     /// the key. This is an optional key that applies only to video encoder. It is used in configure.
     ///
     ///
@@ -2228,8 +2218,8 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_SLICE_HEIGHT: *const ::core::ffi::c_char;
     /// Key for describing the valid picture width of the video, value type is int32_t.
-    /// Get the value from an OH_AVFormat instance, which obtained by calling [`OH_VideoDecoder_GetOutputDescription`]
-    /// or [`OH_AVCodecOnStreamChanged`].
+    /// Get the value from an OH_AVFormat instance, which obtained by calling [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription)
+    /// or [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -2239,8 +2229,8 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_VIDEO_PIC_WIDTH: *const ::core::ffi::c_char;
     /// Key for describing the valid picture height of the video, value type is int32_t.
-    /// Get the value from an OH_AVFormat instance, which obtained by calling [`OH_VideoDecoder_GetOutputDescription`]
-    /// or [`OH_AVCodecOnStreamChanged`].
+    /// Get the value from an OH_AVFormat instance, which obtained by calling [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription)
+    /// or [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -2349,13 +2339,13 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub static mut OH_MD_KEY_TRACK_START_TIME: *const ::core::ffi::c_char;
     /// Key for setting the output color space of video decoder. The value type is int32_t.
-    /// The supported value is [`OH_COLORSPACE_BT709_LIMIT`], see [`OH_NativeBuffer_ColorSpace`]. It is used in
-    /// [`OH_VideoDecoder_Configure`]. If the color space conversion capability is supported and this key is configured,
+    /// The supported value is `OH_COLORSPACE_BT709_LIMIT`, see `OH_NativeBuffer_ColorSpace`. It is used in
+    /// [`OH_VideoDecoder_Configure`](crate::avcodec_videodecoder::OH_VideoDecoder_Configure). If the color space conversion capability is supported and this key is configured,
     /// the video decoder will automatically transcode an HDR Vivid video to an SDR video with color space BT709.
-    /// If color space conversion capability is not supported, [`OH_VideoDecoder_Configure`] returns
-    /// [`AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION`].
-    /// If the input video is not an HDR vivid video, an error [`AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION`] will
-    /// be reported by callback function [`OH_AVCodecOnError`].
+    /// If color space conversion capability is not supported, [`OH_VideoDecoder_Configure`](crate::avcodec_videodecoder::OH_VideoDecoder_Configure) returns
+    /// [`AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION`](crate::averrors::OH_AVErrCode::AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION).
+    /// If the input video is not an HDR vivid video, an error [`AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION`](crate::averrors::OH_AVErrCode::AV_ERR_VIDEO_UNSUPPORTED_COLOR_SPACE_CONVERSION) will
+    /// be reported by callback function [`OH_AVCodecOnError`](crate::avcodec_base::OH_AVCodecOnError).
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -2396,7 +2386,7 @@ extern "C" {
     pub static mut OH_MD_KEY_VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER: *const ::core::ffi::c_char;
     /// Key for describing the maximum count that the frame previously submitted to the encoder will be
     /// repeated, in case no new frame has been available since, value type is int32_t. This key takes effect only when
-    /// [`VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER`] is valid. It is used in configure.
+    /// `VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER` is valid. It is used in configure.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
@@ -2413,8 +2403,8 @@ extern "C" {
     ///
     /// For unsupported platforms, Configuring this key will have no effect.
     ///
-    /// Platform capability can be checked via [`OH_AVCapability_IsFeatureSupported`] with
-    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`].
+    /// Platform capability can be checked via [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported) with
+    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME).
     ///
     /// It's only used in configuration phase.
     ///
@@ -2430,13 +2420,13 @@ extern "C" {
     ///
     /// Note: This key is only for querying the capability of the codec currently.
     /// Usage specifications:
-    /// 1. Check feature support via [`OH_AVCapability_IsFeatureSupported`] with
-    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`].
+    /// 1. Check feature support via [`OH_AVCapability_IsFeatureSupported`](crate::avcapability::OH_AVCapability_IsFeatureSupported) with
+    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME).
     ///
-    /// 2. Obtain OH_AVFormat handle via [`OH_AVCapability_GetFeatureProperties`] with
-    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`].
+    /// 2. Obtain OH_AVFormat handle via [`OH_AVCapability_GetFeatureProperties`](crate::avcapability::OH_AVCapability_GetFeatureProperties) with
+    /// [`OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME`](crate::avcapability::OH_AVCapabilityFeature::VIDEO_ENCODER_B_FRAME).
     ///
-    /// 3. Get maximum B-frame count via [`OH_AVFormat_GetIntValue`] with this key.
+    /// 3. Get maximum B-frame count via [`OH_AVFormat_GetIntValue`](crate::avformat::OH_AVFormat_GetIntValue) with this key.
     ///
     ///
     ///
@@ -2455,8 +2445,8 @@ extern "C" {
     ///
     /// This is an optional key that applies only to video encoder.
     /// It is used in running process and is set with each frame.
-    /// In surface mode, it is used in [`OH_VideoEncoder_OnNeedInputParameter`].
-    /// In buffer mode, it is configured via [`OH_AVBuffer_SetParameter`].
+    /// In surface mode, it is used in [`OH_VideoEncoder_OnNeedInputParameter`](crate::avcodec_videoencoder::OH_VideoEncoder_OnNeedInputParameter).
+    /// In buffer mode, it is configured via [`OH_AVBuffer_SetParameter`](crate::avbuffer::OH_AVBuffer_SetParameter).
     ///
     /// Required System Capabilities: SystemCapability.Multimedia.Media.CodecBase
     ///
@@ -2568,12 +2558,12 @@ extern "C" {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub static mut OH_MD_KEY_VIDEO_DECODER_BLANK_FRAME_ON_SHUTDOWN: *const ::core::ffi::c_char;
     /// Key for querying native buffer pixel formats for video codec operations, value type is int32_t.
-    /// The value represents pixel formats defined in [`OH_NativeBuffer_Format`].
+    /// The value represents pixel formats defined in `OH_NativeBuffer_Format`.
     ///
     /// This key serves two primary purposes:
-    /// 1. Runtime decoder output: Get current output format via [`OH_VideoDecoder_GetOutputDescription`]
-    /// or [`OH_AVCodecOnStreamChanged`] events.
-    /// 2. Runtime encoder input: Get current input format via [`OH_VideoEncoder_GetInputDescription`].
+    /// 1. Runtime decoder output: Get current output format via [`OH_VideoDecoder_GetOutputDescription`](crate::avcodec_videodecoder::OH_VideoDecoder_GetOutputDescription)
+    /// or [`OH_AVCodecOnStreamChanged`](crate::avcodec_base::OH_AVCodecOnStreamChanged) events.
+    /// 2. Runtime encoder input: Get current input format via [`OH_VideoEncoder_GetInputDescription`](crate::avcodec_videoencoder::OH_VideoEncoder_GetInputDescription).
     ///
     ///
     /// Available since API-level: 22

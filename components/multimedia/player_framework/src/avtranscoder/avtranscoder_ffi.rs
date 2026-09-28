@@ -34,8 +34,8 @@ extern "C" {
     ///
     /// *
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input config is nullptr.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -55,8 +55,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input config is nullptr or file related parameter error.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or file related parameter error.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -77,8 +77,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input config is nullptr or dstFd is invalid.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or dstFd is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -97,8 +97,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input config is nullptr or mimeType is unrecognized.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or mimeType is unrecognized.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -117,8 +117,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input config is nullptr or mimeType is unrecognized.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or mimeType is unrecognized.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -137,8 +137,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input config is nullptr or mimeType is invalid.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or mimeType is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -157,8 +157,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input config is nullptr or bitrate value is invalid.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or bitrate value is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -177,8 +177,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input config is nullptr or bitrate value is invalid.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or bitrate value is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -199,8 +199,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input config is nullptr or width/height value is invalid.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr or width/height value is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -226,17 +226,17 @@ extern "C" {
     /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
     ///
     /// {OH_AVTranscoder_Config*} config Pointer to an OH_AVTranscoder_Config instance,
-    /// see [`OH_AVTranscoder_Config`]
+    /// see [`OH_AVTranscoder_Config`](crate::avtranscoder_base::OH_AVTranscoder_Config)
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input transcoder is nullptr or transcoder Prepare failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if the operation of Prepare not allowed.
-    /// [`AV_ERR_IO`] if Errors related to IO access
-    /// [`AV_ERR_SERVICE_DIED`] if media service died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if unsupported format.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder Prepare failed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Prepare not allowed.
+    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if Errors related to IO access
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if unsupported format.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -253,11 +253,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input transcoder is nullptr or transcoder start failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if the operation of Start not allowed.
-    /// [`AV_ERR_IO`] if errors related to IO access.
-    /// [`AV_ERR_SERVICE_DIED`] if media service died.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder start failed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Start not allowed.
+    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if errors related to IO access.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -271,11 +271,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input transcoder is nullptr or transcoder pause failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if the operation of Start not allowed.
-    /// [`AV_ERR_IO`] if errors related to IO access.
-    /// [`AV_ERR_SERVICE_DIED`] if media service died.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder pause failed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Start not allowed.
+    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if errors related to IO access.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -289,11 +289,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input transcoder is nullptr or transcoder resume failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if the operation of Start not allowed.
-    /// [`AV_ERR_IO`] if errors related to IO access.
-    /// [`AV_ERR_SERVICE_DIED`] if media service died.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder resume failed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Start not allowed.
+    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if errors related to IO access.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -307,11 +307,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input transcoder is nullptr or transcoder stop failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if the operation of Start not allowed.
-    /// [`AV_ERR_IO`] if errors related to IO access.
-    /// [`AV_ERR_SERVICE_DIED`] if media service died.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder stop failed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Start not allowed.
+    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if errors related to IO access.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -325,11 +325,11 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input transcoder is nullptr or transcoder release failed.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`] if the operation of Start not allowed.
-    /// [`AV_ERR_IO`] if errors related to IO access.
-    /// [`AV_ERR_SERVICE_DIED`] if media service died.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or transcoder release failed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if the operation of Start not allowed.
+    /// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if errors related to IO access.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) if media service died.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -341,15 +341,15 @@ extern "C" {
     ///
     /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
     ///
-    /// {OH_AVTranscoder_OnStateChange} callback State callback function, see [`OH_AVTranscoder_OnStateChange`]
+    /// {OH_AVTranscoder_OnStateChange} callback State callback function, see [`OH_AVTranscoder_OnStateChange`](crate::avtranscoder_base::OH_AVTranscoder_OnStateChange)
     ///
     /// {void*} userData Pointer to user specific data
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input transcoder is nullptr or input callback is nullptr.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or input callback is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -365,15 +365,15 @@ extern "C" {
     ///
     /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
     ///
-    /// {OH_AVTranscoder_OnError} callback Error callback function, see [`OH_AVTranscoder_OnError`]
+    /// {OH_AVTranscoder_OnError} callback Error callback function, see [`OH_AVTranscoder_OnError`](crate::avtranscoder_base::OH_AVTranscoder_OnError)
     ///
     /// {void*} userData Pointer to user specific data
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input transcoder is nullptr or input callback is nullptr.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or input callback is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -390,15 +390,15 @@ extern "C" {
     /// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance
     ///
     /// {OH_AVTranscoder_OnProgressUpdate} callback Uri callback function,
-    /// see [`OH_AVTranscoder_OnProgressUpdate`]
+    /// see [`OH_AVTranscoder_OnProgressUpdate`](crate::avtranscoder_base::OH_AVTranscoder_OnProgressUpdate)
     ///
     /// {void*} userData Pointer to user specific data
     ///
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input transcoder is nullptr or input callback is nullptr.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input transcoder is nullptr or input callback is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -418,8 +418,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Function result code.
-    /// [`AV_ERR_OK`] if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`] if input config is nullptr.
+    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input config is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

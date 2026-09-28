@@ -395,11 +395,11 @@ pub type OH_AVScreenCaptureOnVideoBufferAvailable =
 /// Required System Capabilities: SystemCapability.Multimedia.Media.AVScreenCapture
 /// # Arguments
 ///
-/// * `onError` - Monitor OH_AVScreenCapture operation errors, refer to [`OH_AVScreenCaptureOnError`]
+/// * `onError` - Monitor OH_AVScreenCapture operation errors, refer to [`OH_AVScreenCaptureOnError`](crate::avscreen_capture_base::OH_AVScreenCaptureOnError)
 ///
-/// * `onAudioBufferAvailable` - Monitor audio buffer, refer to [`OH_AVScreenCaptureOnAudioBufferAvailable`]
+/// * `onAudioBufferAvailable` - Monitor audio buffer, refer to [`OH_AVScreenCaptureOnAudioBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCaptureOnAudioBufferAvailable)
 ///
-/// * `onVideoBufferAvailable` - Monitor video buffer, refer to [`OH_AVScreenCaptureOnVideoBufferAvailable`]
+/// * `onVideoBufferAvailable` - Monitor video buffer, refer to [`OH_AVScreenCaptureOnVideoBufferAvailable`](crate::avscreen_capture_base::OH_AVScreenCaptureOnVideoBufferAvailable)
 ///
 ///
 /// Available since API-level: 10
@@ -585,7 +585,7 @@ pub struct OH_AVScreenCapture_FillMode(pub ::core::ffi::c_uint);
 ///
 /// * `capture` - Pointer to an OH_AVScreenCapture instance
 ///
-/// * `stateCode` - Information describing current state, see [`OH_AVScreenCaptureStateCode`]
+/// * `stateCode` - Information describing current state, see [`OH_AVScreenCaptureStateCode`](crate::avscreen_capture_base::OH_AVScreenCaptureStateCode)
 ///
 /// * `userData` - Pointer to user specific data
 ///
@@ -635,7 +635,7 @@ pub type OH_AVScreenCapture_OnError = ::core::option::Option<
 ///
 /// * `buffer` - Pointer to a buffer containing media data
 ///
-/// * `bufferType` - Data type of the buffer, see [`OH_AVScreenCaptureBufferType`]
+/// * `bufferType` - Data type of the buffer, see [`OH_AVScreenCaptureBufferType`](crate::avscreen_capture_base::OH_AVScreenCaptureBufferType)
 ///
 /// * `timestamp` - Timestamp of the buffer
 ///

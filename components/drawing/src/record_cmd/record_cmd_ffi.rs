@@ -32,8 +32,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if recordCmdUtils is nullptr.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if recordCmdUtils is nullptr.
     ///
     /// Available since API-level: 13
     ///
@@ -60,10 +60,10 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if recordCmdUtils or canvas is nullptr,
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if recordCmdUtils or canvas is nullptr,
     /// width less than or equal to 0 or height less than or equal to 0.
-    /// Returns [`OH_DRAWING_ERROR_ALLOCATION_FAILED`] if no memory.
+    /// Returns [`OH_DRAWING_ERROR_ALLOCATION_FAILED`](crate::error_code::DrawingErrorCode::ALLOCATION_FAILED) if no memory.
     ///
     /// Available since API-level: 13
     ///
@@ -89,9 +89,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if recordCmdUtils or recordCmd is nullptr.
-    /// Returns [`OH_DRAWING_ERROR_ALLOCATION_FAILED`] if no memory.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if recordCmdUtils or recordCmd is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_ALLOCATION_FAILED`](crate::error_code::DrawingErrorCode::ALLOCATION_FAILED) if no memory.
     ///
     /// Available since API-level: 13
     ///
@@ -113,8 +113,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`] if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`] if recordCmd is nullptr.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if recordCmd is nullptr.
     ///
     /// Available since API-level: 13
     ///

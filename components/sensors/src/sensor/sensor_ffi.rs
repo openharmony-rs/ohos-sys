@@ -11,17 +11,17 @@ extern "C" {
     /// # Arguments
     ///
     /// * `infos` - - Double pointer to the information about all sensors on the device.
-    /// For details, see [`Sensor_Info`].
+    /// For details, see [`Sensor_Info`](crate::sensor_type::Sensor_Info).
     ///
     /// * `count` - - Pointer to the number of sensors on the device.
     ///
     /// # Returns
     ///
     /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful; returns the following error code otherwise.
-    /// [`SENSOR_PARAMETER_ERROR`] Parameter check failed. For example, the parameter is invalid,
+    /// [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) Parameter check failed. For example, the parameter is invalid,
     /// or the parameter type passed in is incorrect.
     ///
-    /// [`SENSOR_SERVICE_EXCEPTION`] The sensor service is abnormal.
+    /// [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) The sensor service is abnormal.
     ///
     ///
     ///
@@ -38,23 +38,23 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `id` - - Pointer to the sensor subscription ID. For details, see [`Sensor_SubscriptionId`].
+    /// * `id` - - Pointer to the sensor subscription ID. For details, see [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId).
     ///
     /// * `attribute` - - Pointer to the subscription attribute, which is used to specify the data reporting frequency.
-    /// For details, see [`Sensor_SubscriptionAttribute`].
+    /// For details, see [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute).
     ///
     /// * `subscriber` - - Pointer to the subscriber information, which is used to specify the callback function for
-    /// reporting the sensor data. For details, see [`Sensor_Subscriber`].
+    /// reporting the sensor data. For details, see [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber).
     ///
     /// # Returns
     ///
     /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful; returns the following error code otherwise.
-    /// [`SENSOR_PERMISSION_DENIED`] Permission verification failed.
+    /// [`SENSOR_PERMISSION_DENIED`](crate::sensor_type::Sensor_Result::SENSOR_PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`SENSOR_PARAMETER_ERROR`] Parameter check failed. For example, the parameter is invalid,
+    /// [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) Parameter check failed. For example, the parameter is invalid,
     /// or the parameter type passed in is incorrect.
     ///
-    /// [`SENSOR_SERVICE_EXCEPTION`] The sensor service is abnormal.
+    /// [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) The sensor service is abnormal.
     ///
     ///
     /// Required Permissions: ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or
@@ -77,20 +77,20 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `id` - - Pointer to the sensor subscription ID. For details, see [`Sensor_SubscriptionId`].
+    /// * `id` - - Pointer to the sensor subscription ID. For details, see [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId).
     ///
     /// * `subscriber` - - Pointer to the subscriber information, which is used to specify the callback function for
-    /// reporting the sensor data. For details, see [`Sensor_Subscriber`].
+    /// reporting the sensor data. For details, see [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber).
     ///
     /// # Returns
     ///
     /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful; returns the following error code otherwise.
-    /// [`SENSOR_PERMISSION_DENIED`] Permission verification failed.
+    /// [`SENSOR_PERMISSION_DENIED`](crate::sensor_type::Sensor_Result::SENSOR_PERMISSION_DENIED) Permission verification failed.
     ///
-    /// [`SENSOR_PARAMETER_ERROR`] Parameter check failed. For example, the parameter is invalid,
+    /// [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) Parameter check failed. For example, the parameter is invalid,
     /// or the parameter type passed in is incorrect.
     ///
-    /// [`SENSOR_SERVICE_EXCEPTION`] The sensor service is abnormal.
+    /// [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) The sensor service is abnormal.
     ///
     ///
     /// Required Permissions: ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or

@@ -3,8 +3,6 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
-#[cfg(all(doc, feature = "arkui"))]
-use arkui_sys::ui_input_event::*;
 #[cfg(feature = "api-13")]
 use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;
 #[cfg(feature = "api-22")]
@@ -985,8 +983,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`XcomponentResult::SUCCESS`](crate::XcomponentResult::SUCCESS) get windowX success.
-    /// [`XcomponentResult::BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, windowX is NULL
+    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) get windowX success.
+    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, windowX is NULL
     ///
     /// or native XComponent is NULL.
     ///
@@ -1017,8 +1015,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`XcomponentResult::SUCCESS`](crate::XcomponentResult::SUCCESS) get windowY success.
-    /// [`XcomponentResult::BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, windowY is NULL
+    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) get windowY success.
+    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, windowY is NULL
     ///
     /// or native XComponent is NULL.
     ///
@@ -1049,8 +1047,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`XcomponentResult::SUCCESS`](crate::XcomponentResult::SUCCESS) get displayX success.
-    /// [`XcomponentResult::BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, displayX is NULL
+    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) get displayX success.
+    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, displayX is NULL
     ///
     /// or native XComponent is NULL.
     ///
@@ -1081,8 +1079,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`XcomponentResult::SUCCESS`](crate::XcomponentResult::SUCCESS) get displayY success.
-    /// [`XcomponentResult::BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, displayY is NULL
+    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) get displayY success.
+    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is NULL, displayY is NULL
     ///
     /// or native XComponent is NULL.
     ///
@@ -1192,8 +1190,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1212,13 +1210,13 @@ extern "C" {
     ///
     /// * `keys` - Pointer to a variable where the current combination of pressed modifier keys will be returned.
     /// The application can use bitwise operations to determine the state of each modifier key.
-    /// Modifier keys can be referred to [`ArkUI_ModifierKeyName`].
+    /// Modifier keys can be referred to [`ArkUI_ModifierKeyName`](arkui_sys::ui_input_event::ArkUI_ModifierKeyName).
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1423,13 +1421,13 @@ extern "C" {
     ///
     /// * `keys` - Pointer to a variable where the current combination of pressed modifier keys will be returned.
     /// The application can use bitwise operations to determine the state of each modifier key.
-    /// Modifier keys can be referred to [`ArkUI_ModifierKeyName`].
+    /// Modifier keys can be referred to [`ArkUI_ModifierKeyName`](arkui_sys::ui_input_event::ArkUI_ModifierKeyName).
     ///
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1451,8 +1449,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1474,8 +1472,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1497,8 +1495,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -1685,8 +1683,8 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns [`XcomponentResult::SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    /// Returns [`XcomponentResult::BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
+    /// * Returns [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    /// Returns [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1706,9 +1704,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`XcomponentResult::SUCCESS`](crate::XcomponentResult::SUCCESS) the callback function is successfully registered.
+    /// [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) the callback function is successfully registered.
     ///
-    /// [`XcomponentResult::BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is nullptr or callback is nullptr.
+    /// [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) component is nullptr or callback is nullptr.
     ///
     ///
     /// Available since API-level: 14
@@ -1761,8 +1759,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`] if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
+    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1877,8 +1875,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1899,8 +1897,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1939,8 +1937,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node is invalid.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if the node is invalid.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1958,9 +1956,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node is invalid.
-    /// [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`] if the node has initialized.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if the node is invalid.
+    /// [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`](arkui_sys::native_type::ArkUiErrorCode::XCOMPONENT_STATE_INVALID) if the node has initialized.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1975,9 +1973,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node is invalid.
-    /// [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`] if the node has finalized.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if the node is invalid.
+    /// [`ARKUI_ERROR_CODE_XCOMPONENT_STATE_INVALID`](arkui_sys::native_type::ArkUiErrorCode::XCOMPONENT_STATE_INVALID) if the node has finalized.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1994,8 +1992,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if the node is invalid.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if the node is invalid.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -2015,8 +2013,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -2038,8 +2036,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -2061,8 +2059,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     ///
@@ -2081,8 +2079,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -2200,8 +2198,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`] the execution is successful.
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`] if a parameter error occurs.
+    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
