@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- `NATIVEBUFFER_PIXEL_FMT_RGB_565` and `NATIVEBUFFER_PIXEL_FMT_BUTT` no longer require the
+  `api-12` feature, and the docs of the `OH_NativeBuffer_Format` variants are no longer shifted.
+
 ## 0.1.7
 
 - Update bindings to API-22 and API-23. Adds `OH_NativeBuffer_IsSupported` and related

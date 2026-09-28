@@ -312,51 +312,45 @@ impl OH_NativeBuffer_Format {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_CLUT4: OH_NativeBuffer_Format = OH_NativeBuffer_Format(2);
-    /// CLUT4 format
+    /// RGB565 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_565: OH_NativeBuffer_Format = OH_NativeBuffer_Format(3);
+    /// RGBA5658 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5658: OH_NativeBuffer_Format = OH_NativeBuffer_Format(4);
+    /// RGBX4444 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(5);
+    /// RGBA4444 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(6);
+    /// RGB444 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(7);
+    /// RGBX5551 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(8);
+    /// RGBA5551 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(9);
+    /// RGB555 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_555: OH_NativeBuffer_Format = OH_NativeBuffer_Format(10);
+    /// RGBX8888 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(11);
+    /// RGBA8888 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(12);
+    /// RGB888 format
+    pub const NATIVEBUFFER_PIXEL_FMT_RGB_888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(13);
+    /// BGR565 format
+    pub const NATIVEBUFFER_PIXEL_FMT_BGR_565: OH_NativeBuffer_Format = OH_NativeBuffer_Format(14);
+    /// BGRX4444 format
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(15);
+    /// BGRA4444 format
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(16);
+    /// BGRX5551 format
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(17);
+    /// BGRA5551 format
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(18);
+    /// BGRX8888 format
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(19);
+    /// BGRA8888 format
+    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(20);
+    /// YUV422 interleaved format
     ///
     /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_565: OH_NativeBuffer_Format = OH_NativeBuffer_Format(3);
-    /// < RGB565 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5658: OH_NativeBuffer_Format = OH_NativeBuffer_Format(4);
-    /// < RGBA5658 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(5);
-    /// < RGBX4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(6);
-    /// < RGBA4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(7);
-    /// < RGB444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(8);
-    /// < RGBX5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(9);
-    /// < RGBA5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_555: OH_NativeBuffer_Format = OH_NativeBuffer_Format(10);
-    /// < RGB555 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBX_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(11);
-    /// < RGBX8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGBA_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(12);
-    /// < RGBA8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_RGB_888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(13);
-    /// < RGB888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGR_565: OH_NativeBuffer_Format = OH_NativeBuffer_Format(14);
-    /// < BGR565 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(15);
-    /// < BGRX4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_4444: OH_NativeBuffer_Format = OH_NativeBuffer_Format(16);
-    /// < BGRA4444 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(17);
-    /// < BGRX5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_5551: OH_NativeBuffer_Format = OH_NativeBuffer_Format(18);
-    /// < BGRA5551 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRX_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(19);
-    /// < BGRX8888 format */
-    pub const NATIVEBUFFER_PIXEL_FMT_BGRA_8888: OH_NativeBuffer_Format = OH_NativeBuffer_Format(20);
-    /// < BGRA8888 format */
-    /// **
-    /// * YUV422 interleaved format
-    /// * @since 12
-    /// */
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_YUV_422_I: OH_NativeBuffer_Format = OH_NativeBuffer_Format(21);
@@ -503,11 +497,7 @@ impl OH_NativeBuffer_Format {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NATIVEBUFFER_PIXEL_FMT_VENDER_MASK: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(2147418112);
-    /// vender mask format
-    ///
-    /// Available since API-level: 12
-    #[cfg(feature = "api-12")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
+    /// Invalid pixel format
     pub const NATIVEBUFFER_PIXEL_FMT_BUTT: OH_NativeBuffer_Format =
         OH_NativeBuffer_Format(2147483647);
 }
