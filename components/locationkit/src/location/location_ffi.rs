@@ -69,7 +69,8 @@ extern "C" {
     ///
     /// [`LOCATION_SWITCH_OFF`] The location switch is off.
     ///
-    /// ohos.permission.APPROXIMATELY_LOCATION
+    ///
+    /// Required Permissions: ohos.permission.APPROXIMATELY_LOCATION
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -114,7 +115,8 @@ extern "C" {
     ///
     /// [`LOCATION_SWITCH_OFF`] The location switch is off.
     ///
-    /// ohos.permission.APPROXIMATELY_LOCATION
+    ///
+    /// Required Permissions: ohos.permission.APPROXIMATELY_LOCATION
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]

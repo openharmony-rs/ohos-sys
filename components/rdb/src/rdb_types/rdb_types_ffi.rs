@@ -50,7 +50,9 @@ extern "C" {
     /// * Returns a pointer to OH_RDB_ReturningContext instance when the execution is successful.
     /// Otherwise, nullptr is returned. The memory must be released through the OH_RDB_DestroyReturningContext
     /// interface after the use is complete.
-    /// [`OH_RDB_DestroyReturningContext.`]
+    ///
+    /// **See also:** [`OH_RDB_DestroyReturningContext`].
+    ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]

@@ -147,7 +147,11 @@ extern "C" {
     /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
     /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`] 17620003 - If parameter check failed.
     /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
-    /// [`OH_CryptoSymCipher_Update`] [`OH_CryptoSymCipher_Final`]
+    ///
+    /// **See also:** [`OH_CryptoSymCipher_Update`]
+    ///
+    /// **See also:** [`OH_CryptoSymCipher_Final`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -175,7 +179,11 @@ extern "C" {
     /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
     /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`] 17620003 - If parameter check failed.
     /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
-    /// [`OH_CryptoSymCipher_Init`] [`OH_CryptoSymCipher_Final`]
+    ///
+    /// **See also:** [`OH_CryptoSymCipher_Init`]
+    ///
+    /// **See also:** [`OH_CryptoSymCipher_Final`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -202,7 +210,11 @@ extern "C" {
     /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`] 17620001 - If memory operation failed.
     /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`] 17620003 - If parameter check failed.
     /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`] 17630001 - If crypto opertion failed.
-    /// [`OH_CryptoSymCipher_Init`] [`OH_CryptoSymCipher_Update`]
+    ///
+    /// **See also:** [`OH_CryptoSymCipher_Init`]
+    ///
+    /// **See also:** [`OH_CryptoSymCipher_Update`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]

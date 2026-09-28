@@ -564,7 +564,10 @@ impl OH_Huks_TagType {
 }
 #[repr(transparent)]
 /// Enumerates the tag types.
-/// [`OH_Huks_Param`]
+///
+/// **See also:** [`OH_Huks_Param`]
+///
+///
 /// Available since API-level: 9
 ///
 /// Version: 1.0
@@ -688,7 +691,10 @@ impl OH_Huks_ChallengeType {
 }
 #[repr(transparent)]
 /// Enumerates the types of the challenges generated when a key is used.
-/// [`OH_Huks_ChallengePosition`]
+///
+/// **See also:** [`OH_Huks_ChallengePosition`]
+///
+///
 /// Available since API-level: 9
 ///
 /// Version: 1.0

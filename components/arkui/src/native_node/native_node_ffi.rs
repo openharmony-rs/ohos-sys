@@ -3252,7 +3252,7 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
-    /// .value[0].i32: copy option [`ArkUI_CopyOptions.`]
+    /// .value[0].i32: copy option [`ArkUI_CopyOptions`].
     pub const NODE_TEXT_COPY_OPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(1013);
     /// Defines the text baseline offset attribute
     /// This attribute can be set, reset, and obtained as required through APIs.
@@ -4120,7 +4120,17 @@ impl ArkUI_NodeAttributeType {
     ///
     ///
     ///
-    /// Format of the return value [`ArkUI_AttributeItem`]
+    /// Format of the return value ArkUI_AttributeItem ):
+    ///
+    /// .value [0].f32 to .value [19].f32: filter matrix array.
+    ///
+    /// .size: 5 x 4 filter array size.
+    ///
+    /// .object: the pointer to OH_Drawing_ColorFilter.
+    ///
+    ///
+    ///
+    /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const NODE_IMAGE_SPAN_COLOR_FILTER: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(3004);
@@ -4416,7 +4426,11 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
-    /// .value[0].i32: copy option [`ArkUI_CopyOptions.`]
+    /// .value[0].i32: copy option [`ArkUI_CopyOptions`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const NODE_IMAGE_COPY_OPTION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4016);
@@ -4451,7 +4465,11 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
-    /// .value[0].i32: dynamic range mode [`ArkUI_DynamicRangeMode.`]
+    /// .value[0].i32: dynamic range mode [`ArkUI_DynamicRangeMode`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const NODE_IMAGE_DYNAMIC_RANGE_MODE: ArkUI_NodeAttributeType =
@@ -4487,7 +4505,11 @@ impl ArkUI_NodeAttributeType {
     ///
     /// Format of the return value [`ArkUI_AttributeItem`]:
     ///
-    /// .value[0].i32: orientation [`ArkUI_Orientation.`]
+    /// .value[0].i32: orientation [`ArkUI_Orientation`].
+    ///
+    ///
+    ///
+    /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const NODE_IMAGE_ORIENTATION: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(4020);
@@ -7629,7 +7651,7 @@ impl ArkUI_NodeAttributeType {
     pub const NODE_SLIDER_PREFIX: ArkUI_NodeAttributeType = ArkUI_NodeAttributeType(17014);
     /// Sets a custom component on the trailing side of the Slider component.
     ///
-    /// Attribute setting method [`link`] parameter format:
+    /// Attribute setting method [`ArkUI_AttributeItem`] parameter format:
     ///
     /// .object: Parameter type [`ArkUI_NodeHandle`].
     ///

@@ -21,7 +21,9 @@ use libc::clockid_t;
 /// * `audioData` - Pointer to the available audio data.
 ///
 /// * `audioDataSize` - Size of the available audio data.
-/// [`OH_AudioCapturer_Callbacks_Struct.OH_AudioCapturer_OnReadData`]
+///
+/// **See also:** OH_AudioCapturer_Callbacks_Struct.OH_AudioCapturer_OnReadData
+///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
@@ -44,7 +46,9 @@ pub type OH_AudioCapturer_OnReadDataCallback = ::core::option::Option<
 /// OH_AudioStreamBuilder_SetCapturerDeviceChangeCallback.
 ///
 /// * `deviceArray` - Pointer to an array of the new input devices.
-/// [`OH_AudioCapturer_Callbacks_Struct.OH_AudioCapturer_OnStreamEvent`]
+///
+/// **See also:** OH_AudioCapturer_Callbacks_Struct.OH_AudioCapturer_OnStreamEvent
+///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
@@ -68,7 +72,9 @@ pub type OH_AudioCapturer_OnDeviceChangeCallback = ::core::option::Option<
 /// * `type` - Type of force that causes the interrupt event.
 ///
 /// * `hint` - Hint provided along with the interrupt event.
-/// [`OH_AudioCapturer_Callbacks_Struct.OH_AudioCapturer_OnInterruptEvent.`]
+///
+/// **See also:** OH_AudioCapturer_Callbacks_Struct.OH_AudioCapturer_OnInterruptEvent.
+///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
@@ -91,7 +97,9 @@ pub type OH_AudioCapturer_OnInterruptCallback = ::core::option::Option<
 /// OH_AudioStreamBuilder_SetCapturerErrorCallback.
 ///
 /// * `error` - Specific error information.
-/// [`OH_AudioCapturer_Callbacks_Struct.OH_AudioCapturer_OnError`]
+///
+/// **See also:** OH_AudioCapturer_Callbacks_Struct.OH_AudioCapturer_OnError
+///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
@@ -148,7 +156,8 @@ extern "C" {
     ///
     ///
     /// Available since API-level: 10
-    /// ohos.permission.MICROPHONE
+    ///
+    /// Required Permissions: ohos.permission.MICROPHONE
     ///
     /// # Arguments
     ///
@@ -165,7 +174,8 @@ extern "C" {
     ///
     ///
     /// Available since API-level: 10
-    /// ohos.permission.MICROPHONE
+    ///
+    /// Required Permissions: ohos.permission.MICROPHONE
     ///
     /// # Arguments
     ///
@@ -182,7 +192,8 @@ extern "C" {
     ///
     ///
     /// Available since API-level: 10
-    /// ohos.permission.MICROPHONE
+    ///
+    /// Required Permissions: ohos.permission.MICROPHONE
     ///
     /// # Arguments
     ///
@@ -199,7 +210,8 @@ extern "C" {
     ///
     ///
     /// Available since API-level: 10
-    /// ohos.permission.MICROPHONE
+    ///
+    /// Required Permissions: ohos.permission.MICROPHONE
     ///
     /// # Arguments
     ///

@@ -27,7 +27,9 @@ pub struct OH_VObject {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VObject.`]
+    ///
+    /// **See also:** [`OH_VObject`].
+    ///
     /// Available since API-level: 10
     pub putInt64: ::core::option::Option<
         unsafe extern "C" fn(
@@ -50,7 +52,9 @@ pub struct OH_VObject {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VObject.`]
+    ///
+    /// **See also:** [`OH_VObject`].
+    ///
     /// Available since API-level: 10
     pub putDouble: ::core::option::Option<
         unsafe extern "C" fn(
@@ -70,7 +74,9 @@ pub struct OH_VObject {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VObject.`]
+    ///
+    /// **See also:** [`OH_VObject`].
+    ///
     /// Available since API-level: 10
     pub putText: ::core::option::Option<
         unsafe extern "C" fn(
@@ -91,7 +97,9 @@ pub struct OH_VObject {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VObject.`]
+    ///
+    /// **See also:** [`OH_VObject`].
+    ///
     /// Available since API-level: 10
     pub putTexts: ::core::option::Option<
         unsafe extern "C" fn(
@@ -109,7 +117,9 @@ pub struct OH_VObject {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VObject.`]
+    ///
+    /// **See also:** [`OH_VObject`].
+    ///
     /// Available since API-level: 10
     pub destroy: ::core::option::Option<
         unsafe extern "C" fn(valueObject: *mut OH_VObject) -> ::core::ffi::c_int,

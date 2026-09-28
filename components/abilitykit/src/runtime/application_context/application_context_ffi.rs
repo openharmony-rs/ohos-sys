@@ -304,7 +304,8 @@ extern "C" {
     ) -> AbilityRuntimeResult;
     /// Starts self UIAbility.
     ///
-    /// `ohos.permission.NDK_START_SELF_UI_ABILITY`
+    ///
+    /// Required Permissions: `ohos.permission.NDK_START_SELF_UI_ABILITY`
     /// # Arguments
     ///
     /// * `want` - The arguments passed to start self UIAbility.
@@ -339,7 +340,8 @@ extern "C" {
     ) -> AbilityRuntimeResult;
     /// Starts self UIAbility with start options.
     ///
-    /// `ohos.permission.NDK_START_SELF_UI_ABILITY`
+    ///
+    /// Required Permissions: `ohos.permission.NDK_START_SELF_UI_ABILITY`
     /// # Arguments
     ///
     /// * `want` - The arguments passed to start self UIAbility.
@@ -456,7 +458,8 @@ extern "C" {
     ) -> AbilityRuntimeResult;
     /// Starts self UIAbility with start options and receives the process ID.
     ///
-    /// ohos.permission.NDK_START_SELF_UI_ABILITY
+    ///
+    /// Required Permissions: ohos.permission.NDK_START_SELF_UI_ABILITY
     /// # Arguments
     ///
     /// * `want` - The arguments passed to start self UIAbility.

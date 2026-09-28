@@ -27,7 +27,8 @@ extern "C" {
     ///
     /// [`DEVICE_OPERATION_FAILED`] The operation on the device failed.
     ///
-    /// ohos.permission.VIBRATE
+    ///
+    /// Required Permissions: ohos.permission.VIBRATE
     ///
     ///
     /// Available since API-level: 11
@@ -56,7 +57,8 @@ extern "C" {
     ///
     /// [`DEVICE_OPERATION_FAILED`] The operation on the device failed.
     ///
-    /// ohos.permission.VIBRATE
+    ///
+    /// Required Permissions: ohos.permission.VIBRATE
     ///
     ///
     /// Available since API-level: 11
@@ -68,7 +70,8 @@ extern "C" {
     ) -> i32;
     /// Stop the motor vibration according to the input mode.
     ///
-    /// ohos.permission.VIBRATE
+    ///
+    /// Required Permissions: ohos.permission.VIBRATE
     ///
     /// # Returns
     ///
@@ -80,7 +83,8 @@ extern "C" {
     ///
     /// [`DEVICE_OPERATION_FAILED`] The operation on the device failed.
     ///
-    /// ohos.permission.VIBRATE
+    ///
+    /// Required Permissions: ohos.permission.VIBRATE
     ///
     ///
     /// Available since API-level: 11

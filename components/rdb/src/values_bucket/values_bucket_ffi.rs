@@ -30,7 +30,9 @@ pub struct OH_VBucket {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 10
     pub putText: ::core::option::Option<
         unsafe extern "C" fn(
@@ -52,7 +54,9 @@ pub struct OH_VBucket {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 10
     pub putInt64: ::core::option::Option<
         unsafe extern "C" fn(
@@ -74,7 +78,9 @@ pub struct OH_VBucket {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 10
     pub putReal: ::core::option::Option<
         unsafe extern "C" fn(
@@ -98,7 +104,9 @@ pub struct OH_VBucket {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 10
     pub putBlob: ::core::option::Option<
         unsafe extern "C" fn(
@@ -119,7 +127,9 @@ pub struct OH_VBucket {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 10
     pub putNull: ::core::option::Option<
         unsafe extern "C" fn(
@@ -136,7 +146,9 @@ pub struct OH_VBucket {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 10
     pub clear:
         ::core::option::Option<unsafe extern "C" fn(bucket: *mut OH_VBucket) -> ::core::ffi::c_int>,
@@ -149,7 +161,9 @@ pub struct OH_VBucket {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 10
     pub destroy:
         ::core::option::Option<unsafe extern "C" fn(bucket: *mut OH_VBucket) -> ::core::ffi::c_int>,
@@ -170,7 +184,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -196,7 +212,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
@@ -223,7 +241,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -252,7 +272,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// [`RDB_OK`] - success.
     /// [`RDB_E_INVALID_ARGS`] - The error code for common invalid args.
-    /// [`OH_VBucket.`]
+    ///
+    /// **See also:** [`OH_VBucket`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]

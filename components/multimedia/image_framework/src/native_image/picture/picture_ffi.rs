@@ -65,7 +65,7 @@ extern "C" {
     ///
     /// * `options` - The OH_ComposeOptions pointer will be operated.
     ///
-    /// * `desiredPixelFormat` - The desired pixel format will be set, RGBA_1010102are supported.
+    /// * `desiredPixelFormat` - The desired pixel format will be set, RGBA_1010102\YCBCR_P010\YCRCB_P010 are supported.
     ///
     /// # Returns
     ///

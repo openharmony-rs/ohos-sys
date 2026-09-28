@@ -625,7 +625,8 @@ extern "C" {
     /// This API checks and pulls up the print service, initializes the print client,
     /// and establishes a connection to the print service.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     ///
     /// # Returns
     ///
@@ -657,7 +658,8 @@ extern "C" {
     pub fn OH_Print_Release() -> Print_ErrorCode;
     /// This API starts discovering printers.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `callback` - The [`Print_PrinterDiscoveryCallback`] of printer discovery event.
@@ -680,7 +682,8 @@ extern "C" {
     ) -> Print_ErrorCode;
     /// This API stops discovering printers.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     ///
     /// # Returns
     ///
@@ -696,7 +699,8 @@ extern "C" {
     pub fn OH_Print_StopPrinterDiscovery() -> Print_ErrorCode;
     /// This API connects to the printer using the printer id.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `printerId` - The id of the printer to be connected.
@@ -717,7 +721,8 @@ extern "C" {
     pub fn OH_Print_ConnectPrinter(printerId: *const ::core::ffi::c_char) -> Print_ErrorCode;
     /// This API starts initiating a print job.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `printJob` - A pointer to a [`Print_PrintJob`] instance that specifies the information for the print job.
@@ -739,7 +744,8 @@ extern "C" {
     pub fn OH_Print_StartPrintJob(printJob: *const Print_PrintJob) -> Print_ErrorCode;
     /// This API registers the callback for printer changes.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `callback` - The [`Print_PrinterChangeCallback`] to be registered.
@@ -760,7 +766,8 @@ extern "C" {
     ) -> Print_ErrorCode;
     /// This API unregisters the callback for printer changes.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     ///
     /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
@@ -770,7 +777,8 @@ extern "C" {
     pub fn OH_Print_UnregisterPrinterChangeListener();
     /// This API queries for a list of added printers.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `printerIdList` - A pointer to a [`Print_StringList`] instance to store the queried printer id list.
@@ -803,7 +811,8 @@ extern "C" {
     pub fn OH_Print_ReleasePrinterList(printerIdList: *mut Print_StringList);
     /// This API queries printer information based on the printer id.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `printerId` - The id of the printer to be queried.
@@ -855,7 +864,8 @@ extern "C" {
     pub fn OH_Print_LaunchPrinterManager() -> Print_ErrorCode;
     /// This API queries the corresponding printer property values based on the list of property keywords.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `printerId` - The id of the printer to be queried.
@@ -896,7 +906,8 @@ extern "C" {
     pub fn OH_Print_ReleasePrinterProperties(propertyList: *mut Print_PropertyList);
     /// This API sets printer properties based on a list of property key-value pairs.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `printerId` - The id of the printer to be set.
@@ -920,7 +931,8 @@ extern "C" {
     ) -> Print_ErrorCode;
     /// This API restores printer properties to default settings based on the list of property keywords.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `printerId` - The id of the printer to be restored.
@@ -944,7 +956,8 @@ extern "C" {
     ) -> Print_ErrorCode;
     /// This API provide capacity to start print dialog.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `printJobName` - The name of this print job.

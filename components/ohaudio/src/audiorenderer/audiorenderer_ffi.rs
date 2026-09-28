@@ -21,7 +21,9 @@ use libc::clockid_t;
 /// * `type` - Type of force that causes the interrupt event.
 ///
 /// * `hint` - Hint provided along with the interrupt event.
-/// [`OH_AudioRenderer_Callbacks_Struct.OH_AudioRenderer_OnInterruptEvent.`]
+///
+/// **See also:** OH_AudioRenderer_Callbacks_Struct.OH_AudioRenderer_OnInterruptEvent.
+///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
@@ -44,7 +46,9 @@ pub type OH_AudioRenderer_OnInterruptCallback = ::core::option::Option<
 /// OH_AudioStreamBuilder_SetRendererErrorCallback.
 ///
 /// * `error` - Specific error information.
-/// [`OH_AudioRenderer_Callbacks_Struct.OH_AudioRenderer_OnError`]
+///
+/// **See also:** OH_AudioRenderer_Callbacks_Struct.OH_AudioRenderer_OnError
+///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
@@ -98,7 +102,9 @@ pub type OH_AudioRenderer_OnFastStatusChange = ::core::option::Option<
 /// greater than audioDataSize, the system changes it to audioDataSize. Note that the length of the returned buffer
 /// must be an integer multiple of the length of the single sample data. For example, for 2 channels and S16 format
 /// audio data, it must be an integer multiple of 4(2*16/8). Otherwise, it may cause noise during playback.
-/// [`OH_AudioRenderer_OnWriteDataCallback`]
+///
+/// **See also:** [`OH_AudioRenderer_OnWriteDataCallback`]
+///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]

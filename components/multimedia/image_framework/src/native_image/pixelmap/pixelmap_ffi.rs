@@ -919,7 +919,9 @@ extern "C" {
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or area is incorrect.
     /// [`IMAGE_UNKNOWN_ERROR`] Internal unknown error, e.g. unsupported pixel format.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -942,7 +944,9 @@ extern "C" {
     /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or area is incorrect.
     /// [`IMAGE_UNSUPPORTED_OPERATION`] If the PixelMap is not editable.
     /// [`IMAGE_UNKNOWN_ERROR`] Internal unknown error, e.g. unsupported pixel format.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -968,7 +972,9 @@ extern "C" {
     /// [`IMAGE_UNSUPPORTED_CONVERSION`] If format does not support conversion to argb or conversion failed.
     /// [`IMAGE_ALLOC_FAILED`] If device has no memory.
     /// [`IMAGE_COPY_FAILED`] If memory copy failed.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -1082,7 +1088,9 @@ extern "C" {
     /// returns [`Image_ErrorCode`] IMAGE_TOO_LARGE - if image is too large.
     /// returns [`Image_ErrorCode`] IMAGE_ALLOC_FAILED - if device has no memory.
     /// returns [`Image_ErrorCode`] IMAGE_UNKNOWN_ERROR - inner unknown error, maybe source pixelmap is released.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -1109,7 +1117,9 @@ extern "C" {
     /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] If the param is nullptr or invalid.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -1140,7 +1150,9 @@ extern "C" {
     /// [`IMAGE_BAD_PARAMETER`] If the param is nullptr or invalid.
     /// [`IMAGE_TOO_LARGE`] If image is too large.
     /// [`IMAGE_ALLOC_FAILED`] If device has no memory.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -1190,7 +1202,9 @@ extern "C" {
     /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. srcPixelmap or dstPixelmap is incorrect.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -1215,7 +1229,9 @@ extern "C" {
     /// [`IMAGE_TOO_LARGE`] If the PixelMap size is too large.
     /// [`IMAGE_INIT_FAILED`] If the PixelMap initialization failed.
     /// [`IMAGE_ALLOC_FAILED`] If the copying of PixelMap data failed.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -1247,7 +1263,9 @@ extern "C" {
     /// [`IMAGE_TOO_LARGE`] If the PixelMap size is too large.
     /// [`IMAGE_INIT_FAILED`] If the PixelMap initialization failed.
     /// [`IMAGE_ALLOC_FAILED`] If the copying of PixelMap data failed.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -1457,7 +1475,9 @@ extern "C" {
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. surfaceId or pixelmap is incorrect.
     /// [`IMAGE_CREATE_PIXELMAP_FAILED`] If the PixelMap creation failed.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -1488,7 +1508,9 @@ extern "C" {
     /// [`IMAGE_UNSUPPORTED_OPERATION`] Unsupported operation, e.g. on cross-platform.
     /// [`IMAGE_GET_IMAGE_DATA_FAILED`] Failed to get the data from Surface.
     /// [`IMAGE_CREATE_PIXELMAP_FAILED`] Failed to create the PixelMap.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
@@ -1512,7 +1534,9 @@ extern "C" {
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. nativeBuffer or pixelmap is incorrect.
     /// [`IMAGE_CREATE_PIXELMAP_FAILED`] If the PixelMap creation failed.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -1536,7 +1560,9 @@ extern "C" {
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, key and value are incorrect.
     /// returns [`Image_ErrorCode`] IMAGE_DMA_NOT_EXIST - if DMA memory does not exist.
     /// returns [`Image_ErrorCode`] IMAGE_COPY_FAILED - if memory copy failed.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -1561,7 +1587,9 @@ extern "C" {
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, key and value are incorrect.
     /// returns [`Image_ErrorCode`] IMAGE_DMA_NOT_EXIST - if DMA memory does not exist.
     /// returns [`Image_ErrorCode`] IMAGE_COPY_FAILED - if memory copy failed.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -1584,7 +1612,9 @@ extern "C" {
     /// returns [`Image_ErrorCode`] IMAGE_BAD_PARAMETER - if invalid parameter, pixelmap or nativeBuffer is null.
     /// returns [`Image_ErrorCode`] IMAGE_DMA_NOT_EXIST - if DMA memory dose not exist.
     /// returns [`Image_ErrorCode`] IMAGE_DMA_OPERATION_FAILED - if operations related to DMA memory has failed.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -1605,7 +1635,9 @@ extern "C" {
     /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] The param of pixelmap or colorSpaceNative is nullptr or invalid.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -1626,7 +1658,9 @@ extern "C" {
     /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the execution is successful.
     /// [`IMAGE_BAD_PARAMETER`] The param of pixelmap or colorSpaceNative is nullptr or invalid.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -1650,7 +1684,9 @@ extern "C" {
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, name and size are incorrect.
     /// [`IMAGE_UNSUPPORTED_MEMORY_FORMAT`] If memory format is unsupported.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -1672,7 +1708,9 @@ extern "C" {
     /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap or byteCount are invalid.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -1693,7 +1731,9 @@ extern "C" {
     /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap or allocationByteCount are invalid.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
@@ -1717,7 +1757,9 @@ extern "C" {
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap or addr are invalid.
     /// [`IMAGE_LOCK_UNLOCK_FAILED`] If memory failed to be locked.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -1738,7 +1780,9 @@ extern "C" {
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If invalid parameter, pixelmap is invalid.
     /// [`IMAGE_LOCK_UNLOCK_FAILED`] If memory failed to be unlocked.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
@@ -1756,7 +1800,9 @@ extern "C" {
     /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or uniqueId is incorrect.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -1777,7 +1823,9 @@ extern "C" {
     /// * Function result code:
     /// [`IMAGE_SUCCESS`] If the operation is successful.
     /// [`IMAGE_BAD_PARAMETER`] If any parameter is invalid, e.g. pixelmap or released is incorrect.
-    /// [`OH_PixelmapNative`]
+    ///
+    /// **See also:** [`OH_PixelmapNative`]
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]

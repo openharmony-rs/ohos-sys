@@ -27,7 +27,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub getColumnCount: ::core::option::Option<
         unsafe extern "C" fn(
@@ -48,7 +50,8 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor,`] OH_ColumnType.
+    ///
+    /// **See also:** [`OH_Cursor`], [`OH_ColumnType`].
     ///
     /// Available since API-level: 10
     pub getColumnType: ::core::option::Option<
@@ -72,7 +75,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub getColumnIndex: ::core::option::Option<
         unsafe extern "C" fn(
@@ -97,7 +102,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub getColumnName: ::core::option::Option<
         unsafe extern "C" fn(
@@ -119,7 +126,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub getRowCount: ::core::option::Option<
         unsafe extern "C" fn(
@@ -136,7 +145,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub goToNextRow:
         ::core::option::Option<unsafe extern "C" fn(cursor: *mut OH_Cursor) -> ::core::ffi::c_int>,
@@ -154,7 +165,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub getSize: ::core::option::Option<
         unsafe extern "C" fn(
@@ -179,7 +192,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub getText: ::core::option::Option<
         unsafe extern "C" fn(
@@ -203,7 +218,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub getInt64: ::core::option::Option<
         unsafe extern "C" fn(
@@ -226,7 +243,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub getReal: ::core::option::Option<
         unsafe extern "C" fn(
@@ -251,7 +270,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub getBlob: ::core::option::Option<
         unsafe extern "C" fn(
@@ -275,7 +296,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub isNull: ::core::option::Option<
         unsafe extern "C" fn(
@@ -293,7 +316,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 10
     pub destroy:
         ::core::option::Option<unsafe extern "C" fn(cursor: *mut OH_Cursor) -> ::core::ffi::c_int>,
@@ -311,7 +336,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 11
     pub getAsset: ::core::option::Option<
         unsafe extern "C" fn(
@@ -336,7 +363,9 @@ pub struct OH_Cursor {
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// [`OH_Cursor.`]
+    ///
+    /// **See also:** [`OH_Cursor`].
+    ///
     /// Available since API-level: 11
     pub getAssets: ::core::option::Option<
         unsafe extern "C" fn(
@@ -414,7 +443,9 @@ extern "C" {
     /// Returns [`RDB_E_SQLITE_IOERR`] SQLite: Some kind of disk I/O error occurred.
     /// Returns [`RDB_E_SQLITE_TOO_BIG`] SQLite: TEXT or BLOB exceeds size limit.
     /// Returns [`RDB_E_SQLITE_MISMATCH`] SQLite: Data type mismatch.
-    /// [`OH_Cursor_GetFloatVectorCount.`]
+    ///
+    /// **See also:** [`OH_Cursor_GetFloatVectorCount`].
+    ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]

@@ -124,7 +124,8 @@ extern "C" {
     /// This API checks and pulls up the scan service, initializes the scan client,
     /// and establishes a connection to the scan service.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     ///
     /// # Returns
     ///
@@ -141,7 +142,8 @@ extern "C" {
     pub fn OH_Scan_Init() -> i32;
     /// This API starts discovering scanners, Register a callback to handle discovered scanner devices.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `callback` - The [`Scan_ScannerDiscoveryCallback`] of scanner discovery event.
@@ -161,7 +163,8 @@ extern "C" {
     pub fn OH_Scan_StartScannerDiscovery(callback: Scan_ScannerDiscoveryCallback) -> i32;
     /// This API connects to scanner devices.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `scannerId` - The id used to connect to the scanner.
@@ -185,7 +188,8 @@ extern "C" {
     pub fn OH_Scan_OpenScanner(scannerId: *const ::core::ffi::c_char) -> i32;
     /// This API is used to close the connected scanner device.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `scannerId` - The id to disconnect the scanner.
@@ -208,7 +212,8 @@ extern "C" {
     /// The returned struct pointer points to memory that is automatically freed when [`OH_Scan_Exit`],
     /// and only one copy will be stored in memory for each model.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `scannerId` - The id used to obtain the scanner parameters.
@@ -236,7 +241,8 @@ extern "C" {
     /// This API can be used to set one of the scanner's option parameters.
     /// The option and value passed in are obtained from [`OH_Scan_GetScannerParameter`].
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `scannerId` - This id is used to set the options for a specific scanner.
@@ -267,7 +273,8 @@ extern "C" {
     ) -> i32;
     /// This API allows the scanner to start scanning.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `scannerId` - This id is used to start the scan job for the specified scanner.
@@ -296,7 +303,8 @@ extern "C" {
     pub fn OH_Scan_StartScan(scannerId: *const ::core::ffi::c_char, batchMode: bool) -> i32;
     /// This API allows the scanner to cancel the scan.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `scannerId` - This id is used to cancel the scan job for the specified scanner.
@@ -318,7 +326,8 @@ extern "C" {
     /// This API can get the progress of the scanner scanning the picture.A non-null value must be passed in,
     /// and the scan progress will be written to the structure to which the pointer points.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
     /// * `scannerId` - The id for querying the image scanning progress of the scanner.
@@ -351,7 +360,8 @@ extern "C" {
     /// This API can be used to exit the scanning service, free the Scan Framework Memory,
     /// and unregister the callback for scanner discover.
     ///
-    /// `ohos.permission.PRINT`
+    ///
+    /// Required Permissions: `ohos.permission.PRINT`
     ///
     /// # Returns
     ///

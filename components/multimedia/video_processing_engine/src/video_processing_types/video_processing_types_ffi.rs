@@ -24,18 +24,20 @@ pub struct OH_VideoProcessing {
 }
 /// Video color space information structure of querying if video color space conversion is supported.
 ///
-/// [`OH_VideoProcessing_IsColorSpaceConversionSupported`]
+///
+/// **See also:** [`OH_VideoProcessing_IsColorSpaceConversionSupported`]
+///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct VideoProcessing_ColorSpaceInfo {
-    /// The metadata type of the video, see [`enum`]
+    /// The metadata type of the video, see [`OH_NativeBuffer_MetadataType`]
     pub metadataType: i32,
-    /// The color space type of the video, see [`enum`]
+    /// The color space type of the video, see [`OH_NativeBuffer_ColorSpace`]
     pub colorSpace: i32,
-    /// The pixel format of the video, see [`enum`]
+    /// The pixel format of the video, see [`OH_NativeBuffer_Format`]
     pub pixelFormat: i32,
 }
 #[cfg(feature = "api-12")]
@@ -59,7 +61,11 @@ impl VideoDetailEnhancer_QualityLevel {
 ///
 /// It is the value of the key parameter [`VIDEO_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL`].
 ///
-/// [`OH_VideoProcessing_SetParameter`] [`OH_VideoProcessing_GetParameter`]
+///
+/// **See also:** [`OH_VideoProcessing_SetParameter`]
+///
+/// **See also:** [`OH_VideoProcessing_GetParameter`]
+///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -80,7 +86,13 @@ impl VideoMetadataGeneratorStyleControl {
 ///
 /// It is the value of the key parameter [`VIDEO_METADATA_GENERATOR_STYLE_CONTROL`].
 ///
-/// [`OH_AVFormat_SetIntValue`] [`OH_VideoProcessing_SetParameter`] [`OH_VideoProcessing_GetParameter`]
+///
+/// **See also:** [`OH_AVFormat_SetIntValue`]
+///
+/// **See also:** [`OH_VideoProcessing_SetParameter`]
+///
+/// **See also:** [`OH_VideoProcessing_GetParameter`]
+///
 /// Available since API-level: 22
 #[cfg(feature = "api-22")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -264,7 +276,9 @@ extern "C" {
     /// Some capabilities are supported by vendor. Use [`OH_VideoProcessing_IsColorSpaceConversionSupported`] to query if
     /// the conversion is supported.
     ///
-    /// [`OH_VideoProcessing_Create`]
+    ///
+    /// **See also:** [`OH_VideoProcessing_Create`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -274,7 +288,9 @@ extern "C" {
     /// Generate HDR vivid metadata for video. The capability is supported by vendor. If the capability is not supported,
     /// [`OH_VideoProcessing_Create`] returns [`VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING`].
     ///
-    /// [`OH_VideoProcessing_Create`]
+    ///
+    /// **See also:** [`OH_VideoProcessing_Create`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -284,7 +300,9 @@ extern "C" {
     /// Scale or resize video with the specified quality or just enhance details for rendering without changing its
     /// resolution.
     ///
-    /// [`OH_ImageProcessing_Create`]
+    ///
+    /// **See also:** [`OH_ImageProcessing_Create`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -295,7 +313,11 @@ extern "C" {
     /// Use [`OH_VideoProcessing_SetParameter`] to set the quality level.
     /// Use [`OH_VideoProcessing_GetParameter`] to get the current quality level.
     ///
-    /// [`OH_VideoProcessing_SetParameter`] [`OH_VideoProcessing_GetParameter`]
+    ///
+    /// **See also:** [`OH_VideoProcessing_SetParameter`]
+    ///
+    /// **See also:** [`OH_VideoProcessing_GetParameter`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]

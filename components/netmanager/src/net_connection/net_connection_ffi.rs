@@ -18,7 +18,8 @@ extern "C" {
     /// * 0 - Success. 201 - Missing permissions.
     /// 401 - Parameter error. 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -39,7 +40,8 @@ extern "C" {
     /// * 0 - Success. 201 - Missing permissions.
     /// 401 - Parameter error. 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -60,7 +62,8 @@ extern "C" {
     /// * 0 - Success. 201 - Missing permissions.
     /// 401 - Parameter error. 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -83,7 +86,8 @@ extern "C" {
     /// * 0 - Success. 201 - Missing permissions.
     /// 401 - Parameter error. 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -109,7 +113,8 @@ extern "C" {
     /// * 0 - Success. 201 - Missing permissions.
     /// 401 - Parameter error. 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -161,7 +166,8 @@ extern "C" {
     /// * 0 - Success. 201 - Missing permissions.
     /// 401 - Parameter error. 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.INTERNET
+    ///
+    /// Required Permissions: ohos.permission.INTERNET
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -188,7 +194,8 @@ extern "C" {
     /// * 0 - Success. 201 - Missing permissions.
     /// 401 - Parameter error. 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.INTERNET
+    ///
+    /// Required Permissions: ohos.permission.INTERNET
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -209,7 +216,8 @@ extern "C" {
     /// * 0 - Success. 201 - Missing permissions.
     /// 401 - Parameter error. 2100002 - Unable to connect to service.
     /// 2100003 - Internal error.
-    /// ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -404,7 +412,8 @@ extern "C" {
     /// 2100003 - System internal error.
     /// 2101008 - The callback already exists.
     /// 2101022 - The number of requests exceeded the maximum allowed.
-    /// ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -436,7 +445,8 @@ extern "C" {
     /// 2100003 - System internal error.
     /// 2101008 - The callback already exists.
     /// 2101022 - The number of requests exceeded the maximum allowed.
-    /// ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -463,7 +473,8 @@ extern "C" {
     /// 2100002 - Failed to connect to the service.
     /// 2100003 - System internal error.
     /// 2101007 - The callback does not exists.
-    /// ohos.permission.GET_NETWORK_INFO
+    ///
+    /// Required Permissions: ohos.permission.GET_NETWORK_INFO
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetManager.Core
     ///
@@ -487,7 +498,8 @@ extern "C" {
     /// [`NETCONN_PARAMETER_ERROR`] Parameter check failed.
     /// [`NETCONN_OPERATION_FAILED`] Failed to connect to the service.
     /// [`NETCONN_INTERNAL_ERROR`] System internal error.
-    /// ohos.permission.SET_PAC_URL
+    ///
+    /// Required Permissions: ohos.permission.SET_PAC_URL
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -527,7 +539,8 @@ extern "C" {
     /// 201 - Missing permissions.
     /// 401 - Parameter error.
     /// 2100003 - Internal error.
-    /// ohos.permission.INTERNET
+    ///
+    /// Required Permissions: ohos.permission.INTERNET
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -551,7 +564,8 @@ extern "C" {
     ///
     /// * 0 - Success.
     /// 201 - Missing permissions.
-    /// ohos.permission.INTERNET and ohos.permission.LOCATION and ohos.permission.ACCESS_NET_TRACE_INFO
+    ///
+    /// Required Permissions: ohos.permission.INTERNET and ohos.permission.LOCATION and ohos.permission.ACCESS_NET_TRACE_INFO
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

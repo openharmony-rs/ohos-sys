@@ -30,7 +30,8 @@ extern "C" {
     /// # Arguments
     ///
     /// * `timeZone` - Pointer to an array of characters indicating the time zone ID. On success, the string indicates the
-    /// current system time zone ID. On failure, the string is empty. The string is terminated using '
+    /// current system time zone ID. On failure, the string is empty. The string is terminated using '\0'.
+    ///
     /// * `len` - Size of the memory allocated for the time zone ID character array. There is no upper limit for the length
     /// of the time zone ID. It is recommended to allocate sufficient memory, at least not less than 31 bytes.
     ///
@@ -39,7 +40,7 @@ extern "C" {
     /// * Returns [`TIMESERVICE_ERR_OK`] if the operation is successful.
     /// Returns [`TIMESERVICE_ERR_INTERNAL_ERROR`] if obtaining the system parameters fails.
     /// Returns [`TIMESERVICE_ERR_INVALID_PARAMETER`] if <b>timeZone</b> is a null pointer or the length of the
-    /// time zone ID (excluding the terminating character ('is greater than or equal to <b>len</b>.
+    /// time zone ID (excluding the terminating character ('\0')) is greater than or equal to <b>len</b>.
     ///
     /// Required System Capabilities: SystemCapability.MiscServices.Time
     ///

@@ -31,7 +31,9 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsPlainText`]
     /// structure is returned. If the operation is failed, nullptr is returned.
-    /// [`OH_UdsPlainText`]
+    ///
+    /// **See also:** [`OH_UdsPlainText`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -41,7 +43,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPlainText`].
-    /// [`OH_UdsPlainText`]
+    ///
+    /// **See also:** [`OH_UdsPlainText`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -55,7 +59,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsPlainText`]
+    ///
+    /// **See also:** [`OH_UdsPlainText`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -69,7 +75,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsPlainText`]
+    ///
+    /// **See also:** [`OH_UdsPlainText`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -83,7 +91,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsPlainText`]
+    ///
+    /// **See also:** [`OH_UdsPlainText`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -101,7 +111,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsPlainText`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsPlainText`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -123,7 +134,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsPlainText`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsPlainText`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -145,7 +157,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsPlainText`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsPlainText`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -167,7 +180,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsPlainText`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsPlainText`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -183,7 +197,9 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of [`OH_UdsHyperlink`]
     /// structure is returned. If the operation is failed, nullptr is returned.
-    /// [`OH_UdsHyperlink`]
+    ///
+    /// **See also:** [`OH_UdsHyperlink`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -193,7 +209,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHyperlink`].
-    /// [`OH_UdsHyperlink`]
+    ///
+    /// **See also:** [`OH_UdsHyperlink`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -207,7 +225,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsHyperlink`]
+    ///
+    /// **See also:** [`OH_UdsHyperlink`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -221,7 +241,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsHyperlink`]
+    ///
+    /// **See also:** [`OH_UdsHyperlink`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -235,7 +257,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsHyperlink`]
+    ///
+    /// **See also:** [`OH_UdsHyperlink`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -255,7 +279,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsHyperlink`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsHyperlink`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -277,7 +302,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsHyperlink`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsHyperlink`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -299,7 +325,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsHyperlink`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsHyperlink`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -323,7 +350,8 @@ extern "C" {
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsHyperlink`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsHyperlink`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsHyperlink_SetDetails(
@@ -337,7 +365,9 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsHtml`]
     /// structure is returned. If the operation is failed, nullptr is returned.
-    /// [`OH_UdsHtml`]
+    ///
+    /// **See also:** [`OH_UdsHtml`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -347,7 +377,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`].
-    /// [`OH_UdsHtml`]
+    ///
+    /// **See also:** [`OH_UdsHtml`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -361,7 +393,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsHtml`]
+    ///
+    /// **See also:** [`OH_UdsHtml`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -375,7 +409,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsHtml`]
+    ///
+    /// **See also:** [`OH_UdsHtml`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -389,7 +425,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsHtml`]
+    ///
+    /// **See also:** [`OH_UdsHtml`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -409,7 +447,8 @@ extern "C" {
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsHtml`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsHtml`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsHtml_GetDetails(
@@ -429,7 +468,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsHtml`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsHtml`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -451,7 +491,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsHtml`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsHtml`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -475,7 +516,8 @@ extern "C" {
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsHtml`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsHtml`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsHtml_SetDetails(
@@ -489,7 +531,9 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsAppItem`]
     /// structure is returned. sIf the operation is failed, nullptr is returned.
-    /// [`OH_UdsAppItem`]
+    ///
+    /// **See also:** [`OH_UdsAppItem`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -499,7 +543,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `pThis` - Represents a pointer to an instance of [`OH_UdsAppItem`].
-    /// [`OH_UdsAppItem`]
+    ///
+    /// **See also:** [`OH_UdsAppItem`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -513,7 +559,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsAppItem`]
+    ///
+    /// **See also:** [`OH_UdsAppItem`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -527,7 +575,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsAppItem`]
+    ///
+    /// **See also:** [`OH_UdsAppItem`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -541,7 +591,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsAppItem`]
+    ///
+    /// **See also:** [`OH_UdsAppItem`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -555,7 +607,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsAppItem`]
+    ///
+    /// **See also:** [`OH_UdsAppItem`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -569,7 +623,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsAppItem`]
+    ///
+    /// **See also:** [`OH_UdsAppItem`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -583,7 +639,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsAppItem`]
+    ///
+    /// **See also:** [`OH_UdsAppItem`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -597,7 +655,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsAppItem`]
+    ///
+    /// **See also:** [`OH_UdsAppItem`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -617,7 +677,8 @@ extern "C" {
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsAppItem`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsAppItem`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsAppItem_GetDetails(
@@ -637,7 +698,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsAppItem`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -659,7 +721,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsAppItem`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -681,7 +744,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsAppItem`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -703,7 +767,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsAppItem`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -725,7 +790,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsAppItem`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -747,7 +813,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsAppItem`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsAppItem`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -769,7 +836,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsAppItem`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsAppItem`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -785,7 +853,9 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsFileUri`]
     /// structure is returned. If the memory is not enough, nullptr is returned.
-    /// [`OH_UdsFileUri`]
+    ///
+    /// **See also:** [`OH_UdsFileUri`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -795,7 +865,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`].
-    /// [`OH_UdsFileUri`]
+    ///
+    /// **See also:** [`OH_UdsFileUri`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -809,7 +881,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsFileUri`]
+    ///
+    /// **See also:** [`OH_UdsFileUri`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -823,7 +897,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsFileUri`]
+    ///
+    /// **See also:** [`OH_UdsFileUri`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -837,7 +913,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsFileUri`]
+    ///
+    /// **See also:** [`OH_UdsFileUri`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -857,7 +935,8 @@ extern "C" {
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsFileUri`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsFileUri`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsFileUri_GetDetails(
@@ -877,7 +956,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsFileUri`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsFileUri`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -899,7 +979,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsFileUri`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsFileUri`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -921,7 +1002,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsFileUri`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsFileUri`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -937,7 +1019,9 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsPixelMap`]
     /// structure is returned. If the memory is not enough, nullptr is returned.
-    /// [`OH_UdsPixelMap`]
+    ///
+    /// **See also:** [`OH_UdsPixelMap`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -947,7 +1031,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
-    /// [`OH_UdsPixelMap`]
+    ///
+    /// **See also:** [`OH_UdsPixelMap`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -961,7 +1047,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsPixelMap`]
+    ///
+    /// **See also:** [`OH_UdsPixelMap`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -973,7 +1061,9 @@ extern "C" {
     /// * `pThis` - Represents a pointer to an instance of [`OH_UdsPixelMap`].
     ///
     /// * `pixelmapNative` - Represents output params of [`OH_PixelmapNative`].
-    /// [`OH_UdsPixelMap`]
+    ///
+    /// **See also:** [`OH_UdsPixelMap`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -996,7 +1086,8 @@ extern "C" {
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsPixelMap`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsPixelMap`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsPixelMap_GetDetails(
@@ -1016,7 +1107,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsPixelMap`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsPixelMap`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1040,7 +1132,8 @@ extern "C" {
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsPixelMap`] OH_UdsDetails Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsPixelMap`] [`OH_UdsDetails`] [`Udmf_ErrCode`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsPixelMap_SetDetails(
@@ -1054,7 +1147,9 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsArrayBuffer`]
     /// structure is returned. If the memory is not enough, nullptr is returned.
-    /// [`OH_UdsArrayBuffer`]
+    ///
+    /// **See also:** [`OH_UdsArrayBuffer`]
+    ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
@@ -1070,7 +1165,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsArrayBuffer`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsArrayBuffer`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1091,7 +1187,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsArrayBuffer`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsArrayBuffer`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1116,7 +1213,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsArrayBuffer`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsArrayBuffer`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1133,7 +1231,9 @@ extern "C" {
     ///
     /// * If the operation is successful, a pointer to the instance of the [`OH_UdsContentForm`]
     /// structure is returned. If the operation is failed, nullptr is returned.
-    /// [`OH_UdsContentForm`]
+    ///
+    /// **See also:** [`OH_UdsContentForm`]
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1143,7 +1243,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `pThis` - Represents a pointer to an instance of [`OH_UdsContentForm`].
-    /// [`OH_UdsContentForm`]
+    ///
+    /// **See also:** [`OH_UdsContentForm`]
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1157,7 +1259,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsContentForm`]
+    ///
+    /// **See also:** [`OH_UdsContentForm`]
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1178,7 +1282,8 @@ extern "C" {
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     /// [`UDMF_ERR`] Internal data error.
-    /// [`OH_UdsContentForm`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1197,7 +1302,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsContentForm`]
+    ///
+    /// **See also:** [`OH_UdsContentForm`]
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1213,7 +1320,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsContentForm`]
+    ///
+    /// **See also:** [`OH_UdsContentForm`]
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1234,7 +1343,8 @@ extern "C" {
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     /// [`UDMF_ERR`] Internal data error.
-    /// [`OH_UdsContentForm`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1253,7 +1363,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsContentForm`]
+    ///
+    /// **See also:** [`OH_UdsContentForm`]
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1269,7 +1381,9 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns a pointer of the value string when input args normally, otherwise return nullptr.
-    /// [`OH_UdsContentForm`]
+    ///
+    /// **See also:** [`OH_UdsContentForm`]
+    ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
@@ -1291,7 +1405,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsContentForm`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1314,7 +1429,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsContentForm`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1336,7 +1452,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsContentForm`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1360,7 +1477,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsContentForm`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1383,7 +1501,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsContentForm`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1405,7 +1524,8 @@ extern "C" {
     /// * Returns the status code of the execution. See [`Udmf_ErrCode`].
     /// [`UDMF_E_OK`] success.
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
-    /// [`OH_UdsContentForm`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsContentForm`] [`Udmf_ErrCode`]
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -1423,7 +1543,8 @@ extern "C" {
     /// structure is returned. If the operation is failed, nullptr is returned.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsDetails`]
+    ///
+    /// **See also:** [`OH_UdsDetails`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_Create() -> *mut OH_UdsDetails;
@@ -1434,7 +1555,8 @@ extern "C" {
     /// * `pThis` - Represents a pointer to an instance of [`OH_UdsDetails`].
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsDetails`]
+    ///
+    /// **See also:** [`OH_UdsDetails`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_Destroy(pThis: *mut OH_UdsDetails);
@@ -1451,7 +1573,9 @@ extern "C" {
     /// * Returns the status code of the execution.
     /// `false` Represents The details do not contain the key.
     /// `true` Represents The details contain the key.
-    /// [`OH_UdsDetails`]
+    ///
+    /// **See also:** [`OH_UdsDetails`]
+    ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
@@ -1474,7 +1598,8 @@ extern "C" {
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsDetails`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsDetails`] [`Udmf_ErrCode`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_Remove(
@@ -1494,7 +1619,8 @@ extern "C" {
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsDetails`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsDetails`] [`Udmf_ErrCode`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_Clear(pThis: *mut OH_UdsDetails) -> ::core::ffi::c_int;
@@ -1515,7 +1641,8 @@ extern "C" {
     /// [`UDMF_E_INVALID_PARAM`] The error code for common invalid args.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsDetails`] Udmf_ErrCode
+    ///
+    /// **See also:** [`OH_UdsDetails`] [`Udmf_ErrCode`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_SetValue(
@@ -1536,7 +1663,8 @@ extern "C" {
     /// * Returns a string pointer when input args normally, otherwise return nullptr.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsDetails`]
+    ///
+    /// **See also:** [`OH_UdsDetails`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_GetValue(
@@ -1556,7 +1684,8 @@ extern "C" {
     /// * Returns string list of keys. Memory will be released after calling the OH_UdsDetails_Destroy function.
     ///
     /// Available since API-level: 22
-    /// [`OH_UdsDetails`]
+    ///
+    /// **See also:** [`OH_UdsDetails`]
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_UdsDetails_GetAllKeys(

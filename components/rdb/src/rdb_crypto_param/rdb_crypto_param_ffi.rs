@@ -84,7 +84,9 @@ extern "C" {
     /// * Returns a pointer to OH_Rdb_CryptoParam instance when the execution is successful.
     /// Otherwise, nullptr is returned. The memory must be released through the OH_Rdb_DestroyCryptoParam
     /// interface after the use is complete.
-    /// [`OH_Rdb_DestroyCryptoParam.`]
+    ///
+    /// **See also:** [`OH_Rdb_DestroyCryptoParam`].
+    ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]

@@ -151,7 +151,9 @@ extern "C" {
     ///
     /// * Returns 0 if the operation is successful; returns -1 if level is out of range or
     /// internal error failed.
-    /// [`QoS_Level`]
+    ///
+    /// **See also:** [`QoS_Level`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -163,7 +165,9 @@ extern "C" {
     ///
     /// * Returns 0 if the operation is successful; returns -1 if not set QoS for current thread
     /// or internal error failed.
-    /// [`QoS_Level`]
+    ///
+    /// **See also:** [`QoS_Level`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -179,7 +183,9 @@ extern "C" {
     ///
     /// * Returns 0 if the operation is successful; returns -1 if level is null, not
     /// set QoS for current thread or internal error failed.
-    /// [`QoS_Level`]
+    ///
+    /// **See also:** [`QoS_Level`]
+    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]

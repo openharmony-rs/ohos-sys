@@ -4142,7 +4142,8 @@ extern "C" {
     ///
     /// * `env` - Current running virtual machine context.
     ///
-    /// * `path` - Path name of the module to be loaded, like
+    /// * `path` - Path name of the module to be loaded, like @ohos.hilog.
+    ///
     /// * `module_info` - Path names of bundle and module, like com.example.application/entry.
     ///
     /// * `result` - Result of loading a module, which is an exported object of the module.

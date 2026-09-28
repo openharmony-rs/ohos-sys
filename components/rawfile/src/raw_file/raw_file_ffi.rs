@@ -103,7 +103,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Indicates the pointer to [`RawFile`].
-    /// [`OH_ResourceManager_OpenRawFile`]
+    ///
+    /// **See also:** [`OH_ResourceManager_OpenRawFile`]
+    ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
@@ -319,7 +321,9 @@ extern "C" {
     /// # Arguments
     ///
     /// * `rawFile` - Indicates the pointer to [`RawFile64`].
-    /// [`OH_ResourceManager_OpenRawFile64`]
+    ///
+    /// **See also:** [`OH_ResourceManager_OpenRawFile64`]
+    ///
     /// Available since API-level: 11
     ///
     /// Version: 1.0

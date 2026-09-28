@@ -849,7 +849,8 @@ extern "C" {
     /// Add a keyEvent interception hook function. Before using this interface,
     /// the user needs to authorize it in the settings.
     ///
-    /// ohos.permission.HOOK_KEY_EVENT
+    ///
+    /// Required Permissions: ohos.permission.HOOK_KEY_EVENT
     /// # Arguments
     ///
     /// * `callback` - - Hook function, keyEvent will be sent to the hook function for priority processing.
@@ -2313,7 +2314,8 @@ extern "C" {
     ) -> Input_Result;
     /// Adds a listener of key events.
     ///
-    /// ohos.permission.INPUT_MONITORING
+    ///
+    /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
     /// * `callback` - - Callback used to receive key events.
@@ -2339,7 +2341,8 @@ extern "C" {
     /// Adds a listener for mouse events, including mouse click and movement events,
     /// but not scroll wheel events. Scroll wheel events are axis events.
     ///
-    /// ohos.permission.INPUT_MONITORING
+    ///
+    /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
     /// * `callback` - - Callback used to receive mouse events.
@@ -2364,7 +2367,8 @@ extern "C" {
     pub fn OH_Input_AddMouseEventMonitor(callback: Input_MouseEventCallback) -> Input_Result;
     /// Add a listener for touch events.
     ///
-    /// ohos.permission.INPUT_MONITORING
+    ///
+    /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
     /// * `callback` - - Callback used to receive touch events.
@@ -2390,7 +2394,8 @@ extern "C" {
     /// Adds a listener for all types of axis events.
     /// The axis event types are defined in [`InputEvent_AxisEventType`].
     ///
-    /// ohos.permission.INPUT_MONITORING
+    ///
+    /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
     /// * `callback` - - Callback used to receive axis events.
@@ -2415,7 +2420,8 @@ extern "C" {
     pub fn OH_Input_AddAxisEventMonitorForAll(callback: Input_AxisEventCallback) -> Input_Result;
     /// Adds a listener for the specified type of axis events.
     ///
-    /// ohos.permission.INPUT_MONITORING
+    ///
+    /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
     /// * `axisEventType` - - Axis event type. The values are defined in [`InputEvent_AxisEventType`].
@@ -2445,7 +2451,8 @@ extern "C" {
     ) -> Input_Result;
     /// Removes a key event listener.
     ///
-    /// ohos.permission.INPUT_MONITORING
+    ///
+    /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
     /// * `callback` - - Callback for the key event listener.
@@ -2470,7 +2477,8 @@ extern "C" {
     pub fn OH_Input_RemoveKeyEventMonitor(callback: Input_KeyEventCallback) -> Input_Result;
     /// Removes a mouse event listener.
     ///
-    /// ohos.permission.INPUT_MONITORING
+    ///
+    /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
     /// * `callback` - - Callback for the mouse event listener.
@@ -2495,7 +2503,8 @@ extern "C" {
     pub fn OH_Input_RemoveMouseEventMonitor(callback: Input_MouseEventCallback) -> Input_Result;
     /// Removes a touch event listener.
     ///
-    /// ohos.permission.INPUT_MONITORING
+    ///
+    /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
     /// * `callback` - - Callback for the touch event listener.
@@ -2520,7 +2529,8 @@ extern "C" {
     pub fn OH_Input_RemoveTouchEventMonitor(callback: Input_TouchEventCallback) -> Input_Result;
     /// Removes the listener for all types of axis events.
     ///
-    /// ohos.permission.INPUT_MONITORING
+    ///
+    /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
     /// * `callback` - - Callback for the listener used to listen for all types of axis events.
@@ -2546,7 +2556,8 @@ extern "C" {
         -> Input_Result;
     /// Removes the listener for the specified type of axis events.
     ///
-    /// ohos.permission.INPUT_MONITORING
+    ///
+    /// Required Permissions: ohos.permission.INPUT_MONITORING
     /// # Arguments
     ///
     /// * `axisEventType` - - Axis event type. The axis event type is defined in [`InputEvent_AxisEventType`].
@@ -2576,7 +2587,8 @@ extern "C" {
     ) -> Input_Result;
     /// Adds a key event interceptor. If multiple interceptors are added, only the first one takes effect.
     ///
-    /// ohos.permission.INTERCEPT_INPUT_EVENT
+    ///
+    /// Required Permissions: ohos.permission.INTERCEPT_INPUT_EVENT
     /// # Arguments
     ///
     /// * `callback` - - Callback used to receive key events.
@@ -2609,7 +2621,8 @@ extern "C" {
     /// Adds an interceptor for input events, including mouse, touch, and axis events.
     /// If multiple interceptors are added, only the first one takes effect.
     ///
-    /// ohos.permission.INTERCEPT_INPUT_EVENT
+    ///
+    /// Required Permissions: ohos.permission.INTERCEPT_INPUT_EVENT
     /// # Arguments
     ///
     /// * `callback` - - Pointer to the structure of the callback for the input event interceptor.
@@ -2642,7 +2655,8 @@ extern "C" {
     ) -> Input_Result;
     /// Removes a key event interceptor.
     ///
-    /// ohos.permission.INTERCEPT_INPUT_EVENT
+    ///
+    /// Required Permissions: ohos.permission.INTERCEPT_INPUT_EVENT
     ///
     /// # Returns
     ///
@@ -2662,7 +2676,8 @@ extern "C" {
     pub fn OH_Input_RemoveKeyEventInterceptor() -> Input_Result;
     /// Removes an interceptor for input events, including mouse, touch, and axis events.
     ///
-    /// ohos.permission.INTERCEPT_INPUT_EVENT
+    ///
+    /// Required Permissions: ohos.permission.INTERCEPT_INPUT_EVENT
     ///
     /// # Returns
     ///
