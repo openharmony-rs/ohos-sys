@@ -61,9 +61,17 @@ pub(crate) const STYLED_STRING_DRAWING_FUNCTIONS: &[&str] = &[
     "OH_ArkUI_StyledString_PushTextStyle",
     "OH_ArkUI_StyledString_CreateTypography",
     "OH_ArkUI_StyledString_AddPlaceholder",
+    "OH_ArkUI_ImageAttachment_SetDrawingColorFilter",
+    "OH_ArkUI_ImageAttachment_GetDrawingColorFilter",
     "OH_ArkUI_TextLayoutManager_GetRectsForRange",
     "OH_ArkUI_TextLayoutManager_GetGlyphPositionAtCoordinate",
     "OH_ArkUI_TextLayoutManager_GetLineMetrics",
+    "OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinate",
+    "OH_ArkUI_TextLayoutManager_GetCharacterPositionAtCoordinateWithEncoding",
+    "OH_ArkUI_TextLayoutManager_GetGlyphRangeForCharacterRange",
+    "OH_ArkUI_TextLayoutManager_GetGlyphRangeForCharacterRangeWithEncoding",
+    "OH_ArkUI_TextLayoutManager_GetCharacterRangeForGlyphRange",
+    "OH_ArkUI_TextLayoutManager_GetCharacterRangeForGlyphRangeWithEncoding",
 ];
 
 /// Renames `ArkUI_ErrorCode` to `ArkUiResult`.
@@ -75,6 +83,18 @@ pub(crate) fn arkui_result_parse_callbacks() -> Box<ResultEnumParseCallbacks> {
         }),
         ..Default::default()
     })
+}
+
+/// Builder options shared by all ArkUI headers.
+fn arkui_builder_opts(
+    builder: bindgen::Builder,
+    header_path: &std::path::Path,
+) -> bindgen::Builder {
+    builder
+        .allowlist_file(header_path.to_str().unwrap())
+        .prepend_enum_name(false)
+        .parse_callbacks(arkui_result_parse_callbacks())
+        .clang_args(&["-x", "c++"])
 }
 
 pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
@@ -175,6 +195,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "avrecorder" => builder
                         .raw_line("#[allow(unused_imports)]use crate::avrecorder_base::{OH_AVRecorder, OH_AVRecorder_Config, OH_AVRecorder_EncoderInfo, OH_AVRecorder_OnError, OH_AVRecorder_OnStateChange};")
                         .raw_line("use ohos_sys_opaque_types::OHNativeWindow;")
+                        .raw_line("#[cfg(feature = \"api-26\")]use crate::avformat::OH_AVFormat;")
                         // missing media library bindings; blocklist dependent callback registration
                         .blocklist_function("OH_AVRecorder_SetUriCallback"),
                     "avrecorder_base" => builder
@@ -187,6 +208,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("#[cfg(feature = \"api-15\")]#[allow(unused_imports)]use crate::avscreen_capture_base::OH_AVScreenCapture_OnDisplaySelected;")
                         .raw_line("#[cfg(feature = \"api-20\")]#[allow(unused_imports)]use crate::avscreen_capture_base::{OH_AVScreenCapture_CaptureStrategy, OH_AVScreenCapture_FillMode, OH_AVScreenCapture_OnCaptureContentChanged, OH_AVScreenCapture_OnUserSelected, OH_AVScreenCapture_UserSelectionInfo};")
                         .raw_line("#[cfg(feature = \"api-22\")]use crate::avscreen_capture_base::{OH_AVScreenCaptureHighlightConfig, OH_CapturePickerMode};")
+                        .raw_line("#[cfg(feature = \"api-24\")]use crate::avscreen_capture_base::{OH_AVScreenCapture_OnPrivacyProtect, OH_MultiDisplayCapability};")
                         .raw_line("#[allow(unused_imports)]use crate::avscreen_capture_errors::OH_AVSCREEN_CAPTURE_ErrCode;")
                         .raw_line("#[allow(unused_imports)]use ohos_sys_opaque_types::{OHNativeWindow, OH_NativeBuffer};"),
                     "avscreen_capture_base" => builder
@@ -207,13 +229,18 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use crate::avmedia_source::OH_AVMediaSource;")
                         .raw_line("#[cfg(feature = \"api-23\")]")
                         .raw_line("use crate::avcodec_base::OH_MediaType;")
+                        .raw_line("#[cfg(feature = \"api-26\")]")
+                        .raw_line("use crate::avplayer_base::{OH_AVPlayerPCMOutputCallback, OH_AVPlayerPCMProcessorCallback, OH_VideoOutputResult};")
                         // require bindings to OH audio.
                         .blocklist_function("OH_AVPlayer_SetVolumeMode")
                         .blocklist_function("OH_AVPlayer_SetAudioRendererInfo")
                         .blocklist_function("OH_AVPlayer_SetAudioInterruptMode")
                         .blocklist_function("OH_AVPlayer_SetAudioEffectMode")
                     ,
-                    "avplayer_base" => builder.raw_line("#[cfg(feature = \"api-12\")]use crate::avformat::OH_AVFormat;"),
+                    "avplayer_base" => builder
+                        .raw_line("#[cfg(feature = \"api-12\")]use crate::avformat::OH_AVFormat;")
+                        .raw_line("#[cfg(feature = \"api-26\")]use crate::avbuffer::OH_AVBuffer;"),
+                    "audio_vivid" | "avcodec_videobase" => builder.raw_line("use crate::avformat::OH_AVFormat;"),
                     "avcapability" => builder
                         .raw_line("#[cfg(feature = \"api-12\")]use crate::avformat::OH_AVFormat;")
                         .raw_line("use crate::avcodec_base::OH_BitrateMode;")
@@ -299,6 +326,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use ohos_sys_opaque_types::{OHNativeWindow, OHNativeWindowBuffer};")
                         .raw_line("#[cfg(feature = \"api-12\")]")
                         .raw_line("use crate::native_buffer::buffer_common::{OH_NativeBuffer_ColorSpace, OH_NativeBuffer_MetadataKey};")
+                        .raw_line("#[cfg(feature = \"api-26\")]")
+                        .raw_line("use crate::native_buffer::buffer_common::OH_NativeBuffer_3D_MetadataKey;")
                         .raw_line("#[cfg(feature = \"api-12\")]")
                         .raw_line("use ohos_sys_opaque_types::OHIPCParcel;")
                         .raw_line("#[cfg(feature = \"api-11\")]")
@@ -479,6 +508,7 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 match file_stem {
                     "udmf" => builder.raw_line("use ohos_sys_opaque_types::*;"),
                     "uds" => builder
+                        .bitfield_enum("Udmf_AuthPermission")
                         .raw_line("pub use ohos_sys_opaque_types::{OH_UdsAppItem, OH_UdsHtml, OH_UdsHyperlink, OH_UdsPlainText};")
                         .raw_line("#[cfg(feature = \"api-13\")]use ohos_sys_opaque_types::OH_PixelmapNative;")
                         .raw_line("#[cfg(feature = \"api-13\")]pub use ohos_sys_opaque_types::{OH_UdsPixelMap, OH_UdsArrayBuffer, OH_UdsFileUri};")
@@ -652,7 +682,12 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "text_font_descriptor" => builder
                         .raw_line("use crate::text_typography::OH_Drawing_FontDescriptor;")
                         .raw_line("#[cfg(feature = \"api-22\")]")
-                        .raw_line("use crate::text_declaration::OH_Drawing_FontFullDescriptor;"),
+                        .raw_line("use crate::text_declaration::OH_Drawing_FontFullDescriptor;")
+                        .raw_line("#[cfg(feature = \"api-24\")]")
+                        .raw_line("use crate::text_declaration::{OH_Drawing_FontVariationAxis, OH_Drawing_FontVariationInstance};"),
+                    "path" => builder
+                        .raw_line("#[cfg(feature = \"api-26\")]")
+                        .raw_line("use crate::path_iterator::OH_Drawing_PathIteratorVerb;"),
                     "register_font" => builder.raw_line("use crate::text_declaration::*;"),
                     "image_filter" => builder.raw_line("use crate::shader_effect::*;"),
                     "font_mgr" => builder.raw_line("use crate::text_typography::*;"),
@@ -685,20 +720,26 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
             output_dir: "components/arkui/src".to_string(),
             rename_output_file: None,
             set_builder_opts: Box::new(|file_stem, header_path, builder| {
-                let builder = if file_stem != "native_type" {
-                    builder.raw_line("use crate::native_type::*;")
-                } else {
-                    builder
-                        .raw_line("pub use ohos_sys_opaque_types::{ArkUI_Node, ArkUI_NodeHandle};")
+                let builder = match file_stem {
+                    // Split out of `native_type.h` in API 26. They are self-contained.
+                    "common_type" | "error_code" | "native_type_visual" => builder,
+                    _ => builder.raw_line("use crate::native_type::*;"),
                 };
-                let builder = builder
-                    .allowlist_file(header_path.to_str().unwrap())
-                    .prepend_enum_name(false)
-                    .parse_callbacks(arkui_result_parse_callbacks())
-                    .clang_args(&["-x", "c++"]);
+                let builder = arkui_builder_opts(builder, header_path);
                 match file_stem {
+                    "common_type" => builder
+                        .raw_line("pub use ohos_sys_opaque_types::{ArkUI_Node, ArkUI_NodeHandle};")
+                        .raw_line("#[cfg(feature =\"api-12\")]")
+                        .raw_line("pub use ohos_sys_opaque_types::ArkUI_ContextHandle;")
+                        .no_copy("ArkUI_ContextCallback"),
+                    "error_code" => builder.result_error_enum("ArkUI_ErrorCode"),
+                    "native_type_visual" => builder
+                        .raw_line("#[cfg(feature = \"api-23\")]")
+                        .raw_line("use crate::error_code::ArkUiResult;"),
                     "drag_and_drop" => {
                         builder
+                            // Moved to `common_type.h` in API-level 26.
+                            .raw_line("pub use crate::common_type::ArkUI_NodeEvent;")
                             // Pixelmap is from image-kit
                             .raw_line("pub use ohos_sys_opaque_types::OH_PixelmapNative;")
                             .raw_line("use ohos_sys_opaque_types::OH_UdmfData;")
@@ -725,8 +766,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "native_dialog" => builder
                         .no_debug("ArkUI_NativeDialogAPI_.*")
                         .no_copy("ArkUI_NativeDialogAPI_.*")
-                        .raw_line("#[cfg(feature =\"api-19\")]")
-                        .raw_line("use crate::native_node::ArkUI_AttributeItem;"),
+                        .raw_line("#[cfg(feature = \"api-26\")]")
+                        .raw_line("use crate::native_material::ArkUI_ImmersiveMaterialHandle;"),
                     "native_gesture" => builder
                         .raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
                         .blocklist_function("^OH_ArkUI_GestureEvent_GetNode")
@@ -740,6 +781,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         builder.raw_line("use crate::ui_input_event::ArkUI_UIInputEvent;")
                     }
                     "native_node" => builder
+                        // Moved to `common_type.h` and `node_attributes/custom_attributes.h` in API-level 26.
+                        .raw_line("pub use crate::common_type::{ArkUI_AttributeItem, ArkUI_NodeEvent};")
+                        .raw_line("pub use crate::node_attributes::custom_attributes::ArkUI_NodeCustomEventType;")
                         .blocklist_var("MAX_NODE_SCOPE_NUM")
                         .blocklist_var("MAX_COMPONENT_EVENT_ARG_NUM")
                         .raw_line("#[cfg(feature =\"api-12\")]")
@@ -754,21 +798,20 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("#[cfg(feature =\"api-12\")]")
                         .raw_line("use ohos_sys_opaque_types::ArkUI_ContextHandle;")
                         .raw_line("use crate::drawable_descriptor::ArkUI_DrawableDescriptor;"),
-                    "native_type" => {
-                        builder
-                            .raw_line("use crate::drawable_descriptor::ArkUI_DrawableDescriptor;")
-                            // We want copy for the union type `ArkUI_NumberValue`
-                            .derive_copy(true)
-                            .no_copy("ArkUI_ContextCallback")
-                            .no_copy("ARKUI_TextPickerRangeContent")
-                            .no_copy("ARKUI_TextPickerCascadeRangeContent")
-                            .no_copy("ArkUI_ColorStop")
-                            .result_error_enum("ArkUI_ErrorCode")
-                    }
                     "styled_string" => builder
                         // Functions using `ohos-drawing-sys` types are generated separately,
                         // behind the `drawing` feature.
-                        .blocklist_function(STYLED_STRING_DRAWING_FUNCTIONS.join("|")),
+                        .blocklist_function(STYLED_STRING_DRAWING_FUNCTIONS.join("|"))
+                        .raw_line("#[cfg(feature = \"api-24\")]")
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
+                        .raw_line("#[cfg(feature = \"api-24\")]")
+                        .raw_line("use crate::native_gesture::ArkUI_GestureEvent;")
+                        .raw_line("#[cfg(feature = \"api-24\")]")
+                        .raw_line("use crate::native_node::OH_ArkUI_TextEditorChangeEvent;"),
+                    "native_type" => builder
+                        .no_copy("ArkUI_ColorStop")
+                        .raw_line("#[cfg(feature = \"api-24\")]")
+                        .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;"),
                     "ui_input_event" => builder
                         .bitfield_enum("ArkUI_ModifierKeyName")
                         .blocklist_item("UI_TOUCH_EVENT_ACTION_.*")
@@ -776,6 +819,27 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .blocklist_item("UI_INPUT_EVENT_SOURCE_TYPE_.*")
                         .blocklist_item("UI_MOUSE_EVENT_ACTION_.*")
                         .blocklist_item("UI_MOUSE_EVENT_BUTTON_.*"),
+                    _ => builder,
+                }
+            }),
+            known_nested_include_dirs: vec!["arkui/node_attributes".to_string()],
+            ..Default::default()
+        },
+        DirBindingsConf {
+            // Split out of `arkui/native_type.h` in API 26, which includes all of them.
+            directory: "arkui/node_attributes".to_string(),
+            output_dir: "components/arkui/src/node_attributes".to_string(),
+            rename_output_file: None,
+            set_builder_opts: Box::new(|file_stem, header_path, builder| {
+                let builder = arkui_builder_opts(builder, header_path);
+                match file_stem {
+                    "image_animator" => builder
+                        .raw_line("#[cfg(feature = \"api-12\")]")
+                        .raw_line("use ohos_sys_opaque_types::ArkUI_DrawableDescriptor;"),
+                    "list_item" => builder.raw_line("use crate::common_type::*;"),
+                    "picker" => builder
+                        .no_copy("ARKUI_TextPickerRangeContent")
+                        .no_copy("ARKUI_TextPickerCascadeRangeContent"),
                     _ => builder,
                 }
             }),
@@ -836,8 +900,11 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .prepend_enum_name(false)
                     .clang_args(["-include", "stdbool.h"]);
                 match file_stem {
-                         "input_manager" => {
-                             builder
+                    "input_manager" => {
+                        builder
+                                 // Since API 26 the header uses `OH_PixelmapNative` before its typedef,
+                                 // which is only valid C++.
+                                 .clang_args(["-x", "c++"])
                                  .result_error_enum("Input_Result")
                                  .parse_callbacks(Box::new(ResultEnumParseCallbacks::default()))
                                  .raw_line("use crate::axis_type::{InputEvent_AxisAction, InputEvent_AxisEventType, InputEvent_AxisType};")
@@ -848,16 +915,16 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                                  .raw_line("use crate::pointer_style::Input_PointerStyle;")
                                  .raw_line("#[cfg(feature = \"api-22\")]")
                                  .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
-                         },
-                         "key_code" => {
-                             builder
-                                 // Input_KeyCode is not directly exposed via FFI, instead a
-                                 // raw integer is used there. Hence, we can use a rust enum here
-                                 // which is much nicer to use.
-                                 .rustified_enum("Input_KeyCode")
-                         }
-                         _ => builder,
-                     }
+                    }
+                    "key_code" => {
+                        builder
+                            // Input_KeyCode is not directly exposed via FFI, instead a
+                            // raw integer is used there. Hence, we can use a rust enum here
+                            // which is much nicer to use.
+                            .rustified_enum("Input_KeyCode")
+                    }
+                    _ => builder,
+                }
             }),
             ..Default::default()
         },
@@ -919,6 +986,40 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use ohos_sys_opaque_types::OH_PixelmapNative;")
                         .raw_line("use crate::runtime::{AbilityRuntimeResult, AbilityRuntime_StartVisibility, AbilityRuntime_SupportedWindowMode, AbilityRuntime_WindowMode};")
                     ,
+                    "connect_options" => builder
+                        .raw_line("use crate::base::want::AbilityBase_Element;")
+                        .raw_line("use crate::runtime::AbilityRuntimeResult;")
+                        .raw_line("use ohos_sys_opaque_types::OHIPCRemoteProxy;"),
+                    "context" => builder
+                        .raw_line("use crate::runtime::{AbilityRuntimeResult, AbilityRuntime_AreaMode};"),
+                    "extension_ability" => builder
+                        // The application defines this entry point; the system does not provide it.
+                        .blocklist_function("OH_AbilityRuntime_OnNativeExtensionCreate"),
+                    "modular_object_dispatcher" => builder
+                        .raw_line("use crate::runtime::AbilityRuntimeResult;")
+                        .raw_line("use ohos_sys_opaque_types::{OHIPCRemoteProxy, OHIPCRemoteStub};"),
+                    "modular_object_extension_ability" => builder
+                        .raw_line("use crate::base::want::AbilityBase_Want;")
+                        .raw_line("use crate::runtime::AbilityRuntimeResult;")
+                        .raw_line("use crate::runtime::extension_ability::AbilityRuntime_ExtensionInstanceHandle;")
+                        .raw_line("use crate::runtime::modular_object_extension_context::OH_AbilityRuntime_ModObjExtensionContextHandle;")
+                        .raw_line("use ohos_sys_opaque_types::OHIPCRemoteStub;"),
+                    "modular_object_extension_context" => builder
+                        // Callback types from `IPCKit/ipc_cremote_object.h`. These are type aliases,
+                        // so they are interchangeable with the ones from `ohos-ipckit-sys`.
+                        .allowlist_type("OH_OnRemote(Request|Destroy)Callback")
+                        .raw_line("use crate::base::want::AbilityBase_Want;")
+                        .raw_line("use crate::runtime::AbilityRuntimeResult;")
+                        .raw_line("use crate::runtime::context::AbilityRuntime_ContextHandle;")
+                        .raw_line("use crate::runtime::start_options::AbilityRuntime_StartOptions;")
+                        .raw_line("use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteStub};"),
+                    "modular_object_extension_manager" => builder
+                        .raw_line("use crate::base::want::{AbilityBase_Element, AbilityBase_Want};")
+                        .raw_line("use crate::runtime::AbilityRuntimeResult;")
+                        .raw_line("use crate::runtime::connect_options::OH_AbilityRuntime_ConnectOptions;"),
+                    "native_ability_wrapper" => builder
+                        .raw_line("use crate::runtime::AbilityRuntimeResult;")
+                        .raw_line("use ohos_sys_opaque_types::napi_env;"),
                     _ => builder,
                 }
             }),
@@ -986,6 +1087,10 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use ohos_sys_opaque_types::Input_TouchEvent;")
                         .raw_line("#[cfg(feature=\"api-21\")]")
                         .raw_line("use crate::window_comm::{WindowManager_MainWindowInfo, WindowManager_WindowSnapshotConfig};")
+                        .raw_line("#[cfg(feature=\"api-24\")]")
+                        .raw_line("use crate::window_comm::{OH_WindowManager_DensityInfo, OH_WindowManager_DensityInfoCallback};")
+                        .raw_line("#[cfg(feature=\"api-26\")]")
+                        .raw_line("use crate::window_comm::{OH_WindowManager_FrameMetrics, OH_WindowManager_FrameMetricsMeasuredCallback};")
                     ,
                     _ => builder,
                 }
@@ -1019,7 +1124,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                 let builder = builder.allowlist_file(header_path.to_str().unwrap());
                 match file_stem {
                     "cparcel" => builder
-                        .raw_line("use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteProxy};"),
+                        .raw_line("use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteProxy};")
+                        .raw_line("pub use ohos_sys_opaque_types::OHIPCRemoteStub;"),
                     "cremote_object" => builder
                         .raw_line("use crate::cparcel::{OHIPCRemoteStub, OH_IPC_MemAllocator};")
                         .raw_line("use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteProxy};"),
@@ -1065,6 +1171,9 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     ]);
                 match file_stem {
                     "net_http" => builder.raw_line("use crate::net_http_type::*;"),
+                    "http_interceptor" => builder.raw_line("use crate::http_interceptor_type::*;"),
+                    "http_interceptor_type" => builder
+                        .raw_line("use crate::net_http_type::{Http_Buffer, Http_PerformanceTiming, Http_ResponseCode};"),
                     "net_http_type" => builder.blocklist_var("NET_HTTP_METHOD_PATCH").raw_line(
                         "// SDK currently defines NET_HTTP_METHOD_PATCH as \"CONNECT\"; \
                              blocklisted until this is re-evaluated against upstream headers.",
@@ -1323,11 +1432,14 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "audiocapturer" => builder
                         .raw_line("use crate::audiostream_base::*;")
                         .raw_line("use libc::clockid_t;")
-                        .raw_line("#[cfg(feature = \"api-20\")]\nuse crate::audio_device_base::OH_AudioDeviceDescriptorArray;"),
+                        .raw_line("#[cfg(feature = \"api-20\")]\nuse crate::audio_device_base::OH_AudioDeviceDescriptorArray;")
+                        .raw_line("#[cfg(feature = \"api-24\")]\nuse crate::audio_session_base::OH_AudioSession_Strategy;")
+                        .raw_line("#[cfg(feature = \"api-26\")]\nuse crate::audio_common::OH_AudioNoiseReductionMode;"),
                     "audiorenderer" => builder
                         .raw_line("use crate::audiostream_base::*;")
                         .raw_line("use libc::clockid_t;")
-                        .raw_line("#[cfg(feature = \"api-12\")]\nuse crate::audio_device_base::OH_AudioDevice_Type;"),
+                        .raw_line("#[cfg(feature = \"api-12\")]\nuse crate::audio_device_base::OH_AudioDevice_Type;")
+                        .raw_line("#[cfg(feature = \"api-24\")]\nuse crate::audio_session_base::OH_AudioSession_Strategy;"),
                     "audiostreambuilder" => builder
                         .raw_line("use crate::audiostream_base::*;")
                         .raw_line(
@@ -1335,7 +1447,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         )
                         .raw_line(
                             "#[cfg(feature = \"api-20\")]\nuse crate::audiorenderer::{OH_AudioRenderer_OnErrorCallback, OH_AudioRenderer_OnFastStatusChange, OH_AudioRenderer_OnInterruptCallback, OH_AudioRenderer_OnWriteDataCallbackAdvanced};",
-                        ),
+                        )
+                        .raw_line("#[cfg(feature = \"api-26\")]\nuse crate::audiocapturer::OH_AudioCapturer_SensitiveRecordPermitCallback;"),
                     "audio_common" => builder.result_error_enum("OH_AudioCommon_Result"),
                     "audiostream_base" => builder.result_error_enum("OH_AudioStream_Result"),
                     "audio_device_base" => builder
@@ -1350,6 +1463,8 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                         .raw_line("use crate::audiostream_base::{OH_AudioStream_Usage, OH_AudioStream_SourceType};"),
                     "audio_session_manager" => builder
                         .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
+                        // Moved to `native_audio_session_base.h` in API-level 24.
+                        .raw_line("pub use crate::audio_session_base::{OH_AudioSession_ConcurrencyMode, OH_AudioSession_Strategy};")
                         .raw_line("#[cfg(feature = \"api-20\")]\nuse crate::audio_device_base::{OH_AudioDeviceDescriptorArray, OH_AudioDevice_Type};")
                         .raw_line("#[cfg(feature = \"api-21\")]\nuse crate::audio_device_base::{OH_AudioDevice_ChangeType, OH_AudioDeviceDescriptor, OH_AudioDevice_Usage};")
                         .raw_line("#[cfg(feature = \"api-20\")]\nuse crate::audiostream_base::OH_AudioStream_DeviceChangeReason;"),
@@ -1361,6 +1476,26 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     "audio_volume_manager" => builder
                         .raw_line("use crate::audio_common::{OH_AudioCommon_Result, OH_AudioRingerMode};")
                         .raw_line("use crate::audiostream_base::OH_AudioStream_Usage;"),
+                    "audio_session_base" => builder.bitfield_enum("OH_AudioSession_BehaviorFlags"),
+                    "audio_accessory_common" => builder
+                        .raw_line("use crate::audio_common::OH_AudioNoiseReductionMode;")
+                        .raw_line("use crate::audiostream_base::OH_AudioStreamInfo;"),
+                    "audio_accessory_input_stream_manager" => builder
+                        .raw_line("use crate::audio_accessory_common::{OH_AudioAccessory, OH_AudioAccessoryInputStream};")
+                        .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
+                        .raw_line("use crate::audiostream_base::OH_AudioStreamInfo;"),
+                    "audio_accessory_manager" => builder
+                        .raw_line("use crate::audio_accessory_common::{OH_AudioAccessory, OH_AudioAccessoryCapabilities, OH_AudioAccessoryInfo, OH_AudioAccessoryManager, OH_AudioAccessoryNoiseReductionCapability};")
+                        .raw_line("use crate::audio_accessory_input_stream_manager::OH_AudioAccessory_OpenInputStreamCallback;")
+                        .raw_line("use crate::audio_common::{OH_AudioCommon_Result, OH_AudioNoiseReductionMode};"),
+                    "audio_debugging_manager" => builder
+                        .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
+                        .raw_line("use crate::audio_session_manager::OH_AudioSessionManager;")
+                        .raw_line("use crate::audiostream_base::{OH_AudioCapturer, OH_AudioRenderer};"),
+                    "audio_device_enhance_manager" => builder
+                        .raw_line("use crate::audio_common::OH_AudioCommon_Result;")
+                        .raw_line("use crate::audio_device_base::OH_AudioDeviceDescriptor;")
+                        .raw_line("use crate::audiostream_base::{OH_AudioCapturer, OH_AudioRenderer};"),
                     _ => builder,
                 }
             }),

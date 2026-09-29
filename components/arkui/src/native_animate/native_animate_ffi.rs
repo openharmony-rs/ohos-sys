@@ -16,11 +16,11 @@ use ohos_sys_opaque_types::ArkUI_ContextHandle;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_ExpectedFrameRateRange {
-    /// Expected minimum frame rate.
+    /// Expected minimum frame rate, in fps.
     pub min: u32,
-    /// Expected maximum frame rate.
+    /// Expected maximum frame rate, in fps.
     pub max: u32,
-    /// Expected optimal frame rate.
+    /// Expected optimal frame rate, in fps.
     pub expected: u32,
 }
 /// Defines the callback type for when the animation playback is complete.
@@ -31,11 +31,11 @@ pub struct ArkUI_ExpectedFrameRateRange {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[repr(C)]
 pub struct ArkUI_AnimateCompleteCallback {
-    /// Type of the <b>onFinish</b> callback.
+    /// Callback type for when the animation playback is complete.
     pub type_: ArkUI_FinishCallbackType,
-    /// Callback invoked when the animation playback is complete.
+    /// Invoked when the animation playback is complete.
     pub callback: ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>,
-    /// Custom type.
+    /// Custom data passed upon animation end callback.
     pub userData: *mut ::core::ffi::c_void,
 }
 /// Defines the animation configuration.
@@ -116,7 +116,7 @@ pub struct ArkUI_AnimatorEvent {
 pub struct ArkUI_AnimatorOnFrameEvent {
     _unused: [u8; 0],
 }
-/// Defines the transition effect.
+/// Defines the transition parameter object for transition property configuration.
 ///
 ///
 /// Available since API-level: 12
@@ -126,7 +126,7 @@ pub struct ArkUI_AnimatorOnFrameEvent {
 pub struct ArkUI_TransitionEffect {
     _unused: [u8; 0],
 }
-/// Implements the native animation APIs provided by ArkUI.
+/// Declares the native animation APIs provided by ArkUI.
 ///
 ///
 /// Version: 1
@@ -143,20 +143,20 @@ pub struct ArkUI_NativeAnimateAPI_1 {
     ///
     /// # Arguments
     ///
-    /// * `context` - Indicates a <b>UIContext</b> instance.
+    /// * `context` - **UIContext** instance.
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Defines the animation configuration.
     ///
-    /// * `update` - Indicates the animation closure. The system automatically inserts a transition animation for the
-    /// state change caused by the closure.
+    /// * `update` - Closure function for the animation. The system automatically inserts the transition animation if
+    /// the state changes in the closure function.
+    /// <br>Note: Make sure the component attributes to be set in the closure function have been set before.
     ///
-    /// * `complete` - Indicates the callback to be invoked when the animation playback is complete.
+    /// * `complete` - Callback invoked when the animation playback is complete.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     pub animateTo: ::core::option::Option<
         unsafe extern "C" fn(
             context: ArkUI_ContextHandle,
@@ -165,20 +165,18 @@ pub struct ArkUI_NativeAnimateAPI_1 {
             complete: *mut ArkUI_AnimateCompleteCallback,
         ) -> i32,
     >,
-    /// Sets the keyframe animation.
-    ///
+    /// Defines a keyframe animation.
     ///
     /// # Arguments
     ///
-    /// * `context` - Indicates a <b>UIContext</b> instance.
+    /// * `context` - **UIContext** instance.
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     pub keyframeAnimateTo: ::core::option::Option<
         unsafe extern "C" fn(
             context: ArkUI_ContextHandle,
@@ -189,13 +187,13 @@ pub struct ArkUI_NativeAnimateAPI_1 {
     ///
     /// # Arguments
     ///
-    /// * `context` - Indicates a <b>UIContext</b> instance.
+    /// * `context` - **UIContext** instance.
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the animator object; returns <b>NULL</b> if a function parameter error occurs.
+    /// * Returns the pointer to the animator object; returns **NULL** if a parameter error occurs.
     pub createAnimator: ::core::option::Option<
         unsafe extern "C" fn(
             context: ArkUI_ContextHandle,
@@ -206,7 +204,7 @@ pub struct ArkUI_NativeAnimateAPI_1 {
     ///
     /// # Arguments
     ///
-    /// * `animatorHandle` - Indicates the target animator object.
+    /// * `animatorHandle` - Animator object.
     pub disposeAnimator:
         ::core::option::Option<unsafe extern "C" fn(animatorHandle: ArkUI_AnimatorHandle)>,
 }
@@ -216,7 +214,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the created animation configuration.
+    /// * Pointer to the created animation configuration.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -226,7 +224,8 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -236,39 +235,42 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the duration.
+    /// * Animation duration, in milliseconds. If **option** is invalid, **0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimateOption_GetDuration(option: *mut ArkUI_AnimateOption) -> u32;
-    /// Obtains the animation playback speed.
+    /// Obtains the playback speed of an animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, **0.0** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the animation playback speed.
+    /// * Animation playback speed. Value range: [0, +∞). If **option** is invalid, **0.0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimateOption_GetTempo(option: *mut ArkUI_AnimateOption) -> f32;
-    /// Obtains the animation curve.
+    /// Obtains an animation curve.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, **-1** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the animated curve.If Null is returned, it means option is an invalid value.
+    /// * Animation curve. If **option** is invalid,**-1** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -280,11 +282,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the animation delay.
+    /// * Delay of animation playback. If **option** is invalid, **0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -294,25 +297,27 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the number of times that the animation is played.
+    /// * Number of times that the animation is played. If **option** is invalid, **0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimateOption_GetIterations(option: *mut ArkUI_AnimateOption) -> i32;
-    /// Obtains the animation playback mode.
+    /// Obtains the playback mode of an animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, **-1** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the animation playback mode.
+    /// * Animation playback mode. If **option** is invalid,**-1** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -324,11 +329,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, **NULL** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the expected frame rate range.
+    /// * Expected frame rate range of the animation, in fps. If **option** is invalid, **NULL** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -336,37 +342,45 @@ extern "C" {
     pub fn OH_ArkUI_AnimateOption_GetExpectedFrameRateRange(
         option: *mut ArkUI_AnimateOption,
     ) -> *mut ArkUI_ExpectedFrameRateRange;
-    /// Sets the animation duration.
+    /// Sets the animation duration, in milliseconds.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
-    /// * `value` - Indicates the duration, in milliseconds.
+    /// * `value` - Animation duration, in milliseconds. Value range: [0, +∞).
+    /// <br>If the value is less than 0, **0** is used.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimateOption_SetDuration(option: *mut ArkUI_AnimateOption, value: i32);
-    /// Sets the animation playback speed.
+    /// Sets the playback speed of an animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
-    /// * `value` - Indicates the animation playback speed.
+    /// * `value` - Animation playback speed. Value range: [0, +∞).
+    /// <br>**NOTE**
+    /// <br>If the value is less than 0, the default value **1** is used.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimateOption_SetTempo(option: *mut ArkUI_AnimateOption, value: f32);
-    /// Sets the animation curve.
+    /// Animation curve.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
-    /// * `value` - Indicates the animated curve. Default value：ARKUI_CURVE_LINEAR.
+    /// * `value` - Animation curve. Default value: [`ARKUI_CURVE_LINEAR`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_LINEAR). You are advised to use
+    /// [`ARKUI_CURVE_EASE_IN_OUT`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_EASE_IN_OUT) to obtain a smoother animation effect.
+    /// <br>If the value is abnormal, the setting is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -375,13 +389,20 @@ extern "C" {
         option: *mut ArkUI_AnimateOption,
         value: ArkUI_AnimationCurve,
     );
-    /// Sets the animation delay.
+    /// Sets the animation delay, in milliseconds.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
-    /// * `value` - Indicates the animation delay.
+    /// * `value` - Animation delay, in milliseconds. Value range: (-∞, +∞). Default value: **0**, indicating no animation
+    /// delay. A value greater than 0 means to begin the animation after the specified amount of time has elapsed. A
+    /// value less than 0 means to begin the animation in advance. If **value** is less than **0** and the absolute value
+    /// of **value** is less than the actual animation duration, the animation starts its first frame from the state at
+    /// the absolute value. If the absolute value of **value** is greater than or equal to the actual animation duration,
+    /// the animation starts its first frame from the end state. The actual animation duration is equal to the duration
+    /// of a single animation multiplied by the number of animation playback times.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -391,21 +412,27 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
-    /// * `value` - Indicates the number of times that the animation is played.
+    /// * `value` - Number of times that the animation is played. Value range: [-1, +∞). If this parameter is set to **0**,
+    /// the animation is not played. If this parameter is set to **-1**, the animation is played for an infinite number
+    /// of times. Default value: **1** (played once).
+    /// <br>If the value is less than -1, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimateOption_SetIterations(option: *mut ArkUI_AnimateOption, value: i32);
-    /// Sets the animation playback mode.
+    /// Sets the playback mode for an animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
-    /// * `value` - Indicates the animation playback mode.
+    /// * `value` - Animation playback mode. Default value: [`ARKUI_ANIMATION_PLAY_MODE_NORMAL`](crate::native_type_visual::ArkUI_AnimationPlayMode::ARKUI_ANIMATION_PLAY_MODE_NORMAL).
+    /// <br>If the value is abnormal, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -414,13 +441,15 @@ extern "C" {
         option: *mut ArkUI_AnimateOption,
         value: ArkUI_AnimationPlayMode,
     );
-    /// Sets the expected frame rate range of an animation.
+    /// Defines a struct for the expected frame rate range of the animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to an animation configuration.
+    /// * `option` - Pointer to an animation configuration.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
-    /// * `value` - Indicates the expected frame rate range.
+    /// * `value` - Expected frame rate range of the animation, in fps.
+    /// <br>If **value** is set to **NULL**, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -429,15 +458,17 @@ extern "C" {
         option: *mut ArkUI_AnimateOption,
         value: *mut ArkUI_ExpectedFrameRateRange,
     );
-    /// Sets the animation curve for the animation of an animator.
+    /// Sets the animation curve for an animation.
     ///
     ///
     /// **Note:** This method is better than the value set by OH_ArkUI_AnimateOption_SetCurve.
     /// # Arguments
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
-    /// * `value` - Indicates the animation curve settings.
+    /// * `value` - Animation curve parameters.
+    /// <br>If **value** is set to **NULL**, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -446,60 +477,68 @@ extern "C" {
         option: *mut ArkUI_AnimateOption,
         value: ArkUI_CurveHandle,
     );
-    /// Obtains the animation curve of the animation of an animator.
+    /// Obtains the animation curve of an animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters.
+    /// <br>If **option** is set to **NULL**, **NULL** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the animation curve of the specified animation.
-    /// If Null is returned, it means option is an invalid value.
+    /// * Animation curve parameters. Returns **NULL** if the option parameter is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimateOption_GetICurve(option: *mut ArkUI_AnimateOption) -> ArkUI_CurveHandle;
-    /// Obtains the keyframe animation parameters.
+    /// Creates a keyframe animation parameter object.
     ///
     /// # Arguments
     ///
-    /// * `size` - Indicates the number of keyframe animation states.
+    /// * `size` - Number of keyframe animation states.
+    /// <br>Returns **NULL** if the value of **size** is less than 0.
     ///
     /// # Returns
     ///
-    /// * Returns the keyframe animation parameter object; returns <b>NULL</b> if the value of <b>size</b> is less than
-    /// 0.
+    /// * Keyframe animation parameter object. If the value of **size** is less than 0 or if **option** is abnormal, **
+    /// NULL** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_KeyframeAnimateOption_Create(size: i32) -> *mut ArkUI_KeyframeAnimateOption;
-    /// Disposes of the keyframe animation parameter object.
+    /// Disposes of a keyframe animation parameter object.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameter object.
+    /// * `option` - Keyframe animation parameter object.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_KeyframeAnimateOption_Dispose(option: *mut ArkUI_KeyframeAnimateOption);
-    /// Sets the overall delay of a keyframe animation, in milliseconds. By default, the keyframe animation is played
-    /// without delay.
+    /// Sets the overall delay of a keyframe animation, in milliseconds. By default, the keyframe animation starts
+    /// without any delay.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the delay, in milliseconds.
+    /// * `value` - Animation delay, in milliseconds. Value range: (-∞, +∞). Default value: **0**, indicating no animation
+    /// delay. A value greater than 0 means to begin the animation after the specified amount of time has elapsed. A
+    /// value less than 0 means to begin the animation in advance. If **value** is less than **0** and the absolute
+    /// value of **value** is less than the actual animation duration, the animation starts its first frame from the
+    /// state at the absolute value. If the absolute value of **value** is greater than or equal to the actual animation
+    /// duration, the animation starts its first frame from the end state. The actual animation duration is equal to the
+    /// duration of a single animation multiplied by the number of animation playback times.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -508,21 +547,25 @@ extern "C" {
         option: *mut ArkUI_KeyframeAnimateOption,
         value: i32,
     ) -> i32;
-    /// Sets the number of times that the keyframe animation is played. By default, the animation is played once.
-    /// The value <b>-1</b> indicates that the animation is played for an unlimited number of times. The value <b>0</b>
-    /// indicates that there is no animation.
+    /// Sets the number of times that the keyframe animation is played. By default, the animation is played once. The
+    /// value **-1** indicates that the animation is played for an unlimited number of times. The value **0** indicates that
+    /// no animation is played.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the number of times that the animation is played.
+    /// * `value` - Number of times that the animation is played. Value range: [-1, +∞). If this parameter is set to **0**,
+    /// the animation is not played. If this parameter is set to **-1**, the animation is played for an infinite number
+    /// of times. Default value: **1**, indicating that the animation is played once.
+    /// <br>If the value is less than **-1**, the operation is invalid, and the error code
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -531,22 +574,23 @@ extern "C" {
         option: *mut ArkUI_KeyframeAnimateOption,
         value: i32,
     ) -> i32;
-    /// Sets the callback invoked when the keyframe animation playback is complete. This API is called after the
+    /// Sets the callback invoked when the keyframe animation playback is complete. This function is called after the
     /// keyframe animation has played for the specified number of times.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `userData` - Indicates the pointer to a custom object.
+    /// * `userData` - Pointer to a custom object.
+    /// <br>Abnormal value processing is not involved.
     ///
     /// * `onFinish` - Indicates the callback.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -556,19 +600,20 @@ extern "C" {
         userData: *mut ::core::ffi::c_void,
         onFinish: ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>,
     ) -> i32;
-    /// Sets the expected frame rate range of a keyframe animation.
+    /// Sets the expected frame rate for a keyframe animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to a keyframe animation configuration.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `frameRate` - Indicates the expected frame rate range.
+    /// * `frameRate` - Expected frame rate for the keyframe animation.
+    /// <br>If **frameRate** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -581,17 +626,19 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the duration to set, in milliseconds.
+    /// * `value` - Keyframe animation duration, in ms. The default value is 1000 ms. Value range: [0, +∞).
+    /// <br>If the value is less than 0, **0** is used.
     ///
-    /// * `index` - Indicates a state index.
+    /// * `index` - Index of the keyframe state segment.
+    /// <br>If the value of **index** is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -601,24 +648,27 @@ extern "C" {
         value: i32,
         index: i32,
     ) -> i32;
-    /// Sets the animation curve for a specific keyframe in a keyframe animation.
+    /// Sets the animation curve for a specific keyframe animation segment.
     ///
     ///
     /// **Note:** Because the <b>springMotion</b>, <b>responsiveSpringMotion</b>, and <b>interpolatingSpring</b> curves do not
     /// have effective duration settings, they are not supported.
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the animation curve to set. Default value：EASE_IN_OUT.
+    /// * `value` - Animation curve to set. Default value: [`ARKUI_CURVE_EASE_IN_OUT`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_EASE_IN_OUT).
     ///
-    /// * `index` - Indicates a state index.
+    /// * `index` - Index of the keyframe state segment. Value range: \[0, size – 1\], where **size** indicates the number of
+    /// keyframe animation states.
+    /// <br>If the value of **index** is less than 0 or out of range, the error code
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -633,19 +683,23 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// * `event` - Indicates a closure function.
     ///
-    /// * `userData` - Indicates the pointer to a custom object.
+    /// * `userData` - Pointer to a user-defined object.
+    /// <br>Abnormal value processing is not involved.
     ///
-    /// * `index` - Indicates a state index.
+    /// * `index` - Index of the keyframe state segment. Value range: \[0, size – 1\], where **size** indicates the number of
+    /// keyframe animation states.
+    /// <br>If the value of **index** is less than 0 or out of range, the error code
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -656,15 +710,16 @@ extern "C" {
         event: ::core::option::Option<unsafe extern "C" fn(userData: *mut ::core::ffi::c_void)>,
         index: i32,
     ) -> i32;
-    /// Obtains the overall delay of a keyframe animation
+    /// Obtains the overall delay of a keyframe animation, in milliseconds.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the overall delay.
+    /// * Overall delay, in milliseconds. If **option** is invalid, **0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -675,11 +730,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the number of times that the animation is played.
+    /// * Number of times that the animation is played. If **option** is invalid, **0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -687,15 +743,16 @@ extern "C" {
     pub fn OH_ArkUI_KeyframeAnimateOption_GetIterations(
         option: *mut ArkUI_KeyframeAnimateOption,
     ) -> i32;
-    /// Obtains the expected frame rate range of a keyframe animation configuration.
+    /// Obtains the expected frame rate from keyframe animation parameters.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the pointer to a keyframe animation configuration.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, **NULL** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the expected frame rate range of the keyframe animation.
+    /// * Returns the expected frame rate obtained. If **option** is invalid, **NULL** is returned.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -703,17 +760,19 @@ extern "C" {
     pub fn OH_ArkUI_KeyframeAnimateOption_GetExpectedFrameRate(
         option: *mut ArkUI_KeyframeAnimateOption,
     ) -> *mut ArkUI_ExpectedFrameRateRange;
-    /// Obtains the duration of a specific state in a keyframe animation.
+    /// Obtains the duration of a specific state in a keyframe animation, in milliseconds.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, **0** is returned.
     ///
-    /// * `index` - Indicates a state index.
+    /// * `index` - Index of the keyframe state segment.
+    /// <br>If the value of **index** is less than 0, **0** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the duration. The unit is millisecond.
+    /// * Duration, in milliseconds. If **option** is invalid, **0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -726,14 +785,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the keyframe animation parameters.
+    /// * `option` - Keyframe animation parameters.
+    /// <br>If **option** is set to **NULL**, **NULL** is returned.
     ///
-    /// * `index` - Indicates a state index.
+    /// * `index` - Index of the keyframe state segment.
+    /// <br>If the value of **index** is less than 0, **NULL** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the animated curve.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Animation curve. If the parameter is abnormal, **NULL** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -742,47 +802,50 @@ extern "C" {
         option: *mut ArkUI_KeyframeAnimateOption,
         index: i32,
     ) -> ArkUI_CurveHandle;
-    /// Creates an animator parameter object.
+    /// Creates an **AnimatorOption** object.
     ///
     ///
     /// **Note:** When <b>keyframeSize</b> is greater than 0, the animation interpolation start point is 0, and the animation
     /// interpolation end point is 1; no setting is allowed.
     /// # Arguments
     ///
-    /// * `keyframeSize` - Indicates the number of keyframes.
+    /// * `keyframeSize` - Number of keyframes.
+    /// <br>If the value of **keyframeSize** is less than 0, **NULL** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the animator parameter object.
-    /// returns <b>NULL</b> if the value of <b>size</b> is less than 0.
+    /// * Pointer to the animator parameter object. If the value of **size** is less than 0 or if **option** is
+    /// abnormal, **NULL** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimatorOption_Create(keyframeSize: i32) -> *mut ArkUI_AnimatorOption;
-    /// Disposes of an animator parameter object.
+    /// Disposes of an **AnimatorOption** object.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the target animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the operation is invalid.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimatorOption_Dispose(option: *mut ArkUI_AnimatorOption);
-    /// Sets the duration for thea nimation of an animator, in milliseconds.
+    /// Sets the duration of an animator animation, in milliseconds.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the target animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the playback duration, in milliseconds.
+    /// * `value` - Playback duration, in ms. The default value is 0 ms. Value range: [0, +∞).
+    /// <br>If the value is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -791,41 +854,51 @@ extern "C" {
         option: *mut ArkUI_AnimatorOption,
         value: i32,
     ) -> i32;
-    /// Sets the delay for playing the animation of an animator, in milliseconds.
+    /// Sets the delay time of the animator playback, in milliseconds.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the delay to set, in milliseconds.
+    /// * `value` - Animation delay, in milliseconds. Value range: (-∞, +∞). Default value: **0**, indicating no animation
+    /// delay. A value greater than 0 means to begin the animation after the specified amount of time has elapsed. A
+    /// value less than 0 means to begin the animation in advance. If **value** is less than **0** and the absolute
+    /// value of **value** is less than the actual animation duration, the animation starts its first frame from the
+    /// state at the absolute value. If the absolute value of **value** is greater than or equal to the actual animation
+    /// duration, the animation starts its first frame from the end state. The actual animation duration is equal to the
+    /// duration of a single animation multiplied by the number of animation playback times.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimatorOption_SetDelay(option: *mut ArkUI_AnimatorOption, value: i32) -> i32;
-    /// Sets the number of times that the animation of an animator is played. The value <b>0</b> means not to play the
-    /// animation, and <b>-1</b> means to play the animation for an unlimited number of times.
+    /// Sets the number of times that an animator animation is played. By default, the animation is played once. The
+    /// value **-1** indicates that the animation is played for an unlimited number of times. The value **0** indicates that
+    /// no animation is played.
     ///
     ///
     /// **Note:** If this parameter is set to a negative value other than <b>-1</b>, the value is invalid. In this case, the
     /// animation is played once.
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the number of times that the animation is played.
+    /// * `value` - Value range: [-1, +∞). If this parameter is set to **0**, the animation is not played. If this
+    /// parameter is set to **-1**, the animation is played for an infinite number of times. Default value: **1** (
+    /// played once).
+    /// <br>If the value is less than -1, the operation is invalid.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -834,19 +907,21 @@ extern "C" {
         option: *mut ArkUI_AnimatorOption,
         value: i32,
     ) -> i32;
-    /// Sets whether the animation of an animator is restored to the initial state after being executed.
+    /// Sets the status of the component before and after the animator animation execution.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates whether to restore the animation to the initial state after the animation is executed.
+    /// * `value` - Status of the component before and after the animator animation execution. Default value:
+    /// [`ARKUI_ANIMATION_FILL_MODE_FORWARDS`](crate::native_type_visual::ArkUI_AnimationFillMode::ARKUI_ANIMATION_FILL_MODE_FORWARDS).
+    /// <br>If the value is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -855,19 +930,20 @@ extern "C" {
         option: *mut ArkUI_AnimatorOption,
         value: ArkUI_AnimationFillMode,
     ) -> i32;
-    /// Sets the playback direction for the animation of an animator.
+    /// Set the playback direction.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the animation playback direction.
+    /// * `value` - Animation playback direction.
+    /// <br>If the value is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -884,15 +960,17 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the target interpolation curve. Default value：ARKUI_CURVE_LINEAR.
+    /// * `value` - Interpolation curve. Default value: [`ARKUI_CURVE_LINEAR`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_LINEAR). You are advised to use
+    /// [`ARKUI_CURVE_EASE_IN_OUT`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_EASE_IN_OUT) to obtain a smoother animation effect.
+    /// <br>If **value** is set to **NULL**, the default curve [`ARKUI_CURVE_LINEAR`](crate::native_type_visual::ArkUI_AnimationCurve::ARKUI_CURVE_LINEAR) is used.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -901,21 +979,22 @@ extern "C" {
         option: *mut ArkUI_AnimatorOption,
         value: ArkUI_CurveHandle,
     ) -> i32;
-    /// Sets the interpolation start point for the animation of an animator.
+    /// Sets the interpolation start point of an animation.
+    ///
     ///
     /// **Note:** This API does not take effect when the animation is a keyframe animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the interpolation start point to set.
+    /// * `value` - Interpolation start point of the animation. Value range: (-∞, +∞).
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -923,37 +1002,39 @@ extern "C" {
     pub fn OH_ArkUI_AnimatorOption_SetBegin(option: *mut ArkUI_AnimatorOption, value: f32) -> i32;
     /// Sets the interpolation end point for the animation of an animator.
     ///
+    ///
     /// **Note:** This API does not take effect when the animation is a keyframe animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the interpolation end point to set.
+    /// * `value` - Interpolation end point of the animation. Value range: (-∞, +∞).
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimatorOption_SetEnd(option: *mut ArkUI_AnimatorOption, value: f32) -> i32;
-    /// Sets the expected frame rate range for the animation of an animator.
+    /// Sets the expected frame rate range of an animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the expected frame rate range to set.
+    /// * `value` - Expected frame rate range.
+    /// <br>If **value** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -962,23 +1043,28 @@ extern "C" {
         option: *mut ArkUI_AnimatorOption,
         value: *mut ArkUI_ExpectedFrameRateRange,
     ) -> i32;
-    /// Sets the keyframe parameters for the animation of an animator.
+    /// Sets the keyframe parameters of an animator animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `time` - Indicates the keyframe time. Value range: \[0,1\].
+    /// * `time` - Keyframe time. Value range: \[0, 1\]. The value must be in ascending order. Default value: evenly
+    /// distributed by index (for example, **0.0** for the first frame, **0.5** for the second frame, and **1.0** for
+    /// the third frame).
+    /// <br>If the value of **time** is less than 0 or greater than 1, the error code
+    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the keyframe value.
+    /// * `value` - Keyframe value. Value range: (-∞, +∞).
     ///
-    /// * `index` - Indicates the keyframe index.
+    /// * `index` - Keyframe index.
+    /// <br>If the value of **index** is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -997,17 +1083,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
+    /// <br>If **option** is set to **NULL**, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
-    /// * `value` - Indicates the target interpolation curve.
+    /// * `value` - Interpolation curve. Default value: **NULL**, indicating linear interpolation.
     ///
-    /// * `index` - Indicates the keyframe index.
+    /// * `index` - Keyframe index.
+    /// <br>If the value of **index** is less than 0, the error code [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1021,53 +1108,55 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters.
+    /// <br>If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the duration for playing the animation, in milliseconds.
+    /// * Duration for playing the animation, in milliseconds. If **option** is invalid, **0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimatorOption_GetDuration(option: *mut ArkUI_AnimatorOption) -> i32;
-    /// Obtains the delay for playing the animation of an animator.
+    /// Obtains the delay for playing an animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters. If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the delay for playing the animation, in milliseconds.
+    /// * Delay for playing the animation, in milliseconds. If **option** is invalid, **0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimatorOption_GetDelay(option: *mut ArkUI_AnimatorOption) -> i32;
-    /// Obtains the number of times that an animation is played.
+    /// Obtains the number of times that an animator animation is played.
     ///
     /// # Arguments
     ///
-    /// * `option` - Animator animation parameter.
+    /// * `option` - Animator parameters. If **option** is set to **NULL**, **0** is returned.
     ///
     /// # Returns
     ///
-    /// * Returns the number of times that the animation is played.
+    /// * Number of times that the animation is played. If **option** is invalid, **0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimatorOption_GetIterations(option: *mut ArkUI_AnimatorOption) -> i32;
-    /// Obtains whether the animator animation is restored to the initial state after being executed.
+    /// Obtains the status of the component before and after the animator animation execution.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters.
     ///
     /// # Returns
     ///
-    /// * Returns whether the animator animation is restored to the initial state after being executed.
+    /// * Status of the component before and after the animator animation execution. If **option** is invalid,**-1**
+    /// is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1075,15 +1164,15 @@ extern "C" {
     pub fn OH_ArkUI_AnimatorOption_GetFill(
         option: *mut ArkUI_AnimatorOption,
     ) -> ArkUI_AnimationFillMode;
-    /// Obtains the playback direction of an animation.
+    /// Obtains the playback direction of an animator animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters.
     ///
     /// # Returns
     ///
-    /// * Returns the animation playback direction.
+    /// * Animation playback direction. If **option** is invalid,**-1** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1095,12 +1184,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters.
     ///
     /// # Returns
     ///
-    /// * Returns the interpolation curve of the animation.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Interpolation curve. If **option** is invalid, **NULL** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1111,11 +1199,11 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters.
     ///
     /// # Returns
     ///
-    /// * Returns the interpolation start point of the animation.
+    /// * Interpolation start point of the animation. If **option** is invalid, **0.0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1125,26 +1213,25 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters.
     ///
     /// # Returns
     ///
-    /// * Returns the interpolation end point of the animation.
+    /// * Interpolation end point of the animation. If **option** is invalid, **0.0** is returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_AnimatorOption_GetEnd(option: *mut ArkUI_AnimatorOption) -> f32;
-    /// Obtains the expected frame rate range of an animation.
+    /// Obtains the expected frame rate range of an animator animation.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the expected frame rate range object.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Pointer to the expected frame rate range object. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1152,17 +1239,17 @@ extern "C" {
     pub fn OH_ArkUI_AnimatorOption_GetExpectedFrameRateRange(
         option: *mut ArkUI_AnimatorOption,
     ) -> *mut ArkUI_ExpectedFrameRateRange;
-    /// Obtains the keyframe time of an animation.
+    /// Obtains the keyframe time of the animator playback, in milliseconds.
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
     ///
-    /// * `index` - Indicates the keyframe index.
+    /// * `index` - Keyframe index.
     ///
     /// # Returns
     ///
-    /// * Returns the keyframe time.
+    /// * Keyframe time, in milliseconds.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1175,13 +1262,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
     ///
-    /// * `index` - Indicates the keyframe index.
+    /// * `index` - Keyframe index.
     ///
     /// # Returns
     ///
-    /// * Returns the keyframe value.
+    /// * Keyframe value.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1194,14 +1281,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator parameters.
     ///
-    /// * `index` - Indicates the keyframe index.
+    /// * `index` - Keyframe index.
     ///
     /// # Returns
     ///
-    /// * Returns the interpolation curve.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Interpolation curve. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1210,16 +1296,15 @@ extern "C" {
         option: *mut ArkUI_AnimatorOption,
         index: i32,
     ) -> ArkUI_CurveHandle;
-    /// Obtains the custom object in an animation event object.
+    /// Obtains the user-defined object in an animation event object.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates an animation event object.
+    /// * `event` - Animation event object.
     ///
     /// # Returns
     ///
-    /// * Returns the custom object.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * User-defined object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1227,15 +1312,15 @@ extern "C" {
     pub fn OH_ArkUI_AnimatorEvent_GetUserData(
         event: *mut ArkUI_AnimatorEvent,
     ) -> *mut ::core::ffi::c_void;
-    /// Obtains the custom object in an animation event object.
+    /// Obtains the user-defined object in the frame event of an animation.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates an animation event object.
+    /// * `event` - Animation event object.
     ///
     /// # Returns
     ///
-    /// * Returns the custom object.
+    /// * User-defined object.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1243,15 +1328,19 @@ extern "C" {
     pub fn OH_ArkUI_AnimatorOnFrameEvent_GetUserData(
         event: *mut ArkUI_AnimatorOnFrameEvent,
     ) -> *mut ::core::ffi::c_void;
-    /// Obtains the current progress in an animation event object.
+    /// Obtains the interpolation result in the animation frame callback event object.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates an animation event object.
+    /// * `event` - Animation event object.
     ///
     /// # Returns
     ///
-    /// * Returns the animation progress.
+    /// * Animation interpolation result.
+    /// <br>**NOTE**
+    /// <br>During the animation, the interpolation result changes between the interpolation start point
+    /// [`OH_ArkUI_AnimatorOption_SetBegin`](crate::native_animate::OH_ArkUI_AnimatorOption_SetBegin) and the interpolation end point [`OH_ArkUI_AnimatorOption_SetEnd`](crate::native_animate::OH_ArkUI_AnimatorOption_SetEnd)
+    /// based on the animation parameters.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1261,17 +1350,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator animation parameters.
     ///
-    /// * `userData` - Indicates the custom parameter.
+    /// * `userData` - User-defined parameter.
     ///
     /// * `callback` - Indicates the callback to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1287,17 +1375,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator animation parameters.
     ///
-    /// * `userData` - Indicates the custom parameter.
+    /// * `userData` - User-defined parameter.
     ///
     /// * `callback` - Indicates the callback to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1311,17 +1398,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator animation parameters.
     ///
-    /// * `userData` - Indicates the custom parameter.
+    /// * `userData` - User-defined parameter.
     ///
     /// * `callback` - Indicates the callback to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1335,17 +1421,16 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `option` - Indicates an animator parameter object.
+    /// * `option` - Animator animation parameters.
     ///
-    /// * `userData` - Indicates the custom parameter.
+    /// * `userData` - User-defined parameter.
     ///
     /// * `callback` - Indicates the callback to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1359,15 +1444,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Animator object.
     ///
-    /// * `option` - Indicates the animator parameters.
+    /// * `option` - Animator animation parameters.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1380,13 +1464,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Animator object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1396,13 +1479,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Animator object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1412,13 +1494,12 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Animator object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1428,45 +1509,42 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Animator object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Animator_Cancel(animatorHandle: ArkUI_AnimatorHandle) -> i32;
-    /// Plays the animation of an animator in reverse order.
+    /// Plays this animation in reverse order.
     ///
     /// # Arguments
     ///
-    /// * `animatorHandle` - Indicates an animator object.
+    /// * `animatorHandle` - Animator object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Animator_Reverse(animatorHandle: ArkUI_AnimatorHandle) -> i32;
-    /// Implements initialization for the interpolation curve, which is used to create an interpolation curve based on
-    /// the input parameter.
+    /// Implements initialization for the interpolation curve, which is used to create an interpolation curve based
+    /// on the input parameter.
     ///
     /// # Arguments
     ///
-    /// * `curve` - Indicates the curve type.
+    /// * `curve` - Curve type.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the interpolation object of the curve.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Pointer to the interpolation object of the curve. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1476,15 +1554,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `count` - Indicates the number of steps. The value must be a positive integer. Value range: [1, +∞).
+    /// * `count` - Number of steps. The value must be a positive integer. Value range: [1, +∞).
+    /// <br>If the value of **count** is abnormal, the operation is invalid.
     ///
-    /// * `end` - Indicates whether jumping occurs when the interpolation ends.
-    /// <b>true</b>: Jumping occurs when the interpolation ends. <b>false</b>: Jumping occurs when the interpolation starts.
+    /// * `end` - Whether the step change occurs at the start or end of each interval. **true**: The step change occurs at
+    /// the end of each interval. **false**: The step change occurs at the start of each interval.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the interpolation object of the curve.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Pointer to the interpolation object of the curve. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1492,23 +1570,21 @@ extern "C" {
     pub fn OH_ArkUI_Curve_CreateStepsCurve(count: i32, end: bool) -> ArkUI_CurveHandle;
     /// Creates a cubic Bezier curve.
     ///
-    ///
     /// # Arguments
     ///
-    /// * `x1` - Indicates the X coordinate of the first point on the Bezier curve. Value range: \[0, 1\].
-    /// A value less than 0 is handed as <b>0</b>. A value greater than 1 is handed as <b>1</b>.
+    /// * `x1` - X-coordinate of the first point on the Bezier curve. Value range: \[0, 1\]. A value less than 0 is treated
+    /// as **0**. A value greater than 1 is treated as **1**.
     ///
-    /// * `y1` - Indicates the Y coordinate of the first point on the Bezier curve.
+    /// * `y1` - Y-coordinate of the first point on the Bezier curve.
     ///
-    /// * `x2` - Indicates the X coordinate of the second point on the Bezier curve. Value range: \[0, 1\].
-    /// A value less than 0 is handed as <b>0</b>. A value greater than 1 is handed as <b>1</b>.
+    /// * `x2` - X-coordinate of the second point on the Bezier curve. Value range: \[0, 1\]. A value less than 0 is treated
+    /// as **0**. A value greater than 1 is treated as **1**.
     ///
-    /// * `y2` - Indicates the Y coordinate of the second point on the Bezier curve.
+    /// * `y2` - Y-coordinate of the second point on the Bezier curve.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the interpolation object of the curve.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Pointer to the interpolation object of the curve. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1519,31 +1595,34 @@ extern "C" {
         x2: f32,
         y2: f32,
     ) -> ArkUI_CurveHandle;
-    /// Creates a spring curve. The curve shape is subject to the spring parameters, and the animation duration is
-    /// subject to the <b>duration</b> parameter in <b>animation</b> and <b>animateTo</b>.
+    /// Creates a spring curve. The curve shape is determined by the spring parameters, and the animation duration is
+    /// controlled by the **duration** parameter in `animation` and `animateTo`.
     ///
     /// # Arguments
     ///
-    /// * `velocity` - Indicates the initial velocity of the spring. It is applied by external factors to the spring
-    /// animation, designed to help ensure the smooth transition from the previous motion state. The velocity is the
-    /// normalized velocity, and its value is equal to the actual velocity at the beginning of the animation divided by the
-    /// animation attribute change value.
+    /// * `velocity` - Initial velocity. It is applied by external factors to the spring animation, designed to help
+    /// ensure the smooth transition from the previous motion state. The velocity is the normalized velocity, and its
+    /// value is equal to the actual velocity at the beginning of the animation divided by the animation attribute
+    /// change value.
     ///
-    /// * `mass` - Indicates the mass, which influences the inertia in the spring system. The greater the mass, the greater
-    /// the amplitude of the oscillation, and the slower the speed of restoring to the equilibrium position.
+    /// * `mass` - Mass. It describes the inertia of the object in the elastic system, affecting the amplitude of
+    /// oscillation and the speed of return to equilibrium. The greater the mass, the greater the amplitude of the
+    /// oscillation, and the slower the speed of restoring to the equilibrium position. Value range: [0, +∞).
+    /// <br>If the value is less than or equal to 0, **1** is used.
     ///
-    /// * `stiffness` - Indicates the stiffness. It is the degree to which an object deforms by resisting the force applied.
-    /// In an elastic system, the greater the stiffness, the stronger the ability to resist deformation, and the faster the
-    /// speed of restoring to the equilibrium position.
+    /// * `stiffness` - Stiffness. It is the degree to which an object deforms by resisting the force applied. In an
+    /// elastic system, the greater the stiffness, the stronger the ability to resist deformation, and the faster the
+    /// speed of restoring to the equilibrium position. Value range: [0, +∞).
+    /// <br>If the value is less than or equal to 0, **1** is used.
     ///
-    /// * `damping` - Indicates the damping. It is used to describe the oscillation and attenuation of the system after
-    /// being disturbed. The larger the damping, the smaller the number of oscillations of elastic motion, and the smaller
-    /// the oscillation amplitude.
+    /// * `damping` - Damping. It is used to describe the oscillation and attenuation of the system after being disturbed.
+    /// The larger the damping, the smaller the number of oscillations of elastic motion, and the smaller the
+    /// oscillation amplitude. Value range: [0, +∞).
+    /// <br>If the value is less than or equal to 0, **1** is used.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the interpolation object of the curve.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Pointer to the interpolation object of the curve. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1557,26 +1636,27 @@ extern "C" {
     /// Creates a spring animation curve. If multiple spring animations are applied to the same attribute of an
     /// object, each animation replaces their predecessor and inherits the velocity.
     ///
+    ///
     /// **Note:** The animation duration is subject to the curve parameters, rather than the <b>duration</b> parameter in
     /// <b>animation</b> or <b>animateTo</b>.
     ///
     /// # Arguments
     ///
-    /// * `response` - Indicates the duration of one complete oscillation.
+    /// * `response` - Duration of one complete oscillation. Value range: (0, +∞).
+    /// <br>If the value is less than or equal to 0, **0.55** is used.
     ///
-    /// * `dampingFraction` - Indicates the damping coefficient.
-    /// > 0 and < 1: underdamped. In this case, the spring overshoots the equilibrium position.
-    /// <b>1</b>: critically damped.
-    /// > 1: overdamped. In this case, the spring approaches equilibrium gradually.
+    /// * `dampingFraction` - Damping coefficient. > 0 and < 1: underdamped. In this case, the spring overshoots the
+    /// equilibrium position. **1**: critically damped. > 1: overdamped. In this case, the spring approaches equilibrium
+    /// gradually. Value range: (0, +∞).
+    /// <br>If the value is less than or equal to 0, **0.825** is used.
     ///
-    /// * `overlapDuration` - Indicates the duration for animations to overlap. When animations overlap, the <b>response</b>
-    /// values of these animations will
-    /// transit smoothly over this duration if they are different.
+    /// * `overlapDuration` - Duration for animations to overlap, in seconds. When animations overlap, the **response**
+    /// values of these animations will transit smoothly over this duration if they are different. Value range: [0, +∞).
+    /// <br>If the value is less than 0, **0** is used.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the interpolation object of the curve.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Pointer to the interpolation object of the curve. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1586,29 +1666,30 @@ extern "C" {
         dampingFraction: f32,
         overlapDuration: f32,
     ) -> ArkUI_CurveHandle;
-    /// Creates a responsive spring animation curve. It is a special case of <b>springMotion</b>, with the only
-    /// difference in the default values. It can be used together with <b>springMotion</b>.
+    /// Creates a responsive spring animation curve. It is a special case of **springMotion**, with the only
+    /// difference in the default values. It can be used together with **springMotion**.
+    ///
     ///
     /// **Note:** The animation duration is subject to the curve parameters, rather than the <b>duration</b> parameter in
     /// <b>animation</b> or <b>animateTo</b>.
     ///
     /// # Arguments
     ///
-    /// * `response` - Indicates the duration of one complete oscillation.
+    /// * `response` - Duration of one complete oscillation. Value range: (0, +∞).
+    /// <br>If the value is less than or equal to 0, **0.15** is used.
     ///
-    /// * `dampingFraction` - Indicates the damping coefficient.
-    /// > 0 and < 1: underdamped. In this case, the spring overshoots the equilibrium position.
-    /// <b>1</b>: critically damped.
-    /// > 1: overdamped. In this case, the spring approaches equilibrium gradually.
+    /// * `dampingFraction` - Damping coefficient. > 0 and < 1: underdamped. In this case, the spring overshoots the
+    /// equilibrium position. **1**: critically damped. > 1: overdamped. In this case, the spring approaches equilibrium
+    /// gradually. Value range: [0, +∞).
+    /// <br>If the value is less than 0, **0.86** is used.
     ///
-    /// * `overlapDuration` - Indicates the duration for animations to overlap. When animations overlap, the
-    /// <b>response</b> values of these animations will
-    /// transit smoothly over this duration if they are different.
+    /// * `overlapDuration` - Duration for animations to overlap, in seconds. When animations overlap, the **response**
+    /// values of these animations will transit smoothly over this duration if they are different. Value range: [0, +∞).
+    /// <br>If the value is less than 0, **0.25** is used.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the interpolation object of the curve.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Pointer to the interpolation object of the curve. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1621,33 +1702,36 @@ extern "C" {
     /// Creates an interpolating spring curve animated from 0 to 1. The actual animation value is calculated based on
     /// the curve.
     ///
+    ///
     /// **Note:** The animation duration is subject to the curve parameters, rather than the <b>duration</b> parameter in
     /// <b>animation</b> or <b>animateTo</b>.
     ///
     ///
     /// # Arguments
     ///
-    /// * `velocity` - Indicates the initial velocity of the spring. It is applied by external factors to the spring
-    /// animation, esigned to help ensure the smooth transition from the previous motion state. The velocity is the
-    /// normalized velocity, and its value is equal to the actual velocity
-    /// at the beginning of the animation divided by the animation attribute change value.
+    /// * `velocity` - Initial velocity. It is applied by external factors to the spring animation, designed to help
+    /// ensure the smooth transition from the previous motion state. The velocity is the normalized velocity, and its
+    /// value is equal to the actual velocity at the beginning of the animation divided by the animation attribute
+    /// change value.
     ///
-    /// * `mass` - Indicates the mass, which influences the inertia in the spring system.
-    /// The greater the mass, the greater the amplitude of the oscillation, and the slower the speed of restoring to the
-    /// equilibrium position.
+    /// * `mass` - Mass. It describes the inertia of the object in the elastic system, affecting the amplitude of
+    /// oscillation and the speed of return to equilibrium. The greater the mass, the greater the amplitude of the
+    /// oscillation, and the slower the speed of restoring to the equilibrium position. Value range: [0, +∞).
+    /// <br>If the value is less than or equal to 0, **1** is used.
     ///
-    /// * `stiffness` - Indicates the stiffness. It is the degree to which an object deforms by resisting the force applied.
-    /// In an elastic system, the greater the stiffness, the stronger the ability to resist deformation, and the faster the
-    /// speed of restoring to the equilibrium position.
+    /// * `stiffness` - Stiffness. It is the degree to which an object deforms by resisting the force applied. The greater
+    /// the stiffness, the stronger the ability to resist deformation, and the faster the speed of restoring to the
+    /// equilibrium position. Value range: [0, +∞).
+    /// <br>If the value is less than or equal to 0, **1** is used.
     ///
-    /// * `damping` - Indicates the damping. It is used to describe the oscillation and attenuation of the system after
-    /// being disturbed. The larger the damping, the smaller the number of oscillations of elastic motion, and the smaller
-    /// the oscillation amplitude.
+    /// * `damping` - Damping. It is used to describe the oscillation and attenuation of the system after being disturbed.
+    /// The larger the damping, the smaller the number of oscillations of elastic motion, and the smaller the
+    /// oscillation amplitude. Value range: [0, +∞).
+    /// <br>If the value is less than or equal to 0, **1** is used.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the interpolation object of the curve.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Pointer to the interpolation object of the curve. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1662,21 +1746,22 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `userData` - Indicates the custom data.
+    /// * `userData` - Pointer to user-defined data.
     ///
     /// * `interpolate` - Indicates the custom interpolation callback. <b>fraction</b> indicates the input x value for
     /// interpolation when the animation starts; value range: \[0,1\].
     /// The return value is the y value of the curve; value range: \[0,1\].
-    /// If <b>fraction</b> is <b>0</b>, the return value <b>0</b> corresponds to the animation start point; any other return
+    /// If <b>fraction</b> is <b>0</b>, the return value <b>0</b> corresponds to the animation start point; any other
+    /// return
     /// value means that the animation jumps at the start point.
-    /// If <b>fraction</b> is <b>1</b>, the return value <b>1</b> corresponds to the animation end point; any other return
+    /// If <b>fraction</b> is <b>1</b>, the return value <b>1</b> corresponds to the animation end point; any other
+    /// return
     /// value means that the end value of the animation is not the value of the state variable,
     /// which will result in an effect of transition from that end value to the value of the state variable.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the interpolation object of the curve.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Pointer to the interpolation object of the curve. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1691,39 +1776,39 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `curveHandle` - Indicates the pointer to the interpolation object of the curve.
+    /// * `curveHandle` - Pointer to the interpolation object of the curve.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_Curve_DisposeCurve(curveHandle: ArkUI_CurveHandle);
-    /// Creates an opacity object for component transition.
+    /// Creates an opacity effect object for component transitions.
     ///
     ///
     /// **Note:** If the value specified is less than 0, the value <b>0</b> is used. If the value specified is greater than 1,
     /// the value <b>1</b> is used.
     /// # Arguments
     ///
-    /// * `opacity` - Indicates the opacity. Value range: \[0, 1\].
+    /// * `opacity` - Opacity. Value range: \[0, 1\]. The default value is **1**. A value less than 0 is treated as 0. A
+    /// value greater than 1 is treated as 1. The value **1** means fully opaque, and **0** means fully transparent.
     ///
     /// # Returns
     ///
-    /// * Returns the created opacity object for component transition.
+    /// * Opacity effect object for component transitions.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ArkUI_CreateOpacityTransitionEffect(opacity: f32) -> *mut ArkUI_TransitionEffect;
-    /// Creates a translation object for component transition.
+    /// Creates a translation effect object for component transitions.
     ///
     /// # Arguments
     ///
-    /// * `translate` - Indicates the translation settings for component transition.
+    /// * `translate` - Translation parameter object for component transitions.
     ///
     /// # Returns
     ///
-    /// * Returns the translation object created for component transition.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Translation effect object for component transitions. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1731,16 +1816,15 @@ extern "C" {
     pub fn OH_ArkUI_CreateTranslationTransitionEffect(
         translate: *mut ArkUI_TranslationOptions,
     ) -> *mut ArkUI_TransitionEffect;
-    /// Creates a scaling object for component transition.
+    /// Creates a scaling effect object for component transitions.
     ///
     /// # Arguments
     ///
-    /// * `scale` - Indicates the scaling settings for component transition.
+    /// * `scale` - Scaling parameter object for component transitions.
     ///
     /// # Returns
     ///
-    /// * Returns the scaling object created for component transition.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Scaling effect object for component transitions. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1748,16 +1832,15 @@ extern "C" {
     pub fn OH_ArkUI_CreateScaleTransitionEffect(
         scale: *mut ArkUI_ScaleOptions,
     ) -> *mut ArkUI_TransitionEffect;
-    /// Creates a rotation object for component transition.
+    /// Creates a rotation effect object for component transition.
     ///
     /// # Arguments
     ///
-    /// * `rotate` - Indicates the rotation settings for component transition.
+    /// * `rotate` - Rotation parameter object for component transitions.
     ///
     /// # Returns
     ///
-    /// * Returns the rotation object created for component transition.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Rotation effect object for component transitions. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1765,16 +1848,15 @@ extern "C" {
     pub fn OH_ArkUI_CreateRotationTransitionEffect(
         rotate: *mut ArkUI_RotationOptions,
     ) -> *mut ArkUI_TransitionEffect;
-    /// Creates a movement object for component transition.
+    /// Creates a movement transition effect object for the component.
     ///
     /// # Arguments
     ///
-    /// * `edge` - Indicates the movement type.
+    /// * `edge` - Movement transition type.
     ///
     /// # Returns
     ///
-    /// * Returns the movement object created for component transition.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Translation effect object for component transitions. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1789,14 +1871,13 @@ extern "C" {
     /// for both appearance and disappearance of the component.
     /// # Arguments
     ///
-    /// * `appear` - Indicates the transition effect for appearance.
+    /// * `appear` - Transition effect for appearance.
     ///
-    /// * `disappear` - Indicates the transition effect for disappearance.
+    /// * `disappear` - Transition effect for disappearance.
     ///
     /// # Returns
     ///
-    /// * Returns the asymmetric transition effect.
-    /// Returns <b>NULL</b> if a parameter error occurs.
+    /// * Asymmetric transition effect. Returns **NULL** if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1805,11 +1886,26 @@ extern "C" {
         appear: *mut ArkUI_TransitionEffect,
         disappear: *mut ArkUI_TransitionEffect,
     ) -> *mut ArkUI_TransitionEffect;
+    /// Create an identity transition effect.
+    /// Identity transition effect performs no visual transition animation. It can alse be used as the appear or disappear
+    /// parameter of OH_ArkUI_CreateAsymmetricTransitionEffect to indicate no animation on one side.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to the created transition effect object.
+    ///
+    /// **Note:** Release the returned object with [`OH_ArkUI_TransitionEffect_Dispose`](crate::native_animate::OH_ArkUI_TransitionEffect_Dispose).
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_ArkUI_CreateIdentityTransitionEffect() -> *mut ArkUI_TransitionEffect;
     /// Disposes of a transition effect.
     ///
     /// # Arguments
     ///
-    /// * `effect` - Indicates the transition effect to dispose of.
+    /// * `effect` - Pointer to the transition effect to be disposed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1819,15 +1915,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `firstEffect` - Indicates the transition effect options.
+    /// * `firstEffect` - Transition effect.
     ///
-    /// * `secondEffect` - Indicates the combination of transition effects.
+    /// * `secondEffect` - Combination of transition effects.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1843,15 +1938,14 @@ extern "C" {
     /// applicable to the one following it.
     /// # Arguments
     ///
-    /// * `effect` - Indicates the transition effect options.
+    /// * `effect` - Transition effect.
     ///
-    /// * `animation` - Indicates the animation settings.
+    /// * `animation` - Animation settings.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter exception occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

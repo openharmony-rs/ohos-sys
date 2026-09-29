@@ -7,13 +7,13 @@
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Print_ErrorCode {
-    /// The operation is successful.
+    /// Operation successful.
     pub const PRINT_ERROR_NONE: Print_ErrorCode = Print_ErrorCode(0);
     /// Permission verification failed.
     pub const PRINT_ERROR_NO_PERMISSION: Print_ErrorCode = Print_ErrorCode(201);
     /// Invalid parameter.
     pub const PRINT_ERROR_INVALID_PARAMETER: Print_ErrorCode = Print_ErrorCode(401);
-    /// General internal error.
+    /// Internal error.
     pub const PRINT_ERROR_GENERIC_FAILURE: Print_ErrorCode = Print_ErrorCode(24300001);
     /// RPC communication error.
     pub const PRINT_ERROR_RPC_FAILURE: Print_ErrorCode = Print_ErrorCode(24300002);
@@ -25,13 +25,13 @@ impl Print_ErrorCode {
     pub const PRINT_ERROR_INVALID_PRINTER: Print_ErrorCode = Print_ErrorCode(24300005);
     /// Invalid print job.
     pub const PRINT_ERROR_INVALID_PRINT_JOB: Print_ErrorCode = Print_ErrorCode(24300006);
-    /// Failed to read or write files.
+    /// File I/O error.
     pub const PRINT_ERROR_FILE_IO: Print_ErrorCode = Print_ErrorCode(24300007);
     /// Unknown error.
     pub const PRINT_ERROR_UNKNOWN: Print_ErrorCode = Print_ErrorCode(24300255);
 }
 #[repr(transparent)]
-/// Defines error codes.
+/// Enumerates the error codes.
 ///
 ///
 /// Available since API-level: 12
@@ -44,15 +44,15 @@ pub struct Print_ErrorCode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Print_PrinterState {
-    /// Printer idle.
+    /// The printer is idle.
     pub const PRINTER_IDLE: Print_PrinterState = Print_PrinterState(0);
-    /// Printer busy.
+    /// The printer is busy.
     pub const PRINTER_BUSY: Print_PrinterState = Print_PrinterState(1);
-    /// Printer not available.
+    /// The printer is unavailable.
     pub const PRINTER_UNAVAILABLE: Print_PrinterState = Print_PrinterState(2);
 }
 #[repr(transparent)]
-/// Indicates printer states.
+/// Enumerates the printer states.
 ///
 ///
 /// Available since API-level: 12
@@ -73,7 +73,7 @@ impl Print_DiscoveryEvent {
     pub const PRINTER_CONNECTED: Print_DiscoveryEvent = Print_DiscoveryEvent(3);
 }
 #[repr(transparent)]
-/// Indicate printer discovery events.
+/// Enumerates the printer discovery events.
 ///
 ///
 /// Available since API-level: 12
@@ -88,13 +88,13 @@ impl Print_PrinterEvent {
     pub const PRINTER_ADDED: Print_PrinterEvent = Print_PrinterEvent(0);
     /// Printer deleted.
     pub const PRINTER_DELETED: Print_PrinterEvent = Print_PrinterEvent(1);
-    /// Printer state changed.
+    /// Printer changed.
     pub const PRINTER_STATE_CHANGED: Print_PrinterEvent = Print_PrinterEvent(2);
-    /// Printer info changed.
+    /// Printer information changed.
     pub const PRINTER_INFO_CHANGED: Print_PrinterEvent = Print_PrinterEvent(3);
 }
 #[repr(transparent)]
-/// Indicate printer change events.
+/// Enumerates the printer change events.
 ///
 ///
 /// Available since API-level: 12
@@ -102,7 +102,7 @@ impl Print_PrinterEvent {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Print_PrinterEvent(pub ::core::ffi::c_uint);
-/// Indicates string list.
+/// Defines a struct for the string list.
 ///
 ///
 /// Available since API-level: 12
@@ -111,12 +111,12 @@ pub struct Print_PrinterEvent(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Print_StringList {
-    /// Number of string.
+    /// Number of strings.
     pub count: u32,
-    /// String pointer array.
+    /// Double pointer to the string array.
     pub list: *mut *mut ::core::ffi::c_char,
 }
-/// Indicates printer property.
+/// Defines a struct for the printer property.
 ///
 ///
 /// Available since API-level: 12
@@ -125,12 +125,12 @@ pub struct Print_StringList {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Print_Property {
-    /// Property keyword.
+    /// Property key.
     pub key: *mut ::core::ffi::c_char,
     /// Property value.
     pub value: *mut ::core::ffi::c_char,
 }
-/// List of printer properties.
+/// Defines a struct for the printer property list.
 ///
 ///
 /// Available since API-level: 12
@@ -141,10 +141,10 @@ pub struct Print_Property {
 pub struct Print_PropertyList {
     /// Number of properties.
     pub count: u32,
-    /// Property pointer array.
+    /// Pointer to the property array.
     pub list: *mut Print_Property,
 }
-/// Indicates print resolution in dpi unit.
+/// Defines a struct for the printing resolution in dpi.
 ///
 ///
 /// Available since API-level: 12
@@ -156,7 +156,7 @@ pub struct Print_Resolution {
     pub horizontalDpi: u32,
     pub verticalDpi: u32,
 }
-/// Indicates printing margin
+/// Defines a struct for the page margin to print.
 ///
 ///
 /// Available since API-level: 12
@@ -165,16 +165,16 @@ pub struct Print_Resolution {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Print_Margin {
-    /// Left margin.
+    /// Left margin, in millimeters.
     pub leftMargin: u32,
-    /// Top margin.
+    /// Top margin, in millimeters.
     pub topMargin: u32,
-    /// Right margin.
+    /// Right margin, in millimeters.
     pub rightMargin: u32,
-    /// Bottom margin.
+    /// Bottom margin, in millimeters.
     pub bottomMargin: u32,
 }
-/// Indicates paper size info.
+/// Defines a struct for the page size.
 ///
 ///
 /// Available since API-level: 12
@@ -183,27 +183,27 @@ pub struct Print_Margin {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Print_PageSize {
-    /// Paper id.
+    /// Page ID.
     pub id: *mut ::core::ffi::c_char,
-    /// Paper name.
+    /// Page name.
     pub name: *mut ::core::ffi::c_char,
-    /// Paper width.
+    /// Page width, in millimeters.
     pub width: u32,
-    /// Paper height.
+    /// Page height, in millimeters.
     pub height: u32,
 }
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Print_DuplexMode {
-    /// One sided duplex mode.
+    /// Single-sided mode.
     pub const DUPLEX_MODE_ONE_SIDED: Print_DuplexMode = Print_DuplexMode(0);
-    /// Long edge two sided duplex mode.
+    /// Duplex mode with flipping on long edge.
     pub const DUPLEX_MODE_TWO_SIDED_LONG_EDGE: Print_DuplexMode = Print_DuplexMode(1);
-    /// Short edge two sided duplex mode.
+    /// Duplex mode with flipping on short edge.
     pub const DUPLEX_MODE_TWO_SIDED_SHORT_EDGE: Print_DuplexMode = Print_DuplexMode(2);
 }
 #[repr(transparent)]
-/// Indicates DuplexMode
+/// Enumerates the duplex modes.
 ///
 ///
 /// Available since API-level: 12
@@ -214,7 +214,7 @@ pub struct Print_DuplexMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Print_ColorMode {
-    /// Monochrome mode.
+    /// B/W mode.
     pub const COLOR_MODE_MONOCHROME: Print_ColorMode = Print_ColorMode(0);
     /// Color mode.
     pub const COLOR_MODE_COLOR: Print_ColorMode = Print_ColorMode(1);
@@ -222,7 +222,7 @@ impl Print_ColorMode {
     pub const COLOR_MODE_AUTO: Print_ColorMode = Print_ColorMode(2);
 }
 #[repr(transparent)]
-/// Indicates ColorMode
+/// Enumerates the color modes.
 ///
 ///
 /// Available since API-level: 12
@@ -245,7 +245,7 @@ impl Print_OrientationMode {
     pub const ORIENTATION_MODE_NONE: Print_OrientationMode = Print_OrientationMode(4);
 }
 #[repr(transparent)]
-/// Indicates OrientationMode
+/// Enumerates the orientation modes.
 ///
 ///
 /// Available since API-level: 12
@@ -256,15 +256,15 @@ pub struct Print_OrientationMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Print_Quality {
-    /// Draft quality mode
+    /// Draft.
     pub const PRINT_QUALITY_DRAFT: Print_Quality = Print_Quality(3);
-    /// Normal quality mode
+    /// Normal quality.
     pub const PRINT_QUALITY_NORMAL: Print_Quality = Print_Quality(4);
-    /// High quality mode
+    /// High quality.
     pub const PRINT_QUALITY_HIGH: Print_Quality = Print_Quality(5);
 }
 #[repr(transparent)]
-/// Indicates printing qulity
+/// Enumerates the print qualities.
 ///
 ///
 /// Available since API-level: 12
@@ -275,19 +275,19 @@ pub struct Print_Quality(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Print_DocumentFormat {
-    /// MIME: application/octet-stream.
+    /// application/octet-stream.
     pub const DOCUMENT_FORMAT_AUTO: Print_DocumentFormat = Print_DocumentFormat(0);
-    /// MIME: image/jpeg.
+    /// image/jpeg.
     pub const DOCUMENT_FORMAT_JPEG: Print_DocumentFormat = Print_DocumentFormat(1);
-    /// MIME: application/pdf.
+    /// application/pdf.
     pub const DOCUMENT_FORMAT_PDF: Print_DocumentFormat = Print_DocumentFormat(2);
-    /// MIME: application/postscript.
+    /// application/postscript.
     pub const DOCUMENT_FORMAT_POSTSCRIPT: Print_DocumentFormat = Print_DocumentFormat(3);
-    /// MIME: text/plain.
+    /// text/plain.
     pub const DOCUMENT_FORMAT_TEXT: Print_DocumentFormat = Print_DocumentFormat(4);
 }
 #[repr(transparent)]
-/// Indicates the MIME media type of the document.
+/// Enumerates the MIME types.
 ///
 ///
 /// Available since API-level: 12
@@ -298,30 +298,30 @@ pub struct Print_DocumentFormat(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl Print_JobDocAdapterState {
-    /// Print job preview ability destroy.
+    /// Print job preview destroyed.
     pub const PRINT_DOC_ADAPTER_PREVIEW_ABILITY_DESTROY: Print_JobDocAdapterState =
         Print_JobDocAdapterState(0);
-    /// Print job task succeed.
+    /// Successful print job.
     pub const PRINT_DOC_ADAPTER_PRINT_TASK_SUCCEED: Print_JobDocAdapterState =
         Print_JobDocAdapterState(1);
-    /// Print job task failed.
+    /// Print job failed.
     pub const PRINT_DOC_ADAPTER_PRINT_TASK_FAIL: Print_JobDocAdapterState =
         Print_JobDocAdapterState(2);
-    /// Print job task cancel.
+    /// Print job canceled.
     pub const PRINT_DOC_ADAPTER_PRINT_TASK_CANCEL: Print_JobDocAdapterState =
         Print_JobDocAdapterState(3);
-    /// Print job task block.
+    /// Print job blocked.
     pub const PRINT_DOC_ADAPTER_PRINT_TASK_BLOCK: Print_JobDocAdapterState =
         Print_JobDocAdapterState(4);
-    /// Print job task preview ability destroy for cancel.
+    /// Print job preview destroyed due to cancellation.
     pub const PRINT_DOC_ADAPTER_PREVIEW_ABILITY_DESTROY_FOR_CANCELED: Print_JobDocAdapterState =
         Print_JobDocAdapterState(5);
-    /// Print job task preview ability destroy for started.
+    /// Print job preview destroyed due to startup.
     pub const PRINT_DOC_ADAPTER_PREVIEW_ABILITY_DESTROY_FOR_STARTED: Print_JobDocAdapterState =
         Print_JobDocAdapterState(6);
 }
 #[repr(transparent)]
-/// Indicates the print job doc adapter state.
+/// Enumerates the print job adapter states.
 ///
 ///
 /// Available since API-level: 13
@@ -329,7 +329,7 @@ impl Print_JobDocAdapterState {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Print_JobDocAdapterState(pub ::core::ffi::c_uint);
-/// Indicates printer capabilities.
+/// Defines a struct for the printer capabilities.
 ///
 ///
 /// Available since API-level: 12
@@ -338,40 +338,40 @@ pub struct Print_JobDocAdapterState(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Print_PrinterCapability {
-    /// Array of supported color mode.
+    /// Array of supported color modes.
     pub supportedColorModes: *mut Print_ColorMode,
-    /// Number of supported color mode.
+    /// Number of supported color modes.
     pub supportedColorModesCount: u32,
-    /// Array of supported duplex printing modes.
+    /// Array of supported duplex modes.
     pub supportedDuplexModes: *mut Print_DuplexMode,
-    /// Number of supported duplex printing mode.
+    /// Number of supported duplex modes.
     pub supportedDuplexModesCount: u32,
-    /// Array of supported print paper sizes.
+    /// Array of supported page sizes.
     pub supportedPageSizes: *mut Print_PageSize,
-    /// Number of supported print paper sizes.
+    /// Number of supported page sizes.
     pub supportedPageSizesCount: u32,
-    /// Supported print media types in json string array format.
+    /// Array of supported print media types in JSON string format.
     pub supportedMediaTypes: *mut ::core::ffi::c_char,
-    /// Array of supported print qulities.
+    /// Array of supported print qualities.
     pub supportedQualities: *mut Print_Quality,
-    /// Number of supported print qulities.
+    /// Number of supported print qualities.
     pub supportedQualitiesCount: u32,
-    /// Supported paper sources in json string array format.
+    /// Array of supported paper sources in JSON string format.
     pub supportedPaperSources: *mut ::core::ffi::c_char,
-    /// Supported copies.
+    /// Supported number of copies.
     pub supportedCopies: u32,
     /// Array of supported printer resolutions.
     pub supportedResolutions: *mut Print_Resolution,
-    /// Number of supported printer resolutions.
+    /// Supported number of printer resolutions.
     pub supportedResolutionsCount: u32,
-    /// Array of supported orientation.
+    /// Array of supported orientations.
     pub supportedOrientations: *mut Print_OrientationMode,
-    /// Number of supported orientation.
+    /// Supported number of orientations.
     pub supportedOrientationsCount: u32,
-    /// Advanced capability in json format.
+    /// Advanced capabilities in JSON format.
     pub advancedCapability: *mut ::core::ffi::c_char,
 }
-/// Indicates current properties
+/// Defines a struct for the default property value.
 ///
 ///
 /// Available since API-level: 12
@@ -386,24 +386,24 @@ pub struct Print_DefaultValue {
     pub defaultDuplexMode: Print_DuplexMode,
     /// Default media type.
     pub defaultMediaType: *mut ::core::ffi::c_char,
-    /// Default page size id.
+    /// Default page size ID.
     pub defaultPageSizeId: *mut ::core::ffi::c_char,
     /// Default margin.
     pub defaultMargin: Print_Margin,
     /// Default paper source.
     pub defaultPaperSource: *mut ::core::ffi::c_char,
-    /// Default print quality
+    /// Default print quality.
     pub defaultPrintQuality: Print_Quality,
-    /// Default copies.
+    /// Default number of copies.
     pub defaultCopies: u32,
     /// Default printer resolution.
     pub defaultResolution: Print_Resolution,
     /// Default orientation.
     pub defaultOrientation: Print_OrientationMode,
-    /// Other default values in json format.
+    /// Other default values in JSON format.
     pub otherDefaultValues: *mut ::core::ffi::c_char,
 }
-/// Indicates printer information.
+/// Defines a struct for the printer information.
 ///
 ///
 /// Available since API-level: 12
@@ -414,13 +414,13 @@ pub struct Print_DefaultValue {
 pub struct Print_PrinterInfo {
     /// Printer state.
     pub printerState: Print_PrinterState,
-    /// Printer capabilities.
+    /// Printer capability.
     pub capability: Print_PrinterCapability,
-    /// Printer current properties.
+    /// Default property value of the printer.
     pub defaultValue: Print_DefaultValue,
     /// Default printer.
     pub isDefaultPrinter: bool,
-    /// Printer id.
+    /// Printer ID.
     pub printerId: *mut ::core::ffi::c_char,
     /// Printer name.
     pub printerName: *mut ::core::ffi::c_char,
@@ -428,14 +428,23 @@ pub struct Print_PrinterInfo {
     pub description: *mut ::core::ffi::c_char,
     /// Printer location.
     pub location: *mut ::core::ffi::c_char,
-    /// Printer make and model information.
+    /// Brand and model of the printer.
     pub makeAndModel: *mut ::core::ffi::c_char,
-    /// Printer Uri.
+    /// Printer URI.
     pub printerUri: *mut ::core::ffi::c_char,
-    /// Detail information in json format.
+    /// Details in JSON format.
+    /// <br>The supported keys are as follows:
+    /// <br>- **printerAlias**: string type, indicating the printer alias. **Since**: 24
+    /// <br>- **vendorId**: int type, indicating the USB vendor ID of the printer. **Since**: 12
+    /// <br>- **productId**: int type, indicating the USB product ID of the printer. **Since**: 12
+    /// <br>- **protocol**: string array, indicating the list of protocols detected for the printer. **Since**: 24
+    /// <br>- **ipp**: string type, indicating the printer URI for the detected IPP protocol. **Since**: 24
+    /// <br>- **ipps**: string type, indicating the printer URI for the detected IPPS protocol. **Since**: 24
+    /// <br>- **lpd**: string type, indicating the printer URI for the detected LPD protocol. **Since**: 24
+    /// <br>- **socket**: string type, indicating the printer URI for the detected Socket protocol. **Since**: 24
     pub detailInfo: *mut ::core::ffi::c_char,
 }
-/// Indicates PrintJob Structure.
+/// Defines a struct for the print job.
 ///
 ///
 /// Available since API-level: 12
@@ -446,29 +455,29 @@ pub struct Print_PrinterInfo {
 pub struct Print_PrintJob {
     /// Job name.
     pub jobName: *mut ::core::ffi::c_char,
-    /// Array of file descriptors to print.
+    /// Array of file descriptors to be printed.
     pub fdList: *mut u32,
-    /// Number of file descriptors to print.
+    /// Number of file descriptors to be printed.
     pub fdListCount: u32,
-    /// Printer id.
+    /// Printer ID.
     pub printerId: *mut ::core::ffi::c_char,
-    /// Number of copies printed.
+    /// Number of copies to print.
     pub copyNumber: u32,
     /// Paper source.
     pub paperSource: *mut ::core::ffi::c_char,
     /// Media type.
     pub mediaType: *mut ::core::ffi::c_char,
-    /// Paper size id.
+    /// Page size ID.
     pub pageSizeId: *mut ::core::ffi::c_char,
     /// Color mode.
     pub colorMode: Print_ColorMode,
-    /// Duplex source.
+    /// Duplex mode.
     pub duplexMode: Print_DuplexMode,
-    /// Print resolution in dpi.
+    /// Print resolution, in dpi.
     pub resolution: Print_Resolution,
-    /// Print margin.
+    /// Page margin.
     pub printMargin: Print_Margin,
-    /// Borderless.
+    /// Whether to print without margins.
     pub borderless: bool,
     /// Orientation mode.
     pub orientationMode: Print_OrientationMode,
@@ -476,10 +485,12 @@ pub struct Print_PrintJob {
     pub printQuality: Print_Quality,
     /// Document format.
     pub documentFormat: Print_DocumentFormat,
-    /// Advanced options in json format.
+    /// Advanced options in JSON format.<br>The supported keys are as follows:<br>- **isReverse**: Boolean type,
+    /// indicating whether to print in reverse order.<br>- **isCollate**: Boolean type, indicating whether to print
+    /// copies one by one.
     pub advancedOptions: *mut ::core::ffi::c_char,
 }
-/// Indicates print range structure.
+/// Defines a struct for the page range to print.
 ///
 ///
 /// Available since API-level: 13
@@ -488,16 +499,16 @@ pub struct Print_PrintJob {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Print_Range {
-    /// Print start page.
+    /// Start page.
     pub startPage: u32,
-    /// Print end page.
+    /// End page.
     pub endPage: u32,
-    /// Print page array length.
+    /// Length of the page array.
     pub pagesArrayLen: u32,
-    /// Print page array.
+    /// Page array.
     pub pagesArray: *mut u32,
 }
-/// Indicates print attributes structure.
+/// Defines a struct for the print attributes.
 ///
 ///
 /// Available since API-level: 13
@@ -506,53 +517,56 @@ pub struct Print_Range {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Print_PrintAttributes {
-    /// Print ranges.
+    /// Page range.
     pub pageRange: Print_Range,
-    /// Print page size.
+    /// Page size.
     pub pageSize: Print_PageSize,
-    /// Print margin.
+    /// Page margin.
     pub pageMargin: Print_Margin,
-    /// Copy numbers.
+    /// Number of copies to print.
     pub copyNumber: u32,
     /// Duplex mode.
     pub duplexMode: u32,
-    /// color mode.
+    /// Color mode.
     pub colorMode: u32,
-    /// Print sequential.
+    /// Whether pages are printed in sequential order.<br>The value **true** indicates that pages are printed in
+    /// sequential order, and **false** indicates the opposite.
     pub isSequential: bool,
-    /// Print orient.
+    /// Whether pages are printed in landscape mode.<br>The value **true** indicates that pages are printed in landscape
+    /// mode, and **false** indicates that pages are printed in portrait mode.
     pub isLandscape: bool,
-    /// Print option flag.
+    /// Whether the printing has an option flag.<br>The value **true** indicates that the printing has an option flag,
+    /// and **false** indicates the opposite.
     pub hasOption: bool,
     /// Print options.
     pub options: [::core::ffi::c_char; 256usize],
 }
-/// Write files result callback.
+/// Defines a callback used to return the file write-back result.
 ///
 /// # Arguments
 ///
-/// * `jobId` - The print job id of one print task.
+/// * `jobId` - Pointer to the print job ID.
 ///
-/// * `code` - The result of write files.
+/// * `code` - File write-back result.
 ///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub type Print_WriteResultCallback =
     ::core::option::Option<unsafe extern "C" fn(jobId: *const ::core::ffi::c_char, code: u32)>;
-/// Print start layout callback.
+/// Defines a callback to be invoked when the file write-back starts.
 ///
 /// # Arguments
 ///
-/// * `jobId` - The print job id of one print task.
+/// * `jobId` - Pointer to the print job ID.
 ///
-/// * `fd` - The file descriptor to be written.
+/// * `fd` - File descriptor to write.
 ///
-/// * `oldAttrs` - The attribute of last.
+/// * `oldAttrs` - Pointer to the old attribute.
 ///
-/// * `newAttrs` - The attribute of current.
+/// * `newAttrs` - Pointer to the new attribute.
 ///
-/// * `writeCallback` - The Write files result callback.
+/// * `writeCallback` - Defines a callback used to return the file write-back result.
 ///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
@@ -566,20 +580,20 @@ pub type Print_OnStartLayoutWrite = ::core::option::Option<
         writeCallback: Print_WriteResultCallback,
     ),
 >;
-/// Print job state callback.
+/// Defines a callback to be invoked when the print job state changes.
 ///
 /// # Arguments
 ///
-/// * `jobId` - The print job id of one print task.
+/// * `jobId` - Pointer to the print job ID.
 ///
-/// * `state` - The state of current print job.
+/// * `state` - Print job state.
 ///
 /// Available since API-level: 13
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 pub type Print_OnJobStateChanged =
     ::core::option::Option<unsafe extern "C" fn(jobId: *const ::core::ffi::c_char, state: u32)>;
-/// Indicates print doc state callback structure.
+/// Defines a struct for the print job state callback.
 ///
 ///
 /// Available since API-level: 13
@@ -588,18 +602,18 @@ pub type Print_OnJobStateChanged =
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Print_PrintDocCallback {
-    /// Print start layout callback.
+    /// Callback to be invoked when the file write-back starts.
     pub startLayoutWriteCb: Print_OnStartLayoutWrite,
-    /// Print job state callback.
+    /// Callback to be invoked when the print job state changes.
     pub jobStateChangedCb: Print_OnJobStateChanged,
 }
-/// Printer discovery callback.
+/// Defines a callback used to return the discovered printers.
 ///
 /// # Arguments
 ///
-/// * `event` - The printer discovery event during printer discovery.
+/// * `event` - Printer discovery event.
 ///
-/// * `printerInfo` - The printer infomation at the time of the discovery event.
+/// * `printerInfo` - Printer information when the discovery event occurs.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -607,13 +621,13 @@ pub struct Print_PrintDocCallback {
 pub type Print_PrinterDiscoveryCallback = ::core::option::Option<
     unsafe extern "C" fn(event: Print_DiscoveryEvent, printerInfo: *const Print_PrinterInfo),
 >;
-/// Printer change callback.
+/// Defines a callback to be invoked when a printer is changed.
 ///
 /// # Arguments
 ///
-/// * `event` - The printer change event while the printer service is running.
+/// * `event` - Printer change event during the running of the print service.
 ///
-/// * `printerInfo` - The printer infomation at the time of the change event.
+/// * `printerInfo` - Printer information when the change event occurs.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -621,58 +635,85 @@ pub type Print_PrinterDiscoveryCallback = ::core::option::Option<
 pub type Print_PrinterChangeCallback = ::core::option::Option<
     unsafe extern "C" fn(event: Print_PrinterEvent, printerInfo: *const Print_PrinterInfo),
 >;
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+impl OH_Print_JobState {
+    /// Successful print job.
+    pub const OH_PRINT_JOB_SUCCEED: OH_Print_JobState = OH_Print_JobState(0);
+    /// Print job failed.
+    pub const OH_PRINT_JOB_FAIL: OH_Print_JobState = OH_Print_JobState(1);
+    /// Print job canceled.
+    pub const OH_PRINT_JOB_CANCEL: OH_Print_JobState = OH_Print_JobState(2);
+    /// Print job blocked.
+    pub const OH_PRINT_JOB_BLOCK: OH_Print_JobState = OH_Print_JobState(3);
+}
+#[repr(transparent)]
+/// Enumerates the print job states.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct OH_Print_JobState(pub ::core::ffi::c_uint);
+/// Defines a callback to be invoked when the print job state changes.
+///
+/// # Arguments
+///
+/// * `jobId` - Pointer to the print job ID.
+///
+/// * `state` - Print job state.
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub type OH_Print_OnJobStateChanged = ::core::option::Option<
+    unsafe extern "C" fn(jobId: *const ::core::ffi::c_char, state: OH_Print_JobState),
+>;
 extern "C" {
-    /// This API checks and pulls up the print service, initializes the print client,
-    /// and establishes a connection to the print service.
+    /// Checks and starts the print service, initializes the print client, and connects it with the print service.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
-    /// [`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE) The cups service cannot be started.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    /// <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to start the CUPS service.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_Init() -> Print_ErrorCode;
-    /// This API closes the connection from the print service, dissolves the previous callback,
-    /// and releases the print client resources.
+    /// Disconnects from the print service, dismisses the previous callback, and releases the print client resources.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// Currently no other error codes will be returned.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>Currently, no other error codes will be returned.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_Release() -> Print_ErrorCode;
-    /// This API starts discovering printers.
+    /// Starts printer discovery.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `callback` - The [`Print_PrinterDiscoveryCallback`](crate::print::Print_PrinterDiscoveryCallback) of printer discovery event.
+    /// * `callback` - [`Print_PrinterDiscoveryCallback`](crate::print::Print_PrinterDiscoveryCallback) to be invoked when a printer is discovered.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service ability.
-    /// [`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE) Failed to query print extension list from BMS.
-    /// [`PRINT_ERROR_INVALID_EXTENSION`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_EXTENSION) No available print extensions found.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    /// <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to query the print extension list from the BMS.
+    /// <br>[`PRINT_ERROR_INVALID_EXTENSION`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_EXTENSION): No available print extension is found.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -680,83 +721,75 @@ extern "C" {
     pub fn OH_Print_StartPrinterDiscovery(
         callback: Print_PrinterDiscoveryCallback,
     ) -> Print_ErrorCode;
-    /// This API stops discovering printers.
+    /// Stops printer discovery.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_StopPrinterDiscovery() -> Print_ErrorCode;
-    /// This API connects to the printer using the printer id.
+    /// Connects to a printer by the printer ID.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `printerId` - The id of the printer to be connected.
+    /// * `printerId` - Pointer to the ID of the printer to be connected.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
-    /// [`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER) The printer should be in the list of discovered printers.
-    /// [`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE) Unable to find an extension responsible for the printer.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Printer does not exist in the list of discovered printers.
+    /// <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to find the printer extension.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_ConnectPrinter(printerId: *const ::core::ffi::c_char) -> Print_ErrorCode;
-    /// This API starts initiating a print job.
+    /// Starts a print job.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `printJob` - A pointer to a [`Print_PrintJob`](crate::print::Print_PrintJob) instance that specifies the information for the print job.
+    /// * `printJob` - Pointer to the [`Print_PrintJob`](crate::print::Print_PrintJob) instance of the specified print job information.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
-    /// [`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER) The printer should be in the list of connected printers.
-    /// [`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE) Unable to create print job in the print service.
-    /// [`PRINT_ERROR_INVALID_PRINT_JOB`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINT_JOB) Unable to find the job int the job queue.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Printer does not exist in the list of connected printers.
+    /// <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): Failed to create a print job in the print service.
+    /// <br>[`PRINT_ERROR_INVALID_PRINT_JOB`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINT_JOB): Failed to find the specified task in the task queue.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_StartPrintJob(printJob: *const Print_PrintJob) -> Print_ErrorCode;
-    /// This API registers the callback for printer changes.
+    /// Registers a listener for printer changes.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `callback` - The [`Print_PrinterChangeCallback`](crate::print::Print_PrinterChangeCallback) to be registered.
+    /// * `callback` - [`Print_PrinterChangeCallback`](crate::print::Print_PrinterChangeCallback) to be registered.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service ability.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -764,70 +797,62 @@ extern "C" {
     pub fn OH_Print_RegisterPrinterChangeListener(
         callback: Print_PrinterChangeCallback,
     ) -> Print_ErrorCode;
-    /// This API unregisters the callback for printer changes.
+    /// Unregisters this listener for printer changes.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_UnregisterPrinterChangeListener();
-    /// This API queries for a list of added printers.
+    /// Queries the list of added printers.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `printerIdList` - A pointer to a [`Print_StringList`](crate::print::Print_StringList) instance to store the queried printer id list.
+    /// * `printerIdList` - Pointer to the [`Print_StringList`](crate::print::Print_StringList) instance that stores the queried printer ID list.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER) printerIdList is NULL.
-    /// [`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER) Unable to query any connected printers.
-    /// [`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE) Unable to copy the printer id list.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): printerIdList is null.
+    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to query any connected printers.
+    /// <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): Failed to copy printer ID list.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_QueryPrinterList(printerIdList: *mut Print_StringList) -> Print_ErrorCode;
-    /// This API frees up the printer list memory for the query.
+    /// Releases the memory used to query the printer list.
     ///
     /// # Arguments
     ///
-    /// * `printerIdList` - The queried printer id list to be released.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * `printerIdList` - Pointer to the queried printer ID list.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_ReleasePrinterList(printerIdList: *mut Print_StringList);
-    /// This API queries printer information based on the printer id.
+    /// Queries printer information by printer ID.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `printerId` - The id of the printer to be queried.
+    /// * `printerId` - Pointer to the printer ID to be queried.
     ///
-    /// * `printerInfo` - A pointer to a [`Print_PrinterInfo`](crate::print::Print_PrinterInfo) pointer to store the printer infomation.
+    /// * `printerInfo` - Double pointer to the [`Print_PrinterInfo`](crate::print::Print_PrinterInfo).
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
-    /// [`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER) printerId is NULL or printerInfo is NULL.
-    /// [`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER) Unable to find the printer in the connected printer list.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    /// <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): The printerId or printerInfo is null.
+    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to find the specified printer in the list of connected printers.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -836,53 +861,47 @@ extern "C" {
         printerId: *const ::core::ffi::c_char,
         printerInfo: *mut *mut Print_PrinterInfo,
     ) -> Print_ErrorCode;
-    /// This API frees up the printer infomation memory for the query.
+    /// Releases the memory used to query the printer information.
     ///
     /// # Arguments
     ///
-    /// * `printerInfo` - The pointer of the queried printer infomation to be released.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * `printerInfo` - Pointer to the queried printer information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_ReleasePrinterInfo(printerInfo: *mut Print_PrinterInfo);
-    /// This API launches the system's printer management window.
+    /// Starts the printer management window of the system.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE) Unable to launch the printer manager window.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): Failed to start the printer management window.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_LaunchPrinterManager() -> Print_ErrorCode;
-    /// This API queries the corresponding printer property values based on the list of property keywords.
+    /// Queries the printer properties based on the list of property keys.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `printerId` - The id of the printer to be queried.
+    /// * `printerId` - Pointer to the printer ID to be queried.
     ///
-    /// * `propertyKeyList` - The list of property keywords to be queried
+    /// * `propertyKeyList` - Pointer to the list of property keys.
     ///
-    /// * `propertyList` - The list of printer property values queried.
+    /// * `propertyList` - Pointer to the queried printer properties.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER) One of the params is NULL or the keyword list is empty.
-    /// [`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER) The printer properties for the specified printer could not be found.
-    /// [`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE) Unable to copy the printer properties.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): One of the parameters is null or the key list is empty.
+    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to find properties of the specified printer.
+    /// <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): Failed to copy printer properties.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -892,35 +911,31 @@ extern "C" {
         propertyKeyList: *const Print_StringList,
         propertyList: *mut Print_PropertyList,
     ) -> Print_ErrorCode;
-    /// This API frees up the property list memory for the query.
+    /// Releases the memory used to query the printer properties.
     ///
     /// # Arguments
     ///
-    /// * `propertyList` - The pointer of the queried printer property values to be released.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * `propertyList` - Pointer to the queried printer properties.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Print_ReleasePrinterProperties(propertyList: *mut Print_PropertyList);
-    /// This API sets printer properties based on a list of property key-value pairs.
+    /// Updates the printer properties based on the KV pairs.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `printerId` - The id of the printer to be set.
+    /// * `printerId` - Pointer to the printer ID.
     ///
-    /// * `propertyList` - The list of printer property values to be set.
+    /// * `propertyList` - Pointer to the list of printer properties to be updated.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -929,23 +944,21 @@ extern "C" {
         printerId: *const ::core::ffi::c_char,
         propertyList: *const Print_PropertyList,
     ) -> Print_ErrorCode;
-    /// This API restores printer properties to default settings based on the list of property keywords.
+    /// Restores printer properties to the default settings based on the property key list.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `printerId` - The id of the printer to be restored.
+    /// * `printerId` - Pointer to the printer ID.
     ///
-    /// * `propertyKeyList` - The list of property keywords to be restored.
+    /// * `propertyKeyList` - Pointer to the property key list.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -954,25 +967,23 @@ extern "C" {
         printerId: *const ::core::ffi::c_char,
         propertyKeyList: *const Print_StringList,
     ) -> Print_ErrorCode;
-    /// This API provide capacity to start print dialog.
+    /// Starts the printing dialog box.
     ///
     ///
     /// Required Permissions: `ohos.permission.PRINT`
     /// # Arguments
     ///
-    /// * `printJobName` - The name of this print job.
+    /// * `printJobName` - Pointer to the name of the print job.
     ///
-    /// * `printDocCallback` - The print doc state callback.
+    /// * `printDocCallback` - Callback used to return the file state.
     ///
-    /// * `context` - The context of caller app.
+    /// * `context` - Pointer to the context of the caller.
     ///
     /// # Returns
     ///
-    /// * Returns [`Print_ErrorCode#PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE) if the execution is successful.
-    /// [`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION) The permission `ohos.permission.PRINT` is needed.
-    /// [`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE) Unable to connect to the print service.
-    ///
-    /// Required System Capabilities: SystemCapability.Print.PrintFramework
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The ohos.permission.PRINT permission is required.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -981,5 +992,33 @@ extern "C" {
         printJobName: *const ::core::ffi::c_char,
         printDocCallback: Print_PrintDocCallback,
         context: *mut ::core::ffi::c_void,
+    ) -> Print_ErrorCode;
+    /// Starts a print job with the callback to be invoked when the print job state changes.
+    ///
+    ///
+    /// Required Permissions: ohos.permission.PRINT
+    /// # Arguments
+    ///
+    /// * `printJob` - Pointer to the print job struct.
+    ///
+    /// * `jobStateChangedCb` - Callback to be invoked when the print job state changes.
+    ///
+    /// # Returns
+    ///
+    /// * [`PRINT_ERROR_NONE`](crate::print::Print_ErrorCode::PRINT_ERROR_NONE): Operation is successful.
+    /// <br>[`PRINT_ERROR_NO_PERMISSION`](crate::print::Print_ErrorCode::PRINT_ERROR_NO_PERMISSION): The `ohos.permission.PRINT` permission is required.
+    /// <br>[`PRINT_ERROR_INVALID_PARAMETER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PARAMETER): The jobStateChangedCb is null.
+    /// <br>[`PRINT_ERROR_GENERIC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_GENERIC_FAILURE): The callback function cannot be copied.
+    /// <br>[`PRINT_ERROR_RPC_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_RPC_FAILURE): Failed to connect to the print service.
+    /// <br>[`PRINT_ERROR_SERVER_FAILURE`](crate::print::Print_ErrorCode::PRINT_ERROR_SERVER_FAILURE): The print job struct cannot be created in the print service.
+    /// <br>[`PRINT_ERROR_INVALID_PRINTER`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINTER): Failed to find the specified printer in the list of connected printers.
+    /// <br>[`PRINT_ERROR_INVALID_PRINT_JOB`](crate::print::Print_ErrorCode::PRINT_ERROR_INVALID_PRINT_JOB): Print job cannot be found in the job queue.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_Print_StartPrintWithJobStateCallback(
+        printJob: *const Print_PrintJob,
+        jobStateChangedCb: OH_Print_OnJobStateChanged,
     ) -> Print_ErrorCode;
 }

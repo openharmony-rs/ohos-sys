@@ -110,7 +110,7 @@ pub struct Sensor_Type(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl Sensor_Result {
-    /// The operation is successful.
+    /// Operation success.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -122,8 +122,8 @@ impl Sensor_Result {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const SENSOR_PERMISSION_DENIED: Sensor_Result = Sensor_Result(201);
-    /// Parameter check failed. For example, a mandatory parameter is not passed in,
-    /// or the parameter type passed in is incorrect.
+    /// An error occurs during parameter verification. For example, a mandatory parameter is not passed in, or the
+    /// parameter type passed in is incorrect.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -154,15 +154,15 @@ impl Sensor_Accuracy {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const SENSOR_ACCURACY_UNRELIABLE: Sensor_Accuracy = Sensor_Accuracy(0);
-    /// The sensor data is at a low accuracy level. The data must be calibrated based on
-    /// the environment before being used.
+    /// The sensor data is at a low accuracy level. The data must be calibrated based on the environment before being
+    /// used.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub const SENSOR_ACCURACY_LOW: Sensor_Accuracy = Sensor_Accuracy(1);
-    /// The sensor data is at a medium accuracy level. You are advised to calibrate the data
-    /// based on the environment before using it.
+    /// The sensor data is at a medium accuracy level. You are advised to calibrate the data based on the environment
+    /// before using it.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -184,7 +184,8 @@ impl Sensor_Accuracy {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Sensor_Accuracy(pub ::core::ffi::c_uint);
-/// Defines the sensor information.
+/// Defines a struct for the sensor information.
+///
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -193,7 +194,8 @@ pub struct Sensor_Accuracy(pub ::core::ffi::c_uint);
 pub struct Sensor_Info {
     _unused: [u8; 0],
 }
-/// Defines the sensor data information.
+/// Defines a struct for the sensor data information.
+///
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -202,7 +204,8 @@ pub struct Sensor_Info {
 pub struct Sensor_Event {
     _unused: [u8; 0],
 }
-/// Defines the sensor subscription ID, which uniquely identifies a sensor.
+/// Defines a struct for the sensor subscription ID, which uniquely identifies a sensor.
+///
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -211,7 +214,8 @@ pub struct Sensor_Event {
 pub struct Sensor_SubscriptionId {
     _unused: [u8; 0],
 }
-/// Defines the sensor subscription attribute.
+/// Defines a struct for the sensor subscription attribute.
+///
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -222,12 +226,17 @@ pub struct Sensor_SubscriptionAttribute {
 }
 /// Defines the callback function used to report sensor data.
 ///
+/// # Arguments
+///
+/// * `event` - Pointer to the sensor data information.
+///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub type Sensor_EventCallback =
     ::core::option::Option<unsafe extern "C" fn(event: *mut Sensor_Event)>;
-/// Defines the sensor subscriber information.
+/// Defines a struct the sensor subscriber information.
+///
 ///
 /// Available since API-level: 11
 #[cfg(feature = "api-11")]
@@ -237,34 +246,31 @@ pub struct Sensor_Subscriber {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Creates an array of [`Sensor_Info`](crate::sensor_type::Sensor_Info) instances with the given number.
+    /// Creates an instance array using a given number. For details, see [`Sensor_Info`](crate::sensor_type::Sensor_Info).
     ///
     /// # Arguments
     ///
-    /// * `count` - - Number of [`Sensor_Info`](crate::sensor_type::Sensor_Info) instances to create.
+    /// * `count` - Number of instances to be created. For details, see [`Sensor_Info`](crate::sensor_type::Sensor_Info).
     ///
     /// # Returns
     ///
-    /// * Returns the double pointer to the array of [`Sensor_Info`](crate::sensor_type::Sensor_Info) instances
-    /// if the operation is successful;
-    /// returns <b>NULL</b> otherwise.
+    /// * Double pointer to the [`Sensor_Info`](crate::sensor_type::Sensor_Info) instance array if the operation is successful; NULL otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Sensor_CreateInfos(count: u32) -> *mut *mut Sensor_Info;
-    /// Destroys an array of [`Sensor_Info`](crate::sensor_type::Sensor_Info) instances and reclaims memory.
+    /// Destroys the sensor instance array and reclaims the memory. For details, see [`Sensor_Info`](crate::sensor_type::Sensor_Info).
     ///
     /// # Arguments
     ///
-    /// * `sensors` - - Double pointer to the array of [`Sensor_Info`](crate::sensor_type::Sensor_Info) instances.
+    /// * `sensors` - Double pointer to the [`Sensor_Info`](crate::sensor_type::Sensor_Info) instance array.
     ///
-    /// * `count` - - Number of [`Sensor_Info`](crate::sensor_type::Sensor_Info) instances to destroy.
+    /// * `count` - Number of [`Sensor_Info`](crate::sensor_type::Sensor_Info) instances to be destroyed.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -274,16 +280,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `sensor` - - Pointer to the sensor information.
+    /// * `sensor` - Pointer to the sensor information.
     ///
-    /// * `sensorName` - - Pointer to the sensor name.
+    /// * `sensorName` - Pointer to the sensor data.
     ///
-    /// * `length` - - Pointer to the length, in bytes.
+    /// * `length` - Pointer to the length, in bytes.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -297,16 +302,15 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `sensor` - - Pointer to the sensor information.
+    /// * `sensor` - Pointer to the sensor information.
     ///
-    /// * `vendorName` - - Pointer to the vendor name.
+    /// * `vendorName` - Pointer to the vendor name.
     ///
-    /// * `length` - - Pointer to the length, in bytes.
+    /// * `length` - Pointer to the length, in bytes.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -320,14 +324,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `sensor` - - Pointer to the sensor information.
+    /// * `sensor` - Pointer to the sensor information.
     ///
-    /// * `sensorType` - - Pointer to the sensor type.
+    /// * `sensorType` - Pointer to the sensor type.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -337,14 +340,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `sensor` - - Pointer to the sensor information.
+    /// * `sensor` - Pointer to the sensor information.
     ///
-    /// * `resolution` - - Pointer to the sensor resolution.
+    /// * `resolution` - Pointer to the sensor resolution [`Sensor_Accuracy`](crate::sensor_type::Sensor_Accuracy).
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -354,14 +356,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `sensor` - - Pointer to the sensor information.
+    /// * `sensor` - Pointer to the sensor information.
     ///
-    /// * `minSamplingInterval` - - Pointer to the minimum data reporting interval, in nanoseconds.
+    /// * `minSamplingInterval` - Pointer to the minimum data reporting interval, in nanoseconds.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -374,14 +375,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `sensor` - - Pointer to the sensor information.
+    /// * `sensor` - Pointer to the sensor information.
     ///
-    /// * `maxSamplingInterval` - - Pointer to the maximum data reporting interval, in nanoseconds.
+    /// * `maxSamplingInterval` - Pointer to the maximum data reporting interval, in nanoseconds.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -394,14 +394,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `sensorEvent` - - Pointer to the sensor data information.
+    /// * `sensorEvent` - Pointer to the sensor data information.
     ///
-    /// * `sensorType` - - Pointer to the sensor type.
+    /// * `sensorType` - Pointer to the sensor type.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -414,14 +413,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `sensorEvent` - - Pointer to the sensor data information.
+    /// * `sensorEvent` - Pointer to the sensor data information.
     ///
-    /// * `timestamp` - - Pointer to the timestamp.
+    /// * `timestamp` - Pointer to the timestamp.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -431,14 +429,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `sensorEvent` - - Pointer to the sensor data information.
+    /// * `sensorEvent` - Pointer to the sensor data information.
     ///
-    /// * `accuracy` - - Pointer to the accuracy.
+    /// * `accuracy` - Pointer to the accuracy.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -505,23 +502,21 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId) instance if the operation is successful;
-    /// returns <b>NULL</b> otherwise.
+    /// * Pointer to the [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId) instance if the operation is successful; **NULL** otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Sensor_CreateSubscriptionId() -> *mut Sensor_SubscriptionId;
-    /// Destroys a [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId) instance and reclaims memory.
+    /// Destroys a [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId) instance and reclaims the memory.
     ///
     /// # Arguments
     ///
-    /// * `id` - - Pointer to the [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId) instance.
+    /// * `id` - Pointer to the [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId) instance.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -531,14 +526,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `id` - - Pointer to the sensor subscription ID.
+    /// * `id` - Pointer to the sensor subscription ID.
     ///
-    /// * `sensorType` - - Pointer to the sensor type.
+    /// * `sensorType` - Pointer to the sensor type.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -551,14 +545,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `id` - - Pointer to the sensor subscription ID.
+    /// * `id` - Pointer to the sensor subscription ID.
     ///
-    /// * `sensorType` - - Sensor type to set.
+    /// * `sensorType` - Sensor type to set.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -572,23 +565,22 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute) instance if the operation is successful;
-    /// returns <b>NULL</b> otherwise.
+    /// * Pointer to the [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute) instance if the operation is successful; **NULL**
+    /// otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Sensor_CreateSubscriptionAttribute() -> *mut Sensor_SubscriptionAttribute;
-    /// Destroys a [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute) instance and reclaims memory.
+    /// Destroys a [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute) instance and reclaims the memory.
     ///
     /// # Arguments
     ///
-    /// * `attribute` - - Pointer to the [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute) instance.
+    /// * `attribute` - Pointer to the [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute) instance.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -600,14 +592,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `attribute` - - Pointer to the sensor subscription attribute.
+    /// * `attribute` - Pointer to the sensor subscription attribute.
     ///
-    /// * `samplingInterval` - - Data reporting interval to set, in nanoseconds.
+    /// * `samplingInterval` - Data reporting interval to set, in nanoseconds.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -620,14 +611,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `attribute` - - Pointer to the sensor subscription attribute.
+    /// * `attribute` - Pointer to the sensor subscription attribute.
     ///
-    /// * `samplingInterval` - - Pointer to the data reporting interval, in nanoseconds.
+    /// * `samplingInterval` - Pointer to the data reporting interval, in nanoseconds.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -641,23 +631,21 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber) instance
-    /// if the operation is successful; returns <b>NULL</b> otherwise.
+    /// * Pointer to the [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber) instance if the operation is successful; **NULL** otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Sensor_CreateSubscriber() -> *mut Sensor_Subscriber;
-    /// Destroys a [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber) instance and reclaims memory.
+    /// Destroys a [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber) instance and reclaims the memory.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - - Pointer to the [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber) instance.
+    /// * `subscriber` - Pointer to the [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber) instance.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -667,14 +655,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - - Pointer to the sensor subscriber information.
+    /// * `subscriber` - Pointer to the sensor subscriber information.
     ///
-    /// * `callback` - - Callback function to set.
+    /// * `callback` - Sets the callback function.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -687,14 +674,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - - Pointer to the sensor subscriber information.
+    /// * `subscriber` - Pointer to the sensor subscriber information.
     ///
-    /// * `callback` - - Pointer to the callback function.
+    /// * `callback` - Pointer to the callback function.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful;
-    /// returns an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

@@ -9,30 +9,45 @@ use ohos_sys_opaque_types::Input_KeyEvent;
 #[cfg(feature = "api-15")]
 use ohos_sys_opaque_types::{Input_MouseEvent, Input_TouchEvent};
 
-/// Defines a function for filtering multimodal key events
+/// Defines a function for filtering multimodal key events.
 /// # Arguments
 ///
-/// * `keyEvent` - multimodal keyEvent
+/// * `keyEvent` - multimodal key event. For details, see [`Input_KeyEvent`](ohos_sys_opaque_types::Input_KeyEvent).
+///
+/// # Returns
+///
+/// * Returns whether to filter this event. Returning true prevents the window from dispatching it further;
+/// Returns false indicates that the event is not intercepted.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NativeWindowManager_KeyEventFilter =
     ::core::option::Option<unsafe extern "C" fn(keyEvent: *mut Input_KeyEvent) -> bool>;
-/// Defines a function for filtering multimodal mouse events
+/// Defines a function for filtering multimodal mouse events.
 /// # Arguments
 ///
-/// * `mouseEvent` - multimodal mouseEvent
+/// * `mouseEvent` - multimodal mouse event. For details, see [`Input_MouseEvent`](ohos_sys_opaque_types::Input_MouseEvent).
+///
+/// # Returns
+///
+/// * Returns whether to filter this event. Returning true prevents the window from dispatching it further;
+/// returning false indicates that the event is not intercepted.
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub type OH_NativeWindowManager_MouseEventFilter =
     ::core::option::Option<unsafe extern "C" fn(mouseEvent: *mut Input_MouseEvent) -> bool>;
-/// Defines a function for filtering multimodal touch events
+/// Defines a function for filtering multimodal touch events.
 /// # Arguments
 ///
-/// * `touchEvent` - multimodal touchEvent
+/// * `touchEvent` - multimodal touchEvent. For details, see [`Input_TouchEvent`](ohos_sys_opaque_types::Input_TouchEvent).
+///
+/// # Returns
+///
+/// * Returns whether to filter this event. Returning true prevents the window from dispatching it further;
+/// returning false indicates that the event is not intercepted.
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
@@ -40,18 +55,21 @@ pub type OH_NativeWindowManager_MouseEventFilter =
 pub type OH_NativeWindowManager_TouchEventFilter =
     ::core::option::Option<unsafe extern "C" fn(touchEvent: *mut Input_TouchEvent) -> bool>;
 extern "C" {
-    /// Registers a function for filtering multimodal key events
+    /// Registers a function for filtering multimodal key events.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - windowId when window is created
+    /// * `windowId` - ID of the window.
     ///
-    /// * `keyEventFilter` - key event callback ,called when the window is dispatched
-    /// to the event
+    /// * `keyEventFilter` - Filter function for multimodal key event.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
+    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the keyEventFilter is invalid.
+    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -60,35 +78,38 @@ extern "C" {
         windowId: i32,
         keyEventFilter: OH_NativeWindowManager_KeyEventFilter,
     ) -> WindowManagerResult;
-    /// Unregisters a function for filtering multimodal key events
+    /// Unregisters a function for filtering multimodal key events.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - windowId when window is created
+    /// * `windowId` - ID of the window.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
+    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_NativeWindowManager_UnregisterKeyEventFilter(windowId: i32) -> WindowManagerResult;
-    /// Registers a function for filtering multimodal mouse events
+    /// Registers a function for filtering multimodal mouse events.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - windowId when window is created
+    /// * `windowId` - ID of the window.
     ///
-    /// * `mouseEventFilter` - mouse event callback, called when the window is dispatched
-    /// to the event
+    /// * `mouseEventFilter` - Filter function for multimodal mouse event.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    /// Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
-    /// Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
+    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the mouseEventFilter is invalid.
+    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -97,38 +118,38 @@ extern "C" {
         windowId: i32,
         mouseEventFilter: OH_NativeWindowManager_MouseEventFilter,
     ) -> WindowManagerResult;
-    /// Unregisters a function for filtering multimodal mouse events
+    /// Unregisters a function for filtering multimodal mouse events.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - windowId when window is created
+    /// * `windowId` - ID of the window.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    /// Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
-    /// Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
+    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_NativeWindowManager_UnregisterMouseEventFilter(windowId: i32) -> WindowManagerResult;
-    /// Registers a function for filtering multimodal touch events
+    /// Registers a function for filtering multimodal touch events.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - windowId when window is created
+    /// * `windowId` - ID of the window.
     ///
-    /// * `touchEventFilter` - touch event callback, called when the window is dispatched
-    /// to the event
+    /// * `touchEventFilter` - Filter function for multimodal touch event.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    /// Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
-    /// Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
+    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the touchEventFilter is invalid.
+    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -137,21 +158,90 @@ extern "C" {
         windowId: i32,
         touchEventFilter: OH_NativeWindowManager_TouchEventFilter,
     ) -> WindowManagerResult;
-    /// Unregisters a function for filtering multimodal touch events
+    /// Unregisters a function for filtering multimodal touch events.
     ///
     /// # Arguments
     ///
-    /// * `windowId` - windowId when window is created
+    /// * `windowId` - ID of the window for which the function is unregistered.
     ///
     /// # Returns
     ///
     /// * Returns the status code of the execution.
-    /// Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
-    /// Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
-    /// Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
+    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///  - Returns [`INVAILD_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVAILD_WINDOW_ID) if the window id is invalid.
+    ///  - Returns [`SERVICE_ERROR`](crate::window_comm::WindowManagerErrorCode::SERVICE_ERROR) if the window manager service error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_NativeWindowManager_UnregisterTouchEventFilter(windowId: i32) -> WindowManagerResult;
+    /// Gets the key event filter callback for the window.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - ID of the window.
+    ///
+    /// * `outKeyEventFilter` - Output parameter for the registered key event filter callback.
+    /// If no filter has been registered, *outKeyEventFilter will return NULL.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code defined by [`WindowManager_ErrorCode`](crate::window_comm::WindowManagerResult).
+    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the outKeyEventFilter is NULL.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_NativeWindowManager_GetKeyEventFilter(
+        windowId: i32,
+        outKeyEventFilter: *mut OH_NativeWindowManager_KeyEventFilter,
+    ) -> WindowManagerResult;
+    /// Gets the mouse event filter callback for the window.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - ID of the window.
+    ///
+    /// * `outMouseEventFilter` - Output parameter for the registered mouse event filter callback.
+    /// If no filter has been registered, *outMouseEventFilter will return NULL.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code defined by [`WindowManager_ErrorCode`](crate::window_comm::WindowManagerResult).
+    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the outMouseEventFilter is NULL.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_NativeWindowManager_GetMouseEventFilter(
+        windowId: i32,
+        outMouseEventFilter: *mut OH_NativeWindowManager_MouseEventFilter,
+    ) -> WindowManagerResult;
+    /// Gets the touch event filter callback for the window.
+    ///
+    /// # Arguments
+    ///
+    /// * `windowId` - ID of the window.
+    ///
+    /// * `outTouchEventFilter` - Output parameter for the registered touch event filter callback.
+    /// If no filter has been registered, *outTouchEventFilter will return NULL.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code defined by [`WindowManager_ErrorCode`](crate::window_comm::WindowManagerResult).
+    ///  - Returns [`OK`](crate::window_comm::WindowManagerResult) if the operation is successful.
+    ///  - Returns [`INVALID_WINDOW_ID`](crate::window_comm::WindowManagerErrorCode::INVALID_WINDOW_ID) if the windowId is invalid.
+    ///  - Returns [`WINDOW_MANAGER_ERRORCODE_INVALID_PARAM`](crate::window_comm::WindowManagerErrorCode::WINDOW_MANAGER_ERRORCODE_INVALID_PARAM) if the outTouchEventFilter is NULL.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_NativeWindowManager_GetTouchEventFilter(
+        windowId: i32,
+        outTouchEventFilter: *mut OH_NativeWindowManager_TouchEventFilter,
+    ) -> WindowManagerResult;
 }

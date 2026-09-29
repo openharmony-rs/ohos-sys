@@ -10,7 +10,8 @@ use crate::averrors::OH_AVErrCode;
 pub const DRM_KEY_ID_SIZE: u32 = 16;
 pub const DRM_KEY_IV_SIZE: u32 = 16;
 pub const DRM_KEY_MAX_SUB_SAMPLE_NUM: u32 = 64;
-/// AVBuffer Structure.
+/// The struct describes a native object for the media memory interface.
+///
 ///
 /// Available since API-level: 12
 ///
@@ -21,7 +22,8 @@ pub const DRM_KEY_MAX_SUB_SAMPLE_NUM: u32 = 64;
 pub struct OH_AVBuffer {
     _unused: [u8; 0],
 }
-/// AVCencInfo Structure.
+/// The struct describes the audio/video Common Encryption Scheme (CENC) information.
+///
 ///
 /// Available since API-level: 12
 ///
@@ -49,7 +51,8 @@ impl DrmCencAlgorithm {
     pub const DRM_ALG_CENC_SM4_CTR: DrmCencAlgorithm = DrmCencAlgorithm(5);
 }
 #[repr(transparent)]
-/// Drm cenc algorithm type.
+/// Enumerates the DRM CENC algorithm types.
+///
 ///
 /// Available since API-level: 12
 ///
@@ -65,7 +68,8 @@ impl DrmCencInfoMode {
     pub const DRM_CENC_INFO_KEY_IV_SUBSAMPLES_NOT_SET: DrmCencInfoMode = DrmCencInfoMode(1);
 }
 #[repr(transparent)]
-/// Mode of cend info like set or not.
+/// Enumerates the modes for setting the key ID, IV, and subsample in the CENC information.
+///
 ///
 /// Available since API-level: 12
 ///
@@ -74,7 +78,8 @@ impl DrmCencInfoMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct DrmCencInfoMode(pub ::core::ffi::c_uint);
-/// Subsample info of media.
+/// The struct describes the subsample type.
+///
 ///
 /// Available since API-level: 12
 ///
@@ -88,17 +93,14 @@ pub struct DrmSubsample {
     pub payLoadLen: u32,
 }
 extern "C" {
-    /// Creates an OH_AVCencInfo instance for setting cencinfo.
+    /// Creates an OH_AVCencInfo instance for setting the CENC information.
     ///
-    /// Free the resources of the instance by calling OH_AVCencInfo_Destory.
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     ///
     /// # Returns
     ///
-    /// * Returns the newly created OH_AVCencInfo object. If nullptr is returned, the object failed to be created.
-    /// The possible failure is due to the application address space being full,
-    /// or the data in the initialization object has failed.
+    /// * Pointer to the OH_AVCencInfo instance created. If the operation fails, nullptr is returned.
+    /// <br>The possible causes of an operation failure are as follows: The application address space is full,
+    /// or the data in the object fails to be initialized.
     ///
     /// Available since API-level: 12
     ///
@@ -106,21 +108,19 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AVCencInfo_Create() -> *mut OH_AVCencInfo;
-    /// Destroy the OH_AVCencInfo instance and free the internal resources.
+    /// Destroys an OH_AVCencInfo instance and clears internal resources.
     ///
-    /// The same instance can only be destroyed once. The destroyed instance
-    /// should not be used before it is created again. It is recommended setting
-    /// the instance pointer to NULL right after the instance is destroyed successfully.
+    /// An instance can be destroyed only once. Do not use the instance until it is created again. You are advised to set
+    /// the instance pointer to nullptr once the instance is destroyed.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
     /// * `cencInfo` - Pointer to an OH_AVCencInfo instance.
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - cencInfo is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null.
     ///
     /// Available since API-level: 12
     ///
@@ -128,20 +128,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AVCencInfo_Destroy(cencInfo: *mut OH_AVCencInfo) -> OH_AVErrCode;
-    /// Method to set algo of cencinfo.
+    /// Sets an encryption algorithm of the CENC information.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
     /// * `cencInfo` - Pointer to an OH_AVCencInfo instance.
     ///
-    /// * `algo` - Cenc algo.
+    /// * `algo` - Encryption algorithm.
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - cencInfo is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null.
     ///
     /// Available since API-level: 12
     ///
@@ -152,27 +150,26 @@ extern "C" {
         cencInfo: *mut OH_AVCencInfo,
         algo: DrmCencAlgorithm,
     ) -> OH_AVErrCode;
-    /// Method to set key id and iv of cencinfo.
+    /// Sets the key ID and IV in the CENC information.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
     /// * `cencInfo` - Pointer to an OH_AVCencInfo instance.
     ///
-    /// * `keyId` - Key id.
+    /// * `keyId` - Pointer to the key ID.
     ///
-    /// * `keyIdLen` - Key id len.
+    /// * `keyIdLen` - Length of the key ID.
     ///
-    /// * `iv` - Iv.
+    /// * `iv` - Pointer to the IV.
     ///
-    /// * `ivLen` - Iv len.
+    /// * `ivLen` - Length of the IV.
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If cencInfo is nullptr, or keyId is nullptr, or keyIdLen != DRM_KEY_ID_SIZE,
-    /// or iv is nullptr, or ivLen != DRM_KEY_IV_SIZE, or keyId copy fails, or iv copy fails.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo**, **keyId**, or **iv** is null,
+    /// **keyIdLen** is not equal to **DRM_KEY_ID_SIZE**, **ivLen** is not equal to **DRM_KEY_IV_SIZE**,
+    /// the key ID or IV fails to be copied.
     ///
     /// Available since API-level: 12
     ///
@@ -186,29 +183,27 @@ extern "C" {
         iv: *mut u8,
         ivLen: u32,
     ) -> OH_AVErrCode;
-    /// Method to set subsample info of cencinfo.
+    /// Sets the subsample information in the CENC information.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
     /// * `cencInfo` - Pointer to an OH_AVCencInfo instance.
     ///
     /// * `encryptedBlockCount` - Number of encrypted blocks.
     ///
-    /// * `skippedBlockCount` - Number of skip(clear) blocks.
+    /// * `skippedBlockCount` - Number of non-encrypted blocks.
     ///
-    /// * `firstEncryptedOffset` - Offset of first encrypted payload.
+    /// * `firstEncryptedOffset` - Offset of the first encrypted payload.
     ///
-    /// * `subsampleCount` - Subsample num.
+    /// * `subsampleCount` - Number of subsamples.
     ///
-    /// * `subsamples` - Subsample info
+    /// * `subsamples` - Pointer to the subsamples.
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If cencInfo is nullptr, or subsampleCount > DRM_KEY_MAX_SUB_SAMPLE_NUM,
-    /// or subsamples is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null, **subsampleCount** is greater than
+    /// **DRM_KEY_MAX_SUB_SAMPLE_NUM**, or **subsamples** is null.
     ///
     /// Available since API-level: 12
     ///
@@ -223,20 +218,18 @@ extern "C" {
         subsampleCount: u32,
         subsamples: *mut DrmSubsample,
     ) -> OH_AVErrCode;
-    /// Method to set mode of cencinfo.
+    /// Sets the CENC information mode.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
     /// * `cencInfo` - Pointer to an OH_AVCencInfo instance.
     ///
-    /// * `mode` - Cenc mode, indicate whether key/iv/subsample set or not.
+    /// * `mode` - CENC information mode, indicating whether the key ID, IV, and subsample are set.
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - cencInfo is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo** is null.
     ///
     /// Available since API-level: 12
     ///
@@ -247,21 +240,19 @@ extern "C" {
         cencInfo: *mut OH_AVCencInfo,
         mode: DrmCencInfoMode,
     ) -> OH_AVErrCode;
-    /// Method to attach cencinfo to AVBuffer.
+    /// Sets the CENC information to an AVBuffer.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
     /// * `cencInfo` - Pointer to an OH_AVCencInfo instance.
     ///
-    /// * `buffer` - AVBuffer to attach cencinfo.
+    /// * `buffer` - Pointer to the frame buffer that carries data.
     ///
     /// # Returns
     ///
-    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) 0 - Success
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) 3 - If cencInfo is nullptr, or buffer is nullptr, or buffer->buffer_ is nullptr,
-    /// or buffer->buffer_->meta_ is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **cencInfo**, **buffer**, **buffer->buffer_**,
+    /// or **buffer->buffer_->meta_** is null.
     ///
     /// Available since API-level: 12
     ///

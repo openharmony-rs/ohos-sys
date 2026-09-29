@@ -1,0 +1,10 @@
+--- a/components/sensors/src/vibrator_type/vibrator_type_ffi.rs
++++ b/components/sensors/src/vibrator_type/vibrator_type_ffi.rs
+@@ -42,7 +42,6 @@
+     pub const VIBRATOR_USAGE_PHYSICAL_FEEDBACK: Vibrator_Usage = Vibrator_Usage(7);
+     /// Simulated reality
+     pub const VIBRATOR_USAGE_SIMULATED_REALITY: Vibrator_Usage = Vibrator_Usage(8);
+-    /// Simulated reality
+     pub const VIBRATOR_USAGE_MAX: Vibrator_Usage = Vibrator_Usage(9);
+ }
+ #[repr(transparent)]

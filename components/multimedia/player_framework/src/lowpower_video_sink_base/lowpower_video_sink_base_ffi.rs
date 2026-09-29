@@ -11,7 +11,7 @@ use crate::avformat::OH_AVFormat;
 #[allow(unused_imports)]
 use crate::lowpower_avsink_base::OH_AVSamplesBuffer;
 
-/// Forward declaration of OH_LowPowerVideoSink.
+/// The struct describes the declaration for the LowPowerVideoSink.
 ///
 ///
 /// Available since API-level: 20
@@ -21,7 +21,7 @@ use crate::lowpower_avsink_base::OH_AVSamplesBuffer;
 pub struct OH_LowPowerVideoSink {
     _unused: [u8; 0],
 }
-/// Forward declaration of OH_LowPowerVideoSinkCallback.
+/// The struct contains a set of callback function pointers for the LowPowerVideoSink.
 ///
 ///
 /// Available since API-level: 20
@@ -31,16 +31,15 @@ pub struct OH_LowPowerVideoSink {
 pub struct OH_LowPowerVideoSinkCallback {
     _unused: [u8; 0],
 }
-/// When the OH_LowPowerVideoSink instance report to need data, the function pointer will be called
-/// to request data.
+/// Called when the LowPowerVideoSink needs more data. This callback is included in [`OH_LowPowerVideoSinkCallback`](crate::lowpower_video_sink_base::OH_LowPowerVideoSinkCallback).
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerVideoSink*} sink OH_LowPowerVideoSink instance
+/// * `sink` - OH_LowPowerVideoSink instance
 ///
-/// {OH_AVSamplesBuffer*} buffer OH_AVSamplesBuffer instance that will be written in
+/// * `buffer` - OH_AVSamplesBuffer instance that will be written in
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -52,20 +51,19 @@ pub type OH_LowPowerVideoSink_OnDataNeeded = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When an error occurs in the running of the OH_LowPowerVideoSink instance, the function pointer will be called
-/// to report specific error information.
+/// Called when an error occurs in the LowPowerVideoSink.
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerVideoSink*} sink OH_LowPowerVideoSink instance
+/// * `sink` - OH_LowPowerVideoSink instance
 ///
-/// {OH_AVErrCode} errorCode The error code returned when an error occurs during service operation.
+/// * `errorCode` - The error code returned when an error occurs during service operation.
 /// See the definition of [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
 ///
-/// {const char*} errorMsg string of Error description information returned when an error occurs
+/// * `errorMsg` - string of Error description information returned when an error occurs
 /// during service operation
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -78,17 +76,17 @@ pub type OH_LowPowerVideoSink_OnError = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When the OH_LowPowerVideoSink instance report target video frame arrived, the function pointer will be called.
+/// Called when the LowPowerVideoSink reaches the target point. This callback is included in [`OH_LowPowerVideoSinkCallback`](crate::lowpower_video_sink_base::OH_LowPowerVideoSinkCallback).
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerVideoSink*} sink OH_LowPowerVideoSink instance
+/// * `sink` - OH_LowPowerVideoSink instance
 ///
-/// {const int64_t} targetPts Target pts of renderred frame
+/// * `targetPts` - Target pts of renderred frame, in microseconds
 ///
-/// {const bool} isTimeout If wait target pts timeout, it is false
+/// * `isTimeout` - If wait target pts timeout, it is false
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -101,13 +99,13 @@ pub type OH_LowPowerVideoSink_OnTargetArrived = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When the OH_LowPowerVideoSink instance report first frame renderred, the function pointer will be called.
+/// Called when the LowPowerVideoSink starts rendering. This callback is included in [`OH_LowPowerVideoSinkCallback`](crate::lowpower_video_sink_base::OH_LowPowerVideoSinkCallback).
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerVideoSink*} sink OH_LowPowerVideoSink instance
+/// * `sink` - OH_LowPowerVideoSink instance
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -115,16 +113,15 @@ pub type OH_LowPowerVideoSink_OnTargetArrived = ::core::option::Option<
 pub type OH_LowPowerVideoSink_OnRenderStarted = ::core::option::Option<
     unsafe extern "C" fn(sink: *mut OH_LowPowerVideoSink, userData: *mut ::core::ffi::c_void),
 >;
-/// When the OH_LowPowerVideoSink instance reports that the parameters of the video stream have changed,
-/// the application is notified through this function
+/// Called when the stream changes in the LowPowerVideoSink. This callback is included in [`OH_LowPowerVideoSinkCallback`](crate::lowpower_video_sink_base::OH_LowPowerVideoSinkCallback).
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerVideoSink*} sink OH_LowPowerVideoSink instance
+/// * `sink` - OH_LowPowerVideoSink instance
 ///
-/// {OH_AVFormat*} format Carrying changing parameters and corresponding values
+/// * `format` - Carrying changing parameters and corresponding values
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -136,14 +133,13 @@ pub type OH_LowPowerVideoSink_OnStreamChanged = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// When the first frame of the OH_LowPowerVideoSink instance is decoded successfully, this function pointer will
-/// be called.
+/// Called when the first frame is successfully decoded in the LowPowerVideoSink. This callback is included in [`OH_LowPowerVideoSinkCallback`](crate::lowpower_video_sink_base::OH_LowPowerVideoSinkCallback).
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerVideoSink*} sink OH_LowPowerVideoSink instance
+/// * `sink` - OH_LowPowerVideoSink instance
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -151,14 +147,13 @@ pub type OH_LowPowerVideoSink_OnStreamChanged = ::core::option::Option<
 pub type OH_LowPowerVideoSink_OnFirstFrameDecoded = ::core::option::Option<
     unsafe extern "C" fn(sink: *mut OH_LowPowerVideoSink, userData: *mut ::core::ffi::c_void),
 >;
-/// When the OH_LowPowerVideoSinkinstance play to end of stream, the function pointer will be called
-/// to report play completed event.
+/// Called when the playback is completed in the LowPowerVideoSink. This callback is included in [`OH_LowPowerVideoSinkCallback`](crate::lowpower_video_sink_base::OH_LowPowerVideoSinkCallback).
 ///
 /// # Arguments
 ///
-/// {OH_LowPowerVideoSink*} sink OH_LowPowerVideoSink instance
+/// * `sink` - OH_LowPowerVideoSink instance
 ///
-/// {void*} userData User specific data
+/// * `userData` - User specific data
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]

@@ -80,7 +80,7 @@ impl<T> ::core::cmp::PartialEq for __BindgenUnionField<T> {
 impl<T> ::core::cmp::Eq for __BindgenUnionField<T> {}
 pub const OH_HUKS_EXTERNAL_CRYPTO_MAX_PROVIDER_NAME_LEN: u32 = 100;
 pub const OH_HUKS_EXTERNAL_CRYPTO_MAX_RESOURCE_ID_LEN: u32 = 512;
-/// Defines the parameter structure in the parameter set.
+/// Defines a single parameter in a parameter set.
 ///
 ///
 /// Available since API-level: 22
@@ -130,7 +130,7 @@ pub struct OH_Huks_ExternalCryptoParam__bindgen_ty_1 {
     pub blob: __BindgenUnionField<OH_Huks_Blob>,
     pub bindgen_union_field: u64,
 }
-/// Defines the structure of the external crypto parameter set.
+/// Defines an external cryptographic parameter set.
 ///
 ///
 /// Available since API-level: 22
@@ -165,7 +165,7 @@ impl OH_Huks_ExternalCryptoTag {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_EXT_CRYPTO_TAG_UKEY_PIN: OH_Huks_ExternalCryptoTag =
         OH_Huks_ExternalCryptoTag(1342377281);
-    /// Ability Name.
+    /// Ability name.
     ///
     ///
     /// Available since API-level: 22
@@ -181,7 +181,7 @@ impl OH_Huks_ExternalCryptoTag {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_EXT_CRYPTO_TAG_EXTRA_DATA: OH_Huks_ExternalCryptoTag =
         OH_Huks_ExternalCryptoTag(1342377283);
-    /// Calling uid.
+    /// UID of the caller.
     ///
     ///
     /// Available since API-level: 22
@@ -189,7 +189,7 @@ impl OH_Huks_ExternalCryptoTag {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_EXT_CRYPTO_TAG_UID: OH_Huks_ExternalCryptoTag =
         OH_Huks_ExternalCryptoTag(268635460);
-    /// Purpose of the cert chain.
+    /// Purpose of the certificate chain.
     ///
     ///
     /// Available since API-level: 22
@@ -197,7 +197,7 @@ impl OH_Huks_ExternalCryptoTag {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_EXT_CRYPTO_TAG_PURPOSE: OH_Huks_ExternalCryptoTag =
         OH_Huks_ExternalCryptoTag(268635461);
-    /// The timeout of get properity operation.
+    /// Timeout interval for obtaining properties, in seconds.
     ///
     ///
     /// Available since API-level: 22
@@ -207,7 +207,7 @@ impl OH_Huks_ExternalCryptoTag {
         OH_Huks_ExternalCryptoTag(537070918);
 }
 #[repr(transparent)]
-/// Enumerates the tag values used in parameter sets.
+/// Enumerates the tag values used in a parameter set.
 ///
 ///
 /// Available since API-level: 22
@@ -218,7 +218,7 @@ pub struct OH_Huks_ExternalCryptoTag(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-22")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
 impl OH_Huks_ExternalPinAuthState {
-    /// Ukey PIN is not authenticated.
+    /// PIN code not authenticated.
     ///
     ///
     /// Available since API-level: 22
@@ -226,7 +226,7 @@ impl OH_Huks_ExternalPinAuthState {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_EXT_CRYPTO_PIN_NO_AUTH: OH_Huks_ExternalPinAuthState =
         OH_Huks_ExternalPinAuthState(0);
-    /// Ukey PIN is authenticated.
+    /// PIN code authentication succeeded.
     ///
     ///
     /// Available since API-level: 22
@@ -234,7 +234,7 @@ impl OH_Huks_ExternalPinAuthState {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const OH_HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED: OH_Huks_ExternalPinAuthState =
         OH_Huks_ExternalPinAuthState(1);
-    /// Ukey PIN is locked.
+    /// PIN code locked.
     ///
     ///
     /// Available since API-level: 22
@@ -244,7 +244,7 @@ impl OH_Huks_ExternalPinAuthState {
         OH_Huks_ExternalPinAuthState(2);
 }
 #[repr(transparent)]
-/// Enumerates the PIN auth states.
+/// Enumerates the UKey PIN authentication states.
 ///
 ///
 /// Available since API-level: 22

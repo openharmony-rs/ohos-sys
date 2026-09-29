@@ -10,7 +10,7 @@ use ohos_sys_opaque_types::OH_ImageSourceNative;
 use ohos_sys_opaque_types::OH_PictureNative;
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
-/// Define a ImagePacker struct type, used for ImagePacker pointer controls.
+/// The struct describes the image packer, which is used to perform operations related to an image packer.
 ///
 ///
 /// Available since API-level: 12
@@ -20,7 +20,9 @@ use ohos_sys_opaque_types::OH_PixelmapNative;
 pub struct OH_ImagePackerNative {
     _unused: [u8; 0],
 }
-/// Defines the image packing options.
+/// OH_PackingOptions is an image encoding option struct encapsulated at the native layer. It cannot be
+/// manipulated directly; instead, functions shall be called to create and release the struct, and operate on its
+/// specific fields.
 ///
 ///
 /// Available since API-level: 12
@@ -30,7 +32,9 @@ pub struct OH_ImagePackerNative {
 pub struct OH_PackingOptions {
     _unused: [u8; 0],
 }
-/// Defines the image sequence packing options.
+/// OH_PackingOptionsForSequence is an image sequence encoding option struct encapsulated at the native layer. It
+/// cannot be manipulated directly; instead, functions shall be called to create and release the struct, and operate on
+/// its specific fields.
 ///
 ///
 /// Available since API-level: 18
@@ -43,13 +47,15 @@ pub struct OH_PackingOptionsForSequence {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl IMAGE_PACKER_DYNAMIC_RANGE {
+    /// Packing according to the content of the image.
     pub const IMAGE_PACKER_DYNAMIC_RANGE_AUTO: IMAGE_PACKER_DYNAMIC_RANGE =
         IMAGE_PACKER_DYNAMIC_RANGE(0);
+    /// Packing to standard dynamic range.
     pub const IMAGE_PACKER_DYNAMIC_RANGE_SDR: IMAGE_PACKER_DYNAMIC_RANGE =
         IMAGE_PACKER_DYNAMIC_RANGE(1);
 }
 #[repr(transparent)]
-/// Enumerates packing dynamic range.
+/// Enumerates the dynamic range for encoding.
 ///
 ///
 /// Available since API-level: 12
@@ -58,36 +64,39 @@ impl IMAGE_PACKER_DYNAMIC_RANGE {
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
 pub struct IMAGE_PACKER_DYNAMIC_RANGE(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Create a pointer for PackingOptions struct.
+    /// Creates the pointer to an OH_PackingOptions struct.
     ///
     /// # Arguments
     ///
-    /// * `options` - The PackingOptions pointer will be operated.
+    /// * `options` - Double pointer to the OH_PackingOptions struct created.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult)
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    ///
+    /// **Note:** Release `options` with [`OH_PackingOptions_Release`](crate::native_image::image_packer::OH_PackingOptions_Release).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PackingOptions_Create(options: *mut *mut OH_PackingOptions) -> ImageResult;
-    /// Get mime type for OH_PackingOptions struct.
+    /// Obtains the MIME type. **value.data** obtained through this API lacks the string terminator **\0**. Please
+    /// use it with caution.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `format` - the number of image format.The user can pass in a null pointer and zero size, we will allocate memory,
-    /// but user must free memory after use.
+    /// * `format` - Pointer to the MIME type. You can pass in a null pointer with the size set to zero. In this case,
+    /// the system will allocate memory, but you must release the memory after use.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or format is nullptr.
-    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) allocate memory failed.
-    /// [`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) copy memory failed
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or format is nullptr.
+    /// <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) allocate memory failed.
+    /// <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) copy memory failed
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -96,19 +105,18 @@ extern "C" {
         options: *mut OH_PackingOptions,
         format: *mut Image_MimeType,
     ) -> ImageResult;
-    /// Gets MIME type from OH_PackingOptions. The output format.data is null-terminated.
+    /// Obtains the MIME type in the packing options. The output **format.data** ends with the string terminator **\0**.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `format` - MimeType set in the OH_PackingOptions.
+    /// * `format` - Pointer to the MIME type.
     ///
     /// # Returns
     ///
-    /// * Returns functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_PACKER_INVALID_PARAMETER`](crate::native_image::common::ImageResult::PACKER_INVALID_PARAMETER) if options or format is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_PACKER_INVALID_PARAMETER`](crate::native_image::common::ImageResult::PACKER_INVALID_PARAMETER) if options or format is nullptr.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -117,21 +125,20 @@ extern "C" {
         options: *mut OH_PackingOptions,
         format: *mut Image_MimeType,
     ) -> ImageResult;
-    /// Set format number for OH_PackingOptions struct.
+    /// Sets the MIME type.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `format` - the number of image format.
+    /// * `format` - Pointer to a MIME type string in the form "type/subtype".
     ///
     /// # Returns
     ///
-    /// * Returns Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or format is nullptr.
-    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) allocate memory failed.
-    /// [`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) copy memory failed.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or format is nullptr.
+    /// <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) allocate memory failed.
+    /// <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) copy memory failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -140,19 +147,18 @@ extern "C" {
         options: *mut OH_PackingOptions,
         format: *mut Image_MimeType,
     ) -> ImageResult;
-    /// Get quality for OH_PackingOptions struct.
+    /// Obtains the encoding quality.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `quality` - The number of image quality.
+    /// * `quality` - Pointer to the encoding quality.
     ///
     /// # Returns
     ///
-    /// * Returns Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or quality is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or quality is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -161,19 +167,18 @@ extern "C" {
         options: *mut OH_PackingOptions,
         quality: *mut u32,
     ) -> ImageResult;
-    /// Set quality number for OH_PackingOptions struct.
+    /// Sets the encoding quality.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `quality` - The number of image quality.
+    /// * `quality` - Encoding quality.
     ///
     /// # Returns
     ///
-    /// * Returns Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -182,19 +187,19 @@ extern "C" {
         options: *mut OH_PackingOptions,
         quality: u32,
     ) -> ImageResult;
-    /// Get needsPackProperties for OH_PackingOptions struct.
+    /// Obtains the **needsPackProperties** parameter in the OH_PackingOptions struct.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `needsPackProperties` - Whether the image properties can be saved, like Exif.
+    /// * `needsPackProperties` - Whether to encode image property information (for example, Exif). The values include **true**
+    /// (yes) and **false** (no).
     ///
     /// # Returns
     ///
-    /// * Returns Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or needsPackProperties is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or needsPackProperties is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -203,19 +208,19 @@ extern "C" {
         options: *mut OH_PackingOptions,
         needsPackProperties: *mut bool,
     ) -> ImageResult;
-    /// Set needsPackProperties for OH_PackingOptions struct.
+    /// Sets the **needsPackProperties** parameter in the OH_PackingOptions struct.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `needsPackProperties` - Whether the image properties can be saved, like Exif.
+    /// * `needsPackProperties` - Whether to encode image property information (for example, Exif). The values include **true**
+    /// (yes) and **false** (no).
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -224,19 +229,18 @@ extern "C" {
         options: *mut OH_PackingOptions,
         needsPackProperties: bool,
     ) -> ImageResult;
-    /// Get desiredDynamicRange for PackingOptions struct.
+    /// Obtains the desired dynamic range during encoding.
     ///
     /// # Arguments
     ///
-    /// * `options` - The PackingOptions pointer will be operated. Pointer connot be null.
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `desiredDynamicRange` - The number of dynamic range [`IMAGE_PACKER_DYNAMIC_RANGE`](crate::native_image::image_packer::IMAGE_PACKER_DYNAMIC_RANGE). Pointer connot be null.
+    /// * `desiredDynamicRange` - Desired dynamic range. For details about the available options, see [`IMAGE_PACKER_DYNAMIC_RANGE`](crate::native_image::image_packer::IMAGE_PACKER_DYNAMIC_RANGE)
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or desiredDynamicRange is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or desiredDynamicRange is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -245,19 +249,19 @@ extern "C" {
         options: *mut OH_PackingOptions,
         desiredDynamicRange: *mut i32,
     ) -> ImageResult;
-    /// Set desiredDynamicRange number for PackingOptions struct.
+    /// Sets the desired dynamic range during encoding.
     ///
     /// # Arguments
     ///
-    /// * `options` - The PackingOptions pointer will be operated. Pointer connot be null.
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `desiredDynamicRange` - The number of dynamic range [`IMAGE_PACKER_DYNAMIC_RANGE`](crate::native_image::image_packer::IMAGE_PACKER_DYNAMIC_RANGE).
+    /// * `desiredDynamicRange` - Desired dynamic range. For details about the available options, see
+    /// [`IMAGE_PACKER_DYNAMIC_RANGE`](crate::native_image::image_packer::IMAGE_PACKER_DYNAMIC_RANGE).
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -266,33 +270,31 @@ extern "C" {
         options: *mut OH_PackingOptions,
         desiredDynamicRange: i32,
     ) -> ImageResult;
-    /// delete OH_PackingOptions pointer.
+    /// Releases the pointer to an OH_PackingOptions struct.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptions pointer will be operated.
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PackingOptions_Release(options: *mut OH_PackingOptions) -> ImageResult;
-    /// Create a pointer for OH_PackingOptionsForSequence struct.
+    /// Creates the pointer to an OH_PackingOptionsForSequence struct.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    /// * `options` - Double pointer to OH_PackingOptionsForSequence.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -300,19 +302,18 @@ extern "C" {
     pub fn OH_PackingOptionsForSequence_Create(
         options: *mut *mut OH_PackingOptionsForSequence,
     ) -> ImageResult;
-    /// Set FrameCount number for OH_PackingOptionsForSequence struct.
+    /// Sets the number of frames for image sequence encoding.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    /// * `options` - Pointer to OH_PackingOptionsForSequence.
     ///
-    /// * `frameCount` - The number of image frameCount.
+    /// * `frameCount` - Number of frames.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -321,19 +322,18 @@ extern "C" {
         options: *mut OH_PackingOptionsForSequence,
         frameCount: u32,
     ) -> ImageResult;
-    /// Get FrameCount number for OH_PackingOptionsForSequence struct.
+    /// Obtains the number of frames for image sequence encoding.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    /// * `options` - Pointer to OH_PackingOptionsForSequence.
     ///
-    /// * `frameCount` - The number of image frameCount.
+    /// * `frameCount` - Pointer to the number of frames.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or frameCount is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or frameCount is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -342,21 +342,20 @@ extern "C" {
         options: *mut OH_PackingOptionsForSequence,
         frameCount: *mut u32,
     ) -> ImageResult;
-    /// Set DelayTimeList number for OH_PackingOptionsForSequence struct.
+    /// Sets the delay time array for image sequence encoding.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    /// * `options` - Pointer to OH_PackingOptionsForSequence.
     ///
-    /// * `delayTimeList` - The pointer of image delayTime list.
+    /// * `delayTimeList` - Pointer to the delay time array.
     ///
-    /// * `delayTimeListLength` - The number of image delayTimeListLength.
+    /// * `delayTimeListLength` - Length of the delay time array.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or delayTimeList is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or delayTimeList is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -366,21 +365,20 @@ extern "C" {
         delayTimeList: *mut i32,
         delayTimeListLength: usize,
     ) -> ImageResult;
-    /// Get DelayTimeList number for OH_PackingOptionsForSequence struct.
+    /// Obtains the delay time array for image sequence encoding.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    /// * `options` - Pointer to OH_PackingOptionsForSequence.
     ///
-    /// * `delayTimeList` - The pointer of image delayTime list.
+    /// * `delayTimeList` - Pointer to the delay time array.
     ///
-    /// * `delayTimeListLength` - The number of image delayTimeListLength.
+    /// * `delayTimeListLength` - Length of the delay time array.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or delayTimeList is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or delayTimeList is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -390,21 +388,25 @@ extern "C" {
         delayTimeList: *mut i32,
         delayTimeListLength: usize,
     ) -> ImageResult;
-    /// Set DisposalTypes number for OH_PackingOptionsForSequence struct.
+    /// Sets the disposal type array for image sequence encoding.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    /// * `options` - Pointer to OH_PackingOptionsForSequence.
     ///
-    /// * `disposalTypes` - The pointer of image disposalTypes.
+    /// * `disposalTypes` - Pointer to an array that defines how each image frame transitions. If the array length is less
+    /// than **frameCount**, the last value in the array will be used for the remaining frames. The values can be:
+    /// **0**: No operation is required.
+    /// **1**: Keeps the image unchanged.
+    /// **2**: Restores the background color.
+    /// **3**: Restores to the previous state.
     ///
-    /// * `disposalTypesLength` - The number of image disposalTypesLength.
+    /// * `disposalTypesLength` - Length of the disposal type array.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or disposalTypes is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or disposalTypes is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -414,21 +416,20 @@ extern "C" {
         disposalTypes: *mut u32,
         disposalTypesLength: usize,
     ) -> ImageResult;
-    /// Get DisposalTypes number for OH_PackingOptionsForSequence struct.
+    /// Obtains the disposal type array for image sequence encoding.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    /// * `options` - Pointer to OH_PackingOptionsForSequence.
     ///
-    /// * `disposalTypes` - The pointer of image disposalTypes.
+    /// * `disposalTypes` - Pointer to the disposal type array.
     ///
-    /// * `disposalTypesLength` - The number of image disposalTypesLength.
+    /// * `disposalTypesLength` - Length of the disposal type array.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or disposalTypes is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or disposalTypes is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -438,19 +439,19 @@ extern "C" {
         disposalTypes: *mut u32,
         disposalTypesLength: usize,
     ) -> ImageResult;
-    /// Set LoopCount number for OH_PackingOptionsForSequence struct.
+    /// Sets the number of loops for image sequence encoding. The value range is \[0, 65535\], where **0** means an
+    /// infinite loop. If this field is not carried, loop playback is not performed.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    /// * `options` - Pointer to OH_PackingOptionsForSequence .
     ///
-    /// * `loopCount` - The number of image loopCount.
+    /// * `loopCount` - Number of loops.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -459,19 +460,18 @@ extern "C" {
         options: *mut OH_PackingOptionsForSequence,
         loopCount: u32,
     ) -> ImageResult;
-    /// Get LoopCount number for OH_PackingOptionsForSequence struct.
+    /// Obtains the number of loops for image sequence encoding.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    /// * `options` - Pointer to OH_PackingOptionsForSequence.
     ///
-    /// * `loopCount` - The number of image loopCount.
+    /// * `loopCount` - Pointer to the number of loops.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or loopCount is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options or loopCount is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -480,17 +480,16 @@ extern "C" {
         options: *mut OH_PackingOptionsForSequence,
         loopCount: *mut u32,
     ) -> ImageResult;
-    /// delete OH_PackingOptionsForSequence pointer.
+    /// Releases the pointer to an OH_PackingOptionsForSequence struct.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_PackingOptionsForSequence pointer will be operated.
+    /// * `options` - Pointer to OH_PackingOptionsForSequence.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -498,41 +497,43 @@ extern "C" {
     pub fn OH_PackingOptionsForSequence_Release(
         options: *mut OH_PackingOptionsForSequence,
     ) -> ImageResult;
-    /// Create a pointer for OH_ImagePackerNative struct.
+    /// Creates the pointer to an OH_ImagePackerNative struct.
     ///
     /// # Arguments
     ///
-    /// * `imagePacker` - The imagePacker to be created.
+    /// * `imagePacker` - Double pointer to OH_ImagePackerNative.
     ///
     /// # Returns
     ///
-    /// * Returns [`Image_ErrorCode`](crate::native_image::common::ImageResult)
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) imagePacker is nullptr.
+    ///
+    /// **Note:** Release `imagePacker` with [`OH_ImagePackerNative_Release`](crate::native_image::image_packer::OH_ImagePackerNative_Release).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_ImagePackerNative_Create(imagePacker: *mut *mut OH_ImagePackerNative) -> ImageResult;
-    /// Encoding an <b>ImageSource</b> into the data with required format.
+    /// Encodes an image source into data in a given format.
     ///
     /// # Arguments
     ///
-    /// * `imagePacker` - The imagePacker to use for packing.
+    /// * `imagePacker` - Pointer to OH_ImagePackerNative.
     ///
-    /// * `options` - Indicates the encoding [`OH_PackingOptions`](crate::native_image::image_packer::OH_PackingOptions).
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `imageSource` - The imageSource to be packed.
+    /// * `imageSource` - Pointer to the image source to encode.
     ///
-    /// * `outData` - The output data buffer to store the packed image.
+    /// * `outData` - Pointer to the buffer used to store the output data.
     ///
-    /// * `size` - A pointer to the size of the output data buffer.
+    /// * `size` - Pointer to the size of the buffer.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER)imagePacker is nullptr, or options is nullptr,
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER)imagePacker is nullptr, or options is nullptr,
     /// or imageSource is nullptr, or outData is nullptr.
-    /// [`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
+    /// <br>[`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -544,27 +545,26 @@ extern "C" {
         outData: *mut u8,
         size: *mut usize,
     ) -> ImageResult;
-    /// Encoding a <b>Pixelmap</b> into the data with required format.
+    /// Encodes a PixelMap into data in a given format.
     ///
     /// # Arguments
     ///
-    /// * `imagePacker` - The imagePacker to use for packing.
+    /// * `imagePacker` - Pointer to OH_ImagePackerNative.
     ///
-    /// * `options` - Indicates the encoding [`OH_PackingOptions`](crate::native_image::image_packer::OH_PackingOptions).
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `pixelmap` - The pixelmap to be packed.
+    /// * `pixelmap` - Pointer to the PixelMap to encode.
     ///
-    /// * `outData` - The output data buffer to store the packed image.
+    /// * `outData` - Pointer to the buffer used to store the output data.
     ///
-    /// * `size` - A pointer to the size of the output data buffer.
+    /// * `size` - Pointer to the size of the buffer.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER)imagePacker is nullptr, or options is nullptr,
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER)imagePacker is nullptr, or options is nullptr,
     /// or pixelmap is nullptr, or outData is nullptr.
-    /// [`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
+    /// <br>[`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -576,27 +576,26 @@ extern "C" {
         outData: *mut u8,
         size: *mut usize,
     ) -> ImageResult;
-    /// Encoding a <b>Picture</b> into the data with required format.
+    /// Encodes a picture into data in a given format.
     ///
     /// # Arguments
     ///
-    /// * `imagePacker` - The imagePacker to use for packing.
+    /// * `imagePacker` - Pointer to OH_ImagePackerNative.
     ///
-    /// * `options` - Indicates the encoding [`OH_PackingOptions`](crate::native_image::image_packer::OH_PackingOptions).
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `picture` - The picture to be packed.
+    /// * `picture` - Pointer to the picture to encode.
     ///
-    /// * `outData` - The output data buffer to store the packed image.
+    /// * `outData` - Pointer to the buffer used to store the output data.
     ///
-    /// * `size` - A pointer to the size of the output data buffer.
+    /// * `size` - Pointer to the size of the buffer.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) imagePacker is nullptr, or picture is nullptr, or outData is nullptr,
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) imagePacker is nullptr, or picture is nullptr, or outData is nullptr,
     /// or size is invalid.
-    /// [`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
+    /// <br>[`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -608,28 +607,27 @@ extern "C" {
         outData: *mut u8,
         size: *mut usize,
     ) -> ImageResult;
-    /// Encoding a <b>PixelMap</b> sequence into the data
+    /// Encodes a PixelMap sequence into data.
     ///
     /// # Arguments
     ///
-    /// * `imagePacker` - The imagePacker to use for packing.
+    /// * `imagePacker` - Pointer to OH_ImagePackerNative.
     ///
-    /// * `options` - Indicates the encoding [`OH_PackingOptionsForSequence`](crate::native_image::image_packer::OH_PackingOptionsForSequence).
+    /// * `options` - Pointer to an [`OH_PackingOptionsForSequence`](crate::native_image::image_packer::OH_PackingOptionsForSequence) struct.
     ///
-    /// * `pixelmapSequence` - The pixelmap sequence to be packed.
+    /// * `pixelmapSequence` - Double pointer to the PixelMap sequence to encode.
     ///
-    /// * `sequenceLength` - The pixelmap sequence size to be packed.
+    /// * `sequenceLength` - Length of the PixelMap sequence.
     ///
-    /// * `outData` - The output data buffer to store the packed image.
+    /// * `outData` - Pointer to the buffer used to store the output data.
     ///
-    /// * `outDataSize` - A pointer to the size of the output data buffer.
+    /// * `outDataSize` - Pointer to the size of the buffer.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) one of the pointer type parameters is nullptr, or size/length is invalid
-    /// [`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) one of the pointer type parameters is nullptr, or size/length is invalid
+    /// <br>[`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -642,25 +640,24 @@ extern "C" {
         outData: *mut u8,
         outDataSize: *mut usize,
     ) -> ImageResult;
-    /// Encoding an <b>ImageSource</b> into the a file with fd with required format.
+    /// Encodes an image source into a file.
     ///
     /// # Arguments
     ///
-    /// * `imagePacker` - The image packer to use for packing.
+    /// * `imagePacker` - Pointer to OH_ImagePackerNative.
     ///
-    /// * `options` - Indicates the encoding [`OH_PackingOptions`](crate::native_image::image_packer::OH_PackingOptions).
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `imageSource` - The imageSource to be packed.
+    /// * `imageSource` - Pointer to the image source to encode.
     ///
-    /// * `fd` - Indicates a writable file descriptor.
+    /// * `fd` - File descriptor, which is writable.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER)imagePacker is nullptr, or options is nullptr,
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER)imagePacker is nullptr, or options is nullptr,
     /// or imageSource is nullptr, or fd is invalid.
-    /// [`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
+    /// <br>[`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -671,26 +668,24 @@ extern "C" {
         imageSource: *mut OH_ImageSourceNative,
         fd: i32,
     ) -> ImageResult;
-    /// Encoding a <b>Pixelmap</b> into the a file with fd with required format
+    /// Encodes a PixelMap into a file.
     ///
     /// # Arguments
     ///
-    /// * `imagePacker` - The image packer to use for packing.
+    /// * `imagePacker` - Pointer to OH_ImagePackerNative.
     ///
-    /// * `options` - Indicates the encoding [`OH_PackingOptions`](crate::native_image::image_packer::OH_PackingOptions).
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `pixelmap` - The pixelmap to be packed.
+    /// * `pixelmap` - Pointer to the PixelMap to encode.
     ///
-    /// * `fd` - Indicates a writable file descriptor.
+    /// * `fd` - File descriptor, which is writable.
     ///
     /// # Returns
     ///
-    /// *
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER)imagePacker is nullptr, or options is nullptr,
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER)imagePacker is nullptr, or options is nullptr,
     /// or pixelmap is nullptr, or fd is invalid.
-    /// [`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
+    /// <br>[`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -701,24 +696,23 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         fd: i32,
     ) -> ImageResult;
-    /// Encoding a <b>Picture</b> into the a file with fd with required format.
+    /// Encodes a picture into a file.
     ///
     /// # Arguments
     ///
-    /// * `imagePacker` - The imagePacker to use for packing.
+    /// * `imagePacker` - Pointer to OH_ImagePackerNative.
     ///
-    /// * `options` - Indicates the encoding [`OH_PackingOptions`](crate::native_image::image_packer::OH_PackingOptions).
+    /// * `options` - Pointer to an OH_PackingOptions struct.
     ///
-    /// * `picture` - The picture to be packed.
+    /// * `picture` - Pointer to the picture to encode.
     ///
-    /// * `fd` - Indicates a writable file descriptor.
+    /// * `fd` - File descriptor, which is writable.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) imagePacker is nullptr, or picture is nullptr, or fd is invalid.
-    /// [`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) imagePacker is nullptr, or picture is nullptr, or fd is invalid.
+    /// <br>[`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -729,26 +723,25 @@ extern "C" {
         picture: *mut OH_PictureNative,
         fd: i32,
     ) -> ImageResult;
-    /// Encoding a <b>PixelMap</b> sequence into the a file with fd
+    /// Encodes a PixelMap sequence into a file.
     ///
     /// # Arguments
     ///
-    /// * `imagePacker` - The image packer to use for packing.
+    /// * `imagePacker` - Pointer to OH_ImagePackerNative.
     ///
-    /// * `options` - Indicates the encoding [`OH_PackingOptionsForSequence`](crate::native_image::image_packer::OH_PackingOptionsForSequence).
+    /// * `options` - Pointer to an [`OH_PackingOptionsForSequence`](crate::native_image::image_packer::OH_PackingOptionsForSequence) struct.
     ///
-    /// * `pixelmapSequence` - The pixelmap sequence to be packed.
+    /// * `pixelmapSequence` - Double pointer to the PixelMap sequence to encode.
     ///
-    /// * `sequenceLength` - The pixelmap sequence size to be packed.
+    /// * `sequenceLength` - Length of the PixelMap sequence.
     ///
-    /// * `fd` - Indicates a writable file descriptor.
+    /// * `fd` - File descriptor, which is writable.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) one of the pointer type parameters is nullptr, or length is invalid
-    /// [`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) one of the pointer type parameters is nullptr, or length is invalid
+    /// <br>[`IMAGE_ENCODE_FAILED`](crate::native_image::common::ImageResult::ENCODE_FAILED) encode failed.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -760,17 +753,16 @@ extern "C" {
         sequenceLength: usize,
         fd: i32,
     ) -> ImageResult;
-    /// Releases an imagePacker object.
+    /// Releases the pointer to an OH_ImagePackerNative struct.
     ///
     /// # Arguments
     ///
-    /// * `imagePacker` - A pointer to the image packer object to be released.
+    /// * `imagePacker` - Pointer to OH_ImagePackerNative.
     ///
     /// # Returns
     ///
-    /// * Returns Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) imagePacker is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) imagePacker is nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -780,15 +772,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `supportedFormats` - Double pointer to an array of the supported image formats.
+    /// * `supportedFormats` - Double pointer to the supported image formats.
     ///
-    /// * `length` - Pointer to the length of the array.
+    /// * `length` - Pointer to the size of the array.
     ///
     /// # Returns
     ///
-    /// * One of the following result codes:
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_PACKER_INVALID_PARAMETER`](crate::native_image::common::ImageResult::PACKER_INVALID_PARAMETER) if <b>supportedFormats</b> or <b>length</b> is empty.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_PACKER_INVALID_PARAMETER`](crate::native_image::common::ImageResult::PACKER_INVALID_PARAMETER) if <b>supportedFormats</b> or <b>length</b> is empty.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

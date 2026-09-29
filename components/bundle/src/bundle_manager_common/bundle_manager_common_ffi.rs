@@ -7,21 +7,21 @@
 #[cfg(feature = "api-21")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
 impl BundleManager_ErrorCode {
-    /// No error.
+    /// Operation success.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const BUNDLE_MANAGER_ERROR_CODE_NO_ERROR: BundleManager_ErrorCode =
         BundleManager_ErrorCode(0);
-    /// permission denied.
+    /// No access permission.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub const BUNDLE_MANAGER_ERROR_CODE_PERMISSION_DENIED: BundleManager_ErrorCode =
         BundleManager_ErrorCode(201);
-    /// param invalid.
+    /// Invalid parameter.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]

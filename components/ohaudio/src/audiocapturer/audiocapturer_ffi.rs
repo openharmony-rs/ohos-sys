@@ -3,8 +3,12 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#[cfg(feature = "api-26")]
+use crate::audio_common::OH_AudioNoiseReductionMode;
 #[cfg(feature = "api-20")]
 use crate::audio_device_base::OH_AudioDeviceDescriptorArray;
+#[cfg(feature = "api-24")]
+use crate::audio_session_base::OH_AudioSession_Strategy;
 use crate::audiostream_base::*;
 use libc::clockid_t;
 
@@ -20,7 +24,7 @@ use libc::clockid_t;
 ///
 /// * `audioData` - Pointer to the available audio data.
 ///
-/// * `audioDataSize` - Size of the available audio data.
+/// * `audioDataSize` - Size of the available audio data, unit is byte.
 ///
 /// **See also:** OH_AudioCapturer_Callbacks_Struct.OH_AudioCapturer_OnReadData
 ///
@@ -149,6 +153,31 @@ pub type OH_AudioCapturer_OnPlaybackCaptureStartCallback = ::core::option::Optio
         capturer: *mut OH_AudioCapturer,
         userData: *mut ::core::ffi::c_void,
         state: OH_AudioStream_PlaybackCaptureStartState,
+    ),
+>;
+/// Callback used to receive when the sensitive warning message playback for cellular call
+/// recording is finished.
+/// The application must wait for the permitted result before starting cellular call recording.
+///
+/// # Arguments
+///
+/// * `capturer` - The pointer to the [`OH_AudioCapturer`](crate::audiostream_base::OH_AudioCapturer) object created
+/// by [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer).
+///
+/// * `userData` - The pointer to user data which is set in
+/// [`OH_AudioStreamBuilder_SetSensitiveRecordPermitCallback`](crate::audiostreambuilder::OH_AudioStreamBuilder_SetSensitiveRecordPermitCallback).
+///
+/// * `isPermitted` - Indicates whether the sensitive warning message playback is finished.
+/// If the result is true, the recording can start, otherwise the recording is not permitted.
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub type OH_AudioCapturer_SensitiveRecordPermitCallback = ::core::option::Option<
+    unsafe extern "C" fn(
+        capturer: *mut OH_AudioCapturer,
+        userData: *mut ::core::ffi::c_void,
+        isPermitted: bool,
     ),
 >;
 extern "C" {
@@ -313,7 +342,7 @@ extern "C" {
     ///
     /// * `capturer` - Reference created by OH_AudioStreamBuilder_GenerateCapturer()
     ///
-    /// * `rate` - The state value to be updated
+    /// * `rate` - Pointer to a variable that will be set for the sampling rate.
     ///
     /// # Returns
     ///
@@ -436,9 +465,9 @@ extern "C" {
     ///
     /// * `clockId` - `CLOCK_MONOTONIC`
     ///
-    /// * `framePosition` - Pointer to a variable to receive the position
+    /// * `framePosition` - Pointer to a variable to receive the position.
     ///
-    /// * `timestamp` - Pointer to a variable to receive the timestamp
+    /// * `timestamp` - Pointer to a variable to receive the timestamp, unit is nanosecond.
     ///
     /// # Returns
     ///
@@ -543,5 +572,143 @@ extern "C" {
         capturer: *mut OH_AudioCapturer,
         callback: OH_AudioCapturer_OnPlaybackCaptureStartCallback,
         userData: *mut ::core::ffi::c_void,
+    ) -> OH_AudioStream_Result;
+    /// Sets recording mute state to audio system.
+    /// This method is used as a hint for power optimization, it does not mute the recording stream, only affects
+    /// internal processing strategy. Audio system may disable some recording effects when application notifies
+    /// its muted state to system.
+    /// Mute hint state can only be set when current stream is in running state.
+    ///
+    /// # Arguments
+    ///
+    /// * `capturer` - Reference created by OH_AudioStreamBuilder_GenerateCapturer().
+    ///
+    /// * `mute` - use true if application recording stream muted by application itself.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr.
+    /// [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Operation not permitted at current state, stream is not running.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AudioCapturer_SetMuteHint(
+        capturer: *mut OH_AudioCapturer,
+        mute: bool,
+    ) -> OH_AudioStream_Result;
+    /// Configure audio session strategy and behavior parameters to adjust the focus preemption policy.
+    /// Each time you call this interface to set parameters,
+    /// you need to call the interface [`OH_AudioCapturer_Start`](crate::audiocapturer::OH_AudioCapturer_Start) again for the settings to take effect.
+    ///
+    /// # Arguments
+    ///
+    /// * `capturer` - Capturer generated by OH_AudioStreamBuilder_GenerateCapturer()
+    ///
+    /// * `strategy` - pointer to [`OH_AudioSession_Strategy`](crate::audio_session_base::OH_AudioSession_Strategy)
+    /// which is used to set the audio session strategy.
+    ///
+    /// * `behavior` - Audio session behavior flag, which can be a single flag or a bitwise
+    /// OR combination of multiple flags [`OH_AudioSession_BehaviorFlags`](crate::audio_session_base::OH_AudioSession_BehaviorFlags).
+    ///
+    /// # Returns
+    ///
+    /// * [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// or [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) If the parameter is null or out of range.
+    /// or [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Running and released are illegal states.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AudioCapturer_SetIndependentAudioSessionStrategy(
+        capturer: *mut OH_AudioCapturer,
+        strategy: *const OH_AudioSession_Strategy,
+        behavior: u32,
+    ) -> OH_AudioStream_Result;
+    /// Sets noise reduction mode for current audio capturer.
+    /// The supported mode should be obtained by `getSupportedNoiseReductionModes`.
+    /// The actual effect may vary from different audio devices, and will be invalid when there are multiple direct
+    /// streams running simultaneously.
+    /// The mode can only be changed in created and stopped state.
+    ///
+    /// # Arguments
+    ///
+    /// * `capturer` - \[in\] Pointer to the audio capturer created by [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer).
+    ///
+    /// * `noiseReductionMode` - \[in\] The noise reduction mode to set.
+    ///
+    /// # Returns
+    ///
+    /// - [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// - [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr. The param of noiseReductionMode is invalid.
+    /// - [`AUDIOSTREAM_ERROR_ILLEGAL_STATE`](crate::audiostream_base::OH_AudioStreamErrorCode::ILLEGAL_STATE) Illegal state, audio capturer is in running state.
+    /// - [`AUDIOSTREAM_ERROR_UNSUPPORTED_ABILITY`](crate::audiostream_base::OH_AudioStreamErrorCode::UNSUPPORTED_ABILITY) The setted mode is not supported.
+    /// - [`AUDIOSTREAM_ERROR_SERVICE_DIED`](crate::audiostream_base::OH_AudioStreamErrorCode::SERVICE_DIED) Audio server process died.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioCapturer_SetNoiseReductionMode(
+        capturer: *mut OH_AudioCapturer,
+        noiseReductionMode: OH_AudioNoiseReductionMode,
+    ) -> OH_AudioStream_Result;
+    /// Gets the noise reduction mode for current audio capturer.
+    /// The mode will only consider the default and setted status, audio input device and stream concurrency will
+    /// not be considered.
+    ///
+    /// # Arguments
+    ///
+    /// * `capturer` - \[in\] Pointer to the audio capturer created by [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer).
+    ///
+    /// * `noiseReductionMode` - \[out\] Pointer to get the input noise reduction mode, the default value is
+    /// [`AUDIO_NOISE_REDUCTION_MODE_FIDELITY`](crate::audio_common::OH_AudioNoiseReductionMode::AUDIO_NOISE_REDUCTION_MODE_FIDELITY).
+    ///
+    /// # Returns
+    ///
+    /// - [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// - [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr. The param of noiseReductionMode is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioCapturer_GetNoiseReductionMode(
+        capturer: *mut OH_AudioCapturer,
+        noiseReductionMode: *mut OH_AudioNoiseReductionMode,
+    ) -> OH_AudioStream_Result;
+    /// Gets all the supported noise reduction modes for current device platform.
+    /// Currently the noise reduction effect is only supported when using
+    /// [`AUDIOSTREAM_SOURCE_TYPE_VOICE_MESSAGE`](crate::audiostream_base::OH_AudioStream_SourceType::AUDIOSTREAM_SOURCE_TYPE_VOICE_MESSAGE), other supported usage may be extened later.
+    /// The supported modes will only consider the audio format and device platform,
+    /// audio input device and stream concurrency will not be considered.
+    /// # Arguments
+    ///
+    /// * `capturer` - \[in\] Pointer to the audio capturer created by [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer).
+    ///
+    /// * `noiseReductionModeArray` - \[out\] Pointer to a user-allocated array to get the supported noise reduction
+    /// modes, at least [`AUDIO_NOISE_REDUCTION_MODE_FIDELITY`](crate::audio_common::OH_AudioNoiseReductionMode::AUDIO_NOISE_REDUCTION_MODE_FIDELITY) is supported.
+    ///
+    /// * `inModeArraySize` - \[in\] The allocated size of the 'noiseReductionModeArray' input parameter, it is
+    /// recommanded to allocate a larger size, such as 20, to adapt the new modes in the future.
+    ///
+    /// * `outModeArraySize` - \[out\] Pointer to get the actual modes size. When the supported modes size is larger
+    /// than 'inModeArraySize', only part of the modes will be filled into 'noiseReductionModeArray', and
+    /// the 'outModeArraySize' will be equal to 'inModeArraySize'.
+    ///
+    /// # Returns
+    ///
+    /// - [`AUDIOSTREAM_SUCCESS`](crate::audiostream_base::OH_AudioStream_Result) If the execution is successful.
+    /// - [`AUDIOSTREAM_ERROR_INVALID_PARAM`](crate::audiostream_base::OH_AudioStreamErrorCode::INVALID_PARAM) The param of capturer is nullptr. The param of noiseReductionModeArray is nullptr. The param of outModeArraySize is nullptr.
+    /// - [`AUDIOSTREAM_ERROR_SERVICE_DIED`](crate::audiostream_base::OH_AudioStreamErrorCode::SERVICE_DIED) Audio server process died.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioCapturer_GetSupportedNoiseReductionModes(
+        capturer: *mut OH_AudioCapturer,
+        noiseReductionModeArray: *mut OH_AudioNoiseReductionMode,
+        inModeArraySize: u32,
+        outModeArraySize: *mut u32,
     ) -> OH_AudioStream_Result;
 }

@@ -22,16 +22,15 @@ use crate::lowpower_video_sink_base::{
 use ohos_sys_opaque_types::OHNativeWindow;
 
 extern "C" {
-    /// Creates a lowpower video sink instance from the mime type, which is recommended in most cases.
+    /// Creates an OH_LowPowerVideoSink instance.
     ///
     /// # Arguments
     ///
-    /// {const char*} mime mime type description string, refer to `AVCODEC_MIME_TYPE`
+    /// * `mime` - mime type description string, refer to `AVCODEC_MIME_TYPE`
     ///
     /// # Returns
     ///
-    /// * Returns a Pointer to an OH_LowPowerVideoSink instance.
-    /// Return nullptr if memory ran out or the mime type is not supported.
+    /// * Pointer to the OH_LowPowerVideoSink instance created. If the operation fails, nullptr is returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -39,25 +38,22 @@ extern "C" {
     pub fn OH_LowPowerVideoSink_CreateByMime(
         mime: *const ::core::ffi::c_char,
     ) -> *mut OH_LowPowerVideoSink;
-    /// To configure the lowpower video sink, typically, you need to configure the description information of the
-    /// decoded video track, which can be extracted from the OH_AVSource. This interface must be called before Prepare
-    /// is called.
+    /// Configures an OH_LowPowerVideoSink instance. This function must be called before [`OH_LowPowerVideoSink_Prepare`](crate::lowpower_video_sink::OH_LowPowerVideoSink_Prepare).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
-    /// {OH_AVFormat*} format A pointer to an OH_AVFormat to give the description of the video track to be decoded,
+    /// * `format` - A pointer to an OH_AVFormat to give the description of the video track to be decoded,
     /// key of format refer to lowpower_avsink_base.h
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -66,24 +62,21 @@ extern "C" {
         sink: *mut OH_LowPowerVideoSink,
         format: *const OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// Set dynamic parameters to the lowpower video sink.
-    /// Note: This interface can only be called after the decoder is started.
-    /// At the same time, incorrect parameter settings may cause video sink failure.
+    /// Sets parameters for an OH_LowPowerVideoSink instance. The parameters can be dynamically set after [`OH_LowPowerVideoSink_Prepare`](crate::lowpower_video_sink::OH_LowPowerVideoSink_Prepare).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
-    /// {OH_AVFormat*} format pointer to an OH_AVFormat instance, key of format refer to lowpower_avsink_base.h
+    /// * `format` - pointer to an OH_AVFormat instance, key of format refer to lowpower_avsink_base.h
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -92,20 +85,19 @@ extern "C" {
         sink: *mut OH_LowPowerVideoSink,
         format: *const OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// Get parameter of current lowpower video sink.
+    /// Obtains the parameters of an OH_LowPowerVideoSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
-    /// {OH_AVFormat*} format pointer to an OH_AVFormat instance, key of format refer to lowpower_avsink_base.h
+    /// * `format` - pointer to an OH_AVFormat instance, key of format refer to lowpower_avsink_base.h
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -114,22 +106,20 @@ extern "C" {
         sink: *mut OH_LowPowerVideoSink,
         format: *mut OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// Specify the output Surface to provide decoded lowpower video sink,
-    /// this interface must be called before Prepare is called. In the executing state, it can be called directly.
+    /// Sets the rendering window for an OH_LowPowerVideoSink instance. This function must be called before [`OH_LowPowerVideoSink_Prepare`](crate::lowpower_video_sink::OH_LowPowerVideoSink_Prepare).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
-    /// {OHNativeWindow*} surface A pointer to a OHNativeWindow instance, see [`OHNativeWindow`](ohos_sys_opaque_types::OHNativeWindow)
+    /// * `surface` - A pointer to a OHNativeWindow instance, see [`OHNativeWindow`](ohos_sys_opaque_types::OHNativeWindow)
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -138,210 +128,196 @@ extern "C" {
         sink: *mut OH_LowPowerVideoSink,
         surface: *const OHNativeWindow,
     ) -> OH_AVErrCode;
-    /// To prepare the internal resources of the lowpower video sink, the Configure interface must be called before
-    /// calling this interface.
+    /// Prepares an OH_LowPowerVideoSink instance for decoding and rendering. This function must be called after [`OH_LowPowerVideoSink_SetSyncAudioSink`](crate::lowpower_video_sink::OH_LowPowerVideoSink_SetSyncAudioSink).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSink_Prepare(sink: *mut OH_LowPowerVideoSink) -> OH_AVErrCode;
-    /// Start decoder of the lowpower video sink, this interface must be called after the Prepare is successful.
-    /// After being successfully started, the lowpower audio sink will start reporting DataNeeded events.
+    /// Starts an OH_LowPowerVideoSink instance for decoding. This function must be called after [`OH_LowPowerVideoSink_Prepare`](crate::lowpower_video_sink::OH_LowPowerVideoSink_Prepare)
+    /// or if no video is playing, after [`OH_LowPowerVideoSink_SetTargetStartFrame`](crate::lowpower_video_sink::OH_LowPowerVideoSink_SetTargetStartFrame).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSink_StartDecoder(sink: *mut OH_LowPowerVideoSink) -> OH_AVErrCode;
-    /// Render first frame of video sink, this interface must be called after the StartDecode is successful and
-    /// onFirstFrameDecoded is called.
+    /// Renders the first frame decoded by an OH_LowPowerVideoSink instance. This function must be called after [`OH_LowPowerVideoSink_StartDecoder`](crate::lowpower_video_sink::OH_LowPowerVideoSink_StartDecoder).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSink_RenderFirstFrame(sink: *mut OH_LowPowerVideoSink) -> OH_AVErrCode;
-    /// Start renderer of the lowpower video sink, this interface must be called after the StartDecode is successful.
+    /// Starts an OH_LowPowerVideoSink instance for rendering. This function must be called after [`OH_LowPowerVideoSink_StartDecoder`](crate::lowpower_video_sink::OH_LowPowerVideoSink_StartDecoder).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSink_StartRenderer(sink: *mut OH_LowPowerVideoSink) -> OH_AVErrCode;
-    /// Pause the lowpower video sink, this interface must be called after the StartRender or Resume is successful.
-    /// After being successfully paused, the lowpower video sink will pause reporting DataNeeded events..
+    /// Pauses an OH_LowPowerVideoSink instance. This function must be called after [`OH_LowPowerVideoSink_StartRenderer`](crate::lowpower_video_sink::OH_LowPowerVideoSink_StartRenderer)
+    /// or [`OH_LowPowerVideoSink_Resume`](crate::lowpower_video_sink::OH_LowPowerVideoSink_Resume).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSink_Pause(sink: *mut OH_LowPowerVideoSink) -> OH_AVErrCode;
-    /// Resume the lowpower video sink, this interface must be called after the Pause is successful.
-    /// After being successfully resumed, the lowpower video sink will resume reporting DataNeeded events.
+    /// Resumes an OH_LowPowerVideoSink instance. This function must be called after[`OH_LowPowerVideoSink_Pause`](crate::lowpower_video_sink::OH_LowPowerVideoSink_Pause).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSinkinstance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSinkinstance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSink_Resume(sink: *mut OH_LowPowerVideoSink) -> OH_AVErrCode;
-    /// Clear cache data in the lowpower video sink, this interface is suggested to not be called after the Start
-    /// or Resume. It should be noted that need to re-enter if the codec has been input before Codec-Specific-Data.
+    /// Clears all input and output data from the decoders and render buffers of an OH_LowPowerVideoSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSink_Flush(sink: *mut OH_LowPowerVideoSink) -> OH_AVErrCode;
-    /// Stop the lowpower video sink.
+    /// Stops an OH_LowPowerVideoSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSink_Stop(sink: *mut OH_LowPowerVideoSink) -> OH_AVErrCode;
-    /// Reset the lowpower video sink. Too reuse this instance, you need to call the Configure.
+    /// Resets an OH_LowPowerVideoSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSink_Reset(sink: *mut OH_LowPowerVideoSink) -> OH_AVErrCode;
-    /// Clear the internal resources of the lowpower video sink and destroy the lowpower video sink instance.
+    /// Clears internal resources of an OH_LowPowerVideoSink instance and destroys the instance. You only need to
+    /// call the function once.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSink_Destroy(sink: *mut OH_LowPowerVideoSink) -> OH_AVErrCode;
-    /// Set the lowpower audio sink instance to the lowpower video sink instance for audio video sync.
+    /// Sets an OH_LowPowerAudioSink instance for audio-video synchronization in an OH_LowPowerVideoSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} videoSink Pointer to an OH_LowPowerVideoSink instance
+    /// * `videoSink` - Pointer to an OH_LowPowerVideoSink instance
     ///
-    /// {OH_LowPowerAudioSink*} audioSink Pointer to an OH_LowPowerAudioSink instance
+    /// * `audioSink` - Pointer to an OH_LowPowerAudioSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -350,28 +326,28 @@ extern "C" {
         videoSink: *mut OH_LowPowerVideoSink,
         audioSink: *mut OH_LowPowerAudioSink,
     ) -> OH_AVErrCode;
-    /// Set target start frame pts, and the video frame will be renderred from the target pts.
+    /// Sets the target rendering frame for an OH_LowPowerVideoSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
-    /// {const int64_t} framePts target video frame pts
+    /// * `framePts` - target video frame pts, in microseconds
     ///
-    /// {OH_LowPowerVideoSink_OnTargetArrived*} onTargetArrived OH_LowPowerVideoSink_OnTargetArrived func,
+    /// * `onTargetArrived` - OH_LowPowerVideoSink_OnTargetArrived func,
     /// will be called once, refer to [`OH_LowPowerVideoSink_OnTargetArrived`](crate::lowpower_video_sink_base::OH_LowPowerVideoSink_OnTargetArrived)
     ///
-    /// {const int64_t} timeoutMs if wait first frame over timeoutMs, onTargetArrived will be called directly.
+    /// * `timeoutMs` - if wait first frame over timeoutMs, onTargetArrived will be called directly,
+    /// in milliseconds.
     ///
-    /// {void *} userData User specific data
+    /// * `userData` - User specific data
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -383,21 +359,21 @@ extern "C" {
         timeoutMs: i64,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Set playback speed for the lowpower video sink
+    /// Sets the playback speed for an OH_LowPowerVideoSink instance.
+    ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
-    /// {const float} speed Indicates the value of the playback rate.
-    /// The current version is valid in the range of 0.1-4.0
+    /// * `speed` - Indicates the value of the playback rate.
+    /// The current version is valid in the range of 0.25-4.0
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -406,21 +382,20 @@ extern "C" {
         sink: *mut OH_LowPowerVideoSink,
         speed: f32,
     ) -> OH_AVErrCode;
-    /// Return frame packet buffer to lowpower video sink.
+    /// Provides a buffer to an OH_LowPowerVideoSink instance for procesing.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
-    /// {OH_AVSamplesBuffer*} samples Pointer to an OH_AVSamplesBuffer instance
+    /// * `samples` - Pointer to an OH_AVSamplesBuffer instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -429,21 +404,20 @@ extern "C" {
         sink: *mut OH_LowPowerVideoSink,
         samples: *mut OH_AVSamplesBuffer,
     ) -> OH_AVErrCode;
-    /// Regsister callback instance for lowpower video sink.
+    /// Registers a callback for an OH_LowPowerVideoSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance
     ///
-    /// {OH_LowPowerVideoSinkCallback*} callback Pointer to an OH_LowPowerVideoSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerVideoSinkCallback instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -452,52 +426,28 @@ extern "C" {
         sink: *mut OH_LowPowerVideoSink,
         callback: *mut OH_LowPowerVideoSinkCallback,
     ) -> OH_AVErrCode;
-    /// Get the latest presentation timestamp (PTS) from lowpower video sink.
-    ///
-    /// # Arguments
-    ///
-    /// {OH_LowPowerVideoSink*} sink Pointer to an OH_LowPowerVideoSink instance.
-    ///
-    /// {int64_t*} pts Pointer to store the latest PTS value (in microseconds).
-    ///
-    /// # Returns
-    ///
-    /// * Returns AV_ERR_OK if the timestamp is obtained successfully;
-    /// otherwise, returns a specific error code as defined in [`OH_AVErrCode`](crate::averrors::OH_AVErrCode):
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink is nullptr, or sink is invalid.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
-    ///
-    /// Available since API-level: 21
-    #[cfg(feature = "api-21")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
-    pub fn OH_LowPowerVideoSink_GetLatestPts(
-        sink: *mut OH_LowPowerVideoSink,
-        pts: *mut i64,
-    ) -> OH_AVErrCode;
-    /// Creates a lowpower video sink callback instance.
+    /// Creates an OH_LowPowerVideoSinkCallback instance.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns a Pointer to an OH_LowPowerVideoSinkCallback instance.
-    /// Return nullptr if memory ran out.
+    /// * Pointer to the OH_LowPowerVideoSinkCallback instance created. If the memory is insufficient, nullptr is
+    /// returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerVideoSinkCallback_Create() -> *mut OH_LowPowerVideoSinkCallback;
-    /// Destroy the lowpower video sink callback instance.
+    /// Destroys an OH_LowPowerVideoSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSinkCallback*} callback Pointer to an OH_LowPowerVideoSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerVideoSinkCallback instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -505,23 +455,22 @@ extern "C" {
     pub fn OH_LowPowerVideoSinkCallback_Destroy(
         callback: *mut OH_LowPowerVideoSinkCallback,
     ) -> OH_AVErrCode;
-    /// Add onDataNeeded listener to the lowpower video sink callback instance.
+    /// Sets a data needed listener for an OH_LowPowerVideoSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSinkCallback*} callback Pointer to an OH_LowPowerVideoSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerVideoSinkCallback instance
     ///
-    /// {OH_LowPowerVideoSink_OnDataNeeded} onDataNeeded OH_LowPowerVideoSink_OnDataNeeded function,
+    /// * `onDataNeeded` - OH_LowPowerVideoSink_OnDataNeeded function,
     /// refer to [`OH_LowPowerVideoSink_OnDataNeeded`](crate::lowpower_video_sink_base::OH_LowPowerVideoSink_OnDataNeeded)
     ///
-    /// {void*} userData User specific data
+    /// * `userData` - User specific data
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -531,23 +480,22 @@ extern "C" {
         onDataNeeded: OH_LowPowerVideoSink_OnDataNeeded,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Add onError listener to the lowpower video sink callback instance.
+    /// Sets an error listener for an OH_LowPowerVideoSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSinkCallback*} callback Pointer to an OH_LowPowerVideoSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerVideoSinkCallback instance
     ///
-    /// {OH_LowPowerVideoSink_OnError} onError OH_LowPowerVideoSink_OnError function,
+    /// * `onError` - OH_LowPowerVideoSink_OnError function,
     /// refer to [`OH_LowPowerVideoSink_OnError`](crate::lowpower_video_sink_base::OH_LowPowerVideoSink_OnError)
     ///
-    /// {void*} userData User specific data
+    /// * `userData` - User specific data
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -557,23 +505,22 @@ extern "C" {
         onError: OH_LowPowerVideoSink_OnError,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Add onRenderStarted listener to the lowpower video sink callback instance.
+    /// Sets a render start listener for an OH_LowPowerVideoSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSinkCallback*} callback Pointer to an OH_LowPowerVideoSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerVideoSinkCallback instance
     ///
-    /// {OH_LowPowerVideoSink_OnRenderStarted} onRenderStarted OH_LowPowerVideoSink_OnRenderStarted function,
+    /// * `onRenderStarted` - OH_LowPowerVideoSink_OnRenderStarted function,
     /// refer to [`OH_LowPowerVideoSink_OnRenderStarted`](crate::lowpower_video_sink_base::OH_LowPowerVideoSink_OnRenderStarted)
     ///
-    /// {void*} userData User specific data
+    /// * `userData` - User specific data
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -583,23 +530,22 @@ extern "C" {
         onRenderStarted: OH_LowPowerVideoSink_OnRenderStarted,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Add onStreamChanged listener to the lowpower video sink callback instance.
+    /// Sets a stream change listener for an OH_LowPowerVideoSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSinkCallback*} callback Pointer to an OH_LowPowerVideoSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerVideoSinkCallback instance
     ///
-    /// {OH_LowPowerVideoSink_OnStreamChanged} onStreamChanged OH_LowPowerVideoSink_OnStreamChanged function,
+    /// * `onStreamChanged` - OH_LowPowerVideoSink_OnStreamChanged function,
     /// refer to [`OH_LowPowerVideoSink_OnStreamChanged`](crate::lowpower_video_sink_base::OH_LowPowerVideoSink_OnStreamChanged)
     ///
-    /// {void*} userData User specific data
+    /// * `userData` - User specific data
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -609,24 +555,23 @@ extern "C" {
         onStreamChanged: OH_LowPowerVideoSink_OnStreamChanged,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Add onRenderStarted listener to the lowpower video sink callback instance.
+    /// Sets a first-frame ready listener for an OH_LowPowerVideoSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSinkCallback*} callback Pointer to an OH_LowPowerVideoSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerVideoSinkCallback instance
     ///
-    /// {OH_LowPowerVideoSink_OnFirstFrameDecoded} onFirstFrameDecoded OH_LowPowerVideoSink_OnFirstFrameDecoded
+    /// * `onFirstFrameDecoded` - OH_LowPowerVideoSink_OnFirstFrameDecoded
     /// function,
     /// refer to [`OH_LowPowerVideoSink_OnFirstFrameDecoded`](crate::lowpower_video_sink_base::OH_LowPowerVideoSink_OnFirstFrameDecoded)
     ///
-    /// {void*} userData User specific data
+    /// * `userData` - User specific data
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -636,23 +581,22 @@ extern "C" {
         onFirstFrameDecoded: OH_LowPowerVideoSink_OnFirstFrameDecoded,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Add onEos listener to the lowpower video sink callback instance.
+    /// Sets an end-of-stream listener for an OH_LowPowerVideoSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerVideoSinkCallback*} callback Pointer to an OH_LowPowerVideoSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerVideoSinkCallback instance
     ///
-    /// {OH_LowPowerVideoSink_OnEos} onEos OH_LowPowerVideoSink_OnEos function,
+    /// * `onEos` - OH_LowPowerVideoSink_OnEos function,
     /// refer to [`OH_LowPowerVideoSink_OnEos`](crate::lowpower_video_sink_base::OH_LowPowerVideoSink_OnEos)
     ///
-    /// {void*} userData User specific data
+    /// * `userData` - User specific data
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -661,5 +605,27 @@ extern "C" {
         callback: *mut OH_LowPowerVideoSinkCallback,
         onEos: OH_LowPowerVideoSink_OnEos,
         userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVErrCode;
+    /// Obtains the Presentation Timestamp (PTS) of the video that is playing.
+    ///
+    /// # Arguments
+    ///
+    /// * `sink` - Pointer to an OH_LowPowerVideoSink instance.
+    ///
+    /// * `pts` - Pointer to store the latest PTS value (in microseconds).
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_LowPowerVideoSink_GetLatestPts(
+        sink: *mut OH_LowPowerVideoSink,
+        pts: *mut i64,
     ) -> OH_AVErrCode;
 }

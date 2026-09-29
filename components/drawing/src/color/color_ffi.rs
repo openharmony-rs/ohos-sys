@@ -8,17 +8,15 @@ use crate::types::*;
 extern "C" {
     /// Converts four variables (alpha, red, green, and blue) into a 32-bit (ARGB) variable that describes a color.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `alpha` - Indicates a variable that describes alpha. The value ranges from 0x00 to 0xFF.
+    /// * `alpha` - Alpha, which is a variable ranging from 0x00 to 0xFF.
     ///
-    /// * `red` - Indicates a variable that describes red. The value ranges from 0x00 to 0xFF.
+    /// * `red` - Read, which is a variable ranging from 0x00 to 0xFF.
     ///
-    /// * `green` - Indicates a variable that describes green. The value ranges from 0x00 to 0xFF.
+    /// * `green` - Green, which is a variable ranging from 0x00 to 0xFF.
     ///
-    /// * `blue` - Indicates a variable that describes blue. The value ranges from 0x00 to 0xFF.
+    /// * `blue` - Blue, which is a variable ranging from 0x00 to 0xFF.
     ///
     /// # Returns
     ///

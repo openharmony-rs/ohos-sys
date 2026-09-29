@@ -12,7 +12,7 @@ use crate::avcodec_base::OH_AVDataSourceExt;
 use crate::averrors::OH_AVErrCode;
 use crate::avformat::OH_AVFormat;
 
-/// Forward declaration of OH_AVSource.
+/// The struct describes a native object for the media resource interface.
 ///
 ///
 /// Available since API-level: 10
@@ -21,45 +21,53 @@ pub struct OH_AVSource {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Creates an OH_AVSource instance that models the media with dataSource.
+    /// Creates an OH_AVSource instance with a user-defined data source. You can release the instance by calling
+    /// [`OH_AVSource_Destroy`](crate::avsource::OH_AVSource_Destroy).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// The lifecycle of **dataSource** must be the same as that of the returned OH_AVSource * pointer.
+    ///
     /// # Arguments
     ///
-    /// * `dataSource` - An Struct for a remote media resource.
+    /// * `dataSource` - Pointer to user-defined data source.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVSource instance if the execution is successful, otherwise returns nullptr.
-    /// Possible failure causes:
-    /// 1. dataSource is nullptr.
-    /// 2. dataSource->size == 0.
-    /// 3. set data source failed.
-    /// 4. out of memory.
-    /// 5. demuxer engine is nullptr.
+    /// * Pointer to the OH_AVSource instance created. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **dataSource** is nullptr.
+    /// <br>2. The size of the data source is 0.
+    /// <br>3. Setting the data source fails.
+    /// <br>4. The memory is insufficient.
+    /// <br>5. The decoder engine is nullptr.
+    /// <br>6. dataSource-&gt;readAt == nullptr.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_AVSource_CreateWithDataSource(dataSource: *mut OH_AVDataSource) -> *mut OH_AVSource;
-    /// Creates an OH_AVSource instance with dataSource and userData.
+    /// Creates an OH_AVSource instance with a user-defined data source. You can release the instance by calling
+    /// [`OH_AVSource_Destroy`](crate::avsource::OH_AVSource_Destroy).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// User-defined data can be passed to its callback functions through the **userData** parameter.
+    ///
+    /// The lifecycle of **dataSource** must be the same as that of the returned OH_AVSource * pointer.
+    ///
     /// # Arguments
     ///
-    /// * `dataSource` - A pointer to the data source structure, which can obtain the input data.
+    /// * `dataSource` - Pointer to the data source struct, which is used to obtain the input data.
     ///
-    /// * `userData` - A pointer to user-defined data.
+    /// * `userData` - Pointer to user-defined data.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVSource instance if the execution is successful, otherwise returns nullptr.
-    /// Possible failure causes:
-    /// 1. dataSource is nullptr.
-    /// 2. dataSource->size == 0.
-    /// 3. set data source failed.
-    /// 4. out of memory.
-    /// 5. demuxer engine is nullptr.
+    /// * Pointer to the OH_AVSource instance created. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **dataSource** is nullptr.
+    /// <br>2. The size of the data source is 0.
+    /// <br>3. Setting the data source fails.
+    /// <br>4. The memory is insufficient.
+    /// <br>5. The decoder engine is nullptr.
+    /// <br>6. dataSource-&gt;readAt == nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -68,118 +76,125 @@ extern "C" {
         dataSource: *mut OH_AVDataSourceExt,
         userData: *mut ::core::ffi::c_void,
     ) -> *mut OH_AVSource;
-    /// Creates an OH_AVSource instance that models the media at the URI.
+    /// Creates an OH_AVSource instance based on a URI. You can release the instance by calling
+    /// [`OH_AVSource_Destroy`](crate::avsource::OH_AVSource_Destroy). This function supports only HTTP progressive streaming media,
+    /// but not HLS/DASH streaming media. For HLS/DASH streaming media playback, use the AVPlayer for development.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
-    /// * `uri` - An URI for a remote media resource.
+    /// * `uri` - URI of the media resource.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVSource instance if the execution is successful, otherwise returns nullptr.
-    /// Possible failure causes:
-    /// 1. network anomaly.
-    /// 2. resource is invalid.
-    /// 3. file format is not supported.
+    /// * Pointer to the OH_AVSource instance created. If the operation fails, NULL is returned.
+    /// The possible causes of an operation failure are as follows:
+    /// <br>1. The network is abnormal.
+    /// <br>2. The resource is invalid.
+    /// <br>3. The file format is not supported.
+    /// <br>4. The application configuration is intercepted because it contains plaintext data.
     ///
     /// Available since API-level: 10
     pub fn OH_AVSource_CreateWithURI(uri: *mut ::core::ffi::c_char) -> *mut OH_AVSource;
-    /// Creates an OH_AVSource instance that models the media at the FileDescriptor.
+    /// Creates an OH_AVSource instance based on an FD. You can release the instance by calling
+    /// [`OH_AVSource_Destroy`](crate::avsource::OH_AVSource_Destroy).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// If **offset** is not the start position of the file or **size** is not the file size, undefined errors such as
+    /// creation failure and demultiplexing failure may occur due to incomplete data obtained.
+    ///
     /// # Arguments
     ///
-    /// * `fd` - The fileDescriptor of data source.
+    /// * `fd` - FD of a media resource file.
     ///
-    /// * `offset` - The offset into the file to start reading.
+    /// * `offset` - Position from which data is to read.
     ///
-    /// * `size` - The file size in bytes.
+    /// * `size` - File size, in bytes.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVSource instance if the execution is successful, otherwise returns nullptr.
-    /// Possible failure causes:
-    /// 1. fd is invalid.
-    /// 2. offset is not start pos of resource.
-    /// 3. size error.
-    /// 4. resource is invalid.
-    /// 5. file format is not supported.
+    /// * Pointer to the OH_AVSource instance created. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The FD is invalid.
+    /// <br>2. The offset is not the start position of the file.
+    /// <br>3. The size is incorrect.
+    /// <br>4. The resource is invalid.
+    /// <br>5. The file format is not supported.
     ///
     /// Available since API-level: 10
     pub fn OH_AVSource_CreateWithFD(fd: i32, offset: i64, size: i64) -> *mut OH_AVSource;
-    /// Destroy the OH_AVSource instance and free the internal resources.
+    /// Destroys an OH_AVSource instance and clears internal resources.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// An instance can be destroyed only once. The destroyed instance cannot be used until it is re-created.
+    /// You are advised to set the pointer to NULL after the instance is destroyed.
+    ///
     /// # Arguments
     ///
     /// * `source` - Pointer to an OH_AVSource instance.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), an invalid source instance pointer is passed to parameter source,
-    /// including a null pointer;
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL):
+    /// <br>1. The value of **source** is nullptr.
+    /// <br>2. The value of **source** does not point to an OH_AVSource instance.
     ///
     /// Available since API-level: 10
     pub fn OH_AVSource_Destroy(source: *mut OH_AVSource) -> OH_AVErrCode;
-    /// Get the format info of source.
-    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
-    /// to be manually released by the caller.
+    /// Obtains the basic information about a media resource file.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// You must call [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy) to release the OH_AVFormat instance when its lifecycle ends.
+    ///
     /// # Arguments
     ///
     /// * `source` - Pointer to an OH_AVSource instance.
     ///
     /// # Returns
     ///
-    /// * Returns the source's format info if the execution is successful, otherwise returns nullptr.
-    /// Possible failure causes:
-    /// 1. source is invalid.
+    /// * Basic information about the file. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **source** is nullptr.
+    /// <br>2. The pointer is null or does not point to an OH_AVSource instance.
+    /// <br>3. The source is not initialized.
     ///
     /// Available since API-level: 10
     pub fn OH_AVSource_GetSourceFormat(source: *mut OH_AVSource) -> *mut OH_AVFormat;
-    /// Get the format info of track.
-    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
-    /// to be manually released by the caller.
+    /// Obtains the basic information about a track.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
+    /// You must call [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy) to release the OH_AVFormat instance when its lifecycle ends.
+    ///
     /// # Arguments
     ///
     /// * `source` - Pointer to an OH_AVSource instance.
     ///
-    /// * `trackIndex` - The track index to get format.
+    /// * `trackIndex` - Index of the track whose information is to be obtained.
     ///
     /// # Returns
     ///
-    /// * Returns the track's format info if the execution is successful, otherwise returns nullptr.
-    /// Possible failure causes:
-    /// 1. source is invalid.
-    /// 2. trackIndex is out of range.
+    /// * Basic information about the track. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **source** is invalid (either nullptr or a pointer to a non-OH_AVSource instance).
+    /// <br>2. The track index is out of range.
+    /// <br>3. The source is not initialized.
     ///
     /// Available since API-level: 10
     pub fn OH_AVSource_GetTrackFormat(
         source: *mut OH_AVSource,
         trackIndex: u32,
     ) -> *mut OH_AVFormat;
-    /// Get the format info of custom metadata.
+    /// Obtains the basic information about custom metadata.
     ///
-    /// It should be noted that the life cycle of the OH_AVFormat instance pointed to by the return value * needs
-    /// to be manually released by the caller.
+    /// You must call [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy) to release the OH_AVFormat instance when its lifecycle ends.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Spliter
     /// # Arguments
     ///
     /// * `source` - Pointer to an OH_AVSource instance.
     ///
     /// # Returns
     ///
-    /// * Returns the metadata's format info if the execution is successful, otherwise returns nullptr.
-    /// Possible failure causes:
-    /// 1. source is invalid.
+    /// * Basic information about the metadata. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **source** is nullptr.
+    /// <br>2. The pointer is null or does not point to an OH_AVSource instance.
+    /// <br>3. The source is not initialized.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

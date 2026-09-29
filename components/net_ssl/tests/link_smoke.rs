@@ -13,4 +13,6 @@ fn link_smoke() {
         };
         let _ = net_ssl::net_ssl_c::OH_NetStack_CertVerification(&cert, core::ptr::null());
     }
+
+    // The API-26 functions are missing from `libnet_ssl.so` in the OpenHarmony 7.0 SDK.
 }

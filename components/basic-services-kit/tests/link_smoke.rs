@@ -51,4 +51,21 @@ fn link_smoke() {
             buf.len() as u32,
         );
     }
+
+    #[cfg(feature = "api-24")]
+    unsafe {
+        let _ = ohos_basic_services_kit_sys::print::OH_Print_StartPrintWithJobStateCallback(
+            std::ptr::null(),
+            core::mem::zeroed(),
+        );
+    }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = ohos_basic_services_kit_sys::os_account::OH_OsAccount_GetNameByLocalId(
+            0,
+            std::ptr::null_mut(),
+            0,
+        );
+    }
 }

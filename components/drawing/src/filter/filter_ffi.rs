@@ -6,10 +6,8 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_Filter</b> object.
+    /// Creates an **OH_Drawing_Filter** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
@@ -21,15 +19,16 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_FilterCreate() -> *mut OH_Drawing_Filter;
-    /// Sets an <b>OH_Drawing_ImageFilter</b> object for an <b>OH_Drawing_Filter</b> object.
+    /// Sets an **OH_Drawing_ImageFilter** object for an **OH_Drawing_Filter** object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **filter** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object.
     ///
-    /// * `imageFilter` - Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
+    /// * `imageFilter` - Pointer to an [`OH_Drawing_ImageFilter`](crate::types::OH_Drawing_ImageFilter) object. If NULL is passed in, the image filter
+    /// effect of the object will be cleared.
     ///
     /// Available since API-level: 12
     ///
@@ -40,15 +39,16 @@ extern "C" {
         filter: *mut OH_Drawing_Filter,
         imageFilter: *mut OH_Drawing_ImageFilter,
     );
-    /// Sets an <b>OH_Drawing_MaskFilter</b> object for an <b>OH_Drawing_Filter</b> object.
+    /// Sets an **OH_Drawing_MaskFilter** object for an **OH_Drawing_Filter** object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **filter** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object.
     ///
-    /// * `maskFilter` - Indicates the pointer to an <b>OH_Drawing_MaskFilter</b> object.
+    /// * `maskFilter` - Pointer to an [`OH_Drawing_ColorFilter`](crate::types::OH_Drawing_ColorFilter) object. If NULL is passed in, the mask filter effect
+    /// of the object will be cleared.
     ///
     /// Available since API-level: 11
     ///
@@ -59,15 +59,16 @@ extern "C" {
         filter: *mut OH_Drawing_Filter,
         maskFilter: *mut OH_Drawing_MaskFilter,
     );
-    /// Sets an <b>OH_Drawing_ColorFilter</b> object for an <b>OH_Drawing_Filter</b> object.
+    /// Sets an **OH_Drawing_ColorFilter** object for an **OH_Drawing_Filter** object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **filter** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object.
     ///
-    /// * `colorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `colorFilter` - Pointer to an [`OH_Drawing_ColorFilter`](crate::types::OH_Drawing_ColorFilter) object. If NULL is passed in, the color filter
+    /// effect of the object will be cleared.
     ///
     /// Available since API-level: 11
     ///
@@ -78,15 +79,15 @@ extern "C" {
         filter: *mut OH_Drawing_Filter,
         colorFilter: *mut OH_Drawing_ColorFilter,
     );
-    /// Gets an <b>OH_Drawing_ColorFilter</b> object from an <b>OH_Drawing_Filter</b> object.
+    /// Obtains an **OH_Drawing_ColorFilter** object from an **OH_Drawing_Filter** object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **filter** or **colorFilter** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object.
     ///
-    /// * `colorFilter` - Indicates the pointer to an <b>OH_Drawing_ColorFilter</b> object.
+    /// * `colorFilter` - Pointer to an [`OH_Drawing_ColorFilter`](crate::types::OH_Drawing_ColorFilter) object.
     ///
     /// Available since API-level: 12
     ///
@@ -97,13 +98,11 @@ extern "C" {
         filter: *mut OH_Drawing_Filter,
         colorFilter: *mut OH_Drawing_ColorFilter,
     );
-    /// Destroys an <b>OH_Drawing_Filter</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Filter** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `filter` - Indicates the pointer to an <b>OH_Drawing_Filter</b> object.
+    /// * `filter` - Pointer to an [`OH_Drawing_Filter`](crate::types::OH_Drawing_Filter) object.
     ///
     /// Available since API-level: 11
     ///

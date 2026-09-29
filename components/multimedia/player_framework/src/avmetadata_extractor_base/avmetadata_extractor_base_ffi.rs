@@ -9,214 +9,21 @@ use crate::averrors::OH_AVErrCode;
 #[cfg(feature = "api-23")]
 use ohos_sys_opaque_types::OH_PixelmapNative;
 
-/// Key to get the album title of the media source, value type is const char*.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_ALBUM: &::core::ffi::CStr = c"album";
-/// Key to get the album performer or artist associated, value type is const char*.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_ALBUM_ARTIST: &::core::ffi::CStr = c"albumArtist";
-/// Key to get the artist name, value type is const char*.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_ARTIST: &::core::ffi::CStr = c"artist";
-/// Key to get the author name, value type is const char*.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_AUTHOR: &::core::ffi::CStr = c"author";
-/// Key to get the created time of the media source, value type is const char*.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_DATE_TIME: &::core::ffi::CStr = c"dateTime";
-/// Key to get the created or modified time with the specific date format, value type is const char*.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_DATE_TIME_FORMAT: &::core::ffi::CStr = c"dateTimeFormat";
-/// Key to get the composer of the media source, value type is const char*.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_COMPOSER: &::core::ffi::CStr = c"composer";
-/// Key to get the playback duration of the media source, value type is int64_t, value unit is millisecond (ms).
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_DURATION: &::core::ffi::CStr = c"duration";
-/// Key to get the content type or genre, value type is const char*.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_GENRE: &::core::ffi::CStr = c"genre";
-/// Key to get the value whether the media resource contains audio content,
-/// value type is int32_t. 1 means true and 0 means false.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_HAS_AUDIO: &::core::ffi::CStr = c"hasAudio";
-/// Key to get the value whether the media resource contains video content,
-/// value type is int32_t. 1 means true and 0 means false.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_HAS_VIDEO: &::core::ffi::CStr = c"hasVideo";
-/// Key to get the mime type of the media source, value type is const char*.
-/// Some example mime types include: "video/mp4", "audio/mp4", "audio/amr-wb".
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_MIME_TYPE: &::core::ffi::CStr = c"mimeType";
-/// Key to get the number of tracks, value type is int32_t.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_TRACK_COUNT: &::core::ffi::CStr = c"trackCount";
-/// Key to get the audio sample rate, value type is int32_t.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_SAMPLE_RATE: &::core::ffi::CStr = c"sampleRate";
-/// Key to get the media source title, value type is const char*.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_TITLE: &::core::ffi::CStr = c"title";
-/// Key to get the video height if the media contains video, value type is int32_t.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_VIDEO_HEIGHT: &::core::ffi::CStr = c"videoHeight";
-/// Key to get the video width if the media contains video, value type is int32_t.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_VIDEO_WIDTH: &::core::ffi::CStr = c"videoWidth";
-/// Key to get the video rotation angle, value type is int32_t.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_VIDEO_ORIENTATION: &::core::ffi::CStr = c"videoOrientation";
-/// Key to get the information whether the video is HDR video, value type is int32_t.
-/// For details of the value, see [`OH_Core_HdrType`](crate::media_types::OH_Core_HdrType) defined in `media_types.h`.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_VIDEO_IS_HDR_VIVID: &::core::ffi::CStr = c"hdrType";
-/// Key to get the latitude value in the geographical location, value type is float.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_LOCATION_LATITUDE: &::core::ffi::CStr = c"latitude";
-/// Key to get the longitude value in the geographical location, value type is float.
-///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVMetadataExtractor
-///
-/// Available since API-level: 18
-#[cfg(feature = "api-18")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
-pub const OH_AVMETADATA_EXTRACTOR_LOCATION_LONGITUDE: &::core::ffi::CStr = c"longitude";
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl OH_AVMetadataExtractor_FetchState {
-    /// Fetch operation is failed
+    /// The extraction operation failed.
     pub const OH_AVMETADATA_EXTRACTOR_FETCH_FAILED: OH_AVMetadataExtractor_FetchState =
         OH_AVMetadataExtractor_FetchState(0);
-    /// Fetch operation is success
+    /// The extraction operation succeeded.
     pub const OH_AVMETADATA_EXTRACTOR_FETCH_SUCCEEDED: OH_AVMetadataExtractor_FetchState =
         OH_AVMetadataExtractor_FetchState(1);
-    /// Fetch operation is cancelled by user
+    /// The extraction operation was canceled by the user.
     pub const OH_AVMETADATA_EXTRACTOR_FETCH_CANCELED: OH_AVMetadataExtractor_FetchState =
         OH_AVMetadataExtractor_FetchState(2);
 }
 #[repr(transparent)]
-/// Enumerates the fetch frame result.
+/// Enumerates the result status of the frame extraction operation.
 ///
 ///
 /// Available since API-level: 23
@@ -224,7 +31,7 @@ impl OH_AVMetadataExtractor_FetchState {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVMetadataExtractor_FetchState(pub ::core::ffi::c_uint);
-/// defines the output param for frames fetched by AVMetadataExtractor
+/// Defines a struct for the output parameters of a frame extracted by **AVMetadataExtractor**.
 ///
 ///
 /// Available since API-level: 23
@@ -234,7 +41,7 @@ pub struct OH_AVMetadataExtractor_FetchState(pub ::core::ffi::c_uint);
 pub struct OH_AVMetadataExtractor_OutputParam {
     _unused: [u8; 0],
 }
-/// defines the frame info fetched from video
+/// Defines the information about a frame extracted from a video.
 ///
 ///
 /// Available since API-level: 23
@@ -243,12 +50,165 @@ pub struct OH_AVMetadataExtractor_OutputParam {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_AVMetadataExtractor_FrameInfo {
-    /// The request time passed by user
+    /// Time when the user sends the request.
     pub requestTimeUs: i64,
-    /// The actual time for the fetched frame, -1 if failed to fetch
+    /// Time when the frame is actually extracted. If the extraction fails, the value is **-1**.
     pub actualTimeUs: i64,
-    /// The frame fetched from video, nullptr if failed to fecth
+    /// Frame image extracted from the video. If the extraction fails, the value is a null pointer.
     pub image: *mut OH_PixelmapNative,
-    /// The frame fetched result
+    /// Result status of the frame extraction operation.
     pub result: OH_AVMetadataExtractor_FetchState,
 }
+/// Pointer to the key for obtaining the title of the album. The value type is const char*.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_ALBUM: &::core::ffi::CStr = c"album";
+/// Pointer to the key for obtaining the artist of the album. The value type is const char*.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_ALBUM_ARTIST: &::core::ffi::CStr = c"albumArtist";
+/// Pointer to the key for obtaining the artist of the media asset. The value type is const char*.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_ARTIST: &::core::ffi::CStr = c"artist";
+/// Pointer to the key for obtaining the author of the media asset. The value type is const char*.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_AUTHOR: &::core::ffi::CStr = c"author";
+/// Pointer to the key for obtaining the creation time of the media asset. The value type is const char*.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_DATE_TIME: &::core::ffi::CStr = c"dateTime";
+/// Pointer to the key for obtaining the creation time of the media asset. The value type is const char* and the
+/// output format is YYYY-MM-DD HH:mm:ss.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_DATE_TIME_FORMAT: &::core::ffi::CStr = c"dateTimeFormat";
+/// Pointer to the key for obtaining the composer of the media asset. The value type is const char*.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_COMPOSER: &::core::ffi::CStr = c"composer";
+/// Pointer to the key for obtaining the duration of the media asset, in ms. The value type is int64_t.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_DURATION: &::core::ffi::CStr = c"duration";
+/// Pointer to the key for obtaining the type or genre of the media asset. The value type is const char*.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_GENRE: &::core::ffi::CStr = c"genre";
+/// Pointer to the key for obtaining the flag indicating whether the media asset contains audio. The value type
+/// is int32_t.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_HAS_AUDIO: &::core::ffi::CStr = c"hasAudio";
+/// Pointer to the key for obtaining the flag indicating whether the media asset contains video. The value type
+/// is int32_t.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_HAS_VIDEO: &::core::ffi::CStr = c"hasVideo";
+/// Pointer to the key for obtaining the MIME type of the media asset. The value type is const char*, for example,
+/// video/mp4, audio/mp4, and audio/amr wb.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_MIME_TYPE: &::core::ffi::CStr = c"mimeType";
+/// Pointer to the key for obtaining the number of tracks of the media asset. The value type is int32_t.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_TRACK_COUNT: &::core::ffi::CStr = c"trackCount";
+/// Pointer to the key for obtaining the audio sample rate, in Hz. The value type is int32_t.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_SAMPLE_RATE: &::core::ffi::CStr = c"sampleRate";
+/// Pointer to the key for obtaining the title of the media asset. The value type is const char*.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_TITLE: &::core::ffi::CStr = c"title";
+/// Pointer to the key for obtaining the video height, in px. The value type is int32_t.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_VIDEO_HEIGHT: &::core::ffi::CStr = c"videoHeight";
+/// Pointer to the key for obtaining the video weight, in px. The value type is int32_t.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_VIDEO_WIDTH: &::core::ffi::CStr = c"videoWidth";
+/// Pointer to the key for obtaining the video rotation direction, in degrees (°). The value type is int32_t.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_VIDEO_ORIENTATION: &::core::ffi::CStr = c"videoOrientation";
+/// Pointer to the key for obtaining the flag indicating whether the video is an HDR Vivid video. The value type
+/// is int32_t.
+/// For details, see [`OH_Core_HdrType`](crate::media_types::OH_Core_HdrType) in **media_types.h**.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_VIDEO_IS_HDR_VIVID: &::core::ffi::CStr = c"hdrType";
+/// Pointer to the key for obtaining the latitude in the geographical location. The value type is float.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_LOCATION_LATITUDE: &::core::ffi::CStr = c"latitude";
+/// Pointer to the key for obtaining the longitude in the geographical location. The value type is float.
+///
+///
+/// Available since API-level: 18
+#[cfg(feature = "api-18")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
+pub const OH_AVMETADATA_EXTRACTOR_LOCATION_LONGITUDE: &::core::ffi::CStr = c"longitude";

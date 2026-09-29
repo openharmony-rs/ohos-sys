@@ -7,19 +7,20 @@ use crate::shader_effect::*;
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_ImageFilter</b> object that blurs its input by the separate x and y sigmas.
+    /// Creates an image filter with a given blur effect.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `sigmaX` - Indicates the Gaussian sigma value for blurring along the x axis.
+    /// * `sigmaX` - Standard deviation of the Gaussian blur to apply along the X axis. The value must be greater than 0.
     ///
-    /// * `sigmaY` - Indicates the Gaussian sigma value for blurring along the y axis.
+    /// * `sigmaY` - Standard deviation of the Gaussian blur to apply along the Y axis. The value must be greater than 0.
     ///
-    /// * `tileMode` - Indicates the tile mode applied at edges.
+    /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
-    /// * `imageFilter` - Indicates the input filter that is blurred, uses source bitmap if this is null.
+    /// * `imageFilter` - Pointer to the filter to which the image filter will be applied. If NULL is passed in, the image
+    /// filter is directly applied to the original image.
     ///
     /// # Returns
     ///
@@ -38,23 +39,23 @@ extern "C" {
         tileMode: OH_Drawing_TileMode,
         imageFilter: *mut OH_Drawing_ImageFilter,
     ) -> *mut OH_Drawing_ImageFilter;
-    /// Creates an <b>OH_Drawing_ImageFilter</b> object that blurs its input by the separate x and y sigmas.
-    /// Supports an optional crop rectangle to restrict the blur effect to a specific region of the input.
+    /// Creates an image filter with a given blur effect.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `sigmaX` - Indicates the Gaussian sigma value for blurring along the x axis.
+    /// * `sigmaX` - Standard deviation of the Gaussian blur to apply along the X axis. The value must be greater than 0.0.
     ///
-    /// * `sigmaY` - Indicates the Gaussian sigma value for blurring along the y axis.
+    /// * `sigmaY` - Standard deviation of the Gaussian blur to apply along the Y axis. The value must be greater than 0.0.
     ///
-    /// * `tileMode` - Indicates the tile mode applied at edges.
+    /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
-    /// * `input` - Indicates the input filter that is blurred, uses source bitmap if this is null.
+    /// * `input` - Pointer to the filter to which the image filter will be applied. If NULL is passed in, the image filter
+    /// is directly applied to the original image.
     ///
-    /// * `rect` - Indicates optional rectangle that crops the input and output.
-    /// If rect is null, the blur effect applies to the entire input image.
+    /// * `rect` - Pointer to the rectangular region to be cropped. If NULL is passed in, the blur effect is directly
+    /// applied to the entire image.
     ///
     /// # Returns
     ///
@@ -72,15 +73,16 @@ extern "C" {
         input: *mut OH_Drawing_ImageFilter,
         rect: *const OH_Drawing_Rect,
     ) -> *mut OH_Drawing_ImageFilter;
-    /// Creates an <b>OH_Drawing_ImageFilter</b> object that applies the color filter to the input.
+    /// Creates an **OH_Drawing_ImageFilter** object with a color filter effect. This API may return an error code.
+    /// For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet). If **colorFilter** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER**
+    /// is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `colorFilter` - Indicates the color filter that transforms the input image.
+    /// * `colorFilter` - Pointer to an [`OH_Drawing_ColorFilter`](crate::types::OH_Drawing_ColorFilter) object.
     ///
-    /// * `imageFilter` - Indicates the input filter, or uses the source bitmap if this is null.
+    /// * `imageFilter` - Pointer to the filter to which the image filter will be applied. If NULL is passed in, the image
+    /// filter is directly applied to the original image.
     ///
     /// # Returns
     ///
@@ -98,17 +100,16 @@ extern "C" {
         colorFilter: *mut OH_Drawing_ColorFilter,
         imageFilter: *mut OH_Drawing_ImageFilter,
     ) -> *mut OH_Drawing_ImageFilter;
-    /// Creates an <b>OH_Drawing_ImageFilter</b> object with the provided x and y offset.
+    /// Creates an offset filter to translate the input filter based on the specified vector.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `x` - Indicates the x offset.
+    /// * `x` - Distance to translate on the X axis.
     ///
-    /// * `y` - Indicates the y offset.
+    /// * `y` - Distance to translate on the Y axis.
     ///
-    /// * `imageFilter` - Indicates the input filter, or uses the source bitmap if this is null.
+    /// * `imageFilter` - Filter to be translated. If NULL is passed in, the drawing result without the filtering effect is
+    /// translated.
     ///
     /// # Returns
     ///
@@ -126,13 +127,11 @@ extern "C" {
         y: f32,
         imageFilter: *mut OH_Drawing_ImageFilter,
     ) -> *mut OH_Drawing_ImageFilter;
-    /// Creates an <b>OH_Drawing_ImageFilter</b> object that applies the shader to the input.
+    /// Creates an **ImageFilter** object based on a shader.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `shaderEffect` - Indicates the shader effect to be applied to the image.
+    /// * `shaderEffect` - Shader effect to be applied to the image.
     ///
     /// # Returns
     ///
@@ -149,13 +148,11 @@ extern "C" {
     pub fn OH_Drawing_ImageFilterCreateFromShaderEffect(
         shaderEffect: *mut OH_Drawing_ShaderEffect,
     ) -> *mut OH_Drawing_ImageFilter;
-    /// Destroys an <b>OH_Drawing_ImageFilter</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_ImageFilter** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `imageFilter` - Indicates the pointer to an <b>OH_Drawing_ImageFilter</b> object.
+    /// * `imageFilter` - Pointer to an [`OH_Drawing_ImageFilter`](crate::types::OH_Drawing_ImageFilter) object.
     ///
     /// Available since API-level: 12
     ///

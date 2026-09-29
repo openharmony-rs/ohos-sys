@@ -5,7 +5,7 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-/// Defines the options about GPU context.
+/// This struct describes the options about the GPU context.
 ///
 ///
 /// Available since API-level: 12
@@ -19,21 +19,20 @@ use crate::types::*;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_GpuContextOptions {
-    /// If true this allows path mask textures to be cached
+    /// Whether to allow path mask textures to be cached. The value **true** means to allow the path mask textures to be
+    /// cached, and **false** means the opposite.
     pub allowPathMaskCaching: bool,
 }
 extern "C" {
-    /// Creates an <b>OH_Drawing_GpuContext</b> object, whose GPU backend context is GL.
+    /// Creates an **OH_Drawing_GpuContext** object that uses OpenGL as the backend interface.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `gpuContextOptions` - Indicates the GPU context options.
+    /// * `gpuContextOptions` - GPU context options, which is [`OH_Drawing_GpuContextOptions`](crate::gpu_context::OH_Drawing_GpuContextOptions).
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_GpuContext</b> object created.
+    /// * Returns the pointer to the [`OH_Drawing_GpuContext`](crate::types::OH_Drawing_GpuContext) object created.
     ///
     /// Available since API-level: 12
     ///
@@ -48,14 +47,12 @@ extern "C" {
     pub fn OH_Drawing_GpuContextCreateFromGL(
         gpuContextOptions: OH_Drawing_GpuContextOptions,
     ) -> *mut OH_Drawing_GpuContext;
-    /// Creates an <b>OH_Drawing_GpuContext</b> object, whose GPU backend context depends on device.
+    /// Creates an **OH_Drawing_GpuContext** object, for which the backend type depends on the device.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_GpuContext</b> object created.
+    /// * Returns the pointer to the [`OH_Drawing_GpuContext`](crate::types::OH_Drawing_GpuContext) object created.
     ///
     /// Available since API-level: 16
     ///
@@ -63,13 +60,11 @@ extern "C" {
     #[cfg(feature = "api-16")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-16")))]
     pub fn OH_Drawing_GpuContextCreate() -> *mut OH_Drawing_GpuContext;
-    /// Destroys an <b>OH_Drawing_GpuContext</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_GpuContext** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `gpuContext` - Indicates the pointer to an <b>OH_Drawing_GpuContext</b> object.
+    /// * `gpuContext` - Pointer to an [`OH_Drawing_GpuContext`](crate::types::OH_Drawing_GpuContext) object.
     ///
     /// Available since API-level: 12
     ///

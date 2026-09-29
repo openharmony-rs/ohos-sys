@@ -351,6 +351,16 @@ pub struct napi_strong_ref__ {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
 pub type napi_strong_ref = *mut napi_strong_ref__;
 #[repr(C)]
+pub struct napi_callsite_info__ {
+    _unused: [u8; 0],
+}
+/// Callsite info handle for caching inline cache (IC) information of property access.
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub type napi_callsite_info = *mut napi_callsite_info__;
+#[repr(C)]
 pub struct napi_sendable_ref__ {
     _unused: [u8; 0],
 }
@@ -5055,5 +5065,135 @@ extern "C" {
         env: napi_env,
         errorCode: i32,
         msg: *const ::core::ffi::c_char,
+    ) -> napi_status;
+    /// Creates a callsite info handle for caching inline cache (IC) information of property access.
+    /// Each different callsite should create an independent handle. The same handle can be reused across
+    /// multiple calls but must not be used across threads. When no longer needed, napi_delete_callsite_info
+    /// must be called to release the handle.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `result` - Pointer to napi_callsite_info to receive the created callsite info handle.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env or result is nullptr.
+    ///
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If a pending exception existed before the call.
+    ///
+    /// [`napi_generic_failure`](crate::napi::napi_status::napi_generic_failure) If the callsite info creation failed.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn napi_create_callsite_info(env: napi_env, result: *mut napi_callsite_info)
+        -> napi_status;
+    /// Deletes a callsite info handle and releases associated cache resources.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `info` - The callsite info handle to be deleted.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env is nullptr.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn napi_delete_callsite_info(env: napi_env, info: napi_callsite_info) -> napi_status;
+    /// Uses callsite info to quickly get an object property value. When the IC hits (the object has the same
+    /// hidden class), it skips the regular hash table lookup and prototype chain traversal. The info parameter
+    /// can be NULL, in which case the behavior is equivalent to napi_get_property.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `object` - The object to get the property from.
+    ///
+    /// * `key` - The key name of the property to get.
+    ///
+    /// * `info` - Callsite info handle for IC caching. Can be NULL.
+    ///
+    /// * `result` - Pointer to napi_value to receive the property value.
+    ///
+    /// * `hit` - Receives whether the IC cache was hit (true) or missed (false).
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, object, key or result is nullptr.
+    ///
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
+    ///
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn napi_get_property_with_callsite_info(
+        env: napi_env,
+        object: napi_value,
+        key: napi_value,
+        info: napi_callsite_info,
+        result: *mut napi_value,
+        hit: *mut bool,
+    ) -> napi_status;
+    /// Uses callsite info to quickly set an object property value. When the IC hits (the object has the same
+    /// hidden class), it skips the regular property setting process. The info parameter can be NULL, in which
+    /// case the behavior is equivalent to napi_set_property.
+    /// # Arguments
+    ///
+    /// * `env` - Current running virtual machine context.
+    ///
+    /// * `object` - The object to set the property on.
+    ///
+    /// * `key` - The key name of the property to set.
+    ///
+    /// * `value` - The property value to set.
+    ///
+    /// * `info` - Callsite info handle for IC caching. Can be NULL.
+    ///
+    /// * `hit` - Receives whether the IC cache was hit (true) or missed (false).
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns the function execution status.
+    /// [`napi_ok`](crate::napi::napi_status::napi_ok) If the function executed successfully.
+    ///
+    /// [`napi_invalid_arg`](crate::napi::napi_status::napi_invalid_arg) If env, object, key or value is nullptr.
+    ///
+    /// [`napi_object_expected`](crate::napi::napi_status::napi_object_expected) If the param object is not an ArkTS Object.
+    ///
+    /// [`napi_pending_exception`](crate::napi::napi_status::napi_pending_exception) If have uncaught exception, or exception occurred in execution.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn napi_set_property_with_callsite_info(
+        env: napi_env,
+        object: napi_value,
+        key: napi_value,
+        value: napi_value,
+        info: napi_callsite_info,
+        hit: *mut bool,
     ) -> napi_status;
 }

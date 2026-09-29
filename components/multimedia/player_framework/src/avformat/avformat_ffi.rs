@@ -9,15 +9,25 @@ use crate::averrors::OH_AVErrCode;
 pub use ohos_sys_opaque_types::OH_AVFormat;
 
 impl OH_AVPixelFormat {
-    /// yuv 420 planar.
+    /// YUV 420 Planar.
+    ///
+    /// Available since API-level: 9
     pub const AV_PIXEL_FORMAT_YUVI420: OH_AVPixelFormat = OH_AVPixelFormat(1);
-    /// NV12. yuv 420 semiplanar.
+    /// NV12. YUV 420 semi-planar.
+    ///
+    /// Available since API-level: 9
     pub const AV_PIXEL_FORMAT_NV12: OH_AVPixelFormat = OH_AVPixelFormat(2);
-    /// NV21. yvu 420 semiplanar.
+    /// NV21. YVU 420 semi-planar.
+    ///
+    /// Available since API-level: 9
     pub const AV_PIXEL_FORMAT_NV21: OH_AVPixelFormat = OH_AVPixelFormat(3);
-    /// format from surface.
+    /// Pixel format obtained from the surface. This value takes effect only in surface mode.
+    ///
+    /// Available since API-level: 9
     pub const AV_PIXEL_FORMAT_SURFACE_FORMAT: OH_AVPixelFormat = OH_AVPixelFormat(4);
     /// RGBA8888
+    ///
+    /// Available since API-level: 9
     pub const AV_PIXEL_FORMAT_RGBA: OH_AVPixelFormat = OH_AVPixelFormat(5);
     /// RGBA1010102
     ///
@@ -27,9 +37,8 @@ impl OH_AVPixelFormat {
     pub const AV_PIXEL_FORMAT_RGBA1010102: OH_AVPixelFormat = OH_AVPixelFormat(6);
 }
 #[repr(transparent)]
-/// Enumerates AVPixel Format.
+/// Enumerates the video pixel formats.
 ///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.Core
 ///
 /// Available since API-level: 9
 ///
@@ -37,33 +46,33 @@ impl OH_AVPixelFormat {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVPixelFormat(pub ::core::ffi::c_uint);
 extern "C" {
-    /// an OH_AVFormat handle pointer to read and write data
+    /// Create an OH_AVFormat handle pointer to read and write data
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVFormat instance
+    /// * Pointer to an OH_AVFormat instance. If system resources are insufficient, NULL is returned.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     pub fn OH_AVFormat_Create() -> *mut OH_AVFormat;
-    /// an audio OH_AVFormat handle pointer to read and write data
+    /// Create an audio OH_AVFormat handle pointer to read and write data
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `mimeType` - mime type
+    /// * `mimeType` - Pointer to a string that describes the MIME type. For details, see `AVCODEC_MIMETYPE`.
     ///
-    /// * `sampleRate` - sample rate
+    /// * `sampleRate` - Sampling rate, in Hz.
     ///
-    /// * `channelCount` - channel count
+    /// * `channelCount` - Number of audio channels. For example, 1 indicates mono and 2 indicates stereo.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVFormat instance if the execution is successful, otherwise nullptr
-    /// Possible failure causes: 1. mimeType is nullptr. 2. new format is nullptr.
+    /// * Pointer to the OH_AVFormat instance created. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **mimeType** is NULL.
+    /// <br>2. System resources are insufficient.
     ///
     /// Available since API-level: 10
     ///
@@ -73,21 +82,22 @@ extern "C" {
         sampleRate: i32,
         channelCount: i32,
     ) -> *mut OH_AVFormat;
-    /// an video OH_AVFormat handle pointer to read and write data
+    /// Create a video OH_AVFormat handle pointer to read and write data
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `mimeType` - mime type
+    /// * `mimeType` - Pointer to a string that describes the MIME type. For details, see `AVCODEC_MIMETYPE`.
     ///
-    /// * `width` - width
+    /// * `width` - Image width, in pixels.
     ///
-    /// * `height` - height
+    /// * `height` - Image height, in pixels.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVFormat instance if the execution is successful, otherwise nullptr
-    /// Possible failure causes: 1. mimeType is nullptr. 2. new format is nullptr.
+    /// * Pointer to the OH_AVFormat instance created. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **mimeType** is NULL.
+    /// <br>2. System resources are insufficient.
     ///
     /// Available since API-level: 10
     ///
@@ -97,12 +107,11 @@ extern "C" {
         width: i32,
         height: i32,
     ) -> *mut OH_AVFormat;
-    /// Destroy the specified OH_AVFormat handle resource
+    /// Destroys an OH_AVFormat instance. The instance cannot be destroyed repeatedly.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
     /// # Returns
     ///
@@ -112,39 +121,44 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_AVFormat_Destroy(format: *mut OH_AVFormat);
-    /// Copy OH_AVFormat handle resource
+    /// Copies an OH_AVFormat instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `to` - OH_AVFormat handle pointer to receive data
+    /// * `to` - Pointer to the OH_AVFormat instance to which the data will be copied.
     ///
-    /// * `from` - pointer to the OH_AVFormat handle of the copied data
+    /// * `from` - Pointer to the OH_AVFormat instance from which the data will be copied.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The input parameter is nullptr.
+    /// <br>2. The value of **OH_AVFormat** fails parameter structure verification.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     pub fn OH_AVFormat_Copy(to: *mut OH_AVFormat, from: *mut OH_AVFormat) -> bool;
-    /// Write Int data to OH_AVFormat
+    /// Assigns a value of the int type to a `key` in an OH_AVFormat instance. This function can be used to set
+    /// only parameters of the int type. For details, see `native_avcodec_base.h`.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - key to write data
+    /// * `key` - Pointer to the key of the data to write.
     ///
-    /// * `value` - written data
+    /// * `value` - Value of the data to write.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -154,19 +168,24 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: i32,
     ) -> bool;
-    /// Write unsigned integer data to OH_AVFormat
+    /// Assigns an unsigned int value to the key of an OH_AVFormat instance. This API can be used to set only
+    /// parameters of the unsigned int type. For details, see `native_avcodec_base.h`.
+    ///
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - key to write data
+    /// * `key` - Pointer to the key of the data to write.
     ///
-    /// * `value` - written data
+    /// * `value` - Value of the data to write.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -176,21 +195,25 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: u32,
     ) -> bool;
-    /// Write Long data to OH_AVFormat
+    /// Assigns a value of the long type to a `key` in an OH_AVFormat instance. This function can be used to
+    /// set only parameters of the long type. For details, see `native_avcodec_base.h`.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - key to write data
+    /// * `key` - Pointer to the key of the data to write.
     ///
-    /// * `value` - written data
+    /// * `value` - Value of the data to write.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -200,21 +223,25 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: i64,
     ) -> bool;
-    /// Write Float data to OH_AVFormat
+    /// Assigns a value of the float type to a `key` in an OH_AVFormat instance. This function can be used to
+    /// set only parameters of the float type. For details, see `native_avcodec_base.h`.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - key to write data
+    /// * `key` - Pointer to the key of the data to write.
     ///
-    /// * `value` - written data
+    /// * `value` - Value of the data to write.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -224,21 +251,25 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: f32,
     ) -> bool;
-    /// Write Double data to OH_AVFormat
+    /// Assigns a value of the double type to a `key` in an OH_AVFormat instance. This function can be used to
+    /// set only parameters of the double type. For details, see `native_avcodec_base.h`.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - key to write data
+    /// * `key` - Pointer to the key of the data to write.
     ///
-    /// * `value` - written data
+    /// * `value` - Value of the data to write.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -248,22 +279,26 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: f64,
     ) -> bool;
-    /// Write String data to OH_AVFormat
+    /// Assigns a value of the string type to a `key` in an OH_AVFormat instance. This function can be used to
+    /// set only parameters of the string type. For details, see `native_avcodec_base.h`.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - key to write data
+    /// * `key` - Pointer to the key of the data to write.
     ///
-    /// * `value` - written data
+    /// * `value` - Pointer to the data to be written to the string. The length should not exceed 256 bytes.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
-    /// 4. value is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The passed-in value of **value** is a null pointer.
+    /// <br>5. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -273,24 +308,29 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: *const ::core::ffi::c_char,
     ) -> bool;
-    /// Write a block of data of a specified length to OH_AVFormat
+    /// Writes data blocks of a specified length to an OH_AVFormat instance. This function can be used to set only
+    /// parameters of the buffer type. For details, see `native_avcodec_base.h`.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - key to write data
+    /// * `key` - Pointer to the key of the data to write.
     ///
-    /// * `addr` - written data addr
+    /// * `addr` - Pointer to the address to which data is written. The lifecycle is managed by the developer.
     ///
-    /// * `size` - written data length
+    /// * `size` - Length of the data written, in MB. The value range is (0, 1].
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
-    /// 4. addr is nullptr. 5. size is zero.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value of **addr** is nullptr.
+    /// <br>5. The size is 0 or exceeds the upper limit 1 MB.
+    /// <br>6. The value type corresponding to the key is incorrect.
     ///
     /// Available since API-level: 9
     ///
@@ -301,22 +341,25 @@ extern "C" {
         addr: *const u8,
         size: usize,
     ) -> bool;
-    /// Read Int data from OH_AVFormat
+    /// Obtains the value of the int type of a `key` in an OH_AVFormat instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - read key value
+    /// * `key` - Pointer to the key of the data to read.
     ///
-    /// * `out` - read data
+    /// * `out` - Pointer to the value of the data read.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
-    /// 4. out is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value of **out** is nullptr.
+    /// <br>5. The obtained key does not exist or is not set.
     ///
     /// Available since API-level: 9
     ///
@@ -326,20 +369,24 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         out: *mut i32,
     ) -> bool;
-    /// Read unsigned integer data from OH_AVFormat
+    /// Obtains the value of the unsigned int type from an OH_AVFormat instance using a key.
+    ///
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - read key value
+    /// * `key` - Pointer to the key of the data to read.
     ///
-    /// * `out` - read data
+    /// * `out` - Pointer to the value of the data read.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
-    /// 4. out is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value of **out** is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -349,22 +396,25 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         out: *mut u32,
     ) -> bool;
-    /// Read Long data from OH_AVFormat
+    /// Obtains the value of the long type of a `key` in an OH_AVFormat instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - read key value
+    /// * `key` - Pointer to the key of the data to read.
     ///
-    /// * `out` - read data
+    /// * `out` - Pointer to the value of the data read.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
-    /// 4. out is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value of **out** is nullptr.
+    /// <br>5. The obtained key does not exist or is not set.
     ///
     /// Available since API-level: 9
     ///
@@ -374,22 +424,25 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         out: *mut i64,
     ) -> bool;
-    /// Read Float data from OH_AVFormat
+    /// Obtains the value of the float type of a `key` in an OH_AVFormat instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - read key value
+    /// * `key` - Pointer to the key of the data to read.
     ///
-    /// * `out` - read data
+    /// * `out` - Pointer to the value of the data read.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
-    /// 4. out is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value of **out** is nullptr.
+    /// <br>5. The obtained key does not exist or is not set.
     ///
     /// Available since API-level: 9
     ///
@@ -399,22 +452,25 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         out: *mut f32,
     ) -> bool;
-    /// Read Double data from OH_AVFormat
+    /// Obtains the value of the double type of a `key` in an OH_AVFormat instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - read key value
+    /// * `key` - Pointer to the key of the data to read.
     ///
-    /// * `out` - read data
+    /// * `out` - Pointer to the value of the data read.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
-    /// 4. out is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value of **out** is nullptr.
+    /// <br>5. The obtained key does not exist or is not set.
     ///
     /// Available since API-level: 9
     ///
@@ -424,23 +480,29 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         out: *mut f64,
     ) -> bool;
-    /// Read String data from OH_AVFormat
+    /// Obtains the value of the string type of a `key` in an OH_AVFormat instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - read key value
+    /// * `key` - Pointer to the key of the data to read.
     ///
-    /// * `out` - The read string pointer, the data life cycle pointed to is updated with GetString,
-    /// and Format is destroyed. If the caller needs to hold it for a long time, it must copy the memory
+    /// * `out` - Double pointer to the string read. The lifecycle of the **out** data matches the string in **format**. To
+    /// keep the **out** data for an extended period of time, you must copy it to the memory. The maximum length of the
+    /// output string is 256 bytes. If the length exceeds 256 bytes, **false** is returned.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
-    /// 4. out is nullptr. 5. malloc out string nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value of **out** is nullptr.
+    /// <br>5. The system resources are insufficient.
+    /// <br>6. The obtained key does not exist or is not set.
+    /// <br>7. The length of the **out** data exceeds 256 bytes.
     ///
     /// Available since API-level: 9
     ///
@@ -450,25 +512,29 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         out: *mut *const ::core::ffi::c_char,
     ) -> bool;
-    /// Read a block of data of specified length from OH_AVFormat
+    /// Reads data blocks of a specified length from an OH_AVFormat instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - Key value for reading and writing data
+    /// * `key` - Pointer to the key of the data to read.
     ///
-    /// * `addr` - The life cycle is held by the format, with the destruction of the format,
-    /// if the caller needs to hold it for a long time, it must copy the memory
+    /// * `addr` - Double pointer to the address where the data read is stored. The data read is destroyed when the
+    /// OH_AVFormat instance is destroyed. To hold the data for an extended period of time, copy it to the memory.
     ///
-    /// * `size` - Length of read and write data
+    /// * `size` - Pointer to the size of the data read.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. input format's magic error. 3. key is nullptr.
-    /// 4. addr is nullptr. 5. size is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value of **addr** is nullptr.
+    /// <br>5. The value of **size** is nullptr.
+    /// <br>6. The obtained key does not exist or is not set.
     ///
     /// Available since API-level: 9
     ///
@@ -479,52 +545,50 @@ extern "C" {
         addr: *mut *mut u8,
         size: *mut usize,
     ) -> bool;
-    /// Output the information contained in OH_AVFormat as a string.
+    /// Returns a string consisting of key-value pairs in an OH_AVFormat instance. A string of up to 1024 bytes can
+    /// be returned. The string pointer is released when the OH_AVFormat instance is destroyed.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
     /// # Returns
     ///
-    /// * Returns a string consisting of key and data for success, nullptr for failure
-    /// Possible failure causes: 1. input format is nullptr. 2. malloc dump info nullptr.
+    /// * A string consisting of key-value pairs. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is NULL.
+    /// <br>2. System resources are insufficient.
     ///
     /// Available since API-level: 9
     ///
     /// Version: 1.0
     pub fn OH_AVFormat_DumpInfo(format: *mut OH_AVFormat) -> *const ::core::ffi::c_char;
-    /// Read an array of int32_t values from an OH_AVFormat object.
+    /// Reads an array of int32_t data from an OH_AVFormat instance.
     ///
-    /// Note that the obtained buffer's lifetime bound to the OH_AVFormat object,
-    /// it's automatically invalidated when the format object is destroyed.
+    /// Note that the buffer lifecycle is bound to the OH_AVFormat instance. The buffer becomes invalid automatically when
+    /// the OH_AVFormat instance is destroyed.
     ///
-    /// Applications must explicitly copy the data to newly allocated memory if
-    /// the data needs to outlive the OH_AVFormat instance.
+    /// To keep the data for an extended period, explicitly copy the data to newly allocated memory.
     ///
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - Data identifier key
+    /// * `key` - Pointer to the key of the data to read.
     ///
-    /// * `addr` - Pointer to receive the data buffer reference
+    /// * `addr` - Double pointer to the memory where the data is stored.
     ///
-    /// * `size` - Pointer to receive the element count
+    /// * `size` - Pointer to the number of elements read.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes:
-    /// 1. input format is nullptr.
-    /// 2. input format's magic error.
-    /// 3. key is nullptr.
-    /// 4. addr is nullptr.
-    /// 5. size is nullptr.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value of **addr** is nullptr.
+    /// <br>5. The value of **size** is nullptr.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -535,29 +599,27 @@ extern "C" {
         addr: *mut *mut i32,
         size: *mut usize,
     ) -> bool;
-    /// Write an array of int32_t values to an OH_AVFormat object.
+    /// Writes data blocks of the int32_t type with a specified length to an OH_AVFormat instance.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `format` - pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `key` - Data identifier key
+    /// * `key` - Pointer to the key of the data to write.
     ///
-    /// * `addr` - Pointer to the source data buffer
+    /// * `addr` - Pointer to the address to which data is written. The lifecycle is managed by the developer.
     ///
-    /// * `size` - Number of elements to write (in elements, not bytes)
+    /// * `size` - Length of the data to write, in units of elements, not bytes.
     ///
     /// # Returns
     ///
-    /// * The return value is TRUE for success, FALSE for failure
-    /// Possible failure causes:
-    /// 1. input format is nullptr.
-    /// 2. input format's magic error.
-    /// 3. key is nullptr.
-    /// 4. addr is nullptr.
-    /// 5. size is zero.
+    /// * **true** if the operation is successful; **false** otherwise.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **format** is nullptr.
+    /// <br>2. The value of **format** fails parameter structure verification.
+    /// <br>3. The value of **key** is nullptr.
+    /// <br>4. The value of **addr** is nullptr.
+    /// <br>5. The value of **size** is **0**.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -568,43 +630,34 @@ extern "C" {
         addr: *const i32,
         size: usize,
     ) -> bool;
-    /// Get the total number of keys contained in OH_AVFormat.
+    /// Obtains the total number of keys in an OH_AVFormat instance.
+    ///
     /// # Arguments
     ///
-    /// * `format` - Pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
     /// # Returns
     ///
-    /// * Returns the number of keys on success; returns 0 on failure
-    ///
-    ///
-    /// Possible failure causes:
-    /// 1. input format is NULL;
-    /// 2. system resources are insufficient.
+    /// * Returns the number of keys on success; returns **0** otherwise.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_AVFormat_GetKeyCount(format: *mut OH_AVFormat) -> u32;
-    /// Get the key name string by index from OH_AVFormat.
+    /// Obtains the key name string from an OH_AVFormat instance by index.
+    ///
     /// # Arguments
     ///
-    /// * `format` - Pointer to an OH_AVFormat instance
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
-    /// * `index` - Zero-based index of the key to query, range: [0, OH_AVFormat_GetKeyCount(format))
+    /// * `index` - Index of the key to be queried. The value range is [0, OH_AVFormat_GetKeyCount(format)).
     ///
-    /// * `key` - Output pointer to receive the key name string; the lifecycle is bound to the format
+    /// * `key` - Output pointer for receiving the key name string. The lifecycle of the string is bound to the **format**
+    /// object.
     ///
     /// # Returns
     ///
-    /// * Returns TRUE on success, FALSE on failure
-    ///
-    ///
-    /// Possible failure causes:
-    /// 1. input format is NULL;
-    /// 2. index is out of range;
-    /// 3. key is NULL;
-    /// 4. system resources are insufficient.
+    /// * Returns **true** on success; returns **false** otherwise.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

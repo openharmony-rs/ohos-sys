@@ -12,14 +12,14 @@ impl AbilityRuntime_AreaMode {
     /// User credential encryption area.
     pub const ABILITY_RUNTIME_AREA_MODE_EL2: AbilityRuntime_AreaMode = AbilityRuntime_AreaMode(1);
     /// User credential encryption area.
-    /// when screen locked, can read/write, and create file.
+    /// Files can be read, written, and created when the screen is locked.
     pub const ABILITY_RUNTIME_AREA_MODE_EL3: AbilityRuntime_AreaMode = AbilityRuntime_AreaMode(2);
     /// User credential encryption area.
-    /// when screen locked, FEB2.0 can read/write, FEB3.0 can't
-    /// read/write, and all can't create file.
+    /// when the screen is locked, FEB2.0 can read and write files, while FEB3.0 cannot.
+    /// File creation is not allowed in either case.
     pub const ABILITY_RUNTIME_AREA_MODE_EL4: AbilityRuntime_AreaMode = AbilityRuntime_AreaMode(3);
     /// User privacy-sensitive encryption area.
-    /// when the screen locked, a closed file cannot be opened, read, or written,
+    /// when the screen is locked, a closed file cannot be opened, read, or written,
     /// a file can be created and then opened, read, or written.
     pub const ABILITY_RUNTIME_AREA_MODE_EL5: AbilityRuntime_AreaMode = AbilityRuntime_AreaMode(4);
 }
@@ -84,7 +84,7 @@ impl AbilityRuntime_SupportedWindowMode {
         AbilityRuntime_SupportedWindowMode(2);
 }
 #[repr(transparent)]
-/// Support window mode
+/// Supported window modes
 ///
 ///
 /// Available since API-level: 17

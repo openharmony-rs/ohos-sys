@@ -8,17 +8,17 @@ use crate::types::*;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_CornerPos {
-    /// Index of top-left corner radii.
+    /// Top left corner of the rounded rectangle.
     pub const CORNER_POS_TOP_LEFT: OH_Drawing_CornerPos = OH_Drawing_CornerPos(0);
-    /// Index of top-right corner radii.
+    /// Top right corner of the rounded rectangle.
     pub const CORNER_POS_TOP_RIGHT: OH_Drawing_CornerPos = OH_Drawing_CornerPos(1);
-    /// Index of bottom-right corner radii.
+    /// Bottom right corner of the rounded rectangle.
     pub const CORNER_POS_BOTTOM_RIGHT: OH_Drawing_CornerPos = OH_Drawing_CornerPos(2);
-    /// Index of bottom-left corner radii.
+    /// Bottom left corner of the rounded rectangle.
     pub const CORNER_POS_BOTTOM_LEFT: OH_Drawing_CornerPos = OH_Drawing_CornerPos(3);
 }
 #[repr(transparent)]
-/// Enumerates of corner radii position.
+/// Defines an enum for the corner positions of a rounded rectangle.
 ///
 ///
 /// Available since API-level: 12
@@ -29,21 +29,22 @@ impl OH_Drawing_CornerPos {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_CornerPos(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an <b>OH_Drawing_RoundRect</b> object.
+    /// Creates an **OH_Drawing_RoundRect** object. This API may return an error code. For details, call
+    /// [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet)
+    /// .
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
-    /// * `xRad` - Indicates the corner radii on x-axis.
+    /// * `xRad` - Radius of the rounded corner on the X axis. A negative number is invalid.
     ///
-    /// * `yRad` - Indicates the corner radii on y-axis.
+    /// * `yRad` - Radius of the rounded corner on the Y axis. A negative number is invalid.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_RoundRect</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_RoundRect** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -55,17 +56,15 @@ extern "C" {
         xRad: f32,
         yRad: f32,
     ) -> *mut OH_Drawing_RoundRect;
-    /// Creates an <b>OH_Drawing_RoundRect</b> copy object.
+    /// Creates a copy of a rounded rectangle.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object to copy.
+    /// * `roundRect` - Pointer to an [`OH_Drawing_RoundRect`](crate::types::OH_Drawing_RoundRect) object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_RoundRect</b> object created.
+    /// * Returns the pointer to the new **OH_Drawing_RoundRect** object created.
     ///
     /// Available since API-level: 20
     ///
@@ -75,17 +74,18 @@ extern "C" {
     pub fn OH_Drawing_RoundRectCopy(
         roundRect: *const OH_Drawing_RoundRect,
     ) -> *mut OH_Drawing_RoundRect;
-    /// Sets the radiusX and radiusY for a specific corner position.
+    /// Sets the radii of the specified rounded corner in this rounded rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **roundRect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `roundRect` - Pointer to an **OH_Drawing_RoundRect** object.
     ///
-    /// * `pos` - Indicates the corner radii position.
+    /// * `pos` - Position of the rounded corner. For details about the available options, see [`OH_Drawing_CornerPos`](crate::round_rect::OH_Drawing_CornerPos).
     ///
-    /// * `radii` - Indicates the corner radii on x-axis and y-axis.
+    /// * `radii` - OH_Drawing_Corner_Radii struct, including the radii on the X axis and Y axis. A radius less than or
+    /// equal to 0 is invalid.
     ///
     /// Available since API-level: 12
     ///
@@ -97,19 +97,19 @@ extern "C" {
         pos: OH_Drawing_CornerPos,
         radii: OH_Drawing_Corner_Radii,
     );
-    /// Gets an <b>OH_Drawing_Corner_Radii</b> struct, the point is round corner radiusX and radiusY.
+    /// Obtains the radii of the specified rounded corner in a rounded rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **roundRect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Pointer to an **OH_Drawing_RoundRect** object.
     ///
-    /// * `pos` - Indicates the corner radii position.
+    /// * `pos` - Position of the rounded corner. For details about the available options, see [`OH_Drawing_CornerPos`](crate::round_rect::OH_Drawing_CornerPos).
     ///
     /// # Returns
     ///
-    /// * Returns the corner radii of <b>OH_Drawing_Corner_Radii</b> struct.
+    /// * Returns an OH_Drawing_Corner_Radii struct, including the radii on the X axis and Y axis.
     ///
     /// Available since API-level: 12
     ///
@@ -120,13 +120,11 @@ extern "C" {
         roundRect: *mut OH_Drawing_RoundRect,
         pos: OH_Drawing_CornerPos,
     ) -> OH_Drawing_Corner_Radii;
-    /// Destroys an <b>OH_Drawing_RoundRect</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_RoundRect** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Pointer to an **OH_Drawing_RoundRect** object.
     ///
     /// Available since API-level: 11
     ///
@@ -134,23 +132,21 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_RoundRectDestroy(roundRect: *mut OH_Drawing_RoundRect);
-    /// Translates round rect by (dx, dy).
+    /// Translates a rounded rectangle by an offset along the X axis and Y axis.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `roundRect` - Indicates the pointer to an <b>OH_Drawing_RoundRect</b> object.
+    /// * `roundRect` - Pointer to an [`OH_Drawing_Point2D`](crate::types::OH_Drawing_Point2D) object.
     ///
-    /// * `dx` - Indicates the offsets added to rect left and rect right.
+    /// * `dx` - X offset.
     ///
-    /// * `dy` - Indicates the offsets added to rect top and rect bottom.
+    /// * `dy` - Y offset.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if roundRect is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **roundRect** is NULL.
     ///
     /// Available since API-level: 12
     ///

@@ -6,9 +6,9 @@
 #[cfg(doc)]
 use crate::raw_file_manager::{OH_ResourceManager_OpenRawDir, OH_ResourceManager_OpenRawFile};
 
-/// Provides access to a raw file directory.
-///
-///
+/// `RawDir` represents an opened rawfile directory object, which can be used to traverse the directory and files
+/// within it. It is obtained through [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir), and must be closed and released through
+/// [`OH_ResourceManager_CloseRawDir`](crate::raw_dir::OH_ResourceManager_CloseRawDir) after use.
 ///
 ///
 /// Available since API-level: 8
@@ -19,21 +19,25 @@ pub struct RawDir {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Obtains the name of the file according to the index.
-    ///
-    /// You can use this method to traverse a raw file directory.
+    /// Obtains the file name in the `rawfile` directory by index. When you need to traverse the `rawfile` directory,
+    /// you can use this function together with [`OH_ResourceManager_GetRawFileCount`](crate::raw_dir::OH_ResourceManager_GetRawFileCount) to iterate through the directory
+    /// in a loop.
     ///
     /// # Arguments
     ///
-    /// * `rawDir` - Indicates the pointer to [`RawDir`](crate::raw_dir::RawDir).
+    /// * `rawDir` - Input parameter. Pointer to a `RawDir` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir).
     ///
-    /// * `index` - Indicates the file index in [`RawDir`](crate::raw_dir::RawDir).
+    /// * `index` - Input parameter. Index of the file in the `rawfile` directory, ranging from \[0, total file count - 1\].
     ///
     /// # Returns
     ///
-    /// * Returns the name of the file according to the index,
-    /// which can be passed to [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile) as an input parameter;
-    /// returns <b>NULL</b> if all files are returned.
+    /// * Pointer to the file name string, which can be used as an input parameter of
+    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
+    /// <br>`NULL` is returned upon failure. Possible causes include `rawDir` being `NULL`, `index` being out of the
+    /// valid range, or the directory being empty.
+    /// <br>After [`OH_ResourceManager_CloseRawDir`](crate::raw_dir::OH_ResourceManager_CloseRawDir) is called, this pointer is also released. If the file name
+    /// needs to be preserved, you must copy the string content in a timely manner.
     ///
     /// **See also:** [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile)
     ///
@@ -44,13 +48,19 @@ extern "C" {
         rawDir: *mut RawDir,
         index: ::core::ffi::c_int,
     ) -> *const ::core::ffi::c_char;
-    /// get the count of the raw files in [`RawDir`](crate::raw_dir::RawDir).
-    ///
-    /// You can use this method to get the valid index of [`OH_ResourceManager_GetRawFileName`](crate::raw_dir::OH_ResourceManager_GetRawFileName).
+    /// Obtains the number of subdirectories and files under `rawfile`. When traversal of the `rawfile` directory is
+    /// needed, this function can be used with [`OH_ResourceManager_GetRawFileName`](crate::raw_dir::OH_ResourceManager_GetRawFileName) to iterate through the directory in
+    /// a loop.
     ///
     /// # Arguments
     ///
-    /// * `rawDir` - Indicates the pointer to [`RawDir`](crate::raw_dir::RawDir).
+    /// * `rawDir` - Input parameter. Pointer to a `RawDir` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir).
+    ///
+    /// # Returns
+    ///
+    /// * Number of rawfile subdirectories and files, without recursively counting files and directories within
+    /// `rawfile` subdirectories. `0` is returned if `rawDir` is `NULL` or the directory is empty.
     ///
     /// **See also:** [`OH_ResourceManager_GetRawFileName`](crate::raw_dir::OH_ResourceManager_GetRawFileName)
     ///
@@ -58,13 +68,14 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_ResourceManager_GetRawFileCount(rawDir: *mut RawDir) -> ::core::ffi::c_int;
-    /// Closes an opened [`RawDir`](crate::raw_dir::RawDir) and releases all associated resources.
-    ///
-    ///
+    /// Closes an opened `RawDir` object and releases all associated resources. After traversing the `rawfile`
+    /// directory, this function must be called to close the directory and release resources.
     ///
     /// # Arguments
     ///
-    /// * `rawDir` - Indicates the pointer to [`RawDir`](crate::raw_dir::RawDir).
+    /// * `rawDir` - Input parameter. Pointer to a `RawDir` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir). After the release, the pointer becomes invalid and cannot be used for
+    /// other operations.
     ///
     /// **See also:** [`OH_ResourceManager_OpenRawDir`](crate::raw_file_manager::OH_ResourceManager_OpenRawDir)
     ///

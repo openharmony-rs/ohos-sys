@@ -6,8 +6,7 @@
 use crate::asym_key::OH_CryptoKeyPair;
 use crate::common::{CryptoResult, Crypto_CipherMode, Crypto_DataBlob};
 
-/// Defines the asymmetric cipher structure.
-///
+/// Asymmetric cipher structure, representing an asymmetric cipher context.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -16,8 +15,7 @@ use crate::common::{CryptoResult, Crypto_CipherMode, Crypto_DataBlob};
 pub struct OH_CryptoAsymCipher {
     _unused: [u8; 0],
 }
-/// Defines the SM2 ciphertext spec structure.
-///
+/// SM2 ciphertext specification structure, representing an SM2 ciphertext specification.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -30,21 +28,36 @@ pub struct OH_CryptoSm2CiphertextSpec {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl CryptoSm2CiphertextSpec_item {
     /// Public key x, also known as C1x.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_SM2_CIPHERTEXT_C1_X: CryptoSm2CiphertextSpec_item =
         CryptoSm2CiphertextSpec_item(0);
     /// Public key y, also known as C1y.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_SM2_CIPHERTEXT_C1_Y: CryptoSm2CiphertextSpec_item =
         CryptoSm2CiphertextSpec_item(1);
-    /// Hash, also known as C2.
+    /// Ciphertext data, also known as C2.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_SM2_CIPHERTEXT_C2: CryptoSm2CiphertextSpec_item =
         CryptoSm2CiphertextSpec_item(2);
-    /// Ciphertext data, also known as C3.
+    /// Message digest (hash value), also known as C3.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_SM2_CIPHERTEXT_C3: CryptoSm2CiphertextSpec_item =
         CryptoSm2CiphertextSpec_item(3);
 }
 #[repr(transparent)]
-/// Defines the SM2 ciphertext spec item type.
-///
+/// Defines SM2 ciphertext specification item types.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -52,51 +65,60 @@ impl CryptoSm2CiphertextSpec_item {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct CryptoSm2CiphertextSpec_item(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an asymmetric cipher context according to the given algorithm name.
-    ///
+    /// Creates an asymmetric cipher context based on the given algorithm name.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the algorithm name used to generate the asymmetric cipher context. e.g. "RSA|PKCS1",
-    /// "RSA|PKCS1_OAEP|SHA384|MGF1_SHA384", "SM2|SM3".
+    /// * `algoName` - \[in\] Asymmetric cipher algorithm name. Cannot be NULL. Values:
+    /// - RSA algorithm PKCS1 padding mode: "RSA|PKCS1".
+    /// - RSA algorithm OAEP padding mode: Format "RSA|PKCS1_OAEP|Digest|MGF1Digest",
+    /// e.g. "RSA|PKCS1_OAEP|SHA256|MGF1_SHA256".
+    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512".
+    /// MGF1 digest supports "MGF1_SHA1", "MGF1_SHA224", "MGF1_SHA256", "MGF1_SHA384", "MGF1_SHA512".
+    /// - RSA algorithm NoPadding padding mode: "RSA|NoPadding".
+    /// - SM2 algorithm: Format "SM2|Digest", e.g. "SM2|SM3".
+    /// Digest supports "MD5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512", "SM3".
     ///
-    /// * `ctx` - Indicates the pointer to the asymmetric cipher context.
+    /// * `ctx` - \[out\] Pointer to the asymmetric cipher context pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if algoName or ctx is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `ctx` with [`OH_CryptoAsymCipher_Destroy`](crate::asym_cipher::OH_CryptoAsymCipher_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoAsymCipher_Init`](crate::asym_cipher::OH_CryptoAsymCipher_Init) Initializes the asymmetric cipher context.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoAsymCipher_Create(
         algoName: *const ::core::ffi::c_char,
         ctx: *mut *mut OH_CryptoAsymCipher,
     ) -> CryptoResult;
-    /// Initializes the asymmetric cipher context with the given crypto mode, key and parameters.
-    ///
+    /// Initializes the asymmetric cipher context with the given cipher mode and key.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the asymmetric cipher context.
+    /// * `ctx` - \[in\] Asymmetric cipher context. Cannot be NULL.
     ///
-    /// * `mode` - Indicates the crypto mode is encryption or decryption.
+    /// * `mode` - \[in\] Cipher mode, encryption or decryption.
     ///
-    /// * `key` - Indicates the asymmetric key.
+    /// * `key` - \[in\] Asymmetric key. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
-    ///
-    /// **See also:** [`OH_CryptoAsymCipher_Final`](crate::asym_cipher::OH_CryptoAsymCipher_Final)
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or key is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if cipher init fails.
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoAsymCipher_Final`](crate::asym_cipher::OH_CryptoAsymCipher_Final) Finishes the cipher operation.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoAsymCipher_Init(
@@ -104,25 +126,25 @@ extern "C" {
         mode: Crypto_CipherMode,
         key: *mut OH_CryptoKeyPair,
     ) -> CryptoResult;
-    /// Finalizes the encryption or decryption operation.
-    ///
+    /// Finishes the cipher operation.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the asymmetric cipher context.
+    /// * `ctx` - \[in\] Asymmetric cipher context. Cannot be NULL.
     ///
-    /// * `in` - Indicates the input data to be encrypted or decrypted.
+    /// * `in` - \[in\] Data to be encrypted or decrypted. Cannot be NULL.
     ///
-    /// * `out` - Indicates the result of encryption or decryption.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encrypted or decrypted result. Cannot be
+    /// NULL. Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx, in, or out is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if cipher final fails. Possible causes: RSA encryption where plaintext exceeds the maximum length allowed by the key size and padding mode; RSA decryption with incorrect key or corrupted ciphertext; SM2 decryption with incorrect key or corrupted ciphertext; SM2 ciphertext with invalid ASN.1 structure.
     ///
-    /// **See also:** [`OH_CryptoAsymCipher_Init`](crate::asym_cipher::OH_CryptoAsymCipher_Init)
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -133,56 +155,61 @@ extern "C" {
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
     /// Destroys the asymmetric cipher context.
-    ///
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the asymmetric cipher context.
+    /// * `ctx` - \[in\] Asymmetric cipher context.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoAsymCipher_Destroy(ctx: *mut OH_CryptoAsymCipher);
-    /// Creates a SM2 ciphertext spec.
-    ///
+    /// Creates an SM2 ciphertext specification.
     /// # Arguments
     ///
-    /// * `sm2Ciphertext` - Indicates the SM2 ciphertext in DER format, if sm2Ciphertext param is NULL,
-    /// an empty SM2 ciphertext spec will be created.
+    /// * `sm2Ciphertext` - \[in\] SM2 ciphertext in DER format. If NULL, an empty SM2 ciphertext specification is created.
     ///
-    /// * `spec` - Indicates the output SM2 ciphertext spec.
+    /// * `spec` - \[out\] Pointer to the SM2 ciphertext specification pointer. spec cannot be NULL, *spec must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if parsing SM2 ciphertext fails. Possible causes: the input data is not valid DER-encoded SM2 ciphertext.
+    ///
+    /// **Note:** Release `spec` with [`OH_CryptoSm2CiphertextSpec_Destroy`](crate::asym_cipher::OH_CryptoSm2CiphertextSpec_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoSm2CiphertextSpec_GetItem`](crate::asym_cipher::OH_CryptoSm2CiphertextSpec_GetItem) Obtains the specified item of the SM2 ciphertext.
+    ///
+    /// **See also:** [`OH_CryptoSm2CiphertextSpec_SetItem`](crate::asym_cipher::OH_CryptoSm2CiphertextSpec_SetItem) Sets the specified item of the SM2 ciphertext.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoSm2CiphertextSpec_Create(
         sm2Ciphertext: *mut Crypto_DataBlob,
         spec: *mut *mut OH_CryptoSm2CiphertextSpec,
     ) -> CryptoResult;
-    /// Gets the specified item of the SM2 ciphertext.
-    ///
+    /// Obtains the specified item of the SM2 ciphertext.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the SM2 ciphertext spec.
+    /// * `spec` - \[in\] SM2 ciphertext specification. Cannot be NULL.
     ///
-    /// * `item` - Indicates the SM2 ciphertext spec item.
+    /// * `item` - \[in\] SM2 ciphertext specification item.
     ///
-    /// * `out` - Indicates the output data.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL. Initialize out
+    /// to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec or out is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -192,25 +219,27 @@ extern "C" {
         item: CryptoSm2CiphertextSpec_item,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Sets the specified item to the SM2 ciphertext spec.
-    ///
+    /// Sets the specified item of the SM2 ciphertext specification.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the SM2 ciphertext spec.
+    /// * `spec` - \[in\] SM2 ciphertext specification. Cannot be NULL.
     ///
-    /// * `item` - Indicates the SM2 ciphertext spec item.
+    /// * `item` - \[in\] SM2 ciphertext specification item.
     ///
-    /// * `in` - Indicates the input data.
+    /// * `in` - \[in\] Input data. Cannot be NULL. This function performs a deep copy of the input data.
+    /// The caller can release in immediately after the function returns.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec or in is NULL, in->data is NULL, or in->len is 0.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation for deep copy fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoSm2CiphertextSpec_Encode`](crate::asym_cipher::OH_CryptoSm2CiphertextSpec_Encode) Encodes the SM2 ciphertext specification to DER format.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoSm2CiphertextSpec_SetItem(
@@ -218,21 +247,23 @@ extern "C" {
         item: CryptoSm2CiphertextSpec_item,
         in_: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Encodes the SM2 ciphertext spec to ciphertext in DER format.
-    ///
+    /// Encodes the SM2 ciphertext specification to DER format ciphertext.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the SM2 ciphertext spec.
+    /// * `spec` - \[in\] SM2 ciphertext specification. Cannot be NULL.
     ///
-    /// * `out` - Indicates the output data.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encoded data. Cannot be NULL. Initialize
+    /// out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec or out is NULL, or SM2 ciphertext fields (C1X, C1Y, C2, C3) have not been set, or C3 (hashData) length is not 32 bytes.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if encoding fails.
+    ///
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -241,11 +272,10 @@ extern "C" {
         spec: *mut OH_CryptoSm2CiphertextSpec,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Destroys the SM2 ciphertext spec.
-    ///
+    /// Destroys the SM2 ciphertext specification.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the SM2 ciphertext spec.
+    /// * `spec` - \[in\] SM2 ciphertext specification.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

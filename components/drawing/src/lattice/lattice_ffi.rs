@@ -8,15 +8,31 @@ use crate::types::*;
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 impl OH_Drawing_LatticeRectType {
-    /// Draws an image into the lattice
+    /// Draws an image into the rectangular lattice.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const DEFAULT: OH_Drawing_LatticeRectType = OH_Drawing_LatticeRectType(0);
-    /// Sets the lattice to transparent
+    /// Sets the rectangular lattice to be transparent.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const TRANSPARENT: OH_Drawing_LatticeRectType = OH_Drawing_LatticeRectType(1);
-    /// Draws the colors in the fColors array in Lattice into the lattice
+    /// Draws the colors from the **fColors** array of the rectangular lattice object into the lattice.
+    ///
+    ///
+    /// Available since API-level: 23
+    #[cfg(feature = "api-23")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const FIXED_COLOR: OH_Drawing_LatticeRectType = OH_Drawing_LatticeRectType(2);
 }
 #[repr(transparent)]
-/// Enumerates the types of rectangles used to fill the lattices. This enum is used only in Lattice.
+/// Enumerates the types of rectangles used to fill the lattices. It is applicable only to rectangular lattice
+/// objects.
 ///
 ///
 /// Available since API-level: 23
@@ -25,17 +41,17 @@ impl OH_Drawing_LatticeRectType {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_LatticeRectType(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Destroys an <b>OH_Drawing_Lattice</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Lattice** object and reclaims the memory occupied by the object.
     ///
     /// # Arguments
     ///
-    /// * `lattice` - Indicates the pointer to an <b>OH_Drawing_Lattice</b> object.
+    /// * `lattice` - Pointer to an [`OH_Drawing_Lattice`](crate::types::OH_Drawing_Lattice) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) If the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) If lattice is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **OHDrawingLattice* lattice** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -43,48 +59,51 @@ extern "C" {
     pub fn OH_Drawing_LatticeDestroy(
         lattice: *mut OH_Drawing_Lattice,
     ) -> crate::error_code::DrawingResult;
-    /// Creates an <b>OH_Drawing_Lattice</b> that divides the image into lattices.
-    /// The lattices on both even columns and even rows are fixed,
-    /// and they are drawn at their original size if the target is large enough.
-    /// If the target is too small to hold the fixed lattices, all the fixed lattices are scaled down to fit the target,
-    /// and the lattices that are not on even columns and even rows are scaled to accommodate the remaining space.
+    /// Divides the image into lattices. The lattices on both even columns and even rows are fixed, and they are
+    /// drawn at their original size if the target is large enough. If the target is too small to hold the fixed lattices,
+    /// all the fixed lattices are scaled down to fit the target, and the lattices that are not on even columns and even
+    /// rows are scaled to accommodate the remaining space.
     ///
     /// # Arguments
     ///
-    /// * `xDivs` - Indicates the array of X coordinates used to divide the image. The value is an integer.
+    /// * `xDivs` - Array of X coordinates used to divide the image. The value is an integer.
     ///
-    /// * `yDivs` - Indicates the array of Y coordinates used to divide the image. The value is an integer.
+    /// * `yDivs` - Array of Y coordinates used to divide the image. The value is an integer.
     ///
-    /// * `xCount` - Indicates the number of xDivs. The value range is \[0, 5\].
+    /// * `xCount` - Size of the array that holds the X coordinates. The value range is \[0, 5\].
     ///
-    /// * `yCount` - Indicates the number of yDivs. The value range is \[0, 5\].
+    /// * `yCount` - Size of the array that holds the Y coordinates. The value range is \[0, 5\].
     ///
-    /// * `bounds` - Indicates source bounds to draw. The rectangle parameter must be an integer.
-    /// The default value is the rectangle size of the original image. If the rectangle parameter is a decimal,
-    /// the decimal part is discarded and converted into an integer.
+    /// * `bounds` - The original bounding rectangle to be drawn, which defaults to the size of the original image
+    /// rectangle. The value must be an integer and is rounded down.
     ///
-    /// * `rectTypes` - Indicates array that holds the rectangle types.
+    /// * `rectTypes` - Array of rectangle types used to fill the lattice.
     ///
-    /// * `rectTypeCount` - Indicates the number of rectTypes. If rectTypes is not a null pointer,
-    /// its size must be (xCount + 1) * (yCount + 1). If it is null, the size is 0.
+    /// * `rectTypeCount` - Size of the **rectTypes** array. If **rectTypes** is not a null pointer, the array size must be
+    /// **(xCount + 1)*(yCount + 1)**.
+    /// If **rectTypes** is a null pointer, the array size must be **0**.
     ///
-    /// * `colors` - Array that holds the colors used to fill the lattices.
+    /// * `colors` - Array of colors used to fill the lattice.
     ///
-    /// * `colorCount` - Indicates the number of colors. If colors is not a null pointer,
-    /// its size must be (xCount + 1) * (yCount + 1). If it is null, the size is 0.
+    /// * `colorCount` - Size of the **colors** array. If **colors** is not a null pointer, the array size must be **(
+    /// xCount + 1)*(yCount + 1)**.
+    /// If **colors** is a null pointer, the array size must be **0**.
     ///
-    /// * `lattice` - The pointer to the <b>OH_Drawing_Lattice</b> object created returned to the caller.
+    /// * `lattice` - Double pointer to an [`OH_Drawing_Lattice`](crate::types::OH_Drawing_Lattice) object, which serves as an output parameter returned
+    /// to the caller.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if xDivs or yDivs is nullptr;
-    /// if rectTypes or colors exists, rectTypeCount or colorCount
-    /// does not equal (xCount + 1) * (yCount + 1);
-    /// if rectTypes or colors is nullptr, rectTypeCount or colorCount does not equal 0.
-    /// Returns [`OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE`](crate::error_code::DrawingErrorCode::PARAMETER_OUT_OF_RANGE) the enumeration values of rectTypes
-    /// exceed the enumeration range.
+    /// * Execution result.
+    /// Returns **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// Returns **OH_DRAWING_ERROR_INCORRECT_PARAMETER** for any of the following reasons:
+    /// - **xDivs** or **yDivs** is a null pointer.
+    /// - **rectTypes** is not a null pointer, and **rectTypeCount** is not equal to **(xCount + 1)*(yCount + 1)**.
+    /// - **colors** is not a null pointer, and **colorCount** is not equal to **(xCount + 1)*(yCount + 1)**.
+    /// - **rectTypes** is a null pointer, and **rectTypeCount** is not equal to **0**.
+    /// - **colors** is a null pointer, and **colorCount** is not equal to **0**.
+    /// Returns **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE**, indicating that the enumeration value in **rectTypes** exceeds
+    /// the valid enumeration range.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

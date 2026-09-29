@@ -120,4 +120,32 @@ fn link_smoke() {
         let _ = drawing::round_rect::OH_Drawing_RoundRectCopy(ptr::null());
         let _ = drawing::text_global::OH_Drawing_SetTextHighContrast(std::mem::zeroed());
     }
+
+    #[cfg(feature = "api-24")]
+    unsafe {
+        let _ = drawing::text_font_descriptor::OH_Drawing_DestroyFontFullDescriptor(ptr::null());
+        let _ = drawing::text_typography::OH_Drawing_ReleaseArrayBuffer(ptr::null_mut());
+    }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = drawing::bitmap::OH_Drawing_BitmapGetRowBytes(ptr::null_mut(), ptr::null_mut());
+        let _ = drawing::canvas::OH_Drawing_CanvasResetClip(ptr::null_mut());
+        let _ = drawing::font::OH_Drawing_FontGetTextPathWithFallback(
+            ptr::null(),
+            ptr::null(),
+            0,
+            core::mem::zeroed(),
+            0.0,
+            0.0,
+            ptr::null_mut(),
+        );
+        let _ = drawing::path::OH_Drawing_PathGetLastPoint(ptr::null_mut(), ptr::null_mut());
+        let _ = drawing::point::OH_Drawing_PointNegate(ptr::null_mut());
+        let _ = drawing::text_typography::OH_Drawing_GetTypographyAttributeBool(
+            ptr::null(),
+            core::mem::zeroed(),
+            ptr::null_mut(),
+        );
+    }
 }

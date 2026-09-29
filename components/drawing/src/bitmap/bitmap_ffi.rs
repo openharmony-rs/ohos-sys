@@ -5,7 +5,7 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-/// Defines the pixel format of a bitmap, including the color type and alpha type.
+/// This struct describes the pixel format of a bitmap, including the color type and alpha type.
 ///
 ///
 /// Available since API-level: 8
@@ -13,53 +13,51 @@ use crate::types::*;
 /// Version: 1.0
 #[repr(C)]
 pub struct OH_Drawing_BitmapFormat {
-    /// Storage format of bitmap pixels
+    /// Storage format of bitmap pixels.
     pub colorFormat: OH_Drawing_ColorFormat,
-    /// Alpha format of bitmap pixels
+    /// Alpha format of bitmap pixels.
     pub alphaFormat: OH_Drawing_AlphaFormat,
 }
 extern "C" {
-    /// Creates an <b>OH_Drawing_Bitmap</b> object.
+    /// Creates an **OH_Drawing_Bitmap** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Bitmap</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_Bitmap** object created.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BitmapCreate() -> *mut OH_Drawing_Bitmap;
-    /// Destroys an <b>OH_Drawing_Bitmap</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Bitmap** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to an **OH_Drawing_Bitmap** object.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BitmapDestroy(bitmap: *mut OH_Drawing_Bitmap);
-    /// Creates an <b>OH_Drawing_Bitmap</b> object with <b>OH_Drawing_Image_Info</b> object
-    /// and sets the mem address or pixel storage.
+    /// Creates an **OH_Drawing_Bitmap** object, with the address of the memory for storing the bitmap pixels set to
+    /// the memory address that you applied for.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **imageInfo** or **pixels** is NULL or **rowBytes** is **0**, **OH_DRAWING_ERROR_INVALID_PARAMETER** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `imageInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `imageInfo` - Pointer to an [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info) object.
     ///
-    /// * `pixels` - the pointer to memory address or pixel storage.
+    /// * `pixels` - Pointer to the start address of the memory for storing the bitmap pixels. You need to apply for the
+    /// memory and ensure its validity.
     ///
-    /// * `rowBytes` - size of pixel row or larger.
+    /// * `rowBytes` - Number of bytes in each row of pixels. The value is invalid if it is less than or equal to 0.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Bitmap</b> object created.
+    /// * Returns a pointer to the [`OH_Drawing_Bitmap`](crate::types::OH_Drawing_Bitmap) object created.
     ///
     /// Available since API-level: 12
     ///
@@ -71,21 +69,20 @@ extern "C" {
         pixels: *mut ::core::ffi::c_void,
         rowBytes: u32,
     ) -> *mut OH_Drawing_Bitmap;
-    /// Initializes the width and height of an <b>OH_Drawing_Bitmap</b> object
-    /// and sets the pixel format for the bitmap.
+    /// Initializes the width and height of a bitmap and sets the pixel format for the bitmap.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **bitmap** or **bitmapFormat** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to an **OH_Drawing_Bitmap** object.
     ///
-    /// * `width` - Indicates the width of the bitmap to be initialized.
+    /// * `width` - Width of the bitmap to be initialized.
     ///
-    /// * `height` - Indicates the height of the bitmap to be initialized.
+    /// * `height` - Height of the bitmap to be initialized.
     ///
-    /// * `bitmapFormat` - Indicates the pixel format of the bitmap to be initialized,
-    /// including the pixel color type and alpha type.
+    /// * `bitmapFormat` - Pointer to the pixel format of the bitmap to be initialized, including the pixel color type and
+    /// alpha type.
     ///
     /// Available since API-level: 8
     ///
@@ -97,12 +94,12 @@ extern "C" {
         bitmapFormat: *const OH_Drawing_BitmapFormat,
     );
     /// Obtains the width of a bitmap.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **bitmap** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to an **OH_Drawing_Bitmap** object.
     ///
     /// # Returns
     ///
@@ -113,12 +110,12 @@ extern "C" {
     /// Version: 1.0
     pub fn OH_Drawing_BitmapGetWidth(bitmap: *mut OH_Drawing_Bitmap) -> u32;
     /// Obtains the height of a bitmap.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **bitmap** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to an **OH_Drawing_Bitmap** object.
     ///
     /// # Returns
     ///
@@ -128,17 +125,17 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BitmapGetHeight(bitmap: *mut OH_Drawing_Bitmap) -> u32;
-    /// Obtains the color format of a bitmap.
+    /// Obtains the pixel format of a bitmap.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **bitmap** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to an **OH_Drawing_Bitmap** object.
     ///
     /// # Returns
     ///
-    /// * Returns the bitmap color format.
+    /// * Returns the pixel format. For details about the supported formats, see [`OH_Drawing_ColorFormat`](crate::types::OH_Drawing_ColorFormat).
     ///
     /// Available since API-level: 12
     ///
@@ -148,17 +145,17 @@ extern "C" {
     pub fn OH_Drawing_BitmapGetColorFormat(
         bitmap: *mut OH_Drawing_Bitmap,
     ) -> OH_Drawing_ColorFormat;
-    /// Obtains the alpha format of a bitmap.
+    /// Obtains the alpha component of a bitmap.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **bitmap** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to an **OH_Drawing_Bitmap** object.
     ///
     /// # Returns
     ///
-    /// * Returns the bitmap alpha format.
+    /// * Returns the alpha component. For details about the supported formats, see [`OH_Drawing_AlphaFormat`](crate::types::OH_Drawing_AlphaFormat).
     ///
     /// Available since API-level: 12
     ///
@@ -169,12 +166,12 @@ extern "C" {
         bitmap: *mut OH_Drawing_Bitmap,
     ) -> OH_Drawing_AlphaFormat;
     /// Obtains the pixel address of a bitmap. You can use this address to obtain the pixel data of the bitmap.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **bitmap** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to an **OH_Drawing_Bitmap** object.
     ///
     /// # Returns
     ///
@@ -184,15 +181,15 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_Drawing_BitmapGetPixels(bitmap: *mut OH_Drawing_Bitmap) -> *mut ::core::ffi::c_void;
-    /// Gets the image info.
+    /// Obtains the image information of a bitmap.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **bitmap** or **imageInfo** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to the [`OH_Drawing_Bitmap`](crate::types::OH_Drawing_Bitmap) object.
     ///
-    /// * `imageInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `imageInfo` - Pointer to an [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info) object.
     ///
     /// Available since API-level: 12
     ///
@@ -203,28 +200,30 @@ extern "C" {
         bitmap: *mut OH_Drawing_Bitmap,
         imageInfo: *mut OH_Drawing_Image_Info,
     );
-    /// Copies a rect of pixels from bitmap to dstPixels. Copy starts at (srcX, srcY),
-    /// and does not exceed bitmap width and height.
+    /// Reads pixels of a rectangle in a bitmap to the specified buffer.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **bitmap**, **dstInfo**, and **dstPixels** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to the [`OH_Drawing_Bitmap`](crate::types::OH_Drawing_Bitmap) object.
     ///
-    /// * `dstInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `dstInfo` - Pointer to an [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info) object.
     ///
-    /// * `dstPixels` - Destination pixel storage.
+    /// * `dstPixels` - Pointer to the buffer for storing the pixels read.
     ///
-    /// * `dstRowBytes` - Destination row length.
+    /// * `dstRowBytes` - Number of bytes in each row of the pixel data read. The value must be greater than or equal to
+    /// the minimum number of bytes in each row in the **OH_Drawing_Image_Info** object.
     ///
-    /// * `srcX` - Column index whose absolute value is less than width.
+    /// * `srcX` - Start X coordinate of the pixel data to read from the bitmap. The value must be less than the width of
+    /// the bitmap.
     ///
-    /// * `srcY` - Row index whose absolute value is less than height.
+    /// * `srcY` - Start Y coordinate of the pixel data to read from the bitmap. The value must be less than the height of
+    /// the bitmap.
     ///
     /// # Returns
     ///
-    /// * Returns true if pixels are copied to dstPixels.
+    /// * Returns **true** if the pixels are read; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -239,4 +238,25 @@ extern "C" {
         srcX: i32,
         srcY: i32,
     ) -> bool;
+    /// Gets the row bytes of the bitmap.
+    ///
+    /// # Arguments
+    ///
+    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    ///
+    /// * `bytes` - Indicates the row bytes of the bitmap.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if bitmap or bytes is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_BitmapGetRowBytes(
+        bitmap: *mut OH_Drawing_Bitmap,
+        bytes: *mut u32,
+    ) -> crate::error_code::DrawingResult;
 }

@@ -5,16 +5,15 @@
 #![allow(non_snake_case)]
 
 extern "C" {
-    /// Checks whether this application has been granted the given permission.
-    ///
+    /// Checks whether a permission is granted to this application.
     /// # Arguments
     ///
-    /// * `permission` - - Name of the permission to be granted.
+    /// * `permission` - - Pointer to the permission to check. For details about the permission,
+    /// see [the application permission list](docroot://security/AccessToken/app-permissions.md).
     ///
     /// # Returns
     ///
-    /// * true - The permission has been granted to this application.
-    /// false - The permission has not been granted to this application.
+    /// * Returns true if the permission has been granted to the application. Returns false otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

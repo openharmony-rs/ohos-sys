@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add API-24, API-25 and API-26 bindings.
+- Add the `http_interceptor` and `http_interceptor_type` modules (API-24).
+
 ## 0.1.1
 
 - Add `api-22` and `api-23` feature flags (no new symbols).

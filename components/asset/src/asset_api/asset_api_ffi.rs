@@ -11,9 +11,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `attributes` - Pointer to the attributes of the asset to add.
+    /// * `attributes` - Attributes of the asset to add.
     ///
-    /// * `attributes` - Number of the attributes of the asset to add.
+    /// * `attrCnt` - Number of the attributes of the asset to add.
     ///
     /// # Returns
     ///
@@ -45,9 +45,9 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `query` - Pointer to the conditions for removing the assets.
+    /// * `query` - Attributes of the asset to remove.
     ///
-    /// * `queryCnt` - Number of conditions for removing the assets.
+    /// * `queryCnt` - Number of attributes.
     ///
     /// # Returns
     ///
@@ -74,13 +74,13 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `query` - Pointer to the conditions for updating the asset.
+    /// * `query` - Attributes of the asset to update.
     ///
-    /// * `queryCnt` - Number of conditions for updating the asset.
+    /// * `queryCnt` - Number of attributes to update.
     ///
-    /// * `attributes` - Pointer to the attributes of the asset to update.
+    /// * `attributesToUpdate` - Pointer to the attributes of the asset to update.
     ///
-    /// * `attributes` - Number of the attributes of the asset to update.
+    /// * `updateCnt` - Number of the attributes of the asset to update.
     ///
     /// # Returns
     ///
@@ -111,15 +111,16 @@ extern "C" {
         attributesToUpdate: *const Asset_Attr,
         updateCnt: u32,
     ) -> i32;
-    /// Preprocesses data before querying the asset that can be accessed only after a successful user authentication.
+    /// Performs preprocessing for the asset query. This API is used when user authentication is required for the
+    /// access to the asset.
     ///
     /// # Arguments
     ///
-    /// * `query` - Pointer to the search criteria of the asset.
+    /// * `query` - Attributes of the asset to query.
     ///
-    /// * `queryCnt` - Number of the search criteria.
+    /// * `queryCnt` - Number of attributes.
     ///
-    /// * `challenge` - Pointer to the challenge value to be used when <b>OH_Asset_Query</b> is called.
+    /// * `challenge` - Challenge value, which is used when [`OH_Asset_Query`](crate::asset_api::OH_Asset_Query) is called.
     ///
     /// # Returns
     ///
@@ -149,15 +150,15 @@ extern "C" {
         queryCnt: u32,
         challenge: *mut Asset_Blob,
     ) -> i32;
-    /// Queries assets.
+    /// Queries one or more assets.
     ///
     /// # Arguments
     ///
-    /// * `query` - Pointer to the search criteria.
+    /// * `query` - Attributes of the asset to query.
     ///
-    /// * `queryCnt` - Number of the search criteria.
+    /// * `queryCnt` - Number of attributes.
     ///
-    /// * `resultSet` - Pointer to the query result obtained.
+    /// * `resultSet` - Array of query results.
     ///
     /// # Returns
     ///
@@ -187,14 +188,14 @@ extern "C" {
         queryCnt: u32,
         resultSet: *mut Asset_ResultSet,
     ) -> i32;
-    /// Processes data after the query of the asset that requires user authentication.
+    /// Performs postprocessing for the asset query. This API is used when user authentication is required for the
+    /// access to the asset.
     ///
     /// # Arguments
     ///
-    /// * `handle` - Pointer to the handle of the data to process, which includes the challenge value returned by
-    /// <b>OH_Asset_PreQuery</b>.
+    /// * `handle` - Handle of the query operation, including the challenge value returned by [`OH_Asset_PreQuery`](crate::asset_api::OH_Asset_PreQuery).
     ///
-    /// * `handleCnt` - Number of the elements in the handle attribute set.
+    /// * `handleCnt` - Number of elements in the handle attribute set.
     ///
     /// # Returns
     ///
@@ -214,15 +215,15 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Asset_PostQuery(handle: *const Asset_Attr, handleCnt: u32) -> i32;
-    /// Query the result of synchronization.
+    /// Queries the sync result of an asset.
     ///
     /// # Arguments
     ///
-    /// * `query` - Pointer to the search criteria.
+    /// * `query` - Attributes of the asset to query the sync result.
     ///
-    /// * `queryCnt` - Number of the search criteria.
+    /// * `queryCnt` - Number of attributes.
     ///
-    /// * `syncResult` - Pointer to the synchronization result obtained.
+    /// * `syncResult` - Sync result of the queried asset.
     ///
     /// # Returns
     ///
@@ -244,13 +245,13 @@ extern "C" {
         queryCnt: u32,
         syncResult: *mut Asset_SyncResult,
     ) -> i32;
-    /// Parses the query result to obtain the specified attribute value.
+    /// Parses the query result and obtains the specified attribute.
     ///
     /// # Arguments
     ///
-    /// * `result` - Pointer to the query result to parse, which is obtained by <b>OH_Asset_Query</b>.
+    /// * `result` - Query result returned by [`OH_Asset_Query`](crate::asset_api::OH_Asset_Query).
     ///
-    /// * `tag` - Tag of the attribute to obtain.
+    /// * `tag` - Key of the attribute to obtain.
     ///
     /// # Returns
     ///
@@ -265,7 +266,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `blob` - Pointer to the challenge value (obtained by <b>OH_Asset_PreQuery</b>) to release.
+    /// * `blob` - Challenge value returned by [`OH_Asset_PreQuery`](crate::asset_api::OH_Asset_PreQuery).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -275,7 +276,7 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `resultSet` - Pointer to the query result (obtained by <b>OH_Asset_Query</b>) to release.
+    /// * `resultSet` - Query result returned by [`OH_Asset_Query`](crate::asset_api::OH_Asset_Query).
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

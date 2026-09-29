@@ -3,27 +3,16 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+pub use ohos_sys_opaque_types::OHIPCRemoteStub;
 use ohos_sys_opaque_types::{OHIPCParcel, OHIPCRemoteProxy};
 
-/// Defines an IPC remote service object.
-///
-///
-/// Required System Capabilities: SystemCapability.Communication.IPC.Core
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-pub struct OHIPCRemoteStub {
-    _unused: [u8; 0],
-}
-/// Allocates memory.
+/// Defines the type of a memory allocation function.
 ///
 ///
 /// Required System Capabilities: SystemCapability.Communication.IPC.Core
 /// # Arguments
 ///
-/// * `len` - Length of the memory to allocate.
+/// * `len` - Length of the memory to be allocated.
 ///
 /// # Returns
 ///
@@ -35,136 +24,130 @@ pub struct OHIPCRemoteStub {
 pub type OH_IPC_MemAllocator =
     ::core::option::Option<unsafe extern "C" fn(len: i32) -> *mut ::core::ffi::c_void>;
 extern "C" {
-    /// Creates an <b>OHIPCParcel</b> object, which cannot exceed 204,800 bytes.
+    /// Creates an **OHIPCParcel** object, which cannot exceed 204,800 bytes.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OHIPCParcel</b> object created if the operation is successful;
-    /// returns NULL otherwise.
+    /// * Returns the pointer to the **OHIPCParcel** object created if the operation is successful; returns NULL
+    /// otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_Create() -> *mut OHIPCParcel;
-    /// Destroys an <b>OHIPCParcel</b> object.
+    /// Destroys an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the <b>OHIPCParcel</b> object to destroy.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object to destroy.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_Destroy(parcel: *mut OHIPCParcel);
-    /// Obtains the size of the data contained in an <b>OHIPCParcel</b> object.
+    /// Obtains the size of the data contained in an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the data size obtained if the operation is successful.
-    ///
-    /// Returns <b>-1</b> if invalid parameters are found.
+    /// * Returns the data size obtained if the operation is successful; returns **-1** if invalid parameters are
+    /// found.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_GetDataSize(parcel: *const OHIPCParcel) -> ::core::ffi::c_int;
-    /// Obtains the number of bytes that can be written to an <b>OHIPCParcel</b> object.
+    /// Obtains the number of bytes that can be written to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the number of bytes that can be written to the <b>OHIPCParcel</b> object.
-    ///
-    /// Returns <b>-1</b> if invalid parameters are found.
+    /// * Returns the number of bytes that can be written to the **OHIPCParcel** object; returns **-1** if invalid
+    /// parameters are found.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_GetWritableBytes(parcel: *const OHIPCParcel) -> ::core::ffi::c_int;
-    /// Obtains the number of bytes that can be read from an <b>OHIPCParcel</b> object.
+    /// Obtains the number of bytes that can be read from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the number of bytes that can be read from the <b>OHIPCParcel</b> object.
-    ///
-    /// Returns <b>-1</b> if invalid parameters are found.
+    /// * Returns the number of bytes that can be read from the **OHIPCParcel** object.
+    /// Returns **-1** if invalid parameters are found.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_GetReadableBytes(parcel: *const OHIPCParcel) -> ::core::ffi::c_int;
-    /// Obtains the position where data is read in an <b>OHIPCParcel</b> object.
+    /// Obtains the position where data is read in an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the position obtained if the operation is successful.
-    ///
-    /// Returns <b>-1</b> if invalid parameters are found.
+    /// * Returns the current read position obtained if the operation is successful; returns **-1** if invalid
+    /// parameters are found.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_GetReadPosition(parcel: *const OHIPCParcel) -> ::core::ffi::c_int;
-    /// Obtains the position where data is written in an <b>OHIPCParcel</b> object.
+    /// Obtains the position where data is written in an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the position obtained if the operation is successful.
-    ///
-    /// Returns <b>-1</b> if invalid parameters are found.
+    /// * Returns the current write position obtained if the operation is successful; returns **-1** if invalid
+    /// parameters are found.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_GetWritePosition(parcel: *const OHIPCParcel) -> ::core::ffi::c_int;
-    /// Resets the position to read data in an IPC parcel.
+    /// Resets the position to read data in an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `newReadPos` - New position to read data. The value ranges from <b>0</b> to the current data size.
+    /// * `newReadPos` - New position to read data. The value ranges from **0** to the current data size.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
     /// Available since API-level: 12
@@ -174,20 +157,19 @@ extern "C" {
         parcel: *mut OHIPCParcel,
         newReadPos: u32,
     ) -> ::core::ffi::c_int;
-    /// Resets the position to write data in an <b>OHIPCParcel</b> object.
+    /// Resets the position to write data in an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `newWritePos` - New position to write data. The value ranges from <b>0</b> to the current data size.
+    /// * `newWritePos` - New position to write data. The value ranges from **0** to the current data size.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
     ///
     /// Available since API-level: 12
@@ -197,88 +179,80 @@ extern "C" {
         parcel: *mut OHIPCParcel,
         newWritePos: u32,
     ) -> ::core::ffi::c_int;
-    /// Writes an int8_t value to an <b>OHIPCParcel</b> object.
+    /// Writes an int8_t value to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `value` - Value to write.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_WriteInt8(parcel: *mut OHIPCParcel, value: i8) -> ::core::ffi::c_int;
-    /// Reads an int8_t value from an <b>OHIPCParcel</b> object.
+    /// Reads an int8_t value from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `value` - Pointer to the data to read. It cannot be NULL.
+    /// * `value` - Pointer to the buffer for holding the read data. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_ReadInt8(parcel: *const OHIPCParcel, value: *mut i8) -> ::core::ffi::c_int;
-    /// Writes an int16_t value to an <b>OHIPCParcel</b> object.
+    /// Writes an int16_t value to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `value` - Value to write.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_WriteInt16(parcel: *mut OHIPCParcel, value: i16) -> ::core::ffi::c_int;
-    /// Reads an int16_t value from an <b>OHIPCParcel</b> object.
+    /// Reads an int16_t value from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `value` - Pointer to the data to read. It cannot be NULL.
+    /// * `value` - Pointer to the buffer for holding the read data. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
@@ -288,44 +262,40 @@ extern "C" {
         parcel: *const OHIPCParcel,
         value: *mut i16,
     ) -> ::core::ffi::c_int;
-    /// Writes an int32_t value to an <b>OHIPCParcel</b> object.
+    /// Writes an int32_t value to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `value` - Value to write.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_WriteInt32(parcel: *mut OHIPCParcel, value: i32) -> ::core::ffi::c_int;
-    /// Reads an int32_t value from an <b>OHIPCParcel</b> object.
+    /// Reads an int32_t value from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `value` - Pointer to the data to read. It cannot be NULL.
+    /// * `value` - Pointer to the buffer for holding the read data. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
@@ -335,44 +305,40 @@ extern "C" {
         parcel: *const OHIPCParcel,
         value: *mut i32,
     ) -> ::core::ffi::c_int;
-    /// Writes an int64_t value to an <b>OHIPCParcel</b> object.
+    /// Writes an int64_t value to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `value` - Value to write.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_WriteInt64(parcel: *mut OHIPCParcel, value: i64) -> ::core::ffi::c_int;
-    /// Reads an int64_t value from an <b>OHIPCParcel</b> object.
+    /// Reads an int64_t value from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `value` - Pointer to the data to read. It cannot be NULL.
+    /// * `value` - Pointer to the buffer for holding the read data. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
@@ -382,44 +348,194 @@ extern "C" {
         parcel: *const OHIPCParcel,
         value: *mut i64,
     ) -> ::core::ffi::c_int;
-    /// Writes a float value to an <b>OHIPCParcel</b> object.
+    /// Writes a uint8_t value to an **OHIPCParcel** object.
+    ///
+    /// # Arguments
+    ///
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
+    ///
+    /// * `value` - Value to write.
+    ///
+    /// # Returns
+    ///
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_IPCParcel_WriteUint8(parcel: *mut OHIPCParcel, value: u8) -> ::core::ffi::c_int;
+    /// Reads a uint8_t value from an **OHIPCParcel** object.
+    ///
+    /// # Arguments
+    ///
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
+    ///
+    /// * `value` - Pointer to the buffer for holding the read data. It cannot be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_IPCParcel_ReadUint8(parcel: *const OHIPCParcel, value: *mut u8)
+        -> ::core::ffi::c_int;
+    /// Writes a uint16_t value to an **OHIPCParcel** object.
+    ///
+    /// # Arguments
+    ///
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
+    ///
+    /// * `value` - Value to write.
+    ///
+    /// # Returns
+    ///
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_IPCParcel_WriteUint16(parcel: *mut OHIPCParcel, value: u16) -> ::core::ffi::c_int;
+    /// Reads a uint16_t value from an **OHIPCParcel** object.
+    ///
+    /// # Arguments
+    ///
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
+    ///
+    /// * `value` - Pointer to the buffer for holding the read data. It cannot be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_IPCParcel_ReadUint16(
+        parcel: *const OHIPCParcel,
+        value: *mut u16,
+    ) -> ::core::ffi::c_int;
+    /// Writes a uint32_t value to an **OHIPCParcel** object.
+    ///
+    /// # Arguments
+    ///
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
+    ///
+    /// * `value` - Value to write.
+    ///
+    /// # Returns
+    ///
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_IPCParcel_WriteUint32(parcel: *mut OHIPCParcel, value: u32) -> ::core::ffi::c_int;
+    /// Reads a uint32_t value from an **OHIPCParcel** object.
+    ///
+    /// # Arguments
+    ///
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
+    ///
+    /// * `value` - Pointer to the buffer for holding the read data. It cannot be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_IPCParcel_ReadUint32(
+        parcel: *const OHIPCParcel,
+        value: *mut u32,
+    ) -> ::core::ffi::c_int;
+    /// Writes a uint64_t value to an **OHIPCParcel** object.
+    ///
+    /// # Arguments
+    ///
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
+    ///
+    /// * `value` - Value to write.
+    ///
+    /// # Returns
+    ///
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_IPCParcel_WriteUint64(parcel: *mut OHIPCParcel, value: u64) -> ::core::ffi::c_int;
+    /// Reads a uint64_t value from an **OHIPCParcel** object.
+    ///
+    /// # Arguments
+    ///
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
+    ///
+    /// * `value` - Pointer to the buffer for holding the read data. It cannot be NULL.
+    ///
+    /// # Returns
+    ///
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
+    /// - Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_IPCParcel_ReadUint64(
+        parcel: *const OHIPCParcel,
+        value: *mut u64,
+    ) -> ::core::ffi::c_int;
+    /// Writes a float value to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `value` - Value to write.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_WriteFloat(parcel: *mut OHIPCParcel, value: f32) -> ::core::ffi::c_int;
-    /// Reads a float value from an <b>OHIPCParcel</b> object.
+    /// Reads a float value from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `value` - Pointer to the data to read. It cannot be NULL.
+    /// * `value` - Pointer to the buffer for holding the read data. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
@@ -429,44 +545,40 @@ extern "C" {
         parcel: *const OHIPCParcel,
         value: *mut f32,
     ) -> ::core::ffi::c_int;
-    /// Writes a double value to an <b>OHIPCParcel</b> object.
+    /// Writes a double value to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `value` - Value to write.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_WriteDouble(parcel: *mut OHIPCParcel, value: f64) -> ::core::ffi::c_int;
-    /// Reads a double value from an <b>OHIPCParcel</b> object.
+    /// Reads a double value from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `value` - Pointer to the data to read. It cannot be NULL.
+    /// * `value` - Pointer to the buffer for holding the read data. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
@@ -476,23 +588,21 @@ extern "C" {
         parcel: *const OHIPCParcel,
         value: *mut f64,
     ) -> ::core::ffi::c_int;
-    /// Writes a string including a string terminator to an <b>OHIPCParcel</b> object.
+    /// Writes a string including a string terminator to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `str` - String to write, which cannot be NULL.
+    /// * `str` - Pointer to the string to write. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -501,30 +611,30 @@ extern "C" {
         parcel: *mut OHIPCParcel,
         str_: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Reads a string from an <b>OHIPCParcel</b> object. You can obtain the length of the string from <b>strlen</b>.
+    /// Reads a string from an **OHIPCParcel** object. You can obtain the length of the string from **strlen**.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the address of the string read if the operation is successful;
-    /// returns NULL if the operation fails or invalid parameters are found.
+    /// * Returns the address of the string read if the operation is successful; returns NULL if the operation fails
+    /// or invalid parameters are found.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_ReadString(parcel: *const OHIPCParcel) -> *const ::core::ffi::c_char;
-    /// Writes data of the specified length from the memory to an <b>OHIPCParcel</b> object.
+    /// Writes data of the specified length from the memory to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `buffer` - Pointer to the address of the memory information to write.
     ///
@@ -533,10 +643,8 @@ extern "C" {
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -546,42 +654,40 @@ extern "C" {
         buffer: *const u8,
         len: i32,
     ) -> ::core::ffi::c_int;
-    /// Reads memory information of the specified length from an <b>OHIPCParcel</b> object.
+    /// Reads memory information of the specified length from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `len` - Length of the memory to be read.
     ///
     /// # Returns
     ///
-    /// * Returns the memory address read if the operation is successful;
-    /// returns NULL if invalid parameters are found or <b>len</b> exceeds the readable length of <b>parcel</b>.
+    /// * Returns the memory address read if the operation is successful; returns NULL if invalid parameters are found
+    /// or **len** exceeds the readable length of **parcel**.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_ReadBuffer(parcel: *const OHIPCParcel, len: i32) -> *const u8;
-    /// Writes an <b>OHIPCRemoteStub</b> object to an <b>OHIPCParcel</b> object.
+    /// Writes an **OHIPCRemoteStub** object to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `stub` - Pointer to the <b>OHIPCRemoteStub</b> object to write. It cannot be NULL.
+    /// * `stub` - Pointer to the **OHIPCRemoteStub** object to write. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -590,40 +696,38 @@ extern "C" {
         parcel: *mut OHIPCParcel,
         stub: *const OHIPCRemoteStub,
     ) -> ::core::ffi::c_int;
-    /// Reads the <b>OHIPCRemoteStub</b> object from an <b>OHIPCParcel</b> object.
+    /// Reads the **OHIPCRemoteStub** object from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OHIPCRemoteStub</b> object read if the operation is successful;
-    /// returns NULL otherwise.
+    /// * Returns the pointer to the **OHIPCRemoteStub** object read if the operation is successful; returns NULL
+    /// otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_ReadRemoteStub(parcel: *const OHIPCParcel) -> *mut OHIPCRemoteStub;
-    /// Writes an <b>OHIPCRemoteProxy</b> object to an <b>OHIPCParcel</b> object.
+    /// Writes an **OHIPCRemoteProxy** object to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `proxy` - Pointer to the <b>OHIPCRemoteProxy</b> object to write. It cannot be NULL.
+    /// * `proxy` - Pointer to the **OHIPCRemoteProxy** object to write. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -632,40 +736,38 @@ extern "C" {
         parcel: *mut OHIPCParcel,
         proxy: *const OHIPCRemoteProxy,
     ) -> ::core::ffi::c_int;
-    /// Reads the <b>OHIPCRemoteProxy</b> object from an <b>OHIPCParcel</b> object.
+    /// Reads the **OHIPCRemoteProxy** object from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OHIPCRemoteProxy</b> object read if the operation is successful;
-    /// returns NULL otherwise.
+    /// * Returns the pointer to the **OHIPCRemoteProxy** object created if the operation is successful; returns NULL
+    /// otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCParcel_ReadRemoteProxy(parcel: *const OHIPCParcel) -> *mut OHIPCRemoteProxy;
-    /// Writes a file descriptor to an <b>OHIPCParcel</b> object.
+    /// Writes a file descriptor to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `fd` - File descriptor to write.
+    /// * `fd` - Pointer to the file descriptor to write.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -674,22 +776,20 @@ extern "C" {
         parcel: *mut OHIPCParcel,
         fd: i32,
     ) -> ::core::ffi::c_int;
-    /// Reads a file descriptor from an <b>OHIPCParcel</b> object.
+    /// Reads a file descriptor from an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `fd` - Pointer to the file descriptor to read. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
@@ -699,23 +799,21 @@ extern "C" {
         parcel: *const OHIPCParcel,
         fd: *mut i32,
     ) -> ::core::ffi::c_int;
-    /// Appends data to an <b>OHIPCParcel</b> object.
+    /// Appends data to an **OHIPCParcel** object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `data` - Pointer to the data to append. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the concatenation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -724,23 +822,21 @@ extern "C" {
         parcel: *mut OHIPCParcel,
         data: *const OHIPCParcel,
     ) -> ::core::ffi::c_int;
-    /// Writes an interface token to an <b>OHIPCParcel</b> object for interface identity verification.
+    /// Writes an interface token to an **OHIPCParcel** object for interface identity verification.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
     /// * `token` - Pointer to the interface token to write. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the data write operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_WRITE_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_WRITE_ERROR) if the write operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -749,30 +845,27 @@ extern "C" {
         parcel: *mut OHIPCParcel,
         token: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Reads an interface token from an <b>OHIPCParcel</b> object for interface identity verification.
+    /// Reads an interface token from an **OHIPCParcel** object for interface identity verification.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `parcel` - Pointer to the target <b>OHIPCParcel</b> object. It cannot be NULL.
+    /// * `parcel` - Pointer to the **OHIPCParcel** object. It cannot be NULL.
     ///
-    /// * `token` - Pointer to the address of the memory for storing the interface token.
-    /// The memory is allocated by the allocator provided by the user and needs to be released. This pointer cannot be NULL.
-    /// If an error code is returned, you still need to check whether the memory is empty and release the memory.
-    /// Otherwise, memory leaks may occur.
+    /// * `token` - Double pointer to the interface token to read. The memory is allocated by the allocator provided by the
+    /// user and needs to be released. This pointer cannot be NULL. If an error code is returned, you still need to check
+    /// whether the memory is empty and release the memory. Otherwise, memory leaks may occur.
     ///
     /// * `len` - Pointer to the length of the interface token read, including the terminator. It cannot be NULL.
     ///
-    /// * `allocator` - Memory allocator specified by the user for allocating memory for <b>token</b>. It cannot be NULL.
+    /// * `allocator` - Memory allocator specified by the user for allocating memory for **token**. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if invalid parameters are found. Returns
+    /// [`OH_IPC_ErrorCode#OH_IPC_PARCEL_READ_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_PARCEL_READ_ERROR) if the read operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

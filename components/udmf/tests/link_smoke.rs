@@ -43,4 +43,11 @@ fn link_smoke() {
     unsafe {
         let _ = udmf::data_management_framework::OH_UdmfOptions_Create();
     }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ =
+            udmf::data_management_framework::OH_UdmfProperty_SetAuthPermission(ptr::null_mut(), 0);
+        let _ = udmf::data_struct::OH_UdsHtml_SetAuthPolicy(ptr::null_mut(), 0);
+    }
 }

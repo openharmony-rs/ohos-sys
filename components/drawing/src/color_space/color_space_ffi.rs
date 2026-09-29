@@ -6,14 +6,12 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_ColorSpace</b> object that represents the SRGB color space.
+    /// Creates an sRGB color space.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ColorSpace</b> object created.
+    /// * Returns a pointer to the [`OH_Drawing_ColorSpace`](crate::types::OH_Drawing_ColorSpace) object created.
     ///
     /// Available since API-level: 12
     ///
@@ -21,14 +19,12 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ColorSpaceCreateSrgb() -> *mut OH_Drawing_ColorSpace;
-    /// Creates an <b>OH_Drawing_ColorSpace</b> object with the SRGB primaries, but a linear (1.0) gamma.
+    /// Creates an sRGB linear (Gamma 1.0) color space.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ColorSpace</b> object created.
+    /// * Returns a pointer to the [`OH_Drawing_ColorSpace`](crate::types::OH_Drawing_ColorSpace) object created.
     ///
     /// Available since API-level: 12
     ///
@@ -36,13 +32,11 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ColorSpaceCreateSrgbLinear() -> *mut OH_Drawing_ColorSpace;
-    /// Destroy an <b>OH_Drawing_ColorSpace</b> object.
+    /// Destroys an **OH_Drawing_ColorSpace** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `colorSpace` - Indicates the pointer to an <b>OH_Drawing_ColorSpace</b> object.
+    /// * `colorSpace` - Pointer to an [`OH_Drawing_ColorSpace`](crate::types::OH_Drawing_ColorSpace) object.
     ///
     /// Available since API-level: 12
     ///

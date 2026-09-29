@@ -8,8 +8,8 @@ pub use crate::native_image::image_source::Image_AuxiliaryPictureType;
 use crate::native_image::pixelmap::PIXEL_FORMAT;
 use ohos_sys_opaque_types::{OH_PictureNative, OH_PixelmapNative};
 
-/// Define a AuxiliaryPicture struct type, used for auxiliary
-/// picture pointer controls.
+/// The struct describes the auxiliary picture, which is used to perform operations related to the auxiliary
+/// picture.
 ///
 ///
 /// Available since API-level: 13
@@ -19,8 +19,8 @@ use ohos_sys_opaque_types::{OH_PictureNative, OH_PixelmapNative};
 pub struct OH_AuxiliaryPictureNative {
     _unused: [u8; 0],
 }
-/// Define a AuxiliaryPictureInfo struct type, used for auxiliary
-/// picture info controls.
+/// The struct describes the auxiliary picture information, which is used to perform operations related to the
+/// auxiliary picture information.
 ///
 ///
 /// Available since API-level: 13
@@ -30,9 +30,8 @@ pub struct OH_AuxiliaryPictureNative {
 pub struct OH_AuxiliaryPictureInfo {
     _unused: [u8; 0],
 }
-/// Define a OH_ComposeOptions struct type, Describes compose parameters.
-///
-/// Used to specify the parameters used for composition, such as the target pixel format.
+/// **OH_ComposeOptions** is the HDR composition option struct encapsulated at the native layer. It is used to
+/// specify parameters used for HDR composition, such as the target pixel format.
 ///
 ///
 /// Available since API-level: 23
@@ -42,36 +41,77 @@ pub struct OH_AuxiliaryPictureInfo {
 pub struct OH_ComposeOptions {
     _unused: [u8; 0],
 }
+/// This structure is used to specify an auxiliary picture copy rule when creating a deep copy of a
+/// PictureNative object. It describes how to copy an auxiliary picture from one type to another.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[repr(C)]
+pub struct OH_PictureNative_AuxiliaryPictureCopyItem {
+    /// Source auxiliary picture type. It specifies the type of auxiliary picture to be copied from the
+    /// source picture.
+    ///
+    ///
+    /// Available since API-level: 26
+    pub srcType: Image_AuxiliaryPictureType,
+    /// Destination auxiliary picture type. It specifies the type under which the copied auxiliary picture
+    /// will be stored in the destination picture.
+    ///
+    ///
+    /// Available since API-level: 26
+    pub dstType: Image_AuxiliaryPictureType,
+}
+/// This structure is used to specify a metadata copy rule when creating a deep copy of a PictureNative object.
+/// It describes how to copy metadata from one type to another.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[repr(C)]
+pub struct OH_PictureNative_MetadataCopyItem {
+    /// Source metadata type. It specifies the type of metadata to be copied from the source picture.
+    ///
+    ///
+    /// Available since API-level: 26
+    pub srcType: Image_MetadataType,
+    /// Destination metadata type. It specifies the type under which the copied metadata will be stored in the
+    /// destination picture.
+    ///
+    ///
+    /// Available since API-level: 26
+    pub dstType: Image_MetadataType,
+}
 extern "C" {
-    /// Create a instance for OH_ComposeOptions struct.
+    /// Creates an **OH_ComposeOptions** instance.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_ComposeOptions pointer will be operated.
+    /// * `options` - Pointer to **OH_ComposeOptions**.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_ComposeOptions_Create(options: *mut *mut OH_ComposeOptions) -> ImageResult;
-    /// Set desired pixel format for ComposeOptions.
+    /// Sets the pixel format in **OH_ComposeOptions**.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_ComposeOptions pointer will be operated.
+    /// * `options` - Pointer to **OH_ComposeOptions**.
     ///
-    /// * `desiredPixelFormat` - The desired pixel format will be set, RGBA_1010102\YCBCR_P010\YCRCB_P010 are supported.
+    /// * `desiredPixelFormat` - Pixel format. The RGBA_1010102, YCBCR_P010, and YCRCB_P010 formats are supported.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or desiredPixelFormat is not supported.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or desiredPixelFormat is not supported.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -80,19 +120,18 @@ extern "C" {
         options: *mut OH_ComposeOptions,
         desiredPixelFormat: PIXEL_FORMAT,
     ) -> ImageResult;
-    /// Get desired pixel format for ComposeOptions.
+    /// Obtains the pixel format in **OH_ComposeOptions**.
     ///
     /// # Arguments
     ///
-    /// * `options` - The OH_ComposeOptions pointer will be operated.
+    /// * `options` - Pointer to **OH_ComposeOptions**.
     ///
-    /// * `desiredPixelFormat` - The desired pixel format.
+    /// * `desiredPixelFormat` - Pixel format in the composition options.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr, or desiredPixelFormat is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr,or desiredPixelFormat is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -101,35 +140,33 @@ extern "C" {
         options: *mut OH_ComposeOptions,
         desiredPixelFormat: *mut PIXEL_FORMAT,
     ) -> ImageResult;
-    /// Releases an OH_ComposeOptions object.
+    /// Releases the pointer to **OH_ComposeOptions**.
     ///
     /// # Arguments
     ///
-    /// * `options` - Indicates a OH_ComposeOptions pointer.
+    /// * `options` - Pointer to **OH_ComposeOptions**.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) options is nullptr.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_ComposeOptions_Release(options: *mut OH_ComposeOptions) -> ImageResult;
-    /// Create a <b>Picture</b> object.
+    /// Creates the pointer to an OH_PictureNative object.
     ///
     /// # Arguments
     ///
-    /// * `mainPixelmap` - The pixel map of the main image.
+    /// * `mainPixelmap` - Pointer to the OH_PixelmapNative object of the main picture.
     ///
-    /// * `picture` - Picture pointer for created.
+    /// * `picture` - Double pointer to the OH_PictureNative object created.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) mainPixelmap is nullptr, or picture is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) mainPixelmap is nullptr, or picture is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -138,19 +175,18 @@ extern "C" {
         mainPixelmap: *mut OH_PixelmapNative,
         picture: *mut *mut OH_PictureNative,
     ) -> ImageResult;
-    /// Obtains the pixel map of the main image.
+    /// Obtains the pointer to the OH_PixelmapNative object of a main picture.
     ///
     /// # Arguments
     ///
-    /// * `picture` - The Picture pointer will be operated.
+    /// * `picture` - Pointer to an OH_PictureNative object.
     ///
-    /// * `mainPixelmap` - Main pixel map pointer for obtained.
+    /// * `mainPixelmap` - Double pointer to the OH_PixelmapNative object obtained.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or mainPixelmap is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or mainPixelmap is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -159,20 +195,19 @@ extern "C" {
         picture: *mut OH_PictureNative,
         mainPixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
-    /// Obtains the hdr pixel map.
+    /// Obtains the pointer to the OH_PixelmapNative object of an HDR picture.
     ///
     /// # Arguments
     ///
-    /// * `picture` - The Picture pointer will be operated.
+    /// * `picture` - Pointer to an OH_PictureNative object.
     ///
-    /// * `hdrPixelmap` - Hdr pixel map pointer for obtained.
+    /// * `hdrPixelmap` - Double pointer to the OH_PixelmapNative object of the HDR picture.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or hdrPixelmap is nullptr.
-    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation, e.g. the picture does not has a gainmap.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or hdrPixelmap is nullptr.
+    /// <br>[`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation, e.g. the picture does not has a gainmap.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -181,22 +216,21 @@ extern "C" {
         picture: *mut OH_PictureNative,
         hdrPixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
-    /// Obtains the hdr pixel map with options.
+    /// Obtains the pointer to **OH_PixelmapNative** of an HDR picture based on **OH_ComposeOptions**.
     ///
     /// # Arguments
     ///
-    /// * `picture` - The Picture pointer will be operated.
+    /// * `picture` - Pointer to an OH_PictureNative object.
     ///
-    /// * `options` - The compose options.
+    /// * `options` - Pointer to **OH_ComposeOptions**.
     ///
-    /// * `hdrPixelmap` - Hdr pixel map pointer for obtained.
+    /// * `hdrPixelmap` - Pointer to **OH_PixelmapNative** of the obtained HDR picture.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or hdrPixelmap is nullptr.
-    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation, e.g. the picture does not has a gainmap.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or hdrPixelmap is nullptr.
+    /// <br>[`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation, e.g. the picture does not has a gainmap.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -206,19 +240,18 @@ extern "C" {
         options: *mut OH_ComposeOptions,
         hdrPixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
-    /// Obtains the gainmap pixel map.
+    /// Obtains the pointer to the OH_PixelmapNative object of a gain map.
     ///
     /// # Arguments
     ///
-    /// * `picture` - The Picture pointer will be operated.
+    /// * `picture` - Pointer to an OH_PictureNative object.
     ///
-    /// * `gainmapPixelmap` - Gainmap pointer for obtained.
+    /// * `gainmapPixelmap` - Double pointer to the OH_PixelmapNative object of the gain map.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or gainmapPixelmap is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or gainmapPixelmap is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -227,21 +260,20 @@ extern "C" {
         picture: *mut OH_PictureNative,
         gainmapPixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
-    /// Set auxiliary picture.
+    /// Sets an auxiliary picture.
     ///
     /// # Arguments
     ///
-    /// * `picture` - The Picture pointer will be operated.
+    /// * `picture` - Pointer to an OH_PictureNative object.
     ///
-    /// * `type` - The type of auxiliary picture.
+    /// * `type` - Type of the auxiliary picture.
     ///
-    /// * `auxiliaryPicture` - AuxiliaryPicture object.
+    /// * `auxiliaryPicture` - Pointer to an OH_AuxiliaryPictureNative object.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or auxiliaryPicture is nullptr, or the type is invalid.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or auxiliaryPicture is nullptr, or the type is invalid.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -251,21 +283,20 @@ extern "C" {
         type_: Image_AuxiliaryPictureType,
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
     ) -> ImageResult;
-    /// Obtains the auxiliary picture based on type.
+    /// Obtains an auxiliary picture by type.
     ///
     /// # Arguments
     ///
-    /// * `picture` - The Picture pointer will be operated.
+    /// * `picture` - Pointer to an OH_PictureNative object.
     ///
-    /// * `type` - The type of auxiliary picture.
+    /// * `type` - Type of the auxiliary picture.
     ///
-    /// * `auxiliaryPicture` - AuxiliaryPicture pointer for obtained.
+    /// * `auxiliaryPicture` - Double pointer to the OH_AuxiliaryPictureNative object obtained.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or auxiliaryPicture is nullptr, or the type is invalid.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or auxiliaryPicture is nullptr, or the type is invalid.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -275,22 +306,21 @@ extern "C" {
         type_: Image_AuxiliaryPictureType,
         auxiliaryPicture: *mut *mut OH_AuxiliaryPictureNative,
     ) -> ImageResult;
-    /// Obtains the metadata of main picture.
+    /// Obtains the metadata of a main picture.
     ///
     /// # Arguments
     ///
-    /// * `picture` - The Picture pointer will be operated.
+    /// * `picture` - Pointer to an OH_PictureNative object.
     ///
-    /// * `metadataType` - The type of metadata.
+    /// * `metadataType` - Metadata type.
     ///
-    /// * `metadata` - The metadata of main picture.
+    /// * `metadata` - Double pointer to the metadata.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or metadata is nullptr.
-    /// [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or metadata is nullptr.
+    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -300,22 +330,21 @@ extern "C" {
         metadataType: Image_MetadataType,
         metadata: *mut *mut OH_PictureMetadata,
     ) -> ImageResult;
-    /// Set main picture metadata.
+    /// Sets the metadata for a main picture.
     ///
     /// # Arguments
     ///
-    /// * `picture` - The Picture pointer will be operated.
+    /// * `picture` - Pointer to an OH_PictureNative object.
     ///
-    /// * `metadataType` - The type of metadata.
+    /// * `metadataType` - Metadata type.
     ///
-    /// * `metadata` - The metadata will be set.
+    /// * `metadata` - Pointer to the metadata.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or metadata is nullptr.
-    /// [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr, or metadata is nullptr.
+    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -325,41 +354,215 @@ extern "C" {
         metadataType: Image_MetadataType,
         metadata: *mut OH_PictureMetadata,
     ) -> ImageResult;
-    /// Releases this Picture object.
+    /// Obtains the number of auxiliary pictures in a Picture object.
     ///
     /// # Arguments
     ///
-    /// * `picture` - The Picture pointer will be operated.
+    /// * `picture` - Pointer to an OH_PictureNative object.
+    ///
+    /// * `count` - Pointer to the number of auxiliary pictures.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr.
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) picture or count is nullptr, or fail to get the picture.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureNative_GetAuxiliaryPictureCount(
+        picture: *mut OH_PictureNative,
+        count: *mut u32,
+    ) -> ImageResult;
+    /// Obtains the types of auxiliary pictures in a Picture object.
+    ///
+    /// # Arguments
+    ///
+    /// * `picture` - Pointer to an OH_PictureNative object.
+    ///
+    /// * `auxiliaryPictureTypes` - Pointer to the array that receives the auxiliary picture types.
+    ///
+    /// * `count` - On input, the size of auxiliaryPictureTypes array.
+    /// On output, the actual number of auxiliary pictures.
+    ///
+    /// # Returns
+    ///
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) picture, auxiliaryPictureTypes, or count is nullptr, or fail to get the picture, or count is smaller than required.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureNative_GetAuxiliaryPictureTypes(
+        picture: *mut OH_PictureNative,
+        auxiliaryPictureTypes: *mut Image_AuxiliaryPictureType,
+        count: *mut u32,
+    ) -> ImageResult;
+    /// Obtains the number of metadata entries in a Picture object.
+    ///
+    /// # Arguments
+    ///
+    /// * `picture` - Pointer to an OH_PictureNative object.
+    ///
+    /// * `count` - Pointer to the number of metadata entries.
+    ///
+    /// # Returns
+    ///
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) picture or count is nullptr, or fail to get the picture.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureNative_GetMetadataCount(
+        picture: *mut OH_PictureNative,
+        count: *mut u32,
+    ) -> ImageResult;
+    /// Obtains the types of metadata in a Picture object.
+    ///
+    /// # Arguments
+    ///
+    /// * `picture` - Pointer to an OH_PictureNative object.
+    ///
+    /// * `metadataTypes` - Pointer to the array that receives the metadata types.
+    ///
+    /// * `count` - On input, the size of metadataTypes array.
+    /// On output, the actual number of metadata entries.
+    ///
+    /// # Returns
+    ///
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) picture, metadataTypes, or count is nullptr, or fail to get the picture, or count is smaller than required.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureNative_GetMetadataTypes(
+        picture: *mut OH_PictureNative,
+        metadataTypes: *mut Image_MetadataType,
+        count: *mut u32,
+    ) -> ImageResult;
+    /// Removes an auxiliary picture from a Picture object.
+    ///
+    /// # Arguments
+    ///
+    /// * `picture` - Pointer to an OH_PictureNative object.
+    ///
+    /// * `type` - Type of the auxiliary picture to remove.
+    ///
+    /// # Returns
+    ///
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the auxiliary picture was successfully removed or did not exist.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) picture is nullptr, or fail to get the picture, or the type is invalid.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureNative_RemoveAuxiliaryPicture(
+        picture: *mut OH_PictureNative,
+        type_: Image_AuxiliaryPictureType,
+    ) -> ImageResult;
+    /// Removes metadata from a Picture object.
+    ///
+    /// # Arguments
+    ///
+    /// * `picture` - Pointer to an OH_PictureNative object.
+    ///
+    /// * `type` - Type of the metadata to remove.
+    ///
+    /// # Returns
+    ///
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the metadata was successfully removed or did not exist.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) picture is nullptr, or fail to get the picture.
+    /// - [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureNative_RemoveMetadata(
+        picture: *mut OH_PictureNative,
+        type_: Image_MetadataType,
+    ) -> ImageResult;
+    /// Creates a deep copy of a PictureNative object with specified auxiliary pictures and metadata copied to
+    /// specified destination types.
+    ///
+    /// # Arguments
+    ///
+    /// * `source` - The source PictureNative object to be copied. Must not be NULL.
+    ///
+    /// * `auxiliaryPictureCopyItems` - An array describing the auxiliary pictures to copy,
+    /// including source and destination auxiliary picture types. Can be NULL if
+    /// auxiliaryPictureCopyCount is 0.
+    ///
+    /// * `auxiliaryPictureCopyCount` - The number of items in auxiliaryPictureCopyItems.
+    ///
+    /// * `metadataCopyItems` - An array describing the metadata entries to copy,
+    /// including source and destination metadata types. Can be NULL if
+    /// metadataCopyCount is 0.
+    ///
+    /// * `metadataCopyCount` - The number of items in metadataCopyItems.
+    ///
+    /// * `sourceAuxPictureAsMainPixelMap` - Specifies an auxiliary picture type in the source
+    /// picture to be used as the main pixel map in the copied picture. Can be NULL if
+    /// the original main pixel map should be used.
+    ///
+    /// * `picture` - Output parameter used to receive the newly created PictureNative object.
+    /// The caller is responsible for releasing it when it is no longer needed.
+    ///
+    /// # Returns
+    ///
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) if source or picture is nullptr, or counts mismatch, or fail to get the source picture, or Count is not zero but corresponding array is nullptr.
+    /// - [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory allocation failed.
+    ///
+    /// **Note:** Release `picture` with [`OH_PictureNative_Release`](crate::native_image::picture::OH_PictureNative_Release).
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PictureNative_DeepCopyWithItems(
+        source: *mut OH_PictureNative,
+        auxiliaryPictureCopyItems: *const OH_PictureNative_AuxiliaryPictureCopyItem,
+        auxiliaryPictureCopyCount: u32,
+        metadataCopyItems: *const OH_PictureNative_MetadataCopyItem,
+        metadataCopyCount: u32,
+        sourceAuxPictureAsMainPixelMap: *mut Image_AuxiliaryPictureType,
+        picture: *mut *mut OH_PictureNative,
+    ) -> ImageResult;
+    /// Releases the pointer to an OH_PictureNative object.
+    ///
+    /// # Arguments
+    ///
+    /// * `picture` - Pointer to an OH_PictureNative object.
+    ///
+    /// # Returns
+    ///
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_PictureNative_Release(picture: *mut OH_PictureNative) -> ImageResult;
-    /// Create a <b>AuxiliaryPicture</b> object.
+    /// Creates the pointer to an OH_AuxiliaryPictureNative object. This API supports only continuous pixel data
+    /// whose pixel format is BGRA_8888 and creates an auxiliary picture in RGBA_8888 format.
     ///
     /// # Arguments
     ///
-    /// * `data` - The image data buffer.
+    /// * `data` - Pointer to the image data.
     ///
-    /// * `dataLength` - The length of data.
+    /// * `dataLength` - Length of the image data.
     ///
-    /// * `size` - The size of auxiliary picture.
+    /// * `size` - Pointer to the size of the auxiliary picture.
     ///
-    /// * `type` - The type of auxiliary picture.
+    /// * `type` - Type of the auxiliary picture.
     ///
-    /// * `auxiliaryPicture` - AuxiliaryPicture pointer for created.
+    /// * `auxiliaryPicture` - Double pointer to the OH_AuxiliaryPictureNative object created.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) data is nullptr, or dataLength is invalid, or size is nullptr, or the type
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) data is nullptr, or dataLength is invalid, or size is nullptr, or the type
     /// is invalid, or auxiliaryPicture is nullptr.
     ///
     /// Available since API-level: 13
@@ -372,23 +575,22 @@ extern "C" {
         type_: Image_AuxiliaryPictureType,
         auxiliaryPicture: *mut *mut OH_AuxiliaryPictureNative,
     ) -> ImageResult;
-    /// Write pixels to auxiliary picture.
+    /// Reads pixels in the buffer and writes the result to an auxiliary picture.
     ///
     /// # Arguments
     ///
-    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - Pointer to an OH_AuxiliaryPictureNative object.
     ///
-    /// * `source` - The pixels will be written.
+    /// * `source` - Pixels to be written.
     ///
-    /// * `bufferSize` - The size of pixels.
+    /// * `bufferSize` - Buffer size.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or source is nullptr, or the bufferSize is invalid.
-    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory alloc failed.
-    /// [`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) memory copy failed.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or source is nullptr, or the bufferSize is invalid.
+    /// <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory alloc failed.
+    /// <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) memory copy failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -398,24 +600,23 @@ extern "C" {
         source: *mut u8,
         bufferSize: usize,
     ) -> ImageResult;
-    /// Read pixels from auxiliary picture.
+    /// Reads pixels of an auxiliary picture and writes the result to the buffer.
     ///
     /// # Arguments
     ///
-    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - Pointer to an OH_AuxiliaryPictureNative object.
     ///
-    /// * `destination` - The pixels will be read.
+    /// * `destination` - Pointer to the buffer to which the pixels of the auxiliary data will be written.
     ///
-    /// * `bufferSize` - The size of pixels for reading.
+    /// * `bufferSize` - Pointer to the buffer size.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or destination is nullptr,
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or destination is nullptr,
     /// or the bufferSize is invalid.
-    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory alloc failed.
-    /// [`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) memory copy failed.
+    /// <br>[`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory alloc failed.
+    /// <br>[`IMAGE_COPY_FAILED`](crate::native_image::common::ImageResult::COPY_FAILED) memory copy failed.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -425,19 +626,18 @@ extern "C" {
         destination: *mut u8,
         bufferSize: *mut usize,
     ) -> ImageResult;
-    /// Obtains the type of auxiliary picture.
+    /// Obtains the type of an auxiliary picture.
     ///
     /// # Arguments
     ///
-    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - Pointer to an OH_AuxiliaryPictureNative object.
     ///
-    /// * `type` - The type of auxiliary picture.
+    /// * `type` - Pointer to the auxiliary picture type.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or type is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or type is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -446,19 +646,18 @@ extern "C" {
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
         type_: *mut Image_AuxiliaryPictureType,
     ) -> ImageResult;
-    /// Obtains the info of auxiliary picture.
+    /// Obtains the information of an auxiliary picture.
     ///
     /// # Arguments
     ///
-    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - Pointer to an OH_AuxiliaryPictureNative object.
     ///
-    /// * `info` - The info of auxiliary picture.
+    /// * `info` - Double pointer to the auxiliary picture information.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or info is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or info is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -467,19 +666,18 @@ extern "C" {
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
         info: *mut *mut OH_AuxiliaryPictureInfo,
     ) -> ImageResult;
-    /// Set auxiliary picture info.
+    /// Sets the information for an auxiliary picture.
     ///
     /// # Arguments
     ///
-    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - Pointer to an OH_AuxiliaryPictureNative object.
     ///
-    /// * `info` - The info will be set.
+    /// * `info` - Pointer to the auxiliary picture information.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or info is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or info is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -488,22 +686,21 @@ extern "C" {
         auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
         info: *mut OH_AuxiliaryPictureInfo,
     ) -> ImageResult;
-    /// Obtains the metadata of auxiliary picture.
+    /// Obtains the metadata of an auxiliary picture.
     ///
     /// # Arguments
     ///
-    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - Pointer to an OH_AuxiliaryPictureNative object.
     ///
-    /// * `metadataType` - The type of metadata.
+    /// * `metadataType` - Metadata type.
     ///
-    /// * `metadata` - The metadata of auxiliary picture.
+    /// * `metadata` - Double pointer to the metadata.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or metadata is nullptr.
-    /// [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or metadata is nullptr.
+    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
     /// auxiliary picture type.
     ///
     /// Available since API-level: 13
@@ -514,22 +711,21 @@ extern "C" {
         metadataType: Image_MetadataType,
         metadata: *mut *mut OH_PictureMetadata,
     ) -> ImageResult;
-    /// Set auxiliary picture metadata.
+    /// Sets the metadata for an auxiliary picture.
     ///
     /// # Arguments
     ///
-    /// * `auxiliaryPicture` - The AuxiliaryPicture pointer will be operated.
+    /// * `auxiliaryPicture` - Pointer to an OH_AuxiliaryPictureNative object.
     ///
-    /// * `metadataType` - The type of metadata.
+    /// * `metadataType` - Metadata type.
     ///
-    /// * `metadata` - The metadata will be set.
+    /// * `metadata` - Pointer to the metadata.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or metadata is nullptr.
-    /// [`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) auxiliaryPicture is nullptr, or metadata is nullptr.
+    /// <br>[`IMAGE_UNSUPPORTED_METADATA`](crate::native_image::common::ImageResult::UNSUPPORTED_METADATA) unsupported metadata type, or the metadata type does not match the
     /// auxiliary picture type.
     ///
     /// Available since API-level: 13
@@ -540,17 +736,40 @@ extern "C" {
         metadataType: Image_MetadataType,
         metadata: *mut OH_PictureMetadata,
     ) -> ImageResult;
-    /// Releases this AuxiliaryPicture object.
+    /// Obtains the OH_PixelmapNative object of an auxiliary picture.
     ///
     /// # Arguments
     ///
-    /// * `picture` - The Picture pointer will be operated.
+    /// * `auxiliaryPicture` - Pointer to an OH_AuxiliaryPictureNative object.
+    ///
+    /// * `pixelmap` - Double pointer to the OH_PixelmapNative object obtained.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr.
+    /// - [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// - [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) auxiliaryPicture is nullptr, or pixelmap is nullptr.
+    /// - [`IMAGE_GET_IMAGE_DATA_FAILED`](crate::native_image::common::ImageResult::GET_IMAGE_DATA_FAILED) fail to get the auxiliary picture or its pixelmap content.
+    /// - [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) memory allocation failed.
+    ///
+    /// **Note:** Release `pixelmap` with [`OH_PixelmapNative_Destroy`](crate::native_image::pixelmap::OH_PixelmapNative_Destroy).
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AuxiliaryPictureNative_AcquirePixelmap(
+        auxiliaryPicture: *mut OH_AuxiliaryPictureNative,
+        pixelmap: *mut *mut OH_PixelmapNative,
+    ) -> ImageResult;
+    /// Releases the pointer to an OH_AuxiliaryPictureNative object.
+    ///
+    /// # Arguments
+    ///
+    /// * `picture` - Pointer to an OH_AuxiliaryPictureNative object.
+    ///
+    /// # Returns
+    ///
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) picture is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -558,35 +777,33 @@ extern "C" {
     pub fn OH_AuxiliaryPictureNative_Release(
         picture: *mut OH_AuxiliaryPictureNative,
     ) -> ImageResult;
-    /// Create a <b>AuxiliaryPictureInfo</b> object.
+    /// Creates an OH_AuxiliaryPictureInfo object.
     ///
     /// # Arguments
     ///
-    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - Double pointer to the OH_AuxiliaryPictureInfo object created.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_AuxiliaryPictureInfo_Create(info: *mut *mut OH_AuxiliaryPictureInfo) -> ImageResult;
-    /// Obtains the type of auxiliary picture info.
+    /// Obtains the auxiliary picture type in **OH_AuxiliaryPictureInfo**.
     ///
     /// # Arguments
     ///
-    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
-    /// * `type` - The type of auxiliary picture info.
+    /// * `type` - Pointer to the type of the auxiliary picture.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or type is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or type is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -595,19 +812,18 @@ extern "C" {
         info: *mut OH_AuxiliaryPictureInfo,
         type_: *mut Image_AuxiliaryPictureType,
     ) -> ImageResult;
-    /// Set auxiliary picture info type.
+    /// Sets the auxiliary picture type in **OH_AuxiliaryPictureInfo**.
     ///
     /// # Arguments
     ///
-    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
-    /// * `type` - The type will be set.
+    /// * `type` - Type of the auxiliary picture.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or type is invalid.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or type is invalid.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -616,19 +832,18 @@ extern "C" {
         info: *mut OH_AuxiliaryPictureInfo,
         type_: Image_AuxiliaryPictureType,
     ) -> ImageResult;
-    /// Obtains the size of auxiliary picture info.
+    /// Obtains the image size in **OH_AuxiliaryPictureInfo**.
     ///
     /// # Arguments
     ///
-    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
-    /// * `size` - The size of auxiliary picture info.
+    /// * `size` - Pointer to the size.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or size is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or size is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -637,19 +852,18 @@ extern "C" {
         info: *mut OH_AuxiliaryPictureInfo,
         size: *mut Image_Size,
     ) -> ImageResult;
-    /// Set auxiliary picture info size.
+    /// Sets the image size in **OH_AuxiliaryPictureInfo**.
     ///
     /// # Arguments
     ///
-    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
-    /// * `size` - The size will be set.
+    /// * `size` - Pointer to the size.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or size is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or size is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -658,19 +872,19 @@ extern "C" {
         info: *mut OH_AuxiliaryPictureInfo,
         size: *mut Image_Size,
     ) -> ImageResult;
-    /// Obtains the rowStride of auxiliary picture info.
+    /// Obtains the row stride in **OH_AuxiliaryPictureInfo**.
     ///
     /// # Arguments
     ///
-    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
-    /// * `rowStride` - The rowStride of auxiliary picture info.
+    /// * `rowStride` - Pointer to the row stride, which is the number of bytes from one row of pixels in memory to the
+    /// next row of pixels in memory.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or rowStride is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or rowStride is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -679,19 +893,19 @@ extern "C" {
         info: *mut OH_AuxiliaryPictureInfo,
         rowStride: *mut u32,
     ) -> ImageResult;
-    /// Set auxiliary picture info rowStride.
+    /// Sets the row stride in **OH_AuxiliaryPictureInfo**.
     ///
     /// # Arguments
     ///
-    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
-    /// * `rowStride` - The rowStride will be set.
+    /// * `rowStride` - Row stride, which is the number of bytes from one row of pixels in memory to the next row of pixels
+    /// in memory.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or rowStride is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or rowStride is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -700,19 +914,18 @@ extern "C" {
         info: *mut OH_AuxiliaryPictureInfo,
         rowStride: u32,
     ) -> ImageResult;
-    /// Obtains the pixelFormat of auxiliary picture info.
+    /// Obtains the pixel format in **OH_AuxiliaryPictureInfo**.
     ///
     /// # Arguments
     ///
-    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
-    /// * `pixelFormat` - The pixelFormat will be get.
+    /// * `pixelFormat` - Pointer to the pixel format obtained.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or pixelFormat is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr, or pixelFormat is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -721,19 +934,18 @@ extern "C" {
         info: *mut OH_AuxiliaryPictureInfo,
         pixelFormat: *mut PIXEL_FORMAT,
     ) -> ImageResult;
-    /// Set auxiliary picture info pixelFormat.
+    /// Sets the pixel format in **OH_AuxiliaryPictureInfo**.
     ///
     /// # Arguments
     ///
-    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
-    /// * `pixelFormat` - The pixelFormat will be set.
+    /// * `pixelFormat` - Pixel format.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -742,17 +954,16 @@ extern "C" {
         info: *mut OH_AuxiliaryPictureInfo,
         pixelFormat: PIXEL_FORMAT,
     ) -> ImageResult;
-    /// Releases this AuxiliaryPictureInfo object.
+    /// Releases the pointer to an OH_AuxiliaryPictureInfo object.
     ///
     /// # Arguments
     ///
-    /// * `info` - The AuxiliaryPictureInfo pointer will be operated.
+    /// * `info` - Pointer to the OH_AuxiliaryPictureInfo object.
     ///
     /// # Returns
     ///
-    /// * Image functions result code.
-    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
-    /// [`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
+    /// * [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) if the execution is successful.
+    /// <br>[`IMAGE_BAD_PARAMETER`](crate::native_image::common::ImageResult::BAD_PARAMETER) info is nullptr.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]

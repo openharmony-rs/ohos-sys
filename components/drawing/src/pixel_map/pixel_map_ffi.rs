@@ -7,17 +7,17 @@ use crate::types::*;
 use ohos_sys_opaque_types::{NativePixelMap_, OH_PixelmapNative};
 
 extern "C" {
-    /// Gets an <b>OH_Drawing_PixelMap</b> object.
+    /// Obtains the pixel map defined by this module from a pixel map defined by the image framework.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `nativePixelMap` - Indicates a pointer to an native pixelmap supported by image framework.
+    /// * `nativePixelMap` - Pointer to a [`NativePixelMap_`](ohos_sys_opaque_types::NativePixelMap_) object, which is the pixel map defined by the image
+    /// framework.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_PixelMap</b> object.
+    /// * Returns the pointer to an [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object, which is the pixel map defined by this module.
+    /// If NULL is returned, the creation fails. The possible failure cause is that **NativePixelMap_** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -27,19 +27,17 @@ extern "C" {
     pub fn OH_Drawing_PixelMapGetFromNativePixelMap(
         nativePixelMap: *mut NativePixelMap_,
     ) -> *mut OH_Drawing_PixelMap;
-    /// Gets an <b>OH_Drawing_PixelMap</b> object.
+    /// Obtains the pixel map defined by this module from a pixel map defined by the image framework.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pixelmapNative` - Indicates a pointer to the <b>OH_PixelmapNative</b> object supported by image framework.
+    /// * `pixelmapNative` - Pointer to a [`OH_PixelmapNative`](ohos_sys_opaque_types::OH_PixelmapNative) object, which is the pixel map defined by the image
+    /// framework.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_PixelMap</b> object.
-    /// If nullptr is returned, the get operation fails.
-    /// The possible cause of the failure is that a nullptr is passed.
+    /// * Returns the pointer to an [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object, which is the pixel map defined by this module.
+    /// If NULL is returned, the creation fails. The possible failure cause is that **OH_PixelmapNative** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -49,14 +47,14 @@ extern "C" {
     pub fn OH_Drawing_PixelMapGetFromOhPixelMapNative(
         pixelmapNative: *mut OH_PixelmapNative,
     ) -> *mut OH_Drawing_PixelMap;
-    /// Dissolves the relationship between <b>OH_Drawing_PixelMap</b> object and <b>NativePixelMap_</b> or
-    /// <b>OH_PixelmapNative</b> which is build by 'GetFrom' function.
+    /// Removes the relationship between a pixel map defined by this module and a pixel map defined by the image
+    /// framework. The relationship is established by calling [`OH_Drawing_PixelMapGetFromNativePixelMap`](crate::pixel_map::OH_Drawing_PixelMapGetFromNativePixelMap) or
+    /// [`OH_Drawing_PixelMapGetFromOhPixelMapNative`](crate::pixel_map::OH_Drawing_PixelMapGetFromOhPixelMapNative)
+    /// .
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pixelMap` - Indicates a pointer to the <b>OH_Drawing_PixelMap</b>.
+    /// * `pixelMap` - Pointer to an [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object.
     ///
     /// Available since API-level: 12
     ///

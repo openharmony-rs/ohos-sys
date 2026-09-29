@@ -13,10 +13,9 @@ use crate::RawFile;
 use crate::RawFile64;
 use ohos_sys_opaque_types::{napi_env, napi_value};
 
-/// Presents the resource manager.
-///
-/// This class encapsulates the native implementation of the JavaScript resource manager. The pointer to a
-/// <b>ResourceManager</b> object can be obtained by calling [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager).
+/// Represents a `ResourceManager` object at the Native layer. `NativeResourceManager` encapsulates the Native
+/// implementation of JavaScript ResourceManager, and can be obtained through
+/// [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager).
 ///
 ///
 /// Available since API-level: 8
@@ -27,19 +26,20 @@ pub struct NativeResourceManager {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Obtains the native resource manager based on the JavaScipt resource manager.
-    ///
-    /// You need to obtain the resource manager to process raw files as required.
+    /// Initializes a `NativeResourceManager` object.
     ///
     /// # Arguments
     ///
-    /// * `env` - Indicates the pointer to the JavaScipt Native Interface (napi) environment.
+    /// * `env` - Input parameter. Pointer to the JavaScript Native Interface (napi) environment.
     ///
-    /// * `jsResMgr` - Indicates the JavaScipt resource manager.
+    /// * `jsResMgr` - Input parameter. Reference to the JavaScript `ResourceManager` object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to [`NativeResourceManager`](crate::raw_file_manager::NativeResourceManager). If failed returns nullptr.
+    /// * Pointer to the `NativeResourceManager` object. If the initialization fails, `NULL` is returned. The possible
+    /// cause is that the `env` or `jsResMgr` parameter is invalid.
+    /// <br>The memory is allocated by this function and must be released through
+    /// [`OH_ResourceManager_ReleaseNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_ReleaseNativeResourceManager) after use.
     ///
     /// Available since API-level: 8
     ///
@@ -48,34 +48,30 @@ extern "C" {
         env: napi_env,
         jsResMgr: napi_value,
     ) -> *mut NativeResourceManager;
-    /// Releases the native resource manager.
-    ///
-    ///
+    /// Releases a `NativeResourceManager` object and its associated resources.
     ///
     /// # Arguments
     ///
-    /// * `resMgr` - Indicates the pointer to [`RawDir`](crate::raw_dir::RawDir).
+    /// * `resMgr` - Input parameter. Pointer to the `NativeResourceManager` object to be released. After the release, the
+    /// `resMgr` pointer becomes invalid and cannot be used for other operations.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_ResourceManager_ReleaseNativeResourceManager(resMgr: *mut NativeResourceManager);
-    /// Opens a raw file directory.
-    ///
-    /// After it is opened, you can traverse its raw files.
+    /// Opens the `rawfile` directory.
     ///
     /// # Arguments
     ///
-    /// * `mgr` - Indicates the pointer to [`NativeResourceManager`](crate::raw_file_manager::NativeResourceManager) obtained by calling
-    /// [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager).
+    /// * `mgr` - Input parameter. Pointer to the `NativeResourceManager` object.
     ///
-    /// * `dirName` - Indicates the name of the raw file directory to open. You can pass an empty string to open the
-    /// top-level raw file directory.
+    /// * `dirName` - Input parameter. Path of the directory to be opened. Path relative to the `rawfile` root directory,
+    /// for example, `images/icons`. If the value is an empty string, the `rawfile` root directory is opened.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to [`RawDir`](crate::raw_dir::RawDir). If failed or mgr is nullptr also returns nullptr.
-    /// After you finish using the pointer, call [`OH_ResourceManager_CloseRawDir`](crate::raw_dir::OH_ResourceManager_CloseRawDir) to release it.
+    /// * Pointer to the `RawDir` object. If the call fails or `mgr` is null, `NULL` is returned. After use, call
+    /// [`OH_ResourceManager_CloseRawDir`](crate::raw_dir::OH_ResourceManager_CloseRawDir) to release it.
     ///
     /// **See also:** [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager)
     ///
@@ -88,21 +84,19 @@ extern "C" {
         mgr: *const NativeResourceManager,
         dirName: *const ::core::ffi::c_char,
     ) -> *mut RawDir;
-    /// Opens a raw file.
-    ///
-    /// After it is opened, you can read its data.
+    /// Opens a rawfile and returns a `RawFile` object for reading the rawfile content.
     ///
     /// # Arguments
     ///
-    /// * `mgr` - Indicates the pointer to [`NativeResourceManager`](crate::raw_file_manager::NativeResourceManager) obtained by calling
-    /// [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager).
+    /// * `mgr` - Input parameter. Pointer to the `NativeResourceManager` object.
     ///
-    /// * `fileName` - Indicates the file path relative to the top-level raw file directory.
+    /// * `fileName` - Input parameter. Path of the file to be opened. Path relative to the `rawfile` root directory, for
+    /// example, `images/icons/1.png`.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to [`RawFile`](crate::RawFile). If failed or mgr and fileName is nullptr also returns nullptr.
-    /// After you finish using the pointer, call [`OH_ResourceManager_CloseRawFile`](crate::raw_file::OH_ResourceManager_CloseRawFile) to release it.
+    /// * Pointer to the `RawFile` object. If the call fails or the input parameter is null, `NULL` is returned. After
+    /// use, call [`OH_ResourceManager_CloseRawFile`](crate::raw_file::OH_ResourceManager_CloseRawFile) to release it.
     ///
     /// **See also:** [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager)
     ///
@@ -115,21 +109,20 @@ extern "C" {
         mgr: *const NativeResourceManager,
         fileName: *const ::core::ffi::c_char,
     ) -> *mut RawFile;
-    /// Opens a raw file.
-    ///
-    /// After it is opened, you can read its data.
+    /// Opens a rawfile and returns a `RawFile` object for reading the rawfile content. Files larger than 2 GB are
+    /// supported.
     ///
     /// # Arguments
     ///
-    /// * `mgr` - Indicates the pointer to [`NativeResourceManager`](crate::raw_file_manager::NativeResourceManager) obtained by calling
-    /// [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager).
+    /// * `mgr` - Input parameter. Pointer to the `NativeResourceManager` object.
     ///
-    /// * `fileName` - Indicates the file path relative to the top-level raw file directory.
+    /// * `fileName` - Input parameter. Path of the file to be opened. Path relative to the `rawfile` root directory, for
+    /// example, `images/icons/1.png`.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to [`RawFile64`](crate::RawFile64). If failed or mgr and fileName is nullptr also returns nullptr.
-    /// After you finish using the pointer, call [`OH_ResourceManager_CloseRawFile64`](crate::raw_file::OH_ResourceManager_CloseRawFile64) to release it.
+    /// * Pointer to the `RawFile` object. If the call fails or the input parameter is null, `NULL` is returned. After
+    /// use, call [`OH_ResourceManager_CloseRawFile64`](crate::raw_file::OH_ResourceManager_CloseRawFile64) to release it.
     ///
     /// **See also:** [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager)
     ///
@@ -144,18 +137,18 @@ extern "C" {
         mgr: *const NativeResourceManager,
         fileName: *const ::core::ffi::c_char,
     ) -> *mut RawFile64;
-    /// Whether the rawfile resource is a directory or not.
+    /// Checks whether the specified path is a subdirectory of `rawfile`. It is used to determine whether the
+    /// specified path is a directory before traversing it, or whether the specified path is a file before opening it.
     ///
     /// # Arguments
     ///
-    /// * `mgr` - Indicates the pointer to [`NativeResourceManager`](crate::raw_file_manager::NativeResourceManager) obtained by calling
-    /// [`OH_ResourceManager_InitNativeResourceManager`](crate::raw_file_manager::OH_ResourceManager_InitNativeResourceManager).
+    /// * `mgr` - Input parameter. Pointer to the `NativeResourceManager` object.
     ///
-    /// * `path` - Indicates the rawfile resource relative path.
+    /// * `path` - Path to be checked. Path relative to the `rawfile` root directory, for example, `images/icons`.
     ///
     /// # Returns
     ///
-    /// * Returns true means the file path is directory, else false.
+    /// * **true** if the path is a subdirectory in the **rawfile** directory; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///

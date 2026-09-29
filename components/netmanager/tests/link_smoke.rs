@@ -8,4 +8,9 @@ fn link_smoke() {
     unsafe {
         let _ = netmanager::net_connection::OH_NetConn_HasDefaultNet(&mut has_default);
     }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = netmanager::net_connection::OH_NetConn_UnregisterCustomDnsResolver();
+    }
 }

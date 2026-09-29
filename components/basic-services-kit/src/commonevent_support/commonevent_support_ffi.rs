@@ -4,77 +4,78 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-/// This commonEvent means when the device is shutting down, note: turn off, not sleeping.
+/// Indicates the common event that the device is being shut down and the final shutdown will proceed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_SHUTDOWN: &::core::ffi::CStr = c"usual.event.SHUTDOWN";
-/// This commonEvent means when the charging state, level and so on about the battery.
+/// Indicates the common event that the charging state, level, and other information about the battery have
+/// changed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_BATTERY_CHANGED: &::core::ffi::CStr = c"usual.event.BATTERY_CHANGED";
-/// This commonEvent means when the device in low battery state.
+/// Indicates the common event that the battery level is low.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_BATTERY_LOW: &::core::ffi::CStr = c"usual.event.BATTERY_LOW";
-/// This commonEvent means when the battery level is an ok state.
+/// Indicates the common event that the battery exits the low state.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_BATTERY_OKAY: &::core::ffi::CStr = c"usual.event.BATTERY_OKAY";
-/// This commonEvent means when the other power is connected to the device.
+/// Indicates the common event that the device is connected to an external power supply.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_POWER_CONNECTED: &::core::ffi::CStr = c"usual.event.POWER_CONNECTED";
-/// This commonEvent means when the other power is removed from the device.
+/// Indicates the common event that the device is disconnected from the external power supply.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_POWER_DISCONNECTED: &::core::ffi::CStr = c"usual.event.POWER_DISCONNECTED";
-/// This commonEvent means when the screen is turned off.
+/// Indicates the common event that the device screen is off and the device is sleeping.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_SCREEN_OFF: &::core::ffi::CStr = c"usual.event.SCREEN_OFF";
-/// This commonEvent means when the device is awakened and interactive.
+/// Indicates the common event that the device screen is on and the device is in interactive state.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_SCREEN_ON: &::core::ffi::CStr = c"usual.event.SCREEN_ON";
-/// This commonEvent means when the device is is about to enter the hibernate mode.
+/// Indicates the common event that the device is about to enter the hibernation mode.
 ///
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub const COMMON_EVENT_ENTER_HIBERNATE: &::core::ffi::CStr = c"usual.event.ENTER_HIBERNATE";
-/// This commonEvent means when the device is exits the hibernate mode.
+/// Indicates the common event that the device exits the hibernation mode.
 ///
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub const COMMON_EVENT_EXIT_HIBERNATE: &::core::ffi::CStr = c"usual.event.EXIT_HIBERNATE";
-/// This commonEvent means when the thermal state level change
+/// Indicates the common event that the device's thermal level has changed.
 ///
 ///
 /// Available since API-level: 12
@@ -82,49 +83,52 @@ pub const COMMON_EVENT_EXIT_HIBERNATE: &::core::ffi::CStr = c"usual.event.EXIT_H
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_THERMAL_LEVEL_CHANGED: &::core::ffi::CStr =
     c"usual.event.THERMAL_LEVEL_CHANGED";
-/// This commonEvent means when the current time is changed.
+/// Indicates the common event that the system time has changed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_TIME_TICK: &::core::ffi::CStr = c"usual.event.TIME_TICK";
-/// This commonEvent means when the time is set.
+/// Indicates the common event that the system time has been set.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_TIME_CHANGED: &::core::ffi::CStr = c"usual.event.TIME_CHANGED";
-/// This commonEvent means when the time zone is changed.
+/// Indicates the common event that the system time zone has changed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_TIMEZONE_CHANGED: &::core::ffi::CStr = c"usual.event.TIMEZONE_CHANGED";
-/// This commonEvent means when a new application package is installed on the device.
+/// Indicates the common event that a new application package has been installed on the device.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_PACKAGE_ADDED: &::core::ffi::CStr = c"usual.event.PACKAGE_ADDED";
-/// This commonEvent means when an existing application package is removed from the device.
+/// Indicates the common event that an installed application has been uninstalled from the device with the
+/// application data retained.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_PACKAGE_REMOVED: &::core::ffi::CStr = c"usual.event.PACKAGE_REMOVED";
-/// This commonEvent means when an installed application's add-on package is removed from the device.
+/// Indicates the common event that an installed bundle has been uninstalled from the device with the application
+/// data retained.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_BUNDLE_REMOVED: &::core::ffi::CStr = c"usual.event.BUNDLE_REMOVED";
-/// This commonEvent means when an existing application package is completely removed from the device.
+/// Indicates the common event that an installed application, including both the application data and code, has
+/// been completely uninstalled from the device.
 ///
 ///
 /// Available since API-level: 12
@@ -132,21 +136,22 @@ pub const COMMON_EVENT_BUNDLE_REMOVED: &::core::ffi::CStr = c"usual.event.BUNDLE
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_PACKAGE_FULLY_REMOVED: &::core::ffi::CStr =
     c"usual.event.PACKAGE_FULLY_REMOVED";
-/// This commonEvent means when an existing application package has been changed.
+/// Indicates the common event that an application package has been changed (for example, a component in the
+/// package has been enabled or disabled).
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_PACKAGE_CHANGED: &::core::ffi::CStr = c"usual.event.PACKAGE_CHANGED";
-/// This commonEvent means the user has restarted a package, and all of its processes have been killed.
+/// Indicates the common event that the user has restarted the application package and killed all its processes.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_PACKAGE_RESTARTED: &::core::ffi::CStr = c"usual.event.PACKAGE_RESTARTED";
-/// This commonEvent means the user has cleared the package data.
+/// Indicates the common event that the user cleared the application package data.
 ///
 ///
 /// Available since API-level: 12
@@ -154,7 +159,7 @@ pub const COMMON_EVENT_PACKAGE_RESTARTED: &::core::ffi::CStr = c"usual.event.PAC
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_PACKAGE_DATA_CLEARED: &::core::ffi::CStr =
     c"usual.event.PACKAGE_DATA_CLEARED";
-/// This commonEvent means the user has cleared the package cache.
+/// Indicates the common event that the user has cleared the application package data cache.
 ///
 ///
 /// Available since API-level: 12
@@ -162,14 +167,14 @@ pub const COMMON_EVENT_PACKAGE_DATA_CLEARED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_PACKAGE_CACHE_CLEARED: &::core::ffi::CStr =
     c"usual.event.PACKAGE_CACHE_CLEARED";
-/// This commonEvent means the packages have been suspended.
+/// Indicates the common event that application packages have been suspended.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_PACKAGES_SUSPENDED: &::core::ffi::CStr = c"usual.event.PACKAGES_SUSPENDED";
-/// This commonEvent Sent to a package that has been suspended by the system.
+/// Indicates the common event that application packages are suspended.
 ///
 ///
 /// Available since API-level: 12
@@ -177,7 +182,7 @@ pub const COMMON_EVENT_PACKAGES_SUSPENDED: &::core::ffi::CStr = c"usual.event.PA
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_MY_PACKAGE_SUSPENDED: &::core::ffi::CStr =
     c"usual.event.MY_PACKAGE_SUSPENDED";
-/// Sent to a package that has been un-suspended.
+/// Indicates the common event that application packages have not been suspended.
 ///
 ///
 /// Available since API-level: 12
@@ -185,15 +190,14 @@ pub const COMMON_EVENT_MY_PACKAGE_SUSPENDED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_MY_PACKAGE_UNSUSPENDED: &::core::ffi::CStr =
     c"usual.event.MY_PACKAGE_UNSUSPENDED";
-/// The current device's locale has changed.
+/// Indicates the common event that the device locale has changed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_LOCALE_CHANGED: &::core::ffi::CStr = c"usual.event.LOCALE_CHANGED";
-/// Indicates low memory condition notification acknowledged by user and package
-/// management should be started.
+/// Indicates the common event that the device storage is insufficient.
 ///
 ///
 /// Available since API-level: 12
@@ -201,14 +205,15 @@ pub const COMMON_EVENT_LOCALE_CHANGED: &::core::ffi::CStr = c"usual.event.LOCALE
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_MANAGE_PACKAGE_STORAGE: &::core::ffi::CStr =
     c"usual.event.MANAGE_PACKAGE_STORAGE";
-/// Remind new user of that the service has been unlocked.
+/// Indicates the common event that the credential-encrypted storage has been unlocked for the current user when
+/// the device is unlocked upon restart.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_USER_UNLOCKED: &::core::ffi::CStr = c"usual.event.USER_UNLOCKED";
-/// Distributed account logout successfully.
+/// Indicates the common event that a distributed account is successfully logged out.
 ///
 ///
 /// Available since API-level: 12
@@ -216,7 +221,7 @@ pub const COMMON_EVENT_USER_UNLOCKED: &::core::ffi::CStr = c"usual.event.USER_UN
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT: &::core::ffi::CStr =
     c"common.event.DISTRIBUTED_ACCOUNT_LOGOUT";
-/// Distributed account is invalid.
+/// Indicates the common event that the token of a distributed account is invalid.
 ///
 ///
 /// Available since API-level: 12
@@ -224,7 +229,7 @@ pub const COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOUT: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_DISTRIBUTED_ACCOUNT_TOKEN_INVALID: &::core::ffi::CStr =
     c"common.event.DISTRIBUTED_ACCOUNT_TOKEN_INVALID";
-/// Distributed account logs off.
+/// Indicates the common event that a distributed account is deregistered.
 ///
 ///
 /// Available since API-level: 12
@@ -232,49 +237,50 @@ pub const COMMON_EVENT_DISTRIBUTED_ACCOUNT_TOKEN_INVALID: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_DISTRIBUTED_ACCOUNT_LOGOFF: &::core::ffi::CStr =
     c"common.event.DISTRIBUTED_ACCOUNT_LOGOFF";
-/// WIFI state.
+/// Indicates the common event that the Wi-Fi state has changed to a new state, such as enabled or disabled.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_POWER_STATE: &::core::ffi::CStr = c"usual.event.wifi.POWER_STATE";
-/// WIFI scan results.
+/// Indicates the common event that the Wi-Fi access point has been scanned and proven to be available.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_SCAN_FINISHED: &::core::ffi::CStr = c"usual.event.wifi.SCAN_FINISHED";
-/// WIFI RSSI change.
+/// Indicates the common event that the Wi-Fi signal strength (RSSI) has changed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_RSSI_VALUE: &::core::ffi::CStr = c"usual.event.wifi.RSSI_VALUE";
-/// WIFI connect state.
+/// Indicates the common event that the Wi-Fi connection state has changed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_CONN_STATE: &::core::ffi::CStr = c"usual.event.wifi.CONN_STATE";
-/// WIFI hotspot state.
+/// Indicates the common event that the Wi-Fi hotspot state has changed to a new state, such as enabled or
+/// disabled.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_HOTSPOT_STATE: &::core::ffi::CStr = c"usual.event.wifi.HOTSPOT_STATE";
-/// WIFI ap sta join.
+/// Indicates the common event that a client has joined the Wi-Fi hotspot of the current device.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_AP_STA_JOIN: &::core::ffi::CStr = c"usual.event.wifi.WIFI_HS_STA_JOIN";
-/// WIFI ap sta join.
+/// Indicates the common event that a client has disconnected from the Wi-Fi hotspot of the current device.
 ///
 ///
 /// Available since API-level: 12
@@ -282,7 +288,7 @@ pub const COMMON_EVENT_WIFI_AP_STA_JOIN: &::core::ffi::CStr = c"usual.event.wifi
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_AP_STA_LEAVE: &::core::ffi::CStr =
     c"usual.event.wifi.WIFI_HS_STA_LEAVE";
-/// Indicates Wi-Fi MpLink state notification acknowledged by binding or unbinding MpLink.
+/// Indicates the common event that the state of MPLINK (an enhanced Wi-Fi feature) has changed.
 ///
 ///
 /// Available since API-level: 12
@@ -290,7 +296,7 @@ pub const COMMON_EVENT_WIFI_AP_STA_LEAVE: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE: &::core::ffi::CStr =
     c"usual.event.wifi.mplink.STATE_CHANGE";
-/// Indicates Wi-Fi P2P connection state notification acknowledged by connecting or disconnected P2P.
+/// Indicates the common event that the Wi-Fi P2P connection state has changed.
 ///
 ///
 /// Available since API-level: 12
@@ -298,7 +304,7 @@ pub const COMMON_EVENT_WIFI_MPLINK_STATE_CHANGE: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_P2P_CONN_STATE: &::core::ffi::CStr =
     c"usual.event.wifi.p2p.CONN_STATE_CHANGE";
-/// Indicates that the Wi-Fi P2P state change.
+/// Indicates the common event that the Wi-Fi P2P state has changed to enabled or disabled.
 ///
 ///
 /// Available since API-level: 12
@@ -306,7 +312,7 @@ pub const COMMON_EVENT_WIFI_P2P_CONN_STATE: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_P2P_STATE_CHANGED: &::core::ffi::CStr =
     c"usual.event.wifi.p2p.STATE_CHANGE";
-/// Indicates that the Wi-Fi P2P peers state change.
+/// Indicates the common event that the state of the Wi-Fi P2P peer device has changed.
 ///
 ///
 /// Available since API-level: 12
@@ -314,7 +320,7 @@ pub const COMMON_EVENT_WIFI_P2P_STATE_CHANGED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED: &::core::ffi::CStr =
     c"usual.event.wifi.p2p.DEVICES_CHANGE";
-/// Indicates that the Wi-Fi P2P discovery state change.
+/// Indicates the common event that the Wi-Fi P2P discovery state has changed.
 ///
 ///
 /// Available since API-level: 12
@@ -322,7 +328,7 @@ pub const COMMON_EVENT_WIFI_P2P_PEERS_STATE_CHANGED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED: &::core::ffi::CStr =
     c"usual.event.wifi.p2p.PEER_DISCOVERY_STATE_CHANGE";
-/// Indicates that the Wi-Fi P2P current device state change.
+/// Indicates the common event that the state of the Wi-Fi P2P local device has changed.
 ///
 ///
 /// Available since API-level: 12
@@ -330,7 +336,7 @@ pub const COMMON_EVENT_WIFI_P2P_PEERS_DISCOVERY_STATE_CHANGED: &::core::ffi::CSt
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED: &::core::ffi::CStr =
     c"usual.event.wifi.p2p.CURRENT_DEVICE_CHANGE";
-/// Indicates that the Wi-Fi P2P group info is changed.
+/// Indicates the common event that the Wi-Fi P2P group information has changed.
 ///
 ///
 /// Available since API-level: 12
@@ -338,7 +344,7 @@ pub const COMMON_EVENT_WIFI_P2P_CURRENT_DEVICE_STATE_CHANGED: &::core::ffi::CStr
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED: &::core::ffi::CStr =
     c"usual.event.wifi.p2p.GROUP_STATE_CHANGED";
-/// Nfc state change.
+/// Indicates the common event that the state of the device NFC adapter has changed.
 ///
 ///
 /// Available since API-level: 12
@@ -346,7 +352,7 @@ pub const COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED: &::core::ffi::CStr =
     c"usual.event.nfc.action.ADAPTER_STATE_CHANGED";
-/// Nfc field on detected.
+/// Indicates the common event that the NFC RF field is on.
 ///
 ///
 /// Available since API-level: 12
@@ -354,7 +360,7 @@ pub const COMMON_EVENT_NFC_ACTION_ADAPTER_STATE_CHANGED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED: &::core::ffi::CStr =
     c"usual.event.nfc.action.RF_FIELD_ON_DETECTED";
-/// Nfc field off detected.
+/// Indicates the common event that the NFC RF field is off.
 ///
 ///
 /// Available since API-level: 12
@@ -362,21 +368,21 @@ pub const COMMON_EVENT_NFC_ACTION_RF_FIELD_ON_DETECTED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_NFC_ACTION_RF_FIELD_OFF_DETECTED: &::core::ffi::CStr =
     c"usual.event.nfc.action.RF_FIELD_OFF_DETECTED";
-/// Sent when stop charging battery.
+/// Indicates the common event that the system stops charging the battery.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_DISCHARGING: &::core::ffi::CStr = c"usual.event.DISCHARGING";
-/// Sent when start charging battery.
+/// Indicates the common event that the system starts charging the battery.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_CHARGING: &::core::ffi::CStr = c"usual.event.CHARGING";
-/// Sent when device's idle mode changed
+/// Indicates the common event that the system standby mode has changed.
 ///
 ///
 /// Available since API-level: 12
@@ -384,7 +390,7 @@ pub const COMMON_EVENT_CHARGING: &::core::ffi::CStr = c"usual.event.CHARGING";
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED: &::core::ffi::CStr =
     c"usual.event.DEVICE_IDLE_MODE_CHANGED";
-/// Sent when device's charge idle mode changed.
+/// Indicates the common event that the device enters the charging idle mode.
 ///
 ///
 /// Available since API-level: 12
@@ -392,7 +398,7 @@ pub const COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_CHARGE_IDLE_MODE_CHANGED: &::core::ffi::CStr =
     c"usual.event.CHARGE_IDLE_MODE_CHANGED";
-/// Sent when device's power save mode changed
+/// Indicates the common event that the system power saving mode is changed.
 ///
 ///
 /// Available since API-level: 12
@@ -400,16 +406,14 @@ pub const COMMON_EVENT_CHARGE_IDLE_MODE_CHANGED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_POWER_SAVE_MODE_CHANGED: &::core::ffi::CStr =
     c"usual.event.POWER_SAVE_MODE_CHANGED";
-/// The usb state change events.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the USB device state has changed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_USB_STATE: &::core::ffi::CStr = c"usual.event.hardware.usb.action.USB_STATE";
-/// The usb port changed.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the USB port state of the user device has changed.
 ///
 ///
 /// Available since API-level: 12
@@ -417,8 +421,7 @@ pub const COMMON_EVENT_USB_STATE: &::core::ffi::CStr = c"usual.event.hardware.us
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_USB_PORT_CHANGED: &::core::ffi::CStr =
     c"usual.event.hardware.usb.action.USB_PORT_CHANGED";
-/// The usb device attached.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that a USB device has been attached when the user device functions as a USB host.
 ///
 ///
 /// Available since API-level: 12
@@ -426,8 +429,7 @@ pub const COMMON_EVENT_USB_PORT_CHANGED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_USB_DEVICE_ATTACHED: &::core::ffi::CStr =
     c"usual.event.hardware.usb.action.USB_DEVICE_ATTACHED";
-/// The usb device detached.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that a USB device has been detached when the user device functions as a USB host.
 ///
 ///
 /// Available since API-level: 12
@@ -435,23 +437,21 @@ pub const COMMON_EVENT_USB_DEVICE_ATTACHED: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_USB_DEVICE_DETACHED: &::core::ffi::CStr =
     c"usual.event.hardware.usb.action.USB_DEVICE_DETACHED";
-/// Indicates the common event Action indicating that the airplane mode status of the device changes.
-/// Users can register this event to listen to the change of the airplane mode status of the device.
+/// Indicates the common event that the airplane mode of a device has changed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_AIRPLANE_MODE_CHANGED: &::core::ffi::CStr = c"usual.event.AIRPLANE_MODE";
-/// sent by the window manager service when the window mode is split.
+/// Indicates the common event of screen splitting.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_SPLIT_SCREEN: &::core::ffi::CStr = c"common.event.SPLIT_SCREEN";
-/// Indicate the result of quick fix apply.
-/// This common event can be triggered only by system.
+/// Indicates the common event that a quick fix is applied to an application.
 ///
 ///
 /// Available since API-level: 12
@@ -459,8 +459,7 @@ pub const COMMON_EVENT_SPLIT_SCREEN: &::core::ffi::CStr = c"common.event.SPLIT_S
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_QUICK_FIX_APPLY_RESULT: &::core::ffi::CStr =
     c"usual.event.QUICK_FIX_APPLY_RESULT";
-/// Indicate the result of quick fix revoke.
-/// This common event can be triggered only by system.
+/// Indicates the common event that a quick fix is revoked.
 ///
 ///
 /// Available since API-level: 12
@@ -468,34 +467,31 @@ pub const COMMON_EVENT_QUICK_FIX_APPLY_RESULT: &::core::ffi::CStr =
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_QUICK_FIX_REVOKE_RESULT: &::core::ffi::CStr =
     c"usual.event.QUICK_FIX_REVOKE_RESULT";
-/// Indicate the action of a common event that the user information has been updated.
-/// This common event can be triggered only by system.
+/// Indicates the common event that the user information has been updated.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_USER_INFO_UPDATED: &::core::ffi::CStr = c"usual.event.USER_INFO_UPDATED";
-/// Indicates the action of a common event that the phone SIM card state has changed.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the SIM card state has been updated.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_SIM_STATE_CHANGED: &::core::ffi::CStr = c"usual.event.SIM_STATE_CHANGED";
-/// Indicates the action of a common event that the call state has been changed.
-/// To subscribe to this protected common event, your application must have the ohos.permission.GET_TELEPHONY_STATE
+/// Indicates the common event that the call state has been updated.
+///
+/// To subscribe to this common event, your application must have the ohos.permission.GET_TELEPHONY_STATE
 /// permission.
-/// This is a protected common event that can only be sent by system.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_CALL_STATE_CHANGED: &::core::ffi::CStr = c"usual.event.CALL_STATE_CHANGED";
-/// Indicates the action of a common event that the network state has been changed.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the network state has been updated.
 ///
 ///
 /// Available since API-level: 12
@@ -503,64 +499,56 @@ pub const COMMON_EVENT_CALL_STATE_CHANGED: &::core::ffi::CStr = c"usual.event.CA
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_NETWORK_STATE_CHANGED: &::core::ffi::CStr =
     c"usual.event.NETWORK_STATE_CHANGED";
-/// Indicates the action of a common event that the signal info has been changed.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the signal information has been updated.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_SIGNAL_INFO_CHANGED: &::core::ffi::CStr = c"usual.event.SIGNAL_INFO_CHANGED";
-/// This commonEvent means when the screen is unlocked.
+/// Indicates the common event that the screen has been unlocked.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_SCREEN_UNLOCKED: &::core::ffi::CStr = c"usual.event.SCREEN_UNLOCKED";
-/// This commonEvent means when the screen is locked.
+/// Indicates the common event that the screen has been locked.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_SCREEN_LOCKED: &::core::ffi::CStr = c"usual.event.SCREEN_LOCKED";
-/// This commonEvent means when the http proxy change.
-///
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the HTTP proxy configuration has changed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_HTTP_PROXY_CHANGE: &::core::ffi::CStr = c"usual.event.HTTP_PROXY_CHANGE";
-/// This commonEvent means when the network connectivityy change.
-///
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the network connection state has changed.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_CONNECTIVITY_CHANGE: &::core::ffi::CStr = c"usual.event.CONNECTIVITY_CHANGE";
-/// This common event means that minors mode is enabled.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the minor mode is enabled.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_MINORSMODE_ON: &::core::ffi::CStr = c"usual.event.MINORSMODE_ON";
-/// This common event means that minors mode is disabled.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the minor mode is disabled.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub const COMMON_EVENT_MINORSMODE_OFF: &::core::ffi::CStr = c"usual.event.MINORSMODE_OFF";
-/// This common event means that the managed browser policy is changed.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the browser hosting policy has been changed.
 ///
 ///
 /// Available since API-level: 15
@@ -568,16 +556,49 @@ pub const COMMON_EVENT_MINORSMODE_OFF: &::core::ffi::CStr = c"usual.event.MINORS
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 pub const COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED: &::core::ffi::CStr =
     c"usual.event.MANAGED_BROWSER_POLICY_CHANGED";
-/// This common event means that the open and closed state of the stand associated
-/// with the tablet mode has changed.
-/// This is a protected common event that can only be sent by system.
+/// Indicates the common event that the tablet mode of a device has been changed.
+///
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
 pub const COMMON_EVENT_TABLET_MODE_CHANGED: &::core::ffi::CStr = c"usual.event.TABLET_MODE_CHANGED";
-/// This common event means that the state (open or closed) of the laptop lid has changed.
-/// This is a protected common event that can only be sent by system.
+/// This common event indicates that specific volumes on the device have been decrypted.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub const COMMON_EVENT_VOLUME_DECRYPTED: &::core::ffi::CStr = c"usual.event.VOLUME_DECRYPTED";
+/// This common event indicates that specific volumes on the device have been encrypted.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub const COMMON_EVENT_VOLUME_ENCRYPTED: &::core::ffi::CStr = c"usual.event.VOLUME_ENCRYPTED";
+/// This common event indicates that specific volumes on the device have had their encryption policy set.
+///
+/// To subscribe to this common event, your application must have the ohos.permission.QUERY_VOLUME_ENCRYPTION_STATUS
+/// permission.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub const COMMON_EVENT_VOLUME_ENCRYPTION_POLICY_SET: &::core::ffi::CStr =
+    c"usual.event.VOLUME_ENCRYPTION_POLICY_SET";
+/// This common event indicates that the skill information of an application has been changed.
+///
+/// To receive this common event, your application must have the ohos.permission.MANAGE_SKILL_PRIVILEGE permission.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub const COMMON_EVENT_SKILL_CHANGED: &::core::ffi::CStr = c"usual.event.SKILL_CHANGED";
+/// Indicates the common event that the lid state of a device has been changed.
+///
 ///
 /// Available since API-level: 23
 #[cfg(feature = "api-23")]

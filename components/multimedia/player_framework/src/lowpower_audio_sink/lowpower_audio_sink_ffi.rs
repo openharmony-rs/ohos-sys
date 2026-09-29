@@ -18,16 +18,15 @@ use crate::lowpower_audio_sink_base::{
 use crate::lowpower_avsink_base::OH_AVSamplesBuffer;
 
 extern "C" {
-    /// Creates a lowpower audio sink instance from the mime type, which is recommended in most cases.
+    /// Creates an OH_LowPowerAudioSink instance.
     ///
     /// # Arguments
     ///
-    /// {const char*} mime mime type description string, refer to `AVCODEC_MIME_TYPE`
+    /// * `mime` - mime type description string, refer to `AVCODEC_MIME_TYPE`
     ///
     /// # Returns
     ///
-    /// * Returns a Pointer to an LowPowerAudioSink instance.
-    /// Return nullptr if memory ran out or the mime type is not supported.
+    /// * Pointer to the OH_LowPowerAudioSink instance created. If the operation fails, nullptr is returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -35,24 +34,21 @@ extern "C" {
     pub fn OH_LowPowerAudioSink_CreateByMime(
         mime: *const ::core::ffi::c_char,
     ) -> *mut OH_LowPowerAudioSink;
-    /// To configure the lowpower audio sink, typically, you need to configure the description information of the
-    /// decoded audio track, which can be extracted from the OH_AVSource. This interface must be called before Prepare
-    /// is called.
+    /// Configures an OH_LowPowerAudioSink instance. This function must be called before [`OH_LowPowerAudioSink_Prepare`](crate::lowpower_audio_sink::OH_LowPowerAudioSink_Prepare).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSinkinstance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
-    /// {OH_AVFormat*} format A pointer to an OH_AVFormat to give the description of the audio track to be decoded
+    /// * `format` - A pointer to an OH_AVFormat to give the description of the audio track to be decoded
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -61,24 +57,21 @@ extern "C" {
         sink: *mut OH_LowPowerAudioSink,
         format: *const OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// Set dynamic parameters to the lowpower audio sink.
-    /// Note: This interface can only be called after the decoder is started.
-    /// At the same time, incorrect parameter settings may cause audio sink failure.
+    /// Sets parameters for an OH_LowPowerAudioSink instance. The parameters can be dynamically set after [`OH_LowPowerAudioSink_Prepare`](crate::lowpower_audio_sink::OH_LowPowerAudioSink_Prepare).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
-    /// {OH_AVFormat*} format pointer to an OH_AVFormat instance
+    /// * `format` - pointer to an OH_AVFormat instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -87,20 +80,19 @@ extern "C" {
         sink: *mut OH_LowPowerAudioSink,
         format: *const OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// Get parameter of current lowpower audio sink.
+    /// Obtains the parameters of an OH_LowPowerAudioSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
-    /// {OH_AVFormat*} format pointer to an OH_AVFormat instance
+    /// * `format` - pointer to an OH_AVFormat instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -109,172 +101,160 @@ extern "C" {
         sink: *mut OH_LowPowerAudioSink,
         format: *mut OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// To prepare the internal resources of the lowpower audio sink, the Configure interface must be called before
-    /// calling this interface.
+    /// Prepares an OH_LowPowerAudioSink instance for decoding and rendering. This function must be called after [`OH_LowPowerAudioSink_Configure`](crate::lowpower_audio_sink::OH_LowPowerAudioSink_Configure).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerAudioSink_Prepare(sink: *mut OH_LowPowerAudioSink) -> OH_AVErrCode;
-    /// Start the lowpower audio sink, this interface must be called after the Prepare is successful.
-    /// After being successfully started, the lowpower audio sink will start reporting DataNeeded events.
+    /// Starts an OH_LowPowerAudioSink instance. This function must be called after a successful call to [`OH_LowPowerAudioSink_Prepare`](crate::lowpower_audio_sink::OH_LowPowerAudioSink_Prepare).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) unsupported format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The format is not supported.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerAudioSink_Start(sink: *mut OH_LowPowerAudioSink) -> OH_AVErrCode;
-    /// Pause the lowpower audio sink, this interface must be called after the Start or Resume is successful.
-    /// After being successfully paused, the lowpower audio sink will pause reporting DataNeeded events..
+    /// Pauses an OH_LowPowerAudioSink instance. This function must be called after [`OH_LowPowerAudioSink_Start`](crate::lowpower_audio_sink::OH_LowPowerAudioSink_Start)
+    /// or [`OH_LowPowerAudioSink_Resume`](crate::lowpower_audio_sink::OH_LowPowerAudioSink_Resume).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerAudioSink_Pause(sink: *mut OH_LowPowerAudioSink) -> OH_AVErrCode;
-    /// Resume the lowpower audio sink, this interface must be called after the Pause is successful.
-    /// After being successfully resumed, the lowpower audio sink will resume reporting DataNeeded events.
+    /// Resumes an OH_LowPowerAudioSink instance. This function must be called after [`OH_LowPowerAudioSink_Pause`](crate::lowpower_audio_sink::OH_LowPowerAudioSink_Pause).
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerAudioSink_Resume(sink: *mut OH_LowPowerAudioSink) -> OH_AVErrCode;
-    /// Clear cache data in the lowpower audio sink, this interface is suggested to not be called after the Start
-    /// or Resume. It should be noted that need to re-enter if the codec has been input before Codec-Specific-Data.
+    /// Clears all input and output data from the decoders and render buffers of an OH_LowPowerAudioSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerAudioSink_Flush(sink: *mut OH_LowPowerAudioSink) -> OH_AVErrCode;
-    /// Stop the lowpower audio sink.
+    /// Stops an OH_LowPowerAudioSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode).
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerAudioSink_Stop(sink: *mut OH_LowPowerAudioSink) -> OH_AVErrCode;
-    /// Reset the lowpower audio sink. Too reuse this instance, you need to call the Configure.
+    /// Resets an OH_LowPowerAudioSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerAudioSink_Reset(sink: *mut OH_LowPowerAudioSink) -> OH_AVErrCode;
-    /// Clear the internal resources of the lowpower audio sink and destroy the lowpower audio sink instance.
+    /// Clears internal resources of an OH_LowPowerAudioSink instance and destroys the instance. You only need to
+    /// call the function once.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerAudioSink_Destroy(sink: *mut OH_LowPowerAudioSink) -> OH_AVErrCode;
-    /// Set volume of current lowpower audio sink.
+    /// Sets the rendering volume for an OH_LowPowerAudioSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
-    /// {const float} volume Volume to set which changes from 0.0 to 1.0
+    /// * `volume` - Volume to set which changes from 0.0 to 1.0
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -283,21 +263,20 @@ extern "C" {
         sink: *mut OH_LowPowerAudioSink,
         volume: f32,
     ) -> OH_AVErrCode;
-    /// Set playback speed for the lowpower audio sink.
+    /// Sets the audio rendering speed for an OH_LowPowerAudioSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
-    /// {const float} speed The playback speed value needs to be specified, the valid value is 0.1-4.0
+    /// * `speed` - The playback speed value needs to be specified, the valid value is 0.25-4.0
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -306,21 +285,20 @@ extern "C" {
         sink: *mut OH_LowPowerAudioSink,
         speed: f32,
     ) -> OH_AVErrCode;
-    /// Return frame packet buffer to lowpower audio sink.
+    /// Provides a buffer to an OH_LowPowerAudioSink instance for procesing.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
-    /// {OH_AVSamplesBuffer*} samples Pointer to an OH_AVSamplesBuffer instance
+    /// * `samples` - Pointer to an OH_AVSamplesBuffer instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -329,44 +307,20 @@ extern "C" {
         sink: *mut OH_LowPowerAudioSink,
         samples: *mut OH_AVSamplesBuffer,
     ) -> OH_AVErrCode;
-    /// Set the loudness gain for lowpower audio sink.
+    /// Registers a callback for an OH_LowPowerAudioSink instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance.
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance
     ///
-    /// {float} loudnessGain Loudness gain to set which changes from -90.0 to 24.0, expressing in dB.
-    /// The default loudness gain is 0.0dB.
-    ///
-    /// # Returns
-    ///
-    /// * Returns AV_ERR_OK if the gain is set successfully;
-    /// otherwise, returns a specific error code as defined in [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink is nullptr or loudnessGain is out of valid range.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    ///
-    /// Available since API-level: 21
-    #[cfg(feature = "api-21")]
-    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
-    pub fn OH_LowPowerAudioSink_SetLoudnessGain(
-        sink: *mut OH_LowPowerAudioSink,
-        loudnessGain: f32,
-    ) -> OH_AVErrCode;
-    /// Regsister callback instance for lowpower audio sink.
-    ///
-    /// # Arguments
-    ///
-    /// {OH_LowPowerAudioSink*} sink Pointer to an OH_LowPowerAudioSink instance
-    ///
-    /// {OH_LowPowerAudioSinkCallback*} callback Pointer to an OH_LowPowerAudioSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the sink or format is nullptr or invalid. Invalid param in format.
-    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED) media service is died.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -375,29 +329,28 @@ extern "C" {
         sink: *mut OH_LowPowerAudioSink,
         callback: *mut OH_LowPowerAudioSinkCallback,
     ) -> OH_AVErrCode;
-    /// Creates a lowpower audio sink callback instance.
+    /// Creates an OH_LowPowerAudioSinkCallback instance.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns a Pointer to an OH_LowPowerAudioSinkCallback instance.
-    /// Return nullptr if memory ran out.
+    /// * Pointer to the OH_LowPowerAudioSinkCallback instance created. If the memory is insufficient, nullptr is
+    /// returned.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_LowPowerAudioSinkCallback_Create() -> *mut OH_LowPowerAudioSinkCallback;
-    /// Destroy the lowpower audio sink callback instance.
+    /// Destroys an OH_LowPowerAudioSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSinkCallback*} callback Pointer to an OH_LowPowerAudioSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -405,23 +358,22 @@ extern "C" {
     pub fn OH_LowPowerAudioSinkCallback_Destroy(
         callback: *mut OH_LowPowerAudioSinkCallback,
     ) -> OH_AVErrCode;
-    /// Add onPositionUpdated listener to the lowpower audio sink callback instance.
+    /// Sets a progress update listener for an OH_LowPowerAudioSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSinkCallback*} callback Pointer to an OH_LowPowerAudioSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
-    /// {OH_LowPowerAudioSink_OnPositionUpdated} onPositionUpdated OH_LowPowerAudioSink_OnPositionUpdated function,
+    /// * `onPositionUpdated` - OH_LowPowerAudioSink_OnPositionUpdated function,
     /// refer to [`OH_LowPowerAudioSink_OnPositionUpdated`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnPositionUpdated)
     ///
-    /// * `userData` - User specific data
+    /// * `userData` - Pointer to the data on which the caller depends when executing the callback.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -431,23 +383,22 @@ extern "C" {
         onPositionUpdated: OH_LowPowerAudioSink_OnPositionUpdated,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Add onDataNeeded listener to the lowpower audio sink callback instance.
+    /// Sets a data needed listener for an OH_LowPowerAudioSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSinkCallback*} callback Pointer to an OH_LowPowerAudioSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
-    /// {OH_LowPowerAudioSink_OnDataNeeded} onDataNeeded OH_LowPowerAudioSink_OnDataNeeded function,
+    /// * `onDataNeeded` - OH_LowPowerAudioSink_OnDataNeeded function,
     /// refer to [`OH_LowPowerAudioSink_OnDataNeeded`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnDataNeeded)
     ///
-    /// {void*} userData User specific data
+    /// * `userData` - User specific data
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -457,23 +408,22 @@ extern "C" {
         onDataNeeded: OH_LowPowerAudioSink_OnDataNeeded,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Add onError listener to the lowpower audio sink callback instance.
+    /// Sets an error listener for an OH_LowPowerAudioSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSinkCallback*} callback Pointer to an OH_LowPowerAudioSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
-    /// {OH_LowPowerAudioSink_OnError} onError OH_LowPowerAudioSink_OnError function,
+    /// * `onError` - OH_LowPowerAudioSink_OnError function,
     /// refer to [`OH_LowPowerAudioSink_OnError`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnError)
     ///
-    /// {void*} userData User specific data
+    /// * `userData` - User specific data
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -483,23 +433,22 @@ extern "C" {
         onError: OH_LowPowerAudioSink_OnError,
         userData: *mut ::core::ffi::c_void,
     ) -> OH_AVErrCode;
-    /// Add onEos listener to the lowpower audio sink callback instance.
+    /// Sets an end-of-stream listener for an OH_LowPowerAudioSinkCallback instance.
     ///
     /// # Arguments
     ///
-    /// {OH_LowPowerAudioSinkCallback*} callback Pointer to an OH_LowPowerAudioSinkCallback instance
+    /// * `callback` - Pointer to an OH_LowPowerAudioSinkCallback instance
     ///
-    /// {OH_LowPowerAudioSink_OnEos} onEos OH_LowPowerAudioSink_OnEos function,
+    /// * `onEos` - OH_LowPowerAudioSink_OnEos function,
     /// refer to [`OH_LowPowerAudioSink_OnEos`](crate::lowpower_audio_sink_base::OH_LowPowerAudioSink_OnEos)
     ///
-    /// {void*} userData User specific data
+    /// * `userData` - User specific data
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) the callback is nullptr or invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) operation not permitted.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The operation is not supported.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -508,5 +457,27 @@ extern "C" {
         callback: *mut OH_LowPowerAudioSinkCallback,
         onEos: OH_LowPowerAudioSink_OnEos,
         userData: *mut ::core::ffi::c_void,
+    ) -> OH_AVErrCode;
+    /// Sets the loudness gain for an OH_LowPowerAudioSink instance.
+    ///
+    /// # Arguments
+    ///
+    /// * `sink` - Pointer to an OH_LowPowerAudioSink instance.
+    ///
+    /// * `loudnessGain` - Loudness gain to set which changes from -90.0 to 24.0, expressing in dB.
+    /// The default loudness gain is 0.0dB.
+    ///
+    /// # Returns
+    ///
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// `AV_ERR_INVALID_VA`: An input parameter is nullptr or invalid.
+    /// [`AV_ERR_SERVICE_DIED`](crate::averrors::OH_AVErrCode::AV_ERR_SERVICE_DIED): The media server is destroyed.
+    ///
+    /// Available since API-level: 21
+    #[cfg(feature = "api-21")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+    pub fn OH_LowPowerAudioSink_SetLoudnessGain(
+        sink: *mut OH_LowPowerAudioSink,
+        loudnessGain: f32,
     ) -> OH_AVErrCode;
 }

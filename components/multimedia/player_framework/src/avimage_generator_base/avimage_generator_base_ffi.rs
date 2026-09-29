@@ -10,28 +10,22 @@ use crate::averrors::OH_AVErrCode;
 #[cfg(feature = "api-18")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 impl OH_AVImageGenerator_QueryOptions {
-    /// This option is used to fetch a key frame from the given media
-    /// resource that is located right after or at the given time.
+    /// Extracts the key frame at or next to the specified time.
     pub const OH_AVIMAGE_GENERATOR_QUERY_NEXT_SYNC: OH_AVImageGenerator_QueryOptions =
         OH_AVImageGenerator_QueryOptions(0);
-    /// This option is used to fetch a key frame from the given media
-    /// resource that is located right before or at the given time.
+    /// Extracts the key frame at or prior to the specified time.
     pub const OH_AVIMAGE_GENERATOR_QUERY_PREVIOUS_SYNC: OH_AVImageGenerator_QueryOptions =
         OH_AVImageGenerator_QueryOptions(1);
-    /// This option is used to fetch a key frame from the given media
-    /// resource that is located closest to or at the given time.
+    /// Extracts the key frame closest to the specified time.
     pub const OH_AVIMAGE_GENERATOR_QUERY_CLOSEST_SYNC: OH_AVImageGenerator_QueryOptions =
         OH_AVImageGenerator_QueryOptions(2);
-    /// This option is used to fetch a frame (maybe not keyframe) from
-    /// the given media resource that is located closest to or at the given time.
+    /// Extracts the frame (not necessarily a key frame) closest to the specified time.
     pub const OH_AVIMAGE_GENERATOR_QUERY_CLOSEST: OH_AVImageGenerator_QueryOptions =
         OH_AVImageGenerator_QueryOptions(3);
 }
 #[repr(transparent)]
-/// Enumerates the image query options about the relationship between the given timeUs and a key frame.
+/// Enumerates the mappings between time points and video frames.
 ///
-///
-/// Required System Capabilities: SystemCapability.Multimedia.Media.AVImageGenerator
 ///
 /// Available since API-level: 18
 #[cfg(feature = "api-18")]

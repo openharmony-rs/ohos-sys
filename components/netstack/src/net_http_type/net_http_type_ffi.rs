@@ -82,6 +82,12 @@ impl Http_ErrCode {
     pub const OH_HTTP_REMOTE_FILE_NOT_FOUND: Http_ErrCode = Http_ErrCode(2300078);
     /// Authentication error.
     pub const OH_HTTP_AUTHENTICATION_ERROR: Http_ErrCode = Http_ErrCode(2300094);
+    /// The request was intercepted by the HTTP global interceptor.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OH_HTTP_REQUEST_INTERCEPTED: Http_ErrCode = Http_ErrCode(2300996);
     /// It is not allowed to access this domain.
     pub const OH_HTTP_ACCESS_DOMAIN_NOT_ALLOWED: Http_ErrCode = Http_ErrCode(2300998);
     /// Unknown error.
@@ -183,7 +189,7 @@ impl Http_ResponseCode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Http_ResponseCode(pub ::core::ffi::c_uint);
-/// Buffer.
+/// Defines the HTTP buffer structure.
 ///
 ///
 /// Available since API-level: 20
@@ -192,7 +198,7 @@ pub struct Http_ResponseCode(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_Buffer {
-    /// Content. Buffer will not be copied.
+    /// Buffer data.
     pub buffer: *const ::core::ffi::c_char,
     /// Buffer length.
     pub length: u32,
@@ -256,7 +262,7 @@ impl Http_CertType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Http_CertType(pub ::core::ffi::c_uint);
-/// Headers of the request or response.
+/// Defines the header of an HTTP request or response.
 ///
 ///
 /// Available since API-level: 20
@@ -266,7 +272,7 @@ pub struct Http_CertType(pub ::core::ffi::c_uint);
 pub struct Http_Headers {
     _unused: [u8; 0],
 }
-/// The value type of the header map of the request or response.
+/// Defines the type of a mapped value in a request or response header.
 ///
 ///
 /// Available since API-level: 20
@@ -275,12 +281,12 @@ pub struct Http_Headers {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_HeaderValue {
-    /// Value.
+    /// Value of a key-value pair in the header.
     pub value: *mut ::core::ffi::c_char,
-    /// Point to the next [`Http_HeaderValue`](crate::net_http_type::Http_HeaderValue).
+    /// Pointer to Pointer to the next **Http_HeaderValue**.
     pub next: *mut Http_HeaderValue,
 }
-/// All key-value pairs of the headers of the request or response.
+/// Defines all key-value pairs in the request or response header.
 ///
 ///
 /// Available since API-level: 20
@@ -289,15 +295,15 @@ pub struct Http_HeaderValue {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_HeaderEntry {
-    /// Key.
+    /// Key in the request or response header.
     pub key: *mut ::core::ffi::c_char,
-    /// Value, see [`Http_HeaderValue`](crate::net_http_type::Http_HeaderValue).
+    /// Value of the key in the request or response header. For details, see [`Http_HeaderValue`](crate::net_http_type::Http_HeaderValue).
     pub value: *mut Http_HeaderValue,
-    /// Points to the next key-value pair [`Http_HeaderEntry`](crate::net_http_type::Http_HeaderEntry)
+    /// Pointer to Pointer to the next **Http_HeaderEntry**.
     pub next: *mut Http_HeaderEntry,
 }
-/// Client certificate which is sent to the remote server, the the remote server will use it to verify the
-/// client's identification.
+/// Defines the client certificate sent to a remote server, which will be used by the server to verify the
+/// identity of the client.
 ///
 ///
 /// Available since API-level: 20
@@ -306,13 +312,13 @@ pub struct Http_HeaderEntry {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_ClientCert {
-    /// A path to a client certificate.
+    /// Path of the certificate file.
     pub certPath: *mut ::core::ffi::c_char,
-    /// Client certificate type, see [`Http_CertType`](crate::net_http_type::Http_CertType).
+    /// Certificate type. The default value is **PEM**. For details, see [`Http_CertType`](crate::net_http_type::Http_CertType).
     pub type_: Http_CertType,
-    /// File path of your client certificate private key.
+    /// Path of the certificate key file.
     pub keyPath: *mut ::core::ffi::c_char,
-    /// Password for your client certificate private key.
+    /// Password of the certificate key file.
     pub keyPassword: *mut ::core::ffi::c_char,
 }
 #[cfg(feature = "api-20")]
@@ -334,7 +340,7 @@ impl Http_ProxyType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Http_ProxyType(pub ::core::ffi::c_uint);
-/// Custom proxy configuration.
+/// Defines the custom proxy configuration.
 ///
 ///
 /// Available since API-level: 20
@@ -343,12 +349,12 @@ pub struct Http_ProxyType(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_CustomProxy {
-    /// Indicates the URL of the proxy server. If you do not set port explicitly, port will be 1080.
+    /// Host name of the proxy server. If no port is explicitly set, the port number is defaulted to **1080**.
     pub host: *const ::core::ffi::c_char,
     pub port: i32,
     pub exclusionLists: *const ::core::ffi::c_char,
 }
-/// Proxy configuration.
+/// Defines the proxy configuration structure.
 ///
 ///
 /// Available since API-level: 20
@@ -357,12 +363,12 @@ pub struct Http_CustomProxy {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_Proxy {
-    /// Distinguish the proxy type used by the request, see [`Http_ProxyType`](crate::net_http_type::Http_ProxyType).
+    /// Proxy configuration type. For details, see [`Http_ProxyType`](crate::net_http_type::Http_ProxyType).
     pub proxyType: Http_ProxyType,
-    /// Custom proxy configuration, see [`Http_CustomProxy`](crate::net_http_type::Http_CustomProxy).
+    /// Custom proxy configuration. For details, see [`Http_CustomProxy`](crate::net_http_type::Http_CustomProxy).
     pub customProxy: Http_CustomProxy,
 }
-/// Response timing information. It will be collected in `Http_Response.performanceTiming`.
+/// Defines the HTTP response timing information, which will be collected via [`Http_Response`](crate::net_http_type::Http_Response).
 ///
 ///
 /// Available since API-level: 20
@@ -371,22 +377,22 @@ pub struct Http_Proxy {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_PerformanceTiming {
-    /// The total time in milliseconds for the HTTP transfer, including name resolving, TCP connect etc.
+    /// Duration from the time when the request is initiated to the time when the DNS resolution is complete.
     pub dnsTiming: f64,
-    /// The time in milliseconds from the start until the remote host name was resolved.
+    /// Duration from the time when the request is initiated to the time when the TCP connection is complete.
     pub tcpTiming: f64,
-    /// The time in milliseconds from the start until the connection to the remote host (or proxy) was completed.
+    /// Duration from the time when the request is initiated to the time when the TLS connection is complete.
     pub tlsTiming: f64,
-    /// The time in milliseconds, it took from the start until the transfer is just about to begin.
+    /// Duration from the time when the request is initiated to the time when the first byte is sent.
     pub firstSendTiming: f64,
-    /// The time in milliseconds from last modification time of the remote file.
+    /// Duration from the time when the request is initiated to the time when the first byte is received.
     pub firstReceiveTiming: f64,
-    /// The time in milliseconds, it took from the start until the first byte is received.
+    /// Duration from the time when the request is initiated to the time when the request is complete.
     pub totalFinishTiming: f64,
-    /// The time in milliseconds it took for all redirection steps including name lookup, connect, etc.
+    /// Duration from the time when the request is initiated to the time when all redirection steps are complete.
     pub redirectTiming: f64,
 }
-/// Defines the parameters for http request options.
+/// Defines the structure of HTTP requests.
 ///
 ///
 /// Available since API-level: 20
@@ -395,35 +401,36 @@ pub struct Http_PerformanceTiming {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_RequestOptions {
-    /// Request method.
+    /// HTTP request method.
     pub method: *const ::core::ffi::c_char,
-    /// Priority of http requests. A larger value indicates a higher priority.
+    /// HTTP request priority.
     pub priority: u32,
-    /// Header of http requests, see [`Http_Headers`](crate::net_http_type::Http_Headers).
+    /// Pointer to the HTTP request header. For details, see [`Http_Headers`](crate::net_http_type::Http_Headers).
     pub headers: *mut Http_Headers,
-    /// Read timeout interval.
+    /// Read timeout duration.
     pub readTimeout: u32,
-    /// Connection timeout interval.
+    /// Connection timeout duration.
     pub connectTimeout: u32,
-    /// Use the protocol. The default value is automatically specified by the system, see [`Http_HttpProtocol`](crate::net_http_type::Http_HttpProtocol).
+    /// HTTP protocol. For details, see [`Http_HttpProtocol`](crate::net_http_type::Http_HttpProtocol).
     pub httpProtocol: Http_HttpProtocol,
-    /// Indicates whether to use the HTTP proxy. The default value is false,
-    /// and http proxy config, see [`Http_Proxy`](crate::net_http_type::Http_Proxy).
+    /// Pointer to the HTTP proxy configuration, which indicates whether to use a proxy. By default, proxy is not used.
+    /// For details, see [`Http_Proxy`](crate::net_http_type::Http_Proxy).
     pub httpProxy: *mut Http_Proxy,
-    /// CA certificate of the user-specified path.
+    /// Certificate path. If the CA certificate path is set, the system uses the CA certificate in the specified path.
+    /// Otherwise, the system uses the preset CA certificate.
     pub caPath: *const ::core::ffi::c_char,
-    /// Set the download start position. This parameter can be used only in the GET method.
+    /// Download start position. This field can be used only for the GET method.
     pub resumeFrom: i64,
-    /// Set the download end position. This parameter can be used only in the GET method.
+    /// Download end position. This field can be used only for the GET method.
     pub resumeTo: i64,
-    /// Client certificates can be transferred, see [`Http_ClientCert`](crate::net_http_type::Http_ClientCert).
+    /// Pointer to the client certificate configuration. For details, see [`Http_ClientCert`](crate::net_http_type::Http_ClientCert).
     pub clientCert: *mut Http_ClientCert,
-    /// Set the DNS resolution for the https server.
+    /// HTTPS server for DNS resolution.
     pub dnsOverHttps: *const ::core::ffi::c_char,
-    /// The address family can be specified when target domain name is resolved, see [`Http_AddressFamilyType`](crate::net_http_type::Http_AddressFamilyType).
+    /// IP address family. For details, see [`Http_AddressFamilyType`](crate::net_http_type::Http_AddressFamilyType).
     pub addressFamily: Http_AddressFamilyType,
 }
-/// Defines the parameters for http response.
+/// Defines the structure of HTTP responses.
 ///
 ///
 /// Available since API-level: 20
@@ -432,27 +439,27 @@ pub struct Http_RequestOptions {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_Response {
-    /// Response body, see [`Http_Buffer`](crate::net_http_type::Http_Buffer).
+    /// HTTP response data. For details, see [`Http_Buffer`](crate::net_http_type::Http_Buffer).
     pub body: Http_Buffer,
-    /// Server status code, see [`Http_ResponseCode`](crate::net_http_type::Http_ResponseCode).
+    /// HTTP response code. For details, see [`Http_ResponseCode`](crate::net_http_type::Http_ResponseCode).
     pub responseCode: Http_ResponseCode,
-    /// Header of http response, see [`Http_Headers`](crate::net_http_type::Http_Headers).
+    /// Pointer to the HTTP response header. For details, see [`Http_Headers`](crate::net_http_type::Http_Headers).
     pub headers: *mut Http_Headers,
-    /// Cookies returned by the server.
+    /// Pointer to the HTTP response cookies.
     pub cookies: *mut ::core::ffi::c_char,
-    /// The time taken of various stages of HTTP request, see [`Http_PerformanceTiming`](crate::net_http_type::Http_PerformanceTiming).
+    /// Pointer to the HTTP response timing. For details, see [`Http_PerformanceTiming`](crate::net_http_type::Http_PerformanceTiming).
     pub performanceTiming: *mut Http_PerformanceTiming,
-    /// Response deletion function.
+    /// Callback function for destroying an HTTP response.
     ///
     /// # Arguments
     ///
-    /// * `response` - Indicates the response to be deleted. It is a pointer that points to [`Http_Response`](crate::net_http_type::Http_Response).
+    /// * `response` - Pointer to the HTTP response to be destroyed. For details, see [`Http_Response`](crate::net_http_type::Http_Response).
     ///
     /// Available since API-level: 20
     pub destroyResponse:
         ::core::option::Option<unsafe extern "C" fn(response: *mut *mut Http_Response)>,
 }
-/// Http request.
+/// Defines an HTTP request.
 ///
 ///
 /// Available since API-level: 20
@@ -461,11 +468,11 @@ pub struct Http_Response {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_Request {
-    /// The request id for every single request. Generated by system.
+    /// ID of an HTTP request.
     pub requestId: u32,
-    /// Request url.
+    /// Pointer to the HTTP request URL.
     pub url: *mut ::core::ffi::c_char,
-    /// Request options, see [`Http_RequestOptions`](crate::net_http_type::Http_RequestOptions).
+    /// Pointer to the HTTP request configuration. For details, see [`Http_RequestOptions`](crate::net_http_type::Http_RequestOptions).
     pub options: *mut Http_RequestOptions,
 }
 /// Callback function that is invoked when response is received.
@@ -525,7 +532,7 @@ pub type Http_OnHeaderReceiveCallback =
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 pub type Http_OnVoidCallback = ::core::option::Option<unsafe extern "C" fn()>;
-/// Callbacks to watch different events.
+/// Defines the callback for various HTTP events.
 ///
 ///
 /// Available since API-level: 20
@@ -534,16 +541,16 @@ pub type Http_OnVoidCallback = ::core::option::Option<unsafe extern "C" fn()>;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Http_EventsHandler {
-    /// Callback function when the response body is received
+    /// Callback invoked when a response body is received. For details, see [`Http_OnDataReceiveCallback`](crate::net_http_type::Http_OnDataReceiveCallback).
     pub onDataReceive: Http_OnDataReceiveCallback,
-    /// Callback function during uploading
+    /// Callback invoked when an upload is triggered. For details, see [`Http_OnProgressCallback`](crate::net_http_type::Http_OnProgressCallback).
     pub onUploadProgress: Http_OnProgressCallback,
-    /// Callback function during downloading
+    /// Callback invoked when a download is triggered. For details, see [`Http_OnProgressCallback`](crate::net_http_type::Http_OnProgressCallback).
     pub onDownloadProgress: Http_OnProgressCallback,
-    /// Callback function when a header is received
+    /// Callback invoked when a header is received. For details, see [`Http_OnHeaderReceiveCallback`](crate::net_http_type::Http_OnHeaderReceiveCallback).
     pub onHeadersReceive: Http_OnHeaderReceiveCallback,
-    /// Callback function at the end of the transfer
+    /// Callback invoked when the transmission is complete. For details, see [`Http_OnVoidCallback`](crate::net_http_type::Http_OnVoidCallback).
     pub onDataEnd: Http_OnVoidCallback,
-    /// Callback function when a request is canceled
+    /// Callback invoked when the request is canceled. For details, see [`Http_OnVoidCallback`](crate::net_http_type::Http_OnVoidCallback).
     pub onCanceled: Http_OnVoidCallback,
 }

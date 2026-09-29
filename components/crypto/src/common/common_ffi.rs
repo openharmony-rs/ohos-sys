@@ -4,8 +4,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-/// Crypto data struct.
-///
+/// Crypto data structure.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -13,37 +12,63 @@
 #[repr(C)]
 pub struct Crypto_DataBlob {
     /// Data buffer.
+    ///
+    /// Available since API-level: 12
     pub data: *mut u8,
     /// Data length.
+    ///
+    /// Available since API-level: 12
     pub len: usize,
 }
 pub type CryptoResult = Result<(), CryptoErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl CryptoErrorCode {
-    /// Indicates that input parameters is invalid.
+    /// Invalid input parameters.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const INVALID_PARAMS: CryptoErrorCode =
         CryptoErrorCode(const { core::num::NonZero::new(401).unwrap() });
-    /// Indicates that function or algorithm is not supported.
+    /// Unsupported feature or algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NOT_SUPPORTED: CryptoErrorCode =
         CryptoErrorCode(const { core::num::NonZero::new(801).unwrap() });
-    /// Indicates the memory error.
+    /// Memory operation failed.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const MEMORY_ERROR: CryptoErrorCode =
         CryptoErrorCode(const { core::num::NonZero::new(17620001).unwrap() });
-    /// Indicates that parameter check failed.
+    /// Parameter check failed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const PARAMETER_CHECK_FAILED: CryptoErrorCode =
         CryptoErrorCode(const { core::num::NonZero::new(17620003).unwrap() });
-    /// Indicates that crypto operation error.
+    /// Invalid function call.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const INVALID_CALL: CryptoErrorCode =
+        CryptoErrorCode(const { core::num::NonZero::new(17620004).unwrap() });
+    /// Crypto operation error.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const OPERTION_ERROR: CryptoErrorCode =
         CryptoErrorCode(const { core::num::NonZero::new(17630001).unwrap() });
 }
 #[repr(transparent)]
 /// Enumerates the error codes.
-///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -53,14 +78,21 @@ pub struct CryptoErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Crypto_CipherMode {
-    /// Indicates encryption operation.
+    /// Encryption operation.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ENCRYPT_MODE: Crypto_CipherMode = Crypto_CipherMode(0);
-    /// Indicates decryption operation.
+    /// Decryption operation.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DECRYPT_MODE: Crypto_CipherMode = Crypto_CipherMode(1);
 }
 #[repr(transparent)]
-/// Define crypto cipher mode.
-///
+/// Defines the cipher mode.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -68,11 +100,10 @@ impl Crypto_CipherMode {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Crypto_CipherMode(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Free the data of dataBlob.
-    ///
+    /// Frees the memory of a data blob.
     /// # Arguments
     ///
-    /// * `dataBlob` - Indicates the data blob.
+    /// * `dataBlob` - \[in\] Data blob to free.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

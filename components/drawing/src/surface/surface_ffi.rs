@@ -6,21 +6,21 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_Surface</b> object on GPU indicated by context.
+    /// Creates an **OH_Drawing_Surface** object using the GPU context to manage the content drawn on the canvas.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **gpuContext** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `gpuContext` - Indicates the pointer to an <b>OH_Drawing_GpuContext</b> object.
+    /// * `gpuContext` - Pointer to an [`OH_Drawing_GpuContext`](crate::types::OH_Drawing_GpuContext) object.
     ///
-    /// * `flag` - Indicates whether an allocation should count against a cache budget.
+    /// * `flag` - Whether the memory allocation is counted in the cache budget. **true** means yes; **false** otherwise.
     ///
-    /// * `imageInfo` - Indicates the image info.
+    /// * `imageInfo` - Image information struct.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Surface</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_Surface`](crate::types::OH_Drawing_Surface) object.
     ///
     /// Available since API-level: 12
     ///
@@ -32,21 +32,24 @@ extern "C" {
         flag: bool,
         imageInfo: OH_Drawing_Image_Info,
     ) -> *mut OH_Drawing_Surface;
-    /// Creates an <b>OH_Drawing_Surface</b> object on GPU indicated by context which is on-screen.
+    /// Creates an **OH_Drawing_Surface** object bound to the window using the GPU context to manage the content
+    /// drawn on the canvas.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **gpuContext** or **window** is NULL.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `gpuContext` - Indicates the pointer to an <b>OH_Drawing_GpuContext</b> object.
+    /// * `gpuContext` - Pointer to an [`OH_Drawing_GpuContext`](crate::types::OH_Drawing_GpuContext) object.
+    /// This object must be created by [`OH_Drawing_GpuContextCreate`](crate::gpu_context::OH_Drawing_GpuContextCreate). Otherwise, the **OH_Drawing_Surface** object
+    /// fails to be created.
     ///
-    /// * `imageInfo` - Indicates the image info.
+    /// * `imageInfo` - Image information struct.
     ///
-    /// * `window` - Indicates the pointer of the screen window.
+    /// * `window` - Pointer to the window object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Surface</b> object created.
+    /// * Returns a pointer to the created [`OH_Drawing_Surface`](crate::types::OH_Drawing_Surface) object.
     ///
     /// Available since API-level: 16
     ///
@@ -58,18 +61,18 @@ extern "C" {
         imageInfo: OH_Drawing_Image_Info,
         window: *mut ::core::ffi::c_void,
     ) -> *mut OH_Drawing_Surface;
-    /// Gets the canvas that draws into surface.
+    /// Obtains a canvas from an **OH_Drawing_Surface** object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **surface** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `surface` - Indicates the pointer to an <b>OH_Drawing_Surface</b> object.
+    /// * `surface` - Pointer to an **OH_Drawing_Surface** object.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Canvas</b> object. The returned pointer does not need to be managed
-    /// by the caller.
+    /// * Returns a pointer to the created [`OH_Drawing_Canvas`](crate::types::OH_Drawing_Canvas) object. The pointer returned does not need to be
+    /// managed by the caller.
     ///
     /// Available since API-level: 12
     ///
@@ -77,19 +80,19 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_SurfaceGetCanvas(surface: *mut OH_Drawing_Surface) -> *mut OH_Drawing_Canvas;
-    /// Resolves all pending GPU operations on the surface.
+    /// Pushes the drawing content from an **OH_Drawing_Surface** object to the GPU for rendering.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `surface` - Indicates the pointer to an <b>OH_Drawing_Surface</b> object.
+    /// * `surface` - Pointer to the created [`OH_Drawing_Surface`](crate::types::OH_Drawing_Surface) object. This object must be created by calling
+    /// [`OH_Drawing_SurfaceCreateOnScreen`](crate::surface::OH_Drawing_SurfaceCreateOnScreen)
+    /// . Otherwise, calling the current API has no effect.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if surface is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **surface** is NULL.
     ///
     /// Available since API-level: 16
     ///
@@ -99,13 +102,11 @@ extern "C" {
     pub fn OH_Drawing_SurfaceFlush(
         surface: *mut OH_Drawing_Surface,
     ) -> crate::error_code::DrawingResult;
-    /// Destroys an <b>OH_Drawing_Surface</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Surface** object and reclaims the memory occupied.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `surface` - Indicates the pointer to an <b>OH_Drawing_Surface</b> object.
+    /// * `surface` - Pointer to an **OH_Drawing_Surface** object.
     ///
     /// Available since API-level: 12
     ///

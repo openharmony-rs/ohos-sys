@@ -7,7 +7,8 @@
 #[allow(unused_imports)]
 use crate::averrors::OH_AVErrCode;
 
-/// definiton of avtranscoder
+/// The struct initializes an AVTranscoder.
+///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -16,7 +17,8 @@ use crate::averrors::OH_AVErrCode;
 pub struct OH_AVTranscoder {
     _unused: [u8; 0],
 }
-/// definiton of avtranscoder config
+/// The struct initializes an AVTranscoder_Config.
+///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -28,33 +30,35 @@ pub struct OH_AVTranscoder_Config {
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl OH_AVTranscoder_State {
-    /// prepared states
+    /// The transcoding process is prepared and ready to start.
     pub const AVTRANSCODER_PREPARED: OH_AVTranscoder_State = OH_AVTranscoder_State(1);
-    /// started states
+    /// The transcoding process has started.
     pub const AVTRANSCODER_STARTED: OH_AVTranscoder_State = OH_AVTranscoder_State(2);
-    /// paused states
+    /// The transcoding process is paused.
     pub const AVTRANSCODER_PAUSED: OH_AVTranscoder_State = OH_AVTranscoder_State(3);
-    /// cancelled states
+    /// The transcoding process has been canceled.
     pub const AVTRANSCODER_CANCELLED: OH_AVTranscoder_State = OH_AVTranscoder_State(4);
-    /// completed states
+    /// The transcoding process is completed.
     pub const AVTRANSCODER_COMPLETED: OH_AVTranscoder_State = OH_AVTranscoder_State(5);
 }
 #[repr(transparent)]
-/// Transcoder States
+/// Enumerates the transcoding states.
+///
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AVTranscoder_State(pub ::core::ffi::c_uint);
-/// Called when the state changed of current transcoding.
+/// Defines a callback invoked when the state of the transcoding process changes.
+///
 /// # Arguments
 ///
-/// {OH_AVTranscoder*} transcoder The pointer to an OH_AVTranscoder instance.
+/// * `transcoder` - The pointer to an OH_AVTranscoder instance.
 ///
-/// {OH_AVTranscoder_State} state Indicates the transcoder state. For details, see [`OH_AVTranscoder_State`](crate::avtranscoder_base::OH_AVTranscoder_State).
+/// * `state` - Indicates the transcoder state. For details, see [`OH_AVTranscoder_State`](crate::avtranscoder_base::OH_AVTranscoder_State).
 ///
-/// {void*} userData Pointer to user specific data.
+/// * `userData` - Pointer to user specific data.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -66,22 +70,23 @@ pub type OH_AVTranscoder_OnStateChange = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// Called when an error occurred during transcoding
+/// Defines a callback invoked when an error occurs during the transcoding process.
+///
 /// # Arguments
 ///
-/// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance.
+/// * `transcoder` - Pointer to an OH_AVTranscoder instance.
 ///
-/// {int32_t} errorCode Error code.
-/// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY) if memory is insufficient.
-/// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO) if IO access failed.
-/// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE) if the current state does not support this operation.
-/// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT) if unsurpport function.
-/// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if the parameter check failed.
-/// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if operation not allowed.
+/// * `errorCode` - Error code.
+/// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): memory is insufficient.
+/// [`AV_ERR_IO`](crate::averrors::OH_AVErrCode::AV_ERR_IO): IO access failed.
+/// [`AV_ERR_INVALID_STATE`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_STATE): current state does not support this operation.
+/// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): unsupported function.
+/// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): the parameter check failed.
+/// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): operation not allowed.
 ///
-/// {const char*} errorMsg Error message.
+/// * `errorMsg` - Error message.
 ///
-/// {void*} userData Pointer to user specific data.
+/// * `userData` - Pointer to user specific data.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -94,14 +99,15 @@ pub type OH_AVTranscoder_OnError = ::core::option::Option<
         userData: *mut ::core::ffi::c_void,
     ),
 >;
-/// Progress indicator function definition, called when transcoding progress is updated
+/// Defines a callback invoked when the progress of the transcoding process is updated.
+///
 /// # Arguments
 ///
-/// {OH_AVTranscoder*} transcoder Pointer to an OH_AVTranscoder instance.
+/// * `transcoder` - Pointer to an OH_AVTranscoder instance.
 ///
-/// {int32_t} progress Transcoding progress.
+/// * `progress` - Transcoding progress, in percentage.
 ///
-/// {void*} userData Pointer to user specific data.
+/// * `userData` - Pointer to user specific data.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]

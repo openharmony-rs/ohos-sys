@@ -215,6 +215,28 @@ extern "C" {
         abilityName: *const u16,
         length: usize,
     ) -> InputMethodResult;
+    /// Set whether the editor supports consuming key events into TextConfig.
+    ///
+    /// # Arguments
+    ///
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be set.
+    ///
+    /// * `consumeKeyEvents` - Indicates whether the editor supports consuming key events.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_TextConfig_SetConsumeKeyEvents(
+        config: *mut InputMethod_TextConfig,
+        consumeKeyEvents: bool,
+    ) -> InputMethodResult;
     /// Get input type from TextConfig
     ///
     /// # Arguments
@@ -441,5 +463,27 @@ extern "C" {
         config: *mut InputMethod_TextConfig,
         abilityName: *mut u16,
         length: *mut usize,
+    ) -> InputMethodResult;
+    /// Get whether the editor supports consuming key events from TextConfig.
+    ///
+    /// # Arguments
+    ///
+    /// * `config` - Represents a pointer to an [`InputMethod_TextConfig`](crate::text_config::InputMethod_TextConfig) instance which will be get from.
+    ///
+    /// * `consumeKeyEvents` - Indicates Indicates whether the editor supports consuming key events.
+    ///
+    /// # Returns
+    ///
+    /// * Returns a specific error code.
+    /// [`IME_ERR_OK`](crate::types::InputMethodResult) - success.
+    /// [`IME_ERR_NULL_POINTER`](crate::types::InputMethodErrorCode::NULL_POINTER) - unexpected null pointer.
+    /// Specific error codes can be referenced [`InputMethod_ErrorCode`](crate::types::InputMethodResult).
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_TextConfig_GetConsumeKeyEvents(
+        config: *mut InputMethod_TextConfig,
+        consumeKeyEvents: *mut bool,
     ) -> InputMethodResult;
 }

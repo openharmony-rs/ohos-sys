@@ -6,14 +6,12 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_Image</b> object.
+    /// Creates an **OH_Drawing_Image** object that describes an array of two-dimensional pixels to draw.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Image</b> object created.
+    /// * Returns a pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object created.
     ///
     /// Available since API-level: 12
     ///
@@ -21,13 +19,11 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ImageCreate() -> *mut OH_Drawing_Image;
-    /// Destroys an <b>OH_Drawing_Image</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Image** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object.
     ///
     /// Available since API-level: 12
     ///
@@ -35,19 +31,20 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ImageDestroy(image: *mut OH_Drawing_Image);
-    /// Rebuilds an <b>OH_Drawing_Image</b> object, sharing or copying bitmap pixels.
+    /// Builds an image from a bitmap by sharing or copying bitmap pixels. If the bitmap is marked as immutable, the
+    /// pixel memory is shared, not copied.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **image** or **bitmap** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object.
     ///
-    /// * `bitmap` - Indicates the pointer to an <b>OH_Drawing_Bitmap</b> object.
+    /// * `bitmap` - Pointer to the [`OH_Drawing_Bitmap`](crate::types::OH_Drawing_Bitmap) object.
     ///
     /// # Returns
     ///
-    /// * Returns true if successed.
+    /// * Returns **true** if the image is built; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -58,13 +55,13 @@ extern "C" {
         image: *mut OH_Drawing_Image,
         bitmap: *mut OH_Drawing_Bitmap,
     ) -> bool;
-    /// Gets pixel count in each row of image.
+    /// Obtains the image width, that is, the number of pixels in each line.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **image** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object.
     ///
     /// # Returns
     ///
@@ -76,13 +73,13 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ImageGetWidth(image: *mut OH_Drawing_Image) -> i32;
-    /// Gets pixel row count of image.
+    /// Obtains the image height, that is, the number of pixel lines.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **image** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object.
     ///
     /// # Returns
     ///
@@ -94,15 +91,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ImageGetHeight(image: *mut OH_Drawing_Image) -> i32;
-    /// Gets the image info.
+    /// Obtains the image information. After this function is called, the passed-in image information object is
+    /// filled.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **image** or **imageInfo** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object.
     ///
-    /// * `imageInfo` - Indicates the pointer to an <b>OH_Drawing_Image_Info</b> object.
+    /// * `imageInfo` - Pointer to an [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info) object, which can be created by calling
+    /// [`OH_Drawing_Image_Info`](crate::types::OH_Drawing_Image_Info)
+    /// .
     ///
     /// Available since API-level: 12
     ///

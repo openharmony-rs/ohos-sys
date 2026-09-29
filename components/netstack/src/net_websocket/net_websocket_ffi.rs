@@ -6,22 +6,21 @@
 use crate::net_websocket_type::*;
 
 extern "C" {
-    /// Constructor of websocket.
+    /// Constructor used to create a WebSocket client.
     ///
     /// # Arguments
     ///
-    /// * `onOpen` - Callback function invoked when a connection setup message is received.
+    /// * `onOpen` - Callback invoked when the WebSocket client receives an **open** message.
     ///
-    /// * `onMessage` - Callback function invoked when a message is received.
+    /// * `onMessage` - Callback invoked when the WebSocket client receives a **Message** message.
     ///
-    /// * `onError` - Callback function invoked when a connection error message is received.
+    /// * `onError` - Callback invoked when the WebSocket client receives an **error** message.
     ///
-    /// * `onclose` - Callback function invoked when a connection closing message is closed.
-    ///
+    /// * `onclose` - Callback invoked when the WebSocket client receives a **close** message.
     ///
     /// # Returns
     ///
-    /// * Pointer to the websocket client if success; NULL otherwise.
+    /// * Pointer to the WebSocket client if the operation is successful; **NULL** otherwise.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -40,13 +39,14 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `client` - Pointer to the websocket client.
+    /// * `client` - Pointer to the WebSocket client.
     ///
-    /// * `header` - Header information
+    /// * `header` - Header information.
     ///
     /// # Returns
     ///
-    /// * 0 if success; non-0 otherwise. For details about error codes, see `OH_Websocket_ErrCode`.
+    /// * **0** if the operation is successful; a non-0 value otherwise. For details about the return values, see **
+    /// OH_Websocket_ErrCode**.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -59,19 +59,20 @@ extern "C" {
         client: *mut WebSocket,
         header: WebSocket_Header,
     ) -> ::core::ffi::c_int;
-    /// Connects the client to the server.
+    /// Connects the WebSocket client to the server.
     ///
     /// # Arguments
     ///
-    /// * `client` - Pointer to the websocket client.
+    /// * `client` - Pointer to the WebSocket client.
     ///
-    /// * `url` - URL for the client to connect to the server.
+    /// * `url` - IP address for the WebSocket client to connect to the server.
     ///
-    /// * `options` - Optional parameters.
+    /// * `options` - Optional parameters for connection establishment.
     ///
     /// # Returns
     ///
-    /// * 0 if success; non-0 otherwise. For details about error codes, see `OH_Websocket_ErrCode`.
+    /// * **0** if the operation is successful; a non-0 value otherwise. For details about the return values, see **
+    /// OH_Websocket_ErrCode**.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -87,19 +88,20 @@ extern "C" {
         url: *const ::core::ffi::c_char,
         options: WebSocket_RequestOptions,
     ) -> ::core::ffi::c_int;
-    /// Sends data from the client to the server.
+    /// Sends data from the WebSocket client to the server.
     ///
     /// # Arguments
     ///
-    /// * `client` - Pointer to the websocket client.
+    /// * `client` - WebSocket client.
     ///
-    /// * `data` - Data sent by the client.
+    /// * `data` - Data sent by the WebSocket client.
     ///
-    /// * `length` - Length of the data sent by the client.
+    /// * `length` - Length of the data sent by the WebSocket client.
     ///
     /// # Returns
     ///
-    /// * 0 if success; non-0 otherwise. For details about error codes, see `OH_Websocket_ErrCode`.
+    /// * **0** if the operation is successful; a non-0 value otherwise. For details about the return values, see **
+    /// OH_Websocket_ErrCode**.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -115,17 +117,18 @@ extern "C" {
         data: *mut ::core::ffi::c_char,
         length: usize,
     ) -> ::core::ffi::c_int;
-    /// Closes a webSocket connection.
+    /// Closes the connection on the WebSocket client.
     ///
     /// # Arguments
     ///
-    /// * `client` - Pointer to the websocket client.
+    /// * `client` - WebSocket client.
     ///
-    /// * `options` - Optional parameters.
+    /// * `options` - Optional parameters for connection closure.
     ///
     /// # Returns
     ///
-    /// * 0 if success; non-0 otherwise. For details about error codes, see `OH_Websocket_ErrCode`.
+    /// * **0** if the operation is successful; a non-0 value otherwise. For details about the return values, see **
+    /// OH_Websocket_ErrCode**.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
@@ -140,15 +143,16 @@ extern "C" {
         client: *mut WebSocket,
         options: WebSocket_CloseOption,
     ) -> ::core::ffi::c_int;
-    /// Releases the context and resources of the websocket connection.
+    /// Destroys the WebSocket client and releases the context and resources of the WebSocket connection. Usage:
     ///
     /// # Arguments
     ///
-    /// * `client` - Pointer to the websocket client.
+    /// * `client` - WebSocket client.
     ///
     /// # Returns
     ///
-    /// * 0 if success; non-0 otherwise. For details about error codes, see `OH_Websocket_ErrCode`.
+    /// * **0** if the operation is successful; a non-0 value otherwise. For details about the return values, see **
+    /// OH_Websocket_ErrCode**.
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///

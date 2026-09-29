@@ -4,97 +4,135 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
+/// Defines a frame metric data object.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[repr(C)]
+pub struct OH_WindowManager_FrameMetrics {
+    _unused: [u8; 0],
+}
+/// Frame metrics callback type.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub type OH_WindowManager_FrameMetricsMeasuredCallback = ::core::option::Option<
+    unsafe extern "C" fn(windowId: i32, metrics: *const OH_WindowManager_FrameMetrics),
+>;
+/// Window density information, including the system display size scaling factor, system default display size
+/// scaling factor, and custom display size scaling factor of the screen where the window is located.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_WindowManager_DensityInfo {
+    _unused: [u8; 0],
+}
+/// Density info callback type.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+pub type OH_WindowManager_DensityInfoCallback = ::core::option::Option<
+    unsafe extern "C" fn(windowId: i32, info: *const OH_WindowManager_DensityInfo),
+>;
 pub type WindowManagerResult = Result<(), WindowManagerErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl WindowManagerErrorCode {
     /// No permission.
     ///
-    ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const WINDOW_MANAGER_ERRORCODE_NO_PERMISSION: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(201).unwrap() });
-    /// Param is invalid.
-    ///
+    /// Invalid parameter.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const WINDOW_MANAGER_ERRORCODE_INVALID_PARAM: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(401).unwrap() });
-    /// Device not support.
-    ///
+    /// Not supported by the device.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(801).unwrap() });
-    /// window id is invaild.
+    /// Invalid window ID.
     pub const INVAILD_WINDOW_ID: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(1000).unwrap() });
-    /// failed.
+    /// Invalid window ID.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const INVALID_WINDOW_ID: WindowManagerErrorCode =
+        WindowManagerErrorCode(const { core::num::NonZero::new(1000).unwrap() });
+    /// Service error.
     pub const SERVICE_ERROR: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(2000).unwrap() });
-    /// Window state is abnormal.
-    ///
+    /// Abnormal window status.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(1300002).unwrap() });
-    /// Window manager service works abnormally.
-    ///
+    /// Abnormal window manager service.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(1300003).unwrap() });
-    /// Picture-In-Picture failed to destroy.
-    ///
+    /// Failed to destroy the PiP window.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const WINDOW_MANAGER_ERRORCODE_PIP_DESTROY_FAILED: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(1300011).unwrap() });
-    /// Picture-In-Picture state is abnormal.
-    ///
+    /// Abnormal PiP status.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const WINDOW_MANAGER_ERRORCODE_PIP_STATE_ABNORMAL: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(1300012).unwrap() });
-    /// Picture-In-Picture failed to create.
-    ///
+    /// Failed to create the PiP window.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const WINDOW_MANAGER_ERRORCODE_PIP_CREATE_FAILED: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(1300013).unwrap() });
-    /// Picture-In-Picture internal error.
-    ///
+    /// An internal error occurs in PiP. Possible causes:<br>1. The window on which the PiP feature depends is abnormal.
+    /// For example, the window is empty. 2. The PiP controller is abnormal.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(1300014).unwrap() });
-    /// Picture-In-Picture repeated operation.
-    ///
+    /// Repeated PiP operation.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const WINDOW_MANAGER_ERRORCODE_PIP_REPEATED_OPERATION: WindowManagerErrorCode =
         WindowManagerErrorCode(const { core::num::NonZero::new(1300015).unwrap() });
-    /// Parameter is incorrect.
+    /// Incorrect parameter. Possible causes:<br>1. The parameter value range is invalid.
+    /// 2. The number of parameters is invalid. 3. The parameter type is invalid.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -103,7 +141,7 @@ impl WindowManagerErrorCode {
         WindowManagerErrorCode(const { core::num::NonZero::new(1300016).unwrap() });
 }
 #[repr(transparent)]
-/// Enumerates the result types of the wm interface
+/// Enumerates the status codes returned by the window manager interface.
 ///
 ///
 /// Available since API-level: 12
@@ -114,15 +152,15 @@ pub struct WindowManagerErrorCode(pub core::num::NonZero<::core::ffi::c_uint>);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl WindowManager_AvoidAreaType {
-    /// System.
+    /// System avoid area.
     pub const SYSTEM: WindowManager_AvoidAreaType = WindowManager_AvoidAreaType(0);
-    /// Cutout.
+    /// Cutout area.
     pub const CUTOUT: WindowManager_AvoidAreaType = WindowManager_AvoidAreaType(1);
-    /// System gesture.
+    /// System gesture area.
     pub const SYSTEM_GESTURE: WindowManager_AvoidAreaType = WindowManager_AvoidAreaType(2);
-    /// Keyboard.
+    /// Keyboard area.
     pub const KEYBOARD: WindowManager_AvoidAreaType = WindowManager_AvoidAreaType(3);
-    /// Navigation indicator.
+    /// Navigation bar area.
     pub const NAVIGATION_INDICATOR: WindowManager_AvoidAreaType = WindowManager_AvoidAreaType(4);
 }
 #[repr(transparent)]
@@ -137,17 +175,37 @@ pub struct WindowManager_AvoidAreaType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl WindowManager_WindowType {
-    /// Sub window.
+    /// Child window.
+    ///
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const APP: WindowManager_WindowType = WindowManager_WindowType(0);
     /// Main window.
+    ///
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const MAIN: WindowManager_WindowType = WindowManager_WindowType(1);
-    /// Float.
+    /// Global float window.
+    ///
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const FLOAT: WindowManager_WindowType = WindowManager_WindowType(8);
-    /// Dialog.
+    /// Modal window.
+    ///
+    ///
+    /// Available since API-level: 15
+    #[cfg(feature = "api-15")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const DIALOG: WindowManager_WindowType = WindowManager_WindowType(16);
 }
 #[repr(transparent)]
-/// The type of a window
+/// Enumerates the window types.
 ///
 ///
 /// Available since API-level: 15
@@ -155,7 +213,7 @@ impl WindowManager_WindowType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct WindowManager_WindowType(pub ::core::ffi::c_uint);
-/// Defines the window rect data structure.
+/// The struct describes the window rectangle, including the window position, width, and height.
 ///
 ///
 /// Available since API-level: 15
@@ -164,88 +222,16 @@ pub struct WindowManager_WindowType(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WindowManager_Rect {
-    /// X-axis of the window.
+    /// X coordinate of the window, in px. The value is an integer.
     pub posX: i32,
-    /// Y-axis of the window.
+    /// Y coordinate of the window, in px. The value is an integer.
     pub posY: i32,
-    /// Width of the window.
+    /// Window width, in px. The value is an integer.
     pub width: u32,
-    /// Height of the window.
+    /// Window height, in px. The value is an integer.
     pub height: u32,
 }
-/// Properties of window
-///
-///
-/// Available since API-level: 15
-#[cfg(feature = "api-15")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct WindowManager_WindowProperties {
-    /// The position and size of the window.
-    pub windowRect: WindowManager_Rect,
-    /// The position relative to the window and size of drawable area.
-    pub drawableRect: WindowManager_Rect,
-    /// Window type.
-    pub type_: WindowManager_WindowType,
-    /// Whether the window is displayed in full screen mode. The default value is false.
-    pub isFullScreen: bool,
-    /// Whether the window layout is full screen mode. The default value is false.
-    pub isLayoutFullScreen: bool,
-    /// Whether the window can gain focus. The default value is true.
-    pub focusable: bool,
-    /// Whether the window is touchable. The default value is false.
-    pub touchable: bool,
-    /// Brightness value of window.
-    pub brightness: f32,
-    /// Whether keep screen on.
-    pub isKeepScreenOn: bool,
-    /// Whether make window in privacy mode or not.
-    pub isPrivacyMode: bool,
-    /// Whether is transparent or not.
-    pub isTransparent: bool,
-    /// Window id.
-    pub id: u32,
-    /// Display id.
-    pub displayId: u32,
-}
-/// Defines the avoid area data structure.
-///
-///
-/// Available since API-level: 15
-#[cfg(feature = "api-15")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct WindowManager_AvoidArea {
-    /// Top rect of the avoid area.
-    pub topRect: WindowManager_Rect,
-    /// Left rect of the avoid area.
-    pub leftRect: WindowManager_Rect,
-    /// Right rect of the avoid area.
-    pub rightRect: WindowManager_Rect,
-    /// Bottom rect of the avoid area.
-    pub bottomRect: WindowManager_Rect,
-}
-/// Main window info
-///
-///
-/// Available since API-level: 21
-#[cfg(feature = "api-21")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct WindowManager_MainWindowInfo {
-    /// Display id of the window.
-    pub displayId: u64,
-    /// Window id.
-    pub windowId: i32,
-    /// Showing state of the window.
-    pub showing: bool,
-    /// Label of the window.
-    pub label: *const ::core::ffi::c_char,
-}
-/// Window snapshot config info
+/// Describes the configuration of the main window screenshot.
 ///
 ///
 /// Available since API-level: 21
@@ -254,6 +240,87 @@ pub struct WindowManager_MainWindowInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WindowManager_WindowSnapshotConfig {
-    /// Use cached windows' snapshot.
+    /// Whether the existing screenshot of the main window should be used. The default value is **true**. When it is set
+    /// to **true**, the system uses the existing screenshot of the main window, or captures the latest screenshot if no
+    /// existing screenshot is saved. When it is set to **false**, the system captures the latest screenshot of the main
+    /// window.
     pub useCache: bool,
+}
+/// The struct describes the main window information.
+///
+///
+/// Available since API-level: 21
+#[cfg(feature = "api-21")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct WindowManager_MainWindowInfo {
+    /// ID of the display to which the main window belongs.
+    pub displayId: u64,
+    /// Window ID. The default value is **0**, and the value is an integer.
+    pub windowId: i32,
+    /// Foreground/Background status of the main window. **true** if the main window is in the foreground, **false**
+    /// otherwise.
+    pub showing: bool,
+    /// Pointer to the task name of the main window.
+    pub label: *const ::core::ffi::c_char,
+}
+/// The struct describes the window properties.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct WindowManager_WindowProperties {
+    /// Position and size of the window.
+    pub windowRect: WindowManager_Rect,
+    /// Size of the drawable area within the window.
+    pub drawableRect: WindowManager_Rect,
+    /// Window type.
+    pub type_: WindowManager_WindowType,
+    /// Whether the window is in full-screen mode. The default value is **false**. **true** if in full-screen mode, **
+    /// false** otherwise.
+    pub isFullScreen: bool,
+    /// Whether the window layout is immersive. The default value is **false**. **true** if immersive, **false**
+    /// otherwise.
+    pub isLayoutFullScreen: bool,
+    /// Whether the window is focusable. The default value is **true**. **true** if focusable, **false** otherwise.
+    pub focusable: bool,
+    /// Whether the window is touchable. The default value is **true**. **true** if touchable, **false** otherwise.
+    pub touchable: bool,
+    /// Screen brightness of the window. The value is a floating-point number in the range \[0.0, 1.0\] or is set to **-1.
+    /// 0**, where **1.0** indicates the brightest, and **-1.0** is the default brightness.
+    pub brightness: f32,
+    /// Whether the screen is steady on. The default value is **false**. **true** if steady on, **false** otherwise.
+    pub isKeepScreenOn: bool,
+    /// Whether privacy mode is enabled for the window. The default value is **false**. **true** if enabled, **false**
+    /// otherwise.
+    pub isPrivacyMode: bool,
+    /// Whether the window is transparent. The default value is **false**. **true** if transparent, **false** otherwise.
+    pub isTransparent: bool,
+    /// Window ID. The default value is **0**, and the value is an integer.
+    pub id: u32,
+    /// ID of the screen where the window is located. By default, the ID of the primary screen is returned. The value is
+    /// an integer.
+    pub displayId: u32,
+}
+/// The struct describes the avoid area.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct WindowManager_AvoidArea {
+    /// Top rectangle of the avoid area.
+    pub topRect: WindowManager_Rect,
+    /// Left rectangle of the avoid area.
+    pub leftRect: WindowManager_Rect,
+    /// Right rectangle of the avoid area.
+    pub rightRect: WindowManager_Rect,
+    /// Bottom rectangle of the avoid area.
+    pub bottomRect: WindowManager_Rect,
 }

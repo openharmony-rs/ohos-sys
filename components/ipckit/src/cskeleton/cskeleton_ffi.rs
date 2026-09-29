@@ -6,7 +6,7 @@
 use crate::cparcel::OH_IPC_MemAllocator;
 
 extern "C" {
-    /// Joints this thread to the IPC worker thread pool.
+    /// Joins this thread to the IPC worker thread pool.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
@@ -24,15 +24,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCSkeleton_StopWorkThread();
-    /// Obtains the token ID of the caller. This function must be called in the IPC context.
-    /// Otherwise, the local token ID is returned.
+    /// Obtains the token ID of the caller. This function must be called in the IPC context. Otherwise, the local
+    /// token ID is returned.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     ///
     /// # Returns
     ///
-    /// * Returns the token ID of the caller.
+    /// * Returns the caller token ID.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -45,7 +45,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the token ID obtained.
+    /// * Returns the token ID of the first caller.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -58,35 +58,35 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns the token ID obtained.
+    /// * Returns the local token ID.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCSkeleton_GetSelfTokenId() -> u64;
-    /// Obtains the process ID of the caller. This function must be called in the IPC context.
-    /// Otherwise, the current process ID is returned.
+    /// Obtains the PID of the caller. This function must be called in the IPC context. Otherwise, the local PID is
+    /// returned.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     ///
     /// # Returns
     ///
-    /// * Returns the process ID of the caller.
+    /// * Returns the caller PID.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_IPCSkeleton_GetCallingPid() -> u64;
-    /// Obtains the UID of the caller. This function must be called in the IPC context.
-    /// Otherwise, the current UID is returned.
+    /// Obtains the UID of the caller. This function must be called in the IPC context. Otherwise, the local UID is
+    /// returned.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     ///
     /// # Returns
     ///
-    /// * Returns the UID of the caller.
+    /// * Returns the caller UID.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -99,7 +99,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns <b>1</b> if a local calling is in progress; returns <b>0</b> otherwise.
+    /// * Returns **1** if a local calling is in progress; returns **0** otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -111,15 +111,14 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `maxThreadNum` - Maximum number of worker threads to set. The default value is <b>16</b>.
-    /// The value range is \[1, 32\].
+    /// * `maxThreadNum` - Maximum number of worker threads.
+    /// Value range: \[1, 32\]
+    /// Default value: **16**
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
-    ///
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
@@ -129,28 +128,25 @@ extern "C" {
         maxThreadNum: ::core::ffi::c_int,
     ) -> ::core::ffi::c_int;
     /// Resets the caller identity credential (including the token ID, UID, and PID) to that of this process and
-    /// returns the caller credential information.
-    /// The identity information is used in <b>OH_IPCSkeleton_SetCallingIdentity</b>.
+    /// returns the caller credential information. The credential information is used in
+    /// **OH_IPCSkeleton_SetCallingIdentity**.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `identity` - Pointer to the address of the memory for holding the caller identity information.
-    /// The memory is allocated by the allocator provided by the user and needs to be released. This pointer cannot be NULL.
+    /// * `identity` - Double pointer to the address of the memory for holding the caller identity information. The memory
+    /// is allocated by the allocator provided by the user and needs to be released. This pointer cannot be NULL.
     ///
-    /// * `len` - Pointer to the length of the identity information. It cannot be NULL.
+    /// * `len` - Pointer to the length of the data written to the identity. It cannot be NULL.
     ///
-    /// * `allocator` - Memory allocator specified by the user for allocating memory for <b>identity</b>. It cannot be NULL.
+    /// * `allocator` - Memory allocator specified by the user for allocating memory for **identity**. It cannot be NULL.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_MEM_ALLOCATOR_ERROR) if memory allocation fails.
-    ///
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_MEM_ALLOCATOR_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_MEM_ALLOCATOR_ERROR) if the memory allocation fails.
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
@@ -167,15 +163,13 @@ extern "C" {
     /// Required System Capabilities: SystemCapability.Communication.IPC.Core
     /// # Arguments
     ///
-    /// * `identity` - Pointer to the caller identity, which cannot be NULL.
-    /// The value is returned by <b>OH_IPCSkeleton_ResetCallingIdentity</b>.
+    /// * `identity` - Pointer to the caller credential, which cannot be NULL. The value is returned by
+    /// **OH_IPCSkeleton_ResetCallingIdentity**.
     ///
     /// # Returns
     ///
     /// * Returns [`OH_IPC_ErrorCode#OH_IPC_SUCCESS`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_SUCCESS) if the operation is successful.
-    ///
-    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if incorrect parameters are found.
-    ///
+    /// Returns [`OH_IPC_ErrorCode#OH_IPC_CHECK_PARAM_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_CHECK_PARAM_ERROR) if the parameters are incorrect.
     /// Returns [`OH_IPC_ErrorCode#OH_IPC_INNER_ERROR`](crate::error_code::OH_IPC_ErrorCode::OH_IPC_INNER_ERROR) in other cases.
     ///
     /// Available since API-level: 12
@@ -191,7 +185,7 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns <b>1</b> if an IPC request is being handled; returns <b>0</b> otherwise.
+    /// * Returns **1** if an IPC request is being handled; returns **0** otherwise.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

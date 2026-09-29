@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Update bindings to API-24, API-25 and API-26 (no new symbols).
+
 ## 0.1.0
 
 - Initial release. Bindings to `libbundle_ndk.z.so` for API-9 through API-23.

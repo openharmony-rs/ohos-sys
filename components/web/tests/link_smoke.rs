@@ -63,4 +63,15 @@ fn link_smoke() {
     {
         let _ = std::mem::size_of::<web::arkweb_error_code::ArkWeb_BlanklessErrorCode>();
     }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = web::native_interface_arkweb::OH_ArkWebCookieManager_FetchCookieSync(
+            ptr::null(),
+            false,
+            false,
+            false,
+            ptr::null_mut(),
+        );
+    }
 }

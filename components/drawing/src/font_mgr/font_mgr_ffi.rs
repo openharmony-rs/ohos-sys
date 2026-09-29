@@ -7,14 +7,14 @@ use crate::text_typography::*;
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_FontMgr</b> object.
+    /// Creates an **OH_Drawing_FontMgr** object, which can be used only to manage system fonts.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_FontMgr</b> object created.
+    /// * Pointer to the [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object created.
     ///
     /// Available since API-level: 12
     ///
@@ -22,13 +22,14 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontMgrCreate() -> *mut OH_Drawing_FontMgr;
-    /// Releases the memory occupied by an <b>OH_Drawing_FontMgr</b> object.
+    /// Destroys an **OH_Drawing_FontMgr** object and reclaims the memory occupied by the object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
+    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
     /// Available since API-level: 12
     ///
@@ -36,17 +37,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontMgrDestroy(drawingFontMgr: *mut OH_Drawing_FontMgr);
-    /// Gets the count of font families.
+    /// Obtains the number of font families.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
+    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
     /// # Returns
     ///
-    /// * Returns the count of font families.
+    /// * Returns the number of font families.
     ///
     /// Available since API-level: 12
     ///
@@ -56,19 +58,23 @@ extern "C" {
     pub fn OH_Drawing_FontMgrGetFamilyCount(
         drawingFontMgr: *mut OH_Drawing_FontMgr,
     ) -> ::core::ffi::c_int;
-    /// Gets the font family name by the index.
+    /// Obtains the font family name based on an index. When the returned name is no longer needed, use
+    /// [`OH_Drawing_FontMgrDestroyFamilyName`](crate::font_mgr::OH_Drawing_FontMgrDestroyFamilyName) to release the memory occupied by the name.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
+    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
-    /// * `index` - Indicates the index to get the font family name.
+    /// * `index` - Index used to obtain the corresponding font family name. The value range is \[0,
+    /// OH_Drawing_FontMgrGetFamilyCount() - 1\].
     ///
     /// # Returns
     ///
-    /// * Returns the font family name corresponding to the index value.
+    /// * Font family name corresponding to the index. When no longer needed, use
+    /// [`OH_Drawing_FontMgrDestroyFamilyName`](crate::font_mgr::OH_Drawing_FontMgrDestroyFamilyName) to release the memory occupied by the name.
     ///
     /// Available since API-level: 12
     ///
@@ -79,13 +85,13 @@ extern "C" {
         drawingFontMgr: *mut OH_Drawing_FontMgr,
         index: ::core::ffi::c_int,
     ) -> *mut ::core::ffi::c_char;
-    /// Releases the memory occupied by font family name.
+    /// Reclaims the memory occupied by a font family name.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `familyName` - Indicates the font family name.
+    /// * `familyName` - Pointer to a font family name.
     ///
     /// Available since API-level: 12
     ///
@@ -93,19 +99,21 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontMgrDestroyFamilyName(familyName: *mut ::core::ffi::c_char);
-    /// Creates an <b>OH_Drawing_FontStyleSet</b> object by <b>OH_Drawing_FontMgr</b> object.
+    /// Creates a font style set object from a font manager object.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
+    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
-    /// * `index` - Indicates the index used to get the font style set object from the font manager object.
+    /// * `index` - Index value used to obtain the font style set object from the font manager object. Value range: \[0,
+    /// OH_Drawing_FontMgrGetFamilyCount() - 1\].
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_FontStyleSet</b> object created.
+    /// * Returns a pointer to the [`OH_Drawing_FontStyleSet`](crate::types::OH_Drawing_FontStyleSet) object created.
     ///
     /// Available since API-level: 12
     ///
@@ -116,13 +124,13 @@ extern "C" {
         drawingFontMgr: *mut OH_Drawing_FontMgr,
         index: ::core::ffi::c_int,
     ) -> *mut OH_Drawing_FontStyleSet;
-    /// Releases the memory occupied by an <b>OH_Drawing_FontStyleSet</b> object.
+    /// Reclaims the memory occupied by a font style set.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingFontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `drawingFontStyleSet` - Pointer to an [`OH_Drawing_FontStyleSet`](crate::types::OH_Drawing_FontStyleSet) object.
     ///
     /// Available since API-level: 12
     ///
@@ -130,19 +138,23 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontMgrDestroyFontStyleSet(drawingFontStyleSet: *mut OH_Drawing_FontStyleSet);
-    /// Get the pointer to an <b>OH_Drawing_FontStyleSet</b> object for the given font style set family name.
+    /// Obtains a font style set object based on a specified font family name. When the object is no longer needed,
+    /// use [`OH_Drawing_FontMgrDestroyFontStyleSet`](crate::font_mgr::OH_Drawing_FontMgrDestroyFontStyleSet) to release it.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
+    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
-    /// * `familyName` - Indicates the family name of a font style set to be matched.
+    /// * `familyName` - Pointer to a font family name.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_FontStyleSet</b> object matched.
+    /// * Pointer to the corresponding font style set object [`OH_Drawing_FontStyleSet`](crate::types::OH_Drawing_FontStyleSet). When no longer needed,
+    /// use [`OH_Drawing_FontMgrDestroyFontStyleSet`](crate::font_mgr::OH_Drawing_FontMgrDestroyFontStyleSet) to release the object pointer. <br>NULL is returned if
+    /// matching fails.
     ///
     /// Available since API-level: 12
     ///
@@ -153,21 +165,25 @@ extern "C" {
         drawingFontMgr: *mut OH_Drawing_FontMgr,
         familyName: *const ::core::ffi::c_char,
     ) -> *mut OH_Drawing_FontStyleSet;
-    /// Get the pointer to an <b>OH_Drawing_Typeface</b> object based on the given font style and family name.
+    /// Obtains a typeface object based on the specified font style information and font family name. When the object
+    /// is no longer needed, use [`OH_Drawing_TypefaceDestroy`](crate::typeface::OH_Drawing_TypefaceDestroy) to release it.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
+    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
-    /// * `familyName` - Indicates the family name of a font style set to be matched.
+    /// * `familyName` - Pointer to a font family name.
     ///
-    /// * `fontStyle` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
+    /// * `fontStyle` - Font style, including the font weight, width, and slant.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object matched.
+    /// * Pointer to the [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object corresponding to the font style. Use
+    /// [`OH_Drawing_TypefaceDestroy`](crate::typeface::OH_Drawing_TypefaceDestroy) to release the pointer when it is no longer needed. <br>NULL is returned if
+    /// the match fails.
     ///
     /// Available since API-level: 12
     ///
@@ -179,27 +195,30 @@ extern "C" {
         familyName: *const ::core::ffi::c_char,
         fontStyle: OH_Drawing_FontStyleStruct,
     ) -> *mut OH_Drawing_Typeface;
-    /// Get the pointer to an <b>OH_Drawing_Typeface</b> object for the given character.
+    /// Obtains a typeface for the specified character. A null pointer is returned only when no typeface
+    /// corresponding to the input UTF-8 character is found in the font management object. When the object is no longer
+    /// needed, use [`OH_Drawing_TypefaceDestroy`](crate::typeface::OH_Drawing_TypefaceDestroy) to release it.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `drawingFontMgr` - Indicates the pointer to an <b>OH_Drawing_FontMgr</b> object.
+    /// * `drawingFontMgr` - Pointer to an [`OH_Drawing_FontMgr`](crate::types::OH_Drawing_FontMgr) object, which is obtained from
+    /// [`OH_Drawing_FontMgrCreate`](crate::font_mgr::OH_Drawing_FontMgrCreate).
     ///
-    /// * `familyName` - Indicates the family name of a font style set to be matched.
+    /// * `familyName` - Pointer to a font family name.
     ///
-    /// * `fontStyle` - Indicates an <b>OH_Drawing_FontStyleStruct</b> object.
+    /// * `fontStyle` - Font style, including the font weight, width, and slant.
     ///
-    /// * `bcp47` - Indicates an array of languages which indicate the language of character.
+    /// * `bcp47` - Array of BCP47 language codes, which is a combination of ISO 639, 15924, and 3166-1 language codes.
     ///
-    /// * `bcp47Count` - Indicates the array size of bcp47.
+    /// * `bcp47Count` - Size of the bcp47 array, which must match the actual number of elements in the bcp47 array.
     ///
-    /// * `character` - Indicates a UTF8 value to be matched.
+    /// * `character` - UTF-8 character used for matching.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Typeface</b> object matched.
+    /// * Pointer to the corresponding [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) typeface object, or NULL if no typeface is matched.
     ///
     /// Available since API-level: 12
     ///
@@ -214,19 +233,20 @@ extern "C" {
         bcp47Count: ::core::ffi::c_int,
         character: i32,
     ) -> *mut OH_Drawing_Typeface;
-    /// Create a typeface for the given index.
+    /// Gets a typeface for the specified index. When the object is no longer needed, use
+    /// [`OH_Drawing_TypefaceDestroy`](crate::typeface::OH_Drawing_TypefaceDestroy) to release it.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `fontStyleSet` - Pointer to an [`OH_Drawing_FontStyleSet`](crate::types::OH_Drawing_FontStyleSet) object.
     ///
-    /// * `index` - Indicates the index of the typeface in this fontStyleSet.
+    /// * `index` - Index of the specified typeface object. The value range is \[0, OH_Drawing_FontStyleSetCount() - 1\].
     ///
     /// # Returns
     ///
-    /// * If successful, return a pointer to <b>OH_Drawing_Typeface</b> object; if failed, return nullptr.
+    /// * Typeface object if successful; NULL otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -237,21 +257,23 @@ extern "C" {
         fontStyleSet: *mut OH_Drawing_FontStyleSet,
         index: ::core::ffi::c_int,
     ) -> *mut OH_Drawing_Typeface;
-    /// Get font style for the specified typeface.
+    /// Obtains the font style. Call [`OH_Drawing_FontStyleSetFreeStyleName`](crate::font_mgr::OH_Drawing_FontStyleSetFreeStyleName) to release **styleName** when it is
+    /// no longer needed, freeing up the allocated memory.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `fontStyleSet` - Pointer to an [`OH_Drawing_FontStyleSet`](crate::types::OH_Drawing_FontStyleSet) object.
     ///
-    /// * `index` - Indicates the index of the typeface in this fontStyleSet.
+    /// * `index` - Index of the specified font style. The value range is \[0, OH_Drawing_FontStyleSetCount() - 1\].
     ///
-    /// * `styleName` - Indicates the style name returned.
+    /// * `styleName` - String specifying the font style name. Call [`OH_Drawing_FontStyleSetFreeStyleName`](crate::font_mgr::OH_Drawing_FontStyleSetFreeStyleName) to release
+    /// it when it is no longer needed, freeing up the allocated memory.
     ///
     /// # Returns
     ///
-    /// * Return the <b>OH_Drawing_FontStyleStruct<b> structure.
+    /// * Returns the font style.
     ///
     /// Available since API-level: 12
     ///
@@ -263,13 +285,13 @@ extern "C" {
         index: i32,
         styleName: *mut *mut ::core::ffi::c_char,
     ) -> OH_Drawing_FontStyleStruct;
-    /// Releases the memory styleName string.
+    /// Frees the memory occupied by a font style.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `styleName` - Indicates the pointer to a string type.
+    /// * `styleName` - Double pointer to the string that specifies the font style name.
     ///
     /// Available since API-level: 12
     ///
@@ -277,19 +299,20 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontStyleSetFreeStyleName(styleName: *mut *mut ::core::ffi::c_char);
-    /// Get the closest matching typeface.
+    /// Obtains the typeface closest to the font style (font weight, font width, and slant). When the object is no
+    /// longer needed, use [`OH_Drawing_TypefaceDestroy`](crate::typeface::OH_Drawing_TypefaceDestroy) to release it.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `fontStyleSet` - Pointer to an [`OH_Drawing_FontStyleSet`](crate::types::OH_Drawing_FontStyleSet) object.
     ///
-    /// * `fontStyleStruct` - Indicates the <b>OH_Drawing_FontStyleStruct</b> structure.
+    /// * `fontStyleStruct` - Font style, including the font weight, width, and slant.
     ///
     /// # Returns
     ///
-    /// * A pointer to matched <b>OH_Drawing_Typeface</b>.
+    /// * Pointer to the corresponding typeface object [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface), or NULL if matching fails.
     ///
     /// Available since API-level: 12
     ///
@@ -300,17 +323,17 @@ extern "C" {
         fontStyleSet: *mut OH_Drawing_FontStyleSet,
         fontStyleStruct: OH_Drawing_FontStyleStruct,
     ) -> *mut OH_Drawing_Typeface;
-    /// Get the count of typeface.
+    /// Obtains the number of fonts in the font style set.
     ///
     ///
     /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontStyleSet` - Indicates the pointer to an <b>OH_Drawing_FontStyleSet</b> object.
+    /// * `fontStyleSet` - Pointer to an [`OH_Drawing_FontStyleSet`](crate::types::OH_Drawing_FontStyleSet) object.
     ///
     /// # Returns
     ///
-    /// * The count of typeface in this font style set.
+    /// * Returns the number of fonts.
     ///
     /// Available since API-level: 12
     ///

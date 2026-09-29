@@ -10,22 +10,24 @@ use crate::raw_file_manager::{OH_ResourceManager_OpenRawDir, OH_ResourceManager_
 use crate::raw_file_types_ffi::*;
 
 extern "C" {
-    /// Reads a raw file.
-    ///
-    /// This function attempts to read data of <b>length</b> bytes from the current offset.
+    /// Reads data of the specified length from the current offset position of a rawfile file. The offset position
+    /// moves forward by the specified length after the read operation. For example, if the current offset position is \[0\]
+    /// and the specified length is 10, the offset position after data reading is \[10\].
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
-    /// * `buf` - Indicates the pointer to the buffer for receiving the data read.
+    /// * `buf` - Output parameter. Pointer to the buffer for receiving the read data. The memory is allocated by you and
+    /// needs to be freed after use.
     ///
-    /// * `length` - Indicates the number of bytes to read.
+    /// * `length` - Input parameter. Expected length of data to be read, in bytes.
     ///
     /// # Returns
     ///
-    /// * Returns the number of bytes read if any;
-    /// if the number reaches the end of file (EOF) or rawFile is nullptr also returns <b>0</b>
+    /// * Length of the data read. If the file has been read and no data is available for reading, or if `rawFile` is
+    /// `NULL`, `0` is returned.
     ///
     /// Available since API-level: 8
     ///
@@ -35,26 +37,27 @@ extern "C" {
         buf: *mut ::core::ffi::c_void,
         length: usize,
     ) -> ::core::ffi::c_int;
-    /// Uses the 32-bit data type to seek a data read position based on the specified offset within a raw file.
+    /// Adjusts the offset position of a rawfile based on the specified offset and offset mode.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
-    /// * `offset` - Indicates the specified offset.
+    /// * `offset` - Input parameter. Specified offset. The value is an integer. A positive value indicates backward offset,
+    /// and a negative value indicates forward offset. The unit is bytes.
     ///
-    /// * `whence` - Indicates the new read position, which can be one of the following values:
-    ///
-    /// <b>0</b>: The new read position is set to <b>offset</b>.
-    ///
-    /// <b>1</b>: The read position is set to the current position plus <b>offset</b>.
-    ///
-    /// <b>2</b>: The read position is set to the end of file (EOF) plus <b>offset</b>.
+    /// * `whence` - Input parameter. Offset mode. The value can be `0`, `1`, or `2`.
+    /// <br>`0`: The offset is calculated from the beginning of the file.
+    /// <br>`1`: The offset is calculated from the current position.
+    /// <br>`2`: The offset is calculated from the end of the file.
     ///
     /// # Returns
     ///
-    /// * Returns <b>(int) 0</b> if the operation is successful; returns <b>(int) -1</b> if an error
-    /// occurs.
+    /// * Seeking result.
+    /// <br>**0**: The operation is successful and the file offset is moved to the specified position.
+    /// <br>**-1**: The operation fails and the file offset remains unchanged. Possible cause: `rawFile` is `NULL`,
+    /// `offset` is out the file range, or `whence` is invalid.
     ///
     /// Available since API-level: 8
     ///
@@ -64,29 +67,31 @@ extern "C" {
         offset: ::core::ffi::c_long,
         whence: ::core::ffi::c_int,
     ) -> ::core::ffi::c_int;
-    /// Obtains the raw file length represented by an long.
+    /// Obtains the length (in bytes) of a rawfile.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
     /// # Returns
     ///
-    /// * Returns the total length of the raw file. If rawFile is nullptr also returns 0.
+    /// * Length of the rawfile. If `rawFile` is `NULL`, `0` is returned.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_ResourceManager_GetRawFileSize(rawFile: *mut RawFile) -> ::core::ffi::c_long;
-    /// Obtains the remaining raw file length represented by an long.
+    /// Obtains the remaining length (in bytes) of a rawfile from the current offset position to the end of the file.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
     /// # Returns
     ///
-    /// * Returns the remaining length of the raw file. If rawFile is nullptr also returns 0.
+    /// * Remaining length of the rawfile. If `rawFile` is `NULL`, `0` is returned.
     ///
     /// Available since API-level: 11
     ///
@@ -96,13 +101,13 @@ extern "C" {
     pub fn OH_ResourceManager_GetRawFileRemainingLength(
         rawFile: *const RawFile,
     ) -> ::core::ffi::c_long;
-    /// Closes an opened [`RawFile`](crate::RawFile) and releases all associated resources.
-    ///
-    ///
+    /// Closes a `RawFile` object and releases all associated resources.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile). After the release, the pointer becomes invalid and cannot be used for
+    /// other operations.
     ///
     /// **See also:** [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile)
     ///
@@ -110,35 +115,37 @@ extern "C" {
     ///
     /// Version: 1.0
     pub fn OH_ResourceManager_CloseRawFile(rawFile: *mut RawFile);
-    /// Obtains the current offset of a raw file, represented by an long.
-    ///
-    /// The current offset of a raw file.
+    /// Obtains the current offset position (in bytes) of a rawfile. This information can be used to track progress
+    /// during segmented reading, or to confirm the current offset position after seeking.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
     /// # Returns
     ///
-    /// * Returns the current offset of a raw file. If rawFile is nullptr also returns 0.
+    /// * Current offset position of the rawfile. If the `rawFile` is `NULL`, `0` is returned.
     ///
     /// Available since API-level: 8
     ///
     /// Version: 1.0
     pub fn OH_ResourceManager_GetRawFileOffset(rawFile: *const RawFile) -> ::core::ffi::c_long;
-    /// Opens the file descriptor of a raw file based on the long offset and file length.
-    ///
-    /// The opened raw file descriptor is used to read the raw file.
+    /// Obtains the rawfile descriptor information. After obtaining the file descriptor information, you can call
+    /// functions such as **pread** to read the rawfile.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
-    /// * `descriptor` - Indicates the raw file's file descriptor, start position and the length in the HAP.
+    /// * `descriptor` - Output parameter. Reference to the [`RawFileDescriptor`](crate::RawFileDescriptor) object, After use, you must call
+    /// [`OH_ResourceManager_ReleaseRawFileDescriptor`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptor) to release the file descriptor, preventing file descriptor
+    /// leakage.
     ///
     /// # Returns
     ///
-    /// * Returns true: open the raw file descriptor successfully, false: the raw file is not allowed to access.
+    /// * <b>true</b> if the file is opened; returns <b>false</b> if the access to the file is rejected.
     ///
     /// Available since API-level: 8
     ///
@@ -146,7 +153,7 @@ extern "C" {
     ///
     /// **Deprecated** since 12
     ///
-    /// **Use instead:** OH_ResourceManager_GetRawFileDescriptorData
+    /// **Use instead:** [`OH_ResourceManager_GetRawFileDescriptorData`](crate::raw_file::OH_ResourceManager_GetRawFileDescriptorData)
     #[deprecated(
         since = "12",
         note = "Use instead: OH_ResourceManager_GetRawFileDescriptorData"
@@ -155,19 +162,22 @@ extern "C" {
         rawFile: *const RawFile,
         descriptor: *mut RawFileDescriptor,
     ) -> bool;
-    /// Obtains the file descriptor of a raw file based on the long offset and file length.
-    ///
-    /// The obtains raw file descriptor is used to read the raw file.
+    /// Obtains the rawfile descriptor information. After obtaining the file descriptor information, you can call
+    /// functions such as **pread** to read the rawfile.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile`](crate::RawFile).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile).
     ///
-    /// * `descriptor` - Indicates the raw file's file descriptor, start position and the length in the HAP.
+    /// * `descriptor` - Output parameter. Pointer to the `RawFileDescriptor` object, which is used to return the file
+    /// descriptor information. After use, you must call [`OH_ResourceManager_ReleaseRawFileDescriptorData`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptorData) to
+    /// release the file descriptor, preventing file descriptor leakage.
     ///
     /// # Returns
     ///
-    /// * Returns true: obtains the raw file descriptor successfully, false: the raw file is not allowed to access.
+    /// * Obtaining result. If the operation is successful, `true` is returned. If the operation fails, `false` is
+    /// returned. The possible cause is that `rawFile` or `descriptor` is `NULL` or the access to the rawfile is denied.
     ///
     /// Available since API-level: 12
     ///
@@ -178,17 +188,17 @@ extern "C" {
         rawFile: *const RawFile,
         descriptor: *mut RawFileDescriptor,
     ) -> bool;
-    /// Closes the file descriptor of a raw file.
-    ///
-    /// The opened raw file descriptor must be released after used to avoid the file descriptor leak.
+    /// Releases the file descriptor of a rawfile. To prevent file descriptor leakage, you are advised to release a
+    /// rawfile descriptor immediately after use.
     ///
     /// # Arguments
     ///
-    /// * `descriptor` - Indicates the raw file's file descriptor, start position and the length in the HAP.
+    /// * `descriptor` - Input parameter. Reference to the [`RawFileDescriptor`](crate::RawFileDescriptor) object to be released.
     ///
     /// # Returns
     ///
-    /// * Returns true: closes the raw file descriptor successfully, false: closes the raw file descriptor failed.
+    /// * Release result. If the operation is successful, `true` is returned. If the operation fails, `false` is
+    /// returned. The possible cause is that `descriptor` is `NULL` or the file descriptor has been released.
     ///
     /// Available since API-level: 8
     ///
@@ -196,7 +206,7 @@ extern "C" {
     ///
     /// **Deprecated** since 12
     ///
-    /// **Use instead:** OH_ResourceManager_ReleaseRawFileDescriptorData
+    /// **Use instead:** [`OH_ResourceManager_ReleaseRawFileDescriptorData`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptorData)
     #[deprecated(
         since = "12",
         note = "Use instead: OH_ResourceManager_ReleaseRawFileDescriptorData"
@@ -204,17 +214,17 @@ extern "C" {
     pub fn OH_ResourceManager_ReleaseRawFileDescriptor(
         descriptor: *const RawFileDescriptor,
     ) -> bool;
-    /// Release the file descriptor of a raw file.
-    ///
-    /// The opened raw file descriptor must be released after used to avoid the file descriptor leak.
+    /// Releases rawfile file descriptor resources. After successful release, `fd` in `descriptor` becomes invalid
+    /// and cannot be used any more.
     ///
     /// # Arguments
     ///
-    /// * `descriptor` - Indicates the raw file's file descriptor, start position and the length in the HAP.
+    /// * `descriptor` - Input parameter. Pointer to the [`RawFileDescriptor`](crate::RawFileDescriptor) object to be released.
     ///
     /// # Returns
     ///
-    /// * Returns true: release the raw file descriptor successfully, false: release the raw file descriptor failed.
+    /// * Release result. If the operation is successful, `true` is returned. If the operation fails, `false` is
+    /// returned. The possible cause is that `descriptor` is `NULL` or the file descriptor has been released.
     ///
     /// Available since API-level: 12
     ///
@@ -224,22 +234,25 @@ extern "C" {
     pub fn OH_ResourceManager_ReleaseRawFileDescriptorData(
         descriptor: *const RawFileDescriptor,
     ) -> bool;
-    /// Reads a raw file.
-    ///
-    /// This function attempts to read data of <b>length</b> bytes from the current offset. using a 64-bit
+    /// Reads data of the specified length from the current offset position of a rawfile file. The offset position
+    /// moves forward by the specified length after the read operation. For example, if the current offset position is \[0\]
+    /// and the specified length is 10, the offset position after data reading is \[10\].
+    /// <br>Files larger than 2 GB are supported.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
-    /// * `buf` - Indicates the pointer to the buffer for receiving the data read.
+    /// * `buf` - Output parameter. Pointer to the buffer for receiving the read data. The memory is allocated by you and
+    /// needs to be freed after use.
     ///
-    /// * `length` - Indicates the number of bytes to read.
+    /// * `length` - Input parameter. Expected length of data to be read, in bytes.
     ///
     /// # Returns
     ///
-    /// * Returns the number of bytes read if any;
-    /// returns <b>0</b> if the number reaches the end of file (EOF). or rawFile is nullptr also returns 0
+    /// * Length of the data read. If the file has been read and no data is available for reading, or if `rawFile` is
+    /// `NULL`, `0` is returned.
     ///
     /// Available since API-level: 11
     ///
@@ -251,26 +264,28 @@ extern "C" {
         buf: *mut ::core::ffi::c_void,
         length: i64,
     ) -> i64;
-    /// Uses the 64-bit data type to seek a data read position based on the specified offset within a raw file.
+    /// Adjusts the offset position of a rawfile based on the specified offset and offset mode. Files larger than 2
+    /// GB are supported.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
-    /// * `offset` - Indicates the specified offset.
+    /// * `offset` - Input parameter. Specified offset. The value is an integer. A positive value indicates backward offset,
+    /// and a negative value indicates forward offset. The unit is bytes.
     ///
-    /// * `whence` - Indicates the new read position, which can be one of the following values:
-    ///
-    /// <b>0</b>: The new read position is set to <b>offset</b>.
-    ///
-    /// <b>1</b>: The read position is set to the current position plus <b>offset</b>.
-    ///
-    /// <b>2</b>: The read position is set to the end of file (EOF) plus <b>offset</b>.
+    /// * `whence` - Input parameter. Offset mode. The value can be `0`, `1`, or `2`.
+    /// <br>`0`: The offset is calculated from the beginning of the file.
+    /// <br>`1`: The offset is calculated from the current position.
+    /// <br>`2`: The offset is calculated from the end of the file.
     ///
     /// # Returns
     ///
-    /// * Returns <b>(int) 0</b> if the operation is successful; returns <b>(int) -1</b> if an error
-    /// occurs.
+    /// * Seeking result.
+    /// <br>**0**: The operation is successful and the file offset is moved to the specified position.
+    /// <br>**-1**: The operation fails and the file offset remains unchanged. Possible cause: `rawFile` is `NULL`,
+    /// `offset` is out the file range, or `whence` is invalid.
     ///
     /// Available since API-level: 11
     ///
@@ -282,15 +297,16 @@ extern "C" {
         offset: i64,
         whence: ::core::ffi::c_int,
     ) -> ::core::ffi::c_int;
-    /// Obtains the raw file length represented by an int64_t.
+    /// Obtains the length (in bytes) of a rawfile. Files larger than 2 GB are supported.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
     /// # Returns
     ///
-    /// * Returns the total length of the raw file. If rawFile is nullptr also returns 0.
+    /// * Length of the rawfile. If `rawFile` is `NULL`, `0` is returned.
     ///
     /// Available since API-level: 11
     ///
@@ -298,15 +314,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_ResourceManager_GetRawFileSize64(rawFile: *mut RawFile64) -> i64;
-    /// Obtains the remaining raw file length represented by an int64_t.
+    /// Obtains the remaining length (in bytes) of a rawfile from the current offset position to the end of the file.
+    /// Files larger than 2 GB are supported.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
     /// # Returns
     ///
-    /// * Returns the remaining length of the raw file. If rawFile is nullptr also returns 0.
+    /// * Remaining length of the rawfile. If `rawFile` is `NULL`, `0` is returned.
     ///
     /// Available since API-level: 11
     ///
@@ -314,13 +332,13 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_ResourceManager_GetRawFileRemainingLength64(rawFile: *const RawFile64) -> i64;
-    /// Closes an opened [`RawFile64`](crate::RawFile64) and releases all associated resources.
-    ///
-    ///
+    /// Closes a `RawFile64` object and releases all associated resources.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64). After the release, the pointer becomes invalid and cannot be used for
+    /// other operations.
     ///
     /// **See also:** [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64)
     ///
@@ -330,17 +348,18 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_ResourceManager_CloseRawFile64(rawFile: *mut RawFile64);
-    /// Obtains the current offset of a raw file, represented by an int64_t.
-    ///
-    /// The current offset of a raw file.
+    /// Obtains the current offset position (in bytes) of a rawfile. This information can be used to track progress
+    /// during segmented reading, or to confirm the current offset position after seeking.
+    /// <br>Files larger than 2 GB are supported.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
     /// # Returns
     ///
-    /// * Returns the current offset of a raw file. If rawFile is nullptr also returns 0.
+    /// * Current offset position of the rawfile. If the `rawFile` is `NULL`, `0` is returned.
     ///
     /// Available since API-level: 11
     ///
@@ -348,19 +367,22 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_ResourceManager_GetRawFileOffset64(rawFile: *const RawFile64) -> i64;
-    /// Opens the file descriptor of a raw file based on the int64_t offset and file length.
-    ///
-    /// The opened raw file descriptor is used to read the raw file.
+    /// Obtains the rawfile descriptor information. After obtaining the file descriptor information, you can call
+    /// functions such as **pread** to read the rawfile. Files larger than 2 GB are supported.
     ///
     /// # Arguments
     ///
-    /// * `rawFile` - Indicates the pointer to [`RawFile64`](crate::RawFile64).
+    /// * `rawFile` - Input parameter. Pointer to a `RawFile64` object, which is obtained through
+    /// [`OH_ResourceManager_OpenRawFile64`](crate::raw_file_manager::OH_ResourceManager_OpenRawFile64).
     ///
-    /// * `descriptor` - Indicates the raw file's file descriptor, start position and the length in the HAP.
+    /// * `descriptor` - Output parameter. Pointer to the `RawFileDescriptor64` object, which is used to return the file
+    /// descriptor information. After use, you must call [`OH_ResourceManager_ReleaseRawFileDescriptor64`](crate::raw_file::OH_ResourceManager_ReleaseRawFileDescriptor64) to
+    /// release the file descriptor, preventing file descriptor leakage.
     ///
     /// # Returns
     ///
-    /// * Returns true: open the raw file descriptor successfully, false: the raw file is not allowed to access.
+    /// * Obtaining result. If the operation is successful, `true` is returned. If the operation fails, `false` is
+    /// returned. The possible cause is that `rawFile` or `descriptor` is `NULL` or the access to the rawfile is denied.
     ///
     /// Available since API-level: 11
     ///
@@ -371,17 +393,18 @@ extern "C" {
         rawFile: *const RawFile64,
         descriptor: *mut RawFileDescriptor64,
     ) -> bool;
-    /// Closes the file descriptor of a raw file.
-    ///
-    /// The opened raw file descriptor must be released after used to avoid the file descriptor leak.
+    /// Releases rawfile file descriptor resources. After successful release, `fd` in `descriptor` becomes invalid
+    /// and cannot be used any more.
     ///
     /// # Arguments
     ///
-    /// * `descriptor` - Indicates the raw file's file descriptor, start position and the length in the HAP.
+    /// * `descriptor` - Input parameter. Pointer to the `RawFileDescriptor64` object to be released, which is obtained
+    /// through [`OH_ResourceManager_GetRawFileDescriptor64`](crate::raw_file::OH_ResourceManager_GetRawFileDescriptor64).
     ///
     /// # Returns
     ///
-    /// * Returns true: closes the raw file descriptor successfully, false: closes the raw file descriptor failed.
+    /// * Release result. If the operation is successful, `true` is returned. If the operation fails, `false` is
+    /// returned. The possible cause is that `descriptor` is `NULL` or the file descriptor has been released.
     ///
     /// Available since API-level: 11
     ///

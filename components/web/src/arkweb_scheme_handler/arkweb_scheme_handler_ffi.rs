@@ -230,7 +230,7 @@ pub type ArkWeb_OnRequestStart = ::core::option::Option<
 ///
 /// This will be called on the IO thread.
 ///
-/// Should destory the resourceRequest by ArkWeb_ResourceRequest_Destroy and use ArkWeb_ResourceHandler_Destroy
+/// Should destroy the resourceRequest by ArkWeb_ResourceRequest_Destroy and use ArkWeb_ResourceHandler_Destroy
 ///
 /// destroy the ArkWeb_ResourceHandler received in ArkWeb_OnRequestStart.
 ///
@@ -241,8 +241,6 @@ pub type ArkWeb_OnRequestStart = ::core::option::Option<
 ///
 /// * `resourceRequest` - The ArkWeb_ResourceRequest.
 ///
-///
-/// Required System Capabilities: SystemCapability.Web.Webview.Core
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -866,7 +864,7 @@ extern "C" {
     pub fn OH_ArkWebResourceRequest_IsMainFrame(
         resourceRequest: *const ArkWeb_ResourceRequest,
     ) -> bool;
-    /// Get if this is a request is triggered by user gesutre.
+    /// Get if this is a request is triggered by user gesture.
     /// # Arguments
     ///
     /// * `resourceRequest` - The ArkWeb_ResourceRequest.
@@ -875,8 +873,6 @@ extern "C" {
     ///
     /// * True if this is triggered by user gesture; false otherwise.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Web.Webview.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1004,11 +1000,9 @@ extern "C" {
     /// Create a SchemeHandler.
     /// # Arguments
     ///
-    /// * `schemeHandler` - Return the created SchemeHandler. Use OH_ArkWeb_DestroySchemeHandler destroy it when donn't
+    /// * `schemeHandler` - Return the created SchemeHandler. Use OH_ArkWeb_DestroySchemeHandler destroy it when don't
     /// need it.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Web.Webview.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1113,10 +1107,8 @@ extern "C" {
     /// Create a Response for a request.
     /// # Arguments
     ///
-    /// * `response` - The created Response. Use OH_ArkWeb_DestroyResponse to destroy when donn't need it.
+    /// * `response` - The created Response. Use OH_ArkWeb_DestroyResponse to destroy when don't need it.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Web.Webview.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1378,15 +1370,13 @@ extern "C" {
     ///
     /// * `value` - The value of the header.
     ///
-    /// * `overwirte` - If true will overwrite the exsits header, if false otherwise.
+    /// * `overwrite` - If true will overwrite the exists header, if false otherwise.
     ///
     /// # Returns
     ///
     /// * [`ARKWEB_NET_OK`](crate::arkweb_net_error_list::ArkWeb_NetError::ARKWEB_NET_OK) 0 - Success.
     /// [`ARKWEB_INVALID_PARAM`](crate::arkweb_error_code::ArkWeb_ErrorCodeError::INVALID_PARAM) 17100101 - Invalid param.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Web.Webview.Core
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

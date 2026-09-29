@@ -6,19 +6,17 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_Point</b> object.
+    /// Creates an **OH_Drawing_Point** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `x` - Indicates the x-axis coordinates of the point.
+    /// * `x` - X coordinate of the point.
     ///
-    /// * `y` - Indicates the y-axis coordinates of the point.
+    /// * `y` - Y coordinate of the point.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Point</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_Point** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -26,21 +24,19 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_PointCreate(x: f32, y: f32) -> *mut OH_Drawing_Point;
-    /// Gets the x-axis coordinate of the point.
+    /// Obtains the X coordinate of a point.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Pointer to an [`OH_Drawing_Point`](crate::types::OH_Drawing_Point) object.
     ///
-    /// * `x` - Indicates the x-axis coordinate of the point.
+    /// * `x` - Pointer to the X coordinate.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if point or x is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **point** or **x** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -51,21 +47,19 @@ extern "C" {
         point: *const OH_Drawing_Point,
         x: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Gets the y-axis coordinate of the point.
+    /// Obtains the Y coordinate of a point.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Pointer to an [`OH_Drawing_Point`](crate::types::OH_Drawing_Point) object.
     ///
-    /// * `y` - Indicates the y-axis coordinate of the point.
+    /// * `y` - Pointer to the Y coordinate.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if point or y is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **point** or **y** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -76,23 +70,21 @@ extern "C" {
         point: *const OH_Drawing_Point,
         y: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Sets the x-axis and y-axis coordinates of the point.
+    /// Sets the X and Y coordinates of a point.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    /// * `point` - Pointer to an [`OH_Drawing_Point`](crate::types::OH_Drawing_Point) object.
     ///
-    /// * `x` - Indicates the x-axis coordinate of the point.
+    /// * `x` - Pointer to the X coordinate.
     ///
-    /// * `y` - Indicates the y-axis coordinate of the point.
+    /// * `y` - Pointer to the Y coordinate.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if point is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **point** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -104,13 +96,52 @@ extern "C" {
         x: f32,
         y: f32,
     ) -> crate::error_code::DrawingResult;
-    /// Destroys an <b>OH_Drawing_Point</b> object and reclaims the memory occupied by the object.
+    /// Negates the point's coordinates.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
     /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if point is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_PointNegate(point: *mut OH_Drawing_Point)
+        -> crate::error_code::DrawingResult;
+    /// Offsets the point's coordinates by dx, dy.
+    ///
+    /// # Arguments
+    ///
+    /// * `point` - Indicates the pointer to an <b>OH_Drawing_Point</b> object.
+    ///
+    /// * `dx` - Indicates the distance to offset on the x-axis in pixels.
+    ///
+    /// * `dy` - Indicates the distance to offset on the y-axis in pixels.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if point is nullptr.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_PointOffset(
+        point: *mut OH_Drawing_Point,
+        dx: f32,
+        dy: f32,
+    ) -> crate::error_code::DrawingResult;
+    /// Destroys an **OH_Drawing_Point** object and reclaims the memory occupied by the object.
+    ///
+    /// # Arguments
+    ///
+    /// * `point` - Pointer to an **OH_Drawing_Point** object.
     ///
     /// Available since API-level: 11
     ///

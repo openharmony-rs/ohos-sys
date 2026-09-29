@@ -8,21 +8,21 @@ pub const OH_DISPLAY_NAME_LENGTH: u32 = 32;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl NativeDisplayManager_Rotation {
-    /// device rotation 0 degree
+    /// The display is rotated clockwise by 0 degrees.
     pub const DISPLAY_MANAGER_ROTATION_0: NativeDisplayManager_Rotation =
         NativeDisplayManager_Rotation(0);
-    /// device rotation 90 degrees
+    /// The display is rotated clockwise by 90 degrees.
     pub const DISPLAY_MANAGER_ROTATION_90: NativeDisplayManager_Rotation =
         NativeDisplayManager_Rotation(1);
-    /// device rotation 180 degrees
+    /// The display is rotated clockwise by 180 degrees.
     pub const DISPLAY_MANAGER_ROTATION_180: NativeDisplayManager_Rotation =
         NativeDisplayManager_Rotation(2);
-    /// device rotation 270 degree
+    /// The display is rotated clockwise by 270 degrees.
     pub const DISPLAY_MANAGER_ROTATION_270: NativeDisplayManager_Rotation =
         NativeDisplayManager_Rotation(3);
 }
 #[repr(transparent)]
-/// Enumerates rotations.
+/// Enumerates the clockwise rotation angles of a display.
 ///
 ///
 /// Available since API-level: 12
@@ -35,24 +35,24 @@ pub struct NativeDisplayManager_Rotation(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl NativeDisplayManager_Orientation {
-    /// device portrait show
+    /// The display is in portrait mode.
     pub const DISPLAY_MANAGER_PORTRAIT: NativeDisplayManager_Orientation =
         NativeDisplayManager_Orientation(0);
-    /// device landscape show
+    /// The display is in landscape mode.
     pub const DISPLAY_MANAGER_LANDSCAPE: NativeDisplayManager_Orientation =
         NativeDisplayManager_Orientation(1);
-    /// device portrait inverted show
+    /// The display is in reverse portrait mode.
     pub const DISPLAY_MANAGER_PORTRAIT_INVERTED: NativeDisplayManager_Orientation =
         NativeDisplayManager_Orientation(2);
-    /// device landscape inverted show
+    /// The display is in reverse landscape mode.
     pub const DISPLAY_MANAGER_LANDSCAPE_INVERTED: NativeDisplayManager_Orientation =
         NativeDisplayManager_Orientation(3);
-    /// device unknow show
+    /// The screen orientation is unknown.
     pub const DISPLAY_MANAGER_UNKNOWN: NativeDisplayManager_Orientation =
         NativeDisplayManager_Orientation(4);
 }
 #[repr(transparent)]
-/// Enumerates orientations.
+/// Enumerates the orientations of a display.
 ///
 ///
 /// Available since API-level: 12
@@ -66,29 +66,28 @@ pub type NativeDisplayManagerResult = Result<(), NativeDisplayManagerErrorCode>;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl NativeDisplayManagerErrorCode {
-    /// Operation no permission
+    /// Permission verification fails. The application does not have the permission to use the API.
     pub const NO_PERMISSION: NativeDisplayManagerErrorCode =
         NativeDisplayManagerErrorCode(const { core::num::NonZero::new(201).unwrap() });
-    /// Operation not system app
+    /// Permission verification fails. A non-system application attempts to call a system API.
     pub const NOT_SYSTEM_APP: NativeDisplayManagerErrorCode =
         NativeDisplayManagerErrorCode(const { core::num::NonZero::new(202).unwrap() });
-    /// Operation invalid param
+    /// Parameter check fails.
     pub const INVALID_PARAM: NativeDisplayManagerErrorCode =
         NativeDisplayManagerErrorCode(const { core::num::NonZero::new(401).unwrap() });
-    /// Operation device not supported
+    /// The device does not support the API.
     pub const DEVICE_NOT_SUPPORTED: NativeDisplayManagerErrorCode =
         NativeDisplayManagerErrorCode(const { core::num::NonZero::new(801).unwrap() });
-    /// Operation screen invalid
+    /// The display is invalid.
     pub const INVALID_SCREEN: NativeDisplayManagerErrorCode =
         NativeDisplayManagerErrorCode(const { core::num::NonZero::new(1400001).unwrap() });
-    /// Operation invalid call
+    /// The current operation object does not have the operation permission.
     pub const INVALID_CALL: NativeDisplayManagerErrorCode =
         NativeDisplayManagerErrorCode(const { core::num::NonZero::new(1400002).unwrap() });
-    /// Operation system abnormal
+    /// The system service is abnormal.
     pub const SYSTEM_ABNORMAL: NativeDisplayManagerErrorCode =
         NativeDisplayManagerErrorCode(const { core::num::NonZero::new(1400003).unwrap() });
-    /// Operation illegal param.
-    ///
+    /// Invalid parameter.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -97,7 +96,7 @@ impl NativeDisplayManagerErrorCode {
         NativeDisplayManagerErrorCode(const { core::num::NonZero::new(1400004).unwrap() });
 }
 #[repr(transparent)]
-/// Enumerates the result types of the display manager interface.
+/// Enumerates the status codes returned by the display manager interface.
 ///
 ///
 /// Available since API-level: 12
@@ -110,24 +109,24 @@ pub struct NativeDisplayManagerErrorCode(pub core::num::NonZero<::core::ffi::c_u
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl NativeDisplayManager_FoldDisplayMode {
-    /// display mode unknown
+    /// The display mode of the device is unknown.
     pub const DISPLAY_MANAGER_FOLD_DISPLAY_MODE_UNKNOWN: NativeDisplayManager_FoldDisplayMode =
         NativeDisplayManager_FoldDisplayMode(0);
-    /// display mode full
+    /// The device is displayed in full screen.
     pub const DISPLAY_MANAGER_FOLD_DISPLAY_MODE_FULL: NativeDisplayManager_FoldDisplayMode =
         NativeDisplayManager_FoldDisplayMode(1);
-    /// display mode main
+    /// The main screen of the device is displayed.
     pub const DISPLAY_MANAGER_FOLD_DISPLAY_MODE_MAIN: NativeDisplayManager_FoldDisplayMode =
         NativeDisplayManager_FoldDisplayMode(2);
-    /// display mode sub
+    /// The subscreen of the device is displayed.
     pub const DISPLAY_MANAGER_FOLD_DISPLAY_MODE_SUB: NativeDisplayManager_FoldDisplayMode =
         NativeDisplayManager_FoldDisplayMode(3);
-    /// display mode coordination
+    /// Both screens of the device are displayed in collaborative mode.
     pub const DISPLAY_MANAGER_FOLD_DISPLAY_MODE_COORDINATION: NativeDisplayManager_FoldDisplayMode =
         NativeDisplayManager_FoldDisplayMode(4);
 }
 #[repr(transparent)]
-/// Enumerates the fold display mode.
+/// Enumerates the display modes of a foldable device.
 ///
 ///
 /// Available since API-level: 12
@@ -137,7 +136,7 @@ impl NativeDisplayManager_FoldDisplayMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct NativeDisplayManager_FoldDisplayMode(pub ::core::ffi::c_uint);
-/// Defines the display rect data structure.
+/// The struct describes a rectangle.
 ///
 ///
 /// Available since API-level: 12
@@ -153,7 +152,7 @@ pub struct NativeDisplayManager_Rect {
     pub width: u32,
     pub height: u32,
 }
-/// Defines the display waterfallDisplayAreaRects data structure.
+/// The struct describes the curved area on a waterfall display.
 ///
 ///
 /// Available since API-level: 12
@@ -169,7 +168,8 @@ pub struct NativeDisplayManager_WaterfallDisplayAreaRects {
     pub right: NativeDisplayManager_Rect,
     pub bottom: NativeDisplayManager_Rect,
 }
-/// Defines the display cutout info data structure.
+/// The struct describes the unusable area of a display, including punch hole, notch, and curved area of a
+/// waterfall display.
 ///
 ///
 /// Available since API-level: 12
@@ -187,30 +187,30 @@ pub struct NativeDisplayManager_CutoutInfo {
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 impl NativeDisplayManager_DisplayState {
-    /// display state unknown
+    /// Unknown.
     pub const DISPLAY_MANAGER_DISPLAY_STATE_UNKNOWN: NativeDisplayManager_DisplayState =
         NativeDisplayManager_DisplayState(0);
-    /// display state off
+    /// The display is shut down.
     pub const DISPLAY_MANAGER_DISPLAY_STATE_OFF: NativeDisplayManager_DisplayState =
         NativeDisplayManager_DisplayState(1);
-    /// display state on
+    /// The display is powered on.
     pub const DISPLAY_MANAGER_DISPLAY_STATE_ON: NativeDisplayManager_DisplayState =
         NativeDisplayManager_DisplayState(2);
-    /// display state doze
+    /// The display is in sleep mode.
     pub const DISPLAY_MANAGER_DISPLAY_STATE_DOZE: NativeDisplayManager_DisplayState =
         NativeDisplayManager_DisplayState(3);
-    /// display state doze suspend
+    /// The display is in sleep mode, and the CPU is suspended.
     pub const DISPLAY_MANAGER_DISPLAY_STATE_DOZE_SUSPEND: NativeDisplayManager_DisplayState =
         NativeDisplayManager_DisplayState(4);
-    /// display state vr
+    /// The display is in VR mode.
     pub const DISPLAY_MANAGER_DISPLAY_STATE_VR: NativeDisplayManager_DisplayState =
         NativeDisplayManager_DisplayState(5);
-    /// display state on suspend
+    /// The display is powered on, and the CPU is suspended.
     pub const DISPLAY_MANAGER_DISPLAY_STATE_ON_SUSPEND: NativeDisplayManager_DisplayState =
         NativeDisplayManager_DisplayState(6);
 }
 #[repr(transparent)]
-/// Enumerates of the display state.
+/// Enumerates the states of a display.
 ///
 ///
 /// Available since API-level: 14
@@ -223,24 +223,24 @@ pub struct NativeDisplayManager_DisplayState(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl NativeDisplayManager_SourceMode {
-    /// display is not in use
+    /// The device is currently not in use.
     pub const DISPLAY_SOURCE_MODE_NONE: NativeDisplayManager_SourceMode =
         NativeDisplayManager_SourceMode(0);
-    /// display is in main mode
+    /// The primary screen of the device is currently in use.
     pub const DISPLAY_SOURCE_MODE_MAIN: NativeDisplayManager_SourceMode =
         NativeDisplayManager_SourceMode(1);
-    /// display is in mirror mode
+    /// The device is currently in mirror display mode.
     pub const DISPLAY_SOURCE_MODE_MIRROR: NativeDisplayManager_SourceMode =
         NativeDisplayManager_SourceMode(2);
-    /// display is in extend mode
+    /// The device is currently in extended display mode.
     pub const DISPLAY_SOURCE_MODE_EXTEND: NativeDisplayManager_SourceMode =
         NativeDisplayManager_SourceMode(3);
-    /// display stands alone
+    /// The device is currently in independent display mode.
     pub const DISPLAY_SOURCE_MODE_ALONE: NativeDisplayManager_SourceMode =
         NativeDisplayManager_SourceMode(4);
 }
 #[repr(transparent)]
-/// Enumerates of the display source mode.
+/// Enumerates the source modes of a device.
 ///
 ///
 /// Available since API-level: 20
@@ -250,7 +250,7 @@ impl NativeDisplayManager_SourceMode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct NativeDisplayManager_SourceMode(pub ::core::ffi::c_uint);
-/// Defines the display hdr structure.
+/// The struct describes all the HDR formats supported by a display.
 ///
 ///
 /// Available since API-level: 14
@@ -261,12 +261,12 @@ pub struct NativeDisplayManager_SourceMode(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NativeDisplayManager_DisplayHdrFormat {
-    /// hdrFormat length
+    /// Number of HDR formats supported by the display.
     pub hdrFormatLength: u32,
-    /// hdrFormat pointer
+    /// Data of the HDR formats supported by the display.
     pub hdrFormats: *mut u32,
 }
-/// Defines the display color space structure.
+/// The struct describes all the color spaces supported by a display.
 ///
 ///
 /// Available since API-level: 14
@@ -277,12 +277,12 @@ pub struct NativeDisplayManager_DisplayHdrFormat {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NativeDisplayManager_DisplayColorSpace {
-    /// color space length
+    /// Number of color spaces supported by the display.
     pub colorSpaceLength: u32,
-    /// color space pointer
+    /// Data of the color spaces supported by the display.
     pub colorSpaces: *mut u32,
 }
-/// Defines the display structure.
+/// The struct describes the information about a display.
 ///
 ///
 /// Available since API-level: 14
@@ -293,48 +293,68 @@ pub struct NativeDisplayManager_DisplayColorSpace {
 #[repr(C)]
 #[derive(Debug)]
 pub struct NativeDisplayManager_DisplayInfo {
-    /// display id
+    /// ID of the display. The value is a non-negative integer.
     pub id: u32,
     /// display name
     pub name: [::core::ffi::c_char; 33usize],
-    /// display is alive
+    /// Whether the display is active. **true** if active, **false** otherwise.
     pub isAlive: bool,
-    /// display width
+    /// Width of the display, in px. The value is a non-negative integer.
     pub width: i32,
-    /// display height
+    /// Height of the display, in px. The value is a non-negative integer.
     pub height: i32,
-    /// display physical width
+    /// Physical width of the display, in px. The value is a non-negative integer.
     pub physicalWidth: i32,
-    /// display physical height
+    /// Physical height of the display, in px. The value is a non-negative integer.
     pub physicalHeight: i32,
-    /// display refresh rate
+    /// Refresh rate of the display, in Hz. The value is a non-negative integer.
     pub refreshRate: u32,
-    /// display available width
+    /// Width of the available area on the screen of the display, in px. The value is a non-negative integer.
+    ///
+    /// This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+    /// For devices running versions earlier than OpenHarmony 7.0.0,
+    /// this API can be properly called on PCs/2-in-1 devices and tablets,
+    /// but does not work for other device types.
+    /// To obtain the width of the available area on the current device screen, you can use the width attribute.
     pub availableWidth: u32,
-    /// display available height
+    /// Height of the available area on the screen of the display, in px. The value is a non-negative integer.
+    ///
+    /// This API can be properly called on devices running OpenHarmony 7.0.0 or later.
+    /// For devices running versions earlier than OpenHarmony 7.0.0,
+    /// this API can be properly called on PCs/2-in-1 devices and tablets,
+    /// but does not work for other device types.
+    /// To obtain the height of the available area on the current device screen, you can use the height attribute.
     pub availableHeight: u32,
-    /// display density dpi
+    /// Physical pixel density of the display, that is, the number of pixels per inch. The value must be a floating-
+    /// point number greater than 0. The unit is px. Generally, the value is **160.0** or **480.0**. The actual value
+    /// depends on the optional values provided by the device in use.
     pub densityDPI: f32,
-    /// display density pixels
+    /// Logical pixel density of the display, which is the scaling coefficient between physical pixels and logical
+    /// pixels. The value is a floating-point number greater than 0 and is restricted by the range of **densityDPI**.
+    /// The value range is \[0.5, 4.0\]. Generally, the value is **1.0** or **3.0**. The actual value depends on the
+    /// density DPI provided by the device in use.
     pub densityPixels: f32,
-    /// display scale density
+    /// Scaling factor for fonts displayed on the display. The value must be a floating-point number greater than 0.
+    /// Generally, the value is the same as that of **densityPixels**.
     pub scaledDensity: f32,
-    /// display xdpi
+    /// Exact physical pixels per inch of the display in the X dimension. The value must be a floating-point number
+    /// greater than 0.
     pub xDPI: f32,
-    /// display ydpi
+    /// Exact physical pixels per inch of the display in the Y dimension. The value must be a floating-point number
+    /// greater than 0.
     pub yDPI: f32,
-    /// display rotation
+    /// Clockwise rotation angle of the display.
     pub rotation: NativeDisplayManager_Rotation,
-    /// display state
+    /// State of the display.
     pub state: NativeDisplayManager_DisplayState,
-    /// display orientation
+    /// Orientation of the display.
     pub orientation: NativeDisplayManager_Orientation,
-    /// display hdr format
+    /// All the HDR formats supported by the display.
     pub hdrFormat: *mut NativeDisplayManager_DisplayHdrFormat,
-    /// display color space
+    /// All the color spaces supported by the display.
     pub colorSpace: *mut NativeDisplayManager_DisplayColorSpace,
 }
-/// Defines the displays structure.
+/// The struct describes the information about displays of a device with multiple screens.
 ///
 ///
 /// Available since API-level: 14
@@ -345,8 +365,8 @@ pub struct NativeDisplayManager_DisplayInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NativeDisplayManager_DisplaysInfo {
-    /// displays length
+    /// Number of displays of a device with multiple screens.
     pub displaysLength: u32,
-    /// displays pointer
+    /// An array of NativeDisplayManager_DisplayInfo structs, each containing information about a display.
     pub displaysInfo: *mut NativeDisplayManager_DisplayInfo,
 }

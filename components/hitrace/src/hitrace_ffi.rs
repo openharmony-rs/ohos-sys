@@ -144,20 +144,14 @@ where
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl HiTraceId_Valid {
-    /// Invalid <b>HiTraceId</b> instance.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Invalid **HiTraceId**.
     ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_ID_INVALID: HiTraceId_Valid = HiTraceId_Valid(0);
-    /// Valid <b>HiTraceId</b> instance.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Valid **HiTraceId**.
     ///
     ///
     /// Available since API-level: 12
@@ -166,10 +160,7 @@ impl HiTraceId_Valid {
     pub const HITRACE_ID_VALID: HiTraceId_Valid = HiTraceId_Valid(1);
 }
 #[repr(transparent)]
-/// Defines whether a <b>HiTraceId</b> instance is valid.
-///
-///
-/// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+/// Enumerates whether a **HiTraceId** instance is valid.
 ///
 ///
 /// Available since API-level: 12
@@ -183,19 +174,13 @@ impl HiTrace_Version {
     /// Version 1.
     ///
     ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_VER_1: HiTrace_Version = HiTrace_Version(0);
 }
 #[repr(transparent)]
-/// Enumerates the HiTrace version numbers.
-///
-///
-/// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+/// Enumerates the HiTrace versions.
 ///
 ///
 /// Available since API-level: 12
@@ -243,79 +228,63 @@ impl HiTrace_Flag {
     /// Default flag.
     ///
     ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_FLAG_DEFAULT: HiTrace_Flag = HiTrace_Flag(0);
-    /// Both synchronous and asynchronous calls are traced. By default, only synchronous calls are traced.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Asynchronous call flag.When this flag is set, both synchronous and asynchronous calls are traced.By
+    /// default, only synchronous calls are traced.
     ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_FLAG_INCLUDE_ASYNC: HiTrace_Flag = HiTrace_Flag(1);
-    /// No spans are created. By default, spans are created.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// No span flag.When this flag is set, no span information is created. By default, span information is
+    /// created.
     ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_FLAG_DONOT_CREATE_SPAN: HiTrace_Flag = HiTrace_Flag(2);
-    /// Trace points are automatically added to spans. By default, no trace point is added.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Trace point flag.When this flag is set in the debugging scenario, the HiLog logs of the trace point are
+    /// printed upon calling the **OH_HiTrace_Tracepoint()** API. By default, the HiLog logs are not printed.
     ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_FLAG_TP_INFO: HiTrace_Flag = HiTrace_Flag(4);
-    /// Information about the start and end of the trace task is not printed. By default, information about the
-    /// start and end of the trace task is printed.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// No begin and end flag.When this flag is set in the debugging scenario, the HiLog logs about the begin and
+    /// end of tracing are printed when the **OH_HiTrace_BeginChain()** and **OH_HiTrace_EndChain()** APIs are called.
+    /// By default,the HiLog logs about the begin and end of tracing are not printed.
     ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_FLAG_NO_BE_INFO: HiTrace_Flag = HiTrace_Flag(8);
-    /// The ID is not added to the log. By default, the ID is added to the log.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Log association flag.When this flag is set, the **HiTraceId** information is not added to the HiLog logs.
+    /// By default, the **HiTraceId** information is added to the HiLog logs.
     ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_FLAG_DONOT_ENABLE_LOG: HiTrace_Flag = HiTrace_Flag(16);
-    /// Tracing is triggered by faults.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Failure trigger flag. This is a reserved flag.
     ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_FLAG_FAULT_TRIGGER: HiTrace_Flag = HiTrace_Flag(32);
-    /// Trace points are added only for call chain trace between devices.
-    /// By default, device-to-device trace points are not added.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Device-to-device trace point flag. It is a subset of **HITRACE_FLAG_TP_INFO** and is used in debugging
+    /// scenarios.When the **HITRACE_FLAG_TP_INFO** flag is set, the **HITRACE_FLAG_D2D_TP_INFO** flag does not take
+    /// effect.When **HITRACE_FLAG_TP_INFO** is not set and **HITRACE_FLAG_D2D_TP_INFO** is set, the HiLog logs of the
+    /// trace point are printed only when the **mode** parameter is set to **HITRACE_CM_DEVICE** upon calling
+    /// **OH_HiTrace_Tracepoint()**.
     ///
     ///
     /// Available since API-level: 12
@@ -327,18 +296,12 @@ impl HiTrace_Flag {
 /// Enumerates the HiTrace flags.
 ///
 ///
-/// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-///
-///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct HiTrace_Flag(pub ::core::ffi::c_uint);
-/// Enumerates the HiTrace trace point types.
-///
-///
-/// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+/// Enumerates the trace point types.
 ///
 ///
 /// Available since API-level: 12
@@ -351,17 +314,11 @@ pub enum HiTrace_Tracepoint_Type {
     /// CS trace point.
     ///
     ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     HITRACE_TP_CS = 0,
     /// CR trace point.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
     ///
     ///
     /// Available since API-level: 12
@@ -371,9 +328,6 @@ pub enum HiTrace_Tracepoint_Type {
     /// SS trace point.
     ///
     ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
@@ -381,17 +335,12 @@ pub enum HiTrace_Tracepoint_Type {
     /// SR trace point.
     ///
     ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     HITRACE_TP_SR = 3,
-    /// General trace point.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// General type, which identifies the trace points except **HITRACE_TP_CS**, **HITRACE_TP_CR**,
+    /// **HITRACE_TP_SS**, and **HITRACE_TP_SR**.
     ///
     ///
     /// Available since API-level: 12
@@ -402,10 +351,7 @@ pub enum HiTrace_Tracepoint_Type {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl HiTrace_Communication_Mode {
-    /// Default communication mode.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Default communication.
     ///
     ///
     /// Available since API-level: 12
@@ -415,17 +361,11 @@ impl HiTrace_Communication_Mode {
     /// Inter-thread communication.
     ///
     ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_CM_THREAD: HiTrace_Communication_Mode = HiTrace_Communication_Mode(1);
-    /// Inter-process communication.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Inter-process communication (IPC).
     ///
     ///
     /// Available since API-level: 12
@@ -435,19 +375,13 @@ impl HiTrace_Communication_Mode {
     /// Inter-device communication.
     ///
     ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
-    ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const HITRACE_CM_DEVICE: HiTrace_Communication_Mode = HiTrace_Communication_Mode(3);
 }
 #[repr(transparent)]
-/// Enumerates the HiTrace communication modes.
-///
-///
-/// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+/// Enumerates the trace communication types.
 ///
 ///
 /// Available since API-level: 12
@@ -458,35 +392,35 @@ pub struct HiTrace_Communication_Mode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-19")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
 impl HiTrace_Output_Level {
-    /// Output level only for debug usage.
+    /// Level used only for debugging, which has the lowest priority.
     ///
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub const HITRACE_LEVEL_DEBUG: HiTrace_Output_Level = HiTrace_Output_Level(0);
-    /// Output level for log version usage.
+    /// Level for the log version.
     ///
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub const HITRACE_LEVEL_INFO: HiTrace_Output_Level = HiTrace_Output_Level(1);
-    /// Output level for log version usage, with higher priority than HITRACE_LEVEL_INFO.
+    /// Level for the log version, which has a higher priority than **INFO**.
     ///
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub const HITRACE_LEVEL_CRITICAL: HiTrace_Output_Level = HiTrace_Output_Level(2);
-    /// Output level for nolog version usage.
+    /// Level for the nolog version, which has the highest priority.
     ///
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub const HITRACE_LEVEL_COMMERCIAL: HiTrace_Output_Level = HiTrace_Output_Level(3);
-    /// Output level for range limit.
+    /// The maximum output level.
     ///
     ///
     /// Available since API-level: 19
@@ -495,8 +429,8 @@ impl HiTrace_Output_Level {
     pub const HITRACE_LEVEL_MAX: HiTrace_Output_Level = HiTrace_Output_Level(3);
 }
 #[repr(transparent)]
-/// Enumerates the HiTrace output levels. The output level threshold system parameter determines
-/// the minimum output trace.
+/// Enumerates the HiTrace output levels. The trace output level lower than the threshold does not take effect.
+/// The log version threshold is **HITRACE_LEVEL_INFO**, and the nolog version threshold is **HITRACE_LEVEL_COMMERCIAL**.
 ///
 ///
 /// Available since API-level: 19
@@ -504,13 +438,9 @@ impl HiTrace_Output_Level {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct HiTrace_Output_Level(pub ::core::ffi::c_uint);
-/// Defines a <b>HiTraceId</b> instance.
+/// Defines a **HiTraceId** instance.
 ///
 /// HiTraceId
-///
-///
-/// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -759,12 +689,12 @@ impl HiTraceId {
         __bindgen_bitfield_unit
     }
 }
-/// Defines the callback type used in trace status switch event.
-/// The value of traceStatus indicates the current trace status.
+/// Defines a callback to listen for whether the trace capture is enabled.
 ///
 /// # Arguments
 ///
-/// * `traceStatus` - The current trace status, true for open, false for close.
+/// * `traceStatus` - Whether the trace capture is enabled for the current application.
+/// The value **true** indicates that the trace capture is enabled, and **false** indicates the opposite.
 ///
 /// Available since API-level: 22
 #[cfg(feature = "api-22")]
@@ -772,24 +702,21 @@ impl HiTraceId {
 pub type OH_HiTrace_TraceEventListener =
     ::core::option::Option<unsafe extern "C" fn(traceStatus: bool)>;
 extern "C" {
-    /// Starts tracing of a process.
-    ///
-    /// This API starts tracing, creates a <b>HiTraceId</b> instance, and sets it to the TLS of the calling thread.
-    /// This API works only when it is called for the first time.
+    /// Starts tracing.
+    /// If the current thread's TLS does not contain a valid HiTrace ID, this function generates one, stores it in TLS, and
+    /// returns it.
+    /// If the current thread's TLS already contains a valid HiTrace ID, this function does not start tracing and returns an
+    /// invalid HiTrace ID with all property values being 0.
     ///
     /// # Arguments
     ///
-    /// * `name` - Pointer to a process name.
+    /// * `name` - Name of the traced service.
     ///
-    /// * `flags` - Trace flag.
+    /// * `flags` - Trace flags. For details, see [`HiTrace_Flag`](crate::HiTrace_Flag).
     ///
     /// # Returns
     ///
-    /// * Returns the created <b>HiTraceId</b> instance.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * The [`HiTraceId`](crate::HiTraceId) struct.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -798,97 +725,73 @@ extern "C" {
         name: *const ::core::ffi::c_char,
         flags: ::core::ffi::c_int,
     ) -> HiTraceId;
-    /// Ends tracing and clears the <b>HiTraceId</b> instance of the calling thread from the TLS.
-    ///
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Stops tracing.Stops tracing and sets the HiTrace ID in the TLS of the current thread to invalid.
     ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_EndChain();
-    /// Obtains the trace ID of the calling thread from the TLS.
-    ///
+    /// Obtains the HiTrace ID in the TLS of the current thread.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns the trace ID of the calling thread. If the calling thread does not have a trace ID,
-    /// an invalid trace ID is returned.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * The [`HiTraceId`](crate::HiTraceId) struct.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_GetId() -> HiTraceId;
-    /// Sets the trace ID of the calling thread. If the ID is invalid, no operation is performed.
-    ///
-    /// This API sets a <b>HiTraceId</b> instance to the TLS of the calling thread.
+    /// Sets the given HiTrace ID to the TLS of the current thread. If the given HiTrace ID is invalid, no operation
+    /// is performed.
     ///
     /// # Arguments
     ///
-    /// * `id` - Trace ID to set.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) to set.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_SetId(id: *const HiTraceId);
-    /// Clears the trace ID of the calling thread and invalidates it.
-    ///
-    /// This API clears the <b>HiTraceId</b> instance in the TLS of the calling thread.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Clears the HiTrace ID in the current thread's TLS.
     ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_ClearId();
-    /// Creates a span ID based on the trace ID of the calling thread.
-    ///
-    /// This API generates a new span and corresponding <b>HiTraceId</b> instance based on the <b>HiTraceId</b>
-    /// instance in the TLS of the calling thread.
+    /// Creates a trace span.
+    /// Specifically, create a **HiTraceId**, use the **chainId** and **spanId** in the TLS of the current thread to
+    /// initialize the **chainId** and **parentSpanId** of the **HiTraceId**, generate a new **spanId** for the **HiTraceId**
+    /// , and return the **HiTraceId**.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns a valid span ID. If span creation is not allowed, the ID of the calling thread is traced.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * The [`HiTraceId`](crate::HiTraceId) struct.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_CreateSpan() -> HiTraceId;
-    /// Prints HiTrace information, including the trace ID.
-    ///
-    /// This API prints trace point information, including the communication mode, trace point type, timestamp, and span.
+    /// Adds a trace point for the HiTraceMeter logging.
+    /// When **type** is set to **HITRACE_TP_CS** and **HITRACE_TP_SR**, the HiTraceMeter tracing starts. When **type** is
+    /// set to **HITRACE_TP_CR** and **HITRACE_TP_SS**, the HiTraceMeter tracing ends. When **type** is set to **
+    /// HITRACE_TP_GENERAL**, the HiTraceMeter tracing does not start.
+    /// The tracing points of **HITRACE_TP_CS** and **HITRACE_TP_CR** must be used in pairs; the tracing points of **
+    /// HITRACE_TP_SR** and **HITRACE_TP_SS** must be used in pairs. Otherwise, the start and end trace points of
+    /// HiTraceMeter cannot match each other.
     ///
     /// # Arguments
     ///
-    /// * `mode` - Communication mode for the trace point.
+    /// * `mode` - Trace communication mode. For details, see [`HiTrace_Communication_Mode`](crate::HiTrace_Communication_Mode).
     ///
-    /// * `type` - Trace point type.
+    /// * `type` - Trace information type. For details, see [`HiTrace_Tracepoint_Type`](crate::HiTrace_Tracepoint_Type).
     ///
-    /// * `id` - Trace ID.
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) for implementing trace points.
     ///
-    /// * `fmt` - Custom information to print.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * `fmt` - Formatted string of the trace description information passed by the HiTraceMeter logging.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -900,253 +803,190 @@ extern "C" {
         fmt: *const ::core::ffi::c_char,
         ...
     );
-    /// Initializes a <b>HiTraceId</b> structure.
+    /// Initializes a **HiTraceId**.
     ///
     /// # Arguments
     ///
-    /// * `id` - ID of the <b>HiTraceId</b> structure to be initialized.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) to initialize.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_InitId(id: *mut HiTraceId);
-    /// Creates a <b>HiTraceId</b> structure based on a byte array.
+    /// Creates a **HiTraceId** based on a byte array.
     ///
     /// # Arguments
     ///
-    /// * `id` - ID of the <b>HiTraceId</b> structure to be created.
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) to create.
     ///
     /// * `pIdArray` - Byte array.
     ///
     /// * `len` - Length of the byte array.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_IdFromBytes(id: *mut HiTraceId, pIdArray: *const u8, len: ::core::ffi::c_int);
-    /// Checks whether a <b>HiTraceId</b> instance is valid.
-    ///
+    /// Checks whether the **HiTraceId** is valid.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance to check.
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) to check.
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if the <b>HiTraceId</b> instance is valid; returns <b>false</b> otherwise.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * The value **true** indicates that [`HiTraceId`](crate::HiTraceId) is valid, and **false** indicates the opposite.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_IsIdValid(id: *const HiTraceId) -> bool;
-    /// Checks whether the specified trace flag in a <b>HiTraceId</b> instance is enabled.
-    ///
+    /// Checks whether the trace flag is enabled for the **HiTraceId**.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance to check.
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) to check.
     ///
-    /// * `flag` - Specified trace flag.
+    /// * `flag` - Trace flag. For details, see [`HiTrace_Flag`](crate::HiTrace_Flag).
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if the specified trace flag is enabled; returns <b>false</b> otherwise.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * The value **true** indicates that the flag is enabled for the [`HiTraceId`](crate::HiTraceId), and **false** indicates the
+    /// opposite.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_IsFlagEnabled(id: *const HiTraceId, flag: HiTrace_Flag) -> bool;
-    /// Enables the specified trace flag in a <b>HiTraceId</b> instance.
-    ///
+    /// Enables the trace flag specified in **HiTraceId**.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance for which you want to enable the specified trace flag.
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) for which the trace flag is enabled.
     ///
-    /// * `flag` - Specified trace flag.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * `flag` - Trace flag. For details, see [`HiTrace_Flag`](crate::HiTrace_Flag).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_EnableFlag(id: *const HiTraceId, flag: HiTrace_Flag);
-    /// Obtains the trace flag set in a <b>HiTraceId</b> instance.
+    /// Obtains the trace flag set in **HiTraceId**.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance.
-    ///
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) for which the trace flag is obtained.
     ///
     /// # Returns
     ///
-    /// * Returns the trace flag set in the specified <b>HiTraceId</b> instance.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * Trace flag set in [`HiTraceId`](crate::HiTraceId).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_GetFlags(id: *const HiTraceId) -> ::core::ffi::c_int;
-    /// Sets the trace flag for a <b>HiTraceId</b> instance.
+    /// Sets the trace flag to [`HiTraceId`](crate::HiTraceId).
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance.
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) to which the trace flag is set.
     ///
-    /// * `flags` - Trace flag to set.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * `flags` - Trace flag. For details, see [`HiTrace_Flag`](crate::HiTrace_Flag).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_SetFlags(id: *mut HiTraceId, flags: ::core::ffi::c_int);
-    /// Obtains the trace chain ID.
+    /// Obtains the trace chain ID in **HiTraceId**.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance for which you want to obtain the trace chain ID.
-    ///
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) for which the trace chain ID is obtained.
     ///
     /// # Returns
     ///
-    /// * Returns the trace chain ID of the specified <b>HiTraceId</b> instance.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * Trace chain ID.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_GetChainId(id: *const HiTraceId) -> u64;
-    /// Sets the trace chain ID to a <b>HiTraceId</b> instance
+    /// Sets the trace chain ID in **HiTraceId**.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance.
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) to which the trace chain ID is to be set.
     ///
     /// * `chainId` - Trace chain ID to set.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_SetChainId(id: *mut HiTraceId, chainId: u64);
-    /// Obtains the span ID in a <b>HiTraceId</b> instance.
+    /// Obtains the span ID in **HiTraceId**.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance for which you want to obtain the span ID.
-    ///
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) for which span ID is obtained.
     ///
     /// # Returns
     ///
-    /// * Returns the span ID in the specified <b>HiTraceId</b> instance.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * Span ID set in [`HiTraceId`](crate::HiTraceId).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_GetSpanId(id: *const HiTraceId) -> u64;
-    /// Sets the span ID in a <b>HiTraceId</b> instance.
+    /// Sets the span ID in **HiTraceId**.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance for which you want to set the span ID.
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) to which the span ID is set.
     ///
     /// * `spanId` - Span ID to set.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_SetSpanId(id: *mut HiTraceId, spanId: u64);
-    /// Obtains the parent span ID in a <b>HiTraceId</b> instance.
+    /// Obtains the parent span ID in **HiTraceId**.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance for which you want to obtain the parent span ID.
-    ///
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) for which the parent span ID is obtained.
     ///
     /// # Returns
     ///
-    /// * Returns the parent span ID in the specified <b>HiTraceId</b> instance.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
+    /// * Parent span ID set in [`HiTraceId`](crate::HiTraceId).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_GetParentSpanId(id: *const HiTraceId) -> u64;
-    /// Sets the parent span ID in a <b>HiTraceId</b> instance.
+    /// Sets the **ParentSpanId** in a **HiTraceId** instance.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance for which you want to set the parent span ID.
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) to which the parent span ID is set.
     ///
     /// * `parentSpanId` - Parent span ID to set.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_HiTrace_SetParentSpanId(id: *mut HiTraceId, parentSpanId: u64);
-    /// Converts a <b>HiTraceId</b> instance into a byte array for caching or communication.
+    /// Converts **HiTraceId** into a byte array for cache or communication.
     ///
     /// # Arguments
     ///
-    /// * `id` - <b>HiTraceId</b> instance to be converted.
+    /// * `id` - [`HiTraceId`](crate::HiTraceId) to convert.
     ///
     /// * `pIdArray` - Byte array.
     ///
     /// * `len` - Length of the byte array.
     ///
-    ///
     /// # Returns
     ///
     /// * Returns the length of the byte array after conversion.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
-    ///
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -1156,101 +996,88 @@ extern "C" {
         pIdArray: *mut u8,
         len: ::core::ffi::c_int,
     ) -> ::core::ffi::c_int;
-    /// Marks the start of a synchronous trace task.
-    ///
-    /// The <b>OH_HiTrace_StartTrace</b> and <b>OH_HiTrace_FinishTrace</b> APIs must be used in pairs.
-    /// The two APIs can be used in nested mode. The stack data structure is used for matching during trace data parsing.
+    /// Marks the start of a synchronous trace.
+    /// This API is used with **OH_HiTrace_FinishTrace()** in pairs.
+    /// The two APIs can be nested. The stack data structure is used for matching during trace parsing.
+    /// Since API version 19, you are advised to use the **OH_HiTrace_StartTraceEx()** API to specify the trace output level.
     ///
     /// # Arguments
     ///
-    /// * `name` - Name of a trace task.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// * `name` - Name of a synchronous trace.
     ///
     /// Available since API-level: 10
     pub fn OH_HiTrace_StartTrace(name: *const ::core::ffi::c_char);
-    /// Marks the end of a synchronous trace task.
-    ///
-    /// This API must be used with <b>OH_HiTrace_StartTrace</b> in pairs. During trace data parsing, the system matches
-    /// it with the <b>OH_HiTrace_StartTrace</b> API recently invoked in the service process.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// Marks the end of a synchronous trace.
+    /// This API must be used with **OH_HiTrace_StartTrace()** in pairs. During trace parsing, the system matches it with
+    /// the latest **OH_HiTrace_StartTrace()** API in the service process.
+    /// Since API version 19, you are advised to use the **OH_HiTrace_FinishTraceEx()** API to specify the trace output
+    /// level.
     ///
     /// Available since API-level: 10
     pub fn OH_HiTrace_FinishTrace();
-    /// Marks the start of an asynchronous trace task.
-    ///
-    /// This API is called to implement performance trace in asynchronous manner. The start and end of an asynchronous
-    /// trace task do not occur in sequence. Therefore, a unique <b>taskId</b> is required to ensure proper data parsing.
-    /// It is passed as an input parameter for the asynchronous API.
-    /// This API is used with <b>OH_HiTrace_FinishAsyncTrace</b> in pairs. The two APIs that have the same name and
-    /// task ID together form an asynchronous timeslice trace task.
+    /// Marks the start of an asynchronous trace.
+    /// This API is used to start tracing before an asynchronous operation. The start and end of an asynchronous trace do
+    /// not occur in sequence. Therefore, a unique task ID is required to identify them.
+    /// It must be used with **OH_HiTrace_FinishAsyncTrace()** in pairs. The start and end identified by the same name and
+    /// task ID constitute an asynchronous trace task.
     /// If multiple trace tasks with the same name need to be performed at the same time or a trace task needs to be
-    /// performed multiple times concurrently, different task IDs must be specified in <b>OH_HiTrace_StartTrace</b>.
-    /// If the trace tasks with the same name are not performed at the same time, the same taskId can be used.
+    /// performed multiple times concurrently, different task IDs must be specified.
+    /// If the trace tasks with the same name are not performed at the same time, the same **taskId** can be used.
+    /// Since API version 19, you are advised to use the **OH_HiTrace_StartAsyncTraceEx()** API to specify the trace output
+    /// level and category.
     ///
     /// # Arguments
     ///
-    /// * `name` - Name of the asynchronous trace task.
+    /// * `name` - Name of the asynchronous trace.
     ///
-    /// * `taskId` - ID of the asynchronous trace task. The start and end of an asynchronous trace task do not occur in
-    /// sequence. Therefore, the start and end of an asynchronous trace need to be matched based on the task name and the
-    /// unique task ID together.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// * `taskId` - ID of the asynchronous trace. The start and end of an asynchronous trace do not occur in sequence.
+    /// Therefore, the start and end of an asynchronous trace need to be matched based on the task name and the unique task
+    /// ID together.
     ///
     /// Available since API-level: 10
     pub fn OH_HiTrace_StartAsyncTrace(name: *const ::core::ffi::c_char, taskId: i32);
-    /// Marks the end of an asynchronous trace task.
-    ///
+    /// Marks the end of an asynchronous trace.
     /// This API is called in the callback function after an asynchronous trace is complete.
-    /// It is used with <b>OH_HiTrace_StartAsyncTrace</b> in pairs. Its name and task ID must be the same as those of
-    /// <b>OH_HiTrace_StartAsyncTrace</b>.
+    /// It is used with **OH_HiTrace_StartAsyncTrace()** in pairs. Its name and task ID must be the same as those of **
+    /// OH_HiTrace_StartAsyncTrace()**.
+    /// Since API version 19, you are advised to use the **OH_HiTrace_FinishAsyncTraceEx()** API to specify the trace output
+    /// level.
     ///
     /// # Arguments
     ///
-    /// * `name` - Name of the asynchronous trace task.
+    /// * `name` - Name of the asynchronous trace.
     ///
-    /// * `taskId` - ID of the asynchronous trace task. The start and end of an asynchronous trace task do not occur in
-    /// sequence. Therefore, the start and end of an asynchronous trace need to be matched based on the task name and the
-    /// unique task ID together.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// * `taskId` - ID of the asynchronous trace. The start and end of an asynchronous trace do not occur in sequence.
+    /// Therefore, the start and end of an asynchronous trace need to be matched based on the task name and the unique task
+    /// ID together.
     ///
     /// Available since API-level: 10
     pub fn OH_HiTrace_FinishAsyncTrace(name: *const ::core::ffi::c_char, taskId: i32);
     /// Traces the value change of an integer variable based on its name.
-    ///
-    /// This API can be executed for multiple times to trace the value change of a given integer variable at different
-    /// time points.
+    /// This API can be executed for multiple times to trace the value change of a given integer variable at different time
+    /// points.
+    /// Since API version 19, you are advised to use the **OH_HiTrace_CountTraceEx()** API to specify the trace output level.
     ///
     /// # Arguments
     ///
     /// * `name` - Name of the integer variable. It does not need to be the same as the real variable name.
     ///
-    /// * `count` - Integer value. Generally, an integer variable can be passed.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.HiviewDFX.HiTrace
+    /// * `count` - Integer value.
     ///
     /// Available since API-level: 10
     pub fn OH_HiTrace_CountTrace(name: *const ::core::ffi::c_char, count: i64);
-    /// Marks the start of a synchronous trace task with output level control.
-    ///
-    /// The <b>OH_HiTrace_StartTraceEx</b> and <b>OH_HiTrace_FinishTraceEx</b> APIs must be used in pairs.
-    /// The two APIs can be used in nested mode. The stack data structure is used for matching during trace data parsing.
+    /// Marks the start of a synchronous trace task with the trace output level specified.
+    /// This API is used with **OH_HiTrace_FinishTraceEx()** in pairs.
+    /// The two APIs can be nested. The stack data structure is used for matching during trace parsing.
     ///
     /// # Arguments
     ///
-    /// * `level` - Trace output priority level.
+    /// * `level` - Trace output level.
     ///
-    /// * `name` - Name of the synchronous trace task.
+    /// * `name` - Name of a synchronous trace.
     ///
-    /// * `customArgs` - key=value pair, multiple pairs use comma as separator.
+    /// * `customArgs` - Key-value pair. Use commas (,) to separate multiple key-value pairs, for example, **"key1=value1,
+    /// key2=value2"**.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1260,46 +1087,41 @@ extern "C" {
         name: *const ::core::ffi::c_char,
         customArgs: *const ::core::ffi::c_char,
     );
-    /// Marks the end of a synchronous trace task with output level control.
-    ///
-    /// This API must be used with <b>OH_HiTrace_StartTraceEx</b> in pairs. The two APIs, which have the same level,
-    /// form an synchronous timeslice trace task.
-    /// During trace data parsing, the system matches it with the most recent <b>OH_HiTrace_StartTraceEx</b> API
-    /// invocation in the service process.
-    ///
+    /// Marks the end of a synchronous trace task with the trace output level specified.
+    /// It must be used with **OH_HiTrace_StartTraceEx()** in pairs. Its level must be the same as those of **
+    /// OH_HiTrace_StartTraceEx()**.
+    /// During trace data parsing, the system matches it with the **OH_HiTrace_StartTraceEx()** API recently invoked in the
+    /// service process.
     /// # Arguments
     ///
-    /// * `level` - Trace output priority level.
+    /// * `level` - Trace output level.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_HiTrace_FinishTraceEx(level: HiTrace_Output_Level);
-    /// Marks the start of an asynchronous trace task with output level control.
-    ///
-    /// This API is called to implement performance trace in asynchronous manner. The start and end of an asynchronous
-    /// trace task do not occur in sequence. Therefore, a unique <b>taskId</b> is required to ensure proper data parsing.
-    /// It is passed as an input parameter for the asynchronous API.
-    /// This API is used with <b>OH_HiTrace_FinishAsyncTraceEx</b> in pairs. The two APIs, which have the same level,
-    /// name, and task ID, form an asynchronous timeslice trace task.
-    /// If customCategory is specified, the trace slice will be grouped and displayed together with other trace slices
-    /// with the same customCategory.
+    /// Marks the start of an asynchronous trace task with the trace output level specified.
+    /// This API is used to start tracing before an asynchronous operation. The start and end of an asynchronous trace do
+    /// not occur in sequence. Therefore, a unique task ID is required to identify them.
+    /// It is used with **OH_HiTrace_FinishAsyncTraceEx()** in pairs. The start and end identified by the same name and task
+    /// ID constitute an asynchronous trace task.
     /// If multiple trace tasks with the same name need to be performed at the same time or a trace task needs to be
-    /// performed multiple times concurrently, different task IDs must be specified in <b>OH_HiTrace_StartAsyncTraceEx</b>.
-    /// If the trace tasks with the same name are not performed at the same time, the same taskId can be used.
-    /// Different processes's taskId do not interfere.
+    /// performed multiple times concurrently, different task IDs must be specified.
+    /// If the trace tasks with the same name are not performed at the same time, the same **taskId** can be used.
+    /// Task IDs of different processes does not interfere with each other.
     ///
     /// # Arguments
     ///
-    /// * `level` - Trace output priority level.
+    /// * `level` - Trace output level.
     ///
-    /// * `name` - Name of the asynchronous trace task.
+    /// * `name` - Name of the asynchronous trace.
     ///
-    /// * `taskId` - ID of the asynchronous trace task.
+    /// * `taskId` - ID of the asynchronous trace.
     ///
-    /// * `customCategory` - Label used to aggregate the asynchronous trace.
+    /// * `customCategory` - Custom category name, which is used to collect asynchronous trace data of the same type.
     ///
-    /// * `customArgs` - key=value pair, multiple pairs use comma as separator.
+    /// * `customArgs` - Key-value pair. Use commas (,) to separate multiple key-value pairs, for example, **"key1=value1,
+    /// key2=value2"**.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1311,19 +1133,18 @@ extern "C" {
         customCategory: *const ::core::ffi::c_char,
         customArgs: *const ::core::ffi::c_char,
     );
-    /// Marks the end of an asynchronous trace task with output level control.
-    ///
-    /// This API is called in the callback function after an asynchronous trace is complete.
-    /// It is used with <b>OH_HiTrace_StartAsyncTraceEx</b> in pairs. Its level, name, and task ID must be
-    /// the same as those of <b>OH_HiTrace_StartAsyncTraceEx</b>.
+    /// Marks the end of an asynchronous trace task with the trace output level specified.
+    /// This API is used to stop tracing after an asynchronous operation is complete, for example, in a callback function.
+    /// It is used with **OH_HiTrace_StartAsyncTraceEx()** in pairs. Its level, name and task ID must be the same as those
+    /// of **OH_HiTrace_StartAsyncTraceEx()**.
     ///
     /// # Arguments
     ///
-    /// * `level` - Trace output priority level.
+    /// * `level` - Trace output level.
     ///
-    /// * `name` - Name of the asynchronous trace task.
+    /// * `name` - Name of the asynchronous trace.
     ///
-    /// * `taskId` - ID of the asynchronous trace task.
+    /// * `taskId` - ID of the asynchronous trace.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1333,18 +1154,15 @@ extern "C" {
         name: *const ::core::ffi::c_char,
         taskId: i32,
     );
-    /// Traces the value change of an integer variable based on its name with output level control.
-    ///
-    /// This API can be executed for multiple times to trace the value change of a given integer variable at different
-    /// time points.
+    /// Marks an integer variable trace task with the trace output level specified.
     ///
     /// # Arguments
     ///
-    /// * `level` - Trace output priority level.
+    /// * `level` - Trace output level.
     ///
-    /// * `name` - Name of the integer variable. It does not need to be the same as the real variable name.
+    /// * `name` - Name of the integer variable. It does not need to be the same as the actual variable name.
     ///
-    /// * `count` - Integer value. Generally, an integer variable can be passed.
+    /// * `count` - Integer value.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -1354,53 +1172,52 @@ extern "C" {
         name: *const ::core::ffi::c_char,
         count: i64,
     );
-    /// Get the trace output status of the calling process.
+    /// Checks whether trace capture is enabled for an application.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns whether the calling process is allowed to output trace.
+    /// * When it is enabled, **true** is returned;
+    /// when it is disabled or stopped, **false** is returned. In this case,
+    /// calling the HiTraceMeter API does not take effect.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub fn OH_HiTrace_IsTraceEnabled() -> bool;
-    /// Register trace switch notification callback.
-    ///
-    /// Register a callback function to execute specific trace-related behavior when trace
-    /// status is changed. The current status will be passed as 0 for off or 1 for on as callback function
-    /// paramter representing current trace status. The maximum number of registered callback functions is 10.
+    /// Registers a callback to notify whether the application trace capture is enabled. This API uses a synchronous
+    /// callback to return the result.
     ///
     /// # Arguments
     ///
-    /// * `callback` - The callback function to be invoked when trace status is changed.
+    /// * `callback` - Registered callback.
     ///
     /// # Returns
     ///
-    /// * The callback registeration status.
-    /// >= 0: Successfully registered and callback index used for unregister.
-    /// -1: Reaches max number of callback functions.
-    /// -2: Invalid parameter.
+    /// * Callback registration status.
+    /// >= **0**: The registration is successful. The callback index for unregistration is returned. The index ranges from 0
+    /// to 9.
+    /// **-1**: The maximum number of callbacks has been reached.
+    /// **-2**: Invalid parameter. The parameter is not of the **TraceEventListener** type.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub fn OH_HiTrace_RegisterTraceListener(callback: OH_HiTrace_TraceEventListener) -> i32;
-    /// Unregister trace switch notification callback.
-    ///
-    /// Unregister the callback function registeration for trace switch
-    /// notification with provided registered callback function index.
+    /// Unregisters the callback used to notify whether the application trace capture is enabled.
+    /// You can use this function to unregister the callback function associated with the callback index returned by
+    /// [`OH_HiTrace_RegisterTraceListener`](crate::OH_HiTrace_RegisterTraceListener).
     ///
     /// # Arguments
     ///
-    /// * `index` - The callback function index to be unregistered.
+    /// * `index` - Index of the registered callback.
     ///
     /// # Returns
     ///
-    /// * The callback unregisteration status.
-    /// 0: Success.
-    /// -1: Callback function with target index has not been registered.
-    /// -2: Invalid index range.
+    /// * Callback unregistration status.
+    /// **0**: Unregistration succeeded.
+    /// **-1**: The callback corresponding to the index is not registered.
+    /// **-2**: Invalid index. The index value is not within the range of 0 to 9.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]

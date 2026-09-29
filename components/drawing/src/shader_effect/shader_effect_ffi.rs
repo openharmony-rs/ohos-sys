@@ -8,18 +8,17 @@ use crate::types::*;
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl OH_Drawing_TileMode {
-    /// Replicate the edge color if the shader effect draws outside of its original bounds.
+    /// Replicates the edge color if the shader effect draws outside of its original boundary.
     pub const CLAMP: OH_Drawing_TileMode = OH_Drawing_TileMode(0);
-    /// Repeat the shader effect image horizontally and vertically.
+    /// Repeats the shader effect's image in both horizontal and vertical directions.
     pub const REPEAT: OH_Drawing_TileMode = OH_Drawing_TileMode(1);
-    /// Repeat the shader effect image horizontally and vertically, alternating mirror images
-    /// so that adjacent images always seam.
+    /// Repeats the shader effect's image in both horizontal and vertical directions, alternating mirror images.
     pub const MIRROR: OH_Drawing_TileMode = OH_Drawing_TileMode(2);
-    /// Only draw within the original domain, return transparent-black everywhere else.
+    /// Renders the shader effect's image only within the original boundary, and returns transparent black elsewhere.
     pub const DECAL: OH_Drawing_TileMode = OH_Drawing_TileMode(3);
 }
 #[repr(transparent)]
-/// Enumerates tile mode.
+/// Defines an enum for the tile modes of the shader effect.
 ///
 ///
 /// Available since API-level: 11
@@ -30,19 +29,16 @@ impl OH_Drawing_TileMode {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_TileMode(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a shader with single color.
+    /// Creates an **OH_Drawing_ShaderEffect** object with a single color.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `color` - Indicates the color used by the shader.
+    /// * `color` - Color in the ARGB format. The value is a 32-bit unsigned integer.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty.
+    /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created. If NULL is returned, the creation
+    /// fails. The possible failure cause is that no memory is available.
     ///
     /// Available since API-level: 12
     ///
@@ -50,27 +46,31 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_ShaderEffectCreateColorShader(color: u32) -> *mut OH_Drawing_ShaderEffect;
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a linear gradient between the two specified points.
+    /// Creates a **ShaderEffect** object that generates a linear gradient between two points.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **startPt**, **endPt**, and **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `startPt` - Indicates the start point for the gradient.
+    /// * `startPt` - Start point.
     ///
-    /// * `endPt` - Indicates the end point for the gradient.
+    /// * `endPt` - End point.
     ///
-    /// * `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Colors to distribute between the two points.
     ///
-    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
+    /// *. If **pos** is NULL, colors are evenly distributed between the start point and end point.
     ///
-    /// * `size` - Indicates the number of colors and pos.
+    /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
-    /// * `tileMode` - Indicates the tile mode.
+    /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ShaderEffect** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -85,34 +85,35 @@ extern "C" {
         size: u32,
         tileMode: OH_Drawing_TileMode,
     ) -> *mut OH_Drawing_ShaderEffect;
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a linear gradient between the two specified points.
+    /// Creates a **ShaderEffect** object that generates a linear gradient between two points.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **startPt**, **endPt**, and **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `startPt` - Indicates the start point for the gradient.
+    /// * `startPt` - Start point.
     ///
-    /// * `endPt` - Indicates the end point for the gradient.
+    /// * `endPt` - End point.
     ///
-    /// * `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Colors to distribute between the two points.
     ///
-    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
-    /// If pos is nullptr, the colors are evenly distributed between the start and end point.
+    /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
+    /// *. If **pos** is NULL, colors are evenly distributed between the start point and end point.
     ///
-    /// * `size` - Indicates the number of colors and pos(if pos is not nullptr).
+    /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
-    /// * `tileMode` - Indicates the tile mode.
+    /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
-    /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
-    /// If matrix is nullptr, defaults to the identity matrix.
+    /// * `matrix` - Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is any of startPt, endPt, colors and pos is nullptr.
+    /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created. If NULL is returned, the creation
+    /// fails. The possible failure cause is that no memory is available or at least one of the parameters **startPt**, **
+    /// endPt**, and **colors** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -128,27 +129,33 @@ extern "C" {
         tileMode: OH_Drawing_TileMode,
         matrix: *const OH_Drawing_Matrix,
     ) -> *mut OH_Drawing_ShaderEffect;
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a radial gradient given the center and radius.
+    /// Creates an **OH_Drawing_ShaderEffect** object that generates a radial gradient based on the center and radius
+    /// of a circle.
+    /// The radial gradient transitions colors from the center to the ending shape in a radial manner.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **centerPt** or **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `centerPt` - Indicates the center of the circle for the gradient.
+    /// * `centerPt` - Center of the circle.
     ///
-    /// * `radius` - Indicates the radius of the circle for this gradient.
+    /// * `radius` - Radius of the gradient. The value should be a non-negative number.
     ///
-    /// * `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Colors to distribute in the radial direction.
     ///
-    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
+    /// *. If **pos** is NULL, colors are evenly distributed in the radial direction.
     ///
-    /// * `size` - Indicates the number of colors and pos.
+    /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
-    /// * `tileMode` - Indicates the tile mode.
+    /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ShaderEffect** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -163,33 +170,37 @@ extern "C" {
         size: u32,
         tileMode: OH_Drawing_TileMode,
     ) -> *mut OH_Drawing_ShaderEffect;
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a radial gradient given the center and radius.
+    /// Creates an **OH_Drawing_ShaderEffect** object that generates a radial gradient based on the center and radius
+    /// of a circle.
+    /// The radial gradient transitions colors from the center to the ending shape in a radial manner.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **centerPt** or **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `centerPt` - Indicates the center of the circle for the gradient.
+    /// * `centerPt` - Center of the circle.
     ///
-    /// * `radius` - Indicates the radius of the circle for this gradient.
+    /// * `radius` - Radius of the gradient.
     ///
-    /// * `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Colors to distribute in the radial direction.
     ///
-    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
+    /// *. If **pos** is NULL, colors are evenly distributed in the radial direction.
     ///
-    /// * `size` - Indicates the number of colors and pos.
+    /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
-    /// * `tileMode` - Indicates the tile mode.
+    /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
-    /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
-    /// If matrix is nullptr, defaults to the identity matrix.
+    /// * `matrix` - Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is any of centerPt, colors and pos is nullptr.
+    /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created. If NULL is returned, the creation
+    /// fails. The possible failure cause is that no memory is available or at least one of the parameters **centerPt** and *
+    /// *colors** is NULL.
     ///
     /// Available since API-level: 12
     ///
@@ -205,29 +216,34 @@ extern "C" {
         tileMode: OH_Drawing_TileMode,
         matrix: *const OH_Drawing_Matrix,
     ) -> *mut OH_Drawing_ShaderEffect;
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a sweep gradient given a center.
+    /// Creates an **OH_Drawing_ShaderEffect** object that generates a sweep gradient based on the matrix
+    /// transformation at the given center.
+    /// A sweep gradient paints a gradient in a sweeping arc ranging from 0° to 360°.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `centerPt` - Indicates the center of the circle for the gradient.
+    /// * `centerPt` - Center of the circle.
     ///
-    /// * `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Colors to distribute between the two points.
     ///
-    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
+    /// *. If **pos** is NULL, colors are evenly distributed between the start angle (0°) and end angle (360°).
     ///
-    /// * `size` - Indicates the number of colors and pos.
+    /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
-    /// * `tileMode` - Indicates the tile mode.
+    /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
-    /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
-    /// If matrix is nullptr, defaults to the identity matrix.
+    /// * `matrix` - Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created.
+    /// A null pointer is returned if any of the following conditions is met:
+    /// - The available memory is empty.
+    /// - **centerPt** or **colors** is NULL.
+    /// - The value of **tileMode** is out of the enumerated value range.
     ///
     /// Available since API-level: 20
     ///
@@ -242,25 +258,34 @@ extern "C" {
         tileMode: OH_Drawing_TileMode,
         matrix: *const OH_Drawing_Matrix,
     ) -> *mut OH_Drawing_ShaderEffect;
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a sweep gradient given a center.
+    /// Creates an **OH_Drawing_ShaderEffect** object that generates a sweep gradient based on the center.
+    /// A sweep gradient paints a gradient in a sweeping arc ranging from 0° to 360°.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **centerPt** or **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `centerPt` - Indicates the center of the circle for the gradient.
+    /// * `centerPt` - Center of the circle.
     ///
-    /// * `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Colors to distribute between the two points.
     ///
-    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
+    /// *. If **pos** is NULL, colors are evenly distributed between the start angle (0°) and end angle (360°).
     ///
-    /// * `size` - Indicates the number of colors and pos.
+    /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
-    /// * `tileMode` - Indicates the tile mode.
+    /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created.
+    /// A null pointer is returned if any of the following conditions is met:
+    /// - The available memory is empty.
+    /// - **centerPt** or **colors** is NULL.
+    /// - The value of **tileMode** is out of the enumerated value range.
     ///
     /// Available since API-level: 11
     ///
@@ -274,26 +299,36 @@ extern "C" {
         size: u32,
         tileMode: OH_Drawing_TileMode,
     ) -> *mut OH_Drawing_ShaderEffect;
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a image shader.
+    /// Creates an **OH_Drawing_ShaderEffect** object for an image shader. You are advised not to use the function
+    /// for the canvas of the capture type because it affects the performance.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **image** or **samplingOptions** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If either **tileX** or **tileY** is not set to one of the enumerated values, **
+    /// OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `image` - Indicates the pointer to an <b>OH_Drawing_Image</b> object.
+    /// * `image` - Pointer to the [`OH_Drawing_Image`](crate::types::OH_Drawing_Image) object.
     ///
-    /// * `tileX` - Indicates the tileX.
+    /// * `tileX` - Tile mode of the shader effect in the horizontal direction. For details about the available options,
+    /// see [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode).
     ///
-    /// * `tileY` - Indicates the tileY.
+    /// * `tileY` - Tile mode of the shader effect in the vertical direction. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
-    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object.
+    /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object.
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
-    /// If matrix is nullptr, defaults to the identity matrix.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. If the pointer array is empty, the identity matrix is
+    /// passed in.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created.
+    /// A null pointer is returned if any of the following conditions is met:
+    /// - The available memory is empty.
+    /// - **image** or **samplingOptions** is NULL.
+    /// - The value of **tileX** or **tileY** is out of the enumerated value range.
     ///
     /// Available since API-level: 12
     ///
@@ -307,26 +342,27 @@ extern "C" {
         samplingOptions: *const OH_Drawing_SamplingOptions,
         matrix: *const OH_Drawing_Matrix,
     ) -> *mut OH_Drawing_ShaderEffect;
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a pixel map shader.
+    /// Creates a PixelMap shader object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `pixelMap` - Indicates the pointer to an <b>OH_Drawing_PixelMap</b> object.
+    /// * `pixelMap` - Pointer to the [`OH_Drawing_PixelMap`](crate::types::OH_Drawing_PixelMap) object.
     ///
-    /// * `tileX` - Indicates the horizontal tile mode.
+    /// * `tileX` - Tile mode of the shader effect in the horizontal direction. For details about the available options,
+    /// see [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode).
     ///
-    /// * `tileY` - Indicates the vertical tile mode.
+    /// * `tileY` - Tile mode of the shader effect in the vertical direction. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
-    /// * `samplingOptions` - Indicates the pointer to an <b>OH_Drawing_SamplingOptions</b> object. It cannot be null.
+    /// * `samplingOptions` - Pointer to the [`OH_Drawing_SamplingOptions`](crate::types::OH_Drawing_SamplingOptions) object.
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object.
-    /// If matrix is nullptr, defaults to the identity matrix.
+    /// * `matrix` - Pointer to the [`OH_Drawing_Matrix`](crate::types::OH_Drawing_Matrix) object. If the pointer array is empty, the identity matrix is
+    /// passed in.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_ShaderEffect** object created.
     ///
     /// Available since API-level: 20
     ///
@@ -340,37 +376,41 @@ extern "C" {
         samplingOptions: *const OH_Drawing_SamplingOptions,
         matrix: *const OH_Drawing_Matrix,
     ) -> *mut OH_Drawing_ShaderEffect;
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates a conical gradient given two circles.
+    /// Creates an **OH_Drawing_ShaderEffect** object that generates a gradient between two given circles.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **startPt**, **endPt**, and **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `startPt` - Indicates the center of the start circle for the gradient.
+    /// * `startPt` - Pointer to the center of the start circle.
     ///
-    /// * `startRadius` - Indicates the radius of the start circle for this gradient.
+    /// * `startRadius` - Start radius of the gradient. The value should be a non-negative number.
     ///
-    /// * `endPt` - Indicates the center of the start circle for the gradient.
+    /// * `endPt` - Pointer to the center of the end circle.
     ///
-    /// * `endRadius` - Indicates the radius of the start circle for this gradient.
+    /// * `endRadius` - End radius of the gradient. The value should be a non-negative number.
     ///
-    /// * `colors` - Indicates the colors to be distributed between the two points.
+    /// * `colors` - Colors to distribute between the two circles.
     ///
-    /// * `pos` - Indicates the relative position of each corresponding color in the colors array.
+    /// * `pos` - Relative position of each color in the color array. The array length must be the same as that of **colors*
+    /// *. If **pos** is NULL, colors are evenly distributed between the two circles.
     ///
-    /// * `size` - Indicates the number of colors and pos.
+    /// * `size` - Number of colors and positions (if **pos** is not NULL).
     ///
-    /// * `tileMode` - Indicates the tile mode.
+    /// * `tileMode` - Tile mode of the shader effect. For details about the available options, see
+    /// [`OH_Drawing_TileMode`](crate::shader_effect::OH_Drawing_TileMode)
+    /// .
     ///
-    /// * `matrix` - Indicates the pointer to an <b>OH_Drawing_Matrix</b> object,
-    /// which represents the local matrix of the created <b>OH_Drawing_ShaderEffect</b> object.
-    /// If matrix is nullptr, defaults to the identity matrix.
+    /// * `matrix` - Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is any of startPt, endPt, colors and pos is nullptr.
+    /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created. If the returned pointer is NULL,
+    /// the creation fails. The possible causes are as follows:
+    /// - The available memory is empty.
+    /// - **startPt**, **endPt**, or **colors** is NULL.
+    /// - The value of **tileMode** is out of the enumerated value range.
     ///
     /// Available since API-level: 12
     ///
@@ -388,23 +428,23 @@ extern "C" {
         tileMode: OH_Drawing_TileMode,
         matrix: *const OH_Drawing_Matrix,
     ) -> *mut OH_Drawing_ShaderEffect;
-    /// Creates an <b>OH_Drawing_ShaderEffect</b> that generates by two shaders.
+    /// Creates a shader by blending two existing shaders in a certain way.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `dst` - Indicates the destination ShaderEffect pointer.
+    /// * `dst` - Shader that serves as the destination color in blend mode.
     ///
-    /// * `src` - Indicates the source ShaderEffect pointer.
+    /// * `src` - Shader that serves as the source color in blend mode.
     ///
-    /// * `mode` - Indicates the blend mode.
+    /// * `mode` - Blend mode.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_ShaderEffect</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty or any of dst and src is nullptr.
+    /// * Returns the pointer to the [`OH_Drawing_ShaderEffect`](crate::types::OH_Drawing_ShaderEffect) object created.
+    /// If the returned pointer is NULL, the creation fails. The possible causes are as follows:
+    /// - The available memory is empty.
+    /// - **dst** or **src** is NULL.
+    /// - The value of **mode** is out of the enumerated value range.
     ///
     /// Available since API-level: 20
     ///
@@ -416,13 +456,11 @@ extern "C" {
         src: *mut OH_Drawing_ShaderEffect,
         mode: OH_Drawing_BlendMode,
     ) -> *mut OH_Drawing_ShaderEffect;
-    /// Destroys an <b>OH_Drawing_ShaderEffect</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_ShaderEffect** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `shaderEffect` - Indicates the pointer to an <b>OH_Drawing_ShaderEffect</b> object.
+    /// * `shaderEffect` - Pointer to an **OH_Drawing_ShaderEffect** object.
     ///
     /// Available since API-level: 11
     ///

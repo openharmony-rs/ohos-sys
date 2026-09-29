@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Add API-24, API-25 and API-26 bindings.
+- `OHIPCRemoteStub` is now re-exported from `ohos-sys-opaque-types`. The public path
+  `ohos_ipckit_sys::cparcel::OHIPCRemoteStub` is unchanged.
+
 ## 0.1.1
 
 - Add `api-22` and `api-23` feature flags (no new symbols).

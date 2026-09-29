@@ -7,12 +7,42 @@
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OsAccount_ErrCode {
-    /// Operation is successful.
+    /// Success.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const OS_ACCOUNT_ERR_OK: OsAccount_ErrCode = OsAccount_ErrCode(0);
+    /// Permission denied.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OS_ACCOUNT_ERR_PERMISSION_DENIED: OsAccount_ErrCode = OsAccount_ErrCode(201);
     /// Internal error.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const OS_ACCOUNT_ERR_INTERNAL_ERROR: OsAccount_ErrCode = OsAccount_ErrCode(12300001);
     /// Invalid parameter.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const OS_ACCOUNT_ERR_INVALID_PARAMETER: OsAccount_ErrCode = OsAccount_ErrCode(12300002);
+    /// Account not found.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OS_ACCOUNT_ERR_ACCOUNT_NOT_FOUND: OsAccount_ErrCode = OsAccount_ErrCode(12300003);
+    /// Restricted account.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const OS_ACCOUNT_ERR_RESTRICTED_ACCOUNT: OsAccount_ErrCode = OsAccount_ErrCode(12300008);
 }
 #[repr(transparent)]
 /// Enumerates the error codes.

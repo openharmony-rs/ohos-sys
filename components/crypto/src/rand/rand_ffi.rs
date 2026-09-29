@@ -5,8 +5,7 @@
 #![allow(non_snake_case)]
 use crate::common::{CryptoResult, Crypto_DataBlob};
 
-/// Defines the random number generator structure.
-///
+/// Random number generator structure, representing a random number generator context.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -17,40 +16,43 @@ pub struct OH_CryptoRand {
 }
 extern "C" {
     /// Creates a random number generator context.
-    ///
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the random number generator context.
+    /// * `ctx` - \[out\] Pointer to the random number generator context pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `ctx` with [`OH_CryptoRand_Destroy`](crate::rand::OH_CryptoRand_Destroy).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoRand_Create(ctx: *mut *mut OH_CryptoRand) -> CryptoResult;
     /// Generates random numbers.
-    ///
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the random number generator context.
+    /// * `ctx` - \[in\] Random number generator context. Cannot be NULL.
     ///
-    /// * `len` - Indicates the byte length of the random number.
+    /// * `len` - \[in\] Byte length of the random number.
     ///
-    /// * `out` - Indicates the output data.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the random number. Cannot be NULL. Initialize
+    /// out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or out is NULL, or len is less than or equal to 0.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -60,35 +62,35 @@ extern "C" {
         len: ::core::ffi::c_int,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Gets the algorithm name of the random number generator context.
-    ///
+    /// Obtains the algorithm name of the random number generator.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the pointer to the random number generator context.
+    /// * `ctx` - \[in\] Random number generator context. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return the algorithm name of the random number generator context.
+    /// * Returns the random number generator algorithm name. No need to free by the caller. Invalid after the context
+    /// is destroyed.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoRand_GetAlgoName(ctx: *mut OH_CryptoRand) -> *const ::core::ffi::c_char;
-    /// Sets the seed to the random number generator context.
-    ///
+    /// Sets the seed for the random number generator.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the random number generator context.
+    /// * `ctx` - \[in\] Random number generator context. Cannot be NULL.
     ///
-    /// * `seed` - Indicates the seed.
+    /// * `seed` - \[in\] Seed data. This function performs a deep copy of the data in seed. The caller can
+    /// release seed immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx is NULL, or seed is invalid (seed is NULL, seed->data is NULL, seed->len is 0, or seed->len exceeds INT_MAX).
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -97,29 +99,27 @@ extern "C" {
         ctx: *mut OH_CryptoRand,
         seed: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Enables the hardware entropy source.
-    ///
+    /// Enables hardware entropy source.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the random number generator context.
+    /// * `ctx` - \[in\] Random number generator context. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub fn OH_CryptoRand_EnableHardwareEntropy(ctx: *mut OH_CryptoRand) -> CryptoResult;
     /// Destroys the random number generator context.
-    ///
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the random number generator context.
+    /// * `ctx` - \[in\] Random number generator context.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

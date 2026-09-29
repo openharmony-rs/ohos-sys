@@ -21,6 +21,12 @@ pub struct AbilityBase_Element {
     /// Indicates the name of ability.
     pub abilityName: *mut ::core::ffi::c_char,
 }
+/// Want data structure.
+///
+///
+/// Available since API-level: 15
+#[cfg(feature = "api-15")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 #[repr(C)]
 pub struct AbilityBase_Want {
     _unused: [u8; 0],

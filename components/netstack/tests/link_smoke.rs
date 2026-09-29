@@ -19,4 +19,14 @@ fn link_smoke() {
             }
         }
     }
+
+    #[cfg(feature = "api-24")]
+    unsafe {
+        let _ = netstack::http_interceptor::OH_Http_AddReadOnlyInterceptor(std::ptr::null_mut());
+    }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = netstack::http_interceptor::OH_Http_AddWritableInterceptor(std::ptr::null_mut());
+    }
 }

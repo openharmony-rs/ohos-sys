@@ -6,23 +6,22 @@
 use crate::types::*;
 
 extern "C" {
-    /// Creates an <b>OH_Drawing_Rect</b> object.
+    /// Creates an **OH_Drawing_Rect** object, without sorting the coordinates passed in. This means that the
+    /// coordinates of the upper left corner of the rectangle can be greater than those of the lower right corner.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `left` - Indicates the left position of the rect.
+    /// * `left` - X coordinate of the upper left corner of the rectangle.
     ///
-    /// * `top` - Indicates the top position of the rect.
+    /// * `top` - Y coordinate of the upper left corner of the rectangle.
     ///
-    /// * `right` - Indicates the right position of the rect.
+    /// * `right` - X coordinate of the lower right corner of the rectangle.
     ///
-    /// * `bottom` - Indicates the bottom position of the rect.
+    /// * `bottom` - Y coordinate of the lower right corner of the rectangle.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Rect</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_Rect** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -35,19 +34,20 @@ extern "C" {
         right: f32,
         bottom: f32,
     ) -> *mut OH_Drawing_Rect;
-    /// If rect intersects other, sets rect to intersection.
+    /// Checks whether two rectangles intersect and if yes, sets **rect** to the area of intersection.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **rect** or **other** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
-    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `other` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// # Returns
     ///
-    /// * Returns true if have area in common.
+    /// * Returns **true** if they intersect (**rect** is set to the intersection area); returns **false** otherwise (*
+    /// *rect** remains unchanged).
     ///
     /// Available since API-level: 12
     ///
@@ -58,20 +58,21 @@ extern "C" {
         rect: *mut OH_Drawing_Rect,
         other: *const OH_Drawing_Rect,
     ) -> bool;
-    /// Sets rect to the union of rect and other.
+    /// Obtains the union of two rectangles.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **rect** or **other** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
-    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `other` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// # Returns
     ///
-    /// * Returns true if rect and other are not nullptr, and other is not empty;
-    /// false if rect or other is nullptr, or other is empty.
+    /// * Returns **true** if the union is obtained; returns **false** otherwise. The possible failure cause is that
+    /// at least one of the parameters **rect** and **other** is NULL or the size of the rectangle specified by **other** is
+    /// empty.
     ///
     /// Available since API-level: 12
     ///
@@ -79,15 +80,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectJoin(rect: *mut OH_Drawing_Rect, other: *const OH_Drawing_Rect) -> bool;
-    /// Set the left position of the rect.
+    /// Sets the horizontal coordinate of the upper left corner of a rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
-    /// * `left` - Indicates the left position of the rect.
+    /// * `left` - X coordinate of the upper left corner of the rectangle.
     ///
     /// Available since API-level: 12
     ///
@@ -95,15 +96,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectSetLeft(rect: *mut OH_Drawing_Rect, left: f32);
-    /// Set the top position of the rect.
+    /// Sets the vertical coordinate of the upper left corner of a rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
-    /// * `top` - Indicates the top position of the rect.
+    /// * `top` - Y coordinate of the upper left corner of the rectangle.
     ///
     /// Available since API-level: 12
     ///
@@ -111,15 +112,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectSetTop(rect: *mut OH_Drawing_Rect, top: f32);
-    /// Set the right position of the rect.
+    /// Sets the horizontal coordinate of the lower right corner of a rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
-    /// * `right` - Indicates the right position of the rect.
+    /// * `right` - X coordinate of the lower right corner of the rectangle.
     ///
     /// Available since API-level: 12
     ///
@@ -127,15 +128,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectSetRight(rect: *mut OH_Drawing_Rect, right: f32);
-    /// Set the bottom position of the rect.
+    /// Sets the vertical coordinate of the lower right corner of a rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
-    /// * `bottom` - Indicates the bottom position of the rect.
+    /// * `bottom` - Y coordinate of the lower right corner of the rectangle.
     ///
     /// Available since API-level: 12
     ///
@@ -143,17 +144,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectSetBottom(rect: *mut OH_Drawing_Rect, bottom: f32);
-    /// Get the left position of the rect.
+    /// Obtains the X coordinate of the upper left corner of a rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// # Returns
     ///
-    /// * Return the left position of the rect.
+    /// * X coordinate of the upper left corner of the rectangle.
     ///
     /// Available since API-level: 12
     ///
@@ -161,17 +162,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectGetLeft(rect: *mut OH_Drawing_Rect) -> f32;
-    /// Get the top position of the rect.
+    /// Obtains the Y coordinate of the upper left corner of a rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// # Returns
     ///
-    /// * Return the top position of the rect.
+    /// * Y coordinate of the upper left corner of the rectangle.
     ///
     /// Available since API-level: 12
     ///
@@ -179,17 +180,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectGetTop(rect: *mut OH_Drawing_Rect) -> f32;
-    /// Get the right position of the rect.
+    /// Obtains the X coordinate of the lower right corner of a rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// # Returns
     ///
-    /// * Return the right position of the rect.
+    /// * X coordinate of the lower right corner of the rectangle.
     ///
     /// Available since API-level: 12
     ///
@@ -197,17 +198,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectGetRight(rect: *mut OH_Drawing_Rect) -> f32;
-    /// Get the bottom position of the rect.
+    /// Obtains the Y coordinate of the lower right corner of a rectangle.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// # Returns
     ///
-    /// * Return the bottom position of the rect.
+    /// * Y coordinate of the lower right corner of the rectangle.
     ///
     /// Available since API-level: 12
     ///
@@ -215,13 +216,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectGetBottom(rect: *mut OH_Drawing_Rect) -> f32;
-    /// Get the height position of the rect.
+    /// Obtains the height of a rectangle. The height is calculated by using the Y coordinate of the lower right
+    /// corner of the rectangle minus the Y coordinate of the upper left corner.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
+    /// # Returns
     ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// * Returns the height of the rectangle, in pixels.
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// Available since API-level: 12
     ///
@@ -229,17 +234,18 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectGetHeight(rect: *mut OH_Drawing_Rect) -> f32;
-    /// Get the width position of the rect.
+    /// Obtains the width of a rectangle. The width is calculated by using the X coordinate of the lower right corner
+    /// of the rectangle minus the X coordinate of the upper left corner.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// # Returns
     ///
-    /// * Returns the width.
+    /// * Returns the weight of the rectangle, in pixels.
     ///
     /// Available since API-level: 12
     ///
@@ -247,15 +253,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectGetWidth(rect: *mut OH_Drawing_Rect) -> f32;
-    /// Copy the original rectangular object to the destination rectangular object.
+    /// Copies a source rectangle to create a new one.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **src** or **dst** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `src` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `src` - Pointer to a source rectangle, which is an **OH_Drawing_Rect** object.
     ///
-    /// * `dst` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `dst` - Pointer to a destination rectangle, which is an **OH_Drawing_Rect** object.
     ///
     /// Available since API-level: 12
     ///
@@ -263,13 +269,11 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_RectCopy(src: *mut OH_Drawing_Rect, dst: *mut OH_Drawing_Rect);
-    /// Destroys an <b>OH_Drawing_Rect</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Rect** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to an **OH_Drawing_Rect** object.
     ///
     /// Available since API-level: 11
     ///
@@ -277,20 +281,19 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_RectDestroy(rect: *mut OH_Drawing_Rect);
-    /// Creates an <b>OH_Drawing_Array</b> object, which is used to store multiple <b>OH_Drawing_Rect</b> object.
+    /// Creates a rectangle array object to store multiple rectangle objects. Release this pointer by calling
+    /// [`OH_Drawing_RectDestroyArray`](crate::rect::OH_Drawing_RectDestroyArray)
+    /// when this object is no longer needed.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `size` - Indicates the size of the array object.
+    /// * `size` - Size of the rectangle array. The value cannot exceed 65536, which is the maximum number of glyph indices.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Array</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty,
-    /// or size is invalid.
+    /// * Returns the pointer to the [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object created. If the returned object pointer is null,
+    /// the creation fails.
+    /// Possible causes are that no memory is available or an input parameter is incorrect.
     ///
     /// Available since API-level: 18
     ///
@@ -298,21 +301,20 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Drawing_RectCreateArray(size: usize) -> *mut OH_Drawing_Array;
-    /// Gets the size of an <b>OH_Drawing_Array</b> object.
+    /// Obtains the size of an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rectArray` - Indicates the array object.
+    /// * `rectArray` - Pointer to an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
     ///
-    /// * `pSize` - Indicates the size pointer.
+    /// * `pSize` - Pointer to the size_t type, which is used as an output parameter to store the size of the rectangle
+    /// array.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if rectArray or pSize is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **rectArray** or **pSize** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -323,24 +325,21 @@ extern "C" {
         rectArray: *mut OH_Drawing_Array,
         pSize: *mut usize,
     ) -> crate::error_code::DrawingResult;
-    /// Gets the specified <b>OH_Drawing_Rect</b> object from <b>OH_Drawing_Array</b> object.
+    /// Obtains the rectangle with the specified index in a rectangle array.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rectArray` - Indicates the array object.
+    /// * `rectArray` - Pointer to an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
     ///
-    /// * `index` - Indicates the index of array, caller must make sure the index is valid.
+    /// * `index` - Index of the rectangle array.
     ///
-    /// * `rect` - Pointers to Pointer of <b>OH_Drawing_Rect</b> object, returned to the caller.
+    /// * `rect` - Double pointer to [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect), which is returned to the caller as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if rectArray or rect is nullptr,
-    /// or index is valid.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **rectArray** or **rect** is null or **index** is out of range.
     ///
     /// Available since API-level: 18
     ///
@@ -352,19 +351,17 @@ extern "C" {
         index: usize,
         rect: *mut *mut OH_Drawing_Rect,
     ) -> crate::error_code::DrawingResult;
-    /// Destroys an array <b>OH_Drawing_Rect</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Array** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `rectArray` - Indicates the pointer to an <b>OH_Drawing_Array</b> object.
+    /// * `rectArray` - Pointer to an [`OH_Drawing_Array`](crate::types::OH_Drawing_Array) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if rectArray is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **rectArray** is NULL.
     ///
     /// Available since API-level: 18
     ///
@@ -374,21 +371,25 @@ extern "C" {
     pub fn OH_Drawing_RectDestroyArray(
         rectArray: *mut OH_Drawing_Array,
     ) -> crate::error_code::DrawingResult;
-    /// Determine whether one <b>OH_Drawing_Rect</b> object totally contains another <b>OH_Drawing_Rect</b> object.
+    /// Checks whether a rectangle completely contains another rectangle.
     ///
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. This rectangle is used to check whether another rectangle
+    /// (**other**) is contained.
     ///
-    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `other` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object. This rectangle is used to check whether it is contained
+    /// by another rectangle (**rect**).
     ///
-    /// * `isContains` - Indicates whether rect totally contains other.
+    /// * `isContains` - Result of whether a rectangle completely contains another rectangle. It is used as an output
+    /// parameter. **true** indicates that **rect** completely contains **other**. **false** indicates that **rect** does
+    /// not completely contain **other**.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if rect, other or isContains is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the **rect**, **other**, or **isContains** parameter is empty.
     ///
     /// Available since API-level: 22
     ///
@@ -400,25 +401,29 @@ extern "C" {
         other: *const OH_Drawing_Rect,
         isContains: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Add the specified values to the left and top boundaried of an <b>OH_Drawing_Rect</b> object.
+    /// Adds a specified value to the bounds of a rectangle.
     ///
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `left` - Indicates the value added to the left boundary of an <b>OH_Drawing_Rect</b> object.
+    /// * `left` - Value to be added to the left bound of the rectangle (X coordinate of the upper left corner of the
+    /// rectangle).
     ///
-    /// * `top` - Indicates the value added to the top boundary of an <b>OH_Drawing_Rect</b> object.
+    /// * `top` - Value to be added to the top bound of the rectangle (Y coordinate of the upper left corner of the
+    /// rectangle).
     ///
-    /// * `right` - Indicates the value added to the right boundary of an <b>OH_Drawing_Rect</b> object.
+    /// * `right` - Value to be added to the right bound of the rectangle (X coordinate of the lower right corner of the
+    /// rectangle).
     ///
-    /// * `bottom` - Indicates the value added to the bottom boundary of an <b>OH_Drawing_Rect</b> object.
+    /// * `bottom` - Value to be added to the bottom bound of the rectangle (Y coordinate of the lower right corner of the
+    /// rectangle).
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if rect is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if the **rect** parameter is empty.
     ///
     /// Available since API-level: 22
     ///
@@ -432,19 +437,20 @@ extern "C" {
         right: f32,
         bottom: f32,
     ) -> crate::error_code::DrawingResult;
-    /// Checks if rect is empty.
+    /// Checks whether a rectangle is empty.
     ///
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `isEmpty` - Indicates whether rect is empty.
+    /// * `isEmpty` - Whether a rectangle is empty. It is used as an output parameter. **true** means yes; **false**
+    /// otherwise.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if rect or isEmpty is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** or **isEmpty** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -453,22 +459,23 @@ extern "C" {
         rect: *const OH_Drawing_Rect,
         isEmpty: *mut bool,
     ) -> crate::error_code::DrawingResult;
-    /// Offsets rect by adding dx to its left and right coordinates, and adding dy to its top and bottom
-    /// coordinates.
+    /// Offsets a rectangle along the X axis and Y axis.
     ///
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `dx` - Indicates the distance to offset on the x-axis in pixels.
+    /// * `dx` - Offset on the X axis. A positive number indicates an offset towards the positive direction of the X axis,
+    /// and a negative number indicates an offset towards the negative direction of the X axis.
     ///
-    /// * `dy` - Indicates the distance to offset on the y-axis in pixels.
+    /// * `dy` - Offset on the Y axis. A positive number indicates an offset towards the positive direction of the Y axis,
+    /// and a negative number indicates an offset towards the negative direction of the Y axis.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if rect is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -478,21 +485,21 @@ extern "C" {
         dx: f32,
         dy: f32,
     ) -> crate::error_code::DrawingResult;
-    /// Offsets rect to a specific position and keeps the width and height unchanged.
+    /// Offsets a rectangle to a specific position while keeping the width and height unchanged.
     ///
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `newLeft` - Indicates the new left coordinate.
+    /// * `newLeft` - X coordinate of the upper left corner of the rectangle after the offset.
     ///
-    /// * `newTop` - Indicates the new top coordinate.
+    /// * `newTop` - Y coordinate of the upper left corner of the rectangle after the offset.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if rect is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
@@ -502,52 +509,52 @@ extern "C" {
         newLeft: f32,
         newTop: f32,
     ) -> crate::error_code::DrawingResult;
-    /// Sets the boundary coordinates of rect to zero.
+    /// Clears a rectangle (by setting the X and Y coordinates of the upper left corner and lower right corner to **0*
+    /// *).
     ///
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if rect is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_Drawing_RectSetEmpty(rect: *mut OH_Drawing_Rect) -> crate::error_code::DrawingResult;
-    /// Swaps the left and right if the left is greater than right; and swaps top and bottom if the top is greater
-    /// than bottom. If the edges are already valid, then nothing is done.
+    /// Sorts the coordinates of a rectangle based on the actual position.
     ///
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to the [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if rect is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub fn OH_Drawing_RectSort(rect: *mut OH_Drawing_Rect) -> crate::error_code::DrawingResult;
-    /// Sets rect to the union of itself and another.
+    /// Sets the current rectangle to the union of this rectangle and another rectangle.
     ///
     /// # Arguments
     ///
-    /// * `rect` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `rect` - Pointer to this [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
-    /// * `other` - Indicates the pointer to an <b>OH_Drawing_Rect</b> object.
+    /// * `other` - Pointer to another [`OH_Drawing_Rect`](crate::types::OH_Drawing_Rect) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if rect or other is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INCORRECT_PARAMETER** if **rect** or **other** is a null pointer.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

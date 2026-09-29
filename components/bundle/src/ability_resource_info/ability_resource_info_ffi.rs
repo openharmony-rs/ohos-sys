@@ -6,7 +6,7 @@
 use crate::bundle_manager_common::BundleManager_ErrorCode;
 use ohos_sys_opaque_types::ArkUI_DrawableDescriptor;
 
-/// Indicates ability resource info.
+/// The struct describes the ability resource information.
 ///
 ///
 /// Available since API-level: 21
@@ -17,19 +17,20 @@ pub struct OH_NativeBundle_AbilityResourceInfo {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Get the bundle name of the abilityResourceInfo.
+    /// Obtains the bundle name of the ability. After using this function, you must manually release the
+    /// pointer returned to prevent memory leakage.
     ///
     /// # Arguments
     ///
-    /// * `abilityResourceInfo` - The ability resource info that has been obtained.
+    /// * `abilityResourceInfo` - Pointer to the ability resource information.
     ///
-    /// * `bundleName` - The bundle name obtained from abilityResourceInfo.
+    /// * `bundleName` - Double pointer to the bundle name.
     ///
     /// # Returns
     ///
-    /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
+    /// * One of the following operation results:
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -38,19 +39,20 @@ extern "C" {
         abilityResourceInfo: *mut OH_NativeBundle_AbilityResourceInfo,
         bundleName: *mut *mut ::core::ffi::c_char,
     ) -> BundleManager_ErrorCode;
-    /// Get the module name of the abilityResourceInfo.
+    /// Obtains the module name of the ability. After using this function, you must manually release the pointer
+    /// returned to prevent memory leakage.
     ///
     /// # Arguments
     ///
-    /// * `abilityResourceInfo` - The ability resource info that has been obtained.
+    /// * `abilityResourceInfo` - Pointer to the ability resource information.
     ///
-    /// * `moduleName` - The module name obtained from abilityResourceInfo.
+    /// * `moduleName` - Double pointer to the module name.
     ///
     /// # Returns
     ///
-    /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
+    /// * One of the following operation results:
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -59,19 +61,20 @@ extern "C" {
         abilityResourceInfo: *mut OH_NativeBundle_AbilityResourceInfo,
         moduleName: *mut *mut ::core::ffi::c_char,
     ) -> BundleManager_ErrorCode;
-    /// Get the ability name of the abilityResourceInfo.
+    /// Obtains the ability name. After using this function, you must manually release the pointer returned to
+    /// prevent memory leakage.
     ///
     /// # Arguments
     ///
-    /// * `abilityResourceInfo` - The ability resource info that has been obtained.
+    /// * `abilityResourceInfo` - Pointer to the ability resource information.
     ///
-    /// * `abilityName` - The ability name obtained from abilityResourceInfo.
+    /// * `abilityName` - Double pointer to the ability name.
     ///
     /// # Returns
     ///
-    /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
+    /// * One of the following operation results:
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -80,19 +83,20 @@ extern "C" {
         abilityResourceInfo: *mut OH_NativeBundle_AbilityResourceInfo,
         abilityName: *mut *mut ::core::ffi::c_char,
     ) -> BundleManager_ErrorCode;
-    /// Get the label of the abilityResourceInfo.
+    /// Obtains the application name of the ability. After using this function, you must manually release the
+    /// pointerreturned to prevent memory leakage.
     ///
     /// # Arguments
     ///
-    /// * `abilityResourceInfo` - The ability resource info that has been obtained.
+    /// * `abilityResourceInfo` - Pointer to the ability resource information.
     ///
-    /// * `label` - The label obtained from abilityResourceInfo.
+    /// * `label` - Double pointer to the application name.
     ///
     /// # Returns
     ///
-    /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
+    /// * One of the following operation results:
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -101,19 +105,19 @@ extern "C" {
         abilityResourceInfo: *mut OH_NativeBundle_AbilityResourceInfo,
         label: *mut *mut ::core::ffi::c_char,
     ) -> BundleManager_ErrorCode;
-    /// Get the appIndex of the abilityResourceInfo.
+    /// Obtains the clone index of the ability.
     ///
     /// # Arguments
     ///
-    /// * `abilityResourceInfo` - The ability resource info that has been obtained.
+    /// * `abilityResourceInfo` - Pointer to the ability resource information.
     ///
-    /// * `appIndex` - The appIndex obtained from abilityResourceInfo.
+    /// * `appIndex` - Pointer to the clone index.
     ///
     /// # Returns
     ///
-    /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
+    /// * One of the following operation results:
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the ** abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -122,19 +126,21 @@ extern "C" {
         abilityResourceInfo: *mut OH_NativeBundle_AbilityResourceInfo,
         appIndex: *mut ::core::ffi::c_int,
     ) -> BundleManager_ErrorCode;
-    /// Check whether abilityResourceInfo is the default application.
+    /// Checks whether the application to which the ability belongs is a default application.
     ///
     /// # Arguments
     ///
-    /// * `abilityResourceInfo` - The ability resource info that has been obtained.
+    /// * `abilityResourceInfo` - Pointer to the ability resource information.
     ///
-    /// * `isDefault` - Check whether abilityResourceInfo is the default application.
+    /// * `isDefault` - Pointer to the check result for whether the application is a default application. A default
+    /// application is the preferred application set by the user for a specific file type or operation. **true** if the
+    /// application is a default application, **false** otherwise.
     ///
     /// # Returns
     ///
-    /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
+    /// * One of the following operation results:
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The query is successful.
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The query fails because the abilityResourceInfo parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -143,19 +149,19 @@ extern "C" {
         abilityResourceInfo: *mut OH_NativeBundle_AbilityResourceInfo,
         isDefault: *mut bool,
     ) -> BundleManager_ErrorCode;
-    /// Destroy the ability resource info.
+    /// Releases memory allocated for ability resource information.
     ///
     /// # Arguments
     ///
-    /// * `abilityResourceInfo` - The ability resource info to be deleted.
+    /// * `abilityResourceInfo` - Pointer to the ability resource information.
     ///
-    /// * `count` - Indicates the ability resource array size.
+    /// * `count` - Size of the ability resource information array.
     ///
     /// # Returns
     ///
-    /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
+    /// * One of the following operation results:
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The release is successful.
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The release fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
@@ -164,31 +170,31 @@ extern "C" {
         abilityResourceInfo: *mut OH_NativeBundle_AbilityResourceInfo,
         count: usize,
     ) -> BundleManager_ErrorCode;
-    /// Get the size of ability resource info.
+    /// Obtains the size of a single [`OH_NativeBundle_AbilityResourceInfo`](crate::ability_resource_info::OH_NativeBundle_AbilityResourceInfo) struct.
     ///
     ///
     /// # Returns
     ///
-    /// * The size of ability resource info.
-    ///
+    /// * Size of a single [`OH_NativeBundle_AbilityResourceInfo`](crate::ability_resource_info::OH_NativeBundle_AbilityResourceInfo) struct.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
     pub fn OH_NativeBundle_GetSize() -> ::core::ffi::c_int;
-    /// Get the drawable descriptor of the abilityResourceInfo.
+    /// Obtains the `DrawableDescriptor` object of the ability icon resource. After using this function, you
+    /// must manually release the pointer returned to prevent memory leakage.
     ///
     /// # Arguments
     ///
-    /// * `abilityResourceInfo` - The ability resource info that has been obtained.
+    /// * `abilityResourceInfo` - Pointer to the ability resource information.
     ///
-    /// * `drawableIcon` - The drawable descriptor obtained from abilityResourceInfo.
+    /// * `drawableIcon` - Double pointer to the `DrawableDescriptor` object.
     ///
     /// # Returns
     ///
-    /// * The error code.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR) if the operation is successful.
-    /// [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID) if the abilityResourceInfo is invalid.
+    /// * One of the following operation results:
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_NO_ERROR`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_NO_ERROR): The retrieval is successful.
+    ///  - [`BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID`](crate::bundle_manager_common::BundleManager_ErrorCode::BUNDLE_MANAGER_ERROR_CODE_PARAM_INVALID): The retrieval fails because the **abilityResourceInfo** parameter is nullptr.
     ///
     /// Available since API-level: 21
     #[cfg(feature = "api-21")]

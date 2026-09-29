@@ -16,23 +16,23 @@ pub const NETCONN_MAX_RTT_NUM: u32 = 4;
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl NetConn_NetCap {
-    /// MMS
+    /// MMS.
     pub const NETCONN_NET_CAPABILITY_MMS: NetConn_NetCap = NetConn_NetCap(0);
-    /// Not Metered
+    /// Non-metered network.
     pub const NETCONN_NET_CAPABILITY_NOT_METERED: NetConn_NetCap = NetConn_NetCap(11);
-    /// Internet
+    /// Internet.
     pub const NETCONN_NET_CAPABILITY_INTERNET: NetConn_NetCap = NetConn_NetCap(12);
-    /// Not VPN
+    /// Non-VPN.
     pub const NETCONN_NET_CAPABILITY_NOT_VPN: NetConn_NetCap = NetConn_NetCap(15);
-    /// Validated
+    /// Verified.
     pub const NETCONN_NET_CAPABILITY_VALIDATED: NetConn_NetCap = NetConn_NetCap(16);
-    /// Portal
+    /// Portal.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NETCONN_NET_CAPABILITY_PORTAL: NetConn_NetCap = NetConn_NetCap(17);
-    /// In checking network connectivity.
+    /// Connectivity check.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -40,7 +40,7 @@ impl NetConn_NetCap {
     pub const NETCONN_NET_CAPABILITY_CHECKING_CONNECTIVITY: NetConn_NetCap = NetConn_NetCap(31);
 }
 #[repr(transparent)]
-/// Defines network capabilities.
+/// Enumerates the network capabilities.
 ///
 ///
 /// Available since API-level: 11
@@ -53,19 +53,19 @@ pub struct NetConn_NetCap(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl NetConn_NetBearerType {
-    /// Cellular network
+    /// Cellular network.
     pub const NETCONN_BEARER_CELLULAR: NetConn_NetBearerType = NetConn_NetBearerType(0);
-    /// WIFI
+    /// Wi-Fi.
     pub const NETCONN_BEARER_WIFI: NetConn_NetBearerType = NetConn_NetBearerType(1);
-    /// Bluetooth
+    /// Bluetooth.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const NETCONN_BEARER_BLUETOOTH: NetConn_NetBearerType = NetConn_NetBearerType(2);
-    /// Ethernet
+    /// Ethernet.
     pub const NETCONN_BEARER_ETHERNET: NetConn_NetBearerType = NetConn_NetBearerType(3);
-    /// VPN
+    /// VPN.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -73,7 +73,7 @@ impl NetConn_NetBearerType {
     pub const NETCONN_BEARER_VPN: NetConn_NetBearerType = NetConn_NetBearerType(4);
 }
 #[repr(transparent)]
-/// Defines network bearer types.
+/// Enumerates the network carrier types.
 ///
 ///
 /// Available since API-level: 11
@@ -86,21 +86,20 @@ pub struct NetConn_NetBearerType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-15")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
 impl NetConn_ErrorCode {
-    /// Success return code on success
+    /// Success.
     pub const NETCONN_SUCCESS: NetConn_ErrorCode = NetConn_ErrorCode(0);
-    /// Permission verification failed
+    /// Missing permissions.
     pub const NETCONN_PERMISSION_DENIED: NetConn_ErrorCode = NetConn_ErrorCode(201);
-    /// Parameter check failed
+    /// Invalid parameter.
     pub const NETCONN_PARAMETER_ERROR: NetConn_ErrorCode = NetConn_ErrorCode(401);
-    /// Failed to connect to the service
+    /// Service connection failure.
     pub const NETCONN_OPERATION_FAILED: NetConn_ErrorCode = NetConn_ErrorCode(2100002);
-    /// System internal error.
-    /// 1. Memory-related error, for example, insufficient memory or memory data copy failures.
-    /// 2. Null pointer error, for example, using memory that has already been released.
+    /// Internal error.1. Memory-related error, for example, insufficient memory, memory data copy failure, or memory
+    /// request failure.2. Null pointer, for example, access to a released memory pointer.
     pub const NETCONN_INTERNAL_ERROR: NetConn_ErrorCode = NetConn_ErrorCode(2100003);
 }
 #[repr(transparent)]
-/// Enumerates NetConn error codes.
+/// Enumerates network connection error codes.
 ///
 ///
 /// Available since API-level: 15
@@ -111,13 +110,13 @@ pub struct NetConn_ErrorCode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl NetConn_PacketsType {
-    /// ICMP
+    /// Internet Control Message Protocol.
     pub const NETCONN_PACKETS_ICMP: NetConn_PacketsType = NetConn_PacketsType(0);
-    /// UDP
+    /// User Datagram Protocol.
     pub const NETCONN_PACKETS_UDP: NetConn_PacketsType = NetConn_PacketsType(1);
 }
 #[repr(transparent)]
-/// Enumerates packets type of trace route.
+/// Enumerates trace route packet types.
 ///
 ///
 /// Available since API-level: 20
@@ -125,7 +124,7 @@ impl NetConn_PacketsType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct NetConn_PacketsType(pub ::core::ffi::c_uint);
-/// Defines the network handle.
+/// Defines network handles for network IDs.
 ///
 ///
 /// Available since API-level: 11
@@ -136,10 +135,10 @@ pub struct NetConn_PacketsType(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NetConn_NetHandle {
-    /// Network ID
+    /// Network ID.
     pub netId: i32,
 }
-/// Defines all network capabilities.
+/// Defines network capability sets.
 ///
 ///
 /// Available since API-level: 11
@@ -150,20 +149,20 @@ pub struct NetConn_NetHandle {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NetConn_NetCapabilities {
-    /// Uplink bandwidth
+    /// Uplink bandwidth.
     pub linkUpBandwidthKbps: u32,
-    /// Downlink bandwidth
+    /// Downlink bandwidth.
     pub linkDownBandwidthKbps: u32,
     /// Network capability list
     pub netCaps: [NetConn_NetCap; 32usize],
-    /// Actual size of the network capability list
+    /// Actual size of the network capability list.
     pub netCapsSize: i32,
     /// Bearer type list
     pub bearerTypes: [NetConn_NetBearerType; 32usize],
-    /// Actual size of the bearer type list
+    /// Actual size of the bearer type list.
     pub bearerTypesSize: i32,
 }
-/// Defines the network address.
+/// Defines network addresses.
 ///
 ///
 /// Available since API-level: 11
@@ -174,16 +173,16 @@ pub struct NetConn_NetCapabilities {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NetConn_NetAddr {
-    /// Network address family
+    /// Network address family.
     pub family: u8,
-    /// Prefix length
+    /// Prefix length.
     pub prefixlen: u8,
-    /// Port number
+    /// Port number.
     pub port: u8,
     /// Address
     pub address: [::core::ffi::c_char; 256usize],
 }
-/// Defines the route configuration information.
+/// Defines the route configuration.
 ///
 ///
 /// Available since API-level: 11
@@ -196,16 +195,16 @@ pub struct NetConn_NetAddr {
 pub struct NetConn_Route {
     /// Network interface
     pub iface: [::core::ffi::c_char; 256usize],
-    /// Destination address
+    /// Destination address.
     pub destination: NetConn_NetAddr,
-    /// Gateway address
+    /// Gateway IP address.
     pub gateway: NetConn_NetAddr,
-    /// Gateway exists or not
+    /// Whether a gateway exists.
     pub hasGateway: i32,
-    /// Default route or not
+    /// Whether the default route is used.
     pub isDefaultRoute: i32,
 }
-/// Defines the proxy configuration information.
+/// Defines the proxy configuration.
 ///
 ///
 /// Available since API-level: 11
@@ -220,9 +219,9 @@ pub struct NetConn_HttpProxy {
     pub host: [::core::ffi::c_char; 256usize],
     /// Exclusion list of proxy servers
     pub exclusionList: [[::core::ffi::c_char; 256usize]; 256usize],
-    /// Actual size of the exclusion list
+    /// Actual size of the exclusion list.
     pub exclusionListSize: i32,
-    /// Port number
+    /// Port number.
     pub port: u16,
 }
 /// Defines the network connection properties.
@@ -242,24 +241,24 @@ pub struct NetConn_ConnectionProperties {
     pub domain: [::core::ffi::c_char; 256usize],
     /// TCP buffer size
     pub tcpBufferSizes: [::core::ffi::c_char; 256usize],
-    /// MTU
+    /// Maximum transmission unit.
     pub mtu: u16,
     /// Address list
     pub netAddrList: [NetConn_NetAddr; 32usize],
-    /// Actual size of the address list
+    /// Actual size of the address list.
     pub netAddrListSize: i32,
     /// DNS list
     pub dnsList: [NetConn_NetAddr; 32usize],
-    /// Actual size of the DNS list
+    /// Actual size of the DNS list.
     pub dnsListSize: i32,
     /// Route list
     pub routeList: [NetConn_Route; 64usize],
-    /// Actual size of the route list
+    /// Actual size of the route list.
     pub routeListSize: i32,
-    /// HTTP proxy information
+    /// HTTP proxy information.
     pub httpProxy: NetConn_HttpProxy,
 }
-/// Defines the network handle list.
+/// Defines the network list.
 ///
 ///
 /// Available since API-level: 11
@@ -272,21 +271,20 @@ pub struct NetConn_ConnectionProperties {
 pub struct NetConn_NetHandleList {
     /// Network handle list
     pub netHandles: [NetConn_NetHandle; 32usize],
-    /// Actual size of the network handle list
+    /// Actual size of the network handle list.
     pub netHandleListSize: i32,
 }
-/// Pointer to the custom DNS resolver.
+/// Defines the pointer to the custom DNS resolver.
 ///
 /// # Arguments
 ///
-/// * `host` - The host name to query.
+/// * `host` - Host name.
 ///
 /// * `serv` - Service name.
 ///
 /// * `hint` - Pointer to the addrinfo structure.
 ///
-/// * `res` - Store DNS query results and return them in a linked list format.
-///
+/// * `res` - DNS query result, which is in the format of linked lists.
 ///
 /// Available since API-level: 11
 ///
@@ -301,11 +299,11 @@ pub type OH_NetConn_CustomDnsResolver = ::core::option::Option<
         res: *mut *mut addrinfo,
     ) -> ::core::ffi::c_int,
 >;
-/// Callback for application’s http proxy information changed.
+/// Defines the callback invoked when the HTTP proxy information of the application changes.
 ///
 /// # Arguments
 ///
-/// * `proxy` - The changed proxy information, may be a null pointer.
+/// * `proxy` - Proxy configuration information (probably a null pointer).
 ///
 ///
 /// Available since API-level: 12
@@ -315,7 +313,36 @@ pub type OH_NetConn_CustomDnsResolver = ::core::option::Option<
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NetConn_AppHttpProxyChange =
     ::core::option::Option<unsafe extern "C" fn(proxy: *mut NetConn_HttpProxy)>;
-/// Definition of network specifier.
+/// Defines the one-shot callback used to receive the global HTTP proxy re-authentication result.
+///
+/// This callback is invoked at most once for each successful call to
+/// OH_NetConn_RefreshGlobalHttpProxyWithCallback.
+///
+/// # Arguments
+///
+/// * `result` - The re-authentication result. 0 indicates success. Other values indicate failure.
+///
+/// * `proxy` - The refreshed global HTTP proxy information when result is 0. If re-authentication
+/// fails, proxy is NULL.<br>
+/// The proxy object is owned by the system and is valid only during this callback
+/// invocation. The caller must not free or modify it. If the caller needs to use the
+/// proxy information after the callback returns, the caller must make a deep copy.
+///
+/// * `userContext` - The user-defined data passed to OH_NetConn_RefreshGlobalHttpProxyWithCallback. The system
+/// does not access, copy, or release it.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub type OH_NetConn_GlobalHttpProxyRefreshCallback = ::core::option::Option<
+    unsafe extern "C" fn(
+        result: i32,
+        proxy: *const NetConn_HttpProxy,
+        userContext: *mut ::core::ffi::c_void,
+    ),
+>;
+/// Defines network feature sets.
 ///
 ///
 /// Available since API-level: 12
@@ -326,17 +353,16 @@ pub type OH_NetConn_AppHttpProxyChange =
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NetConn_NetSpecifier {
-    /// Network capabilities.
+    /// Network capability set.
     pub caps: NetConn_NetCapabilities,
-    /// Network identifier
+    /// Network ID.
     pub bearerPrivateIdentifier: *mut ::core::ffi::c_char,
 }
-/// Callback for network available.
+/// Defines the callback invoked when the network is available.
 ///
 /// # Arguments
 ///
-/// * `netHandle` - The network handle.
-///
+/// * `netHandle` - Network handle.
 ///
 /// Available since API-level: 12
 ///
@@ -345,14 +371,13 @@ pub struct NetConn_NetSpecifier {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NetConn_NetworkAvailable =
     ::core::option::Option<unsafe extern "C" fn(netHandle: *mut NetConn_NetHandle)>;
-/// Callback for network capabilities changed.
+/// Defines the callback invoked when the network capabilities change.
 ///
 /// # Arguments
 ///
-/// * `netHandle` - The network handle.
+/// * `netHandle` - Network handle.
 ///
-/// * `netCapabilities` - The network capabilities.
-///
+/// * `netCapabilities` - Network capability set.
 ///
 /// Available since API-level: 12
 ///
@@ -365,14 +390,13 @@ pub type OH_NetConn_NetCapabilitiesChange = ::core::option::Option<
         netCapabilities: *mut NetConn_NetCapabilities,
     ),
 >;
-/// Callback for network connection properties changed.
+/// Defines the callback invoked when network connection properties change.
 ///
 /// # Arguments
 ///
-/// * `netHandle` - The network handle.
+/// * `netHandle` - Network handle.
 ///
-/// * `connConnetionProperties` - The network connection properties.
-///
+/// * `connConnetionProperties` - Network connection properties.
 ///
 /// Available since API-level: 12
 ///
@@ -385,12 +409,11 @@ pub type OH_NetConn_NetConnectionPropertiesChange = ::core::option::Option<
         connConnetionProperties: *mut NetConn_ConnectionProperties,
     ),
 >;
-/// Callback for network lost.
+/// Defines the callback invoked when the network is disconnected.
 ///
 /// # Arguments
 ///
-/// * `netHandle` - The network handle.
-///
+/// * `netHandle` - Network handle.
 ///
 /// Available since API-level: 12
 ///
@@ -399,7 +422,9 @@ pub type OH_NetConn_NetConnectionPropertiesChange = ::core::option::Option<
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NetConn_NetLost =
     ::core::option::Option<unsafe extern "C" fn(netHandle: *mut NetConn_NetHandle)>;
-/// Callback for network unavailable, this function invoked while network can not be available in given timeout.
+/// Defines the callback invoked when the network is unavailable. This callback is triggered when the network is
+/// not activated within the specified timeout interval. If the timeout interval is not set, this callback is not
+/// triggered.
 ///
 ///
 /// Available since API-level: 12
@@ -408,14 +433,14 @@ pub type OH_NetConn_NetLost =
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NetConn_NetUnavailable = ::core::option::Option<unsafe extern "C" fn()>;
-/// Callback for network blocked status changed.
+/// Defines the callback invoked when the network blocking status changes.
 ///
 /// # Arguments
 ///
-/// * `netHandle` - The network handle.
+/// * `netHandle` - Network handle.
 ///
-/// * `blocked` - The flag used to indicate whether the network will be blocked.
-///
+/// * `blocked` - Whether the network is blocked. The value true indicates that the network is blocked, and the value
+/// false indicates the opposite.
 ///
 /// Available since API-level: 12
 ///
@@ -424,7 +449,8 @@ pub type OH_NetConn_NetUnavailable = ::core::option::Option<unsafe extern "C" fn
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type OH_NetConn_NetBlockStatusChange =
     ::core::option::Option<unsafe extern "C" fn(netHandle: *mut NetConn_NetHandle, blocked: bool)>;
-/// Defines the network connection callbacks.
+/// Defines a struct for the network status listener callback collection. All callback events must be registered;
+/// those not requiring attention can be set to empty.
 ///
 ///
 /// Available since API-level: 12
@@ -435,20 +461,21 @@ pub type OH_NetConn_NetBlockStatusChange =
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NetConn_NetConnCallback {
-    /// Callback for network available
+    /// Callback invoked when the network is available.
     pub onNetworkAvailable: OH_NetConn_NetworkAvailable,
-    /// Callback for network capabilities changed
+    /// Callback invoked when the network capabilities change.
     pub onNetCapabilitiesChange: OH_NetConn_NetCapabilitiesChange,
-    /// Callback for network connection properties changed
+    /// Callback invoked when network connection properties change.
     pub onConnetionProperties: OH_NetConn_NetConnectionPropertiesChange,
-    /// Callback for network lost
+    /// Callback invoked when the network is disconnected.
     pub onNetLost: OH_NetConn_NetLost,
-    /// Callback for network unavailable, this function invoked while network can not be available in given timeout
+    /// Callback invoked when the network is unavailable. This callback is triggered when the network is not activated
+    /// within the specified timeout interval. If the timeout interval is not set, this callback is not triggered.
     pub onNetUnavailable: OH_NetConn_NetUnavailable,
-    /// Callback for network blocked status changed
+    /// Callback invoked when the network blocking status changes.
     pub onNetBlockStatusChange: OH_NetConn_NetBlockStatusChange,
 }
-/// Defines the probe result information.
+/// Defines the probe result.
 ///
 ///
 /// Available since API-level: 20
@@ -457,12 +484,13 @@ pub struct NetConn_NetConnCallback {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NetConn_ProbeResultInfo {
-    /// Number of jumps
+    /// Packet loss rate, in percentage. The value **100** indicates 100% packet loss, and the value **50** indicates 50%
+    /// packet loss.
     pub lossRate: u8,
-    /// RTT in micro seconds, min/avg/max/std
+    /// Round-trip time in ms, including the maximum, minimum, average, and standard deviations.
     pub rtt: [u32; 4usize],
 }
-/// Defines the network trace route option.
+/// Defines the network trace route options.
 ///
 ///
 /// Available since API-level: 20
@@ -471,9 +499,10 @@ pub struct NetConn_ProbeResultInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NetConn_TraceRouteOption {
-    /// Maximum number of jumps, default is 30
+    /// Maximum number of hops in the probe result. The value must be the same as that of **TraceRouteInfo**. The
+    /// maximum number of hops is 30, which is also the default value.
     pub maxJumpNumber: u8,
-    /// Packets type
+    /// Protocol type of the probe packet. The default value is **NETCONN_PACKETS_ICMP**.
     pub packetsType: NetConn_PacketsType,
 }
 /// Defines the trace route information.
@@ -485,10 +514,10 @@ pub struct NetConn_TraceRouteOption {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NetConn_TraceRouteInfo {
-    /// Number of jumps
+    /// Number of hops.
     pub jumpNo: u8,
-    /// host name or address
+    /// Host name or address.
     pub address: [::core::ffi::c_char; 256usize],
-    /// RTT in micro seconds
+    /// Round-trip time in ms, including the maximum, minimum, average, and standard deviations.
     pub rtt: [u32; 4usize],
 }

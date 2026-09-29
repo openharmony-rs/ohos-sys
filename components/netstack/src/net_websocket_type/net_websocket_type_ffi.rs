@@ -4,7 +4,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-/// Defines the parameters for connection closing by the server.
+/// Defines the parameters for the connection closure received by the WebSocket client.
 ///
 ///
 /// Available since API-level: 11
@@ -15,12 +15,12 @@
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WebSocket_CloseResult {
-    /// Error code
+    /// Error code.
     pub code: u32,
-    /// Error cause
+    /// Error cause.
     pub reason: *const ::core::ffi::c_char,
 }
-/// Defines the parameters for proactive connection closing by the client.
+/// Defines the parameters for the proactive connection closure initiated by the WebSocket client.
 ///
 ///
 /// Available since API-level: 11
@@ -31,12 +31,12 @@ pub struct WebSocket_CloseResult {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WebSocket_CloseOption {
-    /// Error code
+    /// Error code.
     pub code: u32,
-    /// Error cause
+    /// Error cause.
     pub reason: *const ::core::ffi::c_char,
 }
-/// Defines the parameters for the connection error reported by the server.
+/// Defines the parameters for the connection error received by the WebSocket client.
 ///
 ///
 /// Available since API-level: 11
@@ -47,12 +47,12 @@ pub struct WebSocket_CloseOption {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WebSocket_ErrorResult {
-    /// Error code
+    /// Error code.
     pub errorCode: u32,
-    /// Error message
+    /// Error message.
     pub errorMessage: *const ::core::ffi::c_char,
 }
-/// Defines the parameters for the connection success reported by the server.
+/// Defines the parameters for the connection success received by the WebSocket client.
 ///
 ///
 /// Available since API-level: 11
@@ -63,18 +63,18 @@ pub struct WebSocket_ErrorResult {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WebSocket_OpenResult {
-    /// Connection success code
+    /// Result code for successful WebSocket client connection.
     pub code: u32,
-    /// Connection success reason
+    /// Reason for successful WebSocket client connection.
     pub reason: *const ::core::ffi::c_char,
 }
-/// Defines the callback function invoked when an <b>open</b> message is received.
+/// Callback invoked when the WebSocket client receives an **Open** message.
 ///
 /// # Arguments
 ///
-/// * `client` - websocket client.
+/// * `client` - WebSocket client.
 ///
-/// * `openResult` - Content of the <b>open</b> message received by the websocket client.
+/// * `openResult` - Content of the **Open** message sent from the WebSocket server to client.
 ///
 /// Available since API-level: 11
 ///
@@ -84,15 +84,15 @@ pub struct WebSocket_OpenResult {
 pub type WebSocket_OnOpenCallback = ::core::option::Option<
     unsafe extern "C" fn(client: *mut WebSocket, openResult: WebSocket_OpenResult),
 >;
-/// Defines the callback function invoked when data is received.
+/// Callback invoked when the WebSocket client receives a **Message** message.
 ///
 /// # Arguments
 ///
-/// * `client` - websocket client.
+/// * `client` - WebSocket client.
 ///
-/// * `data` - Data received by the websocket client.
+/// * `data` - Data received by the WebSocket client.
 ///
-/// * `length` - Length of the data received by the websocket client.
+/// * `length` - Length of the data received by the WebSocket client.
 ///
 /// Available since API-level: 11
 ///
@@ -102,13 +102,13 @@ pub type WebSocket_OnOpenCallback = ::core::option::Option<
 pub type WebSocket_OnMessageCallback = ::core::option::Option<
     unsafe extern "C" fn(client: *mut WebSocket, data: *mut ::core::ffi::c_char, length: u32),
 >;
-/// Defines the callback function invoked when an error message is received.
+/// Callback invoked when the WebSocket client receives an **Error** message.
 ///
 /// # Arguments
 ///
-/// * `client` - websocket client.
+/// * `client` - WebSocket client.
 ///
-/// * `errorResult` - Content of the connection error message received by the websocket client.
+/// * `errorResult` - Content of the **Error** message sent from the WebSocket server to client.
 ///
 /// Available since API-level: 11
 ///
@@ -118,13 +118,13 @@ pub type WebSocket_OnMessageCallback = ::core::option::Option<
 pub type WebSocket_OnErrorCallback = ::core::option::Option<
     unsafe extern "C" fn(client: *mut WebSocket, errorResult: WebSocket_ErrorResult),
 >;
-/// Defines the callback function invoked when a <b>close</b> message is received.
+/// Callback invoked when the WebSocket client receives a **Close** message.
 ///
 /// # Arguments
 ///
-/// * `client` - webSocket client.
+/// * `client` - WebSocket client.
 ///
-/// * `closeResult` - Content of the <b>close</b> message received by the webSocket client.
+/// * `closeResult` - Content of the **Close** message sent from the WebSocket server to client.
 ///
 /// Available since API-level: 11
 ///
@@ -134,7 +134,7 @@ pub type WebSocket_OnErrorCallback = ::core::option::Option<
 pub type WebSocket_OnCloseCallback = ::core::option::Option<
     unsafe extern "C" fn(client: *mut WebSocket, closeResult: WebSocket_CloseResult),
 >;
-/// Adds the header linked list to the websocket client.
+/// Defines the header linked list added to the WebSocket client.
 ///
 ///
 /// Available since API-level: 11
@@ -145,11 +145,11 @@ pub type WebSocket_OnCloseCallback = ::core::option::Option<
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WebSocket_Header {
-    /// Header field name
+    /// Pointer to the field name of a header.
     pub fieldName: *const ::core::ffi::c_char,
-    /// Header field content
+    /// Pointer to the field value of a header.
     pub fieldValue: *const ::core::ffi::c_char,
-    /// Next pointer of the header linked list
+    /// Next pointer of the header linked list.
     pub next: *mut WebSocket_Header,
 }
 /// Defines the parameters for the connection between the WebSocket client and server.
@@ -168,7 +168,7 @@ pub struct WebSocket_Header {
 pub struct WebSocket_RequestOptions {
     pub headers: *mut WebSocket_Header,
 }
-/// Defines the WebSocket client structure.
+/// Defines the parameters for the connection closure received by the WebSocket client.
 ///
 ///
 /// Available since API-level: 11
@@ -179,55 +179,55 @@ pub struct WebSocket_RequestOptions {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WebSocket {
-    /// Pointer to the callback invoked when a connection message is received
+    /// Pointer to the callback invoked when the WebSocket client receives a connection message.
     pub onOpen: WebSocket_OnOpenCallback,
-    /// Pointer to the callback invoked when a message is received
+    /// Pointer to the callback invoked when the WebSocket client receives a message.
     pub onMessage: WebSocket_OnMessageCallback,
-    /// Pointer to the callback invoked when an error message is received
+    /// Pointer to the callback invoked when the WebSocket client receives an error message.
     pub onError: WebSocket_OnErrorCallback,
-    /// Pointer to the callback invoked when a close message is received
+    /// Pointer to the callback invoked when the WebSocket client receives a close message.
     pub onClose: WebSocket_OnCloseCallback,
-    /// Content of the request for establishing a connection on the client
+    /// Options of the connection request.
     pub requestOptions: WebSocket_RequestOptions,
 }
 impl WebSocket_ErrCode {
-    /// Operation success.
+    /// Operation successful.
     pub const WEBSOCKET_OK: WebSocket_ErrCode = WebSocket_ErrCode(0);
-    /// Error code base.
+    /// Base value of the error code.
     pub const E_BASE: WebSocket_ErrCode = WebSocket_ErrCode(1000);
-    /// The websocket client is null.
+    /// The WebSocket client is empty.
     pub const WEBSOCKET_CLIENT_NULL: WebSocket_ErrCode = WebSocket_ErrCode(1001);
-    /// A webSocket client is not created.
+    /// The WebSocket client is not created.
     pub const WEBSOCKET_CLIENT_NOT_CREATED: WebSocket_ErrCode = WebSocket_ErrCode(1002);
-    /// An error occurs while setting up a websocket connection.
+    /// An error occurred during WebSocket connection establishment.
     pub const WEBSOCKET_CONNECTION_ERROR: WebSocket_ErrCode = WebSocket_ErrCode(1003);
-    /// An error occurs while parsing websocket connection parameters.
+    /// An error occurred when parsing WebSocket connection parameters.
     pub const WEBSOCKET_CONNECTION_PARSE_URL_ERROR: WebSocket_ErrCode = WebSocket_ErrCode(1005);
-    /// The memory is insufficient for creating a context during websocket connection setup.
+    /// The memory is insufficient during WebSocket client connection establishment.
     pub const WEBSOCKET_CONNECTION_NO_MEMORY: WebSocket_ErrCode = WebSocket_ErrCode(1006);
-    /// The websocket connection is closed by the peer.
+    /// The WebSocket connection is closed by the peer end.
     pub const WEBSOCKET_CONNECTION_CLOSED_BY_PEER: WebSocket_ErrCode = WebSocket_ErrCode(1007);
-    /// The websocket connection is destroyed.
+    /// The WebSocket connection is disconnected.
     pub const WEBSOCKET_DESTROYED: WebSocket_ErrCode = WebSocket_ErrCode(1008);
-    /// An incorrect protocol is used for websocket connection.
+    /// Incorrect protocol.
     pub const WEBSOCKET_PROTOCOL_ERROR: WebSocket_ErrCode = WebSocket_ErrCode(1009);
-    /// The memory for the websocket client to send data is insufficient.
+    /// The system memory is insufficient when the WebSocket client sends data.
     pub const WEBSOCKET_SEND_NO_MEMORY: WebSocket_ErrCode = WebSocket_ErrCode(1010);
-    /// The data sent by the websocket client is null.
+    /// The sent data is empty.
     pub const WEBSOCKET_SEND_DATA_NULL: WebSocket_ErrCode = WebSocket_ErrCode(1011);
-    /// The length of the data sent by the websocket client exceeds the limit.
+    /// The length of the sent data exceeds the limit.
     pub const WEBSOCKET_DATA_LENGTH_EXCEEDED: WebSocket_ErrCode = WebSocket_ErrCode(1012);
-    /// The queue length of the data sent by the websocket client exceeds the limit.
+    /// The length of the sent data queue exceeds the limit.
     pub const WEBSOCKET_QUEUE_LENGTH_EXCEEDED: WebSocket_ErrCode = WebSocket_ErrCode(1013);
-    /// The context of the websocket client is null.
+    /// The context of the WebSocket client is null.
     pub const WEBSOCKET_NO_CLIENT_CONTEXT: WebSocket_ErrCode = WebSocket_ErrCode(1014);
-    /// The header of the webSocket client is null.
+    /// The protocol header of the WebSocket client is empty.
     pub const WEBSOCKET_NO_HEADER_CONTEXT: WebSocket_ErrCode = WebSocket_ErrCode(1015);
-    /// The header of the websocket client exceeds the limit.
+    /// The protocol header of the WebSocket client exceeds the limit.
     pub const WEBSOCKET_HEADER_EXCEEDED: WebSocket_ErrCode = WebSocket_ErrCode(1016);
-    /// The websocket client is not connected.
+    /// The WebSocket client is not connected.
     pub const WEBSOCKET_NO_CONNECTION: WebSocket_ErrCode = WebSocket_ErrCode(1017);
-    /// The websocket client does not have the connection context.
+    /// No WebSocket connection context is released.
     pub const WEBSOCKET_NO_CONNECTION_CONTEXT: WebSocket_ErrCode = WebSocket_ErrCode(1018);
 }
 #[repr(transparent)]

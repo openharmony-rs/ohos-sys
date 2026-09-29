@@ -37,7 +37,7 @@ impl Input_PointerStyle {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const NORTH: Input_PointerStyle = Input_PointerStyle(4);
-    /// East-west arrow
+    /// West-east arrow
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -73,13 +73,13 @@ impl Input_PointerStyle {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const SOUTH_WEST: Input_PointerStyle = Input_PointerStyle(10);
-    /// Northeast and southwest adjustment
+    /// North-east and south-west adjustment
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const NORTH_EAST_SOUTH_WEST: Input_PointerStyle = Input_PointerStyle(11);
-    /// Northwest and southeast adjustment
+    /// North-west and south-east adjustment
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -91,7 +91,7 @@ impl Input_PointerStyle {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const CROSS: Input_PointerStyle = Input_PointerStyle(13);
-    /// Copy
+    /// Copy.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -103,7 +103,7 @@ impl Input_PointerStyle {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const CURSOR_FORBID: Input_PointerStyle = Input_PointerStyle(15);
-    /// Sucker
+    /// Color picker
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -205,31 +205,31 @@ impl Input_PointerStyle {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const MIDDLE_BTN_NORTH: Input_PointerStyle = Input_PointerStyle(32);
-    /// Scrolling north and south
+    /// Scrolling north-south
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const MIDDLE_BTN_NORTH_SOUTH: Input_PointerStyle = Input_PointerStyle(33);
-    /// Scrolling northeast
+    /// Scrolling north-east
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const MIDDLE_BTN_NORTH_EAST: Input_PointerStyle = Input_PointerStyle(34);
-    /// Scrolling northwest
+    /// Scrolling north-west
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const MIDDLE_BTN_NORTH_WEST: Input_PointerStyle = Input_PointerStyle(35);
-    /// Scrolling southeast
+    /// Scrolling south-east
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const MIDDLE_BTN_SOUTH_EAST: Input_PointerStyle = Input_PointerStyle(36);
-    /// Scrolling southwest
+    /// Scrolling south-west
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -247,79 +247,89 @@ impl Input_PointerStyle {
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const HORIZONTAL_TEXT_CURSOR: Input_PointerStyle = Input_PointerStyle(39);
-    /// Precise selection
+    /// Cross
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const CURSOR_CROSS: Input_PointerStyle = Input_PointerStyle(40);
-    /// Cursor with circle style
+    /// Circle
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const CURSOR_CIRCLE: Input_PointerStyle = Input_PointerStyle(41);
-    /// Loading state with dynamic cursor
+    /// Loading
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const LOADING: Input_PointerStyle = Input_PointerStyle(42);
-    /// Running state with dynamic cursor
+    /// Running in the background
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const RUNNING: Input_PointerStyle = Input_PointerStyle(43);
-    /// Scrolling east and west
+    /// Scrolling east-west
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const MIDDLE_BTN_EAST_WEST: Input_PointerStyle = Input_PointerStyle(44);
-    /// Left part of running state with dynamic cursor
+    /// Running in the background (extension 1)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const RUNNING_LEFT: Input_PointerStyle = Input_PointerStyle(45);
-    /// Right part of running state with dynamic cursor
+    /// Running in the background (extension 2)
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const RUNNING_RIGHT: Input_PointerStyle = Input_PointerStyle(46);
-    /// Circular cursor
+    /// Custom circular pointer
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const AECH_DEVELOPER_DEFINED_ICON: Input_PointerStyle = Input_PointerStyle(47);
-    /// Screen Recording
+    /// Screen recording
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const SCREENRECORDER_CURSOR: Input_PointerStyle = Input_PointerStyle(48);
-    /// Laser
+    /// Floating This pointer can be used only when the stylus enters the air mouse mode and cannot be directly set.<br>
+    /// In air mouse mode, you can rotate the stylus in the air to control the movement of the virtual pointer on the
+    /// screen and press the button on the stylus to turn pages up or down. This mode is used PPT presentation and air
+    /// gesture control.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const LASER_CURSOR: Input_PointerStyle = Input_PointerStyle(49);
-    /// Dot laser
+    /// Click This pointer can be used only when the stylus enters the air mouse mode and cannot be directly set.<br>In
+    /// air mouse mode, you can rotate the stylus in the air to control the movement of the virtual pointer on the screen
+    /// and press the button on the stylus to turn pages up or down. This mode is used PPT presentation and air gesture
+    /// control.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const LASER_CURSOR_DOT: Input_PointerStyle = Input_PointerStyle(50);
-    /// Red dot laser
+    /// Laser pointer This pointer can be used only when the stylus enters the air mouse mode and cannot be directly set.
+    /// <br>In air mouse mode, you can rotate the stylus in the air to control the movement of the virtual pointer on
+    /// the screen and press the button on the stylus to turn pages up or down. This mode is used PPT presentation and
+    /// air gesture control.
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
     pub const LASER_CURSOR_DOT_RED: Input_PointerStyle = Input_PointerStyle(51);
-    /// Developer defined
+    /// Custom pointer. You can use the [`OH_Input_SetCustomCursor`](crate::input_manager::OH_Input_SetCustomCursor) to set a custom pointer, but not the
+    /// [`OH_Input_SetPointerStyle`](crate::input_manager::OH_Input_SetPointerStyle).
     ///
     /// Available since API-level: 22
     #[cfg(feature = "api-22")]
@@ -327,7 +337,7 @@ impl Input_PointerStyle {
     pub const DEVELOPER_DEFINED_ICON: Input_PointerStyle = Input_PointerStyle(-100);
 }
 #[repr(transparent)]
-/// Enumerated values of OpenHarmony pointer style.
+/// Enumerates the pointer styles.
 ///
 ///
 /// Available since API-level: 22

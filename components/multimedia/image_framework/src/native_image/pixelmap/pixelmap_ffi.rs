@@ -38,6 +38,18 @@ impl PIXEL_FORMAT {
     pub const PIXEL_FORMAT_RGBA_1010102: PIXEL_FORMAT = PIXEL_FORMAT(10);
     pub const PIXEL_FORMAT_YCBCR_P010: PIXEL_FORMAT = PIXEL_FORMAT(11);
     pub const PIXEL_FORMAT_YCRCB_P010: PIXEL_FORMAT = PIXEL_FORMAT(12);
+    /// ALPHA_U8 format
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const PIXEL_FORMAT_ALPHA_U8: PIXEL_FORMAT = PIXEL_FORMAT(15);
+    /// ALPHA_F16 format
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const PIXEL_FORMAT_ALPHA_F16: PIXEL_FORMAT = PIXEL_FORMAT(16);
 }
 #[repr(transparent)]
 #[derive(Debug, Clone, Hash, PartialEq, Eq)]
@@ -1023,7 +1035,36 @@ extern "C" {
         pixelmap: *mut OH_PixelmapNative,
         imageInfo: *mut OH_Pixelmap_ImageInfo,
     ) -> ImageResult;
+    /// Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - Pointer of the PixelMap to be modified.
+    ///
+    /// * `value` - The target opacity value to be set.
+    /// The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming more transparent as it approaches 0.0.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) The operation is successful.
+    /// [`IMAGE_GET_IMAGE_DATA_FAILED`](crate::native_image::common::ImageResult::GET_IMAGE_DATA_FAILED) Failed to get image data.
+    /// Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+    /// [`IMAGE_PIXELMAP_RELEASED`](crate::native_image::common::ImageResult::PIXELMAP_RELEASED) The PixelMap has been released.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation because the PixelMap is locked.
+    /// [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) Invalid parameter.
+    /// Possible causes: 1. The rate is out of range. 2. The parameter is null.
+    /// [`IMAGE_UNSUPPORTED_DATA_FORMAT`](crate::native_image::common::ImageResult::UNSUPPORTED_DATA_FORMAT) Unsupported data format. Possible cause: Alpha type is not supported.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PixelmapNative_SetOpacity(
+        pixelmap: *mut OH_PixelmapNative,
+        value: f32,
+    ) -> ImageResult;
     /// Sets an opacity rate for this image pixel map.
+    /// It is recommended to use [`OH_PixelmapNative_SetOpacity`](crate::native_image::pixelmap::OH_PixelmapNative_SetOpacity).
     ///
     /// # Arguments
     ///
@@ -1043,7 +1084,38 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PixelmapNative_Opacity(pixelmap: *mut OH_PixelmapNative, rate: f32) -> ImageResult;
+    /// Scales the PixelMap in the horizontal and/or vertical dimensions.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - Pointer of the PixelMap to be scaled.
+    ///
+    /// * `scaleX` - The scale ratio of width.
+    ///
+    /// * `scaleY` - The scale ratio of height.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) The operation is successful.
+    /// [`IMAGE_GET_IMAGE_DATA_FAILED`](crate::native_image::common::ImageResult::GET_IMAGE_DATA_FAILED) Failed to get image data.
+    /// Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+    /// [`IMAGE_PIXELMAP_RELEASED`](crate::native_image::common::ImageResult::PIXELMAP_RELEASED) The PixelMap has been released.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation because the PixelMap is locked.
+    /// [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) Invalid parameter. Possible cause: The parameter is null.
+    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) Failed to allocate memory.
+    /// Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PixelmapNative_ApplyScale(
+        pixelmap: *mut OH_PixelmapNative,
+        scaleX: f32,
+        scaleY: f32,
+    ) -> ImageResult;
     /// Scales this image based on the input width and height.
+    /// It is recommended to use [`OH_PixelmapNative_ApplyScale`](crate::native_image::pixelmap::OH_PixelmapNative_ApplyScale).
     ///
     /// # Arguments
     ///
@@ -1069,7 +1141,41 @@ extern "C" {
         scaleX: f32,
         scaleY: f32,
     ) -> ImageResult;
+    /// Scales the PixelMap in the horizontal and/or vertical dimensions with anti-aliasing.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - Pointer of the PixelMap to be scaled.
+    ///
+    /// * `scaleX` - The scale ratio of width.
+    ///
+    /// * `scaleY` - The scale ratio of height.
+    ///
+    /// * `level` - The anti-aliasing algorithm to be used.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) The operation is successful.
+    /// [`IMAGE_GET_IMAGE_DATA_FAILED`](crate::native_image::common::ImageResult::GET_IMAGE_DATA_FAILED) Failed to get image data.
+    /// Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+    /// [`IMAGE_PIXELMAP_RELEASED`](crate::native_image::common::ImageResult::PIXELMAP_RELEASED) The PixelMap has been released.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation because the PixelMap is locked.
+    /// [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) Invalid parameter. Possible cause: The parameter is null.
+    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) Failed to allocate memory.
+    /// Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PixelmapNative_ApplyScaleWithAntiAliasing(
+        pixelmap: *mut OH_PixelmapNative,
+        scaleX: f32,
+        scaleY: f32,
+        level: OH_PixelmapNative_AntiAliasingLevel,
+    ) -> ImageResult;
     /// Scales this image based on the input width and height with anti-aliasing.
+    /// It is recommended to use [`OH_PixelmapNative_ApplyScaleWithAntiAliasing`](crate::native_image::pixelmap::OH_PixelmapNative_ApplyScaleWithAntiAliasing).
     ///
     /// # Arguments
     ///
@@ -1163,7 +1269,38 @@ extern "C" {
         scaleY: f32,
         level: OH_PixelmapNative_AntiAliasingLevel,
     ) -> ImageResult;
+    /// Repositions the PixelMap in the horizontal and/or vertical directions.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - Pointer of the PixelMap to be translated.
+    ///
+    /// * `x` - The distance in pixels to move in the horizontal direction.
+    ///
+    /// * `y` - The distance in pixels to move in the vertical direction.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) The operation is successful.
+    /// [`IMAGE_GET_IMAGE_DATA_FAILED`](crate::native_image::common::ImageResult::GET_IMAGE_DATA_FAILED) Failed to get image data.
+    /// Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+    /// [`IMAGE_PIXELMAP_RELEASED`](crate::native_image::common::ImageResult::PIXELMAP_RELEASED) The PixelMap has been released.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation because the PixelMap is locked.
+    /// [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) Invalid parameter. Possible cause: The parameter is null.
+    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) Failed to allocate memory.
+    /// Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PixelmapNative_ApplyTranslate(
+        pixelmap: *mut OH_PixelmapNative,
+        x: f32,
+        y: f32,
+    ) -> ImageResult;
     /// Translates this image based on the input coordinates.
+    /// It is recommended to use [`OH_PixelmapNative_ApplyTranslate`](crate::native_image::pixelmap::OH_PixelmapNative_ApplyTranslate).
     ///
     /// # Arguments
     ///
@@ -1276,7 +1413,36 @@ extern "C" {
         level: OH_PixelmapNative_AntiAliasingLevel,
         dstPixelmap: *mut *mut OH_PixelmapNative,
     ) -> ImageResult;
+    /// Rotates the PixelMap.
+    /// Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - Pointer of the PixelMap to be rotated.
+    ///
+    /// * `angle` - The rotation angle in degrees.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) The operation is successful.
+    /// [`IMAGE_GET_IMAGE_DATA_FAILED`](crate::native_image::common::ImageResult::GET_IMAGE_DATA_FAILED) Failed to get image data.
+    /// Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+    /// [`IMAGE_PIXELMAP_RELEASED`](crate::native_image::common::ImageResult::PIXELMAP_RELEASED) The PixelMap has been released.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation because the PixelMap is locked.
+    /// [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) Invalid parameter. Possible cause: The parameter is null.
+    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) Failed to allocate memory.
+    /// Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PixelmapNative_ApplyRotate(
+        pixelmap: *mut OH_PixelmapNative,
+        angle: f32,
+    ) -> ImageResult;
     /// Rotates this image based on the input angle.
+    /// It is recommended to use [`OH_PixelmapNative_ApplyRotate`](crate::native_image::pixelmap::OH_PixelmapNative_ApplyRotate).
     ///
     /// # Arguments
     ///
@@ -1296,7 +1462,37 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_PixelmapNative_Rotate(pixelmap: *mut OH_PixelmapNative, angle: f32) -> ImageResult;
+    /// Flips the PixelMap in the horizontal and/or vertical directions.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - Pointer of the PixelMap to be flipped.
+    ///
+    /// * `shouldFlipHorizontally` - Whether to flip horizontally.
+    ///
+    /// * `shouldFlipVertically` - Whether to flip vertically.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) The operation is successful.
+    /// [`IMAGE_GET_IMAGE_DATA_FAILED`](crate::native_image::common::ImageResult::GET_IMAGE_DATA_FAILED) Failed to get image data.
+    /// Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+    /// [`IMAGE_PIXELMAP_RELEASED`](crate::native_image::common::ImageResult::PIXELMAP_RELEASED) The PixelMap has been released.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation because the PixelMap is locked.
+    /// [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) Invalid parameter. Possible cause: The parameter is null.
+    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) Failed to allocate memory. Possible cause: The system is out of memory.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PixelmapNative_ApplyFlip(
+        pixelmap: *mut OH_PixelmapNative,
+        shouldFlipHorizontally: bool,
+        shouldFlipVertically: bool,
+    ) -> ImageResult;
     /// Flips this image horizontally or vertically, or both.
+    /// It is recommended to use [`OH_PixelmapNative_ApplyFlip`](crate::native_image::pixelmap::OH_PixelmapNative_ApplyFlip).
     ///
     /// # Arguments
     ///
@@ -1322,7 +1518,36 @@ extern "C" {
         shouldFlipHorizontally: bool,
         shouldFlipVertically: bool,
     ) -> ImageResult;
+    /// Crops the PixelMap.
+    ///
+    /// # Arguments
+    ///
+    /// * `pixelmap` - Pointer of the PixelMap to be cropped.
+    ///
+    /// * `region` - Pointer of the region to crop.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) The operation is successful.
+    /// [`IMAGE_GET_IMAGE_DATA_FAILED`](crate::native_image::common::ImageResult::GET_IMAGE_DATA_FAILED) Failed to get image data.
+    /// Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+    /// [`IMAGE_PIXELMAP_RELEASED`](crate::native_image::common::ImageResult::PIXELMAP_RELEASED) The PixelMap has been released.
+    /// [`IMAGE_UNSUPPORTED_OPERATION`](crate::native_image::common::ImageResult::UNSUPPORTED_OPERATION) Unsupported operation because the PixelMap is locked.
+    /// [`IMAGE_INVALID_REGION`](crate::native_image::common::ImageResult::INVALID_REGION) The specified region is invalid or out of range.
+    /// [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) Invalid parameter. Possible cause: Any parameter is null.
+    /// [`IMAGE_ALLOC_FAILED`](crate::native_image::common::ImageResult::ALLOC_FAILED) Failed to allocate memory.
+    /// Possible causes: 1. Failed to process pixel data. 2. The system is out of memory.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PixelmapNative_ApplyCrop(
+        pixelmap: *mut OH_PixelmapNative,
+        region: *mut Image_Region,
+    ) -> ImageResult;
     /// Crops this image based on the input size.
+    /// It is recommended to use [`OH_PixelmapNative_ApplyCrop`](crate::native_image::pixelmap::OH_PixelmapNative_ApplyCrop).
     ///
     /// # Arguments
     ///
@@ -1380,7 +1605,41 @@ extern "C" {
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_PixelmapNative_Destroy(pixelmap: *mut *mut OH_PixelmapNative) -> ImageResult;
+    /// Converts the alpha type of the PixelMap to either premultiplied or unpremultiplied.
+    /// The conversion only supports pixel formats that have an alpha channel, except RGBA_F16.
+    ///
+    /// # Arguments
+    ///
+    /// * `srcPixelmap` - The source PixelMap containing pixel data to be converted.
+    ///
+    /// * `dstPixelmap` - An empty destination PixelMap that must have the same properties (width, height,
+    /// pixel format, etc.) as the source PixelMap, except that its alpha type must be opposite to that of
+    /// the source (premultiplied vs. unpremultiplied). The converted pixel data will be written into this PixelMap.
+    ///
+    /// * `toPremul` - Specifies the conversion direction. If true, converts from unpremultiplied to premultiplied alpha;
+    /// if false, converts from premultiplied to unpremultiplied alpha.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`IMAGE_SUCCESS`](crate::native_image::common::ImageResult::SUCCESS) The operation is successful.
+    /// [`IMAGE_GET_IMAGE_DATA_FAILED`](crate::native_image::common::ImageResult::GET_IMAGE_DATA_FAILED) Failed to get image data.
+    /// Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+    /// [`IMAGE_PIXELMAP_RELEASED`](crate::native_image::common::ImageResult::PIXELMAP_RELEASED) Either PixelMap has been released.
+    /// [`IMAGE_INVALID_PARAMETER`](crate::native_image::common::ImageResult::INVALID_PARAMETER) Invalid parameter.
+    /// Possible causes: 1. Either PixelMap does not meet the requirements. 2. Any parameter is null.
+    /// [`IMAGE_UNSUPPORTED_DATA_FORMAT`](crate::native_image::common::ImageResult::UNSUPPORTED_DATA_FORMAT) Unsupported pixel format for either PixelMap.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_PixelmapNative_ConvertAlphaType(
+        srcPixelmap: *mut OH_PixelmapNative,
+        dstPixelmap: *mut OH_PixelmapNative,
+        toPremul: bool,
+    ) -> ImageResult;
     /// Converting images to alpha format
+    /// It is recommended to use [`OH_PixelmapNative_ConvertAlphaType`](crate::native_image::pixelmap::OH_PixelmapNative_ConvertAlphaType).
     ///
     /// # Arguments
     ///

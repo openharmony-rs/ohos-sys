@@ -5,7 +5,7 @@
 #![allow(non_snake_case)]
 use crate::types::*;
 
-/// Defines an <b>OH_Drawing_FontCollection</b>, which is used to load fonts.
+/// Defines a struct used to load fonts.
 ///
 ///
 /// Available since API-level: 8
@@ -15,7 +15,7 @@ use crate::types::*;
 pub struct OH_Drawing_FontCollection {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_Typography</b>, which is used to manage the typography layout and display.
+/// Defines a struct used to manage the typography layout and display.
 ///
 ///
 /// Available since API-level: 8
@@ -25,7 +25,7 @@ pub struct OH_Drawing_FontCollection {
 pub struct OH_Drawing_Typography {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_LineTypography</b>, which is used to perform line layout.
+/// Defines a struct used to extract a single line of data from a piece of text for typography.
 ///
 ///
 /// Available since API-level: 18
@@ -37,7 +37,7 @@ pub struct OH_Drawing_Typography {
 pub struct OH_Drawing_LineTypography {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_TextStyle</b>, which is used to manage text colors and decorations.
+/// Defines a struct used to manage text colors and decorations.
 ///
 ///
 /// Available since API-level: 8
@@ -47,8 +47,7 @@ pub struct OH_Drawing_LineTypography {
 pub struct OH_Drawing_TextStyle {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_TypographyStyle</b>, which is used to manage the typography style,
-/// such as the text direction.
+/// Defines a struct used to manage the typography style, such as the text direction.
 ///
 ///
 /// Available since API-level: 8
@@ -58,7 +57,7 @@ pub struct OH_Drawing_TextStyle {
 pub struct OH_Drawing_TypographyStyle {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_TypographyCreate</b>, which is used to create an <b>OH_Drawing_Typography</b> object.
+/// Creates an [`OH_Drawing_Typography`](crate::text_declaration::OH_Drawing_Typography) object.
 ///
 ///
 /// Available since API-level: 8
@@ -68,7 +67,7 @@ pub struct OH_Drawing_TypographyStyle {
 pub struct OH_Drawing_TypographyCreate {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_Range</b>, which is used to create an <b>OH_Drawing_Range</b> object.
+/// Used to receive the start and end positions of text.
 ///
 ///
 /// Available since API-level: 11
@@ -80,7 +79,7 @@ pub struct OH_Drawing_TypographyCreate {
 pub struct OH_Drawing_Range {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_FontParser</b>, which is used to parse system font files.
+/// Parses system font files.
 ///
 ///
 /// Available since API-level: 12
@@ -92,7 +91,7 @@ pub struct OH_Drawing_Range {
 pub struct OH_Drawing_FontParser {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_TextShadow</b>, which is used to manage text shadow.
+/// Defines a struct used to manage text shadows.
 ///
 ///
 /// Available since API-level: 12
@@ -104,7 +103,7 @@ pub struct OH_Drawing_FontParser {
 pub struct OH_Drawing_TextShadow {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_TextTab</b>, which is used to to store the tab alignment type and position.
+/// Defines a struct used to manage text tabs.
 ///
 ///
 /// Available since API-level: 18
@@ -116,7 +115,7 @@ pub struct OH_Drawing_TextShadow {
 pub struct OH_Drawing_TextTab {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_TextLine</b>, which is used to manage text line.
+/// Defines a struct used to manage text lines.
 ///
 ///
 /// Available since API-level: 18
@@ -128,7 +127,7 @@ pub struct OH_Drawing_TextTab {
 pub struct OH_Drawing_TextLine {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_Run</b>, which is used to manage run.
+/// Defines a struct used to manage runs.
 ///
 ///
 /// Available since API-level: 18
@@ -140,7 +139,7 @@ pub struct OH_Drawing_TextLine {
 pub struct OH_Drawing_Run {
     _unused: [u8; 0],
 }
-/// Defines an <b>OH_Drawing_FontFullDescriptor</b>, which describes the font information.
+/// Describes the detailed information about a font.
 ///
 ///
 /// Available since API-level: 22
@@ -148,5 +147,25 @@ pub struct OH_Drawing_Run {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-22")))]
 #[repr(C)]
 pub struct OH_Drawing_FontFullDescriptor {
+    _unused: [u8; 0],
+}
+/// Describes the variable axis of the font.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_Drawing_FontVariationAxis {
+    _unused: [u8; 0],
+}
+/// Describes a variable font instance and stores the preset variable font style information.
+///
+///
+/// Available since API-level: 24
+#[cfg(feature = "api-24")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+#[repr(C)]
+pub struct OH_Drawing_FontVariationInstance {
     _unused: [u8; 0],
 }

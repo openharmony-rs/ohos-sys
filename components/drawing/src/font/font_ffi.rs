@@ -8,17 +8,37 @@ use crate::types::*;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FontHinting {
-    /// glyph outlines unchanged
+    /// No font hinting is used.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const FONT_HINTING_NONE: OH_Drawing_FontHinting = OH_Drawing_FontHinting(0);
-    /// minimal modification to improve contrast
+    /// Slight font hinting is used to improve contrast.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const FONT_HINTING_SLIGHT: OH_Drawing_FontHinting = OH_Drawing_FontHinting(1);
-    /// glyph outlines modified to improve contrast
+    /// Normal font hinting is used to improve contrast.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const FONT_HINTING_NORMAL: OH_Drawing_FontHinting = OH_Drawing_FontHinting(2);
-    /// modifies glyph outlines for maximum contrast
+    /// Full font hinting is used to improve contrast.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const FONT_HINTING_FULL: OH_Drawing_FontHinting = OH_Drawing_FontHinting(3);
 }
 #[repr(transparent)]
-/// Enumerates font hinting pattern.
+/// Defines an enum for the font hinting types.
 ///
 ///
 /// Available since API-level: 12
@@ -31,15 +51,30 @@ pub struct OH_Drawing_FontHinting(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_Drawing_FontEdging {
-    /// no transparent pixels on glyph edges
+    /// No anti-aliasing processing is used.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const FONT_EDGING_ALIAS: OH_Drawing_FontEdging = OH_Drawing_FontEdging(0);
-    /// may have transparent pixels on glyph edges
+    /// Uses anti-aliasing to smooth the jagged edges.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const FONT_EDGING_ANTI_ALIAS: OH_Drawing_FontEdging = OH_Drawing_FontEdging(1);
-    /// glyph positioned in pixel using transparency
+    /// Uses sub-pixel anti-aliasing to provide a smoother effect for jagged edges.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const FONT_EDGING_SUBPIXEL_ANTI_ALIAS: OH_Drawing_FontEdging = OH_Drawing_FontEdging(2);
 }
 #[repr(transparent)]
-/// Enumerates font edging effect.
+/// Enumerates the font edging types.
 ///
 ///
 /// Available since API-level: 12
@@ -49,7 +84,7 @@ impl OH_Drawing_FontEdging {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_Drawing_FontEdging(pub ::core::ffi::c_uint);
-/// Defines a run, supplies storage for the metrics of an <b>OH_Drawing_Font</b>.
+/// This struct describes the measurement information about a font.
 ///
 ///
 /// Available since API-level: 12
@@ -60,48 +95,98 @@ pub struct OH_Drawing_FontEdging(pub ::core::ffi::c_uint);
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OH_Drawing_Font_Metrics {
-    /// Indicating which metrics are valid
+    /// Measurement information that is valid.
+    ///
+    ///
+    /// Available since API-level: 12
     pub flags: u32,
-    /// storage for top in font metrics
+    /// Maximum distance from the baseline to the highest coordinate of a character.
+    ///
+    ///
+    /// Available since API-level: 12
     pub top: f32,
-    /// storage for ascent in font metrics
+    /// Recommended distance from the baseline to the highest coordinate of a character.
+    ///
+    ///
+    /// Available since API-level: 12
     pub ascent: f32,
-    /// storage for descent in font metrics
+    /// Recommended distance from the baseline to the lowest coordinate of a character.
+    ///
+    ///
+    /// Available since API-level: 12
     pub descent: f32,
-    /// storage for bottom in font metrics
+    /// Maximum distance from the baseline to the lowest coordinate of a character.
+    ///
+    ///
+    /// Available since API-level: 12
     pub bottom: f32,
-    /// storage for leading in font metrics
+    /// Gap between rows.
+    ///
+    ///
+    /// Available since API-level: 12
     pub leading: f32,
-    /// Average character width, zero if unknown
+    /// Average character width, or zero if unknown.
+    ///
+    ///
+    /// Available since API-level: 12
     pub avgCharWidth: f32,
-    /// Maximum character width, zero if unknown
+    /// Maximum character width, or zero if unknown.
+    ///
+    ///
+    /// Available since API-level: 12
     pub maxCharWidth: f32,
-    /// Greatest extent to left of origin of any glyph bounding box, typically negative; deprecated with variable fonts
+    /// Maximum distance to the leftmost of the font bounding box. Generally, the value is a negative value. Variable
+    /// fonts are not recommended.
+    ///
+    ///
+    /// Available since API-level: 12
     pub xMin: f32,
-    /// Greatest extent to right of origin of any glyph bounding box, typically positive; deprecated with variable fonts
+    /// Maximum distance to the rightmost of the font bounding box. Generally, the value is a negative value. Variable
+    /// fonts are not recommended.
+    ///
+    ///
+    /// Available since API-level: 12
     pub xMax: f32,
-    /// Height of lower-case letter, zero if unknown, typically negative
+    /// Height of a lowercase letter, or zero if unknown. Generally, the value is a negative value.
+    ///
+    ///
+    /// Available since API-level: 12
     pub xHeight: f32,
-    /// Height of an upper-case letter, zero if unknown, typically negative
+    /// Height of an uppercase letter, or zero if unknown. Generally, the value is a negative value.
+    ///
+    ///
+    /// Available since API-level: 12
     pub capHeight: f32,
-    /// Underline thickness
+    /// Thickness of the underline.
+    ///
+    ///
+    /// Available since API-level: 12
     pub underlineThickness: f32,
-    /// Distance from baseline to top of stroke, typically positive
+    /// Position of the underline, that is, vertical distance from the baseline to the top of the underline. Generally,
+    /// the value is a positive value.
+    ///
+    ///
+    /// Available since API-level: 12
     pub underlinePosition: f32,
-    /// Strikeout thickness
+    /// Thickness of the strikethrough.
+    ///
+    ///
+    /// Available since API-level: 12
     pub strikeoutThickness: f32,
-    /// Distance from baseline to bottom of stroke, typically negative
+    /// Position of the strikethrough, that is, vertical distance from the baseline to the bottom of the strikethrough.
+    /// Generally, the value is a negative value.
+    ///
+    ///
+    /// Available since API-level: 12
     pub strikeoutPosition: f32,
 }
 extern "C" {
-    /// Creates an <b>OH_Drawing_Font</b> object.
+    /// Creates an **OH_Drawing_Font** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_Font</b> object created.
+    /// * Returns the pointer to the **OH_Drawing_Font** object created.
     ///
     /// Available since API-level: 11
     ///
@@ -109,10 +194,8 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_FontCreate() -> *mut OH_Drawing_Font;
-    /// Sets whether the font baselines and pixels alignment when the transformation matrix is ​​axis aligned.
+    /// Sets whether the font baselines and pixels alignment when the transformation matrix is axis aligned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
     /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
@@ -125,10 +208,8 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontSetBaselineSnap(font: *mut OH_Drawing_Font, baselineSnap: bool);
-    /// Gets whether the font baselines and pixels alignment when the transformation matrix is ​​axis aligned.
+    /// Gets whether the font baselines and pixels alignment when the transformation matrix is axis aligned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
     /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
@@ -143,15 +224,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontIsBaselineSnap(font: *const OH_Drawing_Font) -> bool;
-    /// Sets whether the font uses sub-pixel rendering.
+    /// Sets whether to use sub-pixel rendering for a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `isSubpixel` - Indicates whether the font uses sub-pixel rendering.
+    /// * `isSubpixel` - Whether sub-pixel rendering is used for a font. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -159,17 +240,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontSetSubpixel(font: *mut OH_Drawing_Font, isSubpixel: bool);
-    /// Gets whether the font uses sub-pixel rendering.
+    /// Checks whether sub-pixel rendering is used for a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if the font uses sub-pixel rendering; returns <b>false</b> otherwise.
+    /// * Whether sub-pixel rendering is used for a font. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -177,15 +258,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontIsSubpixel(font: *const OH_Drawing_Font) -> bool;
-    /// Sets whether the font outline is automatically adjusted.
+    /// Sets whether to forcibly use auto hinting, that is, whether to always hint glyphs.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `isForceAutoHinting` - Indicates whether the font outline is automatically adjusted.
+    /// * `isForceAutoHinting` - Whether to forcibly use auto hinting, that is, whether to always hint glyphs. **true**
+    /// means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -193,17 +275,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontSetForceAutoHinting(font: *mut OH_Drawing_Font, isForceAutoHinting: bool);
-    /// Gets whether the font outline is automatically adjusted.
+    /// Checks whether auto hinting is forcibly used.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if the font outline is automatically adjusted; returns <b>false</b> otherwise.
+    /// * Whether auto hinting is forcibly used. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -211,15 +293,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontIsForceAutoHinting(font: *const OH_Drawing_Font) -> bool;
-    /// Sets an <b>OH_Drawing_Typeface</b> object for an <b>OH_Drawing_Font</b> object.
+    /// Sets a typeface for a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to an **OH_Drawing_Font** object.
     ///
-    /// * `typeface` - Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    /// * `typeface` - Pointer to an **OH_Drawing_Typeface** object. If NULL is passed in, the default **
+    /// OH_Drawing_Typeface** object is used.
     ///
     /// Available since API-level: 11
     ///
@@ -230,17 +313,17 @@ extern "C" {
         font: *mut OH_Drawing_Font,
         typeface: *mut OH_Drawing_Typeface,
     );
-    /// Gets an <b>OH_Drawing_Typeface</b> object from the <b>OH_Drawing_Typeface</b> object.
+    /// Obtains the typeface of a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * OH_Drawing_Typeface Indicates the pointer to an <b>OH_Drawing_Typeface</b> object.
+    /// * Returns a pointer to the [`OH_Drawing_Typeface`](crate::types::OH_Drawing_Typeface) object.
     ///
     /// Available since API-level: 12
     ///
@@ -248,15 +331,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontGetTypeface(font: *mut OH_Drawing_Font) -> *mut OH_Drawing_Typeface;
-    /// Sets text size for an <b>OH_Drawing_Font</b> object.
+    /// Sets the text size for a font object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to an **OH_Drawing_Font** object.
     ///
-    /// * `textSize` - Indicates the text size.
+    /// * `textSize` - Text size. The value is a floating point number. If a negative number is passed in, the size is set
+    /// to 0. If the size is 0, the text drawn will not be displayed.
     ///
     /// Available since API-level: 11
     ///
@@ -264,17 +348,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_FontSetTextSize(font: *mut OH_Drawing_Font, textSize: f32);
-    /// Gets text size for an <b>OH_Drawing_Font</b> object.
+    /// Obtains the text size of a font object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * Returns the size of text.
+    /// * Returns a floating point number representing the text size.
     ///
     /// Available since API-level: 12
     ///
@@ -282,19 +366,23 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontGetTextSize(font: *const OH_Drawing_Font) -> f32;
-    /// Calculate number of glyphs represented by text.
+    /// Obtains the number of glyphs represented by text.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **font** or **text** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `text` - Indicates the character storage encoded with text encoding.
+    /// * `text` - Pointer to the start address of the storage.
     ///
-    /// * `byteLength` - Indicates the text length in bytes.
+    /// * `byteLength` - Text length, in bytes.
     ///
-    /// * `encoding` - Indicates the text encoding.
+    /// * `encoding` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
+    ///
+    /// # Returns
+    ///
+    /// * Returns the number of characters represented by the text (non-negative integer) on success;
     ///
     /// Available since API-level: 12
     ///
@@ -308,26 +396,27 @@ extern "C" {
         encoding: OH_Drawing_TextEncoding,
     ) -> ::core::ffi::c_int;
     /// Converts text into glyph indices.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **font**, **text**, and **glyphs** is NULL, **byteLength** is **0**, or **maxGlyphCount** is less than or
+    /// equal to 0, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `text` - Indicates the character storage encoded with text encoding.
+    /// * `text` - Pointer to the start address of the storage.
     ///
-    /// * `byteLength` - Indicates the text length in bytes.
+    /// * `byteLength` - Text length, in bytes.
     ///
-    /// * `encoding` - Indicates the text encoding.
+    /// * `encoding` - Text encoding type [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
     ///
-    /// * `glyphs` - Indicates the storage for glyph indices.
+    /// * `glyphs` - Pointer to the start address for storing the glyph indices.
     ///
-    /// * `maxGlyphCount` - Indicates the storage capacity.
+    /// * `maxGlyphCount` - Maximum number of glyphs.
     ///
     /// # Returns
     ///
-    /// * Returns the number of glyph indices represented by text.
+    /// * Returns the number of glyph indices.
     ///
     /// Available since API-level: 12
     ///
@@ -342,19 +431,20 @@ extern "C" {
         glyphs: *mut u16,
         maxGlyphCount: ::core::ffi::c_int,
     ) -> u32;
-    /// Retrieves the advance for each glyph in glyphs.
+    /// Obtains the width of each glyph in a string of text.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If any of **font**, **glyphs**, and **widths** is NULL, or **count** is **0**, **OH_DRAWING_ERROR_INVALID_PARAMETER**
+    /// is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `glyphs` - Indicates the array of glyph indices to be measured.
+    /// * `glyphs` - Pointer to the start address for storing the glyph indices.
     ///
-    /// * `count` - Indicates the number of glyphs.
+    /// * `count` - Number of glyph indices.
     ///
-    /// * `widths` - Indicates the text advances for each glyph returned to the caller.
+    /// * `widths` - Pointer to the start address for storing the glyph widths.
     ///
     /// Available since API-level: 12
     ///
@@ -367,24 +457,24 @@ extern "C" {
         count: ::core::ffi::c_int,
         widths: *mut f32,
     );
-    /// Measures the width of a single character.
+    /// Measures the width of a single character. If the typeface of the current font does not support the character
+    /// to measure, the system typeface is used to measure the character width.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `str` - Indicates the single character encoded in UTF-8.
+    /// * `str` - Pointer to the single character to measure. A string can be passed in, but only the first character in
+    /// the string is parsed and measured in UTF-8 encoding.
     ///
-    /// * `textWidth` - Indicates the width of the single character.
+    /// * `textWidth` - Pointer to the character width obtained.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of font, str
-    /// and textWidth is nullptr or strlen(str) is 0.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **font**, **str**, or **textWidth** is NULL,
+    /// or the length of **str** is **0**.
     ///
     /// Available since API-level: 12
     ///
@@ -396,26 +486,27 @@ extern "C" {
         str_: *const ::core::ffi::c_char,
         textWidth: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Measures the width of a single character with font features.
+    /// Measures the width of a single character with font features. If the typeface of the current font does not
+    /// support the character to measure, the system typeface is used to measure the character width.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `str` - Indicates the single character encoded in UTF-8.
+    /// * `str` - Pointer to the single character to measure. A string can be passed in, but only the first character in
+    /// the string is parsed and measured in UTF-8 encoding.
     ///
-    /// * `fontFeatures` - Indicates the pointer to an <b>OH_Drawing_FontFeatures</b> object.
+    /// * `fontFeatures` - Pointer to the [`OH_Drawing_FontFeatures`](crate::types::OH_Drawing_FontFeatures) object. If no font feature is set, the preset
+    /// font feature in the TrueType fonts (TTF) file is used.
     ///
-    /// * `textWidth` - Indicates the width of the single character.
+    /// * `textWidth` - Pointer to the obtained text width, which is used as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of font, str
-    /// fontFeatures or textWidth is nullptr, or if strlen(str) is 0.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **font**, **str**, **fontFeatures**,
+    /// or **textWidth** is NULL, or the length of **str** is **0**.
     ///
     /// Available since API-level: 20
     ///
@@ -428,30 +519,28 @@ extern "C" {
         fontFeatures: *const OH_Drawing_FontFeatures,
         textWidth: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Measures the width of text.
+    /// Obtains the text width and bounding box.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `text` - Indicates the character storage encoded with text encoding.
+    /// * `text` - Pointer to the text.
     ///
-    /// * `byteLength` - Indicates the text length in bytes.
+    /// * `byteLength` - Length of the text, in bytes.
     ///
-    /// * `encoding` - Indicates the text encoding.
+    /// * `encoding` - Encoding type of the text.
     ///
-    /// * `bounds` - Gets the bounding box relative to (0, 0) if not nullptr.
+    /// * `bounds` - Pointer to the bounding box. The value can be NULL.
     ///
-    /// * `textWidth` - Indicates the width of text.
+    /// * `textWidth` - Pointer to the text width.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of font, text
-    /// and textWidth is nullptr or byteLength is 0.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if at least one of the parameters **font**, **text**, and **textWidth** is
+    /// NULL, or **byteLength** is **0**.
     ///
     /// Available since API-level: 12
     ///
@@ -466,34 +555,32 @@ extern "C" {
         bounds: *mut OH_Drawing_Rect,
         textWidth: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Measures the width of text with brush or pen.
+    /// Obtains the width and bounding box of the text with a brush or pen.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `text` - Indicates the character storage encoded with text encoding.
+    /// * `text` - Pointer to the text.
     ///
-    /// * `byteLength` - Indicates the text length in bytes.
+    /// * `byteLength` - Length of the text, in bytes.
     ///
-    /// * `encoding` - Indicates the text encoding.
+    /// * `encoding` - Encoding type of the text.
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `bounds` - Gets the bounding box relative to (0, 0) if not nullptr.
+    /// * `bounds` - Pointer to the bounding box. The value can be NULL.
     ///
-    /// * `textWidth` - Indicates the width of text.
+    /// * `textWidth` - Pointer to the text width.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of font, text
-    /// and textWidth is nullptr or byteLength is 0 or brush and pen are both not empty.
+    /// * Operation code.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if any of **font**, **text**, or **textWidth** is NULL, **byteLength**
+    /// is **0**, or a brush and a pen both exist.
     ///
     /// Available since API-level: 19
     ///
@@ -510,32 +597,30 @@ extern "C" {
         bounds: *mut OH_Drawing_Rect,
         textWidth: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Retrieves the advance and bounding box for each glyph in glyphs.
+    /// Obtains the width and bounding box of each glyph in a glyph array.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `glyphs` - Indicates the array of glyph indices to be measured.
+    /// * `glyphs` - Pointer to the start address for storing the glyph indices.
     ///
-    /// * `count` - Indicates the number of glyphs.
+    /// * `count` - Number of glyph indices, which must be the same as the size of glyphs array.
     ///
-    /// * `brush` - Indicates the pointer to an <b>OH_Drawing_Brush</b> object.
+    /// * `brush` - Pointer to the [`OH_Drawing_Brush`](crate::types::OH_Drawing_Brush) object.
     ///
-    /// * `pen` - Indicates the pointer to an <b>OH_Drawing_Pen</b> object.
+    /// * `pen` - Pointer to the [`OH_Drawing_Pen`](crate::types::OH_Drawing_Pen) object.
     ///
-    /// * `widths` - Indicates the text advances for each glyph returned to the caller.
+    /// * `widths` - Start address for storing the glyph width.
     ///
-    /// * `bounds` - Indicates the text bounding box for each glyph returned to the caller.
+    /// * `bounds` - Start address for storing the glyph bounding box.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of font and glyphs is nullptr
-    /// or count is no larger than 0 or brush and pen are both not empty.
+    /// * Operation code.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **font** or **glyphs** is NULL, **count** is not greater
+    /// than **0**, a brush and a pen both exist, or both **widths** and **bounds** are NULL.
     ///
     /// Available since API-level: 19
     ///
@@ -551,28 +636,27 @@ extern "C" {
         widths: *mut f32,
         bounds: *mut OH_Drawing_Array,
     ) -> crate::error_code::DrawingResult;
-    /// Retrieves the positions for each glyph, beginning at the specified origin.
+    /// Obtains the relative position of each glyph from the specified origin.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `glyphs` - Indicates the array of glyph indices to be measured.
+    /// * `glyphs` - Pointer to the start address for storing the glyph indices.
     ///
-    /// * `count` - Indicates the number of glyphs.
+    /// * `count` - Number of glyph indices, which must be the same as the size of glyphs array.
     ///
-    /// * `origin` - Indicates the location of the first glyph.
+    /// * `origin` - Position of the first glyph. The value can be NULL, which means that the default value **(0, 0)** is
+    /// used.
     ///
-    /// * `points` - Indicates the relative position for each glyph returned to the caller.
+    /// * `points` - Start address for storing the relative position of a glyph.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of font, glyphs and points is nullptr or
-    /// count is no larger than 0.
+    /// * Operation code.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if any of **font**, **glyphs**, and **points** is NULL, or **count**
+    /// is less than or equal to **0**.
     ///
     /// Available since API-level: 19
     ///
@@ -586,21 +670,19 @@ extern "C" {
         origin: *const OH_Drawing_Point,
         points: *mut OH_Drawing_Point2D,
     ) -> crate::error_code::DrawingResult;
-    /// Returns the recommended spacing between lines.
+    /// Obtains the recommended line spacing for a font.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `spacing` - Indicates the recommended spacing between lines.
+    /// * `spacing` - Recommended line spacing for a font.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of font and spacing is nullptr.
+    /// * Operation code.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **font** or **spacing** is NULL.
     ///
     /// Available since API-level: 19
     ///
@@ -611,15 +693,16 @@ extern "C" {
         font: *const OH_Drawing_Font,
         spacing: *mut f32,
     ) -> crate::error_code::DrawingResult;
-    /// Enables or disables linearly scalable font for an <b>OH_Drawing_Font</b> object.
+    /// Sets linear scaling for a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to an **OH_Drawing_Font** object.
     ///
-    /// * `isLinearText` - Indicates whether to enable linearly scalable font.
+    /// * `isLinearText` - Whether to enable linear scaling. The value **true** means to enable linear scaling, and **false*
+    /// * means the opposite.
     ///
     /// Available since API-level: 11
     ///
@@ -627,17 +710,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_FontSetLinearText(font: *mut OH_Drawing_Font, isLinearText: bool);
-    /// Gets whether the font is linearly scalable.
+    /// Checks whether linear scaling is used for a font object.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if the font is linearly scalable; returns <b>false</b> otherwise.
+    /// * Returns **true** if linear scaling is used; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -645,15 +728,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontIsLinearText(font: *const OH_Drawing_Font) -> bool;
-    /// Sets text skew on x-axis for an <b>OH_Drawing_Font</b> object.
+    /// Sets a horizontal skew factor for a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to an **OH_Drawing_Font** object.
     ///
-    /// * `skewX` - Indicates the additional shear on x-axis relative to y-axis.
+    /// * `skewX` - Skew of the X axis relative to the Y axis.
     ///
     /// Available since API-level: 11
     ///
@@ -661,17 +744,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_FontSetTextSkewX(font: *mut OH_Drawing_Font, skewX: f32);
-    /// Gets text skew on x-axis for an <b>OH_Drawing_Font</b> object.
+    /// Obtains the horizontal skew factor of a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * Returns additional skew on x-axis relative to y-axis.
+    /// * Returns a floating point number representing the horizontal skew factor.
     ///
     /// Available since API-level: 12
     ///
@@ -679,15 +762,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontGetTextSkewX(font: *const OH_Drawing_Font) -> f32;
-    /// Enables or disables to increase stroke width to approximate bold fonts for an <b>OH_Drawing_Font</b> object.
+    /// Sets fake bold for a font by increasing the stroke width.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to an **OH_Drawing_Font** object.
     ///
-    /// * `isFakeBoldText` - Indicates whether to enable to increase stroke width.
+    /// * `isFakeBoldText` - Whether to set fake bold. The value **true** means to set fake bold, and **false** means the
+    /// opposite.
     ///
     /// Available since API-level: 11
     ///
@@ -695,17 +779,17 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_FontSetFakeBoldText(font: *mut OH_Drawing_Font, isFakeBoldText: bool);
-    /// Gets whether to increase the stroke width to approximate bold fonts.
+    /// Checks whether fake bold is used for a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> to increase the stroke width to approximate bold fonts; returns <b>false</b> otherwise.
+    /// * Whether fake bold is used for a font. **true** means yes; **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -713,15 +797,15 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontIsFakeBoldText(font: *const OH_Drawing_Font) -> bool;
-    /// Sets text scale on x-axis for an <b>OH_Drawing_Font</b> object.
+    /// Sets a horizontal scale factor for a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `scaleX` - Indicates the text horizontal scale.
+    /// * `scaleX` - Horizontal scale factor.
     ///
     /// Available since API-level: 12
     ///
@@ -729,17 +813,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontSetScaleX(font: *mut OH_Drawing_Font, scaleX: f32);
-    /// Gets text scale on x-axis from an <b>OH_Drawing_Font</b> object.
+    /// Obtains the horizontal scale ratio of this font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * Returns text horizontal scale on x-axis.
+    /// * Returns the horizontal scale factor.
     ///
     /// Available since API-level: 12
     ///
@@ -747,15 +831,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontGetScaleX(font: *const OH_Drawing_Font) -> f32;
-    /// Sets hinting pattern for an <b>OH_Drawing_Font</b> object.
+    /// Sets a font hinting effect.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **fontHinting** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `fontHinting` - Indicates the font hinting pattern.
+    /// * `fontHinting` - Enumeration of font hinting types [`OH_Drawing_FontHinting`](crate::font::OH_Drawing_FontHinting).
     ///
     /// Available since API-level: 12
     ///
@@ -766,17 +852,17 @@ extern "C" {
         font: *mut OH_Drawing_Font,
         fontHinting: OH_Drawing_FontHinting,
     );
-    /// Gets hinting pattern from an <b>OH_Drawing_Font</b> object.
+    /// Obtains the font hinting effect.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * Returns the font hinting pattern.
+    /// * Returns the enumeration of font hinting types [`OH_Drawing_FontHinting`](crate::font::OH_Drawing_FontHinting).
     ///
     /// Available since API-level: 12
     ///
@@ -784,15 +870,16 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontGetHinting(font: *const OH_Drawing_Font) -> OH_Drawing_FontHinting;
-    /// Sets whether to use bitmaps instead of outlines in the <b>OH_Drawing_Font</b> object.
+    /// Sets whether to use bitmaps in a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `isEmbeddedBitmaps` - Indicates whether to use bitmaps instead of outlines.
+    /// * `isEmbeddedBitmaps` - Whether to use bitmaps in the font. The value **true** means to use bitmaps in the font,
+    /// and **false** means the opposite.
     ///
     /// Available since API-level: 12
     ///
@@ -800,17 +887,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontSetEmbeddedBitmaps(font: *mut OH_Drawing_Font, isEmbeddedBitmaps: bool);
-    /// Gets whether to use bitmaps instead of outlines in the <b>OH_Drawing_Font</b> object.
+    /// Checks whether bitmaps are used in a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * Returns <b>true</b> if using bitmaps instead of outlines; returns <b>false</b> otherwise.
+    /// * Returns **true** if bitmaps are used; returns **false** otherwise.
     ///
     /// Available since API-level: 12
     ///
@@ -818,15 +905,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontIsEmbeddedBitmaps(font: *const OH_Drawing_Font) -> bool;
-    /// Sets the font edging effect for an <b>OH_Drawing_Font</b> object.
+    /// Sets a font edging effect.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+    /// If **fontEdging** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
+    /// returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `fontEdging` - Indicates the font edging effect.
+    /// * `fontEdging` - Font edging effect.
     ///
     /// Available since API-level: 12
     ///
@@ -834,17 +923,17 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontSetEdging(font: *mut OH_Drawing_Font, fontEdging: OH_Drawing_FontEdging);
-    /// Gets the font edging effect from an <b>OH_Drawing_Font</b> object.
+    /// Obtains the font edging effect.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
     /// # Returns
     ///
-    /// * Returns the font edging effect.
+    /// * Font edging effect.
     ///
     /// Available since API-level: 12
     ///
@@ -852,13 +941,11 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Drawing_FontGetEdging(font: *const OH_Drawing_Font) -> OH_Drawing_FontEdging;
-    /// Destroys an <b>OH_Drawing_Font</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_Font** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to an **OH_Drawing_Font** object.
     ///
     /// Available since API-level: 11
     ///
@@ -866,19 +953,19 @@ extern "C" {
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Drawing_FontDestroy(font: *mut OH_Drawing_Font);
-    /// Obtains the metrics of a font.
+    /// Obtains the measurement information about a font.
+    /// This API may return an error code. For details, call [`OH_Drawing_ErrorCodeGet`](crate::error_code::OH_Drawing_ErrorCodeGet).
+    /// If either **font** or **fontMetrics** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `fontMetrics` - Indicates the pointer to an <b>OH_Drawing_Font_Metrics</b> object.
+    /// * `fontMetrics` - Pointer to the [`OH_Drawing_Font_Metrics`](crate::font::OH_Drawing_Font_Metrics) object.
     ///
     /// # Returns
     ///
-    /// * Returns a float variable that recommended spacing between lines.
+    /// * Returns a floating-point variable that indicates the recommended interline spacing.
     ///
     /// Available since API-level: 12
     ///
@@ -889,26 +976,23 @@ extern "C" {
         font: *mut OH_Drawing_Font,
         fontMetrics: *mut OH_Drawing_Font_Metrics,
     ) -> f32;
-    /// Retrieves the bound rect for each glyph in glyph array.
+    /// Obtains the rectangular bounding box for each glyph in the glyph array.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `glyphs` - Indicates the array of glyph indices to be measured.
+    /// * `glyphs` - Pointer to a glyph array.
     ///
-    /// * `count` - Indicates the number of glyphs.
+    /// * `count` - Length of the glyph array.
     ///
-    /// * `bounds` - The bound rect array for each glyph, returned to the caller.
+    /// * `bounds` - Pointer to a rectangular bounding box array.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of font, glyphs
-    /// and bounds is nullptr or count is 0.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if any of **font**, **glyphs**, or **bounds** is NULL or **count** is **0**.
     ///
     /// Available since API-level: 18
     ///
@@ -921,24 +1005,21 @@ extern "C" {
         count: u32,
         bounds: *mut OH_Drawing_Array,
     ) -> crate::error_code::DrawingResult;
-    /// Retrieves the path for specified Glyph.
+    /// Obtains the path of a glyph.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `glyph` - glyph index to be obtained.
+    /// * `glyph` - Glyph index.
     ///
-    /// * `path` - The path object, returned to the caller.
+    /// * `path` - Pointer to the [`OH_Drawing_Path`](crate::types::OH_Drawing_Path) object, which is used to store the glyph path.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of font, path
-    /// is nullptr or glyph not exist.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// **OH_DRAWING_ERROR_INVALID_PARAMETER** if **font** or **path** is NULL or the specified glyph does not exist.
     ///
     /// Available since API-level: 18
     ///
@@ -950,32 +1031,31 @@ extern "C" {
         glyph: u16,
         path: *mut OH_Drawing_Path,
     ) -> crate::error_code::DrawingResult;
-    /// Get the text outline path.
+    /// Obtains the text outline path.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `text` - Indicates the character storage encoded with text encoding.
+    /// * `text` - Pointer to the text string.
     ///
-    /// * `byteLength` - Indicates to get the byte length of the corresponding text path. If this byte length is greater
-    /// than the byte length of the text string, undefined behavior will occur.
+    /// * `byteLength` - Length of the text path. If the length is greater than the length of the text string, undefined
+    /// behavior occurs.
     ///
-    /// * `encoding` - <b>OH_Drawing_TextEncoding</b> Indicates the text encoding.
+    /// * `encoding` - Text encoding format. UTF-8, UTF-16, UTF-32, and glyph indices are supported. For details about the
+    /// format, see [`OH_Drawing_TextEncoding`](crate::types::OH_Drawing_TextEncoding).
     ///
-    /// * `x` - Indicates x coordinates of the text.
+    /// * `x` - X coordinate of the text in the drawing area, with the origin as the start point.
     ///
-    /// * `y` - Indicates y coordinates of the text.
+    /// * `y` - Y coordinate of the text in the drawing area, with the origin as the start point.
     ///
-    /// * `path` - <b>OH_Drawing_Path</b> The path object, returned to the caller.
+    /// * `path` - Pointer to the text outline path.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
+    /// * Returns one of the following error codes:
     /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of font, text or path is nullptr.
+    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if any of **font**, **text**, or **path** is NULL.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -989,16 +1069,50 @@ extern "C" {
         y: f32,
         path: *mut OH_Drawing_Path,
     ) -> crate::error_code::DrawingResult;
-    /// Creates an <b>OH_Drawing_FontFeatures</b> object.
+    /// Gets the path outline for the given text with font fallback support.
     ///
+    /// # Arguments
     ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
+    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    ///
+    /// * `text` - Indicates the pointer to the text data.
+    ///
+    /// * `byteLength` - Indicates the length of the text in bytes.
+    ///
+    /// * `encoding` - Indicates the text encoding type.
+    ///
+    /// * `x` - Indicates the x coordinate for the text path.
+    ///
+    /// * `y` - Indicates the y coordinate for the text path.
+    ///
+    /// * `path` - Indicates the pointer to an <b>OH_Drawing_Path</b> object to store the text path outline.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>OH_Drawing_FontFeatures</b> object created.
-    /// If nullptr is returned, the creation fails.
-    /// The possible cause of the failure is that the available memory is empty.
+    /// * Returns the error code.
+    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
+    /// Returns [`OH_DRAWING_ERROR_INCORRECT_PARAMETER`](crate::error_code::DrawingErrorCode::INCORRECT_PARAMETER) if any of font, text or path is nullptr, or
+    /// byteLength is 0.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_Drawing_FontGetTextPathWithFallback(
+        font: *const OH_Drawing_Font,
+        text: *const ::core::ffi::c_void,
+        byteLength: usize,
+        encoding: OH_Drawing_TextEncoding,
+        x: f32,
+        y: f32,
+        path: *mut OH_Drawing_Path,
+    ) -> crate::error_code::DrawingResult;
+    /// Creates an **OH_Drawing_FontFeatures** object.
+    ///
+    ///
+    /// # Returns
+    ///
+    /// * Returns a pointer to the created [`OH_Drawing_FontFeatures`](crate::types::OH_Drawing_FontFeatures) object.
+    /// If a null pointer is returned, the creation fails. A possible cause is that no memory is available.
     ///
     /// Available since API-level: 20
     ///
@@ -1006,23 +1120,23 @@ extern "C" {
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_Drawing_FontFeaturesCreate() -> *mut OH_Drawing_FontFeatures;
-    /// Adds a font feature for an <b>OH_Drawing_FontFeatures</b> object.
+    /// Adds a font feature to an **OH_Drawing_FontFeatures** object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontFeatures` - Indicates the pointer to an <b>OH_Drawing_FontFeatures</b> object.
+    /// * `fontFeatures` - Pointer to the [`OH_Drawing_FontFeatures`](crate::types::OH_Drawing_FontFeatures) object.
     ///
-    /// * `name` - Indicates the feature name.
+    /// * `name` - Name of a font feature. Common font feature names include **liga**, **frac**, and **case**. A font
+    /// feature needs a TTF file to work.
     ///
-    /// * `value` - Indicates the value of the feature.
+    /// * `value` - Value of the font feature. You are advised to determine the valid value range by using a font viewing
+    /// tool or referring to the font document.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if either fontFeatures or name is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if **fontFeatures** or **name** is a null pointer.
     ///
     /// Available since API-level: 20
     ///
@@ -1034,19 +1148,17 @@ extern "C" {
         name: *const ::core::ffi::c_char,
         value: f32,
     ) -> crate::error_code::DrawingResult;
-    /// Destroys an <b>OH_Drawing_FontFeatures</b> object and reclaims the memory occupied by the object.
+    /// Destroys an **OH_Drawing_FontFeatures** object and reclaims the memory occupied by the object.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `fontFeatures` - Indicates the pointer to an <b>OH_Drawing_FontFeatures</b> object.
+    /// * `fontFeatures` - Pointer to the [`OH_Drawing_FontFeatures`](crate::types::OH_Drawing_FontFeatures) object.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if fontFeatures is nullptr.
+    /// * Execution result.
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if **fontFeatures** is NULL.
     ///
     /// Available since API-level: 20
     ///
@@ -1056,21 +1168,21 @@ extern "C" {
     pub fn OH_Drawing_FontFeaturesDestroy(
         fontFeatures: *mut OH_Drawing_FontFeatures,
     ) -> crate::error_code::DrawingResult;
-    /// Sets whether to follow the theme font. If the value is true, the theme font is used when typeface is not set.
+    /// Sets whether to follow the theme font. When **followed** is set to **true**, the theme font is used if it is
+    /// enabled by the system and no typeface is set.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `followed` - Indicates whether to follow the theme font.
+    /// * `followed` - Whether to follow the theme font. The value **true** means to follow the theme font, and **false**
+    /// means the opposite.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if font is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if **font** is NULL.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -1079,21 +1191,20 @@ extern "C" {
         font: *mut OH_Drawing_Font,
         followed: bool,
     ) -> crate::error_code::DrawingResult;
-    /// Gets whether to follow the theme font.
+    /// Checks whether the font follows the theme font. By default, the theme font is not followed.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Graphic.Graphic2D.NativeDrawing
     /// # Arguments
     ///
-    /// * `font` - Indicates the pointer to an <b>OH_Drawing_Font</b> object.
+    /// * `font` - Pointer to the [`OH_Drawing_Font`](crate::types::OH_Drawing_Font) object.
     ///
-    /// * `followed` - Indicates whether to follow the theme font.
+    /// * `followed` - Check result. The value **true** means that the theme font is followed, and **false** means the
+    /// opposite. It is used as an output parameter.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_DRAWING_SUCCESS`](crate::error_code::DrawingResult) if the operation is successful.
-    /// Returns [`OH_DRAWING_ERROR_INVALID_PARAMETER`](crate::error_code::DrawingErrorCode::INVALID_PARAMETER) if font or followed is nullptr.
+    /// * Returns one of the following result codes:
+    /// **OH_DRAWING_SUCCESS** if the operation is successful.
+    /// Returns **OH_DRAWING_ERROR_INVALID_PARAMETER** if either **font** or **followed** is NULL.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]

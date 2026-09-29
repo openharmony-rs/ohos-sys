@@ -7,13 +7,31 @@
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl CommonEvent_ErrCode {
-    /// Execution successful.
+    /// Operation successful.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const COMMONEVENT_ERR_OK: CommonEvent_ErrCode = CommonEvent_ErrCode(0);
-    /// permission verification failed.
+    /// Permission denied.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const COMMONEVENT_ERR_PERMISSION_ERROR: CommonEvent_ErrCode = CommonEvent_ErrCode(201);
-    /// invalid input parameter.
+    /// Invalid parameter. The parameter is invalid. Check the parameter type, value range, and
+    /// whether the parameter is empty.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const COMMONEVENT_ERR_INVALID_PARAMETER: CommonEvent_ErrCode = CommonEvent_ErrCode(401);
-    /// The common event send frequency too high.
+    /// Event sending frequency is too high. Check whether the application sends common events too
+    /// frequently. If more than 20 common events are sent every 5 milliseconds, reduce the common
+    /// event sending frequency or increase the sending interval and try again.
     ///
     ///
     /// Available since API-level: 20
@@ -21,26 +39,59 @@ impl CommonEvent_ErrCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED: CommonEvent_ErrCode =
         CommonEvent_ErrCode(1500003);
-    /// the application cannot send system common events.
+    /// The third-party application fails to send system common events. Check whether the current
+    /// application is a system application or whether the current service is a system service.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const COMMONEVENT_ERR_NOT_SYSTEM_SERVICE: CommonEvent_ErrCode =
         CommonEvent_ErrCode(1500004);
-    /// IPC request failed to send.
+    /// Failed to send IPC requests. Do not set up connections frequently. Try again later.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const COMMONEVENT_ERR_SENDING_REQUEST_FAILED: CommonEvent_ErrCode =
         CommonEvent_ErrCode(1500007);
-    /// Common event service not init.
+    /// Services not initialized. Try again later.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const COMMONEVENT_ERR_INIT_UNDONE: CommonEvent_ErrCode = CommonEvent_ErrCode(1500008);
-    /// Failed to obtain system parameters.
+    /// System error. Try again later.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const COMMONEVENT_ERR_OBTAIN_SYSTEM_PARAMS: CommonEvent_ErrCode =
         CommonEvent_ErrCode(1500009);
-    /// The subscriber number exceed system specification
+    /// The number of subscribers in the process exceeds the system limit (200). Unregister the
+    /// subscriber that is no longer used in the application. If the subscriber has been
+    /// unregistered, try again later.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED: CommonEvent_ErrCode =
         CommonEvent_ErrCode(1500010);
-    /// A memory allocation error occurs.
+    /// Failed to allocate memory. Try again later.
+    ///
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const COMMONEVENT_ERR_ALLOC_MEMORY_FAILED: CommonEvent_ErrCode =
         CommonEvent_ErrCode(1500011);
 }
 #[repr(transparent)]
-/// Defines error codes.
+/// Enumerates the error codes.
 ///
 ///
 /// Available since API-level: 12
@@ -50,7 +101,9 @@ impl CommonEvent_ErrCode {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct CommonEvent_ErrCode(pub ::core::ffi::c_uint);
-/// the information of the subscriber
+/// Defines a struct for the subscriber information of a common event. This struct is used
+/// to describe the configuration information of a subscriber. It is passed as a parameter when
+/// the API for creating a subscriber is called.
 ///
 ///
 /// Available since API-level: 12
@@ -60,14 +113,17 @@ pub struct CommonEvent_ErrCode(pub ::core::ffi::c_uint);
 pub struct CommonEvent_SubscribeInfo {
     _unused: [u8; 0],
 }
-/// the subscriber of common event
+///  Defines a handle for the subscriber.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type CommonEvent_Subscriber = ::core::ffi::c_void;
-/// the common event publish information containing content and attributes of the common event
+/// Defines the property object used for publishing a common event. This object
+/// encapsulates the property configuration required for publishing a common event. It is
+/// applicable to scenarios where an app needs to publish a custom common event and specify
+/// the publishing parameters.
 ///
 ///
 /// Available since API-level: 18
@@ -77,7 +133,8 @@ pub type CommonEvent_Subscriber = ::core::ffi::c_void;
 pub struct CommonEvent_PublishInfo {
     _unused: [u8; 0],
 }
-/// the data of the commonEvent callback
+/// Defines a struct for the common event data. When a common event triggers a callback,
+/// this struct is used to pass the received event data to the developer.
 ///
 ///
 /// Available since API-level: 12
@@ -87,18 +144,18 @@ pub struct CommonEvent_PublishInfo {
 pub struct CommonEvent_RcvData {
     _unused: [u8; 0],
 }
-/// The description of the parameters in a common event callback data.
+///  Defines a handler for the additional information of a common event.
 ///
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 pub type CommonEvent_Parameters = ::core::ffi::c_void;
-/// Common event callback.
+/// Defines the callback function of a common event.
 ///
 /// # Arguments
 ///
-/// * `data` - common event callback data.
+/// * `data` - Pointer to the callback data of a common event.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -106,17 +163,21 @@ pub type CommonEvent_Parameters = ::core::ffi::c_void;
 pub type CommonEvent_ReceiveCallback =
     ::core::option::Option<unsafe extern "C" fn(data: *const CommonEvent_RcvData)>;
 extern "C" {
-    /// Create subscribe information.
+    /// Creates the subscriber information.
     ///
     /// # Arguments
     ///
-    /// * `events` - Indicates the subscribed events.
+    /// * `events` - Pointer to the common events. The actual number of subscribed common events
+    /// is the smaller value between **eventsNum** and **events**.
     ///
-    /// * `eventsNum` - Indicates the subscribed events of number.
+    /// * `eventsNum` - Number of common events to subscribe to. The value is a non-negative integer
+    /// and is the length of the **events** array.
     ///
     /// # Returns
     ///
-    /// * Returns the CommonEvent_SubscribeInfo, if allocate memory failed, returns null.
+    /// * Returns the subscriber information created if the operation is successful; returns
+    /// **NULL** otherwise. This pointer is internally managed and is released when
+    /// [OH_CommonEvent_DestroySubscribeInfo()](#oh_commonevent_destroysubscribeinfo) is called.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -125,19 +186,23 @@ extern "C" {
         events: *mut *const ::core::ffi::c_char,
         eventsNum: i32,
     ) -> *mut CommonEvent_SubscribeInfo;
-    /// Set the permission of the subscribe information.
+    /// Sets the permission of the publisher.
     ///
     /// # Arguments
     ///
-    /// * `info` - Indicates the subscribe information.
+    /// * `info` - Pointer to the subscriber information object for which the publisher permission
+    /// is to be set.
     ///
-    /// * `permission` - Indicates the permission.
+    /// * `permission` - Pointer to the permission name. The value is an array of permission names
+    /// defined by the system. The subscriber can receive only the events from the publisher with
+    /// this permission. If this parameter is not set, the subscriber can receive events from all
+    /// publishers.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -146,19 +211,23 @@ extern "C" {
         info: *mut CommonEvent_SubscribeInfo,
         permission: *const ::core::ffi::c_char,
     ) -> CommonEvent_ErrCode;
-    /// Set the bundleName of the subscribe information.
+    /// Sets a bundle name of the publisher.
     ///
     /// # Arguments
     ///
-    /// * `info` - Indicates the subscribed events.
+    /// * `info` - Pointer to the subscriber information object for which the publisher permission
+    /// is to be set.
     ///
-    /// * `bundleName` - Indicates the bundleName.
+    /// * `bundleName` - Pointer to the bundle name. This parameter is used to specify that the
+    /// subscriber receives only public events published by the publisher with the specified
+    /// bundle name. If this parameter is not set, the subscriber can receive all public events
+    /// published by the app.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -167,27 +236,31 @@ extern "C" {
         info: *mut CommonEvent_SubscribeInfo,
         bundleName: *const ::core::ffi::c_char,
     ) -> CommonEvent_ErrCode;
-    /// Destroy the subscribe information.
+    /// Destroys the subscriber information.
     ///
     /// # Arguments
     ///
-    /// * `info` - Indicates the subscribe info.
+    /// * `info` - Pointer to the subscriber information.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CommonEvent_DestroySubscribeInfo(info: *mut CommonEvent_SubscribeInfo);
-    /// Create a subscriber.
+    /// Creates a subscriber.
     ///
     /// # Arguments
     ///
-    /// * `info` - Indicates the created subscribe Info.
+    /// * `info` - Pointer to the subscriber information.
     ///
-    /// * `callback` - Indicates the received common event callback.
+    /// * `callback` - Callback to be invoked when a common event is triggered. When a common event
+    /// is successfully subscribed to, the common event data is returned by **data** when the
+    /// event is triggered.
     ///
     /// # Returns
     ///
-    /// * Returns the CommonEvent_Subscriber, if allocate memory failed, returns null.
+    /// * Returns the subscriber created if the operation is successful; returns **NULL**
+    /// otherwise. This pointer is internally managed and is released when
+    /// [OH_CommonEvent_DestroySubscriber()](#oh_commonevent_destroysubscriber) is called.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -196,31 +269,32 @@ extern "C" {
         info: *const CommonEvent_SubscribeInfo,
         callback: CommonEvent_ReceiveCallback,
     ) -> *mut CommonEvent_Subscriber;
-    /// Destory the subscriber.
+    /// Destroys a subscriber.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the created subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CommonEvent_DestroySubscriber(subscriber: *mut CommonEvent_Subscriber);
-    /// Subscribe event by a subscriber.
+    /// Subscribes to a common event.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if the input parameter is invalid.
-    /// Returns [`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED) if IPC request failed to send.
-    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE) if ces not init done.
-    /// Returns [`COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED) if the subscriber number is exceeded.
-    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED) if a memory allocation error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    /// <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
+    /// <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
+    /// <br>[`COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SUBSCRIBER_NUM_EXCEEDED): The number of subscribers in the
+    /// process exceeds the system limit (200).
+    /// <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -228,19 +302,19 @@ extern "C" {
     pub fn OH_CommonEvent_Subscribe(
         subscriber: *const CommonEvent_Subscriber,
     ) -> CommonEvent_ErrCode;
-    /// Unsubscribe event by a subscriber.
+    /// Unsubscribes from a common event.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if the input parameter is invalid.
-    /// Returns [`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED) if IPC request failed to send.
-    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE) if ces not init done.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    /// <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
+    /// <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -248,15 +322,18 @@ extern "C" {
     pub fn OH_CommonEvent_UnSubscribe(
         subscriber: *const CommonEvent_Subscriber,
     ) -> CommonEvent_ErrCode;
-    /// Get event name from callback data.
+    /// Obtains the name of a common event.
     ///
     /// # Arguments
     ///
-    /// * `rcvData` - Indicates the callback data.
+    /// * `rcvData` - Pointer to the callback data of a common event.
     ///
     /// # Returns
     ///
-    /// * Returns the event name.
+    /// * Name of a common event. This pointer is generated by the system and is released
+    /// immediately after the callback function
+    /// [CommonEvent_ReceiveCallback](#commonevent_receivecallback) ends. This parameter cannot
+    /// be used outside the callback function.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -264,29 +341,32 @@ extern "C" {
     pub fn OH_CommonEvent_GetEventFromRcvData(
         rcvData: *const CommonEvent_RcvData,
     ) -> *const ::core::ffi::c_char;
-    /// Get event code from callback data.
+    /// Obtains the result code (integer type) of a common event.
     ///
     /// # Arguments
     ///
-    /// * `rcvData` - Indicates the callback data.
+    /// * `rcvData` - Pointer to the callback data of a common event.
     ///
     /// # Returns
     ///
-    /// * Returns the event of code, default is 0.
+    /// * Result code (integer type) of a common event.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CommonEvent_GetCodeFromRcvData(rcvData: *const CommonEvent_RcvData) -> i32;
-    /// Get event data from callback data.
+    /// Obtains the result data (string type) of a common event.
     ///
     /// # Arguments
     ///
-    /// * `rcvData` - Indicates the callback data.
+    /// * `rcvData` - Pointer to the callback data of a common event.
     ///
     /// # Returns
     ///
-    /// * Returns the event of data, default is null.
+    /// * Result data (string type) of a common event. This pointer is generated by the system
+    /// and is released immediately after the callback function
+    /// [CommonEvent_ReceiveCallback](#commonevent_receivecallback) ends. This parameter cannot
+    /// be used outside the callback function.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -294,15 +374,18 @@ extern "C" {
     pub fn OH_CommonEvent_GetDataStrFromRcvData(
         rcvData: *const CommonEvent_RcvData,
     ) -> *const ::core::ffi::c_char;
-    /// Get event bundlename from callback data.
+    /// Obtains the bundle name of a common event.
     ///
     /// # Arguments
     ///
-    /// * `rcvData` - Indicates the callback data.
+    /// * `rcvData` - Pointer to the callback data of a common event.
     ///
     /// # Returns
     ///
-    /// * Returns the event of bundlename, default is null.
+    /// * Bundle name obtained. This pointer is generated by the system and is released
+    /// immediately after the callback function
+    /// [CommonEvent_ReceiveCallback](#commonevent_receivecallback) ends. This parameter cannot
+    /// be used outside the callback function.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -310,15 +393,15 @@ extern "C" {
     pub fn OH_CommonEvent_GetBundleNameFromRcvData(
         rcvData: *const CommonEvent_RcvData,
     ) -> *const ::core::ffi::c_char;
-    /// Get event parameters data from callback data.
+    /// Obtains the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `rcvData` - Indicates the callback data.
+    /// * `rcvData` - Pointer to the callback data of a common event.
     ///
     /// # Returns
     ///
-    /// * Returns the event parameters data, default is null.
+    /// * Additional information obtained.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -326,43 +409,47 @@ extern "C" {
     pub fn OH_CommonEvent_GetParametersFromRcvData(
         rcvData: *const CommonEvent_RcvData,
     ) -> *const CommonEvent_Parameters;
-    /// Create a common event publish information.
+    /// Creates a property object of a common event.
     ///
     /// # Arguments
     ///
-    /// * `ordered` - Indicates whether the common event is ordered.
+    /// * `ordered` - Whether the common event is an ordered one.
+    /// <br>- **true**: ordered common event.
+    /// <br>- **false**: unordered common event.
     ///
     /// # Returns
     ///
-    /// * Returns the CommonEvent_PublishInfo, if create failed, returns null.
+    /// * Returns the property object if the operation is successful; returns **NULL**
+    /// otherwise. This pointer is internally managed and is released when
+    /// [OH_CommonEvent_DestroyPublishInfo()](#oh_commonevent_destroypublishinfo) is called.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_CreatePublishInfo(ordered: bool) -> *mut CommonEvent_PublishInfo;
-    /// Destroy the common event publish information.
+    /// Destroys a property object of a common event.
     ///
     /// # Arguments
     ///
-    /// * `info` - Indicates the publish information.
+    /// * `info` - Pointer to the property object of the common event to destroy.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_DestroyPublishInfo(info: *mut CommonEvent_PublishInfo);
-    /// Set the bundleName of publish information.
+    /// Sets the bundle name of a common event.
     ///
     /// # Arguments
     ///
-    /// * `info` - Indicates the publish information.
+    /// * `info` - Pointer to the property object of a common event.
     ///
-    /// * `bundleName` - Indicates the bundleName.
+    /// * `bundleName` - Pointer to the bundle name to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -371,21 +458,23 @@ extern "C" {
         info: *mut CommonEvent_PublishInfo,
         bundleName: *const ::core::ffi::c_char,
     ) -> CommonEvent_ErrCode;
-    /// Set the permissions of publish information.
+    /// Sets permissions for a common event.
     ///
     /// # Arguments
     ///
-    /// * `info` - Indicates the publish information.
+    /// * `info` - Pointer to the property object of a common event.
     ///
-    /// * `permissions` - Indicates the array of permissions.
+    /// * `permissions` - Subscriber permissions. Only subscribers with the specified permissions
+    /// can receive the common event. The valid number of permissions is the smaller value
+    /// between **num** and **permissions**.
     ///
-    /// * `num` - Indicates the count of permissions.
+    /// * `num` - Number of permission names. The value is the length of the **permissions** array.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -395,19 +484,19 @@ extern "C" {
         permissions: *mut *const ::core::ffi::c_char,
         num: i32,
     ) -> CommonEvent_ErrCode;
-    /// Set the code of publish information.
+    /// Sets the result code (integer type) of a common event.
     ///
     /// # Arguments
     ///
-    /// * `info` - Indicates the publish information.
+    /// * `info` - Pointer to the property object of a common event.
     ///
-    /// * `code` - Indicates the code.
+    /// * `code` - Result code to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -416,21 +505,22 @@ extern "C" {
         info: *mut CommonEvent_PublishInfo,
         code: i32,
     ) -> CommonEvent_ErrCode;
-    /// Set the data of publish information.
+    /// Sets the result data (string type) of a common event.
     ///
     /// # Arguments
     ///
-    /// * `info` - Indicates the publish information.
+    /// * `info` - Pointer to the property object of a common event.
     ///
-    /// * `data` - Indicates the data.
+    /// * `data` - Pointer to the result data to set. The value is a string. The valid data length
+    /// is the smaller value between **length** and **data**.
     ///
-    /// * `length` - Indicates the length of data.
+    /// * `length` - Length of the result data. The value is the length of the **data** string.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -440,19 +530,19 @@ extern "C" {
         data: *const ::core::ffi::c_char,
         length: usize,
     ) -> CommonEvent_ErrCode;
-    /// Set the parameters of publish information.
+    /// Sets the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `info` - Indicates the publish information.
+    /// * `info` - Pointer to the property object of a common event.
     ///
-    /// * `param` - Indicates the parameters.
+    /// * `param` - Pointer to the additional information to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -461,38 +551,42 @@ extern "C" {
         info: *mut CommonEvent_PublishInfo,
         param: *mut CommonEvent_Parameters,
     ) -> CommonEvent_ErrCode;
-    /// Create a common event publish information.
+    /// Creates an additional information object of a common event.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns the CommonEvent_PublishInfo, if create failed, returns null.
+    /// * Returns additional information of the common event if operation is successful;
+    /// returns **NULL** otherwise. This pointer is internally managed and is released when
+    /// [OH_CommonEvent_DestroyParameters()](#oh_commonevent_destroyparameters) is called.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_CreateParameters() -> *mut CommonEvent_Parameters;
-    /// Destroy the common event publish information.
+    /// Destroys the additional information object of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the publish information.
+    /// * `param` - Pointer to the additional information to destroy.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_DestroyParameters(param: *mut CommonEvent_Parameters);
-    /// Check whether the parameters data contains a key.
+    /// Checks whether the additional information of a common event contains a KV pair.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information to check.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
     /// # Returns
     ///
-    /// * Returns the result of check, true means it contains.
+    /// * Returns the check result.
+    /// <br>- **true**: The key exists.
+    /// <br>- **false**: The key does not exist.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -501,19 +595,19 @@ extern "C" {
         para: *const CommonEvent_Parameters,
         key: *const ::core::ffi::c_char,
     ) -> bool;
-    /// Get int data from parameters data by key.
+    /// Obtains the int data with a specific key from the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `defaultValue` - Indicates default return value.
+    /// * `defaultValue` - Default value, which is returned when the specified key does not exist.
     ///
     /// # Returns
     ///
-    /// * Returns the int data of the key in the parameters.
+    /// * The int data obtained.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -523,21 +617,21 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         defaultValue: ::core::ffi::c_int,
     ) -> ::core::ffi::c_int;
-    /// Set int data to parameters data by key.
+    /// Sets the int data with a specific key for the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the parameters data.
+    /// * `param` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the int data.
+    /// * `value` - The int data to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -547,19 +641,21 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: ::core::ffi::c_int,
     ) -> CommonEvent_ErrCode;
-    /// Get int array data from parameters data by key.
+    /// Obtains the int array with a specific key from the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `array` - Indicates the int array.
+    /// * `array` - Output parameter, which is used to receive the int array. The array memory is
+    /// allocated internally by the function, and the caller does not need to allocate it in
+    /// advance.
     ///
     /// # Returns
     ///
-    /// * Returns the length of the array.
+    /// * Length of the array obtained. The default value is **0**.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -569,24 +665,26 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         array: *mut *mut ::core::ffi::c_int,
     ) -> i32;
-    /// Set int array data to parameters data by key.
+    /// Sets the int array with a specific key for the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the parameters data.
+    /// * `param` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the int array data.
+    /// * `value` - The int array to set. The actual number of elements is **num**. The length of
+    /// the **value** array must be greater than **num**. Otherwise, out-of-bounds access may
+    /// occur.
     ///
-    /// * `num` - Indicates the length of the array.
+    /// * `num` - Number of elements in the int array.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED) if a memory allocation error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    /// <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -597,19 +695,19 @@ extern "C" {
         value: *const ::core::ffi::c_int,
         num: usize,
     ) -> CommonEvent_ErrCode;
-    /// Get long data from parameters data by key.
+    /// Obtains the long data with a specific key from the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `defaultValue` - Indicates default return value.
+    /// * `defaultValue` - Default value, which is returned when the specified key does not exist.
     ///
     /// # Returns
     ///
-    /// * Returns the long data of the key in the parameters.
+    /// * The long data obtained.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -619,21 +717,21 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         defaultValue: ::core::ffi::c_long,
     ) -> ::core::ffi::c_long;
-    /// Set long data to parameters data by key.
+    /// Sets the long data with a specific key for the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the parameters data.
+    /// * `param` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the long data.
+    /// * `value` - The long data to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -643,19 +741,21 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: ::core::ffi::c_long,
     ) -> CommonEvent_ErrCode;
-    /// Get long array data from parameters data by key.
+    /// Obtains the long array with a specific key from the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `array` - Indicates the long array.
+    /// * `array` - Output parameter, which is used to receive the long array. The array memory is
+    /// allocated internally by the function, and the caller does not need to allocate it in
+    /// advance.
     ///
     /// # Returns
     ///
-    /// * Returns the length of the array.
+    /// * Length of the array obtained. The default value is **0**.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -665,24 +765,26 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         array: *mut *mut ::core::ffi::c_long,
     ) -> i32;
-    /// Set long array data to parameters data by key.
+    /// Sets the long array for the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the parameters data.
+    /// * `param` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the long array data.
+    /// * `value` - Pointer to the long array to set. The actual number of elements is **num**.
+    /// The length of the **value** array must be greater than **num**. Otherwise, out-of-bounds
+    /// access may occur.
     ///
-    /// * `num` - Indicates the length of the array.
+    /// * `num` - Number of elements in the long array.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED) if a memory allocation error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    /// <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -693,19 +795,19 @@ extern "C" {
         value: *const ::core::ffi::c_long,
         num: usize,
     ) -> CommonEvent_ErrCode;
-    /// Get bool data from parameters data by key.
+    /// Obtains the Boolean data with a specific key from the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `defaultValue` - Indicates default return value.
+    /// * `defaultValue` - Default value, which is returned when the specified key does not exist.
     ///
     /// # Returns
     ///
-    /// * Returns the bool data of the key in the parameters.
+    /// * The Boolean data obtained.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -715,21 +817,21 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         defaultValue: bool,
     ) -> bool;
-    /// Set bool data to parameters data by key.
+    /// Sets the Boolean data with a specific key for the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the parameters data.
+    /// * `param` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the bool data.
+    /// * `value` - The Boolean data to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -739,19 +841,21 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: bool,
     ) -> CommonEvent_ErrCode;
-    /// Get bool array data from parameters data by key.
+    /// Obtains the Boolean array with a specific key from the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `array` - Indicates the bool array.
+    /// * `array` - Output parameter, which is used to receive the bool array. The array memory is
+    /// allocated internally by the function, and the caller does not need to allocate it in
+    /// advance.
     ///
     /// # Returns
     ///
-    /// * Returns the length of the array.
+    /// * Length of the array obtained. The default value is **0**.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -761,24 +865,26 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         array: *mut *mut bool,
     ) -> i32;
-    /// Set bool array data to parameters data by key.
+    /// Sets the Boolean array with a specific key for the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the parameters data.
+    /// * `param` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the bool array data.
+    /// * `value` - Pointer to the Boolean array to set. The actual number of elements is **num**.
+    /// The length of the **value** array must be greater than **num**. Otherwise, out-of-bounds
+    /// access may occur.
     ///
-    /// * `num` - Indicates the length of the array.
+    /// * `num` - Number of elements in the Boolean array.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED) if a memory allocation error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    /// <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -789,19 +895,19 @@ extern "C" {
         value: *const bool,
         num: usize,
     ) -> CommonEvent_ErrCode;
-    /// Get char data from parameters data by key.
+    /// Obtains the character data with a specific key from the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `defaultValue` - Indicates default return value.
+    /// * `defaultValue` - Default value, which is returned when the specified key does not exist.
     ///
     /// # Returns
     ///
-    /// * Returns the char data of the key in the parameters.
+    /// * The character data obtained.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -811,21 +917,21 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         defaultValue: ::core::ffi::c_char,
     ) -> ::core::ffi::c_char;
-    /// Set char data to parameters data by key.
+    /// Sets the character data with a specific key for the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the parameters data.
+    /// * `param` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the char data.
+    /// * `value` - The character data to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -835,19 +941,21 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: ::core::ffi::c_char,
     ) -> CommonEvent_ErrCode;
-    /// Get char array data from parameters data by key.
+    /// Obtains the character array with a specific key from the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `array` - Indicates the char array.
+    /// * `array` - Output parameter, which is used to receive the character array. The array
+    /// memory is allocated internally by the function, and the caller does not need to allocate
+    /// it in advance.
     ///
     /// # Returns
     ///
-    /// * Returns the length of the array.
+    /// * Length of the array obtained. The default value is **0**.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -857,23 +965,24 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         array: *mut *mut ::core::ffi::c_char,
     ) -> i32;
-    /// Set char array data to parameters data by key.
+    /// Sets the character array with a specific key for the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the parameters data.
+    /// * `param` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the char array data.
+    /// * `value` - Pointer to the character array to set. The actual number of elements is the
+    /// smaller value between **num** and the length of the **value** array.
     ///
-    /// * `num` - Indicates the length of the array.
+    /// * `num` - Number of elements in the character array.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -884,19 +993,19 @@ extern "C" {
         value: *const ::core::ffi::c_char,
         num: usize,
     ) -> CommonEvent_ErrCode;
-    /// Get double data from parameters data by key.
+    /// Obtains the double data with a specific key from the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `defaultValue` - Indicates default return value.
+    /// * `defaultValue` - Default value, which is returned when the specified key does not exist.
     ///
     /// # Returns
     ///
-    /// * Returns the double data of the key in the parameters.
+    /// * The double data obtained.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -906,21 +1015,21 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         defaultValue: f64,
     ) -> f64;
-    /// Set double data to parameters data by key.
+    /// Sets the double data with a specific key for the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the parameters data.
+    /// * `param` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the double data.
+    /// * `value` - The double data to set.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -930,19 +1039,21 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: f64,
     ) -> CommonEvent_ErrCode;
-    /// Get double array data from parameters data by key.
+    /// Obtains the double array with a specific key from the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `para` - Indicates the parameters data.
+    /// * `para` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `array` - Indicates the double array.
+    /// * `array` - Output parameter, which is used to receive the double array. The array memory
+    /// is allocated internally by the function, and the caller does not need to allocate it in
+    /// advance.
     ///
     /// # Returns
     ///
-    /// * Returns the length of the array, default is 0.
+    /// * Length of the array obtained. The default value is **0**.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -952,24 +1063,26 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         array: *mut *mut f64,
     ) -> i32;
-    /// Set double array data to parameters data by key.
+    /// Sets the double array with a specific key for the additional information of a common event.
     ///
     /// # Arguments
     ///
-    /// * `param` - Indicates the parameters data.
+    /// * `param` - Pointer to the additional information of a common event.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the double array data.
+    /// * `value` - Pointer to the double array to set. The actual number of elements is **num**.
+    /// The length of the **value** array must be greater than **num**. Otherwise, out-of-bounds
+    /// access may occur.
     ///
-    /// * `num` - Indicates the length of the array.
+    /// * `num` - Number of elements in the double array.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED) if a memory allocation error occurs.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    /// <br>[`COMMONEVENT_ERR_ALLOC_MEMORY_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_ALLOC_MEMORY_FAILED): Failed to allocate memory.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -980,43 +1093,41 @@ extern "C" {
         value: *const f64,
         num: usize,
     ) -> CommonEvent_ErrCode;
-    /// Publish a commen event.
+    /// Publishes a common event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the name of the common event.
+    /// * `event` - Pointer to the name of the common event.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED) if the common event sending frequency too high,
-    /// add since api 20.
-    /// Returns `COMMONEVENT_ERR_FAIL_SEND_REQUEST` if IPC request failed to send.
-    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE) if ces not init done.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    /// <br>[`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED): Event sending frequency is too high.
+    /// <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
+    /// <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_Publish(event: *const ::core::ffi::c_char) -> CommonEvent_ErrCode;
-    /// Publish a commen event with specified publish information.
+    /// Publishes a common event with specified properties.
     ///
     /// # Arguments
     ///
-    /// * `event` - Indicates the name of the common event.
+    /// * `event` - Pointer to the name of the common event.
     ///
-    /// * `info` - Indicates the publish information.
+    /// * `info` - Pointer to the property object of a common event.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK) if the operation is successful.
-    /// Returns [`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER) if a parameter error occurs.
-    /// Returns [`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED) if the common event sending frequency too high,
-    /// add since api 20.
-    /// Returns `COMMONEVENT_ERR_FAIL_SEND_REQUEST` if IPC request failed to send.
-    /// Returns [`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE) if ces not init done.
+    /// * Returns an execution result.
+    /// <br>[`COMMONEVENT_ERR_OK`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_OK): Operation successful.
+    /// <br>[`COMMONEVENT_ERR_INVALID_PARAMETER`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INVALID_PARAMETER): Invalid parameter.
+    /// <br>[`COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_LIMIT_EXCEEDED): Event sending frequency is too high.
+    /// <br>[`COMMONEVENT_ERR_SENDING_REQUEST_FAILED`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_SENDING_REQUEST_FAILED): Failed to send IPC requests.
+    /// <br>[`COMMONEVENT_ERR_INIT_UNDONE`](crate::commonevent::CommonEvent_ErrCode::COMMONEVENT_ERR_INIT_UNDONE): Services not initialized.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1025,101 +1136,104 @@ extern "C" {
         event: *const ::core::ffi::c_char,
         info: *const CommonEvent_PublishInfo,
     ) -> CommonEvent_ErrCode;
-    /// Check an event by a subscriber whether it is ordered.
+    /// Checks whether a common event is an ordered one.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// # Returns
     ///
-    /// * Returns the result of check, true means ordered.
+    /// * Returns **true** if the common event is an ordered one; returns **false** if the common event is an
+    /// unordered one.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_IsOrderedCommonEvent(subscriber: *const CommonEvent_Subscriber) -> bool;
-    /// Finish an ordered event by a subscriber.
+    /// Finishes an ordered common event.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// # Returns
     ///
-    /// * Returns the result of operation, true means succeeded.
+    /// * Returns **true** if the operation is successful; returns **false** otherwise.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_FinishCommonEvent(subscriber: *mut CommonEvent_Subscriber) -> bool;
-    /// Check an event by a subscriber whether it is aborted.
+    /// Checks whether an ordered common event is aborted.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// # Returns
     ///
-    /// * Returns the result of check, true means aborted.
+    /// * Returns **true** if the ordered common event is in the abort state; returns **false** otherwise.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_GetAbortCommonEvent(subscriber: *const CommonEvent_Subscriber) -> bool;
-    /// Abort an ordered event by a subscriber.
+    /// Aborts an ordered common event when used with [`OH_CommonEvent_FinishCommonEvent`](crate::commonevent::OH_CommonEvent_FinishCommonEvent). After the abort, the
+    /// common event is not sent to the next subscriber.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// # Returns
     ///
-    /// * Returns the result of operation, true means succeeded.
+    /// * Returns **true** if the operation is successful; returns **false** otherwise.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_AbortCommonEvent(subscriber: *mut CommonEvent_Subscriber) -> bool;
-    /// Clear the aborted flag of an ordered event by a subscriber.
+    /// Clears the abort state of an ordered common event when used with [`OH_CommonEvent_FinishCommonEvent`](crate::commonevent::OH_CommonEvent_FinishCommonEvent).
+    /// After the clearance, the common event is sent to the next subscriber.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// # Returns
     ///
-    /// * Returns the result of operation, true means succeeded.
+    /// * Returns **true** if the operation is successful; returns **false** otherwise.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_ClearAbortCommonEvent(subscriber: *mut CommonEvent_Subscriber) -> bool;
-    /// Get code from an ordered event by a subscriber.
+    /// Obtains the result code (integer type) of an ordered common event.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// # Returns
     ///
-    /// * Returns the code, default is 0.
+    /// * Returns the result code obtained if the operation is successful; returns **0** otherwise.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_CommonEvent_GetCodeFromSubscriber(subscriber: *const CommonEvent_Subscriber) -> i32;
-    /// Set code to an ordered event by a subscriber.
+    /// Sets the result code (integer type) of an ordered common event.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
-    /// * `code` - Indicates the code.
+    /// * `code` - Result code to set.
     ///
     /// # Returns
     ///
-    /// * Returns the result of operation, true means succeeded.
+    /// * Returns **true** if the operation is successful; returns **false** otherwise.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1128,15 +1242,15 @@ extern "C" {
         subscriber: *mut CommonEvent_Subscriber,
         code: i32,
     ) -> bool;
-    /// Get data from an ordered event by a subscriber.
+    /// Obtains the result data (string type) of an ordered common event.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
     /// # Returns
     ///
-    /// * Returns the data, default is null.
+    /// * Returns the result data obtained if the operation is successful; returns **NULL** otherwise.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -1144,19 +1258,21 @@ extern "C" {
     pub fn OH_CommonEvent_GetDataFromSubscriber(
         subscriber: *const CommonEvent_Subscriber,
     ) -> *const ::core::ffi::c_char;
-    /// Set data to an ordered event by a subscriber.
+    /// Sets the result data (string type) of an ordered common event.
     ///
     /// # Arguments
     ///
-    /// * `subscriber` - Indicates the subscriber.
+    /// * `subscriber` - Pointer to the common event subscriber.
     ///
-    /// * `data` - Indicates the data.
+    /// * `data` - Pointer to the result data to set. The effective data length is the smaller of **length** and
+    /// the length of the **data** string
     ///
-    /// * `length` - Indicates the length of data.
+    /// * `length` - Length of the data to be transferred, in bytes. The value is the length of the
+    /// **data** string.
     ///
     /// # Returns
     ///
-    /// * Returns the result of operation, true means succeeded.
+    /// * Returns **true** if the operation is successful; returns **false** otherwise.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

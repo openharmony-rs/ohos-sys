@@ -10,7 +10,7 @@ use crate::averrors::OH_AVErrCode;
 use crate::avformat::OH_AVFormat;
 use ohos_sys_opaque_types::OH_NativeBuffer;
 
-/// Forward declaration of OH_AVBuffer.
+/// Describes a native object for the media memory interface.
 ///
 ///
 /// Available since API-level: 11
@@ -21,58 +21,54 @@ pub struct OH_AVBuffer {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create an OH_AVBuffer instance, It should be noted that the life cycle of the OH_AVBuffer instance pointed
-    /// to by the return value * needs to be manually released by [`OH_AVBuffer_Destroy`](crate::avbuffer::OH_AVBuffer_Destroy).
+    /// Creates an OH_AVBuffer instance. You must call [`OH_AVBuffer_Destroy`](crate::avbuffer::OH_AVBuffer_Destroy) to manually release the
+    /// OH_AVBuffer instance returned.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `capacity` - the buffer's capacity, bytes
+    /// * `capacity` - Size of the created memory, in bytes.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVBuffer instance if the execution is successful, otherwise returns nullptr.
-    /// Possible failure causes: 1. capacity <= 0. 2. create allocator failed. 3. create OH_AVBuffer failed.
-    /// 4. created buffer memory is nullptr. 5. created buffer memory's addr is nullptr. 6. failed to new OH_AVBuffer.
+    /// * Pointer to the OH_AVBuffer instance created. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **capacity** is less than or equal to **0**.
+    /// <br>2. An internal error occurs, or the system does not have resources.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AVBuffer_Create(capacity: i32) -> *mut OH_AVBuffer;
-    /// Clear the internal resources of the buffer and destroy the buffer instance.
+    /// Releases an OH_AVBuffer instance. A buffer cannot be destroyed repeatedly.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `buffer` - Encapsulate OH_AVBuffer structure instance pointer
+    /// * `buffer` - Pointer to an OH_AVBuffer instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input buffer is nullptr or buffer's magic error.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT) if input buffer is not user created.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The value of **buffer** is nullptr or fails format verification.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The input buffer is not created by the user.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AVBuffer_Destroy(buffer: *mut OH_AVBuffer) -> OH_AVErrCode;
-    /// Get the buffer's attribute.
+    /// Obtains the basic attributes, including **pts**, **size**, **offset**, and **flags**, of a buffer.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `buffer` - Encapsulate OH_AVBuffer structure instance pointer
+    /// * `buffer` - Pointer to an OH_AVBuffer instance.
     ///
-    /// * `attr` - Encapsulate OH_AVCodecBufferAttr structure instance pointer, please refer to
-    /// [`OH_AVCodecBufferAttr`](crate::avbuffer_info::OH_AVCodecBufferAttr)
+    /// * `attr` - Pointer to an OH_AVCodecBufferAttr instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input buffer is nullptr, buffer's magic error,
-    /// input buffer's buffer is nulllptr or attr is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
+    /// <br>1. The value of **buffer** or **attr** is nullptr.
+    /// <br>2. The value of **buffer** fails parameter structure verification.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -81,22 +77,21 @@ extern "C" {
         buffer: *mut OH_AVBuffer,
         attr: *mut OH_AVCodecBufferAttr,
     ) -> OH_AVErrCode;
-    /// Set the buffer's attribute.
+    /// Sets the basic attributes, including **pts**, **size**, **offset**, and **flags**, of a buffer.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `buffer` - Encapsulate OH_AVBuffer structure instance pointer
+    /// * `buffer` - Pointer to an OH_AVBuffer instance.
     ///
-    /// * `attr` - Encapsulate OH_AVCodecBufferAttr structure instance pointer, please refer to
-    /// [`OH_AVCodecBufferAttr`](crate::avbuffer_info::OH_AVCodecBufferAttr)
+    /// * `attr` - Pointer to an OH_AVCodecBufferAttr instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input buffer is nullptr, buffer's magic error,
-    /// input buffer's buffer is nulllptr, attr is nullptr, the size or offset of input buffer's memory is invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
+    /// <br>1. The value of **buffer** or **attr** is nullptr.
+    /// <br>2. The value of **buffer** fails parameter structure verification.
+    /// <br>3. The memory size or offset of the buffer is invalid.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -105,39 +100,40 @@ extern "C" {
         buffer: *mut OH_AVBuffer,
         attr: *const OH_AVCodecBufferAttr,
     ) -> OH_AVErrCode;
-    /// Get the buffer's parameter. It should be noted that the life cycle of the OH_AVFormat instance pointed to
-    /// by the return value * needs to be manually released by [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy).
+    /// Obtains parameters except basic attributes of a buffer. The information is carried in an OH_AVFormat instance.
+    /// You must call [`OH_AVFormat_Destroy`](crate::avformat::OH_AVFormat_Destroy) to manually release the OH_AVFormat instance returned.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `buffer` - Encapsulate OH_AVBuffer structure instance pointer
+    /// * `buffer` - Pointer to an OH_AVBuffer instance.
     ///
     /// # Returns
     ///
-    /// * Returns Encapsulate OH_AVFormat structure instance pointer if the execution is successful,
-    /// otherwise returns nullptr. Possible failure causes: 1. input buffer is nullptr. 2. buffer's magic error.
-    /// 3. input buffer's buffer is nulllptr. 4. buffer's meta is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
+    /// <br>1. The value of **buffer** is nullptr.
+    /// <br>2. The meta of the buffer is nullptr.
+    /// <br>3. The value of **buffer** fails parameter structure verification.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AVBuffer_GetParameter(buffer: *mut OH_AVBuffer) -> *mut OH_AVFormat;
-    /// Set the buffer's parameter.
+    /// Sets parameters except basic attributes of a buffer. The information is carried in an OH_AVFormat instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `buffer` - Encapsulate OH_AVBuffer structure instance pointer
+    /// * `buffer` - Pointer to an OH_AVBuffer instance.
     ///
-    /// * `format` - Encapsulate OH_AVFormat structure instance pointer
+    /// * `format` - Pointer to an OH_AVFormat instance.
     ///
     /// # Returns
     ///
-    /// * Function result code.
-    /// [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK) if the execution is successful.
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL) if input buffer is nullptr, buffer's magic error,
-    /// input buffer's buffer is nulllptr, input format is nullptr or input meta is nullptr.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The possible causes are as follows:
+    /// <br>1. The value of **buffer** or **format** is nullptr.
+    /// <br>2. The meta of the buffer is nullptr.
+    /// <br>3. The value of **buffer** fails parameter structure verification.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -146,53 +142,56 @@ extern "C" {
         buffer: *mut OH_AVBuffer,
         format: *const OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// Get the buffer's virtual address.
+    /// Obtains the virtual address of a data buffer.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `buffer` - Encapsulate OH_AVBuffer structure instance pointer
+    /// * `buffer` - Pointer to an OH_AVBuffer instance.
     ///
     /// # Returns
     ///
-    /// * the buffer's virtual address if the buffer is valid, otherwise nullptr
-    /// Possible failure causes: 1. input buffer is nullptr. 2. buffer's magic error.
-    /// 3. input buffer's buffer is nulllptr. 4. buffer's memory is nullptr.
+    /// * Virtual address. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **buffer** is a null pointer.
+    /// <br>2. The value of **OH_AVBuffer** fails parameter structure verification.
+    /// <br>3. An internal error occurs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AVBuffer_GetAddr(buffer: *mut OH_AVBuffer) -> *mut u8;
-    /// Get the buffer's capacity
+    /// Obtains the capacity (in bytes) of a buffer.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `buffer` - Encapsulate OH_AVBuffer structure instance pointer
+    /// * `buffer` - Pointer to an OH_AVBuffer instance.
     ///
     /// # Returns
     ///
-    /// * the buffer's capacity if the buffer is valid, otherwise -1
-    /// Possible failure causes: 1. input buffer is nullptr. 2. buffer's magic error.
-    /// 3. input buffer's buffer is nulllptr. 4. buffer's memory is nullptr.
+    /// * Capacity. If the operation fails, **-1** is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **buffer** is a null pointer.
+    /// <br>2. The value of **OH_AVBuffer** fails parameter structure verification.
+    /// <br>3. An internal error occurs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_AVBuffer_GetCapacity(buffer: *mut OH_AVBuffer) -> i32;
-    /// Get the OH_NativeBuffer instance pointer,It should be noted that the life cycle of the OH_AVBuffer
-    /// instance pointed to by the return value * needs to be manually released by `OH_NativeBuffer_Unreference`.
+    /// Obtains the pointer to an OH_NativeBuffer instance. You must call `OH_NativeBuffer_Unreference` to
+    /// manually release the OH_NativeBuffer instance returned.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Core
     /// # Arguments
     ///
-    /// * `buffer` - Encapsulate OH_AVBuffer structure instance pointer
+    /// * `buffer` - Pointer to an OH_AVBuffer instance.
     ///
     /// # Returns
     ///
-    /// * Returns Encapsulate OH_NativeBuffer structure instance pointer is successful, otherwise returns nullptr
-    /// Possible failure causes: 1. input buffer is nullptr. 2. buffer's magic error.
-    /// 3. input buffer's buffer is nulllptr. 4. buffer's memory is nullptr. 5. surfaceBuffer is nullptr.
+    /// * Pointer to the OH_NativeBuffer instance created. If the operation fails, NULL is returned.
+    /// <br>The possible causes of an operation failure are as follows:
+    /// <br>1. The value of **buffer** is a null pointer.
+    /// <br>2. The value of **OH_AVBuffer** fails parameter structure verification.
+    /// <br>3. An internal error occurs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]

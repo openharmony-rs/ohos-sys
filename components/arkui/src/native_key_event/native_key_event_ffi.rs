@@ -9,7 +9,7 @@ use crate::ui_input_event::ArkUI_UIInputEvent;
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 impl ArkUI_KeyCode {
-    /// Unknown (or unrecognized) key
+    /// Unknown key
     pub const ARKUI_KEYCODE_UNKNOWN: ArkUI_KeyCode = ArkUI_KeyCode(-1);
     /// Function (Fn) key
     pub const ARKUI_KEYCODE_FN: ArkUI_KeyCode = ArkUI_KeyCode(0);
@@ -19,15 +19,15 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_VOLUME_DOWN: ArkUI_KeyCode = ArkUI_KeyCode(17);
     /// Power key
     pub const ARKUI_KEYCODE_POWER: ArkUI_KeyCode = ArkUI_KeyCode(18);
-    /// Shutter key
+    /// Camera key
     pub const ARKUI_KEYCODE_CAMERA: ArkUI_KeyCode = ArkUI_KeyCode(19);
     /// Speaker Mute key
     pub const ARKUI_KEYCODE_VOLUME_MUTE: ArkUI_KeyCode = ArkUI_KeyCode(22);
     /// Mute key
     pub const ARKUI_KEYCODE_MUTE: ArkUI_KeyCode = ArkUI_KeyCode(23);
-    /// Brightness Up key
+    /// Brightness Up key.
     pub const ARKUI_KEYCODE_BRIGHTNESS_UP: ArkUI_KeyCode = ArkUI_KeyCode(40);
-    /// Brightness Down key
+    /// Brightness Down key.
     pub const ARKUI_KEYCODE_BRIGHTNESS_DOWN: ArkUI_KeyCode = ArkUI_KeyCode(41);
     /// Key 0
     pub const ARKUI_KEYCODE_0: ArkUI_KeyCode = ArkUI_KeyCode(2000);
@@ -53,15 +53,15 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_STAR: ArkUI_KeyCode = ArkUI_KeyCode(2010);
     /// Key #
     pub const ARKUI_KEYCODE_POUND: ArkUI_KeyCode = ArkUI_KeyCode(2011);
-    /// Up key on D-pad
+    /// Up key on D-pad.
     pub const ARKUI_KEYCODE_DPAD_UP: ArkUI_KeyCode = ArkUI_KeyCode(2012);
-    /// Down key on D-pad
+    /// Down key on D-pad.
     pub const ARKUI_KEYCODE_DPAD_DOWN: ArkUI_KeyCode = ArkUI_KeyCode(2013);
-    /// Left key on D-pad
+    /// Left key on D-pad.
     pub const ARKUI_KEYCODE_DPAD_LEFT: ArkUI_KeyCode = ArkUI_KeyCode(2014);
-    /// Right key on D-pad
+    /// Right key on D-pad.
     pub const ARKUI_KEYCODE_DPAD_RIGHT: ArkUI_KeyCode = ArkUI_KeyCode(2015);
-    /// OK key on D-pad
+    /// Center key on D-pad.
     pub const ARKUI_KEYCODE_DPAD_CENTER: ArkUI_KeyCode = ArkUI_KeyCode(2016);
     /// Key A
     pub const ARKUI_KEYCODE_A: ArkUI_KeyCode = ArkUI_KeyCode(2017);
@@ -95,7 +95,7 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_O: ArkUI_KeyCode = ArkUI_KeyCode(2031);
     /// Key P
     pub const ARKUI_KEYCODE_P: ArkUI_KeyCode = ArkUI_KeyCode(2032);
-    /// Key R
+    /// Key Q
     pub const ARKUI_KEYCODE_Q: ArkUI_KeyCode = ArkUI_KeyCode(2033);
     /// Key R
     pub const ARKUI_KEYCODE_R: ArkUI_KeyCode = ArkUI_KeyCode(2034);
@@ -115,9 +115,9 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_Y: ArkUI_KeyCode = ArkUI_KeyCode(2041);
     /// Key Z
     pub const ARKUI_KEYCODE_Z: ArkUI_KeyCode = ArkUI_KeyCode(2042);
-    /// Key #
+    /// Key ,
     pub const ARKUI_KEYCODE_COMMA: ArkUI_KeyCode = ArkUI_KeyCode(2043);
-    /// Key #
+    /// Key .
     pub const ARKUI_KEYCODE_PERIOD: ArkUI_KeyCode = ArkUI_KeyCode(2044);
     /// Left Alt key
     pub const ARKUI_KEYCODE_ALT_LEFT: ArkUI_KeyCode = ArkUI_KeyCode(2045);
@@ -133,13 +133,13 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_SPACE: ArkUI_KeyCode = ArkUI_KeyCode(2050);
     /// Symbol key
     pub const ARKUI_KEYCODE_SYM: ArkUI_KeyCode = ArkUI_KeyCode(2051);
-    /// Explorer key, used to start the explorer application
+    /// Explorer key, which is used to start the explorer application
     pub const ARKUI_KEYCODE_EXPLORER: ArkUI_KeyCode = ArkUI_KeyCode(2052);
-    /// Email key, used to start the email application
+    /// Email key, which is used to start the email application
     pub const ARKUI_KEYCODE_ENVELOPE: ArkUI_KeyCode = ArkUI_KeyCode(2053);
     /// Enter key
     pub const ARKUI_KEYCODE_ENTER: ArkUI_KeyCode = ArkUI_KeyCode(2054);
-    /// Backspace key
+    /// Delete key
     pub const ARKUI_KEYCODE_DEL: ArkUI_KeyCode = ArkUI_KeyCode(2055);
     /// Key `
     pub const ARKUI_KEYCODE_GRAVE: ArkUI_KeyCode = ArkUI_KeyCode(2056);
@@ -151,7 +151,7 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_LEFT_BRACKET: ArkUI_KeyCode = ArkUI_KeyCode(2059);
     /// Key ]
     pub const ARKUI_KEYCODE_RIGHT_BRACKET: ArkUI_KeyCode = ArkUI_KeyCode(2060);
-    /// Key \\
+    /// Key \
     pub const ARKUI_KEYCODE_BACKSLASH: ArkUI_KeyCode = ArkUI_KeyCode(2061);
     /// Key ;
     pub const ARKUI_KEYCODE_SEMICOLON: ArkUI_KeyCode = ArkUI_KeyCode(2062);
@@ -169,9 +169,9 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_PAGE_UP: ArkUI_KeyCode = ArkUI_KeyCode(2068);
     /// Page Down key
     pub const ARKUI_KEYCODE_PAGE_DOWN: ArkUI_KeyCode = ArkUI_KeyCode(2069);
-    /// ESC key
+    /// ESC key.
     pub const ARKUI_KEYCODE_ESCAPE: ArkUI_KeyCode = ArkUI_KeyCode(2070);
-    /// Delete key
+    /// Forward Delete key
     pub const ARKUI_KEYCODE_FORWARD_DEL: ArkUI_KeyCode = ArkUI_KeyCode(2071);
     /// Left Ctrl key
     pub const ARKUI_KEYCODE_CTRL_LEFT: ArkUI_KeyCode = ArkUI_KeyCode(2072);
@@ -257,7 +257,7 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_NUMPAD_9: ArkUI_KeyCode = ArkUI_KeyCode(2112);
     /// Key / on numeric keypad
     pub const ARKUI_KEYCODE_NUMPAD_DIVIDE: ArkUI_KeyCode = ArkUI_KeyCode(2113);
-    /// Key ) on numeric keypad
+    /// Key * on numeric keypad
     pub const ARKUI_KEYCODE_NUMPAD_MULTIPLY: ArkUI_KeyCode = ArkUI_KeyCode(2114);
     /// Key - on numeric keypad
     pub const ARKUI_KEYCODE_NUMPAD_SUBTRACT: ArkUI_KeyCode = ArkUI_KeyCode(2115);
@@ -355,7 +355,7 @@ impl ArkUI_KeyCode {
     pub const ARKUI_KEYCODE_BUTTON_THUMBR: ArkUI_KeyCode = ArkUI_KeyCode(2315);
 }
 #[repr(transparent)]
-/// Defines an enum for the key codes in key events.
+/// Enumerates the key codes for key events.
 ///
 ///
 /// Available since API-level: 14
@@ -366,19 +366,19 @@ pub struct ArkUI_KeyCode(pub ::core::ffi::c_int);
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 impl ArkUI_KeyEventType {
-    /// Unknown type
+    /// Unknown type.
     pub const ARKUI_KEY_EVENT_UNKNOWN: ArkUI_KeyEventType = ArkUI_KeyEventType(-1);
-    /// Pressing of a key
+    /// Key press.
     pub const ARKUI_KEY_EVENT_DOWN: ArkUI_KeyEventType = ArkUI_KeyEventType(0);
-    /// Release of a key
+    /// Release of a key.
     pub const ARKUI_KEY_EVENT_UP: ArkUI_KeyEventType = ArkUI_KeyEventType(1);
-    /// Long press of a key
+    /// Long press of a key.
     pub const ARKUI_KEY_EVENT_LONG_PRESS: ArkUI_KeyEventType = ArkUI_KeyEventType(2);
-    /// Click of a key
+    /// Click of a key.
     pub const ARKUI_KEY_EVENT_CLICK: ArkUI_KeyEventType = ArkUI_KeyEventType(3);
 }
 #[repr(transparent)]
-/// Defines an enum for the key event types.
+/// Enumerates the types of key events.
 ///
 ///
 /// Available since API-level: 14
@@ -389,13 +389,13 @@ pub struct ArkUI_KeyEventType(pub ::core::ffi::c_int);
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 impl ArkUI_KeySourceType {
-    /// Unknown type
+    /// Unknown type.
     pub const ARKUI_KEY_SOURCE_UNKNOWN: ArkUI_KeySourceType = ArkUI_KeySourceType(0);
-    /// Mouse
+    /// Mouse.
     pub const ARKUI_KEY_SOURCE_TYPE_MOUSE: ArkUI_KeySourceType = ArkUI_KeySourceType(1);
-    /// Keyboard
+    /// Keyboard.
     pub const ARKUI_KEY_SOURCE_TYPE_KEYBOARD: ArkUI_KeySourceType = ArkUI_KeySourceType(4);
-    /// Joystick.
+    /// Game controller.
     ///
     ///
     /// Available since API-level: 15
@@ -404,7 +404,7 @@ impl ArkUI_KeySourceType {
     pub const ARKUI_KEY_SOURCE_TYPE_JOYSTICK: ArkUI_KeySourceType = ArkUI_KeySourceType(5);
 }
 #[repr(transparent)]
-/// Defines an enum for the types of devices that trigger a key event.
+/// Enumerates the types of input devices that trigger key events.
 ///
 ///
 /// Available since API-level: 14
@@ -415,59 +415,59 @@ pub struct ArkUI_KeySourceType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-14")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
 impl ArkUI_KeyIntension {
-    /// Unknown intention
+    /// Unknown intention.
     pub const ARKUI_KEY_INTENSION_UNKNOWN: ArkUI_KeyIntension = ArkUI_KeyIntension(-1);
-    /// Upward
+    /// Upward.
     pub const ARKUI_KEY_INTENSION_UP: ArkUI_KeyIntension = ArkUI_KeyIntension(1);
-    /// Downward
+    /// Downward.
     pub const ARKUI_KEY_INTENSION_DOWN: ArkUI_KeyIntension = ArkUI_KeyIntension(2);
-    /// Leftward
+    /// Leftward.
     pub const ARKUI_KEY_INTENSION_LEFT: ArkUI_KeyIntension = ArkUI_KeyIntension(3);
-    /// Rightward
+    /// Rightward.
     pub const ARKUI_KEY_INTENSION_RIGHT: ArkUI_KeyIntension = ArkUI_KeyIntension(4);
-    /// Select
+    /// Select.
     pub const ARKUI_KEY_INTENSION_SELECT: ArkUI_KeyIntension = ArkUI_KeyIntension(5);
     /// Escape
     pub const ARKUI_KEY_INTENSION_ESCAPE: ArkUI_KeyIntension = ArkUI_KeyIntension(6);
-    /// Back
+    /// Back.
     pub const ARKUI_KEY_INTENSION_BACK: ArkUI_KeyIntension = ArkUI_KeyIntension(7);
-    /// Forward
+    /// Forward.
     pub const ARKUI_KEY_INTENSION_FORWARD: ArkUI_KeyIntension = ArkUI_KeyIntension(8);
-    /// Menu
+    /// Menu.
     pub const ARKUI_KEY_INTENSION_MENU: ArkUI_KeyIntension = ArkUI_KeyIntension(9);
-    /// Home
+    /// Home page.
     pub const ARKUI_KEY_INTENSION_HOME: ArkUI_KeyIntension = ArkUI_KeyIntension(10);
-    /// Page up
+    /// Previous.
     pub const ARKUI_KEY_INTENSION_PAGE_UP: ArkUI_KeyIntension = ArkUI_KeyIntension(11);
-    /// Page down
+    /// Next.
     pub const ARKUI_KEY_INTENSION_PAGE_DOWN: ArkUI_KeyIntension = ArkUI_KeyIntension(12);
-    /// Zoom out
+    /// Zoom out.
     pub const ARKUI_KEY_INTENSION_ZOOM_OUT: ArkUI_KeyIntension = ArkUI_KeyIntension(13);
-    /// Zoom in
+    /// Zoom in.
     pub const ARKUI_KEY_INTENSION_ZOOM_IN: ArkUI_KeyIntension = ArkUI_KeyIntension(14);
     /// Play or pause
     pub const ARKUI_KEY_INTENTION_MEDIA_PLAY_PAUSE: ArkUI_KeyIntension = ArkUI_KeyIntension(100);
-    /// Fast-forward
+    /// Fast-forward.
     pub const ARKUI_KEY_INTENTION_MEDIA_FAST_FORWARD: ArkUI_KeyIntension = ArkUI_KeyIntension(101);
-    /// Fast playback
+    /// Fast playback.
     pub const ARKUI_KEY_INTENTION_MEDIA_FAST_PLAYBACK: ArkUI_KeyIntension = ArkUI_KeyIntension(103);
-    /// Play next
+    /// Play the next media asset.
     pub const ARKUI_KEY_INTENTION_MEDIA_NEXT: ArkUI_KeyIntension = ArkUI_KeyIntension(104);
-    /// Play previous
+    /// Play the previous media asset.
     pub const ARKUI_KEY_INTENTION_MEDIA_PREVIOUS: ArkUI_KeyIntension = ArkUI_KeyIntension(105);
-    /// Mute
+    /// Mute.
     pub const ARKUI_KEY_INTENTION_MEDIA_MUTE: ArkUI_KeyIntension = ArkUI_KeyIntension(106);
-    /// Volume up
+    /// Volume up.
     pub const ARKUI_KEY_INTENTION_VOLUME_UP: ArkUI_KeyIntension = ArkUI_KeyIntension(107);
-    /// Volume down
+    /// Volume down.
     pub const ARKUI_KEY_INTENTION_VOLUME_DOWN: ArkUI_KeyIntension = ArkUI_KeyIntension(108);
-    /// Answer a call
+    /// Answer a call.
     pub const ARKUI_KEY_INTENTION_CALL: ArkUI_KeyIntension = ArkUI_KeyIntension(200);
-    /// Camera
+    /// Take a photo.
     pub const ARKUI_KEY_INTENTION_CAMERA: ArkUI_KeyIntension = ArkUI_KeyIntension(300);
 }
 #[repr(transparent)]
-/// Defines an enum for key intentions.
+/// Enumerates the intentions corresponding to key events.
 ///
 ///
 /// Available since API-level: 14
@@ -476,43 +476,43 @@ impl ArkUI_KeyIntension {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_KeyIntension(pub ::core::ffi::c_int);
 extern "C" {
-    /// Obtains the type of a key event.
+    /// Obtains the type of the specified key event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the key event type.
+    /// * Key event type.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_ArkUI_KeyEvent_GetType(event: *const ArkUI_UIInputEvent) -> ArkUI_KeyEventType;
-    /// Obtains the key code from a key event.
+    /// Obtains the key code from the specified key event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the key code.
+    /// * Key code.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_ArkUI_KeyEvent_GetKeyCode(event: *const ArkUI_UIInputEvent) -> i32;
-    /// Obtains the key value from a key event.
+    /// Obtains the key value from the specified key event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the key value.
+    /// * Key value.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -520,27 +520,28 @@ extern "C" {
     pub fn OH_ArkUI_KeyEvent_GetKeyText(
         event: *const ArkUI_UIInputEvent,
     ) -> *const ::core::ffi::c_char;
-    /// Obtains the type of device that triggers a key event.
+    /// Obtains the type of input device that triggers the specified key event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the device type.
+    /// * Input device type.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_ArkUI_KeyEvent_GetKeySource(event: *const ArkUI_UIInputEvent) -> ArkUI_KeySourceType;
-    /// Prevents a key event from bubbling up.
+    /// Stops the specified key event from bubbling upwards or downwards.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
-    /// * `stopPropagation` - Whether to stop event propagation.
+    /// * `stopPropagation` - Whether to stop event propagation. The value **true** means to stop event propagation, and **
+    /// false** means the opposite.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -549,15 +550,15 @@ extern "C" {
         event: *const ArkUI_UIInputEvent,
         stopPropagation: bool,
     );
-    /// Obtains the intention code associated with a key event.
+    /// Obtains the intention code associated with the specified key event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the intention code associated with the key event.
+    /// * Intention code associated with the key event.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
@@ -565,60 +566,61 @@ extern "C" {
     pub fn OH_ArkUI_KeyEvent_GetKeyIntensionCode(
         event: *const ArkUI_UIInputEvent,
     ) -> ArkUI_KeyIntension;
-    /// Obtains the Unicode value associated with a key event.
-    /// Non-space basic Latin characters in the 0x0021-0x007E range are supported. Characters with a value of 0 are not
-    /// supported. In the case of key combination, this API returns the Unicode value of the key corresponding to the key
-    /// event.
+    /// Obtains the Unicode value of the specified key event. Non-space basic Latin characters in the 0x0021-0x007E
+    /// range are supported. Characters with a value of 0 are not supported. In the case of key combination, this API
+    /// returns the Unicode value of the key corresponding to the key event.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// # Returns
     ///
-    /// * Returns the Unicode value.
+    /// * Unicode value.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_ArkUI_KeyEvent_GetUnicode(event: *const ArkUI_UIInputEvent) -> u32;
-    /// Sets whether a key event is consumed in the key event callback.
+    /// Sets whether the specified key event is consumed in the key event callback.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
-    /// * `isConsumed` - Whether the event is consumed.
+    /// * `isConsumed` - Whether the key event is consumed by the callback. The value **true** means that the key event is
+    /// consumed, and **false** the opposite.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_ArkUI_KeyEvent_SetConsumed(event: *const ArkUI_UIInputEvent, isConsumed: bool);
-    /// Dispatch key event to a specific component node.
+    /// Dispatches the specified key event to a specific node.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to a component node.
+    /// * `node` - Target node.
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub fn OH_ArkUI_KeyEvent_Dispatch(node: ArkUI_NodeHandle, event: *const ArkUI_UIInputEvent);
-    /// Get the Num Lock state of the key event.
+    /// Obtains the state of the NumLock key when the specified key event occurs.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
-    /// * `state` - Return whether the Num Lock is on.
+    /// * `state` - Output parameter that returns the state of the NumLock key. The value **true** indicates an activated
+    /// state, and **false** indicates an inactivated state.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -627,19 +629,20 @@ extern "C" {
         event: *const ArkUI_UIInputEvent,
         state: *mut bool,
     ) -> ArkUiResult;
-    /// Get the Caps Lock state of the key event.
+    /// Obtains the state of the CapsLock key when the specified key event occurs.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
-    /// * `state` - Return whether the Caps Lock is on.
+    /// * `state` - Output parameter that returns the state of the CapsLock key. The value **true** indicates an activated
+    /// state, and **false** indicates an inactivated state.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]
@@ -648,19 +651,20 @@ extern "C" {
         event: *const ArkUI_UIInputEvent,
         state: *mut bool,
     ) -> ArkUiResult;
-    /// Get the Scroll Lock state of the key event.
+    /// Obtains the state of the ScrollLock key when the specified key event occurs.
     ///
     /// # Arguments
     ///
-    /// * `event` - Pointer to an <b>ArkUI_UIInputEvent</b> object.
+    /// * `event` - Pointer to the target **ArkUI_UIInputEvent** object.
     ///
-    /// * `state` - Return whether the Scroll Lock is on.
+    /// * `state` - Output parameter that returns the state of the ScrollLock key. The value **true** indicates an
+    /// activated state, and **false** indicates an inactivated state.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    /// <br>Returns [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// <br>Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 19
     #[cfg(feature = "api-19")]

@@ -73,18 +73,15 @@ extern "C" {
     /// Register a scrolling event callback.
     /// # Arguments
     ///
-    /// * `webTag` - The name of the web component.
+    /// * `webTag` - Name of the **Web** component.
     ///
-    /// * `callback` - The ArkWeb scrolling callback.
+    /// * `callback` - Callback used when a page is scrolled.
     ///
-    /// * `userData` - The data set by user.
+    /// * `userData` - Pointer to user-defined data.
     ///
     /// # Returns
     ///
-    /// * Returns whether the registration was successful, false indicates failure.
-    ///
-    ///
-    /// Required System Capabilities: SystemCapability.Web.Webview.Core
+    /// * **true** is returned if the operation is successful; otherwise, **false** is returned.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

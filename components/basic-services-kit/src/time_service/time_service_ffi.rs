@@ -7,7 +7,7 @@
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl TimeService_ErrCode {
-    /// Success.
+    /// Operation successful.
     pub const TIMESERVICE_ERR_OK: TimeService_ErrCode = TimeService_ErrCode(0);
     /// Failed to obtain system parameters.
     pub const TIMESERVICE_ERR_INTERNAL_ERROR: TimeService_ErrCode = TimeService_ErrCode(13000001);
@@ -29,18 +29,18 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `timeZone` - Pointer to an array of characters indicating the time zone ID. On success, the string indicates the
-    /// current system time zone ID. On failure, the string is empty. The string is terminated using '\0'.
+    /// * `timeZone` - Pointer to the buffer for one time zone ID string. If the time zone is obtained, its ID is written.
+    /// Otherwise, an empty string is written. The string ends with **\0**.
     ///
-    /// * `len` - Size of the memory allocated for the time zone ID character array. There is no upper limit for the length
-    /// of the time zone ID. It is recommended to allocate sufficient memory, at least not less than 31 bytes.
+    /// * `len` - Capacity of the buffer pointed to by **timeZone**, in bytes, including the end character **\0**.
+    /// There is no maximum limit. You are advised to allocate at least 31 bytes.
     ///
     /// # Returns
     ///
-    /// * Returns [`TIMESERVICE_ERR_OK`](crate::time_service::TimeService_ErrCode::TIMESERVICE_ERR_OK) if the operation is successful.
-    /// Returns [`TIMESERVICE_ERR_INTERNAL_ERROR`](crate::time_service::TimeService_ErrCode::TIMESERVICE_ERR_INTERNAL_ERROR) if obtaining the system parameters fails.
-    /// Returns [`TIMESERVICE_ERR_INVALID_PARAMETER`](crate::time_service::TimeService_ErrCode::TIMESERVICE_ERR_INVALID_PARAMETER) if <b>timeZone</b> is a null pointer or the length of the
-    /// time zone ID (excluding the terminating character ('\0')) is greater than or equal to <b>len</b>.
+    /// * Returns **TIMESERVICE_ERR_OK** if the operation is successful;
+    /// <br>returns **TIMESERVICE_ERR_INTERNAL_ERROR** if the system parameters fail to be obtained;
+    /// <br>returns **TIMESERVICE_ERR_INVALID_PARAMETER** if **timeZone** is a null pointer or the length of the time
+    /// zone name (excluding the end character **\0**) is greater than or equal to the value of **len**.
     ///
     /// Required System Capabilities: SystemCapability.MiscServices.Time
     ///

@@ -144,6 +144,22 @@ impl OH_AudioStreamErrorCode {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-19")))]
     pub const UNSUPPORTED_FORMAT: OH_AudioStreamErrorCode =
         OH_AudioStreamErrorCode(const { core::num::NonZero::new(4).unwrap() });
+    /// Unsupported audio stream ability, including function and configuration.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const UNSUPPORTED_ABILITY: OH_AudioStreamErrorCode =
+        OH_AudioStreamErrorCode(const { core::num::NonZero::new(6800104).unwrap() });
+    /// Audio server process died.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const SERVICE_DIED: OH_AudioStreamErrorCode =
+        OH_AudioStreamErrorCode(const { core::num::NonZero::new(6800302).unwrap() });
 }
 #[repr(transparent)]
 /// Define the result of the function execution.
@@ -632,6 +648,18 @@ impl OH_AudioStream_SourceType {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const AUDIOSTREAM_SOURCE_TYPE_LIVE: OH_AudioStream_SourceType =
         OH_AudioStream_SourceType(17);
+    /// Voice call downlink source type.
+    /// The audio capturer using this source type should be created after the voice call started.
+    /// Note that ohos.permission.CAPTURE_PLAYBACK_DOWNLINK is needed when using
+    /// [`OH_AudioStreamBuilder_GenerateCapturer`](crate::audiostreambuilder::OH_AudioStreamBuilder_GenerateCapturer) to create the capturer stream,
+    /// the function will return an error without permission.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const AUDIOSTREAM_SOURCE_TYPE_VOICE_DOWNLINK: OH_AudioStream_SourceType =
+        OH_AudioStream_SourceType(22);
 }
 #[repr(transparent)]
 /// Defines the audio source type.
@@ -739,12 +767,12 @@ pub type OH_AudioCapturer = OH_AudioCapturerStruct;
 /// **Deprecated** since 20
 ///
 /// **Use instead:** Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback,
-/// OH_AudioRenderer_OnInterruptEvent, OH_AudioRenderer_OnErrorCallback separately.
+/// OH_AudioRenderer_OnInterruptCallback, OH_AudioRenderer_OnErrorCallback separately.
 ///
 /// Available since API-level: 10
 #[deprecated(
     since = "20",
-    note = "Use instead: Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback, OH_AudioRenderer_OnInterruptEvent, OH_AudioRenderer_OnErrorCallback separately"
+    note = "Use instead: Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback, OH_AudioRenderer_OnInterruptCallback, OH_AudioRenderer_OnErrorCallback separately"
 )]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -822,12 +850,12 @@ pub struct OH_AudioRenderer_Callbacks_Struct {
 /// **Deprecated** since 20
 ///
 /// **Use instead:** Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback,
-/// OH_AudioRenderer_OnInterruptEvent, OH_AudioRenderer_OnErrorCallback separately.
+/// OH_AudioRenderer_OnInterruptCallback, OH_AudioRenderer_OnErrorCallback separately.
 ///
 /// Available since API-level: 10
 #[deprecated(
     since = "20",
-    note = "Use instead: Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback, OH_AudioRenderer_OnInterruptEvent, OH_AudioRenderer_OnErrorCallback separately"
+    note = "Use instead: Use the callback type: OH_AudioRenderer_OnWriteDataCallback, OH_AudioRenderer_OutputDeviceChangeCallback, OH_AudioRenderer_OnInterruptCallback, OH_AudioRenderer_OnErrorCallback separately"
 )]
 pub type OH_AudioRenderer_Callbacks = OH_AudioRenderer_Callbacks_Struct;
 /// Declaring the callback struct for capturer stream.
@@ -869,7 +897,7 @@ pub struct OH_AudioCapturer_Callbacks_Struct {
     ///
     /// **Deprecated** since 20
     ///
-    /// **Use instead:** OH_AudioRenderer_OutputDeviceChangeCallback
+    /// **Use instead:** OH_AudioCapturer_OnDeviceChangeCallback
     ///
     /// Available since API-level: 10
     pub OH_AudioCapturer_OnStreamEvent: ::core::option::Option<
@@ -1015,11 +1043,11 @@ pub type OH_AudioRenderer_OnMarkReachedCallback = ::core::option::Option<
 ///
 /// * `audioData` - Audio data which is written by user.
 ///
-/// * `audioDataSize` - Audio data size which is the size of audio data written by user.
+/// * `audioDataSize` - Audio data size which is the size of audio data written by user, unit is byte.
 ///
 /// * `metadata` - Metadata which is written by user.
 ///
-/// * `metadataSize` - Metadata size which is the size of metadata written by user.
+/// * `metadataSize` - Metadata size which is the size of metadata written by user, unit is byte.
 ///
 /// # Returns
 ///
@@ -1078,10 +1106,10 @@ pub struct OH_AudioStream_PrivacyType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl OH_AudioData_Callback_Result {
-    /// Result of audio data callabck is invalid.
+    /// Result of audio data callback is invalid.
     pub const AUDIO_DATA_CALLBACK_RESULT_INVALID: OH_AudioData_Callback_Result =
         OH_AudioData_Callback_Result(-1);
-    /// Result of audio data callabck is valid.
+    /// Result of audio data callback is valid.
     pub const AUDIO_DATA_CALLBACK_RESULT_VALID: OH_AudioData_Callback_Result =
         OH_AudioData_Callback_Result(0);
 }
@@ -1108,7 +1136,7 @@ pub struct OH_AudioData_Callback_Result(pub ::core::ffi::c_int);
 ///
 /// * `audioData` - Audio data pointer, where user should fill in audio data.
 ///
-/// * `audioDataSize` - Size of audio data that user should fill in.
+/// * `audioDataSize` - Size of audio data that user should fill in, unit is byte.
 ///
 /// # Returns
 ///

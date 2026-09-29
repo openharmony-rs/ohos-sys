@@ -6,7 +6,8 @@
 use crate::native_type::*;
 use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;
 
-/// Defines a struct for accessibility element information.
+/// Provides accessibility node information for accessibility services and assistive applications (such as screen
+/// readers).
 ///
 ///
 /// Available since API-level: 13
@@ -16,7 +17,8 @@ use ohos_sys_opaque_types::ArkUI_AccessibilityProvider;
 pub struct ArkUI_AccessibilityElementInfo {
     _unused: [u8; 0],
 }
-/// Defines a struct for accessibility event information.
+/// Describes the accessibility event information. After a component completes an action requested by an
+/// accessibility service or application, it needs to send a success event to confirm the operation.
 ///
 ///
 /// Available since API-level: 13
@@ -26,7 +28,7 @@ pub struct ArkUI_AccessibilityElementInfo {
 pub struct ArkUI_AccessibilityEventInfo {
     _unused: [u8; 0],
 }
-/// Defines a struct for accessibility action arguments.
+/// Sets the arguments of accessibility actions.
 ///
 ///
 /// Available since API-level: 13
@@ -39,54 +41,110 @@ pub struct ArkUI_AccessibilityActionArguments {
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl ArkUI_Accessibility_ActionType {
-    /// Invalid action.
+    /// Invalid value.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_INVALID: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(0);
-    /// Response to a click.
+    /// Triggers the component's click event handling.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_CLICK: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(16);
-    /// Response to a long click.
+    /// Triggers the component's long-click event handling.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_LONG_CLICK: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(32);
-    /// Accessibility focus acquisition.
+    /// Requests accessibility focus for the component.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_GAIN_ACCESSIBILITY_FOCUS:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(64);
-    /// Accessibility focus clearance.
+    /// Clears accessibility focus from the component.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_CLEAR_ACCESSIBILITY_FOCUS:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(128);
-    /// Forward scroll action.
+    /// Initiates forward scrolling in scrollable containers.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SCROLL_FORWARD:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(256);
-    /// Backward scroll action.
+    /// Initiates backward scrolling in scrollable containers.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SCROLL_BACKWARD:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(512);
-    /// Copy action for text content.
+    /// Copies the current text selection.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_COPY: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(1024);
-    /// Paste action for text content.
+    /// Pastes content to the text component.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_PASTE: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(2048);
-    /// Cut action for text content.
+    /// Cuts the current text selection to the pasteboard.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_CUT: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(4096);
-    /// Text selection action, requiring the setting of <b>selectTextBegin</b>, <b>TextEnd</b>, and <b>TextInForward</b>
-    /// parameters to select a text segment in the text box.
+    /// Selects a range of text within an editable area in a text component. Selects a range of text within an editable
+    /// area by using **ArkUI_AccessibilityActionArguments** and setting **selectTextBegin** (indicates the start
+    /// position of the selection), **selectTextEnd** (indicates the end position of the selection), and **
+    /// selectTextInForWard** (**true** indicates to select text forward, and **false** indicates to select text
+    /// backward).
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SELECT_TEXT: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(8192);
-    /// Text content setting action.
+    /// Sets the text content of the text component.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SET_TEXT: ArkUI_Accessibility_ActionType =
         ArkUI_Accessibility_ActionType(16384);
-    /// Cursor position setting action.
+    /// Sets the cursor position where the text can be entered for the text component. This API is used together with **
+    /// ArkUI_AccessibilityActionArguments**.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_SET_CURSOR_POSITION:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(1048576);
-    /// Support action for find next item in focus move operation
+    /// Support action for find next item in focus move operation.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-15")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_ACTION_TYPE_NEXT_HTML_ITEM:
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(33554432);
-    /// Support action for find previous item in focus move operation
+    /// Support action for find previous item in focus move operation.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -95,7 +153,7 @@ impl ArkUI_Accessibility_ActionType {
         ArkUI_Accessibility_ActionType = ArkUI_Accessibility_ActionType(67108864);
 }
 #[repr(transparent)]
-/// Defines an enum for accessibility action types.
+/// Enumerates accessibility action types.
 ///
 ///
 /// Available since API-level: 13
@@ -106,54 +164,114 @@ pub struct ArkUI_Accessibility_ActionType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl ArkUI_AccessibilityEventType {
-    /// Invalid event.
+    /// Invalid value.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_INVALID: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(0);
     /// Click event, sent after the UI component responds.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_CLICKED: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(1);
-    /// Long click event, sent after the UI component responds.
+    /// Long-click event, sent after the UI component responds.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_LONG_CLICKED: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(2);
     /// Selection event, sent after the UI component responds.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_SELECTED: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(4);
     /// Text update event, sent when text is updated.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_TEXT_UPDATE: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(16);
-    /// Page state update event, sent when the page transitions, switches, resizes, or moves.
+    /// Page state update event, sent on page navigation, switching, resizing, or movement.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_PAGE_STATE_UPDATE:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(32);
     /// Page content update event, sent when the page content changes.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_PAGE_CONTENT_UPDATE:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(2048);
-    /// Scrolled event, sent when a scrollable component experiences a scroll event.
+    /// Scroll event, sent when scrolling occurs on scrollable components.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_SCROLLED: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(4096);
-    /// Accessibility focus event, sent after the UI component responds.
+    /// Accessibility focus event, sent after the UI component receives focus.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_ACCESSIBILITY_FOCUSED:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(32768);
-    /// Accessibility focus cleared event, sent after the UI component responds.
+    /// Accessibility focus cleared event, sent after the UI component loses focus.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_ACCESSIBILITY_FOCUS_CLEARED:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(65536);
-    /// FOcus request for a specific node.
+    /// Event to actively requests focus for the specified node.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_REQUEST_ACCESSIBILITY_FOCUS:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(33554432);
     /// Page open event reported by the UI component.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_PAGE_OPEN: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(536870912);
     /// Page close event reported by the UI component.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_PAGE_CLOSE: ArkUI_AccessibilityEventType =
         ArkUI_AccessibilityEventType(134217728);
     /// Announcement event, indicating a request to proactively announce specified content.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_ANNOUNCE_FOR_ACCESSIBILITY:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(268435456);
-    /// Focus update event, used for focus update scenarios.
+    /// Focus update event, used in the focus update scenarios.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_EVENT_TYPE_FOCUS_NODE_UPDATE:
         ArkUI_AccessibilityEventType = ArkUI_AccessibilityEventType(268435457);
 }
 #[repr(transparent)]
-/// Defines an enum for accessibility event types.
+/// Enumerates accessibility event types.
 ///
 ///
 /// Available since API-level: 13
@@ -161,7 +279,7 @@ impl ArkUI_AccessibilityEventType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_AccessibilityEventType(pub ::core::ffi::c_uint);
-/// Defines a struct for the accessible action.
+/// Defines an accessibility action.
 ///
 ///
 /// Available since API-level: 13
@@ -171,11 +289,15 @@ pub struct ArkUI_AccessibilityEventType(pub ::core::ffi::c_uint);
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibleAction {
     /// Action type.
+    ///
+    /// Available since API-level: 13
     pub actionType: ArkUI_Accessibility_ActionType,
     /// Action description.
+    ///
+    /// Available since API-level: 13
     pub description: *const ::core::ffi::c_char,
 }
-/// Defines a struct for the accessible rectangle.
+/// Provides the coordinate position where the node is located.
 ///
 ///
 /// Available since API-level: 13
@@ -184,16 +306,25 @@ pub struct ArkUI_AccessibleAction {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibleRect {
-    /// X coordinate of the upper left corner.
+    /// X-coordinate of the upper left corner.
+    ///
+    /// Available since API-level: 13
     pub leftTopX: i32,
-    /// Y coordinate of the upper left corner.
+    /// Y-coordinate of the upper left corner.
+    ///
+    /// Available since API-level: 13
     pub leftTopY: i32,
-    /// X coordinate of the lower right corner.
+    /// X-coordinate of the lower right corner.
+    ///
+    /// Available since API-level: 13
     pub rightBottomX: i32,
-    /// Y coordinate of the lower right corner.
+    /// Y-coordinate of the lower right corner.
+    ///
+    /// Available since API-level: 13
     pub rightBottomY: i32,
 }
-/// Define a struct for the accessible range information.
+/// Sets and obtains the current value, maximum value, and minimum value of a specific component (such as
+/// `Slider`, `Rating`, or `Progress`).
 ///
 ///
 /// Available since API-level: 13
@@ -202,14 +333,21 @@ pub struct ArkUI_AccessibleRect {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibleRangeInfo {
-    /// Minimum value.
+    /// Minimum value of the component.
+    ///
+    /// Available since API-level: 13
     pub min: f64,
-    /// Maximum value.
+    /// Maximum value of the component.
+    ///
+    /// Available since API-level: 13
     pub max: f64,
-    /// Current value.
+    /// Current value of the component.
+    ///
+    /// Available since API-level: 13
     pub current: f64,
 }
-/// Defines a struct for the accessible grid information.
+/// Configures the grid layout attributes of a specific component (such as `List`, `Flex`,
+/// `Select`, or `Swiper`).
 ///
 ///
 /// Available since API-level: 13
@@ -218,14 +356,22 @@ pub struct ArkUI_AccessibleRangeInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibleGridInfo {
-    /// Number of rows.
+    /// Number of rows of the component. The value is an integer greater than 0.
+    ///
+    /// Available since API-level: 13
     pub rowCount: i32,
-    /// Number of columns.
+    /// Number of columns of the component. The value is an integer greater than 0.
+    ///
+    /// Available since API-level: 13
     pub columnCount: i32,
-    /// Selection mode. The value <b>0</b> indicates that only one row can be selected.
+    /// Selection mode. If the value is **0**, only a single row in the grid can be selected. If the value is not 0,
+    /// multiple rows can be selected.
+    ///
+    /// Available since API-level: 13
     pub selectionMode: i32,
 }
-/// Defines a struct for the accessible grid item information.
+/// Configures the attributes of a specific component (such as `List`, `Flex`, `Select`, or
+/// `Swiper`).
 ///
 ///
 /// Available since API-level: 13
@@ -234,37 +380,65 @@ pub struct ArkUI_AccessibleGridInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibleGridItemInfo {
-    /// Whether it is a header.
+    /// Whether the item is a heading. **true** for heading, **false** for non-heading.
+    ///
+    /// Available since API-level: 13
     pub heading: bool,
-    /// Whether it is selected.
+    /// Whether the item is selected. **true** for selected, **false** for unselected.
+    ///
+    /// Available since API-level: 13
     pub selected: bool,
-    /// Column index.
+    /// Row index of the item. The value is an integer greater than 0.
+    ///
+    /// Available since API-level: 13
     pub columnIndex: i32,
-    /// Row index.
+    /// Column index of the item. The value is an integer greater than 0.
+    ///
+    /// Available since API-level: 13
     pub rowIndex: i32,
-    /// Column span.
+    /// Number of rows that the item spans. The value is an integer greater than 0.
+    ///
+    /// Available since API-level: 13
     pub columnSpan: i32,
-    /// Row span.
+    /// Number of columns that the item spans. The value is an integer greater than 0.
+    ///
+    /// Available since API-level: 13
     pub rowSpan: i32,
 }
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl ArkUI_AcessbilityErrorCode {
-    /// Success.
+    /// The operation is successful.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL: ArkUI_AcessbilityErrorCode =
         ArkUI_AcessbilityErrorCode(0);
-    /// Failure.
+    /// The operation failed.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED: ArkUI_AcessbilityErrorCode =
         ArkUI_AcessbilityErrorCode(-1);
     /// Invalid parameter.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER: ArkUI_AcessbilityErrorCode =
         ArkUI_AcessbilityErrorCode(-2);
-    /// Out of memory.
+    /// Insufficient memory.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_RESULT_OUT_OF_MEMORY: ArkUI_AcessbilityErrorCode =
         ArkUI_AcessbilityErrorCode(-3);
 }
 #[repr(transparent)]
-/// Enumerates the accessibility error codes.
+/// Enumerates accessibility error codes.
 ///
 ///
 /// Available since API-level: 13
@@ -275,24 +449,44 @@ pub struct ArkUI_AcessbilityErrorCode(pub ::core::ffi::c_int);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl ArkUI_AccessibilitySearchMode {
-    /// Search for current nodes.
+    /// Searches the current node.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_SEARCH_MODE_PREFETCH_CURRENT:
         ArkUI_AccessibilitySearchMode = ArkUI_AccessibilitySearchMode(0);
-    /// Search for parent nodes.
+    /// Searches parent nodes.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_SEARCH_MODE_PREFETCH_PREDECESSORS:
         ArkUI_AccessibilitySearchMode = ArkUI_AccessibilitySearchMode(1);
-    /// Search for sibling nodes.
+    /// Searches sibling nodes.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_SEARCH_MODE_PREFETCH_SIBLINGS:
         ArkUI_AccessibilitySearchMode = ArkUI_AccessibilitySearchMode(2);
-    /// Search for child nodes at the next level.
+    /// Searches immediate child nodes.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_SEARCH_MODE_PREFETCH_CHILDREN:
         ArkUI_AccessibilitySearchMode = ArkUI_AccessibilitySearchMode(4);
-    /// Search for all child nodes.
+    /// Searches all child nodes.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_SEARCH_MODE_PREFETCH_RECURSIVE_CHILDREN:
         ArkUI_AccessibilitySearchMode = ArkUI_AccessibilitySearchMode(8);
 }
 #[repr(transparent)]
-/// Defines an enum for the accessibility search modes.
+/// Enumerates accessibility search modes.
 ///
 ///
 /// Available since API-level: 13
@@ -303,18 +497,30 @@ pub struct ArkUI_AccessibilitySearchMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl ArkUI_AccessibilityFocusType {
-    /// Invalid type.
+    /// Invalid value.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_FOCUS_TYPE_INVALID: ArkUI_AccessibilityFocusType =
         ArkUI_AccessibilityFocusType(-1);
     /// Input focus type.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_FOCUS_TYPE_INPUT: ArkUI_AccessibilityFocusType =
         ArkUI_AccessibilityFocusType(1);
     /// Accessibility focus type.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_FOCUS_TYPE_ACCESSIBILITY: ArkUI_AccessibilityFocusType =
         ArkUI_AccessibilityFocusType(2);
 }
 #[repr(transparent)]
-/// Defines an enum for the accessibility focus types.
+/// Enumerates accessibility focus types.
 ///
 ///
 /// Available since API-level: 13
@@ -325,30 +531,58 @@ pub struct ArkUI_AccessibilityFocusType(pub ::core::ffi::c_int);
 #[cfg(feature = "api-13")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 impl ArkUI_AccessibilityFocusMoveDirection {
-    /// Invalid direction.
+    /// Invalid value.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_INVALID: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(0);
-    /// Up.
+    /// Moves focus up.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_UP: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(1);
-    /// Down.
+    /// Moves focus down.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_DOWN: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(2);
-    /// Left.
+    /// Moves focus left.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_LEFT: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(4);
-    /// Right.
+    /// Moves focus right.
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_RIGHT: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(8);
-    /// Forward.
+    /// Moves focus to the next focusable node (relative to the reference node in query).
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_FORWARD: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(16);
-    /// Backward.
+    /// Moves focus to the previous focusable node (relative to the reference node in query).
+    ///
+    /// Available since API-level: 13
+    #[cfg(feature = "api-13")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub const ARKUI_ACCESSIBILITY_NATIVE_DIRECTION_BACKWARD: ArkUI_AccessibilityFocusMoveDirection =
         ArkUI_AccessibilityFocusMoveDirection(32);
 }
 #[repr(transparent)]
-/// Enumerates the directions for moving the accessibility focus.
+/// Enumerates accessibility focus movement directions.
 ///
 ///
 /// Available since API-level: 13
@@ -356,7 +590,7 @@ impl ArkUI_AccessibilityFocusMoveDirection {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_AccessibilityFocusMoveDirection(pub ::core::ffi::c_uint);
-/// Defines a struct for the accessibility element information list.
+/// Provides a **List** instance of encapsulated [`ArkUI_AccessibilityElementInfo`](crate::native_interface_accessibility::ArkUI_AccessibilityElementInfo).
 ///
 ///
 /// Available since API-level: 13
@@ -366,7 +600,9 @@ pub struct ArkUI_AccessibilityFocusMoveDirection(pub ::core::ffi::c_uint);
 pub struct ArkUI_AccessibilityElementInfoList {
     _unused: [u8; 0],
 }
-/// Registers callbacks for the accessibility provider.
+/// Defines callback functions of a third-party operation `provider`. The functions that need to be
+/// implemented by the third-party platform are registered with the system through
+/// [`OH_ArkUI_AccessibilityProviderRegisterCallback`](crate::native_interface_accessibility::OH_ArkUI_AccessibilityProviderRegisterCallback).
 ///
 ///
 /// Available since API-level: 13
@@ -375,22 +611,25 @@ pub struct ArkUI_AccessibilityElementInfoList {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibilityProviderCallbacks {
-    /// Called to obtain element information based on a specified node.
+    /// Finds node information for the specified node. Callback function implemented by the third-party platform
+    /// and registered with the system.
     ///
     /// # Arguments
     ///
-    /// * `elementId` - Indicates the element ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `mode` - Indicates accessibility search mode.
+    /// * `mode` - Accessibility search mode.
     ///
-    /// * `requestId` - Indicates the request ID.
+    /// * `requestId` - Request ID.
     ///
-    /// * `elementList` - Indicates accessibility elementInfo list.
+    /// * `elementList` - Accessibility element information list.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///
+    /// Available since API-level: 13
     pub findAccessibilityNodeInfosById: ::core::option::Option<
         unsafe extern "C" fn(
             elementId: i64,
@@ -399,22 +638,23 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
             elementList: *mut ArkUI_AccessibilityElementInfoList,
         ) -> i32,
     >,
-    /// Called to obtain element information based on a specified node and text content.
+    /// Finds the nodes that contain specific text content. Callback function implemented by the third-party
+    /// platform and registered with the system.
     ///
     /// # Arguments
     ///
-    /// * `elementId` - Indicates the element ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `text` - Indicates accessibility text.
+    /// * `text` - Accessibility text.
     ///
-    /// * `requestId` - Indicates the request ID.
+    /// * `requestId` - Request ID.
     ///
-    /// * `elementList` - Indicates accessibility elementInfo list.
+    /// * `elementList` - Accessibility element information list.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findAccessibilityNodeInfosByText: ::core::option::Option<
         unsafe extern "C" fn(
             elementId: i64,
@@ -423,22 +663,23 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
             elementList: *mut ArkUI_AccessibilityElementInfoList,
         ) -> i32,
     >,
-    /// Called to obtain focused element information based on a specified node.
+    /// Finds the node that has obtained the focus based on the focus type and returns the element information of
+    /// the node. Callback function implemented by the third-party platform and registered with the system.
     ///
     /// # Arguments
     ///
-    /// * `elementId` - Indicates the element ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `focusType` - Indicates focus type.
+    /// * `focusType` - Focus type.
     ///
-    /// * `requestId` - Indicates the request ID.
+    /// * `requestId` - Request ID.
     ///
-    /// * `elementInfo` - Indicates accessibility elementInfo.
+    /// * `elementInfo` - Accessibility element information.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findFocusedAccessibilityNode: ::core::option::Option<
         unsafe extern "C" fn(
             elementId: i64,
@@ -447,22 +688,22 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
             elementInfo: *mut ArkUI_AccessibilityElementInfo,
         ) -> i32,
     >,
-    /// Called to find the next focusable node based on the reference node.
+    /// Called to find the next focusable node based on the reference node mode and search direction.
     ///
     /// # Arguments
     ///
-    /// * `elementId` - Indicates the element ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `direction` - Indicates direction.
+    /// * `direction` - Search direction.
     ///
-    /// * `requestId` - Indicates the request ID.
+    /// * `requestId` - Request ID.
     ///
-    /// * `elementInfo` - Indicates accessibility elementInfo.
+    /// * `elementInfo` - Information about the found accessibility element.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findNextFocusAccessibilityNode: ::core::option::Option<
         unsafe extern "C" fn(
             elementId: i64,
@@ -471,22 +712,22 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
             elementInfo: *mut ArkUI_AccessibilityElementInfo,
         ) -> i32,
     >,
-    /// Called to execute a specified action on a specified node.
+    /// Executes an accessibility action on the specified accessibility node.
     ///
     /// # Arguments
     ///
-    /// * `elementId` - Indicates the element ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `action` - Indicates action.
+    /// * `action` - Action to execute.
     ///
     /// * `actionArguments` - Indicates action arguments.
     ///
-    /// * `requestId` - Indicates the request ID.
+    /// * `requestId` - Request ID.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub executeAccessibilityAction: ::core::option::Option<
         unsafe extern "C" fn(
             elementId: i64,
@@ -500,28 +741,31 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED) if the operation is failed.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub clearFocusedFocusAccessibilityNode: ::core::option::Option<unsafe extern "C" fn() -> i32>,
     /// Called to query the current cursor position of the specified node.
     ///
     /// # Arguments
     ///
-    /// * `elementId` - Indicates the element ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `requestId` - Indicates the request ID.
+    /// * `requestId` - Request ID.
     ///
-    /// * `index` - Indicates index.
+    /// * `index` - Index of the cursor position.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub getAccessibilityNodeCursorPosition: ::core::option::Option<
         unsafe extern "C" fn(elementId: i64, requestId: i32, index: *mut i32) -> i32,
     >,
 }
-/// Registers callbacks with instance for the accessibility provider.
+/// Defines callback functions of a third-party operation provider with instance ID.
+/// These callback functions need to be implemented by the third-party platform and registered
+/// with the system through [`OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance`](crate::native_interface_accessibility::OH_ArkUI_AccessibilityProviderRegisterCallbackWithInstance).
+///
 ///
 /// Available since API-level: 15
 #[cfg(feature = "api-15")]
@@ -529,23 +773,26 @@ pub struct ArkUI_AccessibilityProviderCallbacks {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
-    /// Called to obtain element information based on a specified node.
+    /// Finds node information for the specified node with instance ID.
+    ///
     /// # Arguments
     ///
-    /// * `instanceId` - Indicates ID of third-party framework instance.
+    /// * `instanceId` - Unique ID of the third-party framework instance.
     ///
-    /// * `elementId` - The unique id of the component ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `mode` - Indicates accessibility search mode.
+    /// * `mode` - Accessibility search mode.
     ///
-    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    /// * `requestId` - Request ID.
     ///
-    /// * `elementList` - The all obtained accessibility elements list information.
+    /// * `elementList` - Accessibility element information list.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///
+    /// Available since API-level: 15
     pub findAccessibilityNodeInfosById: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -555,23 +802,24 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
             elementList: *mut ArkUI_AccessibilityElementInfoList,
         ) -> i32,
     >,
-    /// Called to obtain element information based on a specified node and text content.
+    /// Finds the nodes that contain specific text content with instance ID.
+    ///
     /// # Arguments
     ///
-    /// * `instanceId` - Indicates ID of third-party framework instance.
+    /// * `instanceId` - Unique ID of the third-party framework instance.
     ///
-    /// * `elementId` - The unique id of the component ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `text` - Filter for the child components to matched with the text.
+    /// * `text` - Accessibility text.
     ///
-    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    /// * `requestId` - Request ID.
     ///
-    /// * `elementList` - The all obtained accessibility elements list information.
+    /// * `elementList` - Accessibility element information list.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findAccessibilityNodeInfosByText: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -581,23 +829,24 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
             elementList: *mut ArkUI_AccessibilityElementInfoList,
         ) -> i32,
     >,
-    /// Called to obtain focused element information based on a specified node.
+    /// Finds the node that has obtained the focus based on the focus type with instance ID.
+    ///
     /// # Arguments
     ///
-    /// * `instanceId` - Indicates ID of third-party framework instance.
+    /// * `instanceId` - Unique ID of the third-party framework instance.
     ///
-    /// * `elementId` - The unique id of the component ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `focusType` - Indicates focus type.
+    /// * `focusType` - Focus type.
     ///
-    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    /// * `requestId` - Request ID.
     ///
-    /// * `elementInfo` - The all obtained accessibility elements list information.
+    /// * `elementInfo` - Accessibility element information.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findFocusedAccessibilityNode: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -607,23 +856,24 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
             elementInfo: *mut ArkUI_AccessibilityElementInfo,
         ) -> i32,
     >,
-    /// Called to find the next focusable node based on the reference node.
+    /// Finds the next focusable node based on the reference node with instance ID.
+    ///
     /// # Arguments
     ///
-    /// * `instanceId` - Indicates ID of third-party framework instance.
+    /// * `instanceId` - Unique ID of the third-party framework instance.
     ///
-    /// * `elementId` - The unique id of the component ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `direction` - Indicates direction.
+    /// * `direction` - Search direction.
     ///
-    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    /// * `requestId` - Request ID.
     ///
-    /// * `elementInfo` - The all obtained accessibility elements list information.
+    /// * `elementInfo` - Information about the found accessibility element.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub findNextFocusAccessibilityNode: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -633,23 +883,24 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
             elementInfo: *mut ArkUI_AccessibilityElementInfo,
         ) -> i32,
     >,
-    /// Called to execute a specified action on a specified node.
+    /// Executes an accessibility action on the specified accessibility node with instance ID.
+    ///
     /// # Arguments
     ///
-    /// * `instanceId` - Indicates ID of third-party framework instance.
+    /// * `instanceId` - Unique ID of the third-party framework instance.
     ///
-    /// * `elementId` - The unique id of the component ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `action` - Indicates action.
+    /// * `action` - Action to execute.
     ///
     /// * `actionArguments` - Indicates action arguments.
     ///
-    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    /// * `requestId` - Request ID.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub executeAccessibilityAction: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -659,32 +910,34 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
             requestId: i32,
         ) -> i32,
     >,
-    /// Called to clear the focus state of the current focused node.
+    /// Clears the focus state of the current focused node with instance ID.
+    ///
     /// # Arguments
     ///
-    /// * `instanceId` - Indicates ID of third-party framework instance.
+    /// * `instanceId` - Unique ID of the third-party framework instance.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED) if the operation is failed.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_FAILED) if the operation fails.
     pub clearFocusedFocusAccessibilityNode:
         ::core::option::Option<unsafe extern "C" fn(instanceId: *const ::core::ffi::c_char) -> i32>,
-    /// Called to query the current cursor position of the specified node.
+    /// Queries the current cursor position of the specified node with instance ID.
+    ///
     /// # Arguments
     ///
-    /// * `instanceId` - Indicates ID of third-party framework instance.
+    /// * `instanceId` - Unique ID of the third-party framework instance.
     ///
-    /// * `elementId` - The unique id of the component ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
-    /// * `requestId` - Matched the request and response. transfer it by callback only.
+    /// * `requestId` - Request ID.
     ///
-    /// * `index` - Indicates index.
+    /// * `index` - Index of the cursor position.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     pub getAccessibilityNodeCursorPosition: ::core::option::Option<
         unsafe extern "C" fn(
             instanceId: *const ::core::ffi::c_char,
@@ -695,18 +948,21 @@ pub struct ArkUI_AccessibilityProviderCallbacksWithInstance {
     >,
 }
 extern "C" {
-    /// Registers a callback for this <b>ArkUI_AccessibilityProvider</b> instance.
+    /// Defines a struct for third-party accessibility provider callback functions, which third-party platforms need
+    /// to implement. These functions are registered with the system side through **
+    /// OH_ArkUI_AccessibilityProviderRegisterCallback**.
     ///
     /// # Arguments
     ///
-    /// * `provider` - Indicates the pointer to the <b>ArkUI_AccessibilityProvider</b> instance.
+    /// * `provider` - Pointer to an **ArkUI_AccessibilityProvider** instance.
     ///
-    /// * `callbacks` - Indicates the pointer to the <b>GetAccessibilityNodeCursorPosition</b> callback.
+    /// * `callbacks` - Pointer to an **ArkUI_AccessibilityProviderCallbacks** struct that contains the set of callback
+    /// functions implemented by the third-party platform.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -715,19 +971,21 @@ extern "C" {
         provider: *mut ArkUI_AccessibilityProvider,
         callbacks: *mut ArkUI_AccessibilityProviderCallbacks,
     ) -> i32;
-    /// Registers a callback with instance for this <b>ArkUI_AccessibilityProvider</b> instance.
+    /// Registers callbacks with instance for the accessibility provider.
+    ///
     /// # Arguments
     ///
-    /// * `instanceId` - Indicates ID of third-party framework instance.
+    /// * `instanceId` - Unique ID of the third-party framework instance.
     ///
-    /// * `provider` - Indicates the pointer to the <b>ArkUI_AccessibilityProvider</b> instance.
+    /// * `provider` - Pointer to an [`ArkUI_AccessibilityProvider`](ohos_sys_opaque_types::ArkUI_AccessibilityProvider) instance.
     ///
-    /// * `callbacks` - Indicates the pointer to the <b>ArkUI_AccessibilityProviderCallbacksWithInstance</b> callback.
+    /// * `callbacks` - Pointer to an [`ArkUI_AccessibilityProviderCallbacksWithInstance`](crate::native_interface_accessibility::ArkUI_AccessibilityProviderCallbacksWithInstance) struct that contains
+    /// the set of callback functions implemented by the third-party platform.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 15
     #[cfg(feature = "api-15")]
@@ -737,13 +995,13 @@ extern "C" {
         provider: *mut ArkUI_AccessibilityProvider,
         callbacks: *mut ArkUI_AccessibilityProviderCallbacksWithInstance,
     ) -> i32;
-    /// Sends accessibility event information.
+    /// Proactively sends an event to notify the accessibility service.
     ///
     /// # Arguments
     ///
-    /// * `provider` - Indicates the pointer to the <b>ArkUI_AccessibilityProvider</b> instance.
+    /// * `provider` - Handle to the third-party platform provider.
     ///
-    /// * `eventInfo` - Indicates the pointer to the accessibility event information.
+    /// * `eventInfo` - Pointer to the accessibility event information.
     ///
     /// * `callback` - Indicates the pointer to the callback that is called after the event is sent.
     ///
@@ -755,15 +1013,17 @@ extern "C" {
         eventInfo: *mut ArkUI_AccessibilityEventInfo,
         callback: ::core::option::Option<unsafe extern "C" fn(errorCode: i32)>,
     );
-    /// Adds and obtains the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Adds an **ArkUI_AccessibilityElementInfo** member to the specified list and returns the **
+    /// ArkUI_AccessibilityElementInfo** struct.
     ///
     /// # Arguments
     ///
-    /// * `list` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfoList</b> object.
+    /// * `list` - **ArkUI_AccessibilityElementInfoList** struct to which the newly created **
+    /// ArkUI_AccessibilityElementInfo** member is added and then returned to the function caller.
     ///
     /// # Returns
     ///
-    /// * Returns the pointer to the <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * Pointer to the created **ArkUI_AccessibilityElementInfo** struct; returns **NULL** if creation fails.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -771,18 +1031,18 @@ extern "C" {
     pub fn OH_ArkUI_AddAndGetAccessibilityElementInfo(
         list: *mut ArkUI_AccessibilityElementInfoList,
     ) -> *mut ArkUI_AccessibilityElementInfo;
-    /// Sets the element ID for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the component ID for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to an **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `elementId` - Indicates the element ID.
+    /// * `elementId` - Unique ID of the accessibility element.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -791,18 +1051,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         elementId: i32,
     ) -> i32;
-    /// Sets the parent ID for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the parent ID for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `parentId` - Indicates the parent ID.
+    /// * `parentId` - Accessibility ID of the element's parent component.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -811,18 +1071,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         parentId: i32,
     ) -> i32;
-    /// Sets the component type for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the component type for the **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `componentType` - Indicates the component type.
+    /// * `componentType` - Pointer to the component type of the element.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -831,18 +1091,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         componentType: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets the component content for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the component text content for the **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `contents` - Indicates the component content.
+    /// * `contents` - Pointer to the text content recognized by accessibility services for the element.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -851,18 +1111,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         contents: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets the hint text for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the hint text for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `hintText` - Indicates the hint text.
+    /// * `hintText` - Pointer to the hint text. The default value is **""**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -871,18 +1131,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         hintText: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets the accessibility text for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the accessibility text for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `accessibilityText` - Indicates the accessibility text.
+    /// * `accessibilityText` - Pointer to the accessibility text. The default value is **""**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -891,18 +1151,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         accessibilityText: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets the accessibility description for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the accessibility description for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `accessibilityDescription` - Indicates the accessibility description.
+    /// * `accessibilityDescription` - Pointer to the accessibility description. The default value is **""**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -911,20 +1171,20 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         accessibilityDescription: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Set the number of child nodes and child node IDs for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the child node count and IDs for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `childCount` - Indicates the number of child nodes.
+    /// * `childCount` - Child node count. The default value is **0**.
     ///
-    /// * `childNodeIds` - Indicates an array of child node IDs.
+    /// * `childNodeIds` - Pointer to the array of child node IDs.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -934,20 +1194,20 @@ extern "C" {
         childCount: i32,
         childNodeIds: *mut i64,
     ) -> i32;
-    /// Sets the operation actions for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the supported operations for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `operationCount` - Indicates the operation count.
+    /// * `operationCount` - Pointer to the number of actions supported by the component.
     ///
-    /// * `operationActions` - Indicates the operation actions.
+    /// * `operationActions` - Pointer to the array of actions supported by the component.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -957,18 +1217,18 @@ extern "C" {
         operationCount: i32,
         operationActions: *mut ArkUI_AccessibleAction,
     ) -> i32;
-    /// Sets the screen area for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the screen coordinates for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `screenRect` - Indicates the screen area.
+    /// * `screenRect` - Pointer to the screen coordinates.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -977,18 +1237,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         screenRect: *mut ArkUI_AccessibleRect,
     ) -> i32;
-    /// Sets whether the element is checkable for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object is checkable.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `checkable` - Indicates whether the element is checkable.
+    /// * `checkable` - Whether the object is checkable. **true**: checkable; **false**: not checkable. The default value is
+    /// **false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -997,18 +1258,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         checkable: bool,
     ) -> i32;
-    /// Sets whether the element is checked for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object is checked.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `checked` - Indicates whether the element is checked.
+    /// * `checked` - Whether the object is checked. **true**: checked; **false**: unchecked.
+    /// The default value is **false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1017,17 +1279,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         checked: bool,
     ) -> i32;
-    /// Sets whether the element is focusable for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object is focusable.
+    ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `focusable` - Indicates whether the element is focusable.
+    /// * `focusable` - Whether the object is focusable. **true**: focusable; **false**: not focusable. The default value is
+    /// **false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1036,18 +1300,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         focusable: bool,
     ) -> i32;
-    /// Sets whether the element is focused for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object is focused.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `isFocused` - Indicates whether the element is focused.
+    /// * `isFocused` - Whether the object is focused. **true**: focused; **false**: not focused. The default value is **
+    /// false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1056,18 +1321,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         isFocused: bool,
     ) -> i32;
-    /// Sets whether the element is visible for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether an **ArkUI_AccessibilityElementInfo** object is visible.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `isVisible` - Indicates whether the element is visible.
+    /// * `isVisible` - Whether the element is visible. **true**: visible; **false**: not visible. The default value is **
+    /// false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1076,18 +1342,20 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         isVisible: bool,
     ) -> i32;
-    /// Sets the accessibility focus state for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the element is focused for accessibility purposes for an **ArkUI_AccessibilityElementInfo**
+    /// object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `accessibilityFocused` - Indicates whether the element has accessibility focus.
+    /// * `accessibilityFocused` - Accessibility focus state. **true**: Accessibility focus is set. **false**: Accessibility
+    /// focus is not set. The default value is **false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1096,18 +1364,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         accessibilityFocused: bool,
     ) -> i32;
-    /// Sets whether the element is selected for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object is selected.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `selected` - Indicates whether the element is selected.
+    /// * `selected` - Whether the object is selected. **true**: selected; **false**: not selected. The default value is **
+    /// false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1116,18 +1385,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         selected: bool,
     ) -> i32;
-    /// Sets whether the element is clickable for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object is clickable.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `clickable` - Indicates whether the element is clickable.
+    /// * `clickable` - Whether the object is clickable. **true**: supported; **false**: not supported. The default value is
+    /// **false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1136,18 +1406,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         clickable: bool,
     ) -> i32;
-    /// Sets whether the element is long clickable for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object supports long-press gestures.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `longClickable` - Indicates whether the element is long clickable.
+    /// * `longClickable` - Whether long-press gestures are supported. **true**: supported; **false**: not supported. The
+    /// default value is **false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1156,18 +1427,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         longClickable: bool,
     ) -> i32;
-    /// Sets whether the element is enabled for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object is enabled.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `isEnabled` - Indicates whether the element is enabled.
+    /// * `isEnabled` - Whether the object is enabled. **true**: enabled; **false**: not enabled. The default value is **
+    /// false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1176,18 +1448,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         isEnabled: bool,
     ) -> i32;
-    /// Sets whether the element is a password for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object is a password.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `isPassword` - Indicates whether the element is a password.
+    /// * `isPassword` - Whether the object is a password. **true**: The object is a password. **false**: The object is not
+    /// a password. The default value is **false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1196,18 +1469,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         isPassword: bool,
     ) -> i32;
-    /// Sets whether the element is scrollable for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object is scrollable.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `scrollable` - Indicates whether the element is scrollable.
+    /// * `scrollable` - Whether scrolling is supported. **true**: supported; **false**: not supported. The default value is
+    /// **false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1216,18 +1490,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         scrollable: bool,
     ) -> i32;
-    /// Sets whether the element is editable for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object is editable.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `editable` - Indicates whether the element is editable.
+    /// * `editable` - Whether editing is supported. **true**: supported; **false**: not supported. The default value is **
+    /// false**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1236,18 +1511,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         editable: bool,
     ) -> i32;
-    /// Sets whether the element is a hint for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the hint status for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `isHint` - Indicates whether the element is a hint.
+    /// * `isHint` - Whether the object represents a hint. **true** if the object represents a hint, **false** otherwise.
+    /// The **hintText** information is obtained only when the object is in the hint state.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1256,18 +1532,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         isHint: bool,
     ) -> i32;
-    /// Sets the range information for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the range information for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `rangeInfo` - Indicates the range information.
+    /// * `rangeInfo` - Pointer to the current value, maximum value, and minimum value of the specific component.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1276,18 +1552,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         rangeInfo: *mut ArkUI_AccessibleRangeInfo,
     ) -> i32;
-    /// Sets the grid information for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the grid information for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `gridInfo` - Indicates the grid information.
+    /// * `gridInfo` - Pointer to the number of rows, number of columns, and selection mode of the specific component.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1296,18 +1572,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         gridInfo: *mut ArkUI_AccessibleGridInfo,
     ) -> i32;
-    /// Sets the grid item for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets a single-item container within a grid container for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `gridItem` - Indicates the grid item.
+    /// * `gridItem` - Pointer to the attribute values for the specific component.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1316,18 +1592,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         gridItem: *mut ArkUI_AccessibleGridItemInfo,
     ) -> i32;
-    /// Sets the starting index of the selected text for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the start position of the selected text for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `selectedTextStart` - Indicates the starting index of the selected text
+    /// * `selectedTextStart` - Start position of the selected text. Applicable to text components.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1336,18 +1612,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         selectedTextStart: i32,
     ) -> i32;
-    /// Sets the end index of the selected text for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the end position of the selected text for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `selectedTextEnd` - Indicates the end index of the selected text
+    /// * `selectedTextEnd` - End position of the selected text. Applicable to text components.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1356,18 +1632,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         selectedTextEnd: i32,
     ) -> i32;
-    /// Sets the index of the currently selected item for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the position information of the currently focused component for an **ArkUI_AccessibilityElementInfo**
+    /// object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `currentItemIndex` - Indicates the index of the currently selected item.
+    /// * `currentItemIndex` - Position information of the currently focused component.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1376,18 +1653,20 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         currentItemIndex: i32,
     ) -> i32;
-    /// Sets the index of the first item for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the position information of the first element displayed on the current screen for an **
+    /// ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `startItemIndex` - Indicates the index of the first item.
+    /// * `startItemIndex` - Index of the first item displayed on the current screen. Applicable to components such as **
+    /// List**, **Select**, **Swiper**, and **Tab_Bar**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1396,18 +1675,20 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         startItemIndex: i32,
     ) -> i32;
-    /// Sets the index of the last item for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the position information of the last element displayed on the current screen for an **
+    /// ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `endItemIndex` - Indicates the index of the last item.
+    /// * `endItemIndex` - Index of the last item displayed on the current screen.
+    /// Applicable to components such as **List**, **Select**, **Swiper**, and **Tab_Bar**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1416,18 +1697,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         endItemIndex: i32,
     ) -> i32;
-    /// Sets the number of items for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the total number of elements of a specific component for an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `itemCount` - Indicates the number of items.
+    /// * `itemCount` - Total count of items of the specific component.
+    /// Applicable to components such as **List**, **Select**, **Swiper**, and **Tab_Bar**.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1436,18 +1718,20 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         itemCount: i32,
     ) -> i32;
-    /// Sets the offset for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the scrolling pixel offset of the content area relative to the top coordinate of the element for an **
+    /// ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `offset` - Indicates the scroll pixel offset relative to the top of the element.
+    /// * `offset` - Scrolling pixel offset of the content area relative to the top coordinate of the element for scrollable
+    /// controls, such as `List` and `Grid`.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1456,18 +1740,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         offset: i32,
     ) -> i32;
-    /// Sets the accessibility group for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets whether the **ArkUI_AccessibilityElementInfo** object should be treated as an accessibility group.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `accessibilityGroup` - Indicates the accessibility group.
+    /// * `accessibilityGroup` - Whether to enable accessibility group behavior for the object. **true**: enable; **false**:
+    /// disable.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1476,18 +1761,25 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         accessibilityGroup: bool,
     ) -> i32;
-    /// Sets the accessibility level for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the accessibility level for the **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `accessibilityLevel` - Indicates the accessibility level.
+    /// * `accessibilityLevel` - Pointer to the accessibility level of the component, which is used to decide whether the
+    /// component is recognized by accessibility services.
+    /// <br>- **auto**: The system automatically determines the component's importance based on its attributes and
+    /// decides whether to allow accessibility services to recognize it.
+    /// <br>- **yes**: The component is important and allows recognition by accessibility services.
+    /// <br>- **no**: The component is not important and prohibits recognition by accessibility services.
+    /// <br>- **no-hide-descendants**: The component and its descendant nodes are not important, and prohibits
+    /// recognition of the component and its descendants by accessibility services.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1496,18 +1788,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         accessibilityLevel: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets the z-index for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the z-order of the component for the **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `zIndex` - Indicates the z-index value.
+    /// * `zIndex` - Z-order of the component, used to control the position of the component along the z-axis perpendicular
+    /// to the screen. This parameter is required for `UiTest`.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1516,18 +1809,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         zIndex: i32,
     ) -> i32;
-    /// Sets the opacity for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the opacity for the **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `opacity` - Indicates the opacity.
+    /// * `opacity` - Opacity. The value ranges from 0 to 1, where **1** indicates opaque and **0** indicates completely
+    /// transparent. This parameter is required for `UiTest`.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1536,18 +1830,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         opacity: f32,
     ) -> i32;
-    /// Sets the background color for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the background color for the **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `backgroundColor` - Indicates the background color.
+    /// * `backgroundColor` - Pointer to the background color. The value is in the **#ARGB** format. For example, the value
+    /// for non-transparent white is **"#FFFFFFFF"**. This parameter is required for `UiTest`.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1556,18 +1851,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         backgroundColor: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets the background image for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the background image for the **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `backgroundImage` - Indicates the backgroundImage.
+    /// * `backgroundImage` - Pointer to the background image. This parameter is required for `UiTest`.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1576,18 +1871,18 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         backgroundImage: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets the blur effect for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the blur value for the **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `blur` - Indicates the blur effect.
+    /// * `blur` - Pointer to the blur value. This parameter is required for `UiTest`.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// - [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// - [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1596,18 +1891,19 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         blur: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets the hit test behavior for an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the response logic and node blocking rules for the hit test for an **ArkUI_AccessibilityElementInfo**
+    /// object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
-    /// * `hitTestBehavior` - Indicates the hit test behavior.
+    /// * `hitTestBehavior` - Pointer to the hit test mode. For details about the value range, see [`HitTestMode`](crate::ui_input_event::HitTestMode).
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1616,13 +1912,36 @@ extern "C" {
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
         hitTestBehavior: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Creates an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Sets the component identifier for the accessibility node information of the **ArkUI_AccessibilityElementInfo**
+    /// object, which can be used to identify specific components in automated tests.
+    ///
+    /// # Arguments
+    ///
+    /// * `elementInfo` - Pointer to the element information of an accessibility node.
+    ///
+    /// * `identifier` - Pointer to the unique identifier of a component.
+    /// <br>Ensure that the component identifier in the reported component tree is unique and the character string
+    /// contains a maximum of 1024 characters. If the character string exceeds 1024 characters, it will be truncated.
+    ///
+    /// # Returns
+    ///
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_ArkUI_AccessibilityElementInfoSetComponentIdentifier(
+        elementInfo: *mut ArkUI_AccessibilityElementInfo,
+        identifier: *const ::core::ffi::c_char,
+    ) -> i32;
+    /// Creates an **ArkUI_AccessibilityElementInfo** object, which must be destroyed with **
+    /// OH_ArkUI_DestoryAccessibilityElementInfo**.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns the <b>ArkUI_AccessibilityElementInfo</b> object, or NULL if it fails to create.
-    /// The possible reason for failure is that the memory error occurred during object creation.
+    /// * Pointer to the **ArkUI_AccessibilityElementInfo** object.
     ///
     /// Available since API-level: 13
     ///
@@ -1630,11 +1949,11 @@ extern "C" {
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_ArkUI_CreateAccessibilityElementInfo() -> *mut ArkUI_AccessibilityElementInfo;
-    /// Destroys an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// Destroys an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `elementInfo` - Indicates the pointer to the <b>ArkUI_AccessibilityElementInfo</b> object to destroy.
+    /// * `elementInfo` - Pointer to the target **ArkUI_AccessibilityElementInfo** object.
     ///
     /// Available since API-level: 13
     ///
@@ -1644,40 +1963,40 @@ extern "C" {
     pub fn OH_ArkUI_DestoryAccessibilityElementInfo(
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
     );
-    /// Creates an <b>ArkUI_AccessibilityEventInfo</b> object.
+    /// Creates an **ArkUI_AccessibilityEventInfo** object, which must be destroyed with **
+    /// OH_ArkUI_DestoryAccessibilityEventInfo**.
     ///
     ///
     /// # Returns
     ///
-    /// * Returns the <b>ArkUI_AccessibilityEventInfo</b> object, or NULL if it fails to create.
-    /// The possible reason for failure is that the memory error occurred during object creation.
+    /// * Pointer to the **ArkUI_AccessibilityEventInfo** object.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_ArkUI_CreateAccessibilityEventInfo() -> *mut ArkUI_AccessibilityEventInfo;
-    /// Destroys an <b>ArkUI_AccessibilityEventInfo</b> object.
+    /// Destroys an **ArkUI_AccessibilityEventInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `eventInfo` - Indicates the pointer to the <b>ArkUI_AccessibilityEventInfo</b> object to destroy.
+    /// * `eventInfo` - Pointer to the **ArkUI_AccessibilityEventInfo** object to destroy.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-13")))]
     pub fn OH_ArkUI_DestoryAccessibilityEventInfo(eventInfo: *mut ArkUI_AccessibilityEventInfo);
-    /// Sets the event type for an <b>ArkUI_AccessibilityEventInfo</b> object.
+    /// Sets the event type for an **ArkUI_AccessibilityEventInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `eventInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityEventInfo</b> object.
+    /// * `eventInfo` - Pointer to an **ArkUI_AccessibilityEventInfo** object.
     ///
-    /// * `eventType` - Indicates the event type.
+    /// * `eventType` - Event type.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1686,18 +2005,18 @@ extern "C" {
         eventInfo: *mut ArkUI_AccessibilityEventInfo,
         eventType: ArkUI_AccessibilityEventType,
     ) -> i32;
-    /// Sets the text announced for accessibility for an <b>ArkUI_AccessibilityEventInfo</b> object.
+    /// Sets the content for auto-broadcasting for the **ArkUI_AccessibilityEventInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `eventInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityEventInfo</b> object.
+    /// * `eventInfo` - Pointer to an **ArkUI_AccessibilityEventInfo** object.
     ///
-    /// * `textAnnouncedForAccessibility` - Indicates the text announced for accessibility.
+    /// * `textAnnouncedForAccessibility` - Pointer to the content for auto-broadcasting.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1706,18 +2025,18 @@ extern "C" {
         eventInfo: *mut ArkUI_AccessibilityEventInfo,
         textAnnouncedForAccessibility: *const ::core::ffi::c_char,
     ) -> i32;
-    /// Sets the request focus ID for an <b>ArkUI_AccessibilityEventInfo</b> object.
+    /// Sets the focus request ID for an **ArkUI_AccessibilityEventInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `eventInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityEventInfo</b> object.
+    /// * `eventInfo` - Pointer to an **ArkUI_AccessibilityEventInfo** object.
     ///
-    /// * `requestFocusId` - Indicates the request focus ID.
+    /// * `requestFocusId` - Focus request ID.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1726,18 +2045,18 @@ extern "C" {
         eventInfo: *mut ArkUI_AccessibilityEventInfo,
         requestFocusId: i32,
     ) -> i32;
-    /// Sets the element information for an <b>ArkUI_AccessibilityEventInfo</b> object.
+    /// Sets the element information for an **ArkUI_AccessibilityEventInfo** object.
     ///
     /// # Arguments
     ///
-    /// * `eventInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityEventInfo</b> object.
+    /// * `eventInfo` - Pointer to an **ArkUI_AccessibilityEventInfo** object.
     ///
-    /// * `elementInfo` - Indicates the pointer to an <b>ArkUI_AccessibilityElementInfo</b> object.
+    /// * `elementInfo` - Pointer to an **ArkUI_AccessibilityElementInfo** object.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1746,20 +2065,20 @@ extern "C" {
         eventInfo: *mut ArkUI_AccessibilityEventInfo,
         elementInfo: *mut ArkUI_AccessibilityElementInfo,
     ) -> i32;
-    /// Obtains the value of a key from an <b>ArkUI_AccessibilityActionArguments</b> object.
+    /// Obtains the value associated with a specified key in an **ArkUI_AccessibilityActionArguments** struct.
     ///
     /// # Arguments
     ///
-    /// * `arguments` - Indicates the pointer to an <b>ArkUI_AccessibilityActionArguments</b> object.
+    /// * `arguments` - Pointer to an **ArkUI_AccessibilityActionArguments** object.
     ///
-    /// * `key` - Indicates the key.
+    /// * `key` - Pointer to the key.
     ///
-    /// * `value` - Indicates the value.
+    /// * `value` - Pointer to the value.
     ///
     /// # Returns
     ///
-    /// * Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
-    /// Returns [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter is incorrect.
+    /// * [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_SUCCESSFUL) if the operation is successful.
+    /// [`ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER`](crate::native_interface_accessibility::ArkUI_AcessbilityErrorCode::ARKUI_ACCESSIBILITY_NATIVE_RESULT_BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 13
     #[cfg(feature = "api-13")]
@@ -1769,22 +2088,22 @@ extern "C" {
         key: *const ::core::ffi::c_char,
         value: *mut *mut ::core::ffi::c_char,
     ) -> i32;
-    /// Obtains the pointer to the <b> ArkUI_AccessibilityProvider</b>
-    /// instance of this <b>ArkUI_NodeHandle</b> instance.
+    /// Obtains the level-2 pointer variable of the pointer to the [`ArkUI_AccessibilityProvider`](ohos_sys_opaque_types::ArkUI_AccessibilityProvider) object.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the <b>ArkUI_NodeHandle</b> instance.
+    /// * `node` - Pointer to an **ArkUI_NodeHandle** object.
     ///
-    /// * `provider` - Indicates the pointer to the <b>ArkUI_AccessibilityProvider</b> instance.
+    /// * `provider` - Double pointer to an object of the **ArkUI_AccessibilityProvider** type. **provider** is used to
+    /// register an accessibility callback function.
     ///
     /// # Returns
     ///
-    /// * Returns the result code.
-    ///
-    /// * Returns <b>ARKUI_ERROR_CODE_NO_ERROR<b> if the operation is successful.
-    /// Returns <b>ARKUI_ERROR_CODE_PARAM_INVALID<b> if a parameter error occurs:1. node or
-    /// provider is nullptr. 2. the type of node is not ARKUI_NODE_CUSTOM.
+    /// - Status code.
+    /// - [`ARKUI_ERROR_CODE_NO_ERROR`](crate::error_code::ArkUiResult) if the operation is successful.
+    /// - [`ARKUI_ERROR_CODE_PARAM_INVALID`](crate::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// - <br>Parameter error: 1. The input parameter **node** or **provider** is a null pointer.
+    /// - <br>2. The **ArkUI_NodeHandle** type corresponding to **node** is not **ARKUI_NODE_CUSTOM**.
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

@@ -5,8 +5,7 @@
 #![allow(non_snake_case)]
 use crate::common::{CryptoResult, Crypto_DataBlob};
 
-/// Define the key pair structure.
-///
+/// Key pair structure, representing a key pair.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -15,8 +14,7 @@ use crate::common::{CryptoResult, Crypto_DataBlob};
 pub struct OH_CryptoKeyPair {
     _unused: [u8; 0],
 }
-/// Define the public key structure.
-///
+/// Public key structure, representing a public key.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -25,8 +23,7 @@ pub struct OH_CryptoKeyPair {
 pub struct OH_CryptoPubKey {
     _unused: [u8; 0],
 }
-/// Defines the private key structure.
-///
+/// Private key structure, representing a private key.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -38,70 +35,189 @@ pub struct OH_CryptoPrivKey {
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl CryptoAsymKey_ParamType {
-    /// Indicates the DSA prime p.
+    /// Prime p of the DSA algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DSA_P_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(101);
-    /// Indicates the DSA sub-prime q.
+    /// Sub-prime q of the DSA algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DSA_Q_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(102);
-    /// Indicates the DSA base g.
+    /// Base g of the DSA algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DSA_G_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(103);
-    /// Indicates the DSA private key.
+    /// Private key of the DSA algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DSA_SK_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(104);
-    /// Indicates the DSA public key.
+    /// Public key of the DSA algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DSA_PK_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(105);
-    /// Indicates the prime p of an elliptic curve (EC) prime finite field.
+    /// Prime p of the elliptic curve (EC) prime field.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_FP_P_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(201);
-    /// Indicates the first coefficient a of this elliptic curve.
+    /// First coefficient a of the elliptic curve.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_A_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(202);
-    /// Indicates the second coefficient b of this elliptic curve.
+    /// Second coefficient b of the elliptic curve.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_B_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(203);
-    /// Indicates the affine x-coordinate of base point g.
+    /// Affine x-coordinate of the base point g.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_G_X_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(204);
-    /// Indicates the affine y-coordinate of base point g.
+    /// Affine y-coordinate of the base point g.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_G_Y_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(205);
-    /// Indicates the order of the base point g.
+    /// Order of the base point g.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_N_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(206);
-    /// Indicates the cofactor of the elliptic curve.
+    /// Cofactor of the elliptic curve.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_H_INT: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(207);
-    /// Indicates the private value of the ECC private key.
+    /// Private key value of the ECC private key.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_SK_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(208);
-    /// Indicates the affine x-coordinate of a point, which is the public point of an ECC public key.
+    /// Affine x-coordinate of the public key point in the ECC public key.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_PK_X_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(209);
-    /// Indicates the affine y-coordinate of a point, which is the public point of an ECC public key.
+    /// Affine y-coordinate of the public key point in the ECC public key.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_PK_Y_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(210);
-    /// Indicates an elliptic curve finite field type.
+    /// Finite field type of the elliptic curve.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_FIELD_TYPE_STR: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(211);
-    /// Indicates the field size in bits.
+    /// Bit length of the finite field.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_FIELD_SIZE_INT: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(212);
-    /// Indicates the curve name according to SECG (Standards for Efficient Cryptography Group).
+    /// Curve name of the SECG standard.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ECC_CURVE_NAME_STR: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(213);
-    /// Indicates the modulus n of RSA algorithm.
+    /// Modulus n of the RSA algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_RSA_N_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(301);
-    /// Indicates the private exponent d of RSA algorithm.
+    /// Private key exponent d of the RSA algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_RSA_D_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(302);
-    /// Indicates the public exponent e of RSA algorithm.
+    /// Public key exponent e of the RSA algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_RSA_E_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(303);
-    /// Indicates the prime p of DH algorithm.
+    /// Prime p of the DH algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DH_P_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(401);
-    /// Indicates the generator g of DH algorithm.
+    /// Generator g of the DH algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DH_G_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(402);
-    /// Indicates the number of bits of the private key length used in the DH algorithm.
+    /// Bit length of the private key in the DH algorithm.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DH_L_INT: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(403);
-    /// Indicates the private value of the DH private key.
+    /// Private key value of the DH private key.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DH_SK_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(404);
-    /// Indicates the public value of the DH public key.
+    /// Public key value of the DH public key.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DH_PK_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(405);
-    /// Indicates the private value of the ED25519 private key.
+    /// Private key value of the ED25519 private key.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ED25519_SK_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(501);
-    /// Indicates the public value of the ED25519 public key.
+    /// Public key value of the ED25519 public key.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_ED25519_PK_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(502);
-    /// Indicates the private value of the X25519 private key.
+    /// Private key value of the X25519 private key.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_X25519_SK_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(601);
-    /// Indicates the public value of the X25519 public key.
+    /// Public key value of the X25519 public key.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_X25519_PK_DATABLOB: CryptoAsymKey_ParamType = CryptoAsymKey_ParamType(602);
 }
 #[repr(transparent)]
-/// Define the asymmetric key parameter types.
-///
+/// Defines asymmetric key parameter types.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -111,22 +227,28 @@ pub struct CryptoAsymKey_ParamType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Crypto_EncodingType {
-    /// PEM format
+    /// PEM format.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_PEM: Crypto_EncodingType = Crypto_EncodingType(0);
-    /// DER format
+    /// DER format.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_DER: Crypto_EncodingType = Crypto_EncodingType(1);
 }
 #[repr(transparent)]
-/// Define the encoding type.
-///
+/// Defines the encoding type.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Crypto_EncodingType(pub ::core::ffi::c_uint);
-/// Define the asymmetric key generator structure.
-///
+/// Asymmetric key generator structure, representing an asymmetric key generator.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -135,8 +257,7 @@ pub struct Crypto_EncodingType(pub ::core::ffi::c_uint);
 pub struct OH_CryptoAsymKeyGenerator {
     _unused: [u8; 0],
 }
-/// Defines the private key encoding params structure.
-///
+/// Private key encoding parameters structure, representing private key encoding parameters.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -148,24 +269,32 @@ pub struct OH_CryptoPrivKeyEncodingParams {
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl CryptoPrivKeyEncoding_ParamType {
-    /// Indicates the password string.
+    /// Password string.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_PRIVATE_KEY_ENCODING_PASSWORD_STR: CryptoPrivKeyEncoding_ParamType =
         CryptoPrivKeyEncoding_ParamType(0);
-    /// Indicates the symmetric cipher string.
+    /// Symmetric cipher algorithm name, set via
+    /// [`OH_CryptoPrivKeyEncodingParams_SetParam`](crate::asym_key::OH_CryptoPrivKeyEncodingParams_SetParam).
+    /// Values: "DES-EDE3-CBC", "AES-128-CBC", "AES-192-CBC", "AES-256-CBC".
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_PRIVATE_KEY_ENCODING_SYMMETRIC_CIPHER_STR: CryptoPrivKeyEncoding_ParamType =
         CryptoPrivKeyEncoding_ParamType(1);
 }
 #[repr(transparent)]
-/// Defines the private key encoding param type.
-///
+/// Defines private key encoding parameter types.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct CryptoPrivKeyEncoding_ParamType(pub ::core::ffi::c_uint);
-/// Defines the asymmetric key spec structure.
-///
+/// Asymmetric key specification structure, representing an asymmetric key specification.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -177,27 +306,42 @@ pub struct OH_CryptoAsymKeySpec {
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl CryptoAsymKeySpec_Type {
-    /// Common parameters spec.
+    /// Common parameter specification.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_ASYM_KEY_COMMON_PARAMS_SPEC: CryptoAsymKeySpec_Type =
         CryptoAsymKeySpec_Type(0);
-    /// Private key spec.
+    /// Private key specification.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_ASYM_KEY_PRIVATE_KEY_SPEC: CryptoAsymKeySpec_Type = CryptoAsymKeySpec_Type(1);
-    /// Public key spec.
+    /// Public key specification.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_ASYM_KEY_PUBLIC_KEY_SPEC: CryptoAsymKeySpec_Type = CryptoAsymKeySpec_Type(2);
-    /// Key pair spec.
+    /// Key pair specification.
+    ///
+    /// Available since API-level: 20
+    #[cfg(feature = "api-20")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub const CRYPTO_ASYM_KEY_KEY_PAIR_SPEC: CryptoAsymKeySpec_Type = CryptoAsymKeySpec_Type(3);
 }
 #[repr(transparent)]
-/// Defines the asymmetric key spec type.
-///
+/// Defines asymmetric key specification types.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct CryptoAsymKeySpec_Type(pub ::core::ffi::c_uint);
-/// Defines the asymmetric key generator with spec.
-///
+/// Specification-based asymmetric key generator structure, representing a specification-based asymmetric key
+/// generator.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -206,8 +350,7 @@ pub struct CryptoAsymKeySpec_Type(pub ::core::ffi::c_uint);
 pub struct OH_CryptoAsymKeyGeneratorWithSpec {
     _unused: [u8; 0],
 }
-/// Defines the EC point structure.
-///
+/// Elliptic curve point structure, representing a point on the elliptic curve.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -217,44 +360,65 @@ pub struct OH_CryptoEcPoint {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create an asymmetric key generator according to the given algorithm name.
-    ///
+    /// Creates an asymmetric key generator based on the given algorithm name.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the algorithm name for generating the generator. Example RSA1024|PRIMES_2.
+    /// * `algoName` - \[in\] Asymmetric key algorithm name. Cannot be NULL. Values:
+    /// - RSA series since API version 12: "RSA512", "RSA768", "RSA1024", "RSA2048", "RSA3072",
+    /// "RSA4096", "RSA8192". Multi-prime format is supported, e.g. "RSA1024|PRIMES_3",
+    /// "RSA4096|PRIMES_4", "RSA8192|PRIMES_5".
+    /// - ECC series since API version 12: "ECC224", "ECC256", "ECC384", "ECC521".
+    /// - ECC BrainPool series since API version 12: "ECC_BrainPoolP160r1", "ECC_BrainPoolP160t1",
+    /// "ECC_BrainPoolP192r1", "ECC_BrainPoolP192t1", "ECC_BrainPoolP224r1", "ECC_BrainPoolP224t1",
+    /// "ECC_BrainPoolP256r1", "ECC_BrainPoolP256t1", "ECC_BrainPoolP320r1", "ECC_BrainPoolP320t1",
+    /// "ECC_BrainPoolP384r1", "ECC_BrainPoolP384t1", "ECC_BrainPoolP512r1", "ECC_BrainPoolP512t1".
+    /// - "SM2_256", "Ed25519", "X25519" supported since API version 12.
+    /// - DSA series since API version 12: "DSA1024", "DSA2048", "DSA3072".
+    /// - DH series since API version 12: "DH_modp1536", "DH_modp2048", "DH_modp3072",
+    /// "DH_modp4096", "DH_modp6144", "DH_modp8192", "DH_ffdhe2048", "DH_ffdhe3072",
+    /// "DH_ffdhe4096", "DH_ffdhe6144", "DH_ffdhe8192".
+    /// - "ECC_Secp256k1" supported since API version 14.
+    /// - "ECC192" supported since API version 26.0.0.
     ///
-    /// * `ctx` - Indicates the pointer to asymmetric key generator context.
+    /// * `ctx` - \[out\] Pointer to the asymmetric key generator pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or algoName is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `ctx` with [`OH_CryptoAsymKeyGenerator_Destroy`](crate::asym_key::OH_CryptoAsymKeyGenerator_Destroy).
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoAsymKeyGenerator_Generate`](crate::asym_key::OH_CryptoAsymKeyGenerator_Generate) Generates an asymmetric key pair.
+    ///
+    /// **See also:** [`OH_CryptoAsymKeyGenerator_Convert`](crate::asym_key::OH_CryptoAsymKeyGenerator_Convert) Converts asymmetric key data to a key pair.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoAsymKeyGenerator_Create(
         algoName: *const ::core::ffi::c_char,
         ctx: *mut *mut OH_CryptoAsymKeyGenerator,
     ) -> CryptoResult;
-    /// Generate an asymmetric key(a key pair).
-    ///
+    /// Generates an asymmetric key pair.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the asymmetric key generator context.
+    /// * `ctx` - \[in\] Asymmetric key generator. Cannot be NULL.
     ///
-    /// * `keyCtx` - Indicates the pointer to the asyKey context.
+    /// * `keyCtx` - \[out\] Pointer to the key pair pointer. keyCtx cannot be NULL, *keyCtx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or keyCtx is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `keyCtx` with [`OH_CryptoKeyPair_Destroy`](crate::asym_key::OH_CryptoKeyPair_Destroy).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -263,27 +427,28 @@ extern "C" {
         ctx: *mut OH_CryptoAsymKeyGenerator,
         keyCtx: *mut *mut OH_CryptoKeyPair,
     ) -> CryptoResult;
-    /// Convert the asymmetric key data to a key pair.
-    ///
+    /// Converts asymmetric key data to a key pair.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the asymmetric key generator context.
+    /// * `ctx` - \[in\] Asymmetric key generator. Cannot be NULL.
     ///
-    /// * `type` - Indicates the encryption encoding type.
+    /// * `type` - \[in\] Encoding type.
     ///
-    /// * `pubKeyData` - Indicates the public key data.
+    /// * `pubKeyData` - \[in\] Public key data. Cannot be NULL at the same time as priKeyData.
     ///
-    /// * `priKeyData` - Indicates the private key data.
+    /// * `priKeyData` - \[in\] Private key data. Cannot be NULL at the same time as pubKeyData.
     ///
-    /// * `keyCtx` - Indicates the pointer to the keyPair instance.
+    /// * `keyCtx` - \[out\] Pointer to the key pair pointer. keyCtx cannot be NULL, *keyCtx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx is NULL, pubKeyData and priKeyData are both NULL, keyCtx is NULL, or type is not a valid Crypto_EncodingType.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the key format is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if key conversion fails. Possible causes: key data is corrupted or not valid PEM/DER format, key data does not match the algorithm, or the password for an encrypted private key is incorrect.
+    ///
+    /// **Note:** Release `keyCtx` with [`OH_CryptoKeyPair_Destroy`](crate::asym_key::OH_CryptoKeyPair_Destroy).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -295,15 +460,15 @@ extern "C" {
         priKeyData: *mut Crypto_DataBlob,
         keyCtx: *mut *mut OH_CryptoKeyPair,
     ) -> CryptoResult;
-    /// Get the algorithm name of the asymmetric key generator.
-    ///
+    /// Obtains the algorithm name of the asymmetric key generator.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the asymmetric key generator context.
+    /// * `ctx` - \[in\] Asymmetric key generator. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Returns the asymmetric key algorithm name.
+    /// - Returns the asymmetric key algorithm name. No need to free by the caller. Invalid after the generator is destroyed.
+    /// - Returns NULL if ctx is NULL.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -311,73 +476,73 @@ extern "C" {
     pub fn OH_CryptoAsymKeyGenerator_GetAlgoName(
         ctx: *mut OH_CryptoAsymKeyGenerator,
     ) -> *const ::core::ffi::c_char;
-    /// Destroy the asymmetric key generator.
-    ///
+    /// Destroys the asymmetric key generator.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the asymmetric key generator context.
+    /// * `ctx` - \[in\] Asymmetric key generator.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoAsymKeyGenerator_Destroy(ctx: *mut OH_CryptoAsymKeyGenerator);
-    /// Destroy the key pair.
-    ///
+    /// Destroys the key pair.
     /// # Arguments
     ///
-    /// * `keyCtx` - Indicates the keyPair context.
+    /// * `keyCtx` - \[in\] Key pair.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoKeyPair_Destroy(keyCtx: *mut OH_CryptoKeyPair);
-    /// Get the public key of the key pair.
-    ///
+    /// Obtains the public key from the key pair.
     /// # Arguments
     ///
-    /// * `keyCtx` - Indicates the keyPair context.
+    /// * `keyCtx` - \[in\] Key pair. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return the public key context from the key pair.
+    /// - Returns the public key from the key pair. It is an internal reference and does not need to be destroyed separately. Invalid after the key pair is destroyed.
+    /// - Returns NULL if keyCtx is NULL or the public key does not exist.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoKeyPair_GetPubKey(keyCtx: *mut OH_CryptoKeyPair) -> *mut OH_CryptoPubKey;
-    /// Gets the private key of the key pair.
-    ///
+    /// Obtains the private key from the key pair.
     /// # Arguments
     ///
-    /// * `keyCtx` - Indicates the keyPair context.
+    /// * `keyCtx` - \[in\] Key pair. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return the private key context from the key pair.
+    /// - Returns the private key from the key pair. It is an internal reference and does not need to be destroyed separately. Invalid after the key pair is destroyed.
+    /// - Returns NULL if keyCtx is NULL or the private key does not exist.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoKeyPair_GetPrivKey(keyCtx: *mut OH_CryptoKeyPair) -> *mut OH_CryptoPrivKey;
-    /// Encode the public key.
-    ///
+    /// Encodes the public key.
     /// # Arguments
     ///
-    /// * `key` - Indicates the public key.
+    /// * `key` - \[in\] Public key. Cannot be NULL.
     ///
-    /// * `type` - Indicates the pubkey type.
+    /// * `type` - \[in\] Encoding type.
     ///
-    /// * `encodingStandard` - Indicates the encoding standard.
+    /// * `encodingStandard` - \[in\] Encoding standard. Supports "X509". Cannot be NULL.
     ///
-    /// * `out` - Indicates the encoded result.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encoding result. Cannot be NULL. Initialize
+    /// out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if key, out, or encodingStandard is NULL, type is not a valid Crypto_EncodingType, or the encoding standard is incompatible with the key type.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the encoding format is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if encoding fails.
+    ///
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -388,23 +553,25 @@ extern "C" {
         encodingStandard: *const ::core::ffi::c_char,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Get the specified param of the public key.
-    ///
+    /// Obtains the specified parameter of the public key.
     /// # Arguments
     ///
-    /// * `key` - Indicates the public key.
+    /// * `key` - \[in\] Public key. Cannot be NULL.
     ///
-    /// * `item` - Indicates the asymmetric key param type.
+    /// * `item` - \[in\] Asymmetric key parameter type.
     ///
-    /// * `value` - Indicates the output data.
+    /// * `value` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL.
+    /// Initialize value to {0} before calling. Do not pre-allocate value->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if key or value is NULL, or the parameter type is not supported for the key algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the parameter type is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if getting param fails.
+    ///
+    /// **Note:** Release `value` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -414,27 +581,24 @@ extern "C" {
         item: CryptoAsymKey_ParamType,
         value: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Sets the password to the asymmetric key generator context.
-    ///
-    /// Call this method to set the password if you need to convert encrypted private key data to a key pair using
-    /// [`OH_CryptoAsymKeyGenerator_Convert`](crate::asym_key::OH_CryptoAsymKeyGenerator_Convert).
-    ///
-    ///
+    /// Sets the password for the asymmetric key generator. Call this method to set the password if you need to use
+    /// [`OH_CryptoAsymKeyGenerator_Convert`](crate::asym_key::OH_CryptoAsymKeyGenerator_Convert) to convert encrypted private key data to a key pair.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the asymmetric key generator context.
+    /// * `ctx` - \[in\] Asymmetric key generator. Cannot be NULL.
     ///
-    /// * `password` - Indicates the password.
+    /// * `password` - \[in\] Password. This function performs a deep copy of the data in password. The
+    /// caller can release password immediately after the function returns. Cannot be NULL.
     ///
-    /// * `passwordLen` - Indicates the password length.
+    /// * `passwordLen` - \[in\] Byte length of the password. Must be greater than 0.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or password is NULL, or passwordLen is 0.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -444,43 +608,46 @@ extern "C" {
         password: *const ::core::ffi::c_uchar,
         passwordLen: u32,
     ) -> CryptoResult;
-    /// Creates private key encoding params.
-    ///
+    /// Creates private key encoding parameters.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the private key encoding params.
+    /// * `ctx` - \[out\] Pointer to the private key encoding parameters pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `ctx` with [`OH_CryptoPrivKeyEncodingParams_Destroy`](crate::asym_key::OH_CryptoPrivKeyEncodingParams_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoPrivKeyEncodingParams_SetParam`](crate::asym_key::OH_CryptoPrivKeyEncodingParams_SetParam) Sets private key encoding parameters.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoPrivKeyEncodingParams_Create(
         ctx: *mut *mut OH_CryptoPrivKeyEncodingParams,
     ) -> CryptoResult;
-    /// Sets the private key encoding params.
-    ///
+    /// Sets private key encoding parameters.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the private key encoding params.
+    /// * `ctx` - \[in\] Private key encoding parameters. Cannot be NULL.
     ///
-    /// * `type` - Indicates the private key encoding param type.
+    /// * `type` - \[in\] Private key encoding parameter type.
     ///
-    /// * `value` - Indicates the private key encoding params value.
+    /// * `value` - \[in\] Private key encoding parameter value. This function performs a deep copy of the data in value.
+    /// The caller can release value immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx or value is NULL, value->data is NULL, value->len is 0, or type is unrecognized.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation for deep copy fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -490,38 +657,40 @@ extern "C" {
         type_: CryptoPrivKeyEncoding_ParamType,
         value: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Destroys the private key encoding params.
-    ///
+    /// Destroys private key encoding parameters.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the private key encoding params.
+    /// * `ctx` - \[in\] Private key encoding parameters.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoPrivKeyEncodingParams_Destroy(ctx: *mut OH_CryptoPrivKeyEncodingParams);
     /// Encodes the private key.
-    ///
     /// # Arguments
     ///
-    /// * `key` - Indicates the private key.
+    /// * `key` - \[in\] Private key. Cannot be NULL.
     ///
-    /// * `type` - Indicates the private encoding type.
+    /// * `type` - \[in\] Encoding type.
     ///
-    /// * `encodingStandard` - Indicates the encoding standard, such as "PKCS8".
+    /// * `encodingStandard` - \[in\] Encoding standard. Supports "PKCS8" and "PKCS1". "PKCS1" is only supported for RSA
+    /// private keys. Cannot be NULL.
     ///
-    /// * `params` - Indicates the private key encoding params, it can be NULL, and if you want encypt the private key,
-    /// you should set this param.
+    /// * `params` - \[in\] Private key encoding parameters. Can be NULL. Set this parameter if the private key needs to be
+    /// encrypted.
     ///
-    /// * `out` - Indicates the encoded result.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encoding result. Cannot be NULL.
+    /// Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if key, out, or encodingStandard is NULL, type is not a valid Crypto_EncodingType, or the encoding standard is incompatible with the key type.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the encoding format is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if encoding fails.
+    ///
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -533,23 +702,25 @@ extern "C" {
         params: *mut OH_CryptoPrivKeyEncodingParams,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Gets the specified param of the private key.
-    ///
+    /// Obtains the specified parameter of the private key.
     /// # Arguments
     ///
-    /// * `key` - Indicates the private key.
+    /// * `key` - \[in\] Private key. Cannot be NULL.
     ///
-    /// * `item` - Indicates the asymmetric key param type.
+    /// * `item` - \[in\] Asymmetric key parameter type.
     ///
-    /// * `value` - Indicates the output data.
+    /// * `value` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL.
+    /// Initialize value to {0} before calling. Do not pre-allocate value->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if key or value is NULL, or the parameter type is not supported for the key algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the parameter type is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if getting param fails.
+    ///
+    /// **Note:** Release `value` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -559,21 +730,23 @@ extern "C" {
         item: CryptoAsymKey_ParamType,
         value: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Generates an EC common parameters spec.
-    ///
+    /// Generates EC common parameter specification.
     /// # Arguments
     ///
-    /// * `curveName` - Indicates the ECC curve name.
+    /// * `curveName` - \[in\] NID (Name Identifier) string of the ECC curve. Cannot be NULL.
+    /// e.g. "NID_X9_62_prime256v1", "NID_secp384r1", "NID_secp521r1", "NID_sm2".
     ///
-    /// * `spec` - Indicates the pointer to the EC common parameters spec.
+    /// * `spec` - \[out\] Pointer to the asymmetric key specification pointer. spec cannot be NULL, *spec must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if curveName or spec is NULL, or the curve name is not a valid elliptic curve.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the curve is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if generating spec fails.
+    ///
+    /// **Note:** Release `spec` with [`OH_CryptoAsymKeySpec_Destroy`](crate::asym_key::OH_CryptoAsymKeySpec_Destroy).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -582,23 +755,24 @@ extern "C" {
         curveName: *const ::core::ffi::c_char,
         spec: *mut *mut OH_CryptoAsymKeySpec,
     ) -> CryptoResult;
-    /// Generates a DH common parameters spec.
-    ///
+    /// Generates DH common parameter specification.
     /// # Arguments
     ///
-    /// * `pLen` - Indicates the byte length of the prime p.
+    /// * `pLen` - \[in\] Bit length of prime p.
     ///
-    /// * `skLen` - Indicates the byte length of the private key.
+    /// * `skLen` - \[in\] Bit length of the private key.
     ///
-    /// * `spec` - Indicates the pointer to the DH common parameters spec.
+    /// * `spec` - \[out\] Pointer to the asymmetric key specification pointer. spec cannot be NULL, *spec must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec is NULL, pLen is negative, skLen is negative, or skLen is greater than pLen.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `spec` with [`OH_CryptoAsymKeySpec_Destroy`](crate::asym_key::OH_CryptoAsymKeySpec_Destroy).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -608,23 +782,25 @@ extern "C" {
         skLen: ::core::ffi::c_int,
         spec: *mut *mut OH_CryptoAsymKeySpec,
     ) -> CryptoResult;
-    /// Creates an asymmetric key spec according to the given algorithm name and spec type.
-    ///
+    /// Creates an asymmetric key specification based on the given algorithm name and specification type.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the algorithm name for generating the spec. Example RSA.
+    /// * `algoName` - \[in\] Asymmetric key specification algorithm name. Cannot be NULL. Values:
+    /// - "RSA", "ECC", "DSA", "SM2", "Ed25519", "X25519", "DH" supported since API version 20.
     ///
-    /// * `type` - Indicates the asymmetric key spec type.
+    /// * `type` - \[in\] Asymmetric key specification type.
     ///
-    /// * `spec` - Indicates the pointer to the asymmetric key spec.
+    /// * `spec` - \[out\] Pointer to the asymmetric key specification pointer. spec cannot be NULL, *spec must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if algoName or spec is NULL, algoName is not a supported algorithm name.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `spec` with [`OH_CryptoAsymKeySpec_Destroy`](crate::asym_key::OH_CryptoAsymKeySpec_Destroy).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -634,23 +810,23 @@ extern "C" {
         type_: CryptoAsymKeySpec_Type,
         spec: *mut *mut OH_CryptoAsymKeySpec,
     ) -> CryptoResult;
-    /// Sets the specified parameter to the asymmetric key spec.
-    ///
+    /// Sets the specified parameter of the asymmetric key specification.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the asymmetric key spec.
+    /// * `spec` - \[in\] Asymmetric key specification. Cannot be NULL.
     ///
-    /// * `type` - Indicates the asymmetric key param type.
+    /// * `type` - \[in\] Asymmetric key parameter type.
     ///
-    /// * `value` - Indicates the input data.
+    /// * `value` - \[in\] Input data. This function performs a deep copy of the data in value. The caller can release value
+    /// immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec or value is NULL, value->data is NULL, value->len is 0, or the parameter type is not supported for the algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation for deep copy fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -660,21 +836,21 @@ extern "C" {
         type_: CryptoAsymKey_ParamType,
         value: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Sets the common parameters spec to the asymmetric key spec.
-    ///
+    /// Sets the common parameter specification into the asymmetric key specification.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the asymmetric key spec.
+    /// * `spec` - \[in\] Asymmetric key specification. Cannot be NULL.
     ///
-    /// * `commonParamsSpec` - Indicates the common parameters spec.
+    /// * `commonParamsSpec` - \[in\] Common parameter specification. This function performs a deep copy of the data in
+    /// commonParamsSpec. The caller can release commonParamsSpec immediately after the function returns. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec or commonParamsSpec is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -683,23 +859,25 @@ extern "C" {
         spec: *mut OH_CryptoAsymKeySpec,
         commonParamsSpec: *mut OH_CryptoAsymKeySpec,
     ) -> CryptoResult;
-    /// Gets the specified parameter from the asymmetric key spec.
-    ///
+    /// Obtains the specified parameter of the asymmetric key specification.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the asymmetric key spec.
+    /// * `spec` - \[in\] Asymmetric key specification. Cannot be NULL.
     ///
-    /// * `type` - Indicates the asymmetric key param type.
+    /// * `type` - \[in\] Asymmetric key parameter type.
     ///
-    /// * `value` - Indicates the output data.
+    /// * `value` - \[out\] Pointer to the Crypto_DataBlob structure for storing the output data. Cannot be NULL.
+    /// Initialize value to {0} before calling. Do not pre-allocate value->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if spec or value is NULL, or the parameter type is not supported for the algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `value` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -709,54 +887,59 @@ extern "C" {
         type_: CryptoAsymKey_ParamType,
         value: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Destroys the asymmetric key spec.
-    ///
+    /// Destroys the asymmetric key specification.
     /// # Arguments
     ///
-    /// * `spec` - Indicates the asymmetric key spec.
+    /// * `spec` - \[in\] Asymmetric key specification.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoAsymKeySpec_Destroy(spec: *mut OH_CryptoAsymKeySpec);
-    /// Creates an asymmetric key generator with spec.
-    ///
+    /// Creates a key generator based on the asymmetric key specification.
     /// # Arguments
     ///
-    /// * `keySpec` - Indicates the asymmetric key spec.
+    /// * `keySpec` - \[in\] Asymmetric key specification. Cannot be NULL.
     ///
-    /// * `generator` - Indicates the asymmetric key generator with spec.
+    /// * `generator` - \[out\] Pointer to the specification-based asymmetric key generator pointer. generator cannot be NULL,
+    /// *generator must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if keySpec or generator is NULL, or key specification parameters are incomplete or invalid.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if creating generator fails.
+    ///
+    /// **Note:** Release `generator` with [`OH_CryptoAsymKeyGeneratorWithSpec_Destroy`](crate::asym_key::OH_CryptoAsymKeyGeneratorWithSpec_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair`](crate::asym_key::OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair) Generates a key pair based on the asymmetric key
+    /// specification.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoAsymKeyGeneratorWithSpec_Create(
         keySpec: *mut OH_CryptoAsymKeySpec,
         generator: *mut *mut OH_CryptoAsymKeyGeneratorWithSpec,
     ) -> CryptoResult;
-    /// Generates a key pair according to the asymmetric key spec.
-    ///
+    /// Generates a key pair based on the asymmetric key specification.
     /// # Arguments
     ///
-    /// * `generator` - Indicates the asymmetric key generator with spec.
+    /// * `generator` - \[in\] Specification-based asymmetric key generator. Cannot be NULL.
     ///
-    /// * `keyPair` - Indicates the pointer to the key pair.
+    /// * `keyPair` - \[out\] Pointer to the key pair pointer. keyPair cannot be NULL, *keyPair must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if generator or keyPair is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the operation is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if generating key pair fails. Possible causes: key specification parameters are incomplete or inconsistent.
+    ///
+    /// **Note:** Release `keyPair` with [`OH_CryptoKeyPair_Destroy`](crate::asym_key::OH_CryptoKeyPair_Destroy).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -765,11 +948,10 @@ extern "C" {
         generator: *mut OH_CryptoAsymKeyGeneratorWithSpec,
         keyPair: *mut *mut OH_CryptoKeyPair,
     ) -> CryptoResult;
-    /// Destroys the asymmetric key generator with spec.
-    ///
+    /// Destroys the specification-based asymmetric key generator.
     /// # Arguments
     ///
-    /// * `generator` - Indicates the asymmetric key generator with spec.
+    /// * `generator` - \[in\] Specification-based asymmetric key generator.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -777,26 +959,32 @@ extern "C" {
     pub fn OH_CryptoAsymKeyGeneratorWithSpec_Destroy(
         generator: *mut OH_CryptoAsymKeyGeneratorWithSpec,
     );
-    /// Creates an EC point.
-    ///
+    /// Creates an elliptic curve point.
     /// # Arguments
     ///
-    /// * `curveName` - Indicates the curve name.
+    /// * `curveName` - \[in\] NID (Name Identifier) string of the elliptic curve. Cannot be NULL.
+    /// e.g. "NID_X9_62_prime256v1", "NID_secp384r1", "NID_secp521r1", "NID_sm2".
     ///
-    /// * `ecKeyData` - Indicates the EC point data, supports "04 || x || y", "02 || x" or "03 || x" format.
-    /// If ecKeyData param is NULL, an empty EC point spec will be created.
+    /// * `ecKeyData` - \[in\] Elliptic curve point data. Supports "04 || x || y", "02 || x", or "03 || x" format.
+    /// Can be NULL. If ecKeyData is NULL, an empty elliptic curve point specification is created.
     ///
-    /// * `point` - Indicates the pointer to the EC point.
+    /// * `point` - \[out\] Pointer to the elliptic curve point pointer. point cannot be NULL, *point must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if curveName or point is NULL, or the curve name is invalid.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the curve is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if creating EC point fails. Possible causes: the point data format is incorrect.
+    ///
+    /// **Note:** Release `point` with [`OH_CryptoEcPoint_Destroy`](crate::asym_key::OH_CryptoEcPoint_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoEcPoint_GetCoordinate`](crate::asym_key::OH_CryptoEcPoint_GetCoordinate) Obtains the x and y coordinates of the elliptic curve point.
+    ///
+    /// **See also:** [`OH_CryptoEcPoint_SetCoordinate`](crate::asym_key::OH_CryptoEcPoint_SetCoordinate) Sets the x and y coordinates of the elliptic curve point.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoEcPoint_Create(
@@ -804,23 +992,28 @@ extern "C" {
         ecKeyData: *mut Crypto_DataBlob,
         point: *mut *mut OH_CryptoEcPoint,
     ) -> CryptoResult;
-    /// Gets the x and y coordinate of the EC point.
-    ///
+    /// Obtains the x and y coordinates of the elliptic curve point.
     /// # Arguments
     ///
-    /// * `point` - Indicates the EC point.
+    /// * `point` - \[in\] Elliptic curve point. Cannot be NULL.
     ///
-    /// * `x` - Indicates the x coordinate of the EC point, it can be NULL.
+    /// * `x` - \[out\] Pointer to the Crypto_DataBlob structure for storing the x-coordinate. Cannot be NULL.
+    /// Initialize x to {0} before calling. Do not pre-allocate x->data.
     ///
-    /// * `y` - Indicates the y coordinate of the EC point, it can be NULL.
+    /// * `y` - \[out\] Pointer to the Crypto_DataBlob structure for storing the y-coordinate. Cannot be NULL.
+    /// Initialize y to {0} before calling. Do not pre-allocate y->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if point, x, or y is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `y` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
+    ///
+    /// **Note:** Release `x` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -830,25 +1023,27 @@ extern "C" {
         x: *mut Crypto_DataBlob,
         y: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Sets the x and y coordinate to the EC point.
-    ///
+    /// Sets the x and y coordinates of the elliptic curve point.
     /// # Arguments
     ///
-    /// * `point` - Indicates the EC point.
+    /// * `point` - \[in\] Elliptic curve point. Cannot be NULL.
     ///
-    /// * `x` - Indicates the x coordinate of the EC point.
+    /// * `x` - \[in\] x-coordinate of the elliptic curve point. This function performs a deep copy of the
+    /// data in x and y. The caller can release x and y immediately after the function returns. Cannot be NULL.
     ///
-    /// * `y` - Indicates the y coordinate of the EC point.
+    /// * `y` - \[in\] y-coordinate of the elliptic curve point. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if point, x, or y is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation for deep copy fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoEcPoint_Encode`](crate::asym_key::OH_CryptoEcPoint_Encode) Encodes the elliptic curve point to the specified format.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoEcPoint_SetCoordinate(
@@ -856,23 +1051,25 @@ extern "C" {
         x: *mut Crypto_DataBlob,
         y: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Encodes the EC point to the specified format.
-    ///
+    /// Encodes the elliptic curve point to the specified format.
     /// # Arguments
     ///
-    /// * `point` - Indicates the EC point.
+    /// * `point` - \[in\] Elliptic curve point. Cannot be NULL.
     ///
-    /// * `format` - Indicates the encoding format, supports "UNCOMPRESSED" and "COMPRESSED".
+    /// * `format` - \[in\] Encoding format. Cannot be NULL. Supports "UNCOMPRESSED" and "COMPRESSED".
     ///
-    /// * `out` - Indicates the encoded ec point data.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the encoded point data. Cannot be NULL.
+    /// Initialize out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if point, format, or out is NULL, or the format string is not a valid point format.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the format is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if encoding fails. Possible causes: the point is not a valid curve point.
+    ///
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -882,11 +1079,10 @@ extern "C" {
         format: *const ::core::ffi::c_char,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Destroys the EC point.
-    ///
+    /// Destroys the elliptic curve point.
     /// # Arguments
     ///
-    /// * `point` - Indicates the EC point.
+    /// * `point` - \[in\] Elliptic curve point.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

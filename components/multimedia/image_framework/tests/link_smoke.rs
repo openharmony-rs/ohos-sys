@@ -175,4 +175,24 @@ fn link_smoke() {
             ptr::null_mut(),
         );
     }
+
+    #[cfg(feature = "api-24")]
+    unsafe {
+        let _ = image::native_image::image_source::OH_ImageSourceNative_DestroyImageRawData(
+            ptr::null_mut(),
+        );
+    }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = image::native_image::common::OH_PictureMetadata_GetBlobDataSize(
+            ptr::null_mut(),
+            ptr::null_mut(),
+        );
+        let _ = image::native_image::picture::OH_PictureNative_GetAuxiliaryPictureCount(
+            ptr::null_mut(),
+            ptr::null_mut(),
+        );
+        let _ = image::native_image::pixelmap::OH_PixelmapNative_SetOpacity(ptr::null_mut(), 0.0);
+    }
 }

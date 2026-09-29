@@ -8,109 +8,127 @@
 use crate::averrors::OH_AVErrCode;
 
 extern "C" {
-    /// Key for track index, value type is int32_t.
+    /// Track index. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_TRACK_INDEX: *const ::core::ffi::c_char;
-    /// Key for track type, value type is int32_t
+    /// Track type. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_TRACK_TYPE: *const ::core::ffi::c_char;
-    /// Key for codec mime type, value type is string.
+    /// MIME type of the codec. The value type is string.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_MIME_TYPE: *const ::core::ffi::c_char;
-    /// Key for duration, value type is int64_t.
+    /// Media duration, in microseconds. The value type is int64_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_DURATION: *const ::core::ffi::c_char;
-    /// Key for bitrate, value type is int64_t.
+    /// Bit rate, in bit/s. The value type is int64_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_BITRATE: *const ::core::ffi::c_char;
-    /// Key for video frame rate (frame count in 100s), value type is double.
+    /// Video frame rate (number of frames per 100 seconds). The value type is double.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_FRAME_RATE: *const ::core::ffi::c_char;
-    /// Key for video width, value type is int32_t.
+    /// Video width. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_WIDTH: *const ::core::ffi::c_char;
-    /// Key for video height, value type is int32_t.
+    /// Video height. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_HEIGHT: *const ::core::ffi::c_char;
-    /// Key for audio channel count, value type is int32_t.
+    /// Number of audio channels. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_CHANNEL_COUNT: *const ::core::ffi::c_char;
-    /// Key for audio sample rate (Hz), value type is int32_t.
+    /// Audio sampling rate (Hz). The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_SAMPLE_RATE: *const ::core::ffi::c_char;
-    /// Key for audio bit depth, value type is int32_t.
+    /// Audio sampling bit depth. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_SAMPLE_DEPTH: *const ::core::ffi::c_char;
-    /// Key for language, value type is string.
+    /// Language ID. The value type is string.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_LANGUAGE: *const ::core::ffi::c_char;
-    /// Key for track name, value type is string.
+    /// Track name. The value type is string.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_TRACK_NAME: *const ::core::ffi::c_char;
-    /// Key for hdr type, value type is int32_t.
+    /// HDR type. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_HDR_TYPE: *const ::core::ffi::c_char;
-    /// Key for original width, value type is int32_t.
+    /// Original video width. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_ORIGINAL_WIDTH: *const ::core::ffi::c_char;
-    /// Key for original height, value type is int32_t.
+    /// Original video height. The value type is int32_t.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_ORIGINAL_HEIGHT: *const ::core::ffi::c_char;
-    /// Key to get the list of referenced track IDs. Only used by metadata extractor.
+    /// List of referenced track IDs, which is used only for the metadata extractor.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub static mut OH_AVMETA_KEY_REF_TRACK_IDS: *const ::core::ffi::c_char;
-    /// Key to get the track reference type. Only used by metadata extractor.
+    /// Track reference type, which is used only for the metadata extractor.
+    ///
     ///
     /// Available since API-level: 23
     #[cfg(feature = "api-23")]

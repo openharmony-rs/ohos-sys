@@ -9,24 +9,34 @@ use crate::sym_key::OH_CryptoSymKey;
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl CryptoSymCipher_ParamsType {
-    /// Indicates the parameters such as iv.
+    /// Initialization vector (IV) parameter.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_IV_DATABLOB: CryptoSymCipher_ParamsType = CryptoSymCipher_ParamsType(100);
-    /// Indicates the additional Authenticated Data in GCM mode.
+    /// Additional authenticated data (AAD) for AEAD modes (e.g. GCM, CCM).
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_AAD_DATABLOB: CryptoSymCipher_ParamsType = CryptoSymCipher_ParamsType(101);
-    /// Indicates the output tag from the encryption operation. The tag is used for integrity check.
+    /// Authentication tag for AEAD modes (e.g. GCM, CCM), used for data integrity verification.
+    ///
+    /// Available since API-level: 12
+    #[cfg(feature = "api-12")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const CRYPTO_TAG_DATABLOB: CryptoSymCipher_ParamsType = CryptoSymCipher_ParamsType(102);
 }
 #[repr(transparent)]
-/// Define the cipher param type.
-///
+/// Defines the cipher parameter types.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct CryptoSymCipher_ParamsType(pub ::core::ffi::c_uint);
-/// Define the symmetric key cipher structure.
-///
+/// Symmetric cipher structure, representing a symmetric cipher context.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -35,8 +45,7 @@ pub struct CryptoSymCipher_ParamsType(pub ::core::ffi::c_uint);
 pub struct OH_CryptoSymCipher {
     _unused: [u8; 0],
 }
-/// Define the symmetric key cipher params structure.
-///
+/// Symmetric cipher parameters structure, representing symmetric cipher parameters.
 ///
 /// Available since API-level: 12
 #[cfg(feature = "api-12")]
@@ -46,43 +55,47 @@ pub struct OH_CryptoSymCipherParams {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create a symmetric key cipher params.
-    ///
+    /// Creates symmetric cipher parameters.
     /// # Arguments
     ///
-    /// * `params` - Indicates the pointer to the cipher params context.
+    /// * `params` - \[out\] Pointer to the cipher parameters pointer. params cannot be NULL, *params must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if params is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `params` with [`OH_CryptoSymCipherParams_Destroy`](crate::sym_cipher::OH_CryptoSymCipherParams_Destroy).
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoSymCipherParams_SetParam`](crate::sym_cipher::OH_CryptoSymCipherParams_SetParam) Sets cipher parameters.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoSymCipherParams_Create(
         params: *mut *mut OH_CryptoSymCipherParams,
     ) -> CryptoResult;
-    /// Set a parameter to the cipher params context.
-    ///
+    /// Sets cipher parameters.
     /// # Arguments
     ///
-    /// * `params` - Indicates the parameters context.
+    /// * `params` - \[in\] Cipher parameters. Cannot be NULL.
     ///
-    /// * `paramsType` - Set cipher parameters.
+    /// * `paramsType` - \[in\] Cipher parameter type to set.
     ///
-    /// * `value` - Indicates the setParam result.
+    /// * `value` - \[in\] Parameter value. This function performs a shallow copy and does not copy the
+    /// data in value. The caller must ensure that the memory pointed to by value remains valid until
+    /// [`OH_CryptoSymCipher_Init`](crate::sym_cipher::OH_CryptoSymCipher_Init) completes. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if params or value is NULL, or paramsType is unrecognized.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -92,67 +105,98 @@ extern "C" {
         paramsType: CryptoSymCipher_ParamsType,
         value: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Destroy the cipher params context.
-    ///
+    /// Destroys cipher parameters.
     /// # Arguments
     ///
-    /// * `params` - Indicates the parameters context.
+    /// * `params` - \[in\] Cipher parameters.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoSymCipherParams_Destroy(params: *mut OH_CryptoSymCipherParams);
-    /// Create a symmetric key cipher context according to the given algorithm name.
-    ///
+    /// Creates a symmetric cipher context based on the given algorithm name.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the algorithm name used to generate the symmetric key cipher context.
-    /// Example AES128|GCM|PKCS7.
+    /// * `algoName` - \[in\] Symmetric cipher algorithm name. Cannot be NULL. Format: "Algorithm|Mode|Padding",
+    /// separated by "|". Algorithms: AES128, AES192, AES256, SM4_128, 3DES192, DES64, ChaCha20, RC2,
+    /// Blowfish, CAST. Modes: ECB, CBC, CTR, OFB, CFB, CFB1, CFB8, CFB64, CFB128, GCM, CCM, XTS,
+    /// Poly1305. Padding: NoPadding, PKCS5, PKCS7. Supported combinations:
+    /// - AES series since API version 12: AES128, AES192, AES256 algorithms, ECB, CBC, CTR, OFB, CFB,
+    /// GCM, CCM modes, NoPadding or PKCS7. Examples: "AES128|GCM", "AES256|CBC|PKCS7".
+    /// - 3DES series since API version 12: 3DES192 algorithm, ECB, CBC, OFB, CFB modes, NoPadding,
+    /// PKCS5, or PKCS7. Example: "3DES192|CBC|PKCS5".
+    /// - SM4 series since API version 12: SM4_128 algorithm, ECB, CBC, CTR, OFB, CFB, CFB128, GCM modes,
+    /// NoPadding or PKCS7. Examples: "SM4_128|CBC|PKCS7", "SM4_128|GCM|NoPadding".
+    /// - DES series since API version 20: DES64 algorithm, ECB, CBC, OFB, CFB modes, NoPadding,
+    /// PKCS5, or PKCS7. Example: "DES64|CBC|PKCS5".
+    /// - AES WRAP algorithms since API version 22: AES128_WRAP, AES192_WRAP, AES256_WRAP.
+    /// Examples: "AES128_WRAP", "AES192_WRAP", "AES256_WRAP".
+    /// - ChaCha20 since API version 22: "ChaCha20", "ChaCha20|Poly1305".
+    /// Examples: "ChaCha20|Poly1305", "ChaCha20".
+    /// - AES XTS mode since API version 26.0.0: "AES128|XTS", "AES256|XTS". AES192 is not supported.
+    /// - RC2 since API version 26.0.0: ECB, CBC, OFB, CFB modes, NoPadding, PKCS5, or PKCS7. Example: "RC2|CBC|PKCS5".
+    /// - RC4 since API version 26.0.0: "RC4". Example: "RC4".
+    /// - Blowfish since API version 26.0.0: ECB, CBC, OFB, CFB modes, NoPadding, PKCS5, or PKCS7.
+    /// Example: "Blowfish|CBC|PKCS5".
+    /// - CAST since API version 26.0.0: ECB, CBC, OFB, CFB modes, NoPadding, PKCS5, or PKCS7. Example: "CAST|CBC|PKCS5".
+    /// Padding notes:
+    /// - ECB and CBC modes require padding: when plaintext length is not a multiple of the algorithm block size,
+    /// PKCS5 or PKCS7 must be used; with NoPadding, input length must be a multiple of the
+    /// block size (16 bytes for AES/SM4, 8 bytes for DES/3DES/RC2/Blowfish/CAST).
+    /// - CTR, OFB, CFB, CFB1, CFB8, CFB64, CFB128, GCM, CCM modes convert block ciphers to stream
+    /// mode and do not need padding. Any specified padding is treated as NoPadding.
+    /// - XTS mode does not involve padding and does not require a padding field. Any specified padding is treated
+    /// as NoPadding.
+    /// - ChaCha20 is a stream cipher algorithm and does not require a padding field. Any specified padding is treated
+    /// as NoPadding.
     ///
-    /// * `ctx` - Indicates the pointer to the symmetric key cipher context.
+    /// * `ctx` - \[out\] Pointer to the symmetric cipher context pointer. ctx cannot be NULL, *ctx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or algoName is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if parameters are invalid. \[since 20\]
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if crypto operation fails.
+    ///
+    /// **Note:** Release `ctx` with [`OH_CryptoSymCipher_Destroy`](crate::sym_cipher::OH_CryptoSymCipher_Destroy).
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoSymCipher_Init`](crate::sym_cipher::OH_CryptoSymCipher_Init) Initializes the cipher operation with the given mode, key, and parameters.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoSymCipher_Create(
         algoName: *const ::core::ffi::c_char,
         ctx: *mut *mut OH_CryptoSymCipher,
     ) -> CryptoResult;
-    /// Init the crypto operation with the given crypto mode, key and parameters.
-    ///
+    /// Initializes the cipher operation with the given mode, key, and parameters.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the symmetric key cipher context.
+    /// * `ctx` - \[in\] Symmetric cipher context. Cannot be NULL.
     ///
-    /// * `mod` - Indicates the crypto mode is encryption or decryption.
+    /// * `mod` - \[in\] Cipher mode, encryption or decryption.
     ///
-    /// * `key` - Indicates the symmetric key or the asymmetric key.
+    /// * `key` - \[in\] Symmetric key. Cannot be NULL.
     ///
-    /// * `params` - Indicates the algorithm parameters such as IV.
+    /// * `params` - \[in\] Algorithm parameters, e.g. IV. Must be NULL for ECB mode; cannot be NULL for other modes.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
-    ///
-    /// **See also:** [`OH_CryptoSymCipher_Update`](crate::sym_cipher::OH_CryptoSymCipher_Update)
-    ///
-    /// **See also:** [`OH_CryptoSymCipher_Final`](crate::sym_cipher::OH_CryptoSymCipher_Final)
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or key is NULL, or IV is missing or has wrong length for non-ECB modes.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the operation is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if parameters are invalid. \[since 20\]
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if cipher init fails. Possible causes: key length does not match the algorithm.
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoSymCipher_Update`](crate::sym_cipher::OH_CryptoSymCipher_Update) Updates cipher data, outputting encrypted or decrypted data.
+    ///
+    /// **See also:** [`OH_CryptoSymCipher_Final`](crate::sym_cipher::OH_CryptoSymCipher_Final) Finishes the cipher operation, outputting the final result.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoSymCipher_Init(
@@ -161,30 +205,30 @@ extern "C" {
         key: *mut OH_CryptoSymKey,
         params: *mut OH_CryptoSymCipherParams,
     ) -> CryptoResult;
-    /// Update the crypto operation with the input data, and feed back the encrypted or decrypted data.
-    ///
+    /// Updates cipher data, outputting encrypted or decrypted data.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the symmetric key cipher context.
+    /// * `ctx` - \[in\] Symmetric cipher context. Cannot be NULL.
     ///
-    /// * `in` - Indicates the data to be encrypted or decrypted.
+    /// * `in` - \[in\] Data to be encrypted or decrypted. Cannot be NULL.
     ///
-    /// * `out` - Indicates the data to be update encrypted or decrypted.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the updated data. Cannot be NULL. Initialize
+    /// out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx, in, or out is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if parameters are invalid. \[since 20\]
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if cipher update fails.
     ///
-    /// **See also:** [`OH_CryptoSymCipher_Init`](crate::sym_cipher::OH_CryptoSymCipher_Init)
-    ///
-    /// **See also:** [`OH_CryptoSymCipher_Final`](crate::sym_cipher::OH_CryptoSymCipher_Final)
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 12
+    ///
+    /// **See also:** [`OH_CryptoSymCipher_Final`](crate::sym_cipher::OH_CryptoSymCipher_Final) Finishes the cipher operation, outputting the final result.
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_CryptoSymCipher_Update(
@@ -192,28 +236,27 @@ extern "C" {
         in_: *mut Crypto_DataBlob,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
-    ///
+    /// Finishes the cipher operation, outputting the final result.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the symmetric key cipher context.
+    /// * `ctx` - \[in\] Symmetric cipher context. Cannot be NULL.
     ///
-    /// * `in` - Indicates the data to be encrypted or decrypted.
+    /// * `in` - \[in\] Data to be encrypted or decrypted. Can be NULL if all data has been updated via
+    /// [`OH_CryptoSymCipher_Update`](crate::sym_cipher::OH_CryptoSymCipher_Update).
     ///
-    /// * `out` - Indicates the data to be finally encrypted or decrypted.
+    /// * `out` - \[out\] Pointer to the Crypto_DataBlob structure for storing the final result. Cannot be NULL. Initialize
+    /// out to {0} before calling. Do not pre-allocate out->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) 401 - If parameter is invalid.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto opertion failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_INVALID_PARAMS`](crate::common::CryptoErrorCode::INVALID_PARAMS) if ctx or out is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if unsupported operation or algorithm.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory operation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if parameters are invalid. \[since 20\]
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if cipher final fails. Possible causes: incorrect IV or key during decryption; AEAD (GCM/CCM) authentication tag verification failure due to incorrect TAG, AAD, ciphertext, or key; block cipher (e.g. AES-CBC/ECB) decryption where ciphertext length is not a multiple of the block size; block cipher encryption with NoPadding where plaintext length is not a multiple of the block size.
     ///
-    /// **See also:** [`OH_CryptoSymCipher_Init`](crate::sym_cipher::OH_CryptoSymCipher_Init)
-    ///
-    /// **See also:** [`OH_CryptoSymCipher_Update`](crate::sym_cipher::OH_CryptoSymCipher_Update)
+    /// **Note:** Release `out` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -223,15 +266,15 @@ extern "C" {
         in_: *mut Crypto_DataBlob,
         out: *mut Crypto_DataBlob,
     ) -> CryptoResult;
-    /// Get the algorithm name of the symmetric key cipher context.
-    ///
+    /// Obtains the symmetric cipher algorithm name.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the symmetric key context.
+    /// * `ctx` - \[in\] Symmetric cipher context. Cannot be NULL.
     ///
     /// # Returns
     ///
-    /// * Return symmetric key cipher algorithm name.
+    /// * Returns the symmetric cipher algorithm name. No need to free by the caller. Invalid after
+    /// the context is destroyed.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -239,11 +282,10 @@ extern "C" {
     pub fn OH_CryptoSymCipher_GetAlgoName(
         ctx: *mut OH_CryptoSymCipher,
     ) -> *const ::core::ffi::c_char;
-    /// Destroy the symmetric key cipher context.
-    ///
+    /// Destroys the symmetric cipher context.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the symmetric key context.
+    /// * `ctx` - \[in\] Symmetric cipher context.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]

@@ -46,6 +46,38 @@ pub type OH_AudioRoutingManager_OnDeviceChangedCallback = ::core::option::Option
         audioDeviceDescriptorArray: *mut OH_AudioDeviceDescriptorArray,
     ) -> i32,
 >;
+/// This callback function pointer is used to return the preferred audio output device
+/// descriptors. Multiple audio device descriptors may be returned.
+///
+/// # Arguments
+///
+/// * `audioDeviceDescriptorArray` - a pointer to [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray) that will
+/// be populated with the audio output device descriptor values. Do not release this pointer
+/// separately; instead, call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the device
+/// descriptor array when it is no longer needed.
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub type OH_AudioRoutingManager_OnPreferredOutputDeviceChangedCallback = ::core::option::Option<
+    unsafe extern "C" fn(audioDeviceDescriptorArray: *mut OH_AudioDeviceDescriptorArray) -> i32,
+>;
+/// This callback function pointer is used to return the preferred audio input device
+/// descriptors. Multiple audio device descriptors may be returned.
+///
+/// # Arguments
+///
+/// * `audioDeviceDescriptorArray` - pointer to [`OH_AudioDeviceDescriptorArray`](crate::audio_device_base::OH_AudioDeviceDescriptorArray) that will
+/// be populated with the audio input device descriptor values. Do not release this pointer
+/// separately; instead, call [`OH_AudioRoutingManager_ReleaseDevices`](crate::audio_routing_manager::OH_AudioRoutingManager_ReleaseDevices) to release the device
+/// descriptor array when it is no longer needed.
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub type OH_AudioRoutingManager_OnPreferredInputDeviceChangedCallback = ::core::option::Option<
+    unsafe extern "C" fn(audioDeviceDescriptorArray: *mut OH_AudioDeviceDescriptorArray) -> i32,
+>;
 /// This type defines the callback function that is used to receive the audio devices' block status.
 ///
 /// # Arguments
@@ -156,7 +188,7 @@ extern "C" {
         deviceUsage: OH_AudioDevice_Usage,
         audioDeviceDescriptorArray: *mut *mut OH_AudioDeviceDescriptorArray,
     ) -> OH_AudioCommon_Result;
-    /// Get preferred ouput devices by audio usage.
+    /// Get preferred output devices by audio usage.
     ///
     /// # Arguments
     ///
@@ -274,6 +306,116 @@ extern "C" {
     pub fn OH_AudioRoutingManager_UnregisterDeviceChangeCallback(
         audioRoutingManager: *mut OH_AudioRoutingManager,
         callback: OH_AudioRoutingManager_OnDeviceChangedCallback,
+    ) -> OH_AudioCommon_Result;
+    /// Subscribes to preferred output device change events. When the preferred output device for the target audio
+    /// stream usage changes, registered clients will receive the callback. To avoid resource waste or other
+    /// abnormal situations, when your application no longer needs this callback, you must release it by calling
+    /// [`OH_AudioRoutingManager_UnregisterPreferredOutputDevicesChangeCallback`](crate::audio_routing_manager::OH_AudioRoutingManager_UnregisterPreferredOutputDevicesChangeCallback).
+    ///
+    /// # Arguments
+    ///
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager)
+    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
+    ///
+    /// * `streamUsage` - the [`OH_AudioStream_Usage`](crate::audiostream_base::OH_AudioStream_Usage) which is used as
+    /// the filter parameter for registering the preferred output device change event.
+    ///
+    /// * `callback` - the [`OH_AudioRoutingManager_OnPreferredOutputDeviceChangedCallback`](crate::audio_routing_manager::OH_AudioRoutingManager_OnPreferredOutputDeviceChangedCallback) which is used
+    /// to receive preferred output device change events.
+    ///
+    /// # Returns
+    ///
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds,
+    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails,
+    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioRoutingManager_RegisterPreferredOutputDevicesChangeCallback(
+        audioRoutingManager: *mut OH_AudioRoutingManager,
+        streamUsage: OH_AudioStream_Usage,
+        callback: OH_AudioRoutingManager_OnPreferredOutputDeviceChangedCallback,
+    ) -> OH_AudioCommon_Result;
+    /// Unsubscribes from the preferred output device change events that were registered via
+    /// [`OH_AudioRoutingManager_RegisterPreferredOutputDevicesChangeCallback`](crate::audio_routing_manager::OH_AudioRoutingManager_RegisterPreferredOutputDevicesChangeCallback).
+    ///
+    /// # Arguments
+    ///
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager)
+    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
+    ///
+    /// * `callback` - the [`OH_AudioRoutingManager_OnPreferredOutputDeviceChangedCallback`](crate::audio_routing_manager::OH_AudioRoutingManager_OnPreferredOutputDeviceChangedCallback) which is used
+    /// to receive preferred output device change event. When nullptr is passed,
+    /// the system will unregister all previously registered preferred output device change callbacks.
+    ///
+    /// # Returns
+    ///
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds,
+    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails,
+    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioRoutingManager_UnregisterPreferredOutputDevicesChangeCallback(
+        audioRoutingManager: *mut OH_AudioRoutingManager,
+        callback: OH_AudioRoutingManager_OnPreferredOutputDeviceChangedCallback,
+    ) -> OH_AudioCommon_Result;
+    /// Subscribes to preferred input device change events. When preferred input device for target audio
+    /// stream source type changes, registered clients will receive the callback. To avoid resource waste or other
+    /// abnormal situations, when your application no longer needs this callback, you must release it by calling
+    /// [`OH_AudioRoutingManager_UnregisterPreferredInputDevicesChangeCallback`](crate::audio_routing_manager::OH_AudioRoutingManager_UnregisterPreferredInputDevicesChangeCallback).
+    ///
+    /// # Arguments
+    ///
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager)
+    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
+    ///
+    /// * `sourceType` - the [`OH_AudioStream_SourceType`](crate::audiostream_base::OH_AudioStream_SourceType) which is used as
+    /// the filter parameter for registering the preferred input devices change event.
+    ///
+    /// * `callback` - the [`OH_AudioRoutingManager_OnPreferredInputDeviceChangedCallback`](crate::audio_routing_manager::OH_AudioRoutingManager_OnPreferredInputDeviceChangedCallback) which is used
+    /// to receive preferred input device change event.
+    ///
+    /// # Returns
+    ///
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds,
+    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails,
+    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioRoutingManager_RegisterPreferredInputDevicesChangeCallback(
+        audioRoutingManager: *mut OH_AudioRoutingManager,
+        sourceType: OH_AudioStream_SourceType,
+        callback: OH_AudioRoutingManager_OnPreferredInputDeviceChangedCallback,
+    ) -> OH_AudioCommon_Result;
+    /// Unsubscribes from the preferred input device change events that were registered via
+    /// [`OH_AudioRoutingManager_RegisterPreferredInputDevicesChangeCallback`](crate::audio_routing_manager::OH_AudioRoutingManager_RegisterPreferredInputDevicesChangeCallback).
+    ///
+    /// # Arguments
+    ///
+    /// * `audioRoutingManager` - the [`OH_AudioRoutingManager`](crate::audio_routing_manager::OH_AudioRoutingManager)
+    /// handle returned by [`OH_AudioManager_GetAudioRoutingManager`](crate::audio_routing_manager::OH_AudioManager_GetAudioRoutingManager).
+    ///
+    /// * `callback` - the [`OH_AudioRoutingManager_OnPreferredInputDeviceChangedCallback`](crate::audio_routing_manager::OH_AudioRoutingManager_OnPreferredInputDeviceChangedCallback) which is used
+    /// to receive preferred input device change events. If nullptr is passed,
+    /// the system will unregister all previously registered preferred input device change callbacks.
+    ///
+    /// # Returns
+    ///
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds,
+    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails,
+    /// or [`AUDIOCOMMON_RESULT_ERROR_SYSTEM`](crate::audio_common::OH_AudioCommonErrorCode::SYSTEM) Audio client call audio service error, System error.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_AudioRoutingManager_UnregisterPreferredInputDevicesChangeCallback(
+        audioRoutingManager: *mut OH_AudioRoutingManager,
+        callback: OH_AudioRoutingManager_OnPreferredInputDeviceChangedCallback,
     ) -> OH_AudioCommon_Result;
     /// Release the audio device descriptor array object.
     ///

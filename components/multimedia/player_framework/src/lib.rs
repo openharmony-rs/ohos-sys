@@ -8,6 +8,9 @@
 )]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub mod audio_vivid;
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 pub mod avbuffer;
@@ -39,6 +42,9 @@ pub mod avcodec_audiocodec;
 pub mod avcodec_audiodecoder;
 pub mod avcodec_audioencoder;
 pub mod avcodec_base;
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+pub mod avcodec_videobase;
 pub mod avcodec_videodecoder;
 pub mod avcodec_videoencoder;
 

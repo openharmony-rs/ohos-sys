@@ -12,26 +12,27 @@ extern "C" {
     ///
     /// * `cert` - Certificate to be verified.
     ///
-    /// * `caCert` - CA certificate specified by the user. If this parameter is left blank, the preset certificate is used.
+    /// * `caCert` - Certificate specified by the user. If this parameter is left blank, the preset certificate is used for
+    /// verification.
     ///
     /// # Returns
     ///
-    /// * 0 - success.
-    /// 2305001 - Unspecified error.
-    /// 2305002 - Unable to get issuer certificate.
-    /// 2305003 - Unable to get certificate revocation list (CRL).
-    /// 2305004 - Unable to decrypt certificate signature.
-    /// 2305005 - Unable to decrypt CRL signature.
-    /// 2305006 - Unable to decode issuer public key.
-    /// 2305007 - Certificate signature failure.
-    /// 2305008 - CRL signature failure.
-    /// 2305009 - Certificate is not yet valid.
-    /// 2305010 - Certificate has expired.
-    /// 2305011 - CRL is not yet valid.
-    /// 2305012 - CRL has expired.
-    /// 2305023 - Certificate has been revoked.
-    /// 2305024 - Invalid certificate authority (CA).
-    /// 2305027 - Certificate is untrusted.
+    /// * **0**: Success.
+    /// <br>**2305001**: Unknown error.
+    /// <br>**2305002**: Failed to obtain the issuer certificate.
+    /// <br>**2305003**: Failed to obtain the certificate revocation list (CRL).
+    /// <br>**2305004**: Failed to decrypt the certificate signature.
+    /// <br>**2305005**: Failed to decrypt the CRL signature.
+    /// <br>**2305006**: Failed to decode the issuer public key.
+    /// <br>**2305007**: Failed to sign the certificate.
+    /// <br>**2305008**: Failed to sign the CRL.
+    /// <br>**2305009**: Certificate not activated.
+    /// <br>**2305010**: Certificate expired.
+    /// <br>**2305011**: CRL not activated.
+    /// <br>**2305012**: CRL expired.
+    /// <br>**2305023**: Certificate revoked.
+    /// <br>**2305024**: Invalid certificate authority (CA).
+    /// <br>**2305027**: Untrusted certificate.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -44,19 +45,19 @@ extern "C" {
         cert: *const NetStack_CertBlob,
         caCert: *const NetStack_CertBlob,
     ) -> u32;
-    /// Gets pin set for hostname.
+    /// Obtains the certificate lock information.
     ///
     /// # Arguments
     ///
-    /// * `hostname` - Hostname.
+    /// * `hostname` - Host name.
     ///
-    /// * `pin` - Certificate lock information.
+    /// * `pin` - Defines the certificate lock information structure.
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 401 - Parameter error.
-    /// 2305999 - Out of memory.
+    /// * **0**: Success.
+    /// <br>**401**: Parameter error.
+    /// <br>**2305999**: Memory error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -69,19 +70,19 @@ extern "C" {
         hostname: *const ::core::ffi::c_char,
         pin: *mut NetStack_CertificatePinning,
     ) -> i32;
-    /// Gets certificates for hostname.
+    /// Obtains the certificate information.
     ///
     /// # Arguments
     ///
-    /// * `hostname` - Hostname.
+    /// * `hostname` - Host name.
     ///
-    /// * `certs` - Certificate Information.
+    /// * `certs` - Defines the certificate information structure.
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 401 - Parameter error.
-    /// 2305999 - Out of memory.
+    /// * **0**: Success.
+    /// <br>**401**: Parameter error.
+    /// <br>**2305999**: Memory error.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -94,11 +95,11 @@ extern "C" {
         hostname: *const ::core::ffi::c_char,
         certs: *mut NetStack_Certificates,
     ) -> i32;
-    /// Frees content of the certificates.
+    /// Releases the certificate content.
     ///
     /// # Arguments
     ///
-    /// * `certs` - Certificate.
+    /// * `certs` - Represents the certificate information.
     ///
     /// Required System Capabilities: SystemCapability.Communication.NetStack
     ///
@@ -108,41 +109,41 @@ extern "C" {
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub fn OH_Netstack_DestroyCertificatesContent(certs: *mut NetStack_Certificates);
-    /// Checks whether the Cleartext traffic is permitted.
+    /// Boolean value indicating whether plaintext HTTP is allowed.
     ///
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 201 - Permission denied.
-    /// 401 - Parameter error.
+    /// * **0**: Success.
+    /// <br>**201**: Permission denied.
+    /// <br>**401**: Parameter error.
     /// # Arguments
     ///
-    /// * `isCleartextPermitted` - Indicates output parameter,
-    /// `true` if the Cleartext traffic is permitted, `false` otherwise.
+    /// * `isCleartextPermitted` - Boolean value indicating whether plaintext HTTP is allowed. The value **true** means
+    /// that plaintext HTTP is allowed, and the value **false** means the opposite.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub fn OH_Netstack_IsCleartextPermitted(isCleartextPermitted: *mut bool) -> i32;
-    /// Checks whether the Cleartext traffic for a specified hostname is permitted.
+    /// Boolean value indicating whether host name–based plaintext HTTP is allowed.
     ///
     ///
     /// Required Permissions: ohos.permission.INTERNET
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 201 - Permission denied.
-    /// 401 - Parameter error.
+    /// * **0**: Success.
+    /// <br>**201**: Permission denied.
+    /// <br>**401**: Parameter error.
     /// # Arguments
     ///
-    /// * `hostname` - Indicates the host name.
+    /// * `hostname` - Host name.
     ///
-    /// * `isCleartextPermitted` - Indicates output parameter,
-    /// `true` if the Cleartext traffic for a specified hostname is permitted, `false` otherwise.
+    /// * `isCleartextPermitted` - Boolean value indicating whether host name–based plaintext HTTP is allowed. The value **
+    /// true** means that host name–based plaintext HTTP is allowed, and the value **false** means the opposite.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -151,19 +152,19 @@ extern "C" {
         hostname: *const ::core::ffi::c_char,
         isCleartextPermitted: *mut bool,
     ) -> i32;
-    /// Checks whether the component is configured for Cleartext traffic interception.
+    /// Checks whether plaintext HTTP interception is enabled.
     ///
     ///
     /// # Returns
     ///
-    /// * 0 - Success.
-    /// 2100001 - Invalid parameter value.
+    /// * **0**: Success.
+    /// <br>**2100001**: Invalid parameter value.
     /// # Arguments
     ///
-    /// * `component` - Indicates the component name.
+    /// * `component` - Component name. The following components are supported: Network Kit and ArkWeb.
     ///
-    /// * `componentCfg` - Indicates output parameter,
-    /// `true` if the component is configured for Cleartext traffic interception, `false` otherwise.
+    /// * `componentCfg` - Output parameter, which indicates whether plaintext HTTP interception is enabled. The value **
+    /// true** indicates that plaintext HTTP interception is enabled, and the value **false** indicates the opposite.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -172,4 +173,72 @@ extern "C" {
         component: *const ::core::ffi::c_char,
         componentCfg: *mut bool,
     ) -> i32;
+    /// Creates and verifies a sorted certificate chain.
+    ///
+    /// This function verifies the provided certificate chain and constructs
+    /// a sorted chain output. It allocates memory for the output chain,
+    /// which must be explicitly freed by the caller to avoid memory leaks.
+    ///
+    /// # Arguments
+    ///
+    /// * `cert` - Certificate chain to be verified. Cannot be NULL or empty.
+    ///
+    /// * `certCount` - Certificate number of param cert.
+    ///
+    /// * `caCert` - CA certificate specified by the user. If NULL, the preset certificate is used.
+    ///
+    /// * `hostname` - The expected server hostname.
+    ///
+    /// * `outSortedChain` - Pointer to receive the sorted certificate chain.
+    /// Can be NULL if the caller does not need the chain data.
+    /// Valid only if return value is 0.
+    /// Allocated memory must be freed using OH_NetStack_FreeCertChain.
+    ///
+    /// * `outSortedCount` - Pointer to receive the count of sorted certificates.
+    ///
+    /// # Returns
+    ///
+    /// * 0 - success.
+    /// 2305001 - Unspecified error.
+    /// 2305002 - Unable to get issuer certificate.
+    /// 2305004 - Unable to decrypt certificate signature.
+    /// 2305006 - Unable to decode issuer public key.
+    /// 2305007 - Certificate signature failure.
+    /// 2305009 - Certificate is not yet valid.
+    /// 2305010 - Certificate has expired.
+    /// 2305024 - Invalid certificate authority (CA).
+    /// 2305062 - Hostname verification failed.
+    /// 2305027 - Certificate is untrusted.
+    ///
+    /// Available since API-level: 26
+    ///
+    /// **Note:** After use, you must call [`OH_NetStack_FreeCertChain`](crate::net_ssl_c::OH_NetStack_FreeCertChain) to release the
+    /// allocated memory pointed by outSortedChain. Failure to do so will cause memory leaks.
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_NetStack_CreateAndVerifySortedCertChain(
+        cert: *const NetStack_CertBlob,
+        certCount: usize,
+        caCert: *const NetStack_CertBlob,
+        hostname: *const ::core::ffi::c_char,
+        outSortedChain: *mut *mut NetStack_CertBlob,
+        outSortedCount: *mut usize,
+    ) -> u32;
+    /// Frees the certificate chain allocated by OH_NetStack_CreateAndVerifySortedCertChain.
+    ///
+    /// This function must be used to free the memory pointed to by outSortedChain
+    /// from OH_NetStack_CreateAndVerifySortedCertChain.
+    /// Do NOT use free() or malloc() directly on this memory.
+    ///
+    /// # Arguments
+    ///
+    /// * `certChain` - The certificate chain pointer received from outSortedChain.
+    /// If NULL, this function does nothing.
+    ///
+    /// * `certCount` - The number of certificates in the chain.
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_NetStack_FreeCertChain(certChain: *mut NetStack_CertBlob, certCount: usize);
 }

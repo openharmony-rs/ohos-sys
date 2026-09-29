@@ -10,52 +10,48 @@ extern "C" {
     ///
     /// # Arguments
     ///
-    /// * `infos` - - Double pointer to the information about all sensors on the device.
-    /// For details, see [`Sensor_Info`](crate::sensor_type::Sensor_Info).
+    /// * `infos` - Double pointer to the information about all sensors on the device. For details, see [`Sensor_Info`](crate::sensor_type::Sensor_Info).
     ///
-    /// * `count` - - Pointer to the number of sensors on the device.
+    /// * `count` - Pointer to the number of sensors on the device.
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful; returns the following error code otherwise.
-    /// [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) Parameter check failed. For example, the parameter is invalid,
-    /// or the parameter type passed in is incorrect.
-    ///
-    /// [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) The sensor service is abnormal.
-    ///
-    ///
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// The error code can be:
+    /// - [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) if the parameter verification fails. For example, the parameter is invalid or the
+    /// parameter type is incorrect.
+    /// - [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) if the sensor service is abnormal.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
     pub fn OH_Sensor_GetInfos(infos: *mut *mut Sensor_Info, count: *mut u32) -> Sensor_Result;
     /// Subscribes to sensor data. The system will report sensor data to the subscriber at the specified frequency.
-    /// If you need to apply for the ohos.permission.ACCELEROMETER permission when subscribing to the accelerometer sensor,
-    /// you need to apply for the ohos.permission.GYROSCOPE permission when subscribing to the gyroscope sensor, and you need
-    /// to apply for the ohos.permission.ACTIVITY_MOTION permission when subscribing to the pedometer related sensor. Apply
-    /// for ohos.permission.READ_HEALTH_DATA permission when subscribing to health-related sensors, such as heart rate
-    /// sensors, otherwise the subscription fails. Other sensors do not require permissions.
+    /// To subscribe to data of acceleration sensors, request the **ohos.permission.ACCELEROMETER** permission. To subscribe
+    /// to data of gyroscope sensors, request the **ohos.permission.GYROSCOPE** permission. To subscribe to data of
+    /// pedometer-related sensors, request the **ohos.permission.ACTIVITY_MOTION** permission. To subscribe to data of
+    /// health-related sensors, such as heart rate sensors, request the **ohos.permission.READ_HEALTH_DATA** permission.
+    /// Otherwise, the subscription fails. You do not need to request any permission to subscribe to data of other types of
+    /// sensors.
     ///
     /// # Arguments
     ///
-    /// * `id` - - Pointer to the sensor subscription ID. For details, see [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId).
+    /// * `id` - Pointer to the sensor subscription ID. For details, see [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId).
     ///
-    /// * `attribute` - - Pointer to the subscription attribute, which is used to specify the data reporting frequency.
-    /// For details, see [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute).
+    /// * `attribute` - Pointer to the subscription attribute, which is used to specify the data reporting frequency. For
+    /// details, see [`Sensor_SubscriptionAttribute`](crate::sensor_type::Sensor_SubscriptionAttribute).
     ///
-    /// * `subscriber` - - Pointer to the subscriber information, which is used to specify the callback function for
-    /// reporting the sensor data. For details, see [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber).
+    /// * `subscriber` - Pointer to the subscriber information, which is used by the callback function to report sensor
+    /// data. For details, see [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber).
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful; returns the following error code otherwise.
-    /// [`SENSOR_PERMISSION_DENIED`](crate::sensor_type::Sensor_Result::SENSOR_PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) Parameter check failed. For example, the parameter is invalid,
-    /// or the parameter type passed in is incorrect.
-    ///
-    /// [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) The sensor service is abnormal.
-    ///
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// The error code can be:
+    /// - [`SENSOR_PERMISSION_DENIED`](crate::sensor_type::Sensor_Result::SENSOR_PERMISSION_DENIED) if the permission verification fails.
+    /// - [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) if the parameter verification fails. For example, the parameter is invalid or the
+    /// parameter type is incorrect.
+    /// - [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) if the sensor service is abnormal.
     ///
     /// Required Permissions: ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or
     /// ohos.permission.ACTIVITY_MOTION or ohos.permission.READ_HEALTH_DATA
@@ -68,30 +64,28 @@ extern "C" {
         attribute: *const Sensor_SubscriptionAttribute,
         subscriber: *const Sensor_Subscriber,
     ) -> Sensor_Result;
-    /// Unsubscribes from sensor data.
-    /// If you need to apply for the ohos.permission.ACCELEROMETER permission to unsubscribe from the accelerometer sensor,
-    /// you need to request the ohos.permission.GYROSCOPE permission to unsubscribe from the gyroscope sensor, and you need
-    /// to request the ohos.permission.ACTIVITY_MOTION permission to unsubscribe from the pedometer-related sensor. When you
-    /// unsubscribe from health-related sensors, such as heart rate sensors, apply for ohos.permission.READ_HEALTH_DATA
-    /// permissions, otherwise the subscription will fail. Other sensors do not require permissions.
+    /// Unsubscribes from sensor data. To unsubscribe from data of acceleration sensors, request the **ohos.
+    /// permission.ACCELEROMETER** permission. To unsubscribe from data of gyroscope sensors, request the **ohos.permission.
+    /// GYROSCOPE** permission. To unsubscribe from data of pedometer-related sensors, request the **ohos.permission.
+    /// ACTIVITY_MOTION** permission. To unsubscribe from data of health-related sensors, request the **ohos.permission.
+    /// READ_HEALTH_DATA** permission. Otherwise, the unsubscription fails. You do not need to request any permission to
+    /// unsubscribe from data of other types of sensors.
     ///
     /// # Arguments
     ///
-    /// * `id` - - Pointer to the sensor subscription ID. For details, see [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId).
+    /// * `id` - Pointer to the sensor subscription ID. For details, see [`Sensor_SubscriptionId`](crate::sensor_type::Sensor_SubscriptionId).
     ///
-    /// * `subscriber` - - Pointer to the subscriber information, which is used to specify the callback function for
-    /// reporting the sensor data. For details, see [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber).
+    /// * `subscriber` - Pointer to the subscriber information, which is used by the callback function to report sensor
+    /// data. For details, see [`Sensor_Subscriber`](crate::sensor_type::Sensor_Subscriber).
     ///
     /// # Returns
     ///
-    /// * Returns <b>SENSOR_SUCCESS</b> if the operation is successful; returns the following error code otherwise.
-    /// [`SENSOR_PERMISSION_DENIED`](crate::sensor_type::Sensor_Result::SENSOR_PERMISSION_DENIED) Permission verification failed.
-    ///
-    /// [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) Parameter check failed. For example, the parameter is invalid,
-    /// or the parameter type passed in is incorrect.
-    ///
-    /// [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) The sensor service is abnormal.
-    ///
+    /// * **SENSOR_SUCCESS** if the operation is successful; an error code defined in [`Sensor_Result`](crate::sensor_type::Sensor_Result) otherwise.
+    /// The error code can be:
+    /// - [`SENSOR_PERMISSION_DENIED`](crate::sensor_type::Sensor_Result::SENSOR_PERMISSION_DENIED) if the permission verification fails.
+    /// - [`SENSOR_PARAMETER_ERROR`](crate::sensor_type::Sensor_Result::SENSOR_PARAMETER_ERROR) if the parameter verification fails. For example, the parameter is invalid or the
+    /// parameter type is incorrect.
+    /// - [`SENSOR_SERVICE_EXCEPTION`](crate::sensor_type::Sensor_Result::SENSOR_SERVICE_EXCEPTION) if the sensor service is abnormal.
     ///
     /// Required Permissions: ohos.permission.ACCELEROMETER or ohos.permission.GYROSCOPE or
     /// ohos.permission.ACTIVITY_MOTION or ohos.permission.READ_HEALTH_DATA

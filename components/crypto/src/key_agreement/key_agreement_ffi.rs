@@ -6,8 +6,7 @@
 use crate::asym_key::{OH_CryptoPrivKey, OH_CryptoPubKey};
 use crate::common::{CryptoResult, Crypto_DataBlob};
 
-/// Defines the key agreement structure.
-///
+/// Key agreement structure, representing a key agreement context.
 ///
 /// Available since API-level: 20
 #[cfg(feature = "api-20")]
@@ -17,48 +16,65 @@ pub struct OH_CryptoKeyAgreement {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Creates a key agreement context according to the given algorithm name.
-    ///
+    /// Creates a key agreement context based on the given algorithm name.
     /// # Arguments
     ///
-    /// * `algoName` - Indicates the algorithm name used to generate a key agreement context. e.g. "ECC", "X25519".
+    /// * `algoName` - \[in\] Key agreement algorithm name. Cannot be NULL. Values:
+    /// - ECDH series since API version 20: "ECC224", "ECC256", "ECC384", "ECC521".
+    /// - ECDH BrainPool series since API version 20: "ECC_BrainPoolP160r1", "ECC_BrainPoolP160t1",
+    /// "ECC_BrainPoolP192r1", "ECC_BrainPoolP192t1", "ECC_BrainPoolP224r1", "ECC_BrainPoolP224t1",
+    /// "ECC_BrainPoolP256r1", "ECC_BrainPoolP256t1", "ECC_BrainPoolP320r1", "ECC_BrainPoolP320t1",
+    /// "ECC_BrainPoolP384r1", "ECC_BrainPoolP384t1", "ECC_BrainPoolP512r1", "ECC_BrainPoolP512t1".
+    /// - "ECC_Secp256k1" supported since API version 20.
+    /// - "X25519" supported since API version 20.
+    /// - DH series since API version 20: "DH_modp1536", "DH_modp2048", "DH_modp3072",
+    /// "DH_modp4096", "DH_modp6144", "DH_modp8192", "DH_ffdhe2048", "DH_ffdhe3072",
+    /// "DH_ffdhe4096", "DH_ffdhe6144", "DH_ffdhe8192".
+    /// - "ECC192" supported since API version 26.0.0.
     ///
-    /// * `ctx` - Indicates the key agreement context.
+    /// * `ctx` - \[out\] Pointer to the key agreement context pointer. ctx cannot be NULL,
+    /// *ctx must be NULL.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if algoName or ctx is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if key agreement operation fails.
+    ///
+    /// **Note:** Release `ctx` with [`OH_CryptoKeyAgreement_Destroy`](crate::key_agreement::OH_CryptoKeyAgreement_Destroy).
     ///
     /// Available since API-level: 20
+    ///
+    /// **See also:** [`OH_CryptoKeyAgreement_GenerateSecret`](crate::key_agreement::OH_CryptoKeyAgreement_GenerateSecret) Generates a shared secret.
     #[cfg(feature = "api-20")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
     pub fn OH_CryptoKeyAgreement_Create(
         algoName: *const ::core::ffi::c_char,
         ctx: *mut *mut OH_CryptoKeyAgreement,
     ) -> CryptoResult;
-    /// Generates a secret value.
-    ///
+    /// Generates a shared secret.
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the key agreement context.
+    /// * `ctx` - \[in\] Key agreement context. Cannot be NULL.
     ///
-    /// * `privkey` - Indicates the private key.
+    /// * `privkey` - \[in\] Private key. Cannot be NULL.
     ///
-    /// * `pubkey` - Indicates the public key.
+    /// * `pubkey` - \[in\] Public key. Cannot be NULL.
     ///
-    /// * `secret` - Indicates the secret value.
+    /// * `secret` - \[out\] Pointer to the Crypto_DataBlob structure for storing the shared secret. Cannot be NULL.
+    /// Initialize secret to {0} before calling. Do not pre-allocate secret->data.
     ///
     /// # Returns
     ///
-    /// * [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) 0 - If the operation is successful.
-    /// [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) 801 - If the operation is not supported.
-    /// [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) 17620001 - If memory operation failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) 17620003 - If parameter check failed.
-    /// [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) 17630001 - If crypto operation failed.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_SUCCESS`](crate::common::CryptoResult) if the operation succeeds.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_PARAMETER_CHECK_FAILED`](crate::common::CryptoErrorCode::PARAMETER_CHECK_FAILED) if ctx, privkey, pubkey, or secret is NULL.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_NOT_SUPPORTED`](crate::common::CryptoErrorCode::NOT_SUPPORTED) if the algorithm is not supported.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_MEMORY_ERROR`](crate::common::CryptoErrorCode::MEMORY_ERROR) if memory allocation fails.
+    /// - [`OH_Crypto_ErrCode#CRYPTO_OPERTION_ERROR`](crate::common::CryptoErrorCode::OPERTION_ERROR) if the key agreement operation fails. Possible causes: the public key and private key do not belong to the same curve or algorithm, or the public key data is invalid.
+    ///
+    /// **Note:** Release `secret` with [`OH_Crypto_FreeDataBlob`](crate::common::OH_Crypto_FreeDataBlob).
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -70,10 +86,9 @@ extern "C" {
         secret: *mut Crypto_DataBlob,
     ) -> CryptoResult;
     /// Destroys the key agreement context.
-    ///
     /// # Arguments
     ///
-    /// * `ctx` - Indicates the key agreement context.
+    /// * `ctx` - \[in\] Key agreement context.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]

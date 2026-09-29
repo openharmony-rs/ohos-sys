@@ -10,6 +10,7 @@ use crate::audio_device_base::{
 };
 #[cfg(feature = "api-20")]
 use crate::audio_device_base::{OH_AudioDeviceDescriptorArray, OH_AudioDevice_Type};
+pub use crate::audio_session_base::{OH_AudioSession_ConcurrencyMode, OH_AudioSession_Strategy};
 #[cfg(feature = "api-20")]
 use crate::audiostream_base::OH_AudioStream_DeviceChangeReason;
 
@@ -24,31 +25,6 @@ use crate::audiostream_base::OH_AudioStream_DeviceChangeReason;
 pub struct OH_AudioSessionManager {
     _unused: [u8; 0],
 }
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-impl OH_AudioSession_ConcurrencyMode {
-    /// default mode
-    pub const CONCURRENCY_DEFAULT: OH_AudioSession_ConcurrencyMode =
-        OH_AudioSession_ConcurrencyMode(0);
-    /// mix with others mode
-    pub const CONCURRENCY_MIX_WITH_OTHERS: OH_AudioSession_ConcurrencyMode =
-        OH_AudioSession_ConcurrencyMode(1);
-    /// duck others mode
-    pub const CONCURRENCY_DUCK_OTHERS: OH_AudioSession_ConcurrencyMode =
-        OH_AudioSession_ConcurrencyMode(2);
-    /// pause others mode
-    pub const CONCURRENCY_PAUSE_OTHERS: OH_AudioSession_ConcurrencyMode =
-        OH_AudioSession_ConcurrencyMode(3);
-}
-#[repr(transparent)]
-/// Declare the audio concurrency modes.
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
-pub struct OH_AudioSession_ConcurrencyMode(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-20")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl OH_AudioSession_Scene {
@@ -112,6 +88,30 @@ impl OH_AudioSession_StateChangeHint {
     #[cfg_attr(docsrs, doc(cfg(feature = "api-23")))]
     pub const AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE_SUGGESTION: OH_AudioSession_StateChangeHint =
         OH_AudioSession_StateChangeHint(7);
+    /// The hint can be received only after
+    /// the parameter `OH_AudioSession_BehaviorFlags.MUTE_WHEN_INTERRUPTED`
+    /// has been set by the interface [`OH_AudioSessionManager_SetBehavior`](crate::audio_session_manager::OH_AudioSessionManager_SetBehavior)
+    /// and [`OH_AudioSessionManager_SetScene`](crate::audio_session_manager::OH_AudioSessionManager_SetScene) has been called, and the audio session has been activated.
+    /// After the hint is received, the audio stream is muted.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const AUDIO_SESSION_STATE_CHANGE_HINT_MUTE: OH_AudioSession_StateChangeHint =
+        OH_AudioSession_StateChangeHint(8);
+    /// The hint can be received only after
+    /// the parameter `OH_AudioSession_BehaviorFlags.MUTE_WHEN_INTERRUPTED`
+    /// has been set by the interface [`OH_AudioSessionManager_SetBehavior`](crate::audio_session_manager::OH_AudioSessionManager_SetBehavior)
+    /// and [`OH_AudioSessionManager_SetScene`](crate::audio_session_manager::OH_AudioSessionManager_SetScene) has been called, and the audio session has been activated.
+    /// When the hint is received, the audio stream is unmuted.
+    ///
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub const AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE: OH_AudioSession_StateChangeHint =
+        OH_AudioSession_StateChangeHint(9);
 }
 #[repr(transparent)]
 /// Declare the audio session state change hints.
@@ -126,6 +126,8 @@ pub struct OH_AudioSession_StateChangeHint(pub ::core::ffi::c_uint);
 #[cfg_attr(docsrs, doc(cfg(feature = "api-20")))]
 impl OH_AudioSession_OutputDeviceChangeRecommendedAction {
     /// Recommend to continue the playback.
+    /// This event indicates that the application does not need to stop audio playback when switching devices.
+    /// However, it should not be used to restart audio playback that has already been paused or stopped.
     pub const DEVICE_CHANGE_RECOMMEND_TO_CONTINUE:
         OH_AudioSession_OutputDeviceChangeRecommendedAction =
         OH_AudioSession_OutputDeviceChangeRecommendedAction(0);
@@ -189,18 +191,6 @@ impl OH_AudioSession_BluetoothAndNearlinkPreferredRecordCategory {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-21")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct OH_AudioSession_BluetoothAndNearlinkPreferredRecordCategory(pub ::core::ffi::c_uint);
-/// declare the audio session strategy
-///
-///
-/// Available since API-level: 12
-#[cfg(feature = "api-12")]
-#[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct OH_AudioSession_Strategy {
-    /// audio session concurrency mode
-    pub concurrencyMode: OH_AudioSession_ConcurrencyMode,
-}
 /// declare the audio session deactivated event
 ///
 ///
@@ -343,20 +333,22 @@ extern "C" {
     ) -> OH_AudioCommon_Result;
     /// Activate the audio session for the current pid application.
     /// If [`OH_AudioSessionManager_SetScene`](crate::audio_session_manager::OH_AudioSessionManager_SetScene) is called, it will take focus when calling this method.
+    /// If you want to take focus again after [`OH_AudioSessionManager_DeactivateAudioSession`](crate::audio_session_manager::OH_AudioSessionManager_DeactivateAudioSession) is called,
+    /// you must call [`OH_AudioSessionManager_SetScene`](crate::audio_session_manager::OH_AudioSessionManager_SetScene) again.
     ///
     /// # Arguments
     ///
     /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
     /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
     ///
-    /// * `strategy` - pointer of [`OH_AudioSession_Strategy`](crate::audio_session_manager::OH_AudioSession_Strategy)
+    /// * `strategy` - pointer of [`OH_AudioSession_Strategy`](crate::audio_session_base::OH_AudioSession_Strategy)
     /// which is used for setting audio session strategy
     ///
     /// # Returns
     ///
-    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or `AUDIOCOMMON_REULT_INVALID_PARAM` if parameter validation fails
-    /// or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
+    /// - [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// - [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    /// - [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -374,9 +366,9 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
-    /// or `AUDIOCOMMON_REULT_INVALID_PARAM` if parameter validation fails
-    /// or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
+    /// - [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// - [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    /// - [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -775,11 +767,11 @@ extern "C" {
         audioSessionManager: *mut OH_AudioSessionManager,
         audioDeviceDescriptor: *mut *mut OH_AudioDeviceDescriptor,
     ) -> OH_AudioCommon_Result;
-    /// Sets the prefered record category with bluetooth and nearlink device.
+    /// Sets the preferred record category with bluetooth and nearlink device.
     /// The application can set this category before bluetooth and nearlink connected, and the system will
     /// prefer to use bluetooth and nearlink to record when the device connected.
     /// In scenarios where there are concurrent recording streams with higher priority,
-    /// the actual input device used by the application may differ from the prefered one.
+    /// the actual input device used by the application may differ from the preferred one.
     /// The application can use [`OH_AudioSessionManager_RegisterCurrentInputDeviceChangeCallback`](crate::audio_session_manager::OH_AudioSessionManager_RegisterCurrentInputDeviceChangeCallback)
     /// to register a callback to listen for the actual input device.
     ///
@@ -803,7 +795,7 @@ extern "C" {
         audioSessionManager: *mut OH_AudioSessionManager,
         category: OH_AudioSession_BluetoothAndNearlinkPreferredRecordCategory,
     ) -> OH_AudioCommon_Result;
-    /// Gets the prefered record category with bluetooth and nearlink device.
+    /// Gets the preferred record category with bluetooth and nearlink device.
     ///
     /// # Arguments
     ///
@@ -893,7 +885,7 @@ extern "C" {
         audioSessionManager: *mut OH_AudioSessionManager,
         audioDeviceDescriptor: *mut OH_AudioDeviceDescriptor,
     ) -> OH_AudioCommon_Result;
-    /// Enables mute suggestion callback function when using [`CONCURRENCY_MIX_WITH_OTHERS`](crate::audio_session_manager::OH_AudioSession_ConcurrencyMode::CONCURRENCY_MIX_WITH_OTHERS) mode.
+    /// Enables mute suggestion callback function when using [`CONCURRENCY_MIX_WITH_OTHERS`](crate::audio_session_base::OH_AudioSession_ConcurrencyMode::CONCURRENCY_MIX_WITH_OTHERS) mode.
     /// Usually when using mix mode, application won't receive state change event when there is another audio playing
     /// simultaneously. But in some scenarios, like game or radio, the application may intend to mute its audio to
     /// achieve better user experience.
@@ -901,7 +893,7 @@ extern "C" {
     /// registered by [`OH_AudioSessionManager_RegisterStateChangeCallback`](crate::audio_session_manager::OH_AudioSessionManager_RegisterStateChangeCallback). Mute suggestion means there is
     /// another application starting non-mixable audio.
     /// This function only supports audio session with [`OH_AudioSession_Scene`](crate::audio_session_manager::OH_AudioSession_Scene) set and activated with
-    /// [`CONCURRENCY_MIX_WITH_OTHERS`](crate::audio_session_manager::OH_AudioSession_ConcurrencyMode::CONCURRENCY_MIX_WITH_OTHERS) mode. And it takes effect only once during activation, so application
+    /// [`CONCURRENCY_MIX_WITH_OTHERS`](crate::audio_session_base::OH_AudioSession_ConcurrencyMode::CONCURRENCY_MIX_WITH_OTHERS) mode. And it takes effect only once during activation, so application
     /// need to enable it every time before activation.
     ///
     /// # Arguments
@@ -943,4 +935,59 @@ extern "C" {
     pub fn OH_AudioSessionManager_IsOtherMediaPlaying(
         audioSessionManager: *mut OH_AudioSessionManager,
     ) -> bool;
+    /// Sets recording mute state to audio system.
+    /// This method is used as a hint for power optimization, it does not mute the recording stream, only affects
+    /// internal processing strategy. Audio system may disable some recording effects when application notifies
+    /// its muted state to system.
+    /// Mute hint state can only be set when there is at least one running stream in current process.
+    ///
+    /// # Arguments
+    ///
+    /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
+    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager).
+    ///
+    /// * `mute` - use true if application recording stream muted by application itself.
+    ///
+    /// # Returns
+    ///
+    /// * Function result code:
+    /// [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) If the execution is successful.
+    /// [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) The param of audioSessionManager is nullptr.
+    /// [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) Operation not permitted at current state,
+    /// there is no audio capturer running.
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AudioSessionManager_SetCaptureMuteHint(
+        audioSessionManager: *mut OH_AudioSessionManager,
+        mute: bool,
+    ) -> OH_AudioCommon_Result;
+    /// Set audio session behavior parameters (supporting multiple flag combinations)
+    /// This interface takes effect only after the interface [`OH_AudioSessionManager_SetScene`](crate::audio_session_manager::OH_AudioSessionManager_SetScene) is called.
+    /// Each time you call this interface to set parameters,
+    /// you need to call the interface [`OH_AudioSessionManager_ActivateAudioSession`](crate::audio_session_manager::OH_AudioSessionManager_ActivateAudioSession) again
+    /// for the settings to take effect.
+    ///
+    /// # Arguments
+    ///
+    /// * `audioSessionManager` - the [`OH_AudioSessionManager`](crate::audio_session_manager::OH_AudioSessionManager)
+    /// returned by the [`OH_AudioManager_GetAudioSessionManager`](crate::audio_session_manager::OH_AudioManager_GetAudioSessionManager)
+    ///
+    /// * `behavior` - Audio session behavior flags,
+    /// which can be a single flag or a bitwise OR combination of multiple flags [`OH_AudioSession_BehaviorFlags`](crate::audio_session_base::OH_AudioSession_BehaviorFlags)
+    ///
+    /// # Returns
+    ///
+    /// * [`AUDIOCOMMON_RESULT_SUCCESS`](crate::audio_common::OH_AudioCommon_Result) if execution succeeds
+    /// or [`AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM`](crate::audio_common::OH_AudioCommonErrorCode::INVALID_PARAM) if parameter validation fails
+    /// or [`AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE`](crate::audio_common::OH_AudioCommonErrorCode::ILLEGAL_STATE) if system illegal state
+    ///
+    /// Available since API-level: 24
+    #[cfg(feature = "api-24")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-24")))]
+    pub fn OH_AudioSessionManager_SetBehavior(
+        audioSessionManager: *mut OH_AudioSessionManager,
+        behavior: u32,
+    ) -> OH_AudioCommon_Result;
 }

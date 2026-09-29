@@ -11,18 +11,38 @@ use arkui_sys::ui_input_event::{ArkUI_UIInputEvent, ArkUI_UIInputEvent_Type, Hit
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 impl ArkUI_XComponent_ImageAnalyzerState {
     /// AI analyzer execution is finished.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const ARKUI_XCOMPONENT_AI_ANALYSIS_FINISHED: ArkUI_XComponent_ImageAnalyzerState =
         ArkUI_XComponent_ImageAnalyzerState(0);
     /// AI analyzer is disabled.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const ARKUI_XCOMPONENT_AI_ANALYSIS_DISABLED: ArkUI_XComponent_ImageAnalyzerState =
         ArkUI_XComponent_ImageAnalyzerState(110000);
     /// AI analyzer is unsupported.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const ARKUI_XCOMPONENT_AI_ANALYSIS_UNSUPPORTED: ArkUI_XComponent_ImageAnalyzerState =
         ArkUI_XComponent_ImageAnalyzerState(110001);
     /// AI analyzer is ongoing.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const ARKUI_XCOMPONENT_AI_ANALYSIS_ONGOING: ArkUI_XComponent_ImageAnalyzerState =
         ArkUI_XComponent_ImageAnalyzerState(110002);
     /// AI analyzer is stopped.
+    ///
+    /// Available since API-level: 18
+    #[cfg(feature = "api-18")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const ARKUI_XCOMPONENT_AI_ANALYSIS_STOPPED: ArkUI_XComponent_ImageAnalyzerState =
         ArkUI_XComponent_ImageAnalyzerState(110003);
 }
@@ -36,20 +56,19 @@ impl ArkUI_XComponent_ImageAnalyzerState {
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ArkUI_XComponent_ImageAnalyzerState(pub ::core::ffi::c_uint);
 extern "C" {
-    /// Attaches the UI component created through the native API of ArkUI to this <b>OH_NativeXComponent</b> instance.
+    /// Attaches the UI component created through the native API of ArkUI to this **OH_NativeXComponent** instance.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `root` - Indicates the pointer to the component instance created by the native API.
+    /// * `root` - Pointer to the component instance created through the native API.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    /// Returns [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
-    ///
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -63,20 +82,19 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         root: ArkUI_NodeHandle,
     ) -> i32;
-    /// Detaches the native component of ArkUI from this <b>OH_NativeXComponent</b> instance.
+    /// Detaches the native component of ArkUI from this **OH_NativeXComponent** instance.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
-    /// * `root` - Indicates the pointer to the component instance created by the native API.
+    /// * `root` - Pointer to the component instance created through the native API.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
-    /// Returns [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
-    ///
+    /// * Result code.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_SUCCESS`](crate::XcomponentResult::SUCCESS) if the operation is successful.
+    ///  - [`OH_NATIVEXCOMPONENT_RESULT_BAD_PARAMETER`](crate::XcomponentResult::BAD_PARAMETER) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     ///
@@ -90,22 +108,22 @@ extern "C" {
         component: *mut OH_NativeXComponent,
         root: ArkUI_NodeHandle,
     ) -> i32;
-    /// Registers a UI input event callback for an <b>OH_NativeXComponent</b> instance and enables the callback to be
-    /// invoked when a UI input event is received. Currently, only axis events are supported.
+    /// Registers a UI input event callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance and enables this callback
+    /// to be invoked when a UI input event is received. Currently, only axis events are supported.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `callback` - Indicates the pointer to the UI input event callback.
     ///
-    /// * `type` - Indicates the type of the current UI input event.
+    /// * `type` - Type of the current UI input event.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -121,22 +139,21 @@ extern "C" {
         >,
         type_: ArkUI_UIInputEvent_Type,
     ) -> i32;
-    /// Registers a custom event intercept callback for an <b>OH_NativeXComponent</b> instance.
-    /// This enables the specified during hit testing.
-    /// UI input-related operations are not supported on event objects received through this callback.
-    /// For full functionality, use the <b>NODE_ON_TOUCH_INTERCEPT</b> event on native nodes instead.
+    /// Registers a custom event intercept callback for this [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance and enables this
+    /// callback to be invoked during hit testing. UI input–related operations are not supported on event objects received
+    /// through this callback. For full functionality, use the [`NODE_ON_TOUCH_INTERCEPT`](arkui_sys::native_node::ArkUI_NodeEventType::NODE_ON_TOUCH_INTERCEPT) event on native nodes instead.
     ///
     /// # Arguments
     ///
-    /// * `component` - Indicates the pointer to the <b>OH_NativeXComponent</b> instance.
+    /// * `component` - Pointer to an [`OH_NativeXComponent`](crate::OH_NativeXComponent) instance.
     ///
     /// * `callback` - Indicates the pointer to the custom event intercept callback.
     ///
     /// # Returns
     ///
-    /// * Returns the error code.
-    /// Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) if the operation is successful.
-    /// Returns [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
+    /// * Result code.
+    ///  - [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -150,25 +167,22 @@ extern "C" {
             ) -> HitTestMode,
         >,
     ) -> i32;
-    /// Start image analyzer for the specified XComponent
-    /// instance created by the native API.
+    /// Starts AI image analysis for this XComponent instance.
+    /// Before calling this API, make sure the AI image analyzer is enabled.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent instance created by the native API.
+    /// * `node` - XComponent instance.
     ///
-    /// * `userData` - Indicates the pointer to a user defined data.
+    /// * `userData` - Pointer to the data that the developer needs to retrieve when the callback function is executed.
     ///
-    /// * `callback` - Indicates the pointer to a image analyzer status callback function.
+    /// * `callback` - Callback function triggered when the image AI analysis status changes.
+    /// statusCode: One of the parameters of the callback function, indicating the current image analysis status.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    ///
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) component is nullptr or callback is nullptr,
-    /// or the type of node is not XComponent.
-    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -184,20 +198,16 @@ extern "C" {
             ),
         >,
     ) -> i32;
-    /// Stop image analyzer for the specified XComponent
-    /// instance created by the native API.
+    /// Stops AI image analysis for this XComponent instance.
     ///
     /// # Arguments
     ///
-    /// * `node` - Indicates the pointer to the XComponent instance created by the native API.
+    /// * `node` - XComponent instance.
     ///
     /// # Returns
     ///
-    /// * Returns the status code of the execution.
-    /// [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::native_type::ArkUiResult) the execution is successful.
-    ///
-    /// [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::native_type::ArkUiErrorCode::PARAM_INVALID) component is nullptr or the type of node is not XComponent.
-    ///
+    /// * Returns [`ARKUI_ERROR_CODE_NO_ERROR`](arkui_sys::error_code::ArkUiResult) if the operation is successful.
+    ///  - [`ARKUI_ERROR_CODE_PARAM_INVALID`](arkui_sys::error_code::ArkUiErrorCode::PARAM_INVALID) if a parameter error occurs.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]

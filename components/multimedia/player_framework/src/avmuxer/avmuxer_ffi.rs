@@ -18,7 +18,7 @@ use crate::avformat::OH_AVFormat;
 #[allow(unused_imports)]
 use crate::avmemory::OH_AVMemory;
 
-/// Forward declaration of OH_AVMuxer.
+/// The struct describes a native object for the muxer interface.
 ///
 ///
 /// Available since API-level: 10
@@ -27,44 +27,41 @@ pub struct OH_AVMuxer {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Create an OH_AVMuxer instance by output file description and format.
+    /// Creates an OH_AVMuxer instance by using the file descriptor and container format.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Muxer
     /// # Arguments
     ///
-    /// * `fd` - Must be opened with read and write permission. Caller is responsible for closing fd.
+    /// * `fd` - File descriptor (FD). You must open the file in read/write mode (O_RDWR) and close the file after
+    /// using it.
     ///
-    /// * `format` - The output format is [`OH_AVOutputFormat`](crate::avcodec_base::OH_AVOutputFormat) .
+    /// * `format` - Format of the multiplexed output file.
     ///
     /// # Returns
     ///
-    /// * Returns a pointer to an OH_AVMuxer instance, needs to be freed by OH_AVMuxer_Destroy.
+    /// * Pointer to the **OH_AVMuxer** instance created. You must call [`OH_AVMuxer_Destroy`](crate::avmuxer::OH_AVMuxer_Destroy) to destroy the
+    /// instance when it is no longer needed.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Create(fd: i32, format: OH_AVOutputFormat) -> *mut OH_AVMuxer;
-    /// Set the rotation for output video playback.
-    /// Note: This interface can only be called before OH_AVMuxer_Start.
+    /// Sets the rotation angle (clockwise), which must be 0, 90, 180, or 270, of an output video. This function must
+    /// be called before [`OH_AVMuxer_Start`](crate::avmuxer::OH_AVMuxer_Start).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Muxer
     /// # Arguments
     ///
     /// * `muxer` - Pointer to an OH_AVMuxer instance.
     ///
-    /// * `rotation` - The supported angles are 0, 90, 180, and 270 degrees.
+    /// * `rotation` - Angle to set. The value must be 0, 90, 180, or 270.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer or rotation invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null or the value of **rotation** is invalid.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_SetRotation(muxer: *mut OH_AVMuxer, rotation: i32) -> OH_AVErrCode;
     /// Set format to the muxer.
     ///
-    ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Muxer
     /// # Arguments
     ///
     /// * `muxer` - Pointer to an OH_AVMuxer instance
@@ -73,37 +70,35 @@ extern "C" {
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer or format is invalid
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): the muxer or format is invalid
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): not permit to call the interface, it was called in invalid state
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub fn OH_AVMuxer_SetFormat(muxer: *mut OH_AVMuxer, format: *mut OH_AVFormat) -> OH_AVErrCode;
-    /// Add track format to the muxer.
-    /// Note: This interface can only be called before OH_AVMuxer_Start.
+    /// Adds an audio or video track to a muxer. Each time this function is called, an audio or video track is added
+    /// to the muxer. This function must be called before [`OH_AVMuxer_Start`](crate::avmuxer::OH_AVMuxer_Start).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Muxer
     /// # Arguments
     ///
-    /// * `muxer` - Pointer to an OH_AVMuxer instance
+    /// * `muxer` - Pointer to an OH_AVMuxer instance.
     ///
-    /// * `trackIndex` - The int32_t handle pointer used to get the track index for this newly added track,
-    /// and it should be used in the OH_AVMuxer_WriteSample. The track index is greater than or equal to 0,
-    /// others is error index.
+    /// * `trackIndex` - Pointer to the index of the media track. The index will be used in the
+    /// [`OH_AVMuxer_WriteSample`](crate::avmuxer::OH_AVMuxer_WriteSample) function. If the media track is added, the index value is greater than or equal
+    /// to 0; otherwise, the value is less than 0.
     ///
-    /// * `trackFormat` - OH_AVFormat handle pointer contain track format
+    /// * `trackFormat` - Pointer to an OH_AVFormat instance.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer or trackIndex or trackFormat invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
-    /// [`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT), the mime type is not supported.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), failed to malloc memory.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null, or the track index or track format is invalid.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
+    /// <br>[`AV_ERR_UNSUPPORT`](crate::averrors::OH_AVErrCode::AV_ERR_UNSUPPORT): The MIME type is not supported.
+    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
+    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_AddTrack(
@@ -111,48 +106,43 @@ extern "C" {
         trackIndex: *mut i32,
         trackFormat: *mut OH_AVFormat,
     ) -> OH_AVErrCode;
-    /// Start the muxer.
-    /// Note: This interface is called after OH_AVMuxer_AddTrack and before OH_AVMuxer_WriteSample.
+    /// Starts a muxer. This function must be called after [`OH_AVMuxer_AddTrack`](crate::avmuxer::OH_AVMuxer_AddTrack) and before
+    /// [`OH_AVMuxer_WriteSample`](crate::avmuxer::OH_AVMuxer_WriteSample).
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Muxer
     /// # Arguments
     ///
-    /// * `muxer` - Pointer to an OH_AVMuxer instance
+    /// * `muxer` - Pointer to an OH_AVMuxer instance.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
+    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Start(muxer: *mut OH_AVMuxer) -> OH_AVErrCode;
-    /// Write an encoded sample to the muxer.
-    /// Note: This interface can only be called after OH_AVMuxer_Start and before OH_AVMuxer_Stop. The application needs to
-    /// make sure that the samples are written to the right tacks. Also, it needs to make sure the samples for each track are
-    /// written in chronological order.
+    /// Writes a sample to a muxer. This function must be called after [`OH_AVMuxer_Start`](crate::avmuxer::OH_AVMuxer_Start) and before
+    /// [`OH_AVMuxer_Stop`](crate::avmuxer::OH_AVMuxer_Stop). The caller must write the sample to the correct audio or video track based on the timing in
+    /// **info**.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Muxer
     /// # Arguments
     ///
-    /// * `muxer` - Pointer to an OH_AVMuxer instance
+    /// * `muxer` - Pointer to an OH_AVMuxer instance.
     ///
-    /// * `trackIndex` - The track index for this sample
+    /// * `trackIndex` - Index of the audio or video track corresponding to the data.
     ///
-    /// * `sample` - The encoded or demuxer sample
+    /// * `sample` - Pointer to the data obtained after encoding or demultiplexing.
     ///
-    /// * `info` - The buffer information related to this sample [`OH_AVCodecBufferAttr`](crate::avbuffer_info::OH_AVCodecBufferAttr)
+    /// * `info` - Sample description.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer or trackIndex or sample or info invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), failed to request memory.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null, or the track index, sample, or info is invalid.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
+    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
+    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
     ///
     /// **Deprecated** since 11
     ///
@@ -166,28 +156,25 @@ extern "C" {
         sample: *mut OH_AVMemory,
         info: OH_AVCodecBufferAttr,
     ) -> OH_AVErrCode;
-    /// Write an encoded sample to the muxer.
-    /// Note: This interface can only be called after OH_AVMuxer_Start and before OH_AVMuxer_Stop. The application needs to
-    /// make sure that the samples are written to the right tracks. Also, it needs to make sure the samples for each track
-    /// are written in chronological order.
+    /// Writes a sample to a muxer. This function must be called after [`OH_AVMuxer_Start`](crate::avmuxer::OH_AVMuxer_Start) and before
+    /// [`OH_AVMuxer_Stop`](crate::avmuxer::OH_AVMuxer_Stop). The caller must write the sample to the correct audio or video track based on the timing in
+    /// **sample**.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Muxer
     /// # Arguments
     ///
-    /// * `muxer` - Pointer to an OH_AVMuxer instance
+    /// * `muxer` - Pointer to an OH_AVMuxer instance.
     ///
-    /// * `trackIndex` - The track index for this sample
+    /// * `trackIndex` - Index of the audio or video track corresponding to the data.
     ///
-    /// * `sample` - The encoded or demuxer sample, which including data and buffer information
+    /// * `sample` - Pointer to the data and properties obtained after encoding or demultiplexing.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer or trackIndex or sample invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
-    /// [`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY), failed to request memory.
-    /// [`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN), unknown error.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null, or the track index or sample is invalid.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
+    /// <br>[`AV_ERR_NO_MEMORY`](crate::averrors::OH_AVErrCode::AV_ERR_NO_MEMORY): Memory allocation fails.
+    /// <br>[`AV_ERR_UNKNOWN`](crate::averrors::OH_AVErrCode::AV_ERR_UNKNOWN): An unknown error occurs.
     ///
     /// Available since API-level: 11
     #[cfg(feature = "api-11")]
@@ -197,35 +184,32 @@ extern "C" {
         trackIndex: u32,
         sample: *const OH_AVBuffer,
     ) -> OH_AVErrCode;
-    /// Stop the muxer.
-    /// Note: Once the muxer stops, it can not be restarted.
+    /// Stops a muxer. Once the muxer is stopped, it cannot be restarted.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Muxer
     /// # Arguments
     ///
-    /// * `muxer` - Pointer to an OH_AVMuxer instance
+    /// * `muxer` - Pointer to an OH_AVMuxer instance.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer invalid.
-    /// [`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT), not permit to call the interface, it was called in invalid state.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null.
+    /// <br>[`AV_ERR_OPERATE_NOT_PERMIT`](crate::averrors::OH_AVErrCode::AV_ERR_OPERATE_NOT_PERMIT): The function is called out of sequence.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Stop(muxer: *mut OH_AVMuxer) -> OH_AVErrCode;
-    /// Clear the internal resources of the muxer and destroy the muxer instance
+    /// Clears internal resources and destroys an OH_AVMuxer instance.
     ///
-    /// Required System Capabilities: SystemCapability.Multimedia.Media.Muxer
+    /// Do not repeatedly destroy the instance. Otherwise, the program may crash.
+    ///
     /// # Arguments
     ///
-    /// * `muxer` - Pointer to an OH_AVMuxer instance
+    /// * `muxer` - Pointer to an OH_AVMuxer instance.
     ///
     /// # Returns
     ///
-    /// * Returns AV_ERR_OK if the execution is successful,
-    /// otherwise returns a specific error code, refer to [`OH_AVErrCode`](crate::averrors::OH_AVErrCode)
-    /// [`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL), the muxer invalid.
+    /// * [`AV_ERR_OK`](crate::averrors::OH_AVErrCode::AV_ERR_OK): The operation is successful.
+    /// <br>[`AV_ERR_INVALID_VAL`](crate::averrors::OH_AVErrCode::AV_ERR_INVALID_VAL): The muxer pointer is null.
     ///
     /// Available since API-level: 10
     pub fn OH_AVMuxer_Destroy(muxer: *mut OH_AVMuxer) -> OH_AVErrCode;

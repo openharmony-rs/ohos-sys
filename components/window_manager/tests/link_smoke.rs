@@ -54,4 +54,19 @@ fn link_smoke() {
     unsafe {
         let _ = wm::window::OH_WindowManager_GetAllMainWindowInfo(ptr::null_mut(), ptr::null_mut());
     }
+
+    #[cfg(feature = "api-24")]
+    unsafe {
+        let _ = wm::window::OH_WindowManager_DensityInfo_Release(ptr::null());
+    }
+
+    #[cfg(feature = "api-26")]
+    unsafe {
+        let _ = wm::window::OH_WindowManager_FrameMetrics_IsFirstDrawFrame(
+            ptr::null(),
+            ptr::null_mut(),
+        );
+        // `OH_NativeWindowManager_Get*EventFilter` are missing from the OpenHarmony 7.0 SDK.
+        let _ = wm::window_pip::OH_PictureInPicture_SetAutoStartEnabled(0, false);
+    }
 }

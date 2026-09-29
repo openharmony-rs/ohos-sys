@@ -8,15 +8,15 @@ pub const ASSET_TAG_TYPE_MASK: u32 = 4026531840;
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl Asset_TagType {
-    /// The asset attribute tag is a Boolean value.
+    /// Boolean.
     pub const ASSET_TYPE_BOOL: Asset_TagType = Asset_TagType(268435456);
-    /// The asset attribute tag is a number.
+    /// Number (uint32_t).
     pub const ASSET_TYPE_NUMBER: Asset_TagType = Asset_TagType(536870912);
-    /// The asset attribute tag is an array of bytes.
+    /// Bytes.
     pub const ASSET_TYPE_BYTES: Asset_TagType = Asset_TagType(805306368);
 }
 #[repr(transparent)]
-/// Enumerates the types of the asset attribute tags.
+/// Enumerates the types of the keys of asset attributes.
 ///
 ///
 /// Available since API-level: 11
@@ -31,107 +31,98 @@ impl Asset_Tag {
     pub const ASSET_TAG_SECRET: Asset_Tag = Asset_Tag(805306369);
     /// Asset alias (identifier) in the form of bytes.
     pub const ASSET_TAG_ALIAS: Asset_Tag = Asset_Tag(805306370);
-    /// Time when the asset is accessible. The value is of the uint32 type, which is a 32-bit unsigned integer.
+    /// Access control based on the lock screen status. The value is of the uint32_t type.
     pub const ASSET_TAG_ACCESSIBILITY: Asset_Tag = Asset_Tag(536870915);
     /// A Boolean value indicating whether the asset is available only with a lock screen password.
     pub const ASSET_TAG_REQUIRE_PASSWORD_SET: Asset_Tag = Asset_Tag(268435460);
-    /// User authentication type for the asset. The value is of the uint32 type.
+    /// User authentication type for the asset. The value is of the uint32_t type.
     pub const ASSET_TAG_AUTH_TYPE: Asset_Tag = Asset_Tag(536870917);
-    /// Validity period of the user authentication, in seconds. The value is of the uint32 type.
+    /// Validity period of the user authentication, in seconds. The value is of the uint32_t type, in seconds.
     pub const ASSET_TAG_AUTH_VALIDITY_PERIOD: Asset_Tag = Asset_Tag(536870918);
     /// Challenge value, in the form of bytes, used for anti-replay during the authentication.
     pub const ASSET_TAG_AUTH_CHALLENGE: Asset_Tag = Asset_Tag(805306375);
     /// Authentication token, in the form of bytes, obtained after a successful user authentication.
     pub const ASSET_TAG_AUTH_TOKEN: Asset_Tag = Asset_Tag(805306376);
-    /// Asset synchronization type. The value is of the uint32 type.
+    /// Asset sync type. The value is of the uint32_t type.
     pub const ASSET_TAG_SYNC_TYPE: Asset_Tag = Asset_Tag(536870928);
-    /// A Boolean value indicating whether the asset needs to be stored persistently.
+    /// Whether the asset needs to be stored persistently. Verification of **ohos.permission.STORE_PERSISTENT_DATA**
+    /// is required if **OH_Asset_Add** is called with this tag passed in.
     pub const ASSET_TAG_IS_PERSISTENT: Asset_Tag = Asset_Tag(268435473);
-    /// An immutable custom field, in the form of bytes.
+    /// Custom data, which is of the bytes type and cannot be changed.
     pub const ASSET_TAG_DATA_LABEL_CRITICAL_1: Asset_Tag = Asset_Tag(805306400);
-    /// An immutable custom field, in the form of bytes.
+    /// Custom data, which is of the bytes type and cannot be changed.
     pub const ASSET_TAG_DATA_LABEL_CRITICAL_2: Asset_Tag = Asset_Tag(805306401);
-    /// An immutable custom field, in the form of bytes.
+    /// Custom data, which is of the bytes type and cannot be changed.
     pub const ASSET_TAG_DATA_LABEL_CRITICAL_3: Asset_Tag = Asset_Tag(805306402);
-    /// An immutable custom field, in the form of bytes.
+    /// Custom data, which is of the bytes type and cannot be changed.
     pub const ASSET_TAG_DATA_LABEL_CRITICAL_4: Asset_Tag = Asset_Tag(805306403);
-    /// A mutable custom field, in the form of bytes.
+    /// Custom data, which is of the bytes type and can be changed.
     pub const ASSET_TAG_DATA_LABEL_NORMAL_1: Asset_Tag = Asset_Tag(805306416);
-    /// A mutable custom field, in the form of bytes.
+    /// Custom data, which is of the bytes type and can be changed.
     pub const ASSET_TAG_DATA_LABEL_NORMAL_2: Asset_Tag = Asset_Tag(805306417);
-    /// A mutable custom field, in the form of bytes.
+    /// Custom data, which is of the bytes type and can be changed.
     pub const ASSET_TAG_DATA_LABEL_NORMAL_3: Asset_Tag = Asset_Tag(805306418);
-    /// A mutable custom field, in the form of bytes.
+    /// Custom data, which is of the bytes type and can be changed.
     pub const ASSET_TAG_DATA_LABEL_NORMAL_4: Asset_Tag = Asset_Tag(805306419);
-    /// A mutable custom field, in the form of bytes. The information of a local tag will not be synchronized.
-    ///
+    /// Custom data, which is of the bytes type, can be changed, but cannot be synced.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const ASSET_TAG_DATA_LABEL_NORMAL_LOCAL_1: Asset_Tag = Asset_Tag(805306420);
-    /// A mutable custom field, in the form of bytes. The information of a local tag will not be synchronized.
-    ///
+    /// Custom data, which is of the bytes type, can be changed, but cannot be synced.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const ASSET_TAG_DATA_LABEL_NORMAL_LOCAL_2: Asset_Tag = Asset_Tag(805306421);
-    /// A mutable custom field, in the form of bytes. The information of a local tag will not be synchronized.
-    ///
+    /// Custom data, which is of the bytes type, can be changed, but cannot be synced.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const ASSET_TAG_DATA_LABEL_NORMAL_LOCAL_3: Asset_Tag = Asset_Tag(805306422);
-    /// A mutable custom field, in the form of bytes. The information of a local tag will not be synchronized.
-    ///
+    /// Custom data, which is of the bytes type, can be changed, but cannot be synced.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const ASSET_TAG_DATA_LABEL_NORMAL_LOCAL_4: Asset_Tag = Asset_Tag(805306423);
-    /// Return type of the queried asset. The value is of the uint32 type.
+    /// Type of asset information to return. The value is of the uint32_t type.
     pub const ASSET_TAG_RETURN_TYPE: Asset_Tag = Asset_Tag(536870976);
-    /// Maximum number of assets that can be returned at a time if multiple asset records match the specified conditions.
-    /// The value is of the uint32 type.
+    /// Maximum number of assets that can be returned in a query operation. The value is of the uint32_t type.
     pub const ASSET_TAG_RETURN_LIMIT: Asset_Tag = Asset_Tag(536870977);
-    /// Offset that indicates the start asset when multiple asset records are returned. The value is of the uint32 type.
+    /// Offset of the returned assets in a batch query. The value is of the uint32_t type.
     pub const ASSET_TAG_RETURN_OFFSET: Asset_Tag = Asset_Tag(536870978);
-    /// Sorting order of the assets in the query result. The value is of the uint32 type.
+    /// Sorting order of the assets in the query result. The value is of the uint32_t type.
     pub const ASSET_TAG_RETURN_ORDERED_BY: Asset_Tag = Asset_Tag(536870979);
-    /// Policy used to resolve the conflict occurred when an asset is added. The value is of the uint32 type.
+    /// Policy for resolving the conflict when an asset is added. The value is of the uint32_t type.
     pub const ASSET_TAG_CONFLICT_RESOLUTION: Asset_Tag = Asset_Tag(536870980);
-    /// A tag whose value is a byte array indicating the update time of an Asset.
-    ///
+    /// Asset update time, in timestamp format. The value is of the bytes type.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const ASSET_TAG_UPDATE_TIME: Asset_Tag = Asset_Tag(805306437);
-    /// A tag whose value is the uint32 type indicating the additional action.
-    ///
+    /// Additional operation type. The value is of the uint32_t type.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
     pub const ASSET_TAG_OPERATION_TYPE: Asset_Tag = Asset_Tag(536870982);
-    /// A tag whose value is a bool indicating whether the attributes of an asset are required to be encrypted.
-    ///
+    /// Whether to encrypt the additional information customized by the service. The value is of the Boolean type.
     ///
     /// Available since API-level: 14
     #[cfg(feature = "api-14")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-14")))]
     pub const ASSET_TAG_REQUIRE_ATTR_ENCRYPTED: Asset_Tag = Asset_Tag(268435527);
-    /// A tag whose value is a byte array indicating the group id an asset belongs to.
-    ///
+    /// Group to which the asset belongs. The value is of the bytes type.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
     #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
     pub const ASSET_TAG_GROUP_ID: Asset_Tag = Asset_Tag(805306440);
-    /// A tag whose value is a 32-bit unsigned integer indicating the type of Asset encapsulation.
-    ///
+    /// Encrypted import/export type supported by the asset. The value is of the uint32_t type.
     ///
     /// Available since API-level: 18
     #[cfg(feature = "api-18")]
@@ -139,7 +130,7 @@ impl Asset_Tag {
     pub const ASSET_TAG_WRAP_TYPE: Asset_Tag = Asset_Tag(536870985);
 }
 #[repr(transparent)]
-/// Enumerates the asset attribute tags.
+/// Enumerates the keys of asset attributes.
 ///
 ///
 /// Available since API-level: 11
@@ -152,46 +143,45 @@ pub struct Asset_Tag(pub ::core::ffi::c_uint);
 impl Asset_ResultCode {
     /// The operation is successful.
     pub const ASSET_SUCCESS: Asset_ResultCode = Asset_ResultCode(0);
-    /// The caller doesn't have the permission.
+    /// The caller does not have the required permission.
     pub const ASSET_PERMISSION_DENIED: Asset_ResultCode = Asset_ResultCode(201);
     /// The parameter is invalid.
     pub const ASSET_INVALID_ARGUMENT: Asset_ResultCode = Asset_ResultCode(401);
-    /// The ASSET service is unavailable.
+    /// The asset store service is unavailable.
     pub const ASSET_SERVICE_UNAVAILABLE: Asset_ResultCode = Asset_ResultCode(24000001);
     /// The asset is not found.
     pub const ASSET_NOT_FOUND: Asset_ResultCode = Asset_ResultCode(24000002);
     /// The asset already exists.
     pub const ASSET_DUPLICATED: Asset_ResultCode = Asset_ResultCode(24000003);
-    /// Access to the asset is denied.
+    /// The access to the asset is denied.
     pub const ASSET_ACCESS_DENIED: Asset_ResultCode = Asset_ResultCode(24000004);
-    /// The screen lock status does not match.
+    /// The lock screen status does not match.
     pub const ASSET_STATUS_MISMATCH: Asset_ResultCode = Asset_ResultCode(24000005);
-    /// Insufficient memory.
+    /// The system memory is insufficient.
     pub const ASSET_OUT_OF_MEMORY: Asset_ResultCode = Asset_ResultCode(24000006);
     /// The asset is corrupted.
     pub const ASSET_DATA_CORRUPTED: Asset_ResultCode = Asset_ResultCode(24000007);
     /// The database operation failed.
     pub const ASSET_DATABASE_ERROR: Asset_ResultCode = Asset_ResultCode(24000008);
-    /// The cryptography operation failed.
+    /// The cryptographic operation failed.
     pub const ASSET_CRYPTO_ERROR: Asset_ResultCode = Asset_ResultCode(24000009);
-    /// IPC failed.
+    /// The IPC failed.
     pub const ASSET_IPC_ERROR: Asset_ResultCode = Asset_ResultCode(24000010);
-    /// Calling the Bundle Manager service failed.
+    /// The Bundle Manager service is abnormal.
     pub const ASSET_BMS_ERROR: Asset_ResultCode = Asset_ResultCode(24000011);
-    /// Calling the OS Account service failed.
+    /// The Account service is abnormal.
     pub const ASSET_ACCOUNT_ERROR: Asset_ResultCode = Asset_ResultCode(24000012);
-    /// Calling the Access Token service failed.
+    /// The Access Token service is abnormal.
     pub const ASSET_ACCESS_TOKEN_ERROR: Asset_ResultCode = Asset_ResultCode(24000013);
     /// The file operation failed.
     pub const ASSET_FILE_OPERATION_ERROR: Asset_ResultCode = Asset_ResultCode(24000014);
-    /// Getting the system time failed.
+    /// Failed to obtain the system time.
     pub const ASSET_GET_SYSTEM_TIME_ERROR: Asset_ResultCode = Asset_ResultCode(24000015);
-    /// The cache exceeds the limit.
+    /// The number of cached assets exceeds the limit.
     pub const ASSET_LIMIT_EXCEEDED: Asset_ResultCode = Asset_ResultCode(24000016);
-    /// The capability is not supported.
+    /// The function is not supported.
     pub const ASSET_UNSUPPORTED: Asset_ResultCode = Asset_ResultCode(24000017);
-    /// Parameter verification failed.
-    ///
+    /// The parameter verification fails.
     ///
     /// Available since API-level: 20
     #[cfg(feature = "api-20")]
@@ -237,7 +227,7 @@ impl Asset_AuthType {
     pub const ASSET_AUTH_TYPE_ANY: Asset_AuthType = Asset_AuthType(255);
 }
 #[repr(transparent)]
-/// Enumerates the user authentication types supported for assets.
+/// Enumerates the user authentication types supported by assets.
 ///
 ///
 /// Available since API-level: 11
@@ -248,14 +238,13 @@ pub struct Asset_AuthType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl Asset_SyncType {
-    /// Asset synchronization is not allowed.
+    /// Asset sync is not allowed.
     pub const ASSET_SYNC_TYPE_NEVER: Asset_SyncType = Asset_SyncType(0);
-    /// Asset synchronization is allowed only on the local device, for example, in data restoration on the local device.
+    /// Asset sync is allowed only on the local device, for example, in data restore on the local device.
     pub const ASSET_SYNC_TYPE_THIS_DEVICE: Asset_SyncType = Asset_SyncType(1);
-    /// Asset synchronization is allowed only between trusted devices, for example, in the case of cloning.
+    /// Asset sync is allowed only between trusted devices, for example, in the case of cloning.
     pub const ASSET_SYNC_TYPE_TRUSTED_DEVICE: Asset_SyncType = Asset_SyncType(2);
-    /// Asset synchronization is allowed only between devices with trusted accounts.
-    ///
+    /// Asset sync is allowed only between the devices that are logged in with trusted accounts, for example, in cloud sync scenarios.
     ///
     /// Available since API-level: 12
     #[cfg(feature = "api-12")]
@@ -263,7 +252,7 @@ impl Asset_SyncType {
     pub const ASSET_SYNC_TYPE_TRUSTED_ACCOUNT: Asset_SyncType = Asset_SyncType(4);
 }
 #[repr(transparent)]
-/// Enumerates the asset synchronization types.
+/// Asset sync type.
 ///
 ///
 /// Available since API-level: 11
@@ -274,13 +263,13 @@ pub struct Asset_SyncType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-18")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-18")))]
 impl Asset_WrapType {
-    /// An Asset with this attribute value is never allowed to be wrapped up.
+    /// Encrypted import/export is not allowed for the asset.
     pub const ASSET_WRAP_TYPE_NEVER: Asset_WrapType = Asset_WrapType(0);
-    /// An Asset with this attribute value can only be wrapped or unwrapped on devices logged in with trusted accounts.
+    /// Encrypted import/export is allowed for the asset only on devices where a trusted account is logged in.
     pub const ASSET_WRAP_TYPE_TRUSTED_ACCOUNT: Asset_WrapType = Asset_WrapType(1);
 }
 #[repr(transparent)]
-/// An enum type indicates the type of Asset encapsulation.
+/// Encrypted import/export type supported by the asset.
 ///
 ///
 /// Available since API-level: 18
@@ -291,14 +280,13 @@ pub struct Asset_WrapType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl Asset_ConflictResolution {
-    /// Overwrite the existing asset.
+    /// Overwrite the original asset.
     pub const ASSET_CONFLICT_OVERWRITE: Asset_ConflictResolution = Asset_ConflictResolution(0);
     /// Throw an exception for the service to perform subsequent processing.
     pub const ASSET_CONFLICT_THROW_ERROR: Asset_ConflictResolution = Asset_ConflictResolution(1);
 }
 #[repr(transparent)]
-/// Enumerates the policies for resolving the conflict (for example, duplicate alias) occurred when
-/// an asset is added.
+/// Policy for resolving the conflict (for example, a duplicate alias).
 ///
 ///
 /// Available since API-level: 11
@@ -309,13 +297,13 @@ pub struct Asset_ConflictResolution(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-11")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-11")))]
 impl Asset_ReturnType {
-    /// The query result contains the asset in plaintext and its attributes.
+    /// The query result contains the asset plaintext and its attributes.
     pub const ASSET_RETURN_ALL: Asset_ReturnType = Asset_ReturnType(0);
     /// The query result contains only the asset attributes.
     pub const ASSET_RETURN_ATTRIBUTES: Asset_ReturnType = Asset_ReturnType(1);
 }
 #[repr(transparent)]
-/// Enumerates the types of the asset query result.
+/// Type of the asset query result to return.
 ///
 ///
 /// Available since API-level: 11
@@ -326,13 +314,13 @@ pub struct Asset_ReturnType(pub ::core::ffi::c_uint);
 #[cfg(feature = "api-12")]
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 impl Asset_OperationType {
-    /// Synchronization is required during operation.
+    /// Sync.
     pub const ASSET_NEED_SYNC: Asset_OperationType = Asset_OperationType(0);
-    /// Logout is required during operation.
+    /// Logout.
     pub const ASSET_NEED_LOGOUT: Asset_OperationType = Asset_OperationType(1);
 }
 #[repr(transparent)]
-/// Enumerates the types of the additional action.
+/// Enumerates the additional asset operation types.
 ///
 ///
 /// Available since API-level: 12
@@ -340,7 +328,7 @@ impl Asset_OperationType {
 #[cfg_attr(docsrs, doc(cfg(feature = "api-12")))]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct Asset_OperationType(pub ::core::ffi::c_uint);
-/// Defines an asset value in the forma of a binary array, that is, a variable-length byte array.
+/// Defines a binary array, that is, an array of bytes with variable length.
 ///
 ///
 /// Available since API-level: 11
@@ -370,7 +358,7 @@ pub union Asset_Value {
     /// Asset of the bytes type.
     pub blob: Asset_Blob,
 }
-/// Defines an asset attribute.
+/// Defines an asset attribute, which consists of a tag and a value in the form of a key-value (KV) pair.
 ///
 ///
 /// Available since API-level: 11
@@ -379,12 +367,12 @@ pub union Asset_Value {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct Asset_Attr {
-    /// Tag of the asset attribute.
+    /// Name of the asset attribute. The tag (the key in the KV pair) uniquely identifies an attribute.
     pub tag: u32,
-    /// Value of the asset attribute.
+    /// Defines the value of the asset attribute.
     pub value: Asset_Value,
 }
-/// Represents information about an asset.
+/// Represents the query result of an asset.
 ///
 ///
 /// Available since API-level: 11
@@ -393,12 +381,12 @@ pub struct Asset_Attr {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Asset_Result {
-    /// Number of asset attributes.
+    /// Number of asset attributes in the query result.
     pub count: u32,
     /// Pointer to the array of the asset attributes.
     pub attrs: *mut Asset_Attr,
 }
-/// Represents information about a set of assets.
+/// Represents the query result of multiple assets.
 ///
 ///
 /// Available since API-level: 11
@@ -407,12 +395,12 @@ pub struct Asset_Result {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Asset_ResultSet {
-    /// Number of assets.
+    /// Number of assets in the query result.
     pub count: u32,
     /// Pointer to the array of the assets.
     pub results: *mut Asset_Result,
 }
-/// Represents information about the synchronization result.
+/// Represents the sync result of an asset.
 ///
 ///
 /// Available since API-level: 20
@@ -421,10 +409,10 @@ pub struct Asset_ResultSet {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Asset_SyncResult {
-    /// The result code of synchronization.
+    /// Sync result code of an asset.
     pub resultCode: i32,
-    /// The total count of synchronized Assets.
+    /// Total number of assets to be synced.
     pub totalCount: u32,
-    /// The count of Assets that fail to synchronize.
+    /// Number of assets that fail to be synced.
     pub failedCount: u32,
 }

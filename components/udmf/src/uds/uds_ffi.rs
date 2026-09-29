@@ -11,6 +11,81 @@ pub use ohos_sys_opaque_types::{OH_UdsAppItem, OH_UdsHtml, OH_UdsHyperlink, OH_U
 #[cfg(feature = "api-13")]
 pub use ohos_sys_opaque_types::{OH_UdsArrayBuffer, OH_UdsFileUri, OH_UdsPixelMap};
 
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl ::core::ops::BitOr<Udmf_AuthPermission> for Udmf_AuthPermission {
+    type Output = Self;
+    #[inline]
+    fn bitor(self, other: Self) -> Self {
+        Udmf_AuthPermission(self.0 | other.0)
+    }
+}
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl ::core::ops::BitOrAssign for Udmf_AuthPermission {
+    #[inline]
+    fn bitor_assign(&mut self, rhs: Udmf_AuthPermission) {
+        self.0 |= rhs.0;
+    }
+}
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl ::core::ops::BitAnd<Udmf_AuthPermission> for Udmf_AuthPermission {
+    type Output = Self;
+    #[inline]
+    fn bitand(self, other: Self) -> Self {
+        Udmf_AuthPermission(self.0 & other.0)
+    }
+}
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl ::core::ops::BitAndAssign for Udmf_AuthPermission {
+    #[inline]
+    fn bitand_assign(&mut self, rhs: Udmf_AuthPermission) {
+        self.0 &= rhs.0;
+    }
+}
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+impl Udmf_AuthPermission {
+    /// No permission.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const UDMF_PERM_NONE: Udmf_AuthPermission = Udmf_AuthPermission(0);
+    /// Read permission.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const UDMF_PERM_READ: Udmf_AuthPermission = Udmf_AuthPermission(1);
+    /// Write permission.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const UDMF_PERM_WRITE: Udmf_AuthPermission = Udmf_AuthPermission(2);
+    /// Persist permission.
+    ///
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub const UDMF_PERM_PERSIST: Udmf_AuthPermission = Udmf_AuthPermission(4);
+}
+#[repr(transparent)]
+/// Describes authorization permission values.
+///
+///
+/// Available since API-level: 26
+#[cfg(feature = "api-26")]
+#[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct Udmf_AuthPermission(pub ::core::ffi::c_uint);
 /// Describes the key-value object of UDS data.
 ///
 ///
@@ -22,7 +97,7 @@ pub struct OH_UdsDetails {
     _unused: [u8; 0],
 }
 extern "C" {
-    /// Creation a pointer to the instance of the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
+    /// Creates a pointer to the instance of the [`OH_UdsPlainText`](ohos_sys_opaque_types::OH_UdsPlainText).
     ///
     ///
     /// # Returns
@@ -188,7 +263,7 @@ extern "C" {
         pThis: *mut OH_UdsPlainText,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
+    /// Creates a pointer to the instance of the [`OH_UdsHyperlink`](ohos_sys_opaque_types::OH_UdsHyperlink).
     ///
     ///
     /// # Returns
@@ -356,7 +431,7 @@ extern "C" {
         pThis: *mut OH_UdsHyperlink,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
+    /// Creates a pointer to the instance of the [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
     ///
     ///
     /// # Returns
@@ -522,7 +597,26 @@ extern "C" {
         pThis: *mut OH_UdsHtml,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
+    /// Set the authorization policy to [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml).
+    ///
+    /// * `authPolicy` - Represents auth policy.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///
+    /// Available since API-level: 26
+    ///
+    /// **See also:** [`OH_UdsHtml`](ohos_sys_opaque_types::OH_UdsHtml) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_UdsHtml_SetAuthPolicy(pThis: *mut OH_UdsHtml, authPolicy: u32) -> ::core::ffi::c_int;
+    /// Creates a pointer to the instance of the [`OH_UdsAppItem`](ohos_sys_opaque_types::OH_UdsAppItem).
     ///
     ///
     /// # Returns
@@ -844,7 +938,7 @@ extern "C" {
         pThis: *mut OH_UdsAppItem,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
+    /// Creates a pointer to the instance of the [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
     ///
     ///
     /// # Returns
@@ -1010,7 +1104,29 @@ extern "C" {
         pThis: *mut OH_UdsFileUri,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
+    /// Set the authorization policy to [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
+    /// # Arguments
+    ///
+    /// * `pThis` - Represents a pointer to an instance of [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri).
+    ///
+    /// * `authPolicy` - Indicates the identity authorization policy.
+    ///
+    /// # Returns
+    ///
+    /// * Returns the status code of the execution. See [`Udmf_ErrCode`](crate::Udmf_ErrCode).
+    /// [`UDMF_E_OK`](crate::Udmf_ErrCode::E_OK) success.
+    /// [`UDMF_E_INVALID_PARAM`](crate::Udmf_ErrCode::E_INVALID_PARAM) The error code for common invalid args.
+    ///
+    /// **See also:** [`OH_UdsFileUri`](ohos_sys_opaque_types::OH_UdsFileUri) [`Udmf_ErrCode`](crate::Udmf_ErrCode)
+    ///
+    /// Available since API-level: 26
+    #[cfg(feature = "api-26")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "api-26")))]
+    pub fn OH_UdsFileUri_SetAuthPolicy(
+        pThis: *mut OH_UdsFileUri,
+        authPolicy: u32,
+    ) -> ::core::ffi::c_int;
+    /// Creates a pointer to the instance of the [`OH_UdsPixelMap`](ohos_sys_opaque_types::OH_UdsPixelMap).
     ///
     ///
     /// # Returns
@@ -1138,7 +1254,7 @@ extern "C" {
         pThis: *mut OH_UdsPixelMap,
         details: *const OH_UdsDetails,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer).
+    /// Creates a pointer to the instance of the [`OH_UdsArrayBuffer`](ohos_sys_opaque_types::OH_UdsArrayBuffer).
     ///
     ///
     /// # Returns
@@ -1222,7 +1338,7 @@ extern "C" {
         data: *mut *mut ::core::ffi::c_uchar,
         len: *mut ::core::ffi::c_uint,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
+    /// Creates a pointer to the instance of the [`OH_UdsContentForm`](ohos_sys_opaque_types::OH_UdsContentForm).
     ///
     ///
     /// # Returns
@@ -1532,7 +1648,7 @@ extern "C" {
         pThis: *mut OH_UdsContentForm,
         linkUri: *const ::core::ffi::c_char,
     ) -> ::core::ffi::c_int;
-    /// Creation a pointer to the instance of the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
+    /// Creates a pointer to the instance of the [`OH_UdsDetails`](crate::data_struct::OH_UdsDetails).
     ///
     ///
     /// # Returns
