@@ -1220,7 +1220,11 @@ pub(crate) fn get_module_bindings_config() -> Vec<DirBindingsConf> {
                     .clang_args(["-include", "stdbool.h"]);
                 match file_stem {
                     "location" => builder.raw_line("use crate::location_type::*;"),
-                    "location_type" => builder.result_error_enum("Location_ResultCode"),
+                    // TODO: Re-evaluate `OH_LocationInfo_IsFromMock` with the API-27 SDK. It is
+                    // in the OpenHarmony 7.0 SDK, but was removed in HarmonyOS SDK 26.0.0.105.
+                    "location_type" => builder
+                        .result_error_enum("Location_ResultCode")
+                        .blocklist_function("OH_LocationInfo_IsFromMock"),
                     _ => builder,
                 }
             }),

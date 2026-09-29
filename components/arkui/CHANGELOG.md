@@ -6,7 +6,8 @@
 - API-26 split `native_type.h` into `common_type.h`, `error_code.h`, `native_type_visual.h` and
   the headers in `node_attributes/`. These are now the `common_type`, `error_code`,
   `native_type_visual` and `node_attributes::*` modules. `native_type` re-exports all of them,
-  so existing paths keep working.
+  so existing paths keep working. The items of `node_attributes/list_item.h` are only available
+  from `native_type`, since newer SDKs merge that header back into `native_type.h`.
 - `ArkUI_AttributeItem`, `ArkUI_NodeEvent` and `ArkUI_NodeCustomEventType` moved out of
   `native_node`, and `ArkUI_NodeEvent` out of `drag_and_drop`. They are re-exported at their
   old paths. `drag_and_drop::ArkUI_NodeEvent` and `native_node::ArkUI_NodeEvent` are now the
